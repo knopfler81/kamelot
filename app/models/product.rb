@@ -2,5 +2,9 @@ class Product < ApplicationRecord
 	has_many :product_categories
 	has_many :categories, through: :product_categories
 
-	validates :title, presence: true
+	validates :title,       presence: true
+	validates :price,       presence: true
+	validates :description, presence: true
+	validates :quantity,    presence: true
+	
 end
