@@ -1,0 +1,7 @@
+<div class="container">
+	<ol>
+	<% @products.each do |prod| %>
+		<li><%= prod.title %> <%= number_to_currency prod.price %></li>
+	<% end %>
+</ol>
+</div>

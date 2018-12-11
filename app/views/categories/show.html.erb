@@ -1,0 +1,20 @@
+<div class="container">
+	<h1>Tous les <%= @category.title %></h1>
+
+	<ul>
+		<% @category.products.each do |product| %>
+			<li>
+				<%= link_to  product.title, product_path(product)  %>
+				<ul>
+					<li>
+				<%= number_to_currency product.price %>
+			</li>
+			<li>
+				<%= product.description %>
+			</li>
+				</ul>
+			</li>
+			<hr>
+		<% end %>
+	</ul>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+	<h1>Toutes les catégories(<%= @categories.count %>)</h1>
+
+	<ol>
+		<% @categories.each do |category| %>
+			<li>
+				<%= link_to category_path(category) do  %>
+				<%= category.title %> - (<%= category.products.count %>)
+				<% end %>
+				<ul>
+					<% category.products.each do |product| %>
+						<li>
+							<%= link_to category_product_path(category, product) do  %>
+								<%= product.title %> - <%= number_to_currency product.price %>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ol>
+</div>

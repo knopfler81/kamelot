@@ -1,6 +1,10 @@
 class PagesController <	ApplicationController 
 
 
+
 	def index
-	end
+
+    #@categories = Category.joins(:products).select('categories.*, count(products.id) as products_count').group('categories.id').order(:title)
+  end
+
 end
