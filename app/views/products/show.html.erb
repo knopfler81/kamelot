@@ -2,6 +2,7 @@
 	<h1><%= @product.title %></h1>
 	<p>Description :<%= @product.description %></p>
 	<p>Prix : <%= number_to_currency @product.price %></p>
+	<p>Il reste <%= @product.stock %> articles</p>
 
 	<% if current_user.admin %>
 		<%= link_to "Modifier", edit_product_path(@product)  %> | 
