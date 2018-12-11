@@ -1,0 +1,12 @@
+<div class="container">
+	<% if current_user.admin? %>
+	<h2>Ajouter un produit</h2>
+	<%= form_for @product do |f| %>		
+		<%= f.text_field :title, placeholder: "Titre " %>
+		<%= f.text_field :price, placeholder: "Prix " %>
+		<%= f.text_field :description, placeholder: "Description" %>
+		<%= f.collection_select :category_id, Category.all,  :id, :title %>
+		<%= f.submit "Ajouter" %>
+	<% end %>
+<% end %>
+</div>

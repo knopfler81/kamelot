@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     	t.string :title, limit: 150, null: false
     	t.decimal :price, precision: 15, scale: 2, null: false, default: 0
     	t.text :description
-      t.index :title, unique: true
+    	t.references :category
 
       t.timestamps
     end
