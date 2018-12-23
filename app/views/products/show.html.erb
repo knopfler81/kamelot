@@ -2,10 +2,11 @@
 	<h1><%= @product.title %></h1>
 	<p>Description :<%= @product.description %></p>
 	<p>Prix : <%= number_to_currency @product.price %></p>
-	<p>Il reste <%= @product.stock %> articles</p>
-
-	<% if current_user.admin %>
-		<%= link_to "Modifier", edit_product_path(@product)  %> | 
-		<%= link_to "Supprimer", product_path(@product), method: :delete , data: {confirm: "Etes vous sure?"} %>
+	<p>Couleur: <%=  @product.color %></p>
+	<p>Taille : <%= @product.size %></p>
+	<p>Stock : <%= @product.quantity %></p>
+	<% if current_user && current_user.admin %>
+		<%= link_to "Edit", edit_product_path %>
+		<%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"} %>
 	<% end %>
 </div>
