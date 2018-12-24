@@ -1,1 +1,17 @@
-<%= @user.email %>
+<div class="container">
+	<%= @user.email %>
+		<% if @user.completed_profile? %>
+			<ul class="list-unstyled">
+				<li>Prénom : <%= @user.first_name %></li>
+				<li>Nom :<%= @user.last_name %></li>
+				<li> Adresse :<%= @user.address_1 %></li>
+				<li><%= @user.address_2 %></li>
+				<li><%= @user.zipcode %></li>
+				<li><%= @user.city %></li>
+				<li> Téléphone : <%= @user.phone %></li>
+			</ul>
+			<%= link_to "Modifiez votre profile", edit_registration_path(@user)  %>
+		<% else %>
+			<%= link_to "Complétez votre profile", edit_registration_path(@user)  %>
+		<% end %>
+</div>
