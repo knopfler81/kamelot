@@ -50,7 +50,7 @@
 
 		def update
 			if @product.update_attributes(params_product)
-				redirect_to @product
+				redirect_to @product, notice: "Modifié avec succès"
 			else
 				render :edit, alert: "Woooops"
 			end

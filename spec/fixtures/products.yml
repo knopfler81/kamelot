@@ -1,0 +1,9 @@
+black_k_l:
+  title: Pull Kenzaro
+  price: 20
+  description: Joli pull tout doux
+  quantity: 4
+  color: Noir
+  size: L
+  category_id: pull.id
+  user: nelly

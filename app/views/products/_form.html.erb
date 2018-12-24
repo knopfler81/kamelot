@@ -1,12 +1,12 @@
 <% if current_user && current_user.admin? %>
-	<%= form_for @product do |f| %>		
-		<%= f.text_field :title, placeholder: "Titre " %>
-		<%= f.text_field :price, placeholder: "Prix " %>
-		<%= f.text_field :description, placeholder: "Description" %>
-		<%= f.text_field :quantity, placeholder: "Nombre de pièces disponibles" %>
-		<%= f.text_field :color, placeholder: "Couleur" %>
-		<%= f.text_field :size, placeholder: "Taille" %>
-		<%= f.collection_select :category_id, Category.all, :id, :title %>
+	<%= simple_form_for @product do |f| %>		
+		<%= f.input :title, placeholder: "Titre " %>
+		<%= f.input :price, placeholder: "Prix " %>
+		<%= f.input :description, placeholder: "Description" %>
+		<%= f.input :quantity, placeholder: "Nombre de pièces disponibles" %>
+		<%= f.input :color, placeholder: "Couleur" %>
+		<%= f.select :size, collection_select: ["S", "M","L", "XL"] %>
+		<%= f.select :category_id, Category.all.map {|c| c.title } %>
 		<%= f.submit "Ajouter" %>
 	<% end %>
 <% end %>

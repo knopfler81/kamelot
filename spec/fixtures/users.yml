@@ -1,0 +1,8 @@
+nelly:
+  email: admin@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  admin: true
+guest:
+  email: guest@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  admin: false

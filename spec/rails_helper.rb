@@ -6,11 +6,10 @@ require 'rspec/rails'
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
 def login_as(user)
-  @user = User.create(email: 'admin@example.com', password: 'password', admin: true)
   visit new_user_session_path
   fill_in "user[email]", with: "admin@example.com"
   fill_in "user[password]", with: "password"
-  click_on 'Log In'
+  click_on 'Log in'
 end
 
 
