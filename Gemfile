@@ -12,16 +12,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
-#authentication
+#authentication && authorization
 gem 'devise'
+gem 'pundit'
 
 
 #styles
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
-
-
-
 
 
 group :development, :test do
@@ -40,6 +38,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 
