@@ -7,6 +7,6 @@
 	<p>Stock : <%= @product.quantity %></p>
 	<% if current_user && current_user.admin %>
 		<%= link_to "Edit", edit_product_path %>
-		<%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"} %>
+		<%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:"delete_product" %>
 	<% end %>
 </div>
