@@ -1,0 +1,17 @@
+<div class="container">
+
+	<h1>Pannier</h1>
+
+	<%  @items.each do |item| %>
+		<li>
+			<%= item.quantity %>
+			<%= item.product.title %> pour  
+			<%= item.product.price %> €/pièce |
+			Total: <%= item.product.price * item.quantity %>
+		</li>
+	<% end %>	
+
+	
+	<p>Nbre Articles: <%= @items.map {|i| i.quantity }.sum %> , Total : <%=  @items.map {|i| i.price * i.quantity }.sum %></p>
+
+</div>
