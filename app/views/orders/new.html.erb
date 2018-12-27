@@ -1,0 +1,12 @@
+<div class="container">
+
+	<p>Reglement de <%= number_to_currency current_cart.sub_total %></p>
+	<%= form_for @order, url: checkout_path do |f| %>
+		<%= f.hidden_field :user_id %>
+
+
+			<%= f.submit "Payer" %>
+
+	
+	<% end %>
+</div>

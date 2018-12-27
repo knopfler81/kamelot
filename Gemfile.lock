@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 7277a9d224a9735ea31624411d94c006c7f0fa48
+  branch: master
+  specs:
+    faker (1.9.1)
+      i18n (>= 0.7)
+
+GIT
   remote: https://github.com/thoughtbot/capybara-webkit.git
   revision: 77fdac424cd6fdb5aa266b229a888cc58da8e95e
   branch: master
@@ -86,6 +94,7 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    cocoon (1.2.12)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -112,6 +121,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.2.0)
@@ -279,10 +290,13 @@ DEPENDENCIES
   capybara
   capybara-webkit!
   chromedriver-helper
+  cocoon
   coffee-rails (~> 4.2)
   database_cleaner
   devise
   dotenv-rails
+  faker!
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   launchy

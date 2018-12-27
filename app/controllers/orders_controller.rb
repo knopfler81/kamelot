@@ -1,0 +1,34 @@
+class OrdersController < ApplicationController
+
+	def index
+		@orders = Order.all
+	end
+
+	def show
+		@order = Order.find(params[:id])
+	end
+
+	def new
+		@order = current_cart.order
+	end
+
+
+	def create
+		@order = current_cart.order 
+
+		if @order.update_attributes(order_params.merge(status: 1))
+			session[:cart_token] == nil
+			redirect_to root_path, notice: "Merci"
+		else
+			render :new
+		end
+
+	end
+
+	private
+
+	def order_params
+		params.require(:order).permit(:status)
+	end
+
+end

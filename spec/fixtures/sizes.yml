@@ -1,0 +1,19 @@
+small_red_shirt:
+  size_name: S
+  quantity: 10
+  product_id: red_shirt.id
+
+medium_red_shirt:
+  size_name: M
+  quantity: 12
+  product_id: red_shirt.id
+
+large_red_shirt:
+  size_name: L
+  quantity: 10
+  product_id: red_shirt.id
+
+xlarge_red_shirt:
+  size_name: XL
+  quantity: 12
+  product_id: red_shirt.id

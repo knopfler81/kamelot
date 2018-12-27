@@ -1,0 +1,18 @@
+<div class="container">
+	<% if current_user.id == @order.user_id || current_user.admin %>
+		<h1>Commande N°<%= @order.id %></h1>
+		<hr>
+		<div class="row">
+			<div class="col-12">
+				<%= p @size.inspect %>
+				<% @order.items.each do |item| %>
+					<li><%= item.product.title %></li>
+					<li><%= item.product.description %></li>
+					<li><%= item.product.price %></li>
+					<li><%#= item.quantity %></li>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+	<%= link_to "Revenir", orders_path, class: "btn btn-primary"  %>
+</div>

@@ -2,8 +2,14 @@ black_k_l:
   title: Pull Kenzaro
   price: 20
   description: Joli pull tout doux
-  quantity: 4
   color: Noir
-  size: L
   category_id: pull.id
+  user: nelly
+
+red_shirt:
+  title: Chemise 
+  price: 20
+  description: Chemise à manches longues
+  color: Rouge
+  category_id: chemise.id
   user: nelly
