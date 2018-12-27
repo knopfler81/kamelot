@@ -6,7 +6,7 @@
 		<%= f.input :quantity, placeholder: "Nombre de pièces disponibles" %>
 		<%= f.input :color, placeholder: "Couleur" %>
 		<%= f.select :size, collection_select: ["S", "M","L", "XL"] %>
-		<%= f.select :category_id, Category.all.map {|c| c.title } %>
+		<%= f.collection_select :category_id, Category.all, :id, :title %>
 		<%= f.submit "Ajouter" %>
 	<% end %>
 <% end %>
