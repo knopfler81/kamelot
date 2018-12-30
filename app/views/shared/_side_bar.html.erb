@@ -1,0 +1,11 @@
+<div class="side_bar">
+	<ul class="list-unstyled">
+		<% @categories.each do |category| %>
+			<li>
+				<%= link_to category_path(category) do  %>
+					<%= category.title %> - (<%= category.products.count %>)
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+</div>

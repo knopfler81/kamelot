@@ -1,0 +1,36 @@
+<div class="container">
+	<% if current_user.admin? %>
+		<h1>Gestion des commandes</h1>
+		<div class="admin_panel">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col" class="desktop">Ref Client</th>
+						<th scope="col" class="desktop">Nom</th>
+						<th scope="col" class="desktop">Prénom</th>
+						<th >Commande n° </th>
+						<th >Etat de la commande</th>
+						<th>Voir</th>
+					</tr>
+				</thead>
+			<% @orders.each do |order| %>
+				<tbody>
+					<tr>
+						<td scope="col" class="desktop">FR-<%= order.user.id %></td>
+						<td scope="col" class="desktop"><%= order.user.last_name %> </td>
+						<td scope="col" class="desktop"><%= order.user.first_name %></td>
+						<td >#00<%= order.id %></td>
+						<td ><%= order.status %></td>
+						<td><%= link_to "Voir", order_path(order) %></td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+	 </div>
+		
+	<% else %>
+		<%= render "customer_side" %>
+	<% end %>
+</div>
+
+	

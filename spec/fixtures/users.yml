@@ -2,7 +2,17 @@ nelly:
   email: admin@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   admin: true
-guest:
-  email: guest@example.com
+john:
+  email: john@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  first_name: John
+  last_name: Doe 
+  address_1: Route 66
+  zipcode: 42000
+  city: Saint Etienne
+  phone: 0678765432
+  admin: false
+mark:
+  email: mark@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   admin: false

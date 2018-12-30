@@ -1,0 +1,13 @@
+<div class="nested-fields">
+	<div class="row">
+		<div class="col-xs-4">
+	    <%= f.input :size_name, label: false, placeholder: "Taille", autofocus: true, id: "size" %>
+		</div>
+		<div class="col-xs-4">
+	    <%= f.input :quantity, label: false, placeholder: "Quantité dans cette taille" %>
+		</div>
+		<div class="col-4">
+			<%= link_to_remove_association "supprimer cette taille", f, class: "btn btn-danger" %>
+		</div>
+	</div>
+</div>

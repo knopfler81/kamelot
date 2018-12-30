@@ -6,11 +6,15 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to "Commandes", orders_path, class: "nav-link"  %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mon Compte
+          <% if current_user && current_user.completed_profile? %>
+            <%= current_user.first_name %>
+          <% else %>
+            Mon Compte
+         <% end %>
         </a>
         <% if current_user %>
 	        <% if current_user.admin? %>
@@ -33,4 +37,10 @@
       </li>
     </ul>
   </div>
+      <%= link_to cart_path do   %>
+        <i class="fa fa-shopping-basket"> <%= current_cart.items_count %></i>
+      <% end %>
+
+  <ul class="navbar-nav right">
+  </ul>
 </nav>

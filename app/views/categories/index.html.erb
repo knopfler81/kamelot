@@ -1,28 +1,3 @@
-<div class="container">
-
-	<h1>Toutes les catégories(<%= @categories.count %>)</h1>
-	<% if current_user %>
-			<p>Bonjour vous êtes connecté en tant que <%= current_user.email.split("@")[0].capitalize %></p>
-	<% else %>
-		<p>Bonjour vous n'êtes pas connecté</p>
-
-	<% end %>
-	<ol>
-		<% @categories.each do |category| %>
-			<li>
-				<%= link_to category_path(category) do  %>
-				<%= category.title %> - (<%= category.products.count %>)
-				<% end %>
-				<ul>
-					<% category.products.each do |product| %>
-						<li>
-							<%= link_to category_product_path(category, product) do  %>
-								<%= product.title %> - <%= product.size %> - <%=product.color %> - <%= number_to_currency product.price %> - (<%= product.quantity %>)
-							<% end %>
-						</li>
-					<% end %>
-				</ul>
-			</li>
-		<% end %>
-	</ol>
+<div class="row">
+	<%= render 'shared/side_bar' %>
 </div>

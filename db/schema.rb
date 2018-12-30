@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_24_113248) do
+ActiveRecord::Schema.define(version: 2018_12_28_183636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,15 +28,17 @@ ActiveRecord::Schema.define(version: 2018_12_24_113248) do
     t.decimal "price", precision: 15, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "size_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
+    t.index ["size_id"], name: "index_order_items_on_size_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.decimal "sub_total", precision: 15, scale: 2, null: false
     t.bigint "user_id"
     t.string "token"
-    t.string "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -58,11 +60,18 @@ ActiveRecord::Schema.define(version: 2018_12_24_113248) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity"
     t.string "color"
-    t.string "size"
     t.integer "user_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.string "size_name"
+    t.integer "quantity"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_sizes_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,7 +96,9 @@ ActiveRecord::Schema.define(version: 2018_12_24_113248) do
 
   add_foreign_key "order_items", "orders", name: "fk_order_items_to_order"
   add_foreign_key "order_items", "products", name: "fk_order_items_to_product"
+  add_foreign_key "order_items", "sizes"
   add_foreign_key "orders", "users"
   add_foreign_key "product_categories", "categories", name: "fk_product_categories_to_categories"
   add_foreign_key "product_categories", "products", name: "fk_product_categories_to_products"
+  add_foreign_key "sizes", "products"
 end

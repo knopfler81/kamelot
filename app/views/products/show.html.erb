@@ -5,8 +5,6 @@
 			<p>Description :<%= @product.description %></p>
 			<p>Prix : <%= number_to_currency @product.price %></p>
 			<p>Couleur: <%=  @product.color %></p>
-			<p>Taille : <%= @product.size %></p>
-			<p>Stock : <%= @product.quantity %></p>
 			<% if current_user && current_user.admin %>
 				<%= link_to "Edit", edit_product_path, class: "btn btn-warning" %>
 				<%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
@@ -14,14 +12,28 @@
 			<%= link_to "Retour", root_path, class: "btn btn-primary"  %>
 		</div>
 
-		<div class="col-6">
-			<br>
-			 <%= form_tag order_items_path do %>
-        <%= hidden_field_tag :product_id, @product.id %>
-        <%= hidden_field_tag :user_id, current_user.id %>
-        <%= number_field_tag :quantity, 1 %>
-        <%= submit_tag "Add to Cart" %>
-      <% end %>
-		</div>
+		<% if current_user && current_user.completed_profile? %>
+			<div class="col-6">
+				<br> 
+					<div class="add_form">
+					<%= form_tag order_items_path do %>
+		        <%= hidden_field_tag :product_id, @product.id %>
+		        <%= hidden_field_tag :user_id, current_user.id %>
+		        <%= number_field_tag :quantity, 1 %>
+		        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes, :id, :size_name), prompt: "Votre taille" %>
+		        <%= submit_tag "Add to Cart" %>
+	      	<% end %>
+					</div>
+			</div>
+		<% elsif current_user && current_user.completed_profile? == false %>
+			<%= link_to "Complètez vos coordonnée", edit_user_registration_path(current_user)  %>
+			<% else %>
+			<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
+		<% end %>
+		
 	</div>
+
+	<% @product.sizes.each do |pro| %>
+	<li><%= pro.size_name %>  - <%= pro.quantity %></li>
+	<% end %>
 </div>

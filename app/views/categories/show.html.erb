@@ -1,19 +1,21 @@
-<div class="container">
-	<h1>Tous les <%= @category.title %></h1>
-	<ul>
-		<% @category.products.each do |product| %>
-			<li>
-				<%= link_to  product.title, product_path(product)  %>
-				<ul>
-					<li>
-				<%= number_to_currency product.price %>
-			</li>
-			<li>
-				<%= product.description %>
-			</li>
-				</ul>
-			</li>
-			<hr>
-		<% end %>
-	</ul>
+<div class="row">
+	<div class="col-2">
+		<%= render 'shared/side_bar' %>
+	</div>
+
+	<div class="col-10">
+		<div class="row">
+			<% @category.products.each do |product| %>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-3">
+					<%= link_to category_product_path(@category, product) do  %>
+						<div class="product">
+							<%= image_tag("https://www.akammak.com/252-thickbox_default/vetement-homme-sulka-bleu.jpg")	%><%= product.title %> - <%=product.color %> - <%= number_to_currency product.price %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
 </div>
+
