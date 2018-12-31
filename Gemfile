@@ -24,6 +24,11 @@ gem 'jquery-rails'
 gem "simple_form"
 gem "font-awesome-rails"
 
+#uploads images  PDF
+gem 'fog'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem "mini_magick"
+gem 'file_validators'
 
 group :development, :test do
  	gem 'rspec-rails', '~> 3.7'
