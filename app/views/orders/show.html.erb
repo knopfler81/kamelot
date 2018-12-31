@@ -1,18 +1,30 @@
 <div class="container">
-	<% if current_user.id == @order.user_id || current_user.admin %>
+	<% if (current_user.id == @order.user_id) || current_user.admin %>
 		<h1>Commande N°<%= @order.id %></h1>
+		<%= @order.user.email %>
 		<hr>
-		<div class="row">
-			<div class="col-12">
-				<%= p @size.inspect %>
-				<% @order.items.each do |item| %>
-					<li><%= item.product.title %></li>
-					<li><%= item.product.description %></li>
-					<li><%= item.product.price %></li>
-					<li><%#= item.quantity %></li>
-				<% end %>
-			</div>
-		</div>
+			<% @order.items.each do |item| %>
+				<div class="order_card">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="text-center"><%= item.product.title %></h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2">
+							<%= image_tag(item.product.attachments.first.url) %>
+						</div>
+						<div class="col-7">
+							<p><%= number_to_currency_br(item.product.price) %></p>
+							<%= item.quantity %>
+							<%= item.product.description.truncate(100) %>
+						</div>
+						<div class="col-3">
+							<%= link_to "Voir ma commande", order_path(@order), class: "btn btn-success" %>	
+						</div>
+					</div>
+				</div>
+			<% end %>
 	<% end %>
 	<%= link_to "Revenir", orders_path, class: "btn btn-primary"  %>
 </div>

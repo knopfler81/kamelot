@@ -2,32 +2,41 @@
 	<% if current_user.admin? %>
 		<h1>Gestion des commandes</h1>
 		<div class="admin_panel">
+
+		<ul class="list-inline">
+	    <% orders_filtered_by_status.each do |status| %>
+				 	<li class="tabs list-inline-item <%= params[:status] == status.to_s ? "tabs__item--active" : "tabs__item--inactive" %>">
+				 	  <%= link_to "#{status.capitalize}", status: status %>
+				 	</li>
+	    <% end %>
+		</ul>
+
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col" class="desktop">Ref Client</th>
-						<th scope="col" class="desktop">Nom</th>
-						<th scope="col" class="desktop">Prénom</th>
+						<th scope="col">Ref Client</th>
+						<th scope="col">Nom</th>
+						<th scope="col">Prénom</th>
 						<th >Commande n° </th>
 						<th >Etat de la commande</th>
 						<th>Voir</th>
 					</tr>
 				</thead>
-			<% @orders.each do |order| %>
 				<tbody>
-					<tr>
-						<td scope="col" class="desktop">FR-<%= order.user.id %></td>
-						<td scope="col" class="desktop"><%= order.user.last_name %> </td>
-						<td scope="col" class="desktop"><%= order.user.first_name %></td>
-						<td >#00<%= order.id %></td>
-						<td ><%= order.status %></td>
-						<td><%= link_to "Voir", order_path(order) %></td>
-					</tr>
+					<% @orders.each do |order| %>
+							<tr>
+								<td>FR-000<%= order.user.id %></td>
+								<td><%= order.user.last_name %> </td>
+								<td><%= order.user.first_name %></td>
+								<td >#00<%= order.id %></td>
+								<td ><%= order.status %></td>
+								<td><%= link_to "Voir", order_path(order) %></td>
+							</tr>
+					<% end %>
 				</tbody>
-			<% end %>
 		</table>
+
 	 </div>
-		
 	<% else %>
 		<%= render "customer_side" %>
 	<% end %>

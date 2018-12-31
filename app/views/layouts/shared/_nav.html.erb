@@ -5,13 +5,15 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <%= link_to "Commandes", orders_path, class: "nav-link"  %>
-      </li>
+     <% if current_user %>
+       <li class="nav-item active">
+         <%= link_to "Commandes", user_orders_path(current_user), class: "nav-link"  %>
+       </li>
+     <% end %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user && current_user.completed_profile? %>
-            <%= current_user.first_name %>
+            <%= current_user.first_name %> - <%= current_user.id %>
           <% else %>
             Mon Compte
          <% end %>

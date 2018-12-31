@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
 	def index
 		@orders = Order.all
+		@orders = @orders.filter_by_status(params[:status]) if params[:status]
 	end
 
 	def show
@@ -12,10 +13,8 @@ class OrdersController < ApplicationController
 		@order = current_cart.order
 	end
 
-
 	def create
 		@order = current_cart.order 
-
 		if @order.update_attributes(order_params.merge(status: 1))
 			session[:cart_token] == nil
 			redirect_to root_path, notice: "Merci"

@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Compte de FR-<%= @user.id %></h1>
+	<h1 class="title">Bienvenue <%= @user.first_name %></h1>
 	<hr>
 
 	<div class="row">
@@ -7,7 +7,9 @@
 			<%= render "addresses" %>	
 		</div>
 		<div class="col-4">
-			<%= render "orders" %>
+			<%= link_to user_orders_path(current_user) do   %>
+				<%= render "orders" %>
+			<% end %>
 		</div>
 		<div class="col-4">
 			<%= render "messages" %>

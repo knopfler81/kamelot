@@ -3,3 +3,21 @@
 @import "categories";
 @import "orders";
 @import "general";
+@import "products";
+
+
+body {
+	background-color: #eee;
+	font-family: 'Montserrat', sans-serif;
+	color: #000;
+	font-weight: 300;
+}
+
+nav {
+	margin-bottom: 30px;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #000;
+}

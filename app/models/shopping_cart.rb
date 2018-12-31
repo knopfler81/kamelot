@@ -28,7 +28,7 @@ class ShoppingCart
     else
       @order_item = order.items.new(product_id: product_id, size_id: size_id)
     end
-
+    
     @order_item.price = @product.price
     @order_item.quantity = quantity.to_i
 

@@ -10,6 +10,7 @@
 		end
 
 		def show
+			@products = Product.all
 		end
 
 		def new
@@ -65,6 +66,6 @@
 		end
 
 		def params_product
-			params.require(:product).permit(:title, :description, :price, :category_id, :color, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+			params.require(:product).permit(:title, :description, :price, :category_id, :color, {attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 		end
 	end
