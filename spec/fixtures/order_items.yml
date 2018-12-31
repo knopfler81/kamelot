@@ -1,0 +1,13 @@
+#A voir si besoin
+
+item_1:
+  product_id: red_shirt.id
+  user_id:  john.id
+  size_id: small_red_shirt.id
+  quantity: 1
+
+item_2:
+  product_id: red_shirt.id
+  user_id:  john.id
+  size_id: large_red_shirt.id
+  quantity: 1

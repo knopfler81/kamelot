@@ -15,7 +15,7 @@
 			<%= link_to "Retour", root_path, class: "btn btn-primary"  %>
 		</div>
 
-		<% if current_user && current_user.completed_profile? %>
+		<% if current_user %>
 			<div class="col-6">
 				<br> 
 					<div class="add_form">
@@ -28,10 +28,11 @@
 	      	<% end %>
 					</div>
 			</div>
-		<% elsif current_user && current_user.completed_profile? == false %>
-			<%= link_to "Complètez vos coordonnée", edit_user_registration_path(current_user)  %>
 			<% else %>
-			<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
+			<div class="col-4 offset-2">
+				<br>
+				<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary" %>
+			</div>
 		<% end %>
 		
 	</div>

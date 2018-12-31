@@ -7,7 +7,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
 def login_as(user)
   visit new_user_session_path
-  fill_in "user[email]", with: "admin@example.com"
+  fill_in "user[email]", with: user.email
   fill_in "user[password]", with: "password"
   click_on 'Log in'
 end
