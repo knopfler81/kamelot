@@ -1,10 +1,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-6">
-			<h1><%= @product.title %></h1>
+			<h1 class="title"><%= @product.title %></h1>
 			<p>Description :<%= @product.description %></p>
 			<p>Prix : <%= number_to_currency @product.price %></p>
 			<p>Couleur: <%=  @product.color %></p>
+			<% @product.attachments.each do |product| %>
+				<%= image_tag product.url class: "small_image", alt: "Photo de #{@product.title}"%>
+			<% end %>
 			<% if current_user && current_user.admin %>
 				<%= link_to "Edit", edit_product_path, class: "btn btn-warning" %>
 				<%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
