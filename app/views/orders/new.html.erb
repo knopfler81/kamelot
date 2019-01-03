@@ -1,11 +1,7 @@
 <div class="container">
-	<% if current_user && current_user.completed_profile? == false %>
-		<%= link_to "Complètez vos coordonnées", edit_user_registration_path(current_user)  %>
-	<% else %>
-	<p>Règlement de <%= number_to_currency current_cart.sub_total %></p>
-		<%= form_for @order, url: checkout_path do |f| %>
-			<%= f.hidden_field :user_id %>
-				<%= f.submit "Payer" %>
-		<% end %>
+	<p>Reglement de <%= number_to_currency_br current_cart.sub_total %></p>
+	<%= form_for @order, url: checkout_path do |f| %>
+		<%= f.hidden_field :user_id %>
+			<%= f.submit "Payer", class: "btn btn-success" %>
 	<% end %>
 </div>

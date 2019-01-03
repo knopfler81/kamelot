@@ -17,7 +17,6 @@ gem "cocoon"
 gem 'devise'
 gem 'pundit'
 
-
 #styles
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'

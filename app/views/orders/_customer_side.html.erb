@@ -1,8 +1,9 @@
-<h1>Mes commandes</h1>
+<h1 class="title">Mes commandes</h1>
+<br>
 <div class="user_panel">
 	<% @orders.where(user_id: current_user.id).each do |order| %>
 		<div class="orders">
-			<%= link_to order_path(order)do  %>
+			<%= link_to user_orders_path(order)do  %>
 				<div class="card_order">
 						<%= image_tag "https://www.akammak.com/252-thickbox_default/vetement-homme-sulka-bleu.jpg" %>
 						#00<%= order.id %>

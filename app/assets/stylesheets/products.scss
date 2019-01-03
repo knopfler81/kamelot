@@ -9,7 +9,6 @@
 	cursor: pointer;
 }
 
-
 .image-upload-wrap {
 	text-align: center;
 	position: relative;
@@ -22,4 +21,53 @@
 	h3 {
 		font-size: 20px;
 	}
+}
+
+.category_title {
+	a {
+		text-decoration: none;
+		color: #aaa;
+	}
+}
+
+.small_image {
+	height: 150px;
+	padding: 5px;
+}
+
+.product_suggestion {
+	height: 300px;
+	padding: 5px;
+}
+
+
+#recommendation{
+	margin-top: 50px;
+}
+
+#description {
+	margin-top: 50px;
+	padding: 20px;
+	background-color: #333;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 100;
+}
+
+.description_img {
+	height: 500px;
+	padding: 10px;
+}
+
+.description_text {
+	color: red;
+}
+
+.card {
+	margin: 3px;
+}
+.footer_card {
+	text-align: center;
+	background-color: white;
+	height: 30px;
 }

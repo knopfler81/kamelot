@@ -10,3 +10,43 @@
 
 	}
 }
+
+.tabs {
+	background-color: #aaa;
+	padding: 5px;
+	border-radius: 5px;
+	width: 120px;
+	text-align: center;
+	
+	a {
+		color: #fff;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+}
+
+.tabs:hover {
+	background-color: red;
+}
+
+
+.tabs__item--active {
+	background-color: red;
+}
+
+
+.order_card {
+	height: 250px;
+	background-color: #fff;
+	margin: 5px;
+	border: 1px dashed gray;
+	border-radius: 20px;
+	img {
+		margin-left: 10px;
+		height: 200px;
+		border-radius: 10px;
+	}
+
+}
