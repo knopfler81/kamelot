@@ -1,5 +1,4 @@
 <div class="container">
-
 	<p>Reglement de <%= number_to_currency_br current_cart.sub_total %></p>
 	<%= form_for @order, url: checkout_path do |f| %>
 		<%= f.hidden_field :user_id %>

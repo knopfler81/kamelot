@@ -1,67 +1,30 @@
 <div class="container">
-	<div class="row">
-		<div class="col-4">
-			<% @product.attachments.each do |product| %>
-				<%= image_tag(product.url, class: "small_image", alt: "Photo de #{@product.title}")%>
-			<% end %>
-		</div>
-		<div class="col-6">
-			<h1 class="category_title"><%= link_to @product.category.title, category_path(@product.category) %></h1>
-			<h2 class="title"><%= @product.title %></h2>
-			<p>Couleur: <%=  @product.color %></p>
-			<p> <%= number_to_currency @product.price %> TVA incluse </p>
-				<% if current_user && current_user.completed_profile? %>
-					<div class="add_form">
-						<%= form_tag order_items_path do %>
-			        <%= hidden_field_tag :product_id, @product.id %>
-			        <%= hidden_field_tag :user_id, current_user.id %>
-			        <%= number_field_tag :quantity, 1 %>
-			        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes, :id, :size_name), prompt: "Votre taille" %>
-			        <%= submit_tag "Add to Cart" %>
-		      	<% end %>
+	<% if (current_user.id == @order.user_id) || current_user.admin %>
+		<h1>Commande N°<%= @order.id %></h1>
+		<%= @order.user.email %>
+		<hr>
+			<% @order.items.each do |item| %>
+				<div class="order_card">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="text-center"><%= item.product.title %></h2>
+						</div>
 					</div>
-				<% elsif current_user && current_user.completed_profile? == false %>
-					<%= link_to "Complètez vos coordonnée", edit_user_registration_path(current_user)  %>
-				<% else %>
-					<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
-				<% end %>
-		</div>
-	</div>
-
-	<div class="row">
-		<div id="description">
-			<div class="col-10 offset-2">
-				<div class="row">
-					<div class="col-6">
-						<p clas="description_text"><%= simple_format(@product.description) %></p>
-					</div>
-					<div class="col-6">
-					<%= image_tag(@product.attachments.last.url, class: "description_img") %>
+					<div class="row">
+						<div class="col-2">
+							<%= image_tag(item.product.attachments.first.url) %>
+						</div>
+						<div class="col-7">
+							<p><%= number_to_currency_br(item.product.price) %></p>
+							<%= item.quantity %>
+							<%= item.product.description.truncate(100) %>
+						</div>
+						<div class="col-3">
+							<%= link_to "Voir ma commande", order_path(@order), class: "btn btn-success" %>	
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-12">
-			<div id="recommendation">
-				<h2>Nos recommandations</h2>
-				<% @products.where(category_id: @product.category_id).each do |prod| %>
-					<%= link_to product_path(prod) do %>
-						<%= image_tag(prod.attachments.first.url, class: "product_suggestion")%>
-					<% end %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<%if current_user && current_user.admin %>
-			<%= link_to "Edit", edit_product_path, class: "btn btn-warning" %>
-
-			<%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
-		<% end %>
-	</div>
+			<% end %>
+	<% end %>
+	<%= link_to "Revenir", orders_path, class: "btn btn-primary"  %>
 </div>
-

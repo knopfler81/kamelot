@@ -15,15 +15,9 @@ RSpec.describe Order do
 		end
 	end
 
-	context "A logged in user without a completed profile" do 
-		before(:each) do 
-			visit new_user_session_path
-			fill_in "user[email]", with: "john@example.com"
-			fill_in "user[password]", with: "password"
-			click_on 'Log in'
-		end
-
-		scenario "add an article in his basket" do
+	context "A user with a completed profile" do 
+		scenario "can checkout" do
+			john 	= users(:john)
 			pull  = categories(:pull)
 			nelly = users(:nelly)
 			ken   = Product.create(category_id: pull.id ,
@@ -33,6 +27,7 @@ RSpec.describe Order do
 							price: 40,
 							color: "Rouge", 
 							sizes_attributes: [size_name: "S", quantity: 10])
+			login_as(john)
 
 			visit product_path(ken)
 			find("#quantity").set 2
@@ -40,7 +35,35 @@ RSpec.describe Order do
 
 			click_on "Add to Cart"
 			expect(page).to have_content("Correctement ajouté au panier")
+			click_on "Checkout"
+
+			expect(page).to have_content("Règlement")
 		end
 	end
 
+	context "A user without a completed profile" do 
+		scenario "is asked to compelte his profile before checking out" do
+			mark 	= users(:mark)
+			pull  = categories(:pull)
+			nelly = users(:nelly)
+			ken   = Product.create(category_id: pull.id ,
+							user_id: nelly.id, 
+							title: "Pull",
+							description: "Blabla",
+							price: 40,
+							color: "Rouge", 
+							sizes_attributes: [size_name: "S", quantity: 10])
+			login_as(mark)
+
+			visit product_path(ken)
+			find("#quantity").set 2
+			select "S", from: "size_id"
+
+			click_on "Add to Cart"
+			expect(page).to have_content("Correctement ajouté au panier")
+			click_on "Checkout"
+	
+			expect(page).to have_content("Complètez vos coordonnées")
+		end
+	end
 end

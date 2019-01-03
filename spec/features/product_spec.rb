@@ -8,7 +8,8 @@ RSpec.describe Product do
 	context "As an admin I can" do 
 
 		before(:each) do 
-			login_as :admin
+			nelly = users(:nelly)
+			login_as(nelly)
 		end
 
 		scenario "Create a product", :js do 
