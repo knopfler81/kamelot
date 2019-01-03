@@ -14,4 +14,9 @@ class Order < ApplicationRecord
   scope :filter_by_status, -> (status) do
     send(status)
   end
+
+
+  def count_articles
+    self.items.map(&:quantity).sum
+  end
 end

@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-
 RSpec.describe Order do 
 
 	fixtures :users, :categories, :products, :sizes
 
 	context "A not logged in user" do 
 		scenario "is redirect to the sign up form before adding article in his basket" do
-			product = products(:red_shirt)	
+			nelly 	= users(:nelly)
+			product = products(:red_shirt)
 
 			visit product_path(product)
 			click_on "Ajouter"
@@ -18,52 +18,39 @@ RSpec.describe Order do
 	context "A user with a completed profile" do 
 		scenario "can checkout" do
 			john 	= users(:john)
-			pull  = categories(:pull)
-			nelly = users(:nelly)
-			ken   = Product.create(category_id: pull.id ,
-							user_id: nelly.id, 
-							title: "Pull",
-							description: "Blabla",
-							price: 40,
-							color: "Rouge", 
-							sizes_attributes: [size_name: "S", quantity: 10])
+			product = products(:red_shirt)
+
 			login_as(john)
 
-			visit product_path(ken)
-			find("#quantity").set 2
+			visit product_path(product)
 			select "S", from: "size_id"
+			find("#quantity").set 2
 
-			click_on "Add to Cart"
+			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")
 			click_on "Checkout"
 
-			expect(page).to have_content("Règlement")
+			expect(page).to have_content("Reglement")
 		end
 	end
 
 	context "A user without a completed profile" do 
 		scenario "is asked to compelte his profile before checking out" do
 			mark 	= users(:mark)
-			pull  = categories(:pull)
-			nelly = users(:nelly)
-			ken   = Product.create(category_id: pull.id ,
-							user_id: nelly.id, 
-							title: "Pull",
-							description: "Blabla",
-							price: 40,
-							color: "Rouge", 
-							sizes_attributes: [size_name: "S", quantity: 10])
+			product = products(:red_shirt)
+
 			login_as(mark)
 
-			visit product_path(ken)
+			visit product_path(product)
+			
 			find("#quantity").set 2
 			select "S", from: "size_id"
 
-			click_on "Add to Cart"
+			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")
 			click_on "Checkout"
 	
-			expect(page).to have_content("Complètez vos coordonnées")
+			expect(page).to have_content("Complètez vos coordonnées pour continuer")
 		end
 	end
 end

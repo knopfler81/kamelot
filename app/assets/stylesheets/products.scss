@@ -28,6 +28,10 @@
 		text-decoration: none;
 		color: #aaa;
 	}
+
+	a:hover {
+		color: #ccc;
+	}
 }
 
 .small_image {
@@ -40,7 +44,6 @@
 	padding: 5px;
 }
 
-
 #recommendation{
 	margin-top: 50px;
 }
@@ -48,26 +51,58 @@
 #description {
 	margin-top: 50px;
 	padding: 20px;
-	background-color: #333;
+	background-color: #888;
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 100;
 }
 
+.description_background {
+	background-color: #ddd;
+	padding: 20px;
+}
+
+
 .description_img {
 	height: 500px;
-	padding: 10px;
 }
 
 .description_text {
-	color: red;
+	margin-top: 50px;
+	background-color: #fff;
+	padding: 30px;
+	span {
+		font-weight: bold;
+	}
 }
 
 .card {
 	margin: 3px;
 }
+
 .footer_card {
 	text-align: center;
 	background-color: white;
-	height: 30px;
+	height: 50px;
+	font-size: 12px;
+	text-align:left;
+	padding-left: 10px;
+	line-height: 10px;
+	color: #000;
+}
+
+.images_gallery {
+	margin-bottom: 20px;
+}
+
+select {
+	background-color: red;
+	height: 39px;
+	color: white;
+	padding: 5px;
+}
+
+#description_img {
+	padding: 10px; 
+	text-align: center;
 }

@@ -1,16 +1,3 @@
-.card_order {
-	background-color: gray;
-	width: 800px;
-	height: 100px;
-	margin: 10px;
-	padding: 10px;
-	border-radius: 2px;
-	img {
-		width: 50px;
-
-	}
-}
-
 .tabs {
 	background-color: #aaa;
 	padding: 5px;
@@ -35,18 +22,27 @@
 .tabs__item--active {
 	background-color: red;
 }
-
-
+	
 .order_card {
 	height: 250px;
 	background-color: #fff;
-	margin: 5px;
-	border: 1px dashed gray;
-	border-radius: 20px;
+	margin-bottom: 35px;
 	img {
 		margin-left: 10px;
 		height: 200px;
 		border-radius: 10px;
 	}
+}
+
+.header_order_card {
+	padding: 10px;
+	background-color: #ccc;
+	height: 50px;
+}
+
+.body_order_card {
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #aaa;
 
 }

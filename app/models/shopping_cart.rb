@@ -23,10 +23,10 @@ class ShoppingCart
     user = User.find(user_id)
     order.user_id = user.id
 
-    if order.items.where(product_id: product_id).where(size_id: size_id).any?
-      @order_item = order.items.find_by(product_id: product_id, size_id: size_id)
+    @order_item =  if order.items.where(product_id: product_id).where(size_id: size_id).any?
+       order.items.find_by(product_id: product_id, size_id: size_id)
     else
-      @order_item = order.items.new(product_id: product_id, size_id: size_id)
+     order.items.new(product_id: product_id, size_id: size_id)
     end
     
     @order_item.price = @product.price

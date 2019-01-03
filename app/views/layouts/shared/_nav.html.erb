@@ -5,44 +5,48 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-     <% if current_user %>
-       <li class="nav-item active">
-         <%= link_to "Commandes", user_orders_path(current_user), class: "nav-link"  %>
-       </li>
-     <% end %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user && current_user.completed_profile? %>
-            <%= current_user.first_name %> - <%= current_user.id %>
-          <% else %>
-            Mon Compte
-         <% end %>
-        </a>
-        <% if current_user %>
-	        <% if current_user.admin? %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "Ajouter un produits", new_product_path, class: "dropdown-item" %>
-              <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-            </div>
-          <% else %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "Profile", user_path(current_user), class: "dropdown-item"  %>
-              <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-            </div>
-          <% end %>
-	     <% else %>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Connexion", new_user_session_path, class: "dropdown-item"  %>
-          </div>          
-	        	
-	      <% end %>
-      </li>
+      <% Category.all.each do |cat| %>
+        <li class="nav-item ">
+          <%= link_to  "#{cat.title} ", category_path(cat), class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
-      <%= link_to cart_path do   %>
-        <i class="fa fa-shopping-basket"> <%= current_cart.items_count %></i>
-      <% end %>
 
   <ul class="navbar-nav right">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <% if current_user %>
+          <%= current_user.first_name %> - <%= current_user.id %>
+        <% else %>
+          Mon Compte
+        <% end %>
+       </a>
+      <% if current_user %>
+        <% if current_user.admin? %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Ajouter un produits", new_product_path, class: "dropdown-item" %>
+            <%= link_to "Commandes", orders_path, class: "dropdown-item"  %>
+            <%#= link_to "Mon stock", "#" %>
+            <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+          </div>
+        <% else %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item"  %>
+            <%= link_to "Commandes", orders_path, class: "dropdown-item"  %>
+            <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+          </div>
+        <% end %>
+     <% else %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Connexion", new_user_session_path, class: "dropdown-item"  %>
+        </div>           
+      <% end %>
+    </li>
+
+     <%= link_to cart_path do %>
+       <i class="fa fa-shopping-basket nav-link"> <%= current_cart.items_count %></i>
+     <% end %>
+
   </ul>
 </nav>

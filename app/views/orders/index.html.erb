@@ -4,6 +4,7 @@
 		<div class="admin_panel">
 
 		<ul class="list-inline">
+	   	<li class="tabs list-inline-item "><%= link_to "All", orders_path  %></li>
 	    <% orders_filtered_by_status.each do |status| %>
 				 	<li class="tabs list-inline-item <%= params[:status] == status.to_s ? "tabs__item--active" : "tabs__item--inactive" %>">
 				 	  <%= link_to "#{status.capitalize}", status: status %>
