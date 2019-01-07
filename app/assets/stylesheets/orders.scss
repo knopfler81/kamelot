@@ -46,3 +46,57 @@
 	border: 1px solid #aaa;
 
 }
+
+.pending_status {
+ background-color: gray;
+}
+
+.paid_status {
+ background-color: orange;
+ color: black;
+}
+
+
+.confirmed_status {
+	background-color: yellow;
+}
+
+.shipped_status {
+ background-color: green;
+ color: #fff;
+}
+
+.refund_status {
+	background-color: blue;
+}
+.cancelled_status {
+ background-color: red;
+}
+
+.pending_status_tab {
+	color: gray;
+}
+
+.paid_status_tab {
+	color: orange;
+	font-weight: bold;
+}
+
+.confirmed_status_tab {
+	color: purple;
+	font-weight: bold;
+}
+
+.shipped_status_tab {
+	color: green;
+	font-weight: bold;
+}
+
+.refund_status_tab {
+	color: blue;
+	font-weight: bold;
+}
+.cancelled_status_tab {
+	color: red;
+	font-weight: bold;
+}

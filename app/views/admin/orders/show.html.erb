@@ -1,0 +1,76 @@
+<div class="container">
+
+	<h1>Suivi de la commande N° FR-000<%= @order.id %></h1>
+	<hr>
+
+	<div class="row">
+		<div class="col-5">
+			<p>Coordonnées du client</p>
+				<%= @order.user.first_name %> - <%= @order.user.last_name %>
+				<br>
+				<%= @order.user.address_1 %>
+				<%= @order.user.address_2 if @order.user.address_2 %>
+				<br>
+				<%= @order.user.zipcode %> - <%= @order.user.city %>
+				<br>
+				<%= @order.user.phone %>
+				<br><br>
+		</div>
+
+		<div class="col-7">
+			<% if @order.status == "paid" %>
+				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
+				  <%= f.hidden_field :status, value: "confirmed" %>
+				  <%= submit_tag "Je prépare la commande" , class: "btn btn-success"%>
+				<% end %>
+				<br><br>
+				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
+				  <%= f.hidden_field :status, value: "cancelled" %>
+				  <%= submit_tag "Arg... l'article est indisponible" , class: "btn btn-danger"%>
+				<% end %>
+			<% elsif @order.status == "confirmed" %>
+				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
+	        <%= f.hidden_field :status, value: "shipped" %>
+	        <%= submit_tag "J'ai envoyé la commande" , class: "btn btn-success"%>
+	      <% end %>
+     <% end %>
+		</div>
+</div>
+
+	<div class='row'>
+		<div class="col-12">
+			<h2>Articles commandés</h2>
+			<div class="order_card">
+				<div class="row header_order_card <%= "#{@order.status.downcase}_status" %>">
+					<div class="col-4">
+						<small>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></small>
+					</div>
+					<div class="col-4">
+						<small>Total : <%= number_to_currency_euro @order.sub_total %> | </small>
+						<small> Nombre d'articles: <%= @order.count_articles %></small>
+					</div>
+					<div class="col-2">
+						<small>Commande: FR-000<%= @order.id %></small>
+					</div>
+					<div class="col-2">
+						<small>Status: <%= @order.status.upcase %></small>
+					</div>
+				</div>
+
+				<% @order.items.each do |item| %>
+					<div class="row body_order_card ">	
+						<div class="col-2">
+							<%= link_to clients_product_path(item.product) do  %>
+								<%= image_tag(item.product.attachments.first.url) %>
+							<% end %>
+						</div>
+					 	<div class="col-4">
+					 		<p><%= item.quantity %>-<%= item.product.title %>, taille <%= item.size.size_name %></p>
+					 		<p><%= number_to_currency_euro(item.product.price) %></p>
+					 	</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
