@@ -1,29 +1,32 @@
-<div class="row">
-	<div class="col-10 offset-1">
-		<div class="row">
-		<% @categories.each do |cat| %>
-			<% cat.products.each do |prod| %>
-				<%= link_to clients_product_path(prod) do  %>
-					<div class="card">
-						<div class="header_card">
-							<div class="row">
-								<div class="col-12">
-									<%= image_tag(prod.attachments.first.url, class: 'product_suggestion') %>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div class="row">
+
+			<% @categories.each do |cat| %>
+				<% cat.products.each do |prod| %>
+					<%= link_to clients_product_path(prod) do  %>
+						<div class="card">
+							<div class="header_card">
+								<div class="row">
+									<div class="col-12">
+										<%= image_tag(prod.attachments.first.url, class: 'product_suggestion') %>
+									</div>
+								</div>
+							</div>
+							<div class="footer_card">
+								<div class="row">
+									<div class="col-12">
+										<p><%= prod.title %></p>
+										<p><%= number_to_currency_euro(prod.price) %></p>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="footer_card">
-							<div class="row">
-								<div class="col-6">
-									<p><%= prod.title %></p>
-									<p><%= number_to_currency_euro(prod.price) %></p>
-								</div>
-							</div>
-						</div>
-					</div>
+					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
+			</div>
 		</div>
 	</div>
 </div>

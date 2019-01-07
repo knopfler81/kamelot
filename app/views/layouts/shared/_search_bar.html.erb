@@ -1,0 +1,12 @@
+<div class="search">
+	<div class="col-8 offset-2">
+		 <%= simple_form_for :query, url: clients_products_path, method: :get,  wrapper: :inline_form, html: {class: 'form-inline'} do |f| %>
+      <%= f.input  :keyword, placeholder: "recherche" %>
+      <%= button_tag type: 'submit', class: 'btn btn-xs' do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    <% end %>
+	</div>
+</div>
+
+

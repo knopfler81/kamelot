@@ -1,12 +1,12 @@
 class Clients::ProductsController < ApplicationController
 
-	before_action :set_product
-
 	def index
-		@products = Product.all
+		filter_products if params[:query].present?
+    @products ||= Product.all
 	end
 
 	def show
+		set_product
 		@products = Product.all
 	end
 
@@ -19,4 +19,12 @@ class Clients::ProductsController < ApplicationController
 	def params_product
 		params.require(:product).permit(:title, :description, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
+
+	def filter_products
+	  return if params[:query].blank?
+	  @products = Product.where('lower(title) LIKE ?', "%#{params[:query][:keyword]}%")
+	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword]}%"))
+	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword]}%"))
+	end
+
 end

@@ -18,6 +18,7 @@ class Clients::OrdersController < ApplicationController
 		if @order.update_attributes(order_params.merge(status: 1))
 			session[:cart_token] == nil
 			redirect_to root_path, notice: "Merci"
+			@order.remove_from_stock
 		else
 			render :new
 		end

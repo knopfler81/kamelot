@@ -1,17 +1,11 @@
-@import "bootstrap";
 @import "font-awesome";
+@import "bootstrap";
 @import "categories";
 @import "orders";
 @import "general";
 @import "products";
 
 
-body {
-	background-color: #FFF;
-	font-family: 'Montserrat', sans-serif;
-	color: #000;
-	font-weight: 300;
-}
 
 nav {
 	margin-bottom: 30px;
@@ -20,4 +14,50 @@ nav {
 a:hover {
 	text-decoration: none;
 	color: #000;
+}
+
+.nav-upper {
+	background-color: #BCC0C0FF!important;
+
+}
+
+
+.nav-lower {
+	background-color: #BCC0C0FF;
+	margin-top: -30px;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+	
+}
+
+.search-btn-nav {
+	margin-left: -30px;
+}
+
+
+.fa-shopping-bag {
+	font-size: 30px;
+	position: relative;
+	color: white;
+}
+
+#items_count {
+	font-size: 12px;
+  background: red;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border-radius: 50%;
+  position:absolute;
+  top: 12px;
+ 	left: 20px;
+  padding: 0 5px;
+  color: #fff;
+
+}
+
+
+.icon-wrapper {
+	position:relative;
+  float:left;
 }

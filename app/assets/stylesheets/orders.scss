@@ -37,7 +37,7 @@
 .header_order_card {
 	padding: 10px;
 	background-color: #ccc;
-	height: 50px;
+	height: 60px;
 }
 
 .body_order_card {
@@ -99,4 +99,29 @@
 .cancelled_status_tab {
 	color: red;
 	font-weight: bold;
+}
+
+
+.quantity_zero {
+	color: red;
+	font-weight: bold;
+}
+
+
+.tab_quantity {
+	width: 100px
+}
+
+
+.tab_image {
+	max-width: 200px;
+}
+.tiny_image {
+	width: 50px;
+}
+
+.title_in_tab	{
+	margin-left: 40px;
+	color: black;
+
 }

@@ -1,25 +1,39 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-md-6 images_gallery">
-			<% @product.attachments.each do |product| %>
-				<%= image_tag( product.url, class: "small_image", alt: "Photo de #{@product.title}") %>
-			<% end %>
+			<div class="row">
+				<div class="col-2">
+					<% @product.attachments.each do |img| %>
+							<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
+					<% end %>
+				</div>
+				<div class="col-10">
+					<div id="big_image_show">
+					<!-- Ici on affiche les images au hover avec le JS -->
+					<%= image_tag(@product.attachments[0].url, class: "big_image") %>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-12 col-md-6 description_background">
 			<h1 class="category_title"><%= link_to @product.category.title, clients_category_path(@product.category) %></h1>
 			<h1 class="title"><%= @product.title %></h1>
 			<p>Prix : <%= number_to_currency_euro @product.price %></p>
 			<p>Couleur: <%=  @product.color %></p>
-			<% if current_user %>
-				<%= form_tag clients_order_items_path do %>
-	        <%= hidden_field_tag :product_id, @product.id %>
-	        <%= hidden_field_tag :user_id, current_user.id %>
-	        <%= number_field_tag :quantity, 1 %>
-	        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes, :id, :size_name), prompt: "Votre taille" %>
-	        <%= submit_tag "Ajouter Au Panier", class: "btn btn-primary" %>
-    		<% end %>
+			<% if @product.sizes.map(&:quantity).sum == 0 %>
+				<p>Rupture de stock sur cet article</p>
 			<% else %>
-				<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
+				<% if current_user %>
+					<%= form_tag clients_order_items_path do %>
+		        <%= hidden_field_tag :product_id, @product.id %>
+		        <%= hidden_field_tag :user_id, current_user.id %>
+		        <%= number_field_tag :quantity, 1 %>
+		        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes.where('quantity >=1'), :id, :size_name), selected: @product.sizes.where('quantity >=1').first %>
+		        <%= submit_tag "Ajouter Au Panier", class: "btn btn-primary", id: "add_to_cart" %>
+	    		<% end %>
+				<% else %>
+					<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
@@ -37,14 +51,30 @@
 	<br>
 		<h1>Nos recommandations</h1>
 	<div class="row">
-
 		<% @products.where(category_id: @product.category_id).each do |product| %>
 			<%= link_to clients_category_product_path(product) do  %>
 				<div class="card">
 					<div class="header_card">
 						<div class="row">
 							<div class="col-12">
-								<%= image_tag(product.attachments.first.url, class: 'product_suggestion') %>
+								<div id="carousel_<%= product.id%>" class="carousel" data-ride="carousel" data-interval="false">
+								  <div class="carousel-inner">
+									  <% product.attachments.each do |img| %>
+								  	  <div class="carousel-item <%= 'active' if img == product.attachments[0] %>">  
+								  	  	<%= image_tag img.url,  class: "product_suggestion"  %>								  	    
+								  	  </div>
+										<% end %>
+								  </div>
+								  <a class="carousel-control-prev" href="#carousel_<%= product.id%>" role="button" data-slide="prev">
+								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								    <span class="sr-only">Previous</span>
+								  </a>
+								  <a class="carousel-control-next" href="#carousel_<%= product.id%>" role="button" data-slide="next">
+								    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+								    <span class="sr-only">Next</span>
+								  </a>
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -52,7 +82,7 @@
 						<div class="row">
 							<div class="col-6">
 								<p><%= product.title %></p>
-								<p><%= product.price %></p>
+								<p><%= number_to_currency_euro product.price %></p>
 							</div>
 						</div>
 					</div>
@@ -60,5 +90,4 @@
 			<% end %>
 		<% end %>
 	</div>
-
 </div>

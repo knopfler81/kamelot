@@ -1,5 +1,5 @@
 <div class="container">
-	<p>Reglement de <%= number_to_currency_euro current_cart.sub_total %></p>
+	<p>Reglement de <%= number_to_currency_euro @current_cart.sub_total %></p>
 	<%= form_for @order, url: clients_checkout_path do |f| %>
 		<%= f.hidden_field :user_id %>
 			<% if current_user.completed_profile? %>
