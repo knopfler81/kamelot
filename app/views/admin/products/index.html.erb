@@ -1,1 +1,33 @@
-index admin product
+
+<div class="container">
+	<% if current_user.admin? %>
+		<h1>Gestion du stock</h1>
+		<div class="admin_panel">
+		<!-- 	On veut trier par categories afin de pouvoir gérer le stock en direct des marchés -->
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Voir</th>
+						<th>Ajouté le</th>
+						<th>Ref</th>
+						<th>Prix de vente</th>
+						<th>Tailles</th>
+						<th>Quantité</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% Size.includes(:product).order('created_at desc').each do |size| %>
+						<tr class="<%= "quantity_zero" if size.quantity < 1 %>">
+							<td><%= link_to "Edit", edit_admin_product_path(size.product)  %></td>
+							<td><%= l(size.product.created_at, format: '%d/%m/ %Y' ) %></td>
+							<td><%= size.product.title %></td>
+							<td><%= number_to_currency_euro(size.product.price) %></td>
+							<td><%= size.size_name %></td>
+							<td><%= size.quantity %></td>
+						</tr>
+					<% end %>
+				</tbody>
+		</table>
+	</div>
+	<% end %>
+</div>

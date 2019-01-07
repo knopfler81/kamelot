@@ -5,14 +5,21 @@ class Clients::OrderItemsController < ApplicationController
   end
 
   def create
-    current_cart.add_item(
-      product_id: params[:product_id],
-      quantity: params[:quantity],
-      user_id: params[:user_id],
-      size_id: params[:size_id],
-    )
+    #binding.pry
+   @size = Size.find(params[:size_id])
+    if @size.quantity >= params[:quantity].to_i
+      current_cart.add_item(
+        product_id: params[:product_id],
+        quantity: params[:quantity],
+        user_id: params[:user_id],
+        size_id: params[:size_id])
 
-    redirect_to clients_cart_path, notice: "Correctement ajouté au panier"
+      redirect_to clients_cart_path, notice: "Correctement ajouté au panier"
+    else
+      redirect_to clients_product_path(Product.find(params[:product_id]))
+      flash[:alert] = "Désolé, il n'y a pas #{params[:quantity]} article(s) en taille #{@size.size_name} de disponnible(s)"
+    end
+
   end
 
   def destroy
