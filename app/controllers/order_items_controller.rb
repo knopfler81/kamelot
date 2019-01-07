@@ -2,7 +2,6 @@ class OrderItemsController < ApplicationController
 
   def index
     @items = current_cart.order.items
-    #@total = OrderItem.all.map {|o_i| o_i.price}.sum
   end
 
   def create
@@ -10,7 +9,7 @@ class OrderItemsController < ApplicationController
       product_id: params[:product_id],
       quantity: params[:quantity],
       user_id: params[:user_id],
-      size_id: params[:size_id]
+      size_id: params[:size_id],
     )
 
     redirect_to cart_path, notice: "Correctement ajouté au panier"

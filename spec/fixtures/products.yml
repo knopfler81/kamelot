@@ -3,13 +3,15 @@ black_k_l:
   price: 20
   description: Joli pull tout doux
   color: Noir
-  category_id: pull.id
+  category: pull
   user: nelly
+  attachments: pull_rouge_1.jpg
 
 red_shirt:
   title: Chemise 
   price: 20
   description: Chemise à manches longues
   color: Rouge
-  category_id: chemise.id
+  category: chemise
   user: nelly
+  attachments: pull_rouge_1.jpg

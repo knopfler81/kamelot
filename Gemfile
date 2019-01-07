@@ -11,7 +11,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem "cocoon"
+gem 'cocoon'
+gem 'rails-i18n'
 
 #authentication && authorization
 gem 'devise'
@@ -20,33 +21,34 @@ gem 'pundit'
 #styles
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
-gem "simple_form"
-gem "font-awesome-rails"
+gem 'simple_form'
+gem 'font-awesome-rails'
 
 #uploads images  PDF
 gem 'fog'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'file_validators'
 
 group :development, :test do
  	gem 'rspec-rails', '~> 3.7'
 	gem 'launchy'
-	gem "chromedriver-helper"
+	gem 'chromedriver-helper'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 	gem 'shoulda-matchers', '~> 3.1'
 	gem 'capybara'
   gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'
   gem 'rails-controller-testing'
+  gem 'capybara-screenshot'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 

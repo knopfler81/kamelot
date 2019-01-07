@@ -1,7 +1,5 @@
 <div class="row">
-	<%= render 'shared/side_bar' %>
-
-	<div class="col-10">
+	<div class="col-10 offset-1">
 		<div class="row">
 		<% @categories.each do |cat| %>
 			<% cat.products.each do |prod| %>
@@ -17,10 +15,8 @@
 						<div class="footer_card">
 							<div class="row">
 								<div class="col-6">
-									<small><%= prod.title %></small>
-								</div>
-								<div class="col-6">
-									<small><%= prod.price %></small>
+									<p><%= prod.title %></p>
+									<p><%= number_to_currency_euro(prod.price) %></p>
 								</div>
 							</div>
 						</div>

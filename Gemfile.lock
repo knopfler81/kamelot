@@ -90,6 +90,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.22)
+      capybara (>= 1.0, < 4)
+      launchy
     carrierwave (1.3.1)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -402,6 +405,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-i18n (5.1.2)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.2.2)
       actionpack (= 5.2.2)
       activesupport (= 5.2.2)
@@ -521,6 +527,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.3)
   capybara
+  capybara-screenshot
   capybara-webkit!
   carrierwave (~> 1.2, >= 1.2.3)
   chromedriver-helper
@@ -545,6 +552,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.2.2)
   rails-controller-testing
+  rails-i18n
   rspec-rails (~> 3.7)
   sass-rails (~> 5.0)
   selenium-webdriver

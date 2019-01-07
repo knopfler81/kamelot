@@ -14,11 +14,10 @@ class AttachmentUploader < CarrierWave::Uploader::Base
    end
 
   def default_url(*args)
-     "/images/fallback/" + [version_name, "head.jpg"].compact.join('_')
+     "/images/fallback/" + [version_name, "random.jpg"].compact.join('_')
    end
 
-
-  def store_dir
+  def store_dir      
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
