@@ -1,0 +1,45 @@
+<div class="container">
+
+	<h1>Panier</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Quantité</th>
+				<th>Article</th>
+				<th>Prix</th>
+				<th>Taille</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%  @items.each do |item| %>
+			<tr>
+				<td><%= item.quantity %></td>
+				<td><%= item.product.title %> </td>
+				<td><%= item.product.price %></td>
+				<td><%= item.size.size_name %></td>
+				<td>
+					<%= link_to "Supprimer", clients_order_item_path(item), method: :delete, data: {confirm: "Voulez vous vraiment supprimer cet article?"} %>
+				</td>
+			</tr>	
+			<% end %>		
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan='4' align="right"><%= number_to_currency_euro current_cart.sub_total %></td>
+			</tr>
+
+		</tfoot>
+	</table>
+<hr>
+	<%= link_to "Continuer les achats", root_path, class: "btn btn-primary" %>
+
+	<%= link_to "Checkout", clients_checkout_path, class: "btn btn-success" %>
+
+
+
+
+</div>
+
+	

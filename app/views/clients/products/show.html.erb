@@ -1,0 +1,64 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-6 images_gallery">
+			<% @product.attachments.each do |product| %>
+				<%= image_tag( product.url, class: "small_image", alt: "Photo de #{@product.title}") %>
+			<% end %>
+		</div>
+		<div class="col-12 col-md-6 description_background">
+			<h1 class="category_title"><%= link_to @product.category.title, clients_category_path(@product.category) %></h1>
+			<h1 class="title"><%= @product.title %></h1>
+			<p>Prix : <%= number_to_currency_euro @product.price %></p>
+			<p>Couleur: <%=  @product.color %></p>
+			<% if current_user %>
+				<%= form_tag clients_order_items_path do %>
+	        <%= hidden_field_tag :product_id, @product.id %>
+	        <%= hidden_field_tag :user_id, current_user.id %>
+	        <%= number_field_tag :quantity, 1 %>
+	        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes, :id, :size_name), prompt: "Votre taille" %>
+	        <%= submit_tag "Ajouter Au Panier", class: "btn btn-primary" %>
+    		<% end %>
+			<% else %>
+				<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 col-md-6 description_background">
+			<div class="description_text">
+				<p><span>Description :</span> <%= simple_format(@product.description) %></p>
+			</div>
+		</div>
+		<div class="col-12 col-md-6" id="description_img">
+			<%= image_tag(@product.attachments.last.url, class: "description_img") %>
+		</div>
+	</div>
+	<br>
+		<h1>Nos recommandations</h1>
+	<div class="row">
+
+		<% @products.where(category_id: @product.category_id).each do |product| %>
+			<%= link_to clients_category_product_path(product) do  %>
+				<div class="card">
+					<div class="header_card">
+						<div class="row">
+							<div class="col-12">
+								<%= image_tag(product.attachments.first.url, class: 'product_suggestion') %>
+							</div>
+						</div>
+					</div>
+					<div class="footer_card">
+						<div class="row">
+							<div class="col-6">
+								<p><%= product.title %></p>
+								<p><%= product.price %></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+</div>

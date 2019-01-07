@@ -1,0 +1,48 @@
+<% if current_user && current_user.admin? %>
+	<%= simple_form_for(@product, url: admin_products_path)do |f| %>		
+		<div class="row">
+			<div class="col-xs-12 col-md-3">
+				<%= f.input :category_id, collection: Category.all, value_method: :id,label: "Categorie" ,include_blank: false, label: false %>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<%= f.input :title, placeholder: "Titre", label: false %>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<%= f.input :color, placeholder: "Couleur", label: false %>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<%= f.input :price, placeholder: "Prix", label: false, input_html: {min: 1, value: "Prix"} %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-md-7">
+				<%= f.input :description, placeholder: "Description", input_html: {rows: 5}, label: false %>
+			</div>
+			<div class="col-xs-12 col-md-5">
+				<div class="image-upload-wrap">
+				  <%= f.file_field :attachments, multiple: true, class: "file-upload-input", id: "files" %>
+				  <h3>Glisser Déposer images</h3>
+				  <div id="result"></div> 
+				</div>   
+			</div>
+		</div>
+		<br>
+		<br>
+
+		<div class="col-12">
+			<div id="sizes">
+			  <%= f.simple_fields_for :sizes do |size| %>
+		      <%= render "size_fields", f: size %>
+		    <% end %>
+		   	<div class="links">
+		     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class:"btn btn-primary btn-lg" %>
+		   	</div>
+			</div>
+		</div>
+    <br><br>
+    <div class="col-12">
+			<%= f.submit "Valider le produit", class: "btn btn-success btn-lg btn-block" %>
+    </div>
+	<% end %>
+<% end %>
