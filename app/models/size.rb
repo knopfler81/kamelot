@@ -3,4 +3,7 @@ class Size < ApplicationRecord
 
 	validates :quantity,  presence: true
 	validates :size_name, presence: true
+
+
+
 end

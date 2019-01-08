@@ -23,8 +23,8 @@
 				<%= form_tag clients_order_items_path do %>
 	        <%= hidden_field_tag :product_id, @product.id %>
 	        <%= hidden_field_tag :user_id, current_user.id %>
-	        <%= number_field_tag :quantity, 1 %>
 	        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes, :id, :size_name), prompt: "Votre taille" %>
+	        <%= number_field_tag :quantity,  1 %>
 	        <%= submit_tag "Ajouter Au Panier", class: "btn btn-primary" %>
     		<% end %>
 			<% else %>
@@ -44,30 +44,4 @@
 		</div>
 	</div>
 	<br>
-		<h1>Nos recommandations</h1>
-	<div class="row">
-
-		<% @products.where(category_id: @product.category_id).each do |product| %>
-			<%= link_to admin_product_path(product) do  %>
-				<div class="card">
-					<div class="header_card">
-						<div class="row">
-							<div class="col-12">
-								<%= image_tag(product.attachments.first.url, class: 'product_suggestion') %>
-							</div>
-						</div>
-					</div>
-					<div class="footer_card">
-						<div class="row">
-							<div class="col-6">
-								<p><%= product.title %></p>
-								<p><%= product.price %></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
-	<hr>
 </div>

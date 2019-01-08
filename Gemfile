@@ -16,7 +16,6 @@ gem 'rails-i18n'
 
 #authentication && authorization
 gem 'devise'
-gem 'pundit'
 
 #styles
 gem 'bootstrap', '~> 4.1.3'
@@ -47,7 +46,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
-  gem 'better_errors'
+  #gem 'better_errors'
   gem 'binding_of_caller'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
