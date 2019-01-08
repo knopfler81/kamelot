@@ -38,6 +38,8 @@ class ShoppingCart
       @size.quantity -= quantity.to_i
       @size.save
     end
+
+    CartCleanupJob.set(wait: 1.minute).perform_later(order.id)
   end
 
   def remove_item(id:)
@@ -66,8 +68,6 @@ class ShoppingCart
     order.sub_total = order.items.sum('quantity * price')
     order.save
   end
-
-
 
 
 end
