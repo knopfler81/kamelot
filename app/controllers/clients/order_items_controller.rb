@@ -5,8 +5,8 @@ class Clients::OrderItemsController < ApplicationController
   end
 
   def create
-    #binding.pry
-   @size = Size.find(params[:size_id])
+    @size = Size.find(params[:size_id])
+
     if @size.quantity >= params[:quantity].to_i
       current_cart.add_item(
         product_id: params[:product_id],
@@ -28,6 +28,6 @@ class Clients::OrderItemsController < ApplicationController
 
     current_cart.remove_item(id: params[:id])
 
-    redirect_to clients_cart_path, alert: "Correctement supprimé du panier"
+    redirect_to clients_cart_path, notice: "Correctement supprimé du panier"
   end
 end

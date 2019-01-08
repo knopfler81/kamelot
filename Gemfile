@@ -29,6 +29,12 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick'
 gem 'file_validators'
 
+
+#jobs
+gem 'sidekiq'
+gem 'sinatra'
+gem 'sidekiq-failures', '~> 1.0'
+
 group :development, :test do
  	gem 'rspec-rails', '~> 3.7'
 	gem 'launchy'

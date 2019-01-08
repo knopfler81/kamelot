@@ -1,9 +1,33 @@
 Rails.application.routes.draw do
  	devise_for :users, :controllers => { registrations: 'registrations' }
- 	
-
+  
  	root to: "clients/categories#index"
 
+	require "sidekiq/web"
+	
+	authenticate :user, lambda { |u| u.admin? } do	 		
+    mount Sidekiq::Web => '/sidekiq'
+
+		namespace :admin do
+
+			resources :products
+
+		 	resources :categories do 
+		 		resources :products
+		 	end
+
+
+		 	resources :users do 
+				resources :orders, only: [:index, :show]
+			end
+
+			resources :orders
+
+			get '/cart/checkout', to: "orders#new", as: :checkout
+			patch '/cart/checkout', to: 'orders#create'
+		 			
+		end
+	end	 		 		
 
 
 	namespace :clients  do
@@ -29,27 +53,5 @@ Rails.application.routes.draw do
 	end
 
 
-	authenticate :user, lambda { |u| u.admin? } do	 		
-
-		namespace :admin do
-
-			resources :products
-
-		 	resources :categories do 
-		 		resources :products
-		 	end
-
-
-		 	resources :users do 
-				resources :orders, only: [:index, :show]
-			end
-
-			resources :orders
-
-			get '/cart/checkout', to: "orders#new", as: :checkout
-			patch '/cart/checkout', to: 'orders#create'
-		 			
-		end
-	end	 		 		
 
 end
