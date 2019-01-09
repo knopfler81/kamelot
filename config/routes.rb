@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  	devise_for :users, :controllers => { registrations: 'registrations' }
   
- 	root to: "clients/categories#index"
+ 	root to: "clients/products#index"
 
 	require "sidekiq/web"
 	

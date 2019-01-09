@@ -2,13 +2,15 @@
 <div class="container">
 	<% if current_user.admin? %>
 		<h1>Gestion du stock</h1>
+		<%= link_to "Voir en tant que clients", clients_products_path , class: "btn btn-warning" %>
+		<br><br>
 		<div class="admin_panel">
-		<!-- 	On veut trier par categories afin de pouvoir gérer le stock en direct des marchés -->
 			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>Voir</th>
-						<th>Ajouté le</th>
+						<th>Edit</th>
+						<th>Category</th>
 						<th>Ref</th>
 						<th>Prix de vente</th>
 						<th>Tailles</th>
@@ -16,10 +18,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% Size.includes(:product).order('created_at desc').each do |size| %>
+					<% Size.sort_by_category.each do |size| %>
 						<tr class="<%= "quantity_zero" if size.quantity < 1 %>">
-							<td><%= link_to "Edit", edit_admin_product_path(size.product)  %></td>
-							<td><%= l(size.product.created_at, format: '%d/%m/ %Y' ) %></td>
+							<td>
+								<%= link_to admin_product_path(size.product)  do %>
+									<i class="fa fa-eye icon_tab"></i>
+								<% end %>
+							</td>
+							<td>
+								<%= link_to edit_admin_product_path(size.product) do  %>
+								<i class="fa fa-edit icon_tab"></i>
+								<% end %>
+							</td>
+							<td><%= size.product.category.title %></td>
 							<td><%= size.product.title %></td>
 							<td><%= number_to_currency_euro(size.product.price) %></td>
 							<td><%= size.size_name %></td>

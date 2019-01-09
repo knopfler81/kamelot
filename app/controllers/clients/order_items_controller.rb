@@ -17,7 +17,7 @@ class Clients::OrderItemsController < ApplicationController
       redirect_to clients_cart_path, notice: "Correctement ajouté au panier"
     else
       redirect_to clients_product_path(Product.find(params[:product_id]))
-      flash[:alert] = "Désolé, il n'y a pas #{params[:quantity]} article(s) en taille #{@size.size_name} de disponnible(s)"
+      flash[:alert] = "Il y a plus que #{@size.quantity} articles en stock"
     end
 
   end
