@@ -1,10 +1,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<% if current_user && current_user.admin %>
-				<%= link_to "Edit", edit_admin_product_path, class: "btn btn-warning" %>
-				<%= link_to "Supprimer", admin_product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
-			<% end %>
+			<%= link_to "Edit", edit_admin_product_path, class: "btn btn-warning" %>
+			<%= link_to "Supprimer", admin_product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
 			<hr>
 		</div>
 	</div>
@@ -32,7 +30,6 @@
 			<% end %>
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="col-12 col-md-6 description_background">
 			<div class="description_text">
