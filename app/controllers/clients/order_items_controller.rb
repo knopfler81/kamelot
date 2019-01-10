@@ -1,4 +1,5 @@
 class Clients::OrderItemsController < ApplicationController
+  include ShoppingCartsHelper
 
   def index
     @items = current_cart.order.items
@@ -23,7 +24,6 @@ class Clients::OrderItemsController < ApplicationController
   end
 
   def destroy
-
     current_cart.re_add_stock(id: params[:id])
 
     current_cart.remove_item(id: params[:id])

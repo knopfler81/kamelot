@@ -1,6 +1,5 @@
 class Size < ApplicationRecord
 	belongs_to :product
-	belongs_to :category
 
 	validates :quantity,  presence: true
 	validates :size_name, presence: true

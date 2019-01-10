@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
 	before_action :set_product, only: [:show, :destroy, :update, :edit]
 
 	def index
-		@products = Size.order('product.category.title ASC')
+		@products = Product.all
 	end
 
 	def show
@@ -47,13 +47,13 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def update
-		if @product.update_attributes(params_product)
+		binding.pry
+		if @product.update_attributes!(params_product)
 			redirect_to admin_product_path(@product), notice: "Modifié avec succès"
 		else
 			render :edit, alert: "Woooops"
 		end
 	end
-
 
 	private
 	
