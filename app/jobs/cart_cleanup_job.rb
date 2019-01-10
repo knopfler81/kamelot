@@ -12,6 +12,7 @@ class CartCleanupJob < ApplicationJob
 				item.destroy!
 			end
 			update_sub_total!
+			@order.destroy!
 		end
 	end
 

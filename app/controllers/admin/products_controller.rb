@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
 	before_action :set_product, only: [:show, :destroy, :update, :edit]
 
 	def index
-		@products = Product.all
+		@products = Size.order('product.category.title ASC')
 	end
 
 	def show

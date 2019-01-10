@@ -1,8 +1,31 @@
 <div class="container">
-	<ol>
-	<% @products.each do |prod| %>
-		<li><%= prod.title %> - <%= prod.size %> - <%= number_to_currency prod.price %></li>
-		
-	<% end %>
-</ol>
+	<div class="row">
+		<div class="col-12">
+			<div class="row">
+				<% @products.each do |product| %>
+					<%= link_to clients_product_path(product) do  %>
+						<div class="card">
+							<div class="header_card">
+								<div class="row">
+									<div class="col-12">
+										<%= image_tag(product.attachments.first.url, class: 'product_suggestion') %>
+									</div>
+								</div>
+							</div>
+							<div class="footer_card">
+								<div class="row">
+									<div class="col-6">
+										<small><%= product.title %></small>
+									</div>
+									<div class="col-6">
+										<small><%= number_to_currency_euro(product.price) %></small>
+									</div>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
