@@ -1,4 +1,5 @@
 class Clients::OrdersController < ApplicationController
+	include ShoppingCartsHelper
 
 	def index
 		@orders = Order.all
