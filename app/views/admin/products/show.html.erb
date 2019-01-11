@@ -8,12 +8,23 @@
 	</div>
 	<div class="row">
 		<div class="col-12 col-md-6 images_gallery">
-			<% @product.attachments.each do |product| %>
-				<%= image_tag( product.url, class: "small_image", alt: "Photo de #{@product.title}") %>
-			<% end %>
-		</div>
+				<div class="row">
+					<div class="col-2">
+						<% @product.attachments.each do |img| %>
+								<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
+						<% end %>
+					</div>
+					<div class="col-10">
+						<div id="big_image_show">
+							<!-- Ici on affiche les images au hover avec le JS -->
+							<%= image_tag(@product.attachments[0].url, class: "big_image") %>
+						</div>
+					</div>
+				</div>
+			</div>
 		<div class="col-12 col-md-6 description_background">
 			<h1 class="category_title"><%= link_to @product.category.title, admin_category_path(@product.category) %></h1>
+
 			<h1 class="title"><%= @product.title %></h1>
 			<p>Prix : <%= number_to_currency_euro @product.price %></p>
 			<p>Couleur: <%=  @product.color %></p>
