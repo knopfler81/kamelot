@@ -5,6 +5,7 @@
 		<div class="row">
 			<% @category.products.each do |product| %>
 	
+					<%= link_to admin_product_path(product)  do %>
 					<div class="card">
 						<div class="header_card">
 							<div class="row">
@@ -22,12 +23,9 @@
 									<small><%= product.price %></small>
 								</div>
 							</div>
-							<div class="row">
-								<%= link_to "edit", edit_admin_category_product_path(@category, product), class: "btn btn-primary"  %>
-								<%= link_to  "voir", admin_category_product_path(@category, product), class: "btn btn-warning" %>
-							</div>
 						</div>
 					</div>
+					<% end %>
 		
 			<% end %>
 		</div>
