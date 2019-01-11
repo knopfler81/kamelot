@@ -25,7 +25,6 @@ class Clients::ProductsController < ApplicationController
 	  @products = Product.where('lower(title) LIKE ?', "%#{params[:query][:keyword]}%")
 	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword]}%"))
 	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword]}%"))
-	  #@products = Product.joins(:category).where('lower(categories.title) LIKE ?', "%#{params[:query][:keyword]}%")
 	end
 
 end

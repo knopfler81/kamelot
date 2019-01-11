@@ -39,7 +39,7 @@ class ShoppingCart
       @size.save
     end
 
-    CartCleanupJob.set(wait: 30.minutes).perform_later(order.id)
+    CartCleanupJob.set(wait: 1.minutes).perform_later(order.id)
   end
 
   def remove_item(id:)

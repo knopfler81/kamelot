@@ -11,7 +11,6 @@ class CartCleanupJob < ApplicationJob
 				re_add_stock(item.id)
 				item.destroy!
 			end
-			update_sub_total!
 			@order.destroy!
 		end
 	end

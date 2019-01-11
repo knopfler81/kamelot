@@ -1,0 +1,25 @@
+fr:
+  admin:
+    orders:
+      _base: &_base
+        pending: En attente de paiement
+        all: Toutes les commandes
+        paid: Payée
+        confirmed: Confirmée
+        shipped: Envoyée
+        cancelled: Annulée
+        refunded: Remboursée
+      index:
+        <<: *_base
+      show:
+        <<: *_base
+  clients:
+    orders:
+     index:
+        pending: En attente de paiement
+        all: Toutes les commandes
+        paid: Payée
+        confirmed: Confirmée
+        shipped: Envoyée
+        cancelled: Annulée
+        refunded: Remboursée

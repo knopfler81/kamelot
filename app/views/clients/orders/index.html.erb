@@ -2,11 +2,14 @@
 	<h1 class="title">Mes commandes</h1>
 
 	<% @orders.where(user_id: current_user.id).each do |order| %>
+
+
 		
 		<div class="order_card">
 			<div class="row header_order_card">
 				<div class="col-4">
-					<small>Commande passée le <%= l(order.created_at, format: '%d %B %Y' )%></small>
+					<small>Commande passée le <%= l(order.created_at, format: '%d %B %Y' )%></small><br>
+					<small>Etat de la commande: <%= t(".#{order.status}") %></small>
 				</div>
 				<div class="col-4">
 					<small>Total : <%= number_to_currency_euro order.sub_total %> | </small>
@@ -18,6 +21,7 @@
 				<div class="col-2">
 					<small><%= link_to "MA FACTURE", "#"  %></small>
 				</div>
+				
 			</div>
 
 			<% order.items.each do |item| %>

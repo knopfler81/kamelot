@@ -3,10 +3,10 @@
 		<div class="admin_panel">
 
 		<ul class="list-inline">
-	   	<li class="tabs list-inline-item "><%= link_to "All", admin_orders_path  %></li>
+	   	<li class="tabs list-inline-item "><%= link_to "Toutes", admin_orders_path  %></li>
 	    <% orders_filtered_by_status.each do |status| %>
 				 	<li class="tabs list-inline-item <%= params[:status] == status.to_s ? "tabs__item--active" : "tabs__item--inactive" %>">
-				 	  <%= link_to "#{status.capitalize}", status: status %>
+				 	  <%= link_to t(".#{status}"), status: status %>
 				 	</li>
 	    <% end %>
 		</ul>
@@ -32,7 +32,7 @@
 								<td><%= order.user.last_name %> </td>
 								<td><%= order.user.first_name %></td>
 								<td >#00<%= order.id %></td>
-								<td class="<%= "#{order.status.downcase}_status_tab" %>" ><%= order.status %></td>
+								<td class="<%= "#{order.status.downcase}_status_tab" %>" ><%= t(".#{order.status}") %></td>
 								<td><%= number_to_currency_euro(order.sub_total) %></p></td>
 								<td><%= link_to "Voir", admin_order_path(order) %></td>
 							</tr>
