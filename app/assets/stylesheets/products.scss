@@ -35,9 +35,14 @@
 }
 
 .small_image {
-	height: 150px;
+	height: 100px;
 	padding: 5px;
 }
+
+#big_image_show {
+	max-height: 400px;
+}
+
 
 .product_suggestion {
 	height: 300px;
@@ -110,3 +115,36 @@ select {
 	font-size: 30px;
 	color: green;
 }
+
+
+
+ // effet Zoom sur products
+
+
+.big_images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .big_image {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform .5s ease-out;
+  }
