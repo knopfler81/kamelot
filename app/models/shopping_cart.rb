@@ -36,7 +36,6 @@ class ShoppingCart
       @order_item.save
       update_sub_total!
     end
-
     CartCleanupJob.set(wait: 1.minutes).perform_later(order.id)
   end
 

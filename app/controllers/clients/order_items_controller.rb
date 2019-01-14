@@ -1,4 +1,5 @@
 class Clients::OrderItemsController < ApplicationController
+  include ShoppingCartsHelper
 
 
   def index
@@ -9,6 +10,7 @@ class Clients::OrderItemsController < ApplicationController
     @size = Size.find(params[:size_id])
 
     if @size.quantity >= params[:quantity].to_i
+
       @current_cart.add_item(
         product_id: params[:product_id],
         quantity: params[:quantity],
@@ -20,7 +22,6 @@ class Clients::OrderItemsController < ApplicationController
       redirect_to clients_product_path(Product.find(params[:product_id]))
       flash[:alert] = "Il y a plus que #{@size.quantity} articles en stock"
     end
-
   end
 
   def edit
@@ -50,6 +51,7 @@ class Clients::OrderItemsController < ApplicationController
 
 
   def destroy
+
     @current_cart.remove_item(id: params[:id])
     respond_to do |format|
       format.js 
@@ -57,8 +59,8 @@ class Clients::OrderItemsController < ApplicationController
     end   
   end
 
-
   private 
+
 
   def order_item_params
     params.require(:order_item).permit(:id, :product_id, :user_id, :quantity, :size_id, :order_id)
