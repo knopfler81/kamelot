@@ -51,7 +51,6 @@ class Clients::OrderItemsController < ApplicationController
 
 
   def destroy
-
     @current_cart.remove_item(id: params[:id])
     respond_to do |format|
       format.js 

@@ -32,9 +32,13 @@ Rails.application.routes.draw do
 
 	namespace :clients  do
 
-		resources :products
+		resources :favorites, only: :index
 
-	 	resources :categories, only: [:index, :show] do 
+		resources :products do 
+			resources :favorites
+		end
+
+	 	resources :categories, only: [:index, :show] do
 	 		resources :products, only: [:index, :show]
 	 	end
 

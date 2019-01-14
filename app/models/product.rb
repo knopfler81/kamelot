@@ -15,6 +15,10 @@ class Product < ApplicationRecord
 	validates :color,       presence: true
 
 
+	has_many :favorites, dependent: :destroy
+	has_many :favoriting_users, through: :favorites, source: :user
+
+
 	# validate :attachments_size
 
 
