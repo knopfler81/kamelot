@@ -39,6 +39,10 @@ Rails.application.routes.draw do
 	 	end
 
 	 	get 'cart', to: "order_items#index"
+
+	 	patch "cart", to: "order_items#update"
+
+
 	 	resources :order_items, path: '/cart/items'
 
 	 	resources :users, only: [:show] do 

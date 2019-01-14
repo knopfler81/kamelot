@@ -47,7 +47,6 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		if @product.update_attributes!(params_product)
 			redirect_to admin_product_path(@product), notice: "Modifié avec succès"
 		else

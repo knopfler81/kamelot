@@ -60,9 +60,14 @@
          <% end %>
        </li>
        <li>
-         <%= link_to clients_cart_path do %>
-           <i class="fa fa-shopping-basket nav-link"> <%= current_cart.items_count %></i>
-         <% end %>
+        <div class="icon-wrapper">
+          <%= link_to clients_cart_path do %>
+          <i class="fa fa-shopping-bag"></i>  
+          <% end %>
+          <% if @current_cart.items_count > 0 %>
+            <span id="items_count"><%= @current_cart.items_count %></span>
+          <% end %>
+        </div>
        </li>
      </ul>
    </div>

@@ -35,11 +35,16 @@ class ShoppingCart
     ActiveRecord::Base.transaction do
       @order_item.save
       update_sub_total!
-      @size.quantity -= quantity.to_i
-      @size.save
     end
-
     CartCleanupJob.set(wait: 1.minutes).perform_later(order.id)
+  end
+
+  def change_qty(id:, quantity:1, product_id:, size_id:)
+    @size = Size.find_by(id: size_id)
+    @order_item = order.items.find_by(product_id: product_id, size_id: size_id)
+    @order_item.quantity = quantity.to_i
+    @order_item.save
+    update_sub_total!
   end
 
   def remove_item(id:)
@@ -48,19 +53,6 @@ class ShoppingCart
       update_sub_total!
     end
   end
-
-  def re_add_stock(id:)
-    order_items = order.items.find(id)
-
-    pd = OrderItem.find(id).size_id
-    @size = Size.find(pd)
-    user = order.user_id
-    ActiveRecord::Base.transaction do
-      @size.quantity += order_items.quantity.to_i
-      @size.save
-    end
-  end
-
 
   private
 
