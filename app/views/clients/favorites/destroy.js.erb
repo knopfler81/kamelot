@@ -1,0 +1,15 @@
+$('#header_card_<%= @product.id %>').bind('.not-favorite').bind('ajax:success', function(){	
+	if('<%= @favorites.count %>' === "0" || "<%= @favorites.first %>"){
+		$("#likes_counter").html("<%= @favorites.count %>");
+	  $("#header_card_<%= @product.id %> .favorite-active").toggleClass('favorite-active').toggleClass('not-favorite');
+		$("#unlike_<%= @product.id %>").empty();
+		$("#header_card_<%= @product.id %>").find("#unlike_<%= @product.id %>").replaceWith("<div class='like_<%= @product.id %>'><a data-remote='true' rel='nofollow' data-method='post' href='/clients/products/<%= @product.id %>/favorites %>'><i class= 'fa fa-heart favorite-active'></i></a></div>");
+		location.reload();
+	}
+	else {
+		$("#likes_counter").html("<%= @favorites.count %>");
+	  $("#header_card_<%= @product.id %> .favorite-active").toggleClass('favorite-active').toggleClass('not-favorite');
+		$("#unlike_<%= @product.id %>").empty();
+		$("#header_card_<%= @product.id %>").find("#unlike_<%= @product.id %>").replaceWith("<div class='like_<%= @product.id %>'><a data-remote='true' rel='nofollow' data-method='post' href='/clients/products/<%= @product.id %>/favorites %>'><i class= 'fa fa-heart favorite-active'></i></a></div>");
+	}
+});

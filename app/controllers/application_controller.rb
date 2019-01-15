@@ -3,10 +3,20 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 
 	before_action :current_cart
+	before_action :favorites_products
 	
-	  def current_cart
-	    @current_cart ||= ShoppingCart.new(token: cart_token)
-	  end
+  def current_cart
+    @current_cart ||= ShoppingCart.new(token: cart_token)
+  end
+
+
+  def current_product
+  	@product = Product.find(params[:product_id])
+  end
+
+  def favorites_products
+  	@favorites = Favorite.where(user: current_user).all
+  end
 
 	private
 	

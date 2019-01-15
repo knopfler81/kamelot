@@ -3,9 +3,8 @@
 @import "categories";
 @import "orders";
 @import "general";
+@import "favorites";
 @import "products";
-
-
 
 nav {
 	margin-bottom: 30px;
@@ -18,8 +17,13 @@ a:hover {
 
 .nav-upper {
 	background-color: #BCC0C0FF!important;
-
 }
+
+.nav-heart {
+	font-size: 20px;
+	position: absolute;
+	color: white;
+	}
 
 
 .nav-lower {
@@ -27,7 +31,19 @@ a:hover {
 	margin-top: -30px;
 	margin-bottom: 30px;
 	padding-bottom: 20px;
-	
+}
+
+#likes_counter {
+	font-size: 10px;
+  background: #79B0FEFF;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border-radius: 50%;
+  position: absolute;
+ 	left: 10px;
+  padding: 0 4px;
+  color: #fff;
 }
 
 .search-btn-nav {
@@ -35,29 +51,28 @@ a:hover {
 }
 
 .fa-shopping-bag {
-	font-size: 30px;
+	font-size: 20px;
 	position: relative;
 	color: white;
 }
 
 #items_count {
-	font-size: 12px;
+	font-size: 10px;
   background: red;
   width: auto;
   height: auto;
-  margin: 0;
   border-radius: 50%;
-  position:absolute;
-  top: 12px;
- 	left: 20px;
-  padding: 0 5px;
+  position: absolute;
+  top: 0px;
+ 	left: 10px;
+  padding: 0 4px;
   color: #fff;
 }
 
 .icon-wrapper {
 	position:relative;
-  float:left;
 }
+
 .search-btn-nav {
 	margin-left: -30px;
 }
