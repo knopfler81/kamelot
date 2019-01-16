@@ -2,22 +2,24 @@
 	<div class="header_card" id="header_card_<%= product.id %>">
 		<div class="row">
 			<div class="col-12">
-				<div class="like_unlike">
-					<% if product.favoriting_users.include? current_user %>
-						<div id="unlike_<%= product.id %>">
-							<% fav = product.favorites.find { |fav| fav.user_id == current_user.id} %>
-							<%= link_to clients_product_favorite_path(product, fav), method: :delete , remote: true do %>
-								<i class= "fa fa-heart favorite-active"></i>
-							<% end %>	
-						</div>	
-					<% else %>
-						<div id="like_<%= product.id %>">
-							<%= link_to clients_product_favorites_path(product), method: :post, remote: true  do %>
-								<i class= "fa fa-heart not-favorite"></i>
-							<% end %>
-						</div>
-					<% end %>	
-				</div>
+				<% if current_user %>
+					<div class="like_unlike">
+						<% if product.favoriting_users.include? current_user %>
+							<div id="unlike_<%= product.id %>">
+								<% fav = product.favorites.find { |fav| fav.user_id == current_user.id} %>
+								<%= link_to clients_product_favorite_path(product, fav), method: :delete , remote: true do %>
+									<i class= "fa fa-heart favorite-active"></i>
+								<% end %>	
+							</div>	
+						<% else %>
+							<div id="like_<%= product.id %>">
+								<%= link_to clients_product_favorites_path(product), method: :post, remote: true  do %>
+									<i class= "fa fa-heart not-favorite"></i>
+								<% end %>
+							</div>
+						<% end %>	
+					</div>
+				<% end %>
 				<%= link_to clients_product_path(product) do  %>
 					<div id="carousel_<%= product.id%>" class="carousel slide" data-ride="carousel" data-interval="false">
 					  <div class="carousel-inner">
