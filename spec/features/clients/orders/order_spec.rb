@@ -30,7 +30,7 @@ RSpec.describe Order do
 			expect(page).to have_content("Correctement ajouté au panier")
 			click_on "Checkout"
 
-			expect(page).to have_content("Reglement")
+			expect(page).to have_content("Vérifier votre commande")
 		end
 	end
 
