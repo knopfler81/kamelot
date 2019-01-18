@@ -37,4 +37,5 @@ class Order < ApplicationRecord
   def total_price
     (self.shipping_fees_cents + self.sub_total_cents) / 100
   end
+
 end

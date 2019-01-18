@@ -40,10 +40,10 @@
 			<h2>Adresse de livraison</h2>
 			<hr>
 
-			<h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
-			<h4><%= current_user.address_1 %></h4>
-			<h4><%= current_user.address_2 if current_user.address_2 %></h4>
-			<h4> <%= current_user.zipcode %> <%= current_user.city %></h4>
+			<h4><%= @order.user.first_name %> <%= @order.user.last_name %></h4>
+			<h4><%= @order.user.address_1 %></h4>
+			<h4><%= @order.user.address_2 if @order.user.address_2 %></h4>
+			<h4> <%= @order.user.zipcode %> <%= @order.user.city %></h4>
 
 		</div>
 	</div>
@@ -65,10 +65,8 @@
 			<h2>Adresse de Facturation </h2>
 			<hr>
 
-			<h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
-			<h4><%= current_user.address_1 %></h4>
-			<h4><%= current_user.address_2 if current_user.address_2 %></h4>
-			<h4> <%= current_user.zipcode %> <%= current_user.city %></h4>
+			<p><%=  p @order.inspect %></p>
+
 
 		</div>
 	</div>
