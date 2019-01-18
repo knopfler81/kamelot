@@ -15,6 +15,8 @@ class Product < ApplicationRecord
 	validates :price,       presence: true
 	validates :description, presence: true
 	validates :color,       presence: true
+	validates :brand,       presence: true
+	validates :category_id, presence: true
 
 
 end

@@ -1,4 +1,5 @@
 warm_sweat:
+  brand: Side Park
   title: Gros pull
   price: 30
   color: Noir
@@ -7,6 +8,7 @@ warm_sweat:
   attachments: pull_rouge_1.jpg
 
 black_k_l:
+  brand: Side Park
   title: Pull Kenzaro
   price: 20
   description: Joli pull tout doux
@@ -16,6 +18,7 @@ black_k_l:
   attachments: pull_noir_1.jpg
 
 red_shirt:
+  brand: Side Park
   title: Chemise 
   price: 20
   description: Chemise à manches longues
@@ -25,6 +28,7 @@ red_shirt:
   attachments: pull_noir_2.jpg
 
 blue_shirt:
+  brand: Side Park
   title: Chemise 
   price: 20
   description: Chemise à manches longues

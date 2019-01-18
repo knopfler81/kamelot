@@ -9,6 +9,7 @@
 					<th>Voir</th>
 					<th>Edit</th>
 					<th>Category</th>
+					<th>Marque</th>
 					<th>Ref</th>
 					<th>Prix de vente</th>
 					<th>Tailles</th>
@@ -29,6 +30,7 @@
 							<% end %>
 						</td>
 						<td><%= size.product.category.title %></td>
+						<td><%= size.product.brand %></td>
 						<td><%= size.product.title %></td>
 						<td><%= number_to_currency_euro(size.product.price) %></td>
 						<td><%= size.size_name %></td>
