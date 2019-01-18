@@ -19,7 +19,7 @@
 			<h1 class="category_title"><%= link_to @product.category.title, clients_category_path(@product.category) %></h1>
 			<h1 class="title"><%= @product.title %></h1>
 			<h1><%= @product.brand %></h1>
-			<p>Prix : <%= number_to_currency_euro @product.price %></p>
+			<p>Prix : <%= number_to_currency_euro @product.price_cents %></p>
 			<p>Couleur: <%=  @product.color %></p>
 			<% if @product.sizes.map(&:quantity).sum == 0 %>
 				<p>Rupture de stock sur cet article</p>

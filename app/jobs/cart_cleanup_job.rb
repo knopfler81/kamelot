@@ -18,7 +18,7 @@ class CartCleanupJob < ApplicationJob
 	private
 
 	 def update_sub_total!
-    @order.sub_total = @order.items.sum('quantity * price')
+    @order.sub_total = @order.items.sum('quantity * price_cents')
     @order.save
   end
 

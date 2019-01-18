@@ -10,7 +10,7 @@
 							<td><%= item.product.brand %></td>
 							<td><%= item.product.title %></td>
 							<td><%= item.size.size_name %></td>
-							<td><%= item.product.price %></td>
+							<td><%= item.product.price_cents %></td>
 						</tr>
 					</tbody>
 				<% end %>
@@ -40,10 +40,7 @@
 			<h2>Adresse de livraison</h2>
 			<hr>
 
-			<h4><%= @order.user.first_name %> <%= @order.user.last_name %></h4>
-			<h4><%= @order.user.address_1 %></h4>
-			<h4><%= @order.user.address_2 if @order.user.address_2 %></h4>
-			<h4> <%= @order.user.zipcode %> <%= @order.user.city %></h4>
+
 
 		</div>
 	</div>

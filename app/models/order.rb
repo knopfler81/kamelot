@@ -2,6 +2,9 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :items, class_name: "OrderItem", dependent: :destroy
 
+
+  after_initialize :shipping_fees_cents
+
   monetize :sub_total_cents
   monetize :shipping_fees_cents
 
@@ -30,8 +33,8 @@ class Order < ApplicationRecord
     self.items.map(&:quantity).sum
   end
 
-  def self.shipping_fees_cents
-    500
+  def shipping_fees_cents
+    self.shipping_fees = 500
   end
 
   def total_price

@@ -17,7 +17,7 @@ class Clients::ProductsController < ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:title, :description, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+		params.require(:product).permit(:title, :description, :price_cents, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
 
 	def filter_products
