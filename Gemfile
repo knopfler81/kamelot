@@ -14,6 +14,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'cocoon'
 gem 'rails-i18n'
 
+
+#payment 
+gem 'money-rails'
+gem 'stripe'
+
 #authentication && authorization
 gem 'devise'
 

@@ -2,6 +2,9 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :items, class_name: "OrderItem", dependent: :destroy
 
+  monetize :sub_total_cents
+  monetize :shipping_fees_cents
+
   enum status: [:pending, :paid, :confirmed, :shipped, :cancelled, :refunded]
 
   scope :pending,	 	-> { where(status: :pending) }
@@ -25,5 +28,13 @@ class Order < ApplicationRecord
 
   def count_articles
     self.items.map(&:quantity).sum
+  end
+
+  def self.shipping_fees_cents
+    500
+  end
+
+  def total_price
+    (self.shipping_fees_cents + self.sub_total_cents) / 100
   end
 end

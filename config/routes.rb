@@ -54,9 +54,13 @@ Rails.application.routes.draw do
 		end
 
 
-		resources :orders, only: [:index, :show]
+		resources :orders, only: [ :index, :show, :create] do
+		  resources :payments, only: [:new, :create]
+		end
 
-		get '/cart/checkout', to: "orders#new", as: :checkout
+		#resources :orders, only: [:index, :show]
+
+		get '/cart/checkout', to: "orders#new" , as: :checkout
 		patch '/cart/checkout', to: 'orders#create'
 	end
 

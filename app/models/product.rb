@@ -19,4 +19,7 @@ class Product < ApplicationRecord
 	validates :category_id, presence: true
 
 
+	monetize :price_cents
+
+
 end

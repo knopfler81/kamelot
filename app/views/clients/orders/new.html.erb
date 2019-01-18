@@ -1,11 +1,77 @@
 <div class="container">
-	<p>Reglement de <%= number_to_currency_euro @current_cart.sub_total %></p>
-	<%= form_for @order, url: clients_checkout_path do |f| %>
-		<%= f.hidden_field :user_id %>
-			<% if current_user.completed_profile? %>
-				<%= f.submit "Payer", class: "btn btn-success" %>
-			<% else %>
-				<%=  link_to "Complètez vos coordonnées pour continuer", edit_user_registration_path(current_user) %>
+
+	<h2>Vérifier votre commande</h2>
+	<div class="row">
+		<div class="col-12 col-md-6">
+			<table class='table striped'>
+				<% @order.items.each do |item| %>
+					<tbody>
+						<tr>
+							<td><%= item.product.brand %></td>
+							<td><%= item.product.title %></td>
+							<td><%= item.size.size_name %></td>
+							<td><%= item.product.price %></td>
+						</tr>
+					</tbody>
+				<% end %>
+				<tbody>
+					<td></td>
+					<td></td>
+					<td>Sous total</td>
+					<td ><%= number_to_currency_euro @order.sub_total %></td>
+				</tbody>
+				<tbody>
+					<td></td>
+					<td></td>
+					<td>Livraison</td>
+					<td><%=number_to_currency_euro @order.shipping_fees %></td>
+				</tbody>
+				<tfoot>
+					<td></td>
+					<td></td>
+					<td>Total</td>
+					<td><%=number_to_currency_euro @order.total_price %></td>
+				</tfoot>
+			</table>
+		</div>
+
+		<div class="col-12 col-md-4 offset-md-2">
+
+			<h2>Adresse de livraison</h2>
+			<hr>
+
+			<h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
+			<h4><%= current_user.address_1 %></h4>
+			<h4><%= current_user.address_2 if current_user.address_2 %></h4>
+			<h4> <%= current_user.zipcode %> <%= current_user.city %></h4>
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-6">
+			<%= form_for @order, url: clients_checkout_path do |f| %>
+				<%= f.hidden_field :user_id %>
+					<% if current_user.completed_profile? %>
+						<%= f.submit "Payer", class: "btn btn-success btn-block" %>
+					<% else %>
+						<%=  link_to "Complètez vos coordonnées pour continuer", edit_user_registration_path(current_user) %>
+					<% end %>
 			<% end %>
-	<% end %>
+		</div>
+
+		<div class="col-12 col-md-4 offset-md-2">
+
+			<h2>Adresse de Facturation </h2>
+			<hr>
+
+			<h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
+			<h4><%= current_user.address_1 %></h4>
+			<h4><%= current_user.address_2 if current_user.address_2 %></h4>
+			<h4> <%= current_user.zipcode %> <%= current_user.city %></h4>
+
+		</div>
+	</div>
+
+
 </div>
