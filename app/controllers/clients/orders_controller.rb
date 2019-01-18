@@ -11,6 +11,7 @@ class Clients::OrdersController < ApplicationController
 	end
 
 	def new
+		@billing_address = BillingAddress.new
 
 		@user = current_user
 

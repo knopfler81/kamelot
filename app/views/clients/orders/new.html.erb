@@ -37,7 +37,7 @@
 
 		<div class="col-12 col-md-4 offset-md-2">
 
-			<h2>Adresse de livraison</h2>
+			<h3>Adresse de livraison</h3>
 			<hr>
 
 
@@ -49,24 +49,80 @@
 		<div class="col-6">
 			<%= form_for @order, url: clients_checkout_path do |f| %>
 				<%= f.hidden_field :user_id %>
-					<% if current_user.completed_profile? %>
+					<% if current_user.billing_address %>
 						<%= f.submit "Payer", class: "btn btn-success btn-block" %>
 					<% else %>
-						<%=  link_to "Complètez vos coordonnées pour continuer", edit_user_registration_path(current_user) %>
+						<%= link_to "Ajouter une adresse pour continuer", new_billing_address_path(current_user), class: 'btn btn-success', "data-toggle"=>"modal", "data-target"=>"#exampleModal"  %>		
 					<% end %>
 			<% end %>
 		</div>
 
-		<div class="col-12 col-md-4 offset-md-2">
+		<div class="col-12 col-md-4 offset-md-2"> 
+			<% if current_user.billing_address %>
+				<h3>Adresse de Facturation </h3>
+				<hr>
+				<h4><%= current_user.billing_address.title %></h4>
+				<p><%=  current_user.billing_address.address_1 %></p>
+				<p><%=  current_user.billing_address.address_2 %></p>
+				<p><%=  current_user.billing_address.zipcode %> <%=  current_user.billing_address.city %></p>
+			  <p><%=  current_user.billing_address.phone %></p>
+				<%= link_to "Modifier l'adresse", edit_billing_address_path(current_user.billing_address),  class: 'btn btn-success', "data-toggle"=>"modal", "data-target"=>"#ModalEdit"  %>				
+			<% end %>
 
-			<h2>Adresse de Facturation </h2>
-			<hr>
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
 
-			<p><%=  p @order.inspect %></p>
+			        	<%= render '/billing_addresses/form' %>
+
+			      </div>
+			      <div class="modal-footer">
+
+			      </div>
+			    </div>
+			  </div>
+			</div>
 
 
-		</div>
+			<% if current_user.billing_address.present? %>
+					<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+
+					      <div class="modal-body">
+					        <%= simple_form_for current_user.billing_address do |f| %>
+		        				<%= f.input :title, label: false, placeholder: "Donnez un titre à votre addresse" %>
+		        				<%= f.input :address_1, label: false, placeholder: "Adresse" %>
+		        				<%= f.input :address_2, label: false, placeholder:  "Complément d'adresse" %>
+		        				<%= f.input :zipcode, label: false, placeholder:  "Code Postal" %>
+		        				<%= f.input :city, label: false, placeholder:  "Ville" %>
+		        				<%= f.input :phone, label: false, placeholder:  "Numero de téléphone" %>
+		        				<%= f.hidden_field :user_id, value: current_user.id %>
+		        				<br><br>
+		        				<%= f.submit "Valider", class: "btn btn-success btn-block" %>
+					        <% end %>
+					      </div>
+
+					      <div class="modal-footer">
+
+					      </div>
+
+					    </div>
+					  </div>
+				</div>
+		<% end %>
 	</div>
-
-
 </div>

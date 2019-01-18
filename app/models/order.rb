@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :items, class_name: "OrderItem", dependent: :destroy
+  #has_one :billing_address
 
 
   after_initialize :shipping_fees_cents

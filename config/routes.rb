@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  	devise_for :users, :controllers => { registrations: 'registrations' }
+	resources :billing_addresses
   
  	root to: "clients/products#index"
 
@@ -57,6 +58,7 @@ Rails.application.routes.draw do
 		resources :orders, only: [ :index, :show, :create] do
 		  resources :payments, only: [:new, :create]
 		end
+
 
 		#resources :orders, only: [:index, :show]
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Order do 
 
-	fixtures :users, :categories, :products, :sizes
+	fixtures :users, :categories, :products, :sizes, :billing_addresses
 
 	context "A not logged in user" do 
 		scenario "is redirect to the sign up form before adding article in his basket" do
@@ -17,7 +17,8 @@ RSpec.describe Order do
 
 	context "A user with a completed profile" do 
 		scenario "can checkout" do
-			john 	= users(:john)
+			john 	= users(:nelly)
+			address = billing_addresses(:home)
 			product = products(:red_shirt)
 
 			login_as(john)
@@ -50,7 +51,7 @@ RSpec.describe Order do
 			expect(page).to have_content("Correctement ajouté au panier")
 			click_on "Checkout"
 	
-			expect(page).to have_content("Complètez vos coordonnées pour continuer")
+			expect(page).to have_content("Ajouter une adresse pour continuer")
 		end
 	end
 end
