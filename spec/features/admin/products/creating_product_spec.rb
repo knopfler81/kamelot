@@ -13,7 +13,7 @@ RSpec.describe "Creating Product" , :js do
 
 		scenario "Create a product"  do 
 			visit 'admin/products/new'
-
+			fill_in "product[brand]", with: "Side Park"
 			fill_in "product[title]", with: "Pull en laine"
 			fill_in "product[price]", with: 50
 			fill_in "product[description]", with: "Une description pour ce pull"

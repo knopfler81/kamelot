@@ -41,6 +41,7 @@ chemises 		= Category.create(title: "Chemises")
 
 
 Product.create(
+	brand: "Side Park",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price: 30,
@@ -73,6 +74,7 @@ Product.create(
 
 puts "Product Created"
 Product.create(
+	brand: "Side Park",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price: 30,
@@ -105,6 +107,7 @@ Product.create(
 
 puts "Product Created"
 Product.create(
+	brand: "Side Park",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price: 30,
@@ -138,6 +141,7 @@ Product.create(
 puts "Product Created"
 
 Product.create(
+	brand: "Side Park",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price: 30,
@@ -171,6 +175,7 @@ Product.create(
 puts "Product Created"
 
 Product.create(
+	brand: "Side Park",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price: 30,
@@ -204,6 +209,7 @@ Product.create(
 puts "Product Created"
 
 Product.create(
+	brand: "Side Park",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price: 30,
