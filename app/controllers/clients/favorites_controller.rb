@@ -8,7 +8,8 @@ class Clients::FavoritesController < ApplicationController
 
 	def create
 		@product = Product.find(params[:product_id])
-	  @favorite = current_user.favorites.create(product: @product)
+		@user = current_user
+	  @favorite = Favorite.create(product: @product, user_id: @user.id)
 
 		if @favorite.save
 	   	respond_to do |format|

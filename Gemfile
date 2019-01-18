@@ -52,7 +52,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
-  #gem 'better_errors'
+  gem "factory_bot_rails", "~> 4.0"
+  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end

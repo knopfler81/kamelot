@@ -4,9 +4,9 @@ require 'rails_helper'
  	fixtures :products, :users, :sizes
  	
  	before(:each) do 
- 		@shirt  = products(:red_shirt)
- 		@small  = sizes(:small_red_shirt)
- 		@large  = sizes(:large_red_shirt)
+ 		@shirt  = products(:blue_shirt)
+ 		@small  = sizes(:small_blue_shirt)
+ 		@large  = sizes(:large_blue_shirt)
  		@john = users(:john)
  		@token  = 12345678
 	 	@current_cart ||= ShoppingCart.new(token: @token)

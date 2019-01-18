@@ -11,15 +11,15 @@
            Articles
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <% if current_user && current_user.admin? %>
-             <% Category.order('title ASC').all.each do |cat| %>
-               <%= link_to  "#{cat.title} ", admin_category_path(cat), class: "nav-link" %>
-             <% end %>
-           <% else %>
+           <%# if current_user && current_user.admin? %>
+             <%# Category.order('title ASC').all.each do |cat| %>
+               <%#= link_to  "#{cat.title} ", admin_category_path(cat), class: "nav-link" %>
+             <%# end %>
+           <%# else %>
              <% Category.order('title ASC').all.each do |cat| %>
                <%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %>
              <% end %>
-           <% end %>
+           <%# end %>
          </div>
        </li>
      </ul>
@@ -68,16 +68,18 @@
           <% end %>
         </div>
        </li>
-       <li class="nav-link">
-         <div class="icon-wrapper">
-          <%= link_to clients_favorites_path do %>
-           <i class="fa fa-heart nav-heart"></i>  
-          <% end %>
-          <% if @favorites.count > 0 %>
-            <span id="likes_counter"><%= @favorites.count %></span>
-          <% end %>
-        </div>
-       </li>
+       <% if current_user %>
+         <li class="nav-link">
+           <div class="icon-wrapper">
+            <%= link_to clients_favorites_path do %>
+             <i class="fa fa-heart nav-heart"></i>  
+            <% end %>
+            <% if @favorites.count > 0 %>
+              <span id="likes_counter"><%= @favorites.count %></span>
+            <% end %>
+          </div>
+         </li>
+       <% end %>
      </ul>
    </div>
  </div>

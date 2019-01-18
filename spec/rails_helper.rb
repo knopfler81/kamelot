@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'support/factory_bot'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
@@ -13,12 +14,28 @@ def login_as(user)
 end
 
 
+CarrierWave.configure do |config|
+  config.root              = Rails.root.join('spec/fixtures')
+  config.cache_only        = true
+  config.enable_processing = false
+  config.base_path         = "/"
+end
+
+
 RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+
+
+  config.append_after :each do |example|
+    DatabaseCleaner.clean
+
+    CarrierWave.clean_cached_files!(0)
+
+  end
 end
 
 Shoulda::Matchers.configure do |config|

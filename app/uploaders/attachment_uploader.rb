@@ -14,8 +14,12 @@ class AttachmentUploader < CarrierWave::Uploader::Base
    end
 
   def default_url(*args)
-     "/images/fallback/" + [version_name, "random.jpg"].compact.join('_')
-   end
+    "/images/fallback/" + [version_name, "random.jpg"].compact.join('_')
+  end
+
+  def cache_dir
+    "#{Rails.root}/spec/support/uploads/tmp"
+  end 
 
   def store_dir      
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"

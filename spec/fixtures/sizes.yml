@@ -17,3 +17,23 @@ xlarge_red_shirt:
   size_name: XL
   quantity: 12
   product: red_shirt
+
+small_blue_shirt:
+  size_name: S
+  quantity: 10
+  product: blue_shirt
+
+medium_blue_shirt:
+  size_name: M
+  quantity: 12
+  product: blue_shirt
+
+large_blue_shirt:
+  size_name: L
+  quantity: 10
+  product: blue_shirt
+
+xlarge_blue_shirt:
+  size_name: XL
+  quantity: 12
+  product: blue_shirt
