@@ -8,7 +8,7 @@ class BillingAddressesController < ApplicationController
 
 	def create
 		@user = current_user
-		@billing_address = BillingAddress.new(billing_address_params)
+		@billing_address = BillingAddress.create(billing_address_params)
 		if @billing_address.save!
 			redirect_to clients_checkout_path
 		else
@@ -16,9 +16,9 @@ class BillingAddressesController < ApplicationController
 		end
 	end
 
-	def show
-		@billing_address = BillingAddress.find(params[:id])
-	end
+	# def show
+	# 	@billing_address = BillingAddress.find(params[:id])
+	# end
 
 	def edit
 		@billing_address = BillingAddress.find(params[:id])
@@ -46,7 +46,7 @@ class BillingAddressesController < ApplicationController
 	end
 
 	def billing_address_params
-	 	params.require(:billing_address).permit(:address_1, :address_2, :user_id, :zipcode, :city, :phone, :title)#order_id
+	 	params.require(:billing_address).permit(:address_1, :address_2, :user_id, :zipcode, :city, :phone, :title, :first_name, :last_name)#order_id
 	end
 
 

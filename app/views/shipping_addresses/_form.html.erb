@@ -1,7 +1,8 @@
 <div class="container">
+	
 	<div class="row">
 		<div class="col-12">
-			<%= simple_form_for @billing_address do |f| %>
+			<%= simple_form_for @shipping_address do |f| %>
 				<%= f.input :title, label: false, placeholder: "Donnez un titre à votre addresse" %>
 				<%= f.input :first_name, label: false, placeholder: "Prénom" %>		
 				<%= f.input :last_name, label: false, placeholder: "Nom" %>

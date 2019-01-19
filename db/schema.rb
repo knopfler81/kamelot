@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_153040) do
+ActiveRecord::Schema.define(version: 2019_01_19_092214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_01_18_153040) do
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["order_id"], name: "index_billing_addresses_on_order_id"
     t.index ["user_id"], name: "index_billing_addresses_on_user_id"
   end
@@ -82,6 +84,21 @@ ActiveRecord::Schema.define(version: 2019_01_18_153040) do
     t.string "brand"
     t.integer "price_cents", default: 0, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.string "address_1"
+    t.string "address_2"
+    t.string "zipcode"
+    t.string "city"
+    t.string "phone"
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
   end
 
   create_table "sizes", force: :cascade do |t|
