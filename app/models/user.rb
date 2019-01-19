@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_one  :shipping_address, dependent: :destroy
 
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
 
   has_many :favorites, dependent: :destroy
 end

@@ -23,12 +23,7 @@ n = 0
 		email: "guest#{n += 1}@example.com",
 		password: "password",
 		password_confirmation: "password",
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		address_1: Faker::Address.street_name,
-		zipcode: Faker::Address.zip_code,
-		city: Faker::Address.city,
-		phone: Faker::PhoneNumber.phone_number
+
 	)
 	puts "Creating user"
 end

@@ -7,18 +7,18 @@ class ShippingAddressesController < ApplicationController
 	end
 
 	def create
-		@user = current_user
+
 		@shipping_address = ShippingAddress.new(shipping_address_params)
 		if @shipping_address.save!
-			redirect_to clients_checkout_path
+			redirect_to clients_user_path(current_user)
 		else
 			render :new, alert: "PLOC"
 		end
 	end
 
-	# def show
-	# 	@shipping_address = ShippingAddress.find(params[:id])
-	# end
+	def show
+		@shipping_address = ShippingAddress.find(params[:id])
+	end
 
 	def edit
 		@shipping_address = ShippingAddress.find(params[:id])
@@ -28,7 +28,7 @@ class ShippingAddressesController < ApplicationController
 	def update
 		if @shipping_address.update_attributes(shipping_address_params)
 			
-			redirect_to clients_checkout_path,  notice: "L'adresse a bien été modifiée"
+			redirect_to clients_user_path(@current_user)
 		end
 	end
 

@@ -7,10 +7,9 @@ class BillingAddressesController < ApplicationController
 	end
 
 	def create
-		@user = current_user
 		@billing_address = BillingAddress.create(billing_address_params)
 		if @billing_address.save!
-			redirect_to clients_checkout_path
+			redirect_to clients_user_path(current_user)
 		else
 			render :new, alert: "PLOC"
 		end
@@ -27,8 +26,7 @@ class BillingAddressesController < ApplicationController
 
 	def update
 		if @billing_address.update_attributes(billing_address_params)
-			
-			redirect_to clients_checkout_path,  notice: "L'adresse a bien été modifiée"
+			redirect_to clients_user_path(current_user), notice: "L'adresse a bien été modifiée"
 		end
 	end
 
