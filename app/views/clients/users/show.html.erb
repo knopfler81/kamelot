@@ -1,19 +1,53 @@
 <div class="container">
-	<h1 class="title">Bienvenue <%= @user.first_name %></h1>
+	<% if  current_user.shipping_address.present?  %>
+	<h1 class="title">Bienvenue <%= @user.shipping_address.first_name %></h1>
+	<% end %>
 	<hr>
 
 	<div class="row">
 		<div class="col-4">
-			<h2>Vos adresses</h2>
+			<h2>Livraison</h2>
 			<ul class="list-unstyled">
-				<li>Prénom : <%= @user.first_name %></li>
-				<li>Nom :<%= @user.last_name %></li>
-				<li> Adresse :<%= @user.address_1 %></li>
-				<li><%= @user.address_2 %></li>
-				<li><%= @user.zipcode %></li>
-				<li><%= @user.city %></li>
-				<li> Téléphone : <%= @user.phone %></li>
+				<% if @user.shipping_address.present? %>
+					<li>Prénom : <%= @user.shipping_address.first_name %></li>
+					<li>Nom :<%= @user.shipping_address.last_name %></li>
+					<li> Adresse :<%= @user.shipping_address.address_1 %></li>
+					<li><%= @user.shipping_address.address_2 %></li>
+					<li><%= @user.shipping_address.zipcode %></li>
+					<li><%= @user.shipping_address.city %></li>
+					<li> Téléphone : <%= @user.shipping_address.phone %></li>
+					<hr>
+					<%= link_to "Modifier votre adresse", edit_shipping_address_path(@user.shipping_address)  %>	
+				<% else %>
+				<%= link_to "Ajouter une adresse", new_shipping_address_path %>
+				<% end %>
 			</ul>
+			
+			<% if @current_cart.items_count > 0 %>				
+				<%= link_to "revenir au panier", clients_checkout_path %>
+			<% end %>
+		</div>
+		<div class="col-4">
+			<h2>Facturation</h2>
+			<ul class="list-unstyled">
+				<% if @user.billing_address.present? %>
+					<li>Prénom : <%= @user.billing_address.first_name %></li>
+					<li>Nom :<%= @user.billing_address.last_name %></li>
+					<li> Adresse :<%= @user.billing_address.address_1 %></li>
+					<li><%= @user.billing_address.address_2 %></li>
+					<li><%= @user.billing_address.zipcode %></li>
+					<li><%= @user.billing_address.city %></li>
+					<li> Téléphone : <%= @user.billing_address.phone %></li>
+					<hr>
+					<%= link_to "Modifier votre adresse", edit_billing_address_path(@user.billing_address)  %>	
+				<% else %>
+				<%= link_to "Ajouter une adresse", new_billing_address_path %>
+				<% end %>
+			</ul>
+			
+			<% if @current_cart.items_count > 0 %>				
+				<%= link_to "revenir au panier", clients_checkout_path %>
+			<% end %>
 		</div>
 	</div>
 </div>

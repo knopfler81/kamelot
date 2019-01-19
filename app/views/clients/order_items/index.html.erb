@@ -27,7 +27,7 @@
 								<%= f.submit "MAJ", class: "btn btn-success submit-btn" %>
 							<% end %>
 						</td>
-						<td><%= number_to_currency_euro item.product.price %></td>
+						<td><%= number_to_currency_euro item.product.price_cents %></td>
 						<td><%= item.size.size_name %> </td>
 						<td>	  
 							<%= link_to clients_order_item_path(item), method: :delete, remote: true ,data: {confirm: "Voulez vous vraiment supprimer cet article?"}, class: 'delete_btn' do  %>

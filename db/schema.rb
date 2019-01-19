@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_092659) do
+ActiveRecord::Schema.define(version: 2019_01_19_092214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "billing_addresses", force: :cascade do |t|
+    t.string "address_1"
+    t.string "address_2"
+    t.string "zipcode"
+    t.string "city"
+    t.string "phone"
+    t.string "title"
+    t.bigint "user_id"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.index ["order_id"], name: "index_billing_addresses_on_order_id"
+    t.index ["user_id"], name: "index_billing_addresses_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title", limit: 100, null: false
@@ -49,13 +66,14 @@ ActiveRecord::Schema.define(version: 2019_01_18_092659) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sub_total"
+    t.integer "sub_total_cents", default: 0, null: false
+    t.json "payment"
+    t.integer "shipping_fees_cents", default: 0, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "title", limit: 150, null: false
-    t.decimal "price", precision: 15, scale: 2, default: "0.0", null: false
     t.text "description"
     t.bigint "category_id"
     t.datetime "created_at", null: false
@@ -64,7 +82,23 @@ ActiveRecord::Schema.define(version: 2019_01_18_092659) do
     t.integer "user_id"
     t.json "attachments"
     t.string "brand"
+    t.integer "price_cents", default: 0, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.string "address_1"
+    t.string "address_2"
+    t.string "zipcode"
+    t.string "city"
+    t.string "phone"
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
   end
 
   create_table "sizes", force: :cascade do |t|

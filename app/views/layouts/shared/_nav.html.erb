@@ -31,11 +31,9 @@
       <% end %>
        <li class="nav-item dropdown">
          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <% if current_user %>
-             <%= current_user.first_name %>
-           <% else %>
+
              Mon Compte
-           <% end %>
+ 
           </a>
          <% if current_user %>
            <% if current_user.admin? %>

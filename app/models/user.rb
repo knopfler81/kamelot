@@ -7,18 +7,12 @@ class User < ApplicationRecord
   has_many :products
   has_many :orders
 
+  has_one  :billing_address, dependent: :destroy
+  has_one  :shipping_address, dependent: :destroy
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
 
   has_many :favorites, dependent: :destroy
-
-
-  def completed_profile?
-  	if address_1.present? && zipcode.present? && city.present? && phone.present?
-  		true
-  	else
-  		false
-  	end
-  end
 end
