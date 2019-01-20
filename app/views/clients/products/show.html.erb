@@ -24,17 +24,17 @@
 			<% if @product.sizes.map(&:quantity).sum == 0 %>
 				<p>Rupture de stock sur cet article</p>
 			<% else %>
-				<% if current_user %>
+				<%# if current_user %>
 					<%= form_tag clients_order_items_path do %>
 		        <%= hidden_field_tag :product_id, @product.id %>
-		        <%= hidden_field_tag :user_id, current_user.id %>
+		        <%= hidden_field_tag :user_id, @token %>
 		        <%= number_field_tag :quantity, 1 %>
 		        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes.where('quantity >=1'), :id, :size_name), selected: @product.sizes.where('quantity >=1').first %>
 		        <%= submit_tag "Ajouter Au Panier", class: "btn btn-primary", id: "add_to_cart" %>
 	    		<% end %>
-				<% else %>
-					<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
-				<% end %>
+				<%# else %>
+					<%#= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
+				<%# end %>
 			<% end %>
 		</div>
 	</div>

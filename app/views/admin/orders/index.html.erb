@@ -28,7 +28,7 @@
 					<% @orders.each do |order| %>
 							<tr>
 								<td><%= l(order.created_at, format: '%d %B %Y' ) %></td>
-								<td>FR-000<%= order.user.id %></td>
+								<td>FR-000<%= order.user_id %></td>
 								<td><%= order.user.last_name %> </td>
 								<td><%= order.user.first_name %></td>
 								<td >#00<%= order.id %></td>

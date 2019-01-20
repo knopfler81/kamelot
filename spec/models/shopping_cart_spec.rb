@@ -25,8 +25,8 @@ require 'rails_helper'
 
  	describe ".add_item" do 
  		it 'add item to the cart' do 
- 			@current_cart.add_item(user_id: @john.id, quantity: 1, size_id: @large.id, product_id: @shirt.id)
-	 		@current_cart.add_item(user_id: @john.id, quantity: 2, size_id: @small.id, product_id: @shirt.id)
+ 			@current_cart.add_item(quantity: 1, size_id: @large.id, product_id: @shirt.id)
+	 		@current_cart.add_item(quantity: 2, size_id: @small.id, product_id: @shirt.id)
 
 	 		expect(@current_cart.items_count).to eq(3)
 	 	end

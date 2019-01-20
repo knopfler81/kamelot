@@ -12,7 +12,7 @@ class Product < ApplicationRecord
 	
 	
 	validates :title,       presence: true
-	validates :price_cents,       presence: true
+	validates :price_cents, presence: true
 	validates :description, presence: true
 	validates :color,       presence: true
 	validates :brand,       presence: true

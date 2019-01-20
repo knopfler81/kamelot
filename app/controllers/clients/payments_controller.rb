@@ -15,20 +15,19 @@ class Clients::PaymentsController < ApplicationController
 	    currency:     @order.sub_total.currency
 	  )
 
-	  @order.update(payment: charge.to_json, status: 'paid')
-	  redirect_to clients_orders_path
-
+	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
 	  @order.remove_from_stock
-
 	  session[:cart_token] == nil
-
+	  
+	  redirect_to clients_orders_path
 
 	rescue Stripe::CardError => e
 	  flash[:alert] = e.message
 	end
+	
 	private
 
 	  def set_order
-	    @order = current_user.orders.where(status: 'pending').find(params[:order_id])
+	    @order = Order.where(status: 'pending', token: session[:cart_token]).find(params[:order_id])
 	  end
 end

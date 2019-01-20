@@ -29,7 +29,8 @@ RSpec.describe Order do
 
 			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")
-			click_on "Checkout"
+
+			click_on "Commander"
 
 			expect(page).to have_content("Vérifiez votre commande")
 		end
@@ -49,7 +50,7 @@ RSpec.describe Order do
 
 			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")
-			click_on "Checkout"
+			click_on "Commander"
 	
 			expect(page).to have_content("Ajouter une adresse pour continuer")
 		end

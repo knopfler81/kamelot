@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_19_092214) do
+ActiveRecord::Schema.define(version: 2019_01_19_135835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2019_01_19_092214) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
     t.string "token"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
@@ -69,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_092214) do
     t.integer "sub_total_cents", default: 0, null: false
     t.json "payment"
     t.integer "shipping_fees_cents", default: 0, null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.integer "user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -135,6 +134,5 @@ ActiveRecord::Schema.define(version: 2019_01_19_092214) do
   add_foreign_key "order_items", "orders", name: "fk_order_items_to_order"
   add_foreign_key "order_items", "products", name: "fk_order_items_to_product"
   add_foreign_key "order_items", "sizes"
-  add_foreign_key "orders", "users"
   add_foreign_key "sizes", "products"
 end
