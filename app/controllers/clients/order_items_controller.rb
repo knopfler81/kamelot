@@ -1,9 +1,7 @@
 class Clients::OrderItemsController < ApplicationController
-  include ShoppingCartsHelper
-
 
   def index
-    @items = @current_cart.order.items.order('created_at DESC')
+    @items = current_cart.order.items.order('created_at DESC')
   end
 
   def create
@@ -11,11 +9,11 @@ class Clients::OrderItemsController < ApplicationController
 
     if @size.quantity >= params[:quantity].to_i
 
-      @current_cart.add_item(
+      current_cart.add_item(
         product_id: params[:product_id],
         quantity: params[:quantity],
-        user_id: params[:user_id],
-        size_id: params[:size_id])
+        size_id: params[:size_id],
+      )
 
       redirect_to clients_cart_path, notice: "Correctement ajouté au panier"
     else
@@ -38,7 +36,8 @@ class Clients::OrderItemsController < ApplicationController
           id: params[:id],
           product_id: params[:product_id],
           quantity: params[:quantity],
-          size_id: params[:size_id])
+          size_id: params[:size_id]
+        )
         format.js
         format.html { redirect_to clients_cart_path, notice: "Quantité modifiée" }
       else
@@ -46,7 +45,6 @@ class Clients::OrderItemsController < ApplicationController
         format.html { redirect_to clients_product_path(Product.find(params[:product_id])), alert: "oh oh"}
       end
     end
-
   end
 
 
@@ -62,6 +60,6 @@ class Clients::OrderItemsController < ApplicationController
 
 
   def order_item_params
-    params.require(:order_item).permit(:id, :product_id, :user_id, :quantity, :size_id, :order_id)
+    params.require(:order_item).permit(:id, :product_id, :quantity, :user_id, :size_id, :order_id)
   end
 end

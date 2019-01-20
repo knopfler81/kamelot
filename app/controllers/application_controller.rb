@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def current_cart
     @current_cart ||= ShoppingCart.new(token: cart_token)
   end
-
+  helper_method :current_cart
 
   def current_product
   	@product = Product.find(params[:product_id])

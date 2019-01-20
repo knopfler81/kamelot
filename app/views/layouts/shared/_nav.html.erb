@@ -70,10 +70,10 @@
          <li class="nav-link">
            <div class="icon-wrapper">
             <%= link_to clients_favorites_path do %>
-             <i class="fa fa-heart nav-heart"></i>  
-            <% end %>
-            <% if @favorites.count > 0 %>
-              <span id="likes_counter"><%= @favorites.count %></span>
+              <i class="fa fa-heart nav-heart"></i>  
+              <% if @favorites.count > 0 %>
+                <span id="likes_counter"><%= @favorites.count %></span>
+              <% end %>
             <% end %>
           </div>
          </li>

@@ -12,7 +12,7 @@ User.destroy_all
 
 puts "Users destroyed"
 
- nelly = User.create(first_name: "Nelly", last_name: "Duclos",admin: true, email: "nelly@example.com", password: "password", password_confirmation: "password")
+ nelly = User.create(admin: true, email: "nelly@example.com", password: "password", password_confirmation: "password")
 
 puts "Admin created"
 
@@ -35,7 +35,7 @@ accessoires = Category.create(title: "Accessoires")
 chemises 		= Category.create(title: "Chemises")
 
 
-Product.create(
+Product.create!(
 	brand: "Side Park",
 	category_id: pulls.id,
 	user_id: nelly.id,

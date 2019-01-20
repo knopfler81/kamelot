@@ -27,7 +27,7 @@
 								<%= f.submit "MAJ", class: "btn btn-success submit-btn" %>
 							<% end %>
 						</td>
-						<td><%= number_to_currency_euro item.product.price_cents %></td>
+						<td><%= number_to_currency_euro item.product.price_cents  * item.quantity %></td>
 						<td><%= item.size.size_name %> </td>
 						<td>	  
 							<%= link_to clients_order_item_path(item), method: :delete, remote: true ,data: {confirm: "Voulez vous vraiment supprimer cet article?"}, class: 'delete_btn' do  %>
@@ -47,11 +47,15 @@
 		<div class="col-3">
 			<%= link_to "Continuer les achats", root_path, class: "btn btn-primary" %>
 			<br><br>
+			<% if current_user %>
+				<%= link_to "Commander", clients_checkout_path, class: "btn btn-success" %>
+			<% else %>
+					<%= link_to  "Commander",  new_user_session_path, class: "btn btn-success" %>
+			<% end %>
 
-			<%= link_to "Checkout", clients_checkout_path, class: "btn btn-success" %>
 			<br>
-			<small><i>Votre panier expirera dans 30 minutes</i></small>
-		</div>
+<!-- 			<small><i>Votre panier expirera dans 30 minutes</i></small>
+ -->		</div>
 	</div>
 </div>
 

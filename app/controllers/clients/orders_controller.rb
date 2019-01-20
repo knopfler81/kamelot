@@ -1,8 +1,7 @@
 class Clients::OrdersController < ApplicationController
-	include ShoppingCartsHelper
 
 	def index
-		@orders = Order.all
+		@orders = Order.where(user_id: !nil)
 		@orders = @orders.filter_by_status(params[:status]) if params[:status]
 	end
 
@@ -13,17 +12,19 @@ class Clients::OrdersController < ApplicationController
 	def new
 		@billing_address = BillingAddress.new
 		@shipping_address = ShippingAddress.new
-
-		@user = current_user
-
+		# @user = current_user
 		@order = current_cart.order
 	end
 
 	def create
-		@user = current_user
-
-		@order = current_cart.order 
-
-    redirect_to new_clients_order_payment_path(@order)
+		@order = current_cart.order
+		if @order.update_attributes!(user_id: current_user.id)
+    	redirect_to new_clients_order_payment_path(@order)
+		end
 	end
+
+	def order_params
+		params.require(:order).permit(:status,  :user_id, :token , :sub_total)
+	end
+
 end

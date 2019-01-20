@@ -1,12 +1,11 @@
 class Admin::OrdersController < ApplicationController
 
 	def index
-		@orders = Order.order('created_at DESC')
+		@orders = Order.where(user_id: !nil).order('created_at DESC')
 		@orders = @orders.filter_by_status(params[:status]) if params[:status]
 	end
 
 	def show
-
 		@order = Order.find(params[:id])
 	end
 

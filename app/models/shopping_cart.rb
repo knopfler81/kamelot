@@ -7,7 +7,7 @@ class ShoppingCart
   end
 
   def order
-    @order ||= Order.find_or_create_by(token: @token, status: 0) do |order|
+    @order ||= Order.find_or_initialize_by(token: @token, status: 0) do |order|
       order.sub_total = 0
     end
   end
@@ -16,12 +16,9 @@ class ShoppingCart
     order.items.sum(:quantity)
   end
 
-  def add_item(product_id:, quantity:1 , user_id:, size_id:)
+  def add_item(product_id:, quantity:1 , size_id:) 
     @product = Product.find(product_id)
     @size = Size.find_by(id: size_id)
-
-    user = User.find(user_id)
-    order.user_id = user.id
 
     @order_item =  if order.items.where(product_id: product_id).where(size_id: size_id).any?
        order.items.find_by(product_id: product_id, size_id: size_id)
