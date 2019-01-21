@@ -33,7 +33,7 @@ class Clients::PaymentsController < ApplicationController
   			text_message << "---------------\n\n"
   		end
 
-		  send_message(text_message)
+		  #send_message(text_message) à réactiver pour l'envoi de sms
 
 			redirect_to clients_orders_path
 	  end
