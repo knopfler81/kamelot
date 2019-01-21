@@ -34,6 +34,9 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'font-awesome-rails'
 
+
+gem 'will_paginate', '>= 3.1'
+
 #uploads images  PDF
 gem 'fog'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'

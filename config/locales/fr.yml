@@ -23,3 +23,7 @@ fr:
         shipped: Envoyée
         cancelled: Annulée
         refunded: Remboursée
+  will_paginate:
+     previous_label: "&#8592; Précédente"
+     next_label: "Suivante &#8594;"
+     page_gap: "&hellip;"

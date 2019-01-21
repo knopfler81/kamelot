@@ -1,3 +1,6 @@
+#orders_page {
+	background: #EEE;
+}
 .tabs {
 	background-color: #aaa;
 	padding: 5px;
@@ -24,9 +27,8 @@
 }
 	
 .order_card {
-	height: 250px;
-	background-color: #fff;
-	margin-bottom: 35px;
+	min-height: 250px;
+	margin-bottom: 20px;
 	img {
 		margin-left: 10px;
 		height: 200px;
@@ -42,9 +44,9 @@
 
 .body_order_card {
 	padding: 10px;
-	background-color: white;
+	height: 100%;
+	background-color: #fff;
 	border: 1px solid #aaa;
-
 }
 
 .pending_status {

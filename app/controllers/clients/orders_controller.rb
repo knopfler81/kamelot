@@ -1,7 +1,7 @@
 class Clients::OrdersController < ApplicationController
 
 	def index
-		@orders = Order.where(user_id: !nil)
+		@orders = Order.where(user_id: !nil).paginate(page: params[:page], per_page: 5)
 		@orders = @orders.filter_by_status(params[:status]) if params[:status]
 	end
 
