@@ -15,9 +15,15 @@ gem 'cocoon'
 gem 'rails-i18n'
 
 
+#environement variables
+gem "figaro"
+
 #payment 
 gem 'money-rails'
 gem 'stripe'
+
+#notifications 
+gem 'twilio-ruby'
 
 #authentication && authorization
 gem 'devise'
@@ -40,25 +46,32 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'sidekiq-failures', '~> 1.0'
 
+
+group :development do 
+  gem "letter_opener", group: :development
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'better_errors'
+end
+
+
+
 group :development, :test do
- 	gem 'rspec-rails', '~> 3.7'
-	gem 'launchy'
-	gem 'chromedriver-helper'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'launchy'
+  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
-	gem 'shoulda-matchers', '~> 3.1'
-	gem 'capybara'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'capybara'
   gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'
   gem 'rails-controller-testing'
   gem 'capybara-screenshot'
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   gem "factory_bot_rails", "~> 4.0"
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end

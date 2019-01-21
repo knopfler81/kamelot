@@ -1,0 +1,11 @@
+<h2>Bonjour <%= @order.user.first_name %></h2>
+<p>
+  Nous avons bien reçu votre commande pour:
+</p>
+
+
+<% @order.items.each do |item| %>
+	<%= item.product.brand %> - <%= item.size.size_name  %> - <%= item.quantity %> 
+<% end %>
+
+<p>Voir votre <%= link_to "Commande", clients_orders_url %></p>
