@@ -1,23 +1,38 @@
 <div class="container">
 
-	<h1><%= link_to "Liste des commandes", admin_orders_path, class: 'btn btn-warning' %> Suivi de la commande N° FR-000<%= @order.id %></h1>
+	<h1>Suivi de la commande N° FR-000<%= @order.id %></h1>
+	<%= link_to " Retour à la liste des commandes", admin_orders_path, class: 'btn btn-warning' %> 
+	<br><br>
 	<hr>
 	
 	<div class="row">
-		<div class="col-5">
-			<p>Coordonnées du client</p>
-				<%= @order.user.first_name %> - <%= @order.user.last_name %>
+		<div class="col-4">
+			<p>Adresse de livraison</p>
+				<%= @order.user.shipping_address.first_name %>  <%= @order.user.shipping_address.last_name %>
 				<br>
-				<%= @order.user.address_1 %>
-				<%= @order.user.address_2 if @order.user.address_2 %>
+				<%= @order.user.shipping_address.address_1 %>
+				<%= @order.user.shipping_address.address_2 if @order.user.shipping_address.address_2 %>
 				<br>
-				<%= @order.user.zipcode %> - <%= @order.user.city %>
+				<%= @order.user.shipping_address.zipcode %> <%= @order.user.shipping_address.city %>
 				<br>
-				<%= @order.user.phone %>
+				<%= @order.user.shipping_address.phone %>
 				<br><br>
 		</div>
-
-		<div class="col-7">
+		<div class="col-4">
+				<% if @order.user.billing_address %>
+				<p>Adresse de Facturation</p>
+					<%= @order.user.billing_address.first_name %>  <%= @order.user.billing_address.last_name %>
+					<br>
+					<%= @order.user.billing_address.address_1 %>
+					<%= @order.user.billing_address.address_2 if @order.user.billing_address.address_2 %>
+					<br>
+					<%= @order.user.billing_address.zipcode %>  <%= @order.user.billing_address.city %>
+					<br>
+					<%= @order.user.billing_address.phone %>
+					<br><br>
+				<% end %>
+		</div>
+		<div class="col-4">
 			<% if @order.status == "paid" %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 				  <%= f.hidden_field :status, value: "confirmed" %>
@@ -36,10 +51,11 @@
      <% end %>
 		</div>
 </div>
-
+<br><br>
 	<div class='row'>
 		<div class="col-12">
 			<h2>Articles commandés</h2>
+			<hr>
 			<div class="order_card">
 				<div class="row header_order_card <%= "#{@order.status.downcase}_status" %>">
 					<div class="col-4">
@@ -66,7 +82,7 @@
 						</div>
 					 	<div class="col-4">
 					 		<p><%= item.quantity %>-<%= item.product.title %>, taille <%= item.size.size_name %></p>
-					 		<p><%= number_to_currency_euro(item.product.price_cents) %></p>
+					 		<p><%= number_to_currency_euro(item.product.price_cents / 100) %></p>
 					 	</div>
 					</div>
 				<% end %>

@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
 
 	def index
-		@orders = Order.where(user_id: !nil).order('created_at DESC').paginate(page: params[:page], per_page: 10)
+		@orders = Order.where.not(user_id: nil).order('created_at DESC').paginate(page: params[:page], per_page: 10)
 		@orders = @orders.filter_by_status(params[:status]) if params[:status]
 	end
 
