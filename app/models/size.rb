@@ -6,4 +6,12 @@ class Size < ApplicationRecord
 
  	scope :sort_by_category, ->  { joins(product: :category).order("categories.title ASC,  products.title ASC, sizes.created_at ASC ")}
 
+
+ 	def re_add_in_stock
+ 		self.quantity += 1
+ 	end
+
+ 	def remove_from_stock
+ 		self.quantity -= 1
+ 	end
 end

@@ -15,10 +15,17 @@ Rails.application.routes.draw do
 
 			resources :products
 
+			get "desktop", to: "products#desktop"
+
 		 	resources :categories do 
 		 		resources :products
 		 	end
 
+
+		 	resources :sizes do
+		 		get 'decrease', on: :member
+		 		get 'increase', on: :member
+		 	end
 
 		 	resources :users do 
 				resources :orders, only: [:index, :show]

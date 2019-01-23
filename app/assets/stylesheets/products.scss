@@ -115,10 +115,8 @@ select {
 
 .icon_tab {
 	font-size: 30px;
-	color: green;
+
 }
-
-
 
  // effet Zoom sur products
 
@@ -150,3 +148,28 @@ select {
     background-size: cover;
     transition: transform .5s ease-out;
   }
+
+
+.destock_card {
+	padding: 10px;
+	background: #ccc;
+	margin-top: 20px;
+	.size_name {
+		color: #FB002DFF;
+		font-weight: bold;
+	}
+}
+
+.header_destock_card {
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+}
+
+
+@media (max-width: 667px) {
+	
+	.links_desktop {
+		display:  none;
+	}
+}

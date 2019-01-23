@@ -84,18 +84,35 @@
 </nav>
 <div class="nav-lower">
   <div class="container-fluid">
-    <%= simple_form_for :query, url: clients_products_path, method: :get,  wrapper: :inline_form  do |f| %>
-      <div class="row">
-        <div class="col-10 col-md-8 offset-md-2">
-          <%= f.input  :keyword, placeholder: "rechercher un article", input_html: {class: "input-search"} %>
+
+    <% if current_user && current_user.admin? %> 
+      <%= simple_form_for :query, url: admin_products_path, method: :get,  wrapper: :inline_form  do |f| %>
+        <div class="row">
+          <div class="col-10 col-md-8 offset-md-2">
+            <%= f.input  :keyword, placeholder: "rechercher un article", input_html: {class: "input-search"} %>
+          </div>
+          <div class="col-2 col-md-2">
+            <%= button_tag type: 'submit', class: 'btn btn-warning search-btn-nav' do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+          </div>
         </div>
-        <div class="col-2 col-md-2">
-          <%= button_tag type: 'submit', class: 'btn btn-warning search-btn-nav' do %>
-            <i class="fa fa-search"></i>
-          <% end %>
+      <% end %>
+    <% else %>
+      <%= simple_form_for :query, url: clients_products_path, method: :get,  wrapper: :inline_form  do |f| %>
+        <div class="row">
+          <div class="col-10 col-md-8 offset-md-2">
+            <%= f.input  :keyword, placeholder: "rechercher un article", input_html: {class: "input-search"} %>
+          </div>
+          <div class="col-2 col-md-2">
+            <%= button_tag type: 'submit', class: 'btn btn-warning search-btn-nav' do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+          </div>
         </div>
-    </div>
+      <% end %>
   <% end %>
+
   </div>
 </div>
 

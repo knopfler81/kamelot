@@ -5,6 +5,12 @@ class Admin::ProductsController < ApplicationController
 
 	def index
 		filter_products if params[:query].present?
+    @products ||= Product.paginate(page: params[:page], per_page: 3)
+	end
+
+
+	def desktop
+ 		filter_products if params[:query].present?
     @products ||= Product.all
 	end
 
