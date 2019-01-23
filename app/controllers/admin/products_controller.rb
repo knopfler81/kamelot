@@ -4,7 +4,14 @@ class Admin::ProductsController < ApplicationController
 	before_action :set_product, only: [:show, :destroy, :update, :edit]
 
 	def index
-		@products = Product.all
+		filter_products if params[:query].present?
+    @products ||= Product.paginate(page: params[:page], per_page: 3)
+	end
+
+
+	def desktop
+ 		filter_products if params[:query].present?
+    @products ||= Product.all
 	end
 
 	def show
@@ -62,5 +69,12 @@ class Admin::ProductsController < ApplicationController
 
 	def params_product
 		params.require(:product).permit(:title, :brand, :description, :price_cents, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+	end
+
+	def filter_products
+	  return if params[:query].blank?
+	  @products = Product.where('lower(title) LIKE ?', "%#{params[:query][:keyword].downcase }%")
+	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
+	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	end
 end
