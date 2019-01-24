@@ -13,7 +13,7 @@ class ShoppingCart
   end
 
   def items_count
-    order.items.sum(:quantity)
+    order.items.exclude_if_size_quantity_zero.sum(:quantity)
   end
 
   def add_item(product_id:, quantity:1 , size_id:) 
@@ -39,7 +39,6 @@ class ShoppingCart
     else
       CartCleanupJob.set(wait: 30.minutes).perform_later(order.id) 
     end
-
   end
 
   def change_qty(id:, quantity:1, product_id:, size_id:)
@@ -56,6 +55,7 @@ class ShoppingCart
       update_sub_total!
     end
   end
+
 
   private
 

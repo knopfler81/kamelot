@@ -9,7 +9,7 @@
 							<td><%= item.product.brand %></td>
 							<td><%= item.product.title %></td>
 							<td><%= item.size.size_name %></td>
-							<td><%= number_to_currency_euro item.product.price_cents %></td>
+							<td><%= number_to_currency_euro item.price %></td>
 						</tr>
 					</tbody>
 				<% end %>
@@ -17,7 +17,7 @@
 					<td></td>
 					<td></td>
 					<td>Sous total</td>
-					<td ><%= number_to_currency_euro @order.sub_total %></td>
+					<td ><%= number_to_currency_euro @order.items.map {|i| i.price}.sum  %></td>
 				</tbody>
 				<tbody>
 					<td></td>
@@ -29,7 +29,7 @@
 					<td></td>
 					<td></td>
 					<td>Total</td>
-					<td><%= number_to_currency_euro @order.total_price %></td>
+					<td><%= number_to_currency_euro @order.items.map {|i| i.price }.sum + 5 %></td>
 				</tfoot>
 			</table>
 			<br>

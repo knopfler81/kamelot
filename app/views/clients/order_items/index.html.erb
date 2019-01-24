@@ -15,22 +15,26 @@
 				<tbody>
 					<%  @items.each do |item| %>
 					<tr>
-						<td class="tab_image"><%= image_tag(item.product.attachments.first.url, class: "tiny_image") %> 
-							<%= link_to item.product.title, clients_product_path(item.product_id), class: "title_in_tab" %> </td>	
-
+						<td class="tab_image <%= 'fade_img' if item.size.quantity == 0 %>"><%= image_tag(item.product.attachments.first.url, class: "tiny_image") %> 
+							<span class="<%= 'not_available' if item.size.quantity == 0 %>"><%= link_to item.product.title, clients_product_path(item.product_id), class: "title_in_tab" %></span>
+						</td>	
 						<td class="tab_quantity">	
-							<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
-								<%= f.hidden_field :id, value: item.id %>
-								<%= f.hidden_field :product_id, value: item.product.id %>
-								<%= f.hidden_field :size_id, value: item.size.id %>
-								<%= f.select :quantity, options_for_select((1..Size.where(id: item.size.id).last.quantity), selected: item.quantity) %>
-								<%= f.submit "MAJ", class: "btn btn-success submit-btn" %>
+							<% if item.size.quantity == 0 %>
+								<small>n'est plus disponible</small>
+							<% else %>
+								<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
+									<%= f.hidden_field :id, value: item.id %>
+									<%= f.hidden_field :product_id, value: item.product.id %>
+									<%= f.hidden_field :size_id, value: item.size.id %>
+									<%= f.select :quantity, options_for_select((1..Size.where(id: item.size.id).last.quantity), selected: item.quantity) %>
+									<%= f.submit "MAJ", class: "btn btn-success submit-btn" %>
+								<% end %>
 							<% end %>
 						</td>
-						<td><%= number_to_currency_euro item.product.price_cents  * item.quantity %></td>
-						<td><%= item.size.size_name %> </td>
+						<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= number_to_currency_euro item.price  * item.quantity %></td>
+						<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= item.size.size_name %> </td>
 						<td>	  
-							<%= link_to clients_order_item_path(item), method: :delete, remote: true ,data: {confirm: "Voulez vous vraiment supprimer cet article?"}, class: 'delete_btn' do  %>
+							<%= link_to clients_order_item_path(item), method: :delete, remote: true ,data: {confirm: "Voulez vous vraiment supprimer cet article?"}, class: ' btn btn-danger delete_btn' do  %>
 								<i class="fa fa-trash"></i>
 							<% end %>
 						</td>
@@ -39,23 +43,28 @@
 				</tbody>
 				<tfoot>
 					<tr>
+						<td><small><i>Les articles dans le panier ne sont pas réservés.</i></small></td>
+						<td></td>
+						
 						<td colspan='4' align="right" id="total_amount"><%= number_to_currency_euro @current_cart.sub_total %></td>
 					</tr>
 				</tfoot>
 			</table>
 		</div>
 		<div class="col-3">
+			<br><br>
 			<%= link_to "Continuer les achats", root_path, class: "btn btn-primary" %>
 			<br><br>
-			<% if current_user %>
-				<%= link_to "Commander", clients_checkout_path, class: "btn btn-success" %>
-			<% else %>
-					<%= link_to  "Commander",  new_user_session_path, class: "btn btn-success" %>
-			<% end %>
+			
+				<% if current_user %>
+					<%= link_to "Commander", clients_checkout_path, class: "btn btn-success" %>
+				<% else %>
+						<%= link_to  "Commander", new_user_session_path, class: "btn btn-success" %>
+				<% end %>
+
 
 			<br>
-<!-- 			<small><i>Votre panier expirera dans 30 minutes</i></small>
- -->		</div>
+		</div>
 	</div>
 </div>
 

@@ -1,7 +1,14 @@
 <div class="container fluid">
+	<br>
 	<div class="row">
-		<% @products.each do |product| %>
+		<% if @products.count > 0 %>
+			<% @products.each do |product| %>
+					<%= render  'clients/shared/cards', product: product %>
+			<% end %>
+		<% else %>
+			<% Product.all.each do |product| %>
 				<%= render  'clients/shared/cards', product: product %>
+			<% end %>
 		<% end %>
 	</div>
 </div>

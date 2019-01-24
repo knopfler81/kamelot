@@ -62,7 +62,7 @@
 						<small>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></small>
 					</div>
 					<div class="col-4">
-						<small>Total : <%= number_to_currency_euro @order.sub_total %> | </small>
+						<small>Total : <%= number_to_currency_euro @order.sub_total_cents %> | </small>
 						<small> Nombre d'articles: <%= @order.count_articles %></small>
 					</div>
 					<div class="col-2">
@@ -82,7 +82,7 @@
 						</div>
 					 	<div class="col-4">
 					 		<p><%= item.quantity %>-<%= item.product.title %>, taille <%= item.size.size_name %></p>
-					 		<p><%= number_to_currency_euro(item.product.price_cents / 100) %></p>
+					 		<p><%= number_to_currency_euro(item.product.price_cents) %></p>
 					 	</div>
 					</div>
 				<% end %>

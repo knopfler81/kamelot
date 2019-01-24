@@ -110,8 +110,14 @@
 }
 
 
-.tab_quantity {
-	width: 100px
+.not_available {
+	color: red;
+	//text-decoration: line-through;
+}
+
+
+.fade_img {
+	opacity: 0.3;
 }
 
 .tiny_image {
@@ -121,5 +127,4 @@
 .title_in_tab	{
 	margin-left: 40px;
 	color: black;
-
 }

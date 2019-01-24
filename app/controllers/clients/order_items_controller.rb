@@ -26,7 +26,6 @@ class Clients::OrderItemsController < ApplicationController
     @item = OrderItem.find(params[:id])
   end
 
-
   def update
     @size = Size.find(params[:size_id])
     respond_to do |format|
@@ -46,7 +45,6 @@ class Clients::OrderItemsController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @current_cart.remove_item(id: params[:id])

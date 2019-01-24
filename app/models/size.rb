@@ -6,6 +6,8 @@ class Size < ApplicationRecord
 
  	scope :sort_by_category, ->  { joins(product: :category).order("categories.title ASC,  products.title ASC, sizes.created_at ASC ")}
 
+ 	scope :available, -> { where('sizes.quantity > ?',  "0")}
+
 
  	def re_add_in_stock
  		self.quantity += 1
