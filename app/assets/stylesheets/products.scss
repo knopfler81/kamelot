@@ -45,8 +45,9 @@
 
 
 .product_suggestion {
-	height: 350px;
-	padding: 5px;
+	//height: 300px;
+	//width: auto;
+
 }
 
 #recommendation{
@@ -80,22 +81,7 @@
 	}
 }
 
-.card {
-	margin:  20px;
-}
 
-
-.footer_card {
-	text-align: center;
-	background-color: white;
-	height: 30px;
-	font-size: 12px;
-	text-align:left;
-	padding-top: 10px;
-	padding-left: 10px;
-	line-height: 10px;
-	color: #000;
-}
 
 .images_gallery {
 	margin-bottom: 20px;
@@ -172,4 +158,5 @@ select {
 	.links_desktop {
 		display:  none;
 	}
+
 }

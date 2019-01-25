@@ -53,7 +53,9 @@
 	<h1>Nos recommandations</h1>
 	<div class="row">
 		<% @products.where(category_id: @product.category_id).where.not(id: @product.id).each do |product| %>
-		<%=  render "clients/shared/cards", product: product %>
+			<div class="col-6  col-md-4 col-lg-3">
+				<%=  render "clients/shared/cards", product: product %>
+			</div>
 		<% end %>
 	</div>
 </div>
