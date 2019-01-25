@@ -1,16 +1,16 @@
-$('#header_card_<%= @product.id %>').bind('.not-favorite').bind('ajax:success', function(){
+$('#header_box_<%= @product.id %>').bind('.not-favorite').bind('ajax:success', function(){
 
 	if("<%= @favorites.count %>" === "1"){
 			$("#like_<%= @product.id %>").empty();
-			$("#header_card_<%= @product.id %>").find("#like_<%= @product.id %>").replaceWith("<div class='unlike_<%= @product.id %>'><a data-remote='true' rel='nofollow' data-method='delete' href='/clients/products/<%= @product.id %>/favorites/<%= @favorite.id %>'><i class= 'fa fa-heart favorite-active'></i></a></div>");	
-			$("#header_card_<%= @product.id %> .not-favorite").toggleClass('not-favorite').toggleClass('favorite-active');
+			$("#header_box_<%= @product.id %>").find("#like_<%= @product.id %>").replaceWith("<div class='unlike_<%= @product.id %>'><a data-remote='true' rel='nofollow' data-method='delete' href='/clients/products/<%= @product.id %>/favorites/<%= @favorite.id %>'><i class= 'fa fa-heart favorite-active'></i></a></div>");	
+			$("#header_box_<%= @product.id %> .not-favorite").toggleClass('not-favorite').toggleClass('favorite-active');
 			$("#likes_counter").html("<%= @favorites.count %>");
 		location.reload();	
 	}
 	else {
 		$("#like_<%= @product.id %>").empty();
-		$("#header_card_<%= @product.id %>").find("#like_<%= @product.id %>").replaceWith("<div class='unlike_<%= @product.id %>'><a data-remote='true' rel='nofollow' data-method='delete' href='/clients/products/<%= @product.id %>/favorites/<%= @favorite.id %>'><i class= 'fa fa-heart favorite-active'></i></a></div>");	
-		$("#header_card_<%= @product.id %> .not-favorite").toggleClass('not-favorite').toggleClass('favorite-active');
+		$("#header_box_<%= @product.id %>").find("#like_<%= @product.id %>").replaceWith("<div class='unlike_<%= @product.id %>'><a data-remote='true' rel='nofollow' data-method='delete' href='/clients/products/<%= @product.id %>/favorites/<%= @favorite.id %>'><i class= 'fa fa-heart favorite-active'></i></a></div>");	
+		$("#header_box_<%= @product.id %> .not-favorite").toggleClass('not-favorite').toggleClass('favorite-active');
 		$("#likes_counter").html("<%= @favorites.count %>");
 	}
 });

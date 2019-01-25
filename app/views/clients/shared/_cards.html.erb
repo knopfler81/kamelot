@@ -1,5 +1,5 @@
-<div class="card">
-	<div class="header_card" id="header_card_<%= product.id %>">
+<div class="box">
+	<div class="header_box" id="header_box_<%= product.id %>">
 		<div class="row">
 			<div class="col-12">
 				<% if current_user %>
@@ -42,14 +42,21 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer_card">
-		<div class="row">
-			<div class="col-8">
-				<small><%= product.brand %> | <%= product.title %></small>
-			</div>
-			<div class="col-4">
-				<small><%= number_to_currency_euro(product.price_cents) %></small>
-			</div>
+	<div class="footer_box">
+
+	<div class="row">
+		<div class="col-12">
+			<small><%= product.brand %></small>
 		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<small><%= product.title %> </small>
+		</div>
+		<div class="col-6">
+			<small><%= number_to_currency_euro(product.price_cents) %></small>
+		</div>
+	</div>
+	
 	</div>
 </div>
