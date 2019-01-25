@@ -10,9 +10,9 @@ class Clients::PaymentsController < ApplicationController
 
 	  charge = Stripe::Charge.create(
 	    customer:     customer.id,   # You should store this customer id and re-use it.
-	    amount:       @order.sub_total_cents,
+	    amount:       @order.total_cents,
 	    description:  "Paiment pour la commande #{@order.id}",
-	    currency:     @order.sub_total.currency
+	    currency:     @order.total.currency
 	  )
 
 	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
@@ -46,6 +46,7 @@ class Clients::PaymentsController < ApplicationController
 
 	def find_paid_order
 		@order = Order.where(status: 'paid', user_id: @order.user.id).find(params[:order_id])
+
 	end
 
   def set_order

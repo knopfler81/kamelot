@@ -6,6 +6,7 @@ class Order < ApplicationRecord
 
   monetize :sub_total_cents
   monetize :shipping_fees_cents
+  monetize :total_cents
 
   enum status: [:pending, :paid, :confirmed, :shipped, :cancelled, :refunded]
 
@@ -36,8 +37,15 @@ class Order < ApplicationRecord
     self.shipping_fees = 500
   end
 
-  def total_price
-    (self.shipping_fees_cents + self.sub_total_cents) / 100
+  def update_sub_total!
+    self.sub_total = self.items.sum('quantity * price')
+    self.save
+  end
+
+
+  def update_total!
+    self.total = self.items.sum('quantity * price') + 5
+    self.save
   end
 
 end

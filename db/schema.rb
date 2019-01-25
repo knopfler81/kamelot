@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_19_135835) do
+ActiveRecord::Schema.define(version: 2019_01_25_094320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_135835) do
     t.json "payment"
     t.integer "shipping_fees_cents", default: 0, null: false
     t.integer "user_id"
+    t.integer "total_cents", default: 0, null: false
   end
 
   create_table "products", force: :cascade do |t|

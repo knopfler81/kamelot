@@ -1,19 +1,25 @@
-<!-- app/views/payments/new.html.erb -->
-<h1>Commande pour</h1>
-<%= form_tag clients_order_payments_path(@order) do %>
-  <%=  %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= number_to_currency_euro(@order.sub_total) %></span>
-    </label>
-  </article>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 offset-1">
+      <!-- app/views/payments/new.html.erb -->
+      <h1>Commande pour</h1>
+      <%= form_tag clients_order_payments_path(@order) do %>
+        <%=  %>
+        <article>
+          <label class="amount">
+            <span>Amount: <%= number_to_currency_euro(@order.total) %></span>
+          </label>
+        </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Ma commande"
-    data-email="<%= current_user.first_name %> - <%= current_user.last_name %>"
-    data-description="Commande N° <%= @order.id %>"
-    data-amount="<%= @order.sub_total_cents %>"
-    data-currency="<%= @order.sub_total.currency %>"></script>
- 
-<% end %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Ma commande"
+          data-email="<%= current_user.first_name %> - <%= current_user.last_name %>"
+          data-description="Commande N° <%= @order.id %>"
+          data-amount="<%= @order.total_cents %>"
+          data-currency="<%= @order.total.currency %>"></script>
+       
+      <% end %>
+    </div>
+  </div>
+</div>
