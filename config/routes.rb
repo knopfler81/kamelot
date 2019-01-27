@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 		 		resources :products
 		 	end
 
+		 	resources :dashboards
 
 		 	resources :sizes do
 		 		get 'decrease', on: :member
