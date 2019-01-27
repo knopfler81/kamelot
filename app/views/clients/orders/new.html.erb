@@ -1,7 +1,8 @@
 <div class="container">
-	<h1>Vérifiez votre commande</h1>
+	
+	<h1>VÉRIFIEZ VOTRE COMMANDE</h1>
 	<div class="row">
-		<div class="col-12 col-md-6"> <!--tableau -->
+		<div class="col-12 col-md-7"> <!--tableau -->
 			<table class='table striped'>
 				<% @order.items.each do |item| %>
 					<tbody>
@@ -37,50 +38,51 @@
 			<br>
 			<%= form_for @order, url: clients_checkout_path do |f| %>
 				<%= f.hidden_field :user_id %>
-					<% if current_user.shipping_address %>
+
 						<%= f.submit "Payer", class: "btn btn-success btn-block" %>
-					<% end %>
+
 			<% end %>
 		</div>
 
-		<div class="col-12 col-md-4 offset-md-2">
+		<div class="col-12 col-md-5">
 			<div class="row">
 				<div class="col-12">
-					<h3>Adresse de livraison</h3>
+					<h3>ADRESSE DE LIVRAISON
+						<%= link_to edit_registration_path(current_user) do  %>
+							<i class="fa fa-edit"></i>
+						<% end %>
+					</h3>	
 					<hr>
-					<% if current_user.shipping_address.present? %>
-						<h4><%= current_user.shipping_address.title %></h4>
-						<p><%=  current_user.shipping_address.first_name %></p>
-						<p><%=  current_user.shipping_address.last_name %></p>
-						<p><%=  current_user.shipping_address.address_1 %></p>
-						<p><%=  current_user.shipping_address.address_2 %></p>
-						<p><%=  current_user.shipping_address.zipcode %> <%=  current_user.shipping_address.city %></p>
-					  <p><%=  current_user.shipping_address.phone %></p>
-						<%= link_to "Modifier l'adresse", edit_shipping_address_path(current_user.shipping_address),  class: 'btn btn-success' %>				
-					<% else %>
-						<%= link_to "Ajouter une adresse pour continuer", new_shipping_address_path(current_user), class: 'btn btn-success'  %>		
-					<% end %>
+
+						
+						<p><%=  current_user.first_name %> <%=  current_user.last_name %></p>
+						<p><%=  current_user.address_1 %></p>
+						<p><%=  current_user.address_2 %></p>
+						<p><%=  current_user.zipcode %> <%=  current_user.city %></p>
+					  <p><%=  current_user.phone %></p>
+			
 				</div>
-			</div>
-			<br><br>
-			<div class="row">
 				<div class="col-12">
-					<% if current_user.billing_address.present?%>
-					<h3>Adresse de facturation </h3>
+
+					<h3>ADRESSE DE FACTURATION
+						<%= link_to new_billing_address_path(current_user.billing_address) do %>
+							<i class="fa fa-edit"></i>
+						<% end %>
+					</h3>
 						<hr>
-						<h4><%= current_user.billing_address.title %></h4>
-						<p><%=  current_user.billing_address.first_name %></p>
-						<p><%=  current_user.billing_address.last_name %></p>							
+					<% if current_user.billing_address.present?%>
+						<p><%=  current_user.billing_address.first_name %> <%=  current_user.billing_address.last_name %></p>
 						<p><%=  current_user.billing_address.address_1 %></p>
 						<p><%=  current_user.billing_address.address_2 %></p>
 						<p><%=  current_user.billing_address.zipcode %> <%=  current_user.billing_address.city %></p>
 					  <p><%=  current_user.billing_address.phone %></p>
-						<%= link_to "Modifier l'adresse", edit_billing_address_path(current_user.billing_address),  class: 'btn btn-success' %>
-					<% else %>
-							<%= link_to "Ajouter adresse de facturation", new_billing_address_path(current_user), class: 'btn btn-success' %>	
+					 <% else %>
+					 <p>Identique à l'adresse de livraison</p>
 					<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 </div>

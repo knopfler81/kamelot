@@ -8,6 +8,15 @@
 @import "pagination";
 @import "boxes";
 
+.error_message {
+	h2 {
+		color: red;
+	}
+	padding: 15px;
+	margin: 10px;	
+	border: 2px dotted red;
+}
+
 .container {
 	margin-top: 30px;
 }

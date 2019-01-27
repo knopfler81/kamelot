@@ -36,6 +36,7 @@ gem 'font-awesome-rails'
 
 
 gem 'will_paginate', '>= 3.1'
+gem 'country_select', require: 'country_select_without_sort_alphabetical'
 
 #uploads images  PDF
 gem 'fog'

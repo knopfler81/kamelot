@@ -1,4 +1,18 @@
 fr:
+  activerecord:
+    attributes:
+      user:
+        registration:
+          updated: "Votre compte a bien été mis à jour."
+        email: Email
+        password: Mot de passe
+        first_name: Prénom
+        last_name: Nom
+        address_1: Adresse
+        address_2: Complémentd'adresse
+        zipcode: Code postal
+        city: Ville
+        phone: Numéro de téléphone
   admin:
     orders:
       _base: &_base

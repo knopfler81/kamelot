@@ -12,7 +12,6 @@ class Clients::OrdersController < ApplicationController
 	def new
 		@order = current_cart.order
 		@billing_address = BillingAddress.new
-		@shipping_address = ShippingAddress.new
 	end
 
 	def create

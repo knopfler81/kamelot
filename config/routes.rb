@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 		 		resources :products
 		 	end
 
+		 	resources :dashboards
 
 		 	resources :sizes do
 		 		get 'decrease', on: :member
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
 		 	resources :users do 
 				resources :orders, only: [:index, :show]
 			end
+
 
 			resources :orders
 
@@ -63,6 +65,8 @@ Rails.application.routes.draw do
 			resources :orders, only: [:index, :show]
 		end
 
+		get "myaccount", to: "users#show"
+		get "myaddresses", to: "users#addresses"
 
 		resources :orders, only: [ :index, :show, :create] do
 		  resources :payments, only: [:new, :create]
