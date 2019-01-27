@@ -4,17 +4,6 @@ RSpec.describe Order do
 
 	fixtures :users, :categories, :products, :sizes, :billing_addresses
 
-	context "A not logged in user" do 
-		scenario "is redirect to the sign up form before adding article in his basket" do
-			nelly 	= users(:nelly)
-			product = products(:red_shirt)
-
-			visit clients_product_path(product)
-			click_on "Ajouter"
-			expect(page).to have_content("Connexion")
-		end
-	end
-
 	context "A user with a completed profile" do 
 		scenario "can checkout" do
 			john 	= users(:nelly)
@@ -32,16 +21,13 @@ RSpec.describe Order do
 
 			click_on "Commander"
 
-			expect(page).to have_content("Vérifiez votre commande")
+			expect(page).to have_content("VÉRIFIEZ VOTRE COMMANDE")
 		end
 	end
 
-	context "A user without a completed profile" do 
-		scenario "is asked to compelte his profile before checking out" do
-			mark 	= users(:mark)
+	context "A user with out an account" do 
+		scenario "is asked to create an before checking out" do
 			product = products(:red_shirt)
-
-			login_as(mark)
 
 			visit clients_product_path(product)
 			
@@ -52,7 +38,7 @@ RSpec.describe Order do
 			expect(page).to have_content("Correctement ajouté au panier")
 			click_on "Commander"
 	
-			expect(page).to have_content("Ajouter une adresse pour continuer")
+			expect(page).to have_content("S'identifier")
 		end
 	end
 end

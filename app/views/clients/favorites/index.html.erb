@@ -1,15 +1,14 @@
 <div class="container boxes">
+
 	<div class="row">
-		<div class="col-12 col-md-3">
+		<div class="col-12 col-md-2">
 			<%= render "clients/shared/menu_user" %>
 		</div>
-		<div class="col-12 col-md-9">
 			<% if @favorites.empty? %>
-					<div class="col-12">
-						<p class="favorites_messages">Vous n'avez encore rien ajouté à votre liste de favoris 😕.</p>
-						<p class="favorites_messages">Cliquez sur les <i class= "fa fa-heart not-favorite"></i> pour les transformer en <i class= "fa fa-heart favorite-active"></i></p>		
-					</div>	
-
+				<div class="col-10">
+					<p class="favorites_messages">Vous n'avez encore rien ajouté à votre liste de favoris 😕.</p>
+					<p class="favorites_messages">Cliquez sur les <i class= "fa fa-heart not-favorite"></i> pour les transformer en <i class= "fa fa-heart favorite-active"></i></p>		
+				</div>	
 			<% else %>
 				<% @favorites.each do |favorite| %>
 						<div class="col-6 col-md-4 col-lg-3">

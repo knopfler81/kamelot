@@ -1,44 +1,49 @@
 <div class="container">
-	<div class="row">
 
-		<div class="col-12 col-md-4">
-			<%= render 'menu_user' %>
+		
+		<h1 class="title">Mes adresses</h1>
+		<hr>
 
-		</div>
-		<div class="col-12 col-md-4">
-			<h2>LIVRAISON
-				<%= link_to edit_registration_path(current_user) do  %>
-					<i class="fa fa-edit"></i>
-				<% end %>
-			</h2>
-				<p><%= current_user.first_name %> <%= current_user.last_name %></p>
-				<p><%= current_user.address_1 %></p>
-				<p><%= current_user.address_2 %></p>
-				<p><%= current_user.zipcode %> <%= current_user.city %></p>
-				<p><%= current_user.phone %></p>
-				<hr>
-				<% if @current_cart.items_count > 0 %>				
-					<%= link_to "Revenir au panier", clients_checkout_path %>
-				<% end %>
-		</div>
-		<div class="col-12 col-md-4">
-			<h2>FACTURATION 
-				<%= link_to new_billing_address_path do  %>
-					<i class="fa fa-edit"></i>
-				<% end %>
-			</h2>
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<%= render 'clients/shared/menu_user' %>
+			</div>
+			<div class="col-12 col-md-4">
+				<h2>LIVRAISON
+					<%= link_to edit_registration_path(current_user) do  %>
+						<i class="fa fa-edit"></i>
+					<% end %>
+				</h2>
+					<p><%= current_user.first_name %> <%= current_user.last_name %></p>
+					<p><%= current_user.address_1 %></p>
+					<p><%= current_user.address_2 %></p>
+					<p><%= current_user.zipcode %> <%= current_user.city %></p>
+					<p><%= current_user.phone %></p>
+					<hr>
+					<% if @current_cart.items_count > 0 %>				
+						<%= link_to "Revenir au panier", clients_checkout_path %>
+					<% end %>
+			</div>
+			<div class="col-12 col-md-4">
+				<h2>FACTURATION 
+					<%= link_to new_billing_address_path do  %>
+						<i class="fa fa-edit"></i>
+					<% end %>
+				</h2>
 
-			<% if current_user.billing_address.present? %>
-				<p><%= current_user.billing_address.first_name %> <%= current_user.billing_address.last_name %></p>
-				<p><%= current_user.billing_address.address_1 %></p>
-				<p><%= current_user.billing_address.address_2 %></p>
-				<p><%= current_user.billing_address.zipcode %> <%= current_user.billing_address.city %></p>
-				<p><%= current_user.billing_address.phone %></p>
-				<hr>
-			<% else %>
-				<p>Identique à l'adresse de livraison</p>
-				<%= link_to "Modifier votre adresse", new_billing_address_path(current_user.billing_address)  %>	
-			<% end %>
+				<% if current_user.billing_address.present? %>
+					<p><%= current_user.billing_address.first_name %> <%= current_user.billing_address.last_name %></p>
+					<p><%= current_user.billing_address.address_1 %></p>
+					<p><%= current_user.billing_address.address_2 %></p>
+					<p><%= current_user.billing_address.zipcode %> <%= current_user.billing_address.city %></p>
+					<p><%= current_user.billing_address.phone %></p>
+					<hr>
+				<% else %>
+					<p>Identique à l'adresse de livraison</p>
+					<%= link_to "Modifier votre adresse", new_billing_address_path(current_user.billing_address)  %>	
+				<% end %>
+			</div>
 		</div>
-	</div>
+	
+
 </div>

@@ -12,10 +12,14 @@ john:
   first_name: John
   last_name: Doe 
   address_1: Route 66
+  address_2: 
   zipcode: 42000
   city: Saint Etienne
+  country: France
   phone: 0678765432
+  gender: Monsieur
   admin: false
+  birth_date: 30.years.ago 
 mark:
   email: mark@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>

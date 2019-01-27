@@ -9,3 +9,6 @@
 <% end %>
 
 <p>Voir votre <%= link_to "Commande", clients_orders_url %></p>
+
+<p>Livraison estimée entre <%= l(@order.delivery_date_1,  format: '%d %B %Y' ) %> et <%= l(@order.delivery_date_2, format: '%d %B %Y') %></p>
+
