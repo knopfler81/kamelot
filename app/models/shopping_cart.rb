@@ -56,7 +56,6 @@ class ShoppingCart
     end
   end
 
-
   private
 
   def update_sub_total!
