@@ -8,6 +8,8 @@ class Product < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :favoriting_users, through: :favorites, source: :user
 	has_many :sizes, inverse_of: :product, dependent: :destroy
+	has_many :order_items, dependent: :destroy
+
 	accepts_nested_attributes_for :sizes, reject_if: :all_blank, allow_destroy: true
 	
 	

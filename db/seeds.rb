@@ -499,7 +499,85 @@ OrderItem.create(price: product_11.price_cents, order_id: order_19.id, product_i
 order_20 = Order.create(created_at: Time.now, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
 OrderItem.create(price: product_11.price_cents, order_id: order_20.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
 
-puts "Orders and OrderItems created"
+#ORDER 21
+order_21 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_21.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 22
+order_22 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_20.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 23
+order_23 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_23.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 24
+order_24 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_24.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 25
+order_25 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_25.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 26
+order_26 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_26.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+
+#ORDER 27
+order_27 = Order.create(created_at: 2.days.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_9.price_cents, total_cents: 200)
+OrderItem.create(price: product_9.price_cents, order_id: order_27.id, product_id: product_9.id, quantity: 1, size_id: size_36.id)
+
+#ORDER 28
+order_28 = Order.create(created_at: 1.days.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_10.price_cents, total_cents: 200)
+OrderItem.create(price: product_10.price_cents, order_id: order_28.id, product_id: product_10.id, quantity: 1, size_id: size_40.id)
+
+#ORDER 29
+order_29 = Order.create(created_at: 1.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_29.id, product_id: product_11.id, quantity: 1, size_id: size_43.id)
+
+#ORDER 30
+order_30 = Order.create(created_at: Time.now, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_30.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 31
+order_31 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_31.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 32
+order_32 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_32.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 33
+order_33 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_33.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 34
+order_34 = Order.create(created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_34.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 35
+order_35 = Order.create(created_at: 2.months.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_35.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 36
+order_36 = Order.create(created_at: 2.months.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents * 3, total_cents: 200)
+OrderItem.create(price: product_11.price_cents, order_id: order_36.id, product_id: product_11.id, quantity: 3, size_id: size_44.id)
+
+#ORDER 37
+order_37 = Order.create(created_at: 2.months.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_9.price_cents, total_cents: 200)
+OrderItem.create(price: product_9.price_cents, order_id: order_37.id, product_id: product_9.id, quantity: 1, size_id: size_36.id)
+
+#ORDER 38
+order_38 = Order.create(created_at: 2.months.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_10.price_cents, total_cents: 200)
+OrderItem.create(price: product_10.price_cents, order_id: order_38.id, product_id: product_10.id, quantity: 1, size_id: size_40.id)
+
+#ORDER 39
+order_39 = Order.create(created_at: 2.months.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents, total_cents: 400)
+OrderItem.create(price: product_11.price_cents, order_id: order_39.id, product_id: product_11.id, quantity: 1, size_id: size_43.id)
+
+puts "Orders created"
+
 
 ShippingAddress.create(
 	user_id: user_2.id,
