@@ -1,48 +1,54 @@
 <body id="orders_page">
 	<div class="container">
+
 		<h1 class="title">Mes commandes</h1>
-		<br>
-		
-		<% @orders.where(user_id: current_user.id).order('created_at DESC').each do |order| %>
-
-			<div class="order_card">
-				<div class="row header_order_card">
-					<div class="col-4">
-						<small>Commande passée le <%= l(order.created_at, format: '%d %B %Y' )%></small><br>
-						<small>Etat de la commande: <%= t(".#{order.status}") %></small>
-					</div>
-					<div class="col-4">
-						<small>Total : <%= number_to_currency_euro order.total_cents %> | </small>
-						<small> Nombre d'articles: <%= order.count_articles %></small>
-					</div>
-					<div class="col-2">
-						<small>Commande: FR-000<%= order.id %></small>
-					</div>
-					<div class="col-2">
-						<small><%= link_to "MA FACTURE", "#"  %></small>
-					</div>
-				</div>
-
-				<% order.items.each do |item| %>
-					<div class="row body_order_card">	
-						<div class="col-2">
-							<%= link_to clients_product_path(item.product) do  %>
-								<%= image_tag(item.product.attachments.first.url) %>
-							<% end %>
-						</div>
-					 	<div class="col-4">
-					 		<p><%= item.quantity %>-<%= item.product.title %>, taille <%= item.size.size_name %></p>
-					 		
-					 		<p><%= number_to_currency_euro(item.product.price_cents) %></p>
-					 	</div>
-					 	<div class="col-2 offset-3">
-					 		<%= link_to "Commander à nouveau", clients_product_path(item.product), class: 'btn btn-warning btn-sm'  %>
-					 	</div>
-					</div>
-			<% end %>
+		<hr>
+		<div class="row">
+			<div class="col-12 col-md-2">
+				<%= render 'clients/shared/menu_user' %>
 			</div>
-				<br>
-		<% end %>
+			<div class="col-12 col-md-10">
+				<% @orders.where(user_id: current_user.id).order('created_at DESC').each do |order| %>
+
+					<div class="order_card">
+						<div class="row header_order_card">
+							<div class="col-4">
+								<small>Commande passée le <%= l(order.created_at, format: '%d %B %Y' )%></small><br>
+								<small>Etat de la commande: <%= t(".#{order.status}") %></small>
+							</div>
+							<div class="col-4">
+								<small>Total : <%= number_to_currency_euro order.total_cents %> | </small>
+								<small> Nombre d'articles: <%= order.count_articles %></small>
+							</div>
+							<div class="col-2">
+								<small>Commande: FR-000<%= order.id %></small>
+							</div>
+							<div class="col-2">
+								<small><%= link_to "MA FACTURE", "#"  %></small>
+							</div>
+						</div>
+
+						<% order.items.each do |item| %>
+							<div class="row body_order_card">	
+								<div class="col-2">
+									<%= link_to clients_product_path(item.product) do  %>
+										<%= image_tag(item.product.attachments.first.url) %>
+									<% end %>
+								</div>
+							 	<div class="col-4">
+							 		<p><%= item.quantity %>-<%= item.product.title %>, taille <%= item.size.size_name %></p>
+							 		
+							 		<p><%= number_to_currency_euro(item.product.price_cents) %></p>
+							 	</div>
+							 	<div class="col-2 offset-3">
+							 		<%= link_to "Commander à nouveau", clients_product_path(item.product), class: 'btn btn-warning btn-sm'  %>
+							 	</div>
+							</div>
+					<% end %>
+					</div>
+						<br>
+				<% end %>
+			</div>
 
 		<div class="row">
 			<div class="col-12 col-md-8 offset-4">

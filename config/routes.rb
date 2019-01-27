@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 				resources :orders, only: [:index, :show]
 			end
 
+
 			resources :orders
 
 			get '/cart/checkout', to: "orders#new", as: :checkout
@@ -64,6 +65,8 @@ Rails.application.routes.draw do
 			resources :orders, only: [:index, :show]
 		end
 
+		get "myaccount", to: "users#show"
+		get "myaddresses", to: "users#addresses"
 
 		resources :orders, only: [ :index, :show, :create] do
 		  resources :payments, only: [:new, :create]

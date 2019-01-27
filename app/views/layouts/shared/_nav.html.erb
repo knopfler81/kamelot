@@ -44,7 +44,7 @@
              </div>
            <% else %>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%= link_to "Profile", clients_user_path(current_user), class: "dropdown-item"  %>
+               <%= link_to "Mon compte", clients_user_path(current_user), class: "dropdown-item"  %>
                <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
                <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
              </div>
