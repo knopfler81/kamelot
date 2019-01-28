@@ -16,7 +16,7 @@ function displayImage(){
 	myDiv = document.createElement("div");
 	myDiv.setAttribute("class", "big_image")
 	myDiv.setAttribute("data-image", this.src)
-	myDiv.setAttribute("data-scale", 3);
+	myDiv.setAttribute("data-scale", 2.5);
 
 	bigImages.appendChild(myDiv)
 	

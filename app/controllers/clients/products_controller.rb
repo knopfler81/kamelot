@@ -16,10 +16,6 @@ class Clients::ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 	end
 
-	def params_product
-		params.require(:product).permit(:title, :description, :price_cents, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
-	end
-
 	def filter_products
 	  return if params[:query].blank?
 	  @products = Product.where('lower(title) LIKE ?', "%#{params[:query][:keyword]}%")

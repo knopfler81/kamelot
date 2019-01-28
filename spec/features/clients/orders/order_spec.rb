@@ -14,7 +14,6 @@ RSpec.describe Order do
 
 			visit clients_product_path(product)
 			select "S", from: "size_id"
-			find("#quantity").set 2
 
 			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")
@@ -31,7 +30,6 @@ RSpec.describe Order do
 
 			visit clients_product_path(product)
 			
-			find("#quantity").set 2
 			select "S", from: "size_id"
 
 			click_on "Ajouter Au Panier"

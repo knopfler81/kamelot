@@ -36,18 +36,14 @@
 
 .small_image {
 	height: 100px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+}
+
+.current_color {
+	height: 100px;
 	padding: 5px;
-}
-
-#big_image_show {
-	max-height: 400px;
-}
-
-
-.product_suggestion {
-	//height: 300px;
-	//width: auto;
-
+	border-bottom: 3px solid #000;
 }
 
 #recommendation{
@@ -63,36 +59,23 @@
 	font-weight: 100;
 }
 
-.description_background {
-	background-color: #ddd;
-	padding: 20px;
-}
-
 .description_img {
 	height: 500px;
 }
 
 .description_text {
 	margin-top: 50px;
-	background-color: #fff;
+	background-color: #ddd;
 	padding: 30px;
 	span {
 		font-weight: bold;
 	}
 }
 
-
-
 .images_gallery {
 	margin-bottom: 20px;
 }
 
-select {
-	background-color: red;
-	height: 39px;
-	color: white;
-	padding: 5px;
-}
 
 #description_img {
 	padding: 10px; 
@@ -106,34 +89,35 @@ select {
 
  // effet Zoom sur products
 
-
 .big_images {
     position: absolute;
+    margin-left: 10px;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
+}
 
-  .big_image {
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
+.big_image {
+  position: relative;
+  margin-left: 10px;
+  float: left;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
-  .photo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    transition: transform .5s ease-out;
-  }
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: transform .5s ease-out;
+}
 
 
 .destock_card {
@@ -148,10 +132,8 @@ select {
 
 .header_destock_card {
 	text-align: center;
-	color: #fff;
 	font-size: 30px;
 }
-
 
 @media (max-width: 667px) {
 	

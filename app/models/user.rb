@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :country,     presence: true
   validates :zipcode,     presence: true
   validates :city,        presence: true
-  validates :phone,       presence: true, length: { minimum: 10, maximum: 10 }
+  validates :phone,       presence: true
   validates :email,       presence: true, uniqueness: true
   validates :birth_date,  presence: true
 end
