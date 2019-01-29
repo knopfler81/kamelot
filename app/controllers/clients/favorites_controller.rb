@@ -1,4 +1,4 @@
-class Clients::FavoritesController < ApplicationController
+class Clients::FavoritesController < Clients::ApplicationController
 
 	before_action :find_favorite, only: [:destroy]
 

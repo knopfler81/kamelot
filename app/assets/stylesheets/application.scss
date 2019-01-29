@@ -20,6 +20,7 @@
 .container {
 	margin-top: 30px;
 }
+
 nav {
 	margin-bottom: 30px;
 }
@@ -29,7 +30,27 @@ a:hover {
 	color: #000;
 }
 
-.nav-upper {
+
+.nav-upper-admin {
+	font-family: 'Montserrat';
+	background-color: #111!important;
+	.navbar-brand {
+		color: #ddd;
+	}
+
+	.nav-link{
+		color: #ddd!important;
+	}
+
+	.dropdown-item {
+		color: #111;
+	}
+	a {
+		color: #ddd;
+	}
+}
+
+.nav-upper-clients {
 	background-color: transparent!important;
 }
 
@@ -38,13 +59,6 @@ a:hover {
 	position: absolute;
 	color: #666;
 	}
-
-
-.nav-lower {
-
-	margin-top: -30px;
-	padding-bottom: 20px;
-}
 
 #likes_counter {
 	font-size: 10px;
@@ -80,20 +94,54 @@ a:hover {
   color: #fff;
 }
 
+.fa-users  {
+	color: green;
+	font-size:25px;
+}
+
 .icon-wrapper {
 	position:relative;
 }
 
-
-.input-search {
-	// background-color: #BCC0C0FF;
-	border: 0px;
-	border-radius: 0px;
-	border-bottom: 3px solid #000;
+.nav-lower-admin {
+	background: #111;
+	margin-top: -30px;
+	padding-bottom: 20px;
 }
 
-.search-btn-nav {
-	color: #000;
+.input-search-admin {
+	background-color: #111;
+	border: 0px;
+	border-radius: 0px;
+	border-bottom: 3px solid #ddd;
+}
+
+.search-btn-nav-admin {
+	color: #ddd;
+	margin-left: -50px;
+	border: 0px;
+	background-color: transparent;
+	.fa-search {
+		font-size: 30px;	
+	}
+}
+
+
+.nav-lower-clients {
+	background: #ddd;
+	margin-top: -30px;
+	padding-bottom: 20px;
+}
+
+.input-search-clients {
+	background-color: #fff;
+	border: 0px;
+	border-radius: 0px;
+	border-bottom: 3px solid #111;
+}
+
+.search-btn-nav-clients {
+	color: #111;
 	margin-left: -50px;
 	border: 0px;
 	background-color: transparent;

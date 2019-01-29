@@ -1,4 +1,4 @@
-class Clients::PaymentsController < ApplicationController
+class Clients::PaymentsController < Clients::ApplicationController
 
 	before_action :set_order
 

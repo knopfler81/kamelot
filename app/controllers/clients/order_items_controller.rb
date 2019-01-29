@@ -1,4 +1,4 @@
-class Clients::OrderItemsController < ApplicationController
+class Clients::OrderItemsController < Clients::ApplicationController
 
   def index
     @items = current_cart.order.items.order('created_at DESC')

@@ -1,4 +1,5 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < Admin::ApplicationController
+
 
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
 	before_action :set_product, only: [:show, :destroy, :update, :edit]

@@ -1,4 +1,5 @@
-class Clients::ProductsController < ApplicationController
+class Clients::ProductsController < Clients::ApplicationController
+
 
 	def index
 		filter_products if params[:query].present?
@@ -22,5 +23,6 @@ class Clients::ProductsController < ApplicationController
 	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword]}%"))
 	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword]}%"))
 	end
+
 
 end

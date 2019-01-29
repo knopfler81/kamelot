@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-upper-admin">
+ <div class="container-fluid">
+  <%= link_to "MarketWeb", admin_products_path,  class:"navbar-brand" %>
+   <button class="navbar-toggler admin " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon admin"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav ml-auto">
+       <% Category.order('title ASC').all.each do |cat| %>
+         <li class="nav-item"><%= link_to  "#{cat.title} ", admin_category_path(cat), class: "nav-link" %></li>
+       <% end %>
+     </ul>
+     <ul class="navbar-nav ml-auto">
+      <% if current_user && current_user.admin? %>
+        <li class="nav-item">
+          <%= link_to   "Mon Stock", admin_products_path, class: "nav-link" %>
+        </li>
+      <% end %>
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user %>
+            <%= current_user.first_name %>
+          <% else %>
+              Mon Compte
+          <% end %>
+          </a>
+         <% if current_user %>
+           <% if current_user.admin? %>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+               <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
+               <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
+               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+             </div>
+           <% else %>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+               <%= link_to "Mon profile", admin_user_path(current_user), class: "dropdown-item"  %>
+               <%= link_to "Mes adresses", admin_myaddresses_path, class: "dropdown-item" %>
+               <%= link_to "Mes commandes", admin_orders_path, class: "dropdown-item"  %>
+               <%= link_to "Mes favoris", admin_favorites_path, class: "dropdown-item"  %>
+               <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
+               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+             </div>
+           <% end %>
+        <% else %>
+           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+             <%= link_to "Connection", new_user_session_path, class: "dropdown-item"  %>
+           </div>           
+         <% end %>
+       </li>
+       <% if current_user && current_user.admin? %>
+         <li class="nav-link">
+          <%= link_to "Site Clients", clients_products_path %>
+         </li>
+       <% end %>
+     </ul>
+   </div>
+ </div>
+</nav>
+<div class="nav-lower-admin">
+  <div class="container-fluid">
+    <%= simple_form_for :query, url: admin_products_path, method: :get,  wrapper: :inline_form  do |f| %>
+      <div class="row">
+        <div class="col-10 col-md-2">
+          <%= f.input  :keyword, placeholder: "Rechercher", input_html: {class: "input-search-admin"} %>
+        </div>
+        <div class="col-2 col-md-2">
+          <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

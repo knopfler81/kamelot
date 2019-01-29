@@ -1,5 +1,4 @@
-class Clients::UsersController < ApplicationController
-
+class Clients::UsersController < Clients::ApplicationController
 
 	def show
 	end
