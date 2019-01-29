@@ -1,7 +1,7 @@
 <%= simple_form_for(@product, url: admin_products_path)do |f| %>		
 	<div class="row">
 		<div class="col-xs-12 col-md-3">
-			<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie" %>
+			<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie", input_html: { class: "custom-select"}%>
 		</div>
 		<div class="col-xs-12 col-md-3">
 			<%= f.input :brand, placeholder: "Marque", label: false %>
@@ -38,13 +38,13 @@
 	      <%= render "size_fields", f: size %>
 	    <% end %>
 	   	<div class="links">
-	     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class:"btn btn-primary btn-lg" %>
+	     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class: "btn btn-secondary btn-lg" %>
 	   	</div>
 		</div>
 	</div>
   <br><br>
   <div class="col-12">
-		<%= f.submit "Valider le produit", class: "btn btn-success btn-lg btn-block" %>
+		<%= f.submit "Valider le produit", class: "btn btn-main btn-lg btn-block" %>
   </div>
 <% end %>
 

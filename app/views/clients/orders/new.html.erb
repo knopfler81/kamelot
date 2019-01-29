@@ -76,13 +76,15 @@
 					<div class="col-12">
 						<%= form_for @order, url: clients_checkout_path do |f| %>
 							<%= f.hidden_field :user_id %>
-								<%= f.submit "Valider le paiement", class: "btn btn-success btn-block" %>
+								<%= f.submit "Valider le paiement", class: "btn btn-main btn-block" %>
 						<% end %>
 					</div>
+					
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<small>Livraison estimée entre <%= l(delivery_date_1,  format: '%d %B %Y' ) %> et <%= l(delivery_date_2, format: '%d %B %Y') %></small>
+						<small>Livraison estimée entre: </small><br>
+						<small> <%= l(delivery_date_1,  format: '%d %B %Y' ) %> et <%= l(delivery_date_2, format: '%d %B %Y') %></small>
 					</div>
 				</div>
 			</div>

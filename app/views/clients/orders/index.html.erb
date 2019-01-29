@@ -1,11 +1,7 @@
 <div class="container">
 
 	<div class="row">
-			<div class="d-none d-sm-block col-md-2">
-
-			<%= render 'clients/shared/menu_user' %>
-		</div>
-		<div class="col-12 col-md-10">
+		<div class="col-12">
 			<% @orders.where(user_id: current_user.id).order('created_at DESC').each do |order| %>
 				<%= link_to clients_order_path(order) do  %>
 					<div class="small-cards">

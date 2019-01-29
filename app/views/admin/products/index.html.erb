@@ -2,8 +2,7 @@
 	<h1 class="primary_title manage_stock_title">GESTION DU STOCK</h1>
 	<hr class="manage_stock_title">
 	<div class="links_desktop">
-		<%= link_to "Liste bureau", admin_desktop_path, class: " btn btn-success"  %>
-		<%= link_to "Voir en tant que clients", clients_products_path , class: "btn btn-warning" %>
+		<%= link_to "Liste bureau", admin_desktop_path, class: "btn btn-main"  %>
 	</div>
 	<% @products.each do |product| %>
 		<%product.sizes.each do |size| %>
@@ -31,12 +30,12 @@
 					</div>
 
 					<div class="col-5">
-						<%= link_to  increase_admin_size_path(id: size.id), class:"btn btn-success btn-block btn-lg" do  %>
+						<%= link_to  increase_admin_size_path(id: size.id), class: "btn btn-main btn-block btn-lg" do  %>
 							<span>Remettre</span><br>
 							<span>en Stock</span>
 						<% end %>
-
-						<%= link_to  decrease_admin_size_path(id: size.id), class:"btn btn-danger btn-block btn-lg" do  %>
+							<br>
+						<%= link_to  decrease_admin_size_path(id: size.id), class: "btn btn-danger btn-block btn-lg" do  %>
 							<span>Enelver</span><br>
 							<span>du Stock</span>
 						<% end %>		

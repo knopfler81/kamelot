@@ -22,7 +22,6 @@
           </a>
          <% if current_user %>
            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-             <%= link_to "Mon profile", clients_user_path(current_user), class: "dropdown-item"  %>
              <%= link_to "Mes adresses", clients_myaddresses_path, class: "dropdown-item" %>
              <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
              <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>

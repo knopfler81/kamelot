@@ -2,7 +2,7 @@
 	<div class="row">
 		<% @categories.each do |cat| %>
 			<% cat.products.each do |product| %>
-				<%= render "clients/shared/cards", product: product %>
+				<%= render "admin/shared/cards", product: product %>
 			<% end %>
 		<% end %>
 	</div>

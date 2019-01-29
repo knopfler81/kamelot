@@ -36,7 +36,7 @@
 			<% if @order.status == "paid" %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 				  <%= f.hidden_field :status, value: "confirmed" %>
-				  <%= submit_tag "Je prépare la commande" , class: "btn btn-success"%>
+				  <%= submit_tag "Je prépare la commande" , class: "btn btn-secondary"%>
 				<% end %>
 				<br><br>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
@@ -46,7 +46,7 @@
 			<% elsif @order.status == "confirmed" %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 	        <%= f.hidden_field :status, value: "shipped" %>
-	        <%= submit_tag "J'ai envoyé la commande" , class: "btn btn-success"%>
+	        <%= submit_tag "J'ai envoyé la commande" , class: "btn btn-secondary"%>
 	      <% end %>
      <% end %>
 		</div>

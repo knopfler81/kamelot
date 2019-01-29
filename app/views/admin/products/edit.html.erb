@@ -40,13 +40,13 @@
 		      <%= render "size_fields", f: size %>
 		    <% end %>
 		   	<div class="links">
-		     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class:"btn btn-primary btn-lg" %>
+		     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class:"btn-main btn-lg" %>
 		   	</div>
 			</div>
 		</div>
     <br><br>
     <div class="col-12">
-			<%= f.submit "Valider le produit", class: "btn btn-success btn-lg btn-block" %>
+			<%= f.submit "Valider le produit", class: "btn-secondary btn-lg btn-block" %>
     </div>
 	<% end %>
 </div>

@@ -1,0 +1,57 @@
+<div class="box">
+	<div class="header_box" id="header_box_<%= product.id %>">
+		<div class="row">
+			<div class="col-12">
+				<% if current_user %>
+					<div class="like_unlike">
+						<% if product.favoriting_users.include? current_user %>
+							<div id="unlike_<%= product.id %>">
+									<i class= "fa fa-heart favorite-active"></i>	
+							</div>	
+						<% else %>
+							<div id="like_<%= product.id %>">
+								<i class= "fa fa-heart not-favorite"></i>
+							</div>
+						<% end %>	
+					</div>
+				<% end %>
+				<%= link_to admin_product_path(product) do  %>
+					<div id="carousel_<%= product.id%>" class="carousel slide" data-ride="carousel" data-interval="false">
+					  <div class="carousel-inner">
+						  <% product.attachments.each do |img| %>
+					  	  <div class="carousel-item <%= 'active' if img == product.attachments[0] %>">  
+					  	  	<%= image_tag img.url,  class: "product_suggestion"  %>								  	    
+					  	  </div>
+							<% end %>
+					  </div>
+					  <a class="carousel-control-prev" href="#carousel_<%= product.id %>" role="button" data-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="carousel-control-next" href="#carousel_<%= product.id %>" role="button" data-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="footer_box">
+
+	<div class="row">
+		<div class="col-12">
+			<small><%= product.brand %></small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<small><%= product.title %> </small>
+		</div>
+		<div class="col-6">
+			<small><%= number_to_currency_euro(product.price_cents) %></small>
+		</div>
+	</div>
+	
+	</div>
+</div>

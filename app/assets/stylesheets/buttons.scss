@@ -1,0 +1,69 @@
+.btn-main {
+	background: #111;
+	color: #ddd;
+	padding: 10px 15px;
+	border-radius: 50px;
+}
+.btn-main:hover{
+	background: #fff;
+	color: #111;
+	border: 1px solid #111;
+	transition: 0.8s;
+}
+
+.btn-secondary {
+	background: #fff;
+	color: #111;
+	border: 1px solid #111;
+	padding: 10px 15px;
+	border-radius: 50px;
+}
+
+.btn-secondary:hover {
+	background: #111;
+	color: #ddd;
+	transition: 0.8s;
+}
+
+.btn-warning {
+	background-color: #5AB7FEFF;
+	border: 1px solid #5AB7FEFF;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 50px;
+}
+
+.btn-warning:hover {
+	background-color: #fff;
+	border: 1px solid #5AB7FEFF;
+	color: #5AB7FEFF;
+	padding: 10px 15px;
+	border-radius: 50px;
+	transition: 0.8s;
+}
+
+.btn-danger {
+	background: #FB2945FF;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 50px;
+}
+
+.btn-danger:hover {
+	background: #fff;
+	color: #FB2945FF;
+	border: 1px solid #FB2945FF;
+	padding: 10px 15px;
+	border-radius: 50px;
+	transition: 0.8s;
+
+}
+
+input {
+	border-radius: 50px!important;
+}
+
+.custom-select {
+	padding-left: 15px;
+	border-radius: 50px!important;
+}
