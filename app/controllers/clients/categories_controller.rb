@@ -1,5 +1,4 @@
-class Clients::CategoriesController < ApplicationController
-
+class Clients::CategoriesController < Clients::ApplicationController
     def index
       @categories = Category.all
     end

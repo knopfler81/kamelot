@@ -1,4 +1,4 @@
-class Admin::SizesController < ApplicationController
+class Admin::SizesController < Admin::ApplicationController
 
 	before_action :find_size
 
