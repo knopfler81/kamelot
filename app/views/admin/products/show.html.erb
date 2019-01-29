@@ -6,55 +6,113 @@
 			<hr>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-12 col-md-6 images_gallery">
-			<div class="row">
-				<div class="col-2">
-					<% @product.attachments.each do |img| %>
+
+		<div class="row">
+			<div class="col-12 col-md-8 offset-2">
+			<p><%= link_to @product.category.title, clients_categories_path(@product.category) %> / <%= @product.title %> - <%= @product.brand %></p>
+			<br>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-12 col-md-8 images_gallery">
+				<div class="row">
+					<div class="offset-2 col-1">
+						<% @product.attachments.each do |img| %>
 							<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
-					<% end %>
-				</div>
-				<div class="col-10">
-					<div id="big_image_show">
-					<!-- Ici on affiche les images au hover avec le JS -->
-					<%= image_tag(@product.attachments[0].url, class: "big_image") %>
+						<% end %>
+					</div>
+					<div class="col-8">
+						<div id="big_image_show">
+							<!-- big_images est généré dans le JS  Ici on affiche les images au hover avec le JS -->
+							<%= image_tag(@product.attachments[0].url, class: "big_image") %>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-12 col-md-6 description_background">
-			<h1 class="category_title"><%= link_to @product.category.title, clients_category_path(@product.category) %></h1>
-			<h1 class="title"><%= @product.title %></h1>
-			<h1><%= @product.brand %></h1>
 
-			<p>Prix : <%= number_to_currency_euro @product.price_cents %></p>
-			<p>Couleur: <%=  @product.color %></p>
-			<% if @product.sizes.map(&:quantity).sum == 0 %>
-				<p>Rupture de stock sur cet article</p>
-			<% else %>
-				<% if current_user %>
-					<%= form_tag clients_order_items_path do %>
-		        <%= hidden_field_tag :product_id, @product.id %>
-		        <%= hidden_field_tag :user_id, current_user.id %>
-		        <%= number_field_tag :quantity, 1 %>
-		        <%= select_tag :size_id, options_from_collection_for_select(@product.sizes.where('quantity >=1'), :id, :size_name), selected: @product.sizes.where('quantity >=1').first %>
-		        <%= submit_tag "Ajouter Au Panier", class: "btn btn-primary", id: "add_to_cart" %>
-	    		<% end %>
-				<% else %>
-					<%= link_to "Ajouter", new_user_session_path(current_user), class: "btn btn-primary"  %>
-				<% end %>
-			<% end %>
+		<div class="col-12 col-md-4">
+			<br>
+			<div class="row">
+				<div class="col-10">
+					<h1 class="primary_title"><%= @product.title.capitalize %> - <%= @product.brand.capitalize %></h1>
+					<h4><%= number_to_currency_euro @product.price_cents %></h4>
+					<p>Couleur: <%=  @product.color %></p>
+						<% if @product.sizes.map(&:quantity).sum == 0 %>
+							<p>Rupture de stock sur cet article</p>
+						<% else %>
+							<%= form_tag clients_order_items_path do %>
+							<%= hidden_field_tag :product_id, @product.id %>
+							<%= hidden_field_tag :user_id, @token %>
+							<%= hidden_field_tag :quantity, 1 %>
+
+							<div class="row">
+								<div class="col-8">
+									<%= select_tag :size_id, options_from_collection_for_select(@product.sizes.where('quantity >=1'), :id, :size_name), prompt: "Choisissez votre taille", class: 'form-control'%>
+									<br>
+									<%= submit_tag "Ajouter Au Panier", class: "btn btn-primary", id: "add_to_cart" %>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-12">
+									<div class="favorites" id="header_box_<%= @product.id %>">
+										<br>
+										<% if @product.favoriting_users.include? current_user %>
+											<div id="unlike_<%= @product.id %>">
+												<% fav = @product.favorites.find { |fav| fav.user_id == current_user.id} %>
+												<%= link_to clients_favorites_path do %>
+													<i class= "fa fa-heart favorite-active"></i> 
+												<% end %>	
+											</div>	
+										<% else %>
+											<div id="like_<%= @product.id %>">
+												<%= link_to clients_product_favorites_path(@product), method: :post, remote: true, class: 'btn btn-warning'  do %>
+													<small></small>Ajouter a mes favoris<i class= "fa fa-heart not-favorite"></i>
+												<% end %>
+											</div>
+										<% end %>	
+									</div>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-12">
+					<br><br>
+					<h2 class="secondary_title"> AUTRES COLORIS</h2>
+					<hr>
+					<% Product.where(ref: @product.ref).each do |product| %>
+						<% current_image = (product.color == @product.color) ? "current_color small_image" : "small_image" %> 
+						<%= link_to clients_product_path(product) do   %>
+							<%= image_tag( product.attachments.first.url, class: "#{current_image}", alt: "Photo de #{@product.title}") %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-12 col-md-6 description_background">
+		<div class="col-10 offset-1">
 			<div class="description_text">
-				<p><span>Description :</span> <%= simple_format(@product.description) %></p>
+			<p><span>Description :</span> <%= simple_format(@product.description) %></p>
 			</div>
 		</div>
-		<div class="col-12 col-md-6" id="description_img">
-			<%= image_tag(@product.attachments.last.url, class: "description_img") %>
-		</div>
+	</div>
+	<br><br>
+	<h1>Nos recommandations</h1>
+	<hr>
+	<div class="row">
+		<% @products.where(category_id: @product.category_id).where.not(id: @product.id).each do |product| %>
+			<div class="col-6  col-md-4 col-lg-3">
+				<%=  render "clients/shared/cards", product: product %>
+			</div>
+		<% end %>
 	</div>
 </div>

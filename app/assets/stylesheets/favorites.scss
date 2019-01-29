@@ -37,3 +37,26 @@
 	text-align: center;
 	padding-top: 100px;
 }
+
+
+
+// IN PRODUCT SHOW
+
+.favorites {
+	.not-favorite {
+		color: white;
+		font-size: 20px;
+		background-color: transparent;
+	}
+
+	.not-favorite:hover {
+		color: red;
+	}
+
+	.favorite-active {
+		background-color: transparent;
+		color: red;
+		font-size: 50px;
+		padding: 5px;
+	}
+}

@@ -1,57 +1,60 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-upper">
  <div class="container-fluid">
   <%= link_to "MarketWeb", root_path,  class:"navbar-brand" %>
-   <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
    </button>
+
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-     <ul class="navbar-nav mr-auto">
-       <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Articles
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+     <ul class="navbar-nav ml-auto">
+
+ 
+
            <%# if current_user && current_user.admin? %>
              <%# Category.order('title ASC').all.each do |cat| %>
                <%#= link_to  "#{cat.title} ", admin_category_path(cat), class: "nav-link" %>
              <%# end %>
            <%# else %>
              <% Category.order('title ASC').all.each do |cat| %>
-               <%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %>
+               <li class="nav-item"><%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %></li>
              <% end %>
            <%# end %>
-         </div>
-       </li>
+
      </ul>
-     <ul class="navbar-nav">
+     <ul class="navbar-nav ml-auto">
       <% if current_user && current_user.admin? %>
         <li class="nav-item">
           <%= link_to   "Mon Stock", admin_products_path, class: "nav-link" %>
         </li>
       <% end %>
        <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-             Mon Compte
- 
+          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user %>
+            <%= current_user.first_name %>
+          <% else %>
+              Mon Compte
+          <% end %>
           </a>
          <% if current_user %>
            <% if current_user.admin? %>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
                <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
-               <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
              </div>
            <% else %>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%= link_to "Mon compte", clients_user_path(current_user), class: "dropdown-item"  %>
+               <%= link_to "Mon profile", clients_user_path(current_user), class: "dropdown-item"  %>
+               <%= link_to "Mes adresses", clients_myaddresses_path, class: "dropdown-item" %>
+               <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
+               <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
                <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
-               <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
              </div>
            <% end %>
         <% else %>
            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-             <%= link_to "Connexion", new_user_session_path, class: "dropdown-item"  %>
+             <%= link_to "Connection", new_user_session_path, class: "dropdown-item"  %>
            </div>           
          <% end %>
        </li>
@@ -67,7 +70,7 @@
         </div>
        </li>
        <% if current_user %>
-         <li class="nav-link">
+         <li class="nav-link" style="margin-right: 20px; margin-bottom: 20px;">
            <div class="icon-wrapper">
             <%= link_to clients_favorites_path do %>
               <i class="fa fa-heart nav-heart"></i>  
@@ -80,13 +83,14 @@
        <% end %>
      </ul>
    </div>
+
  </div>
 </nav>
 <div class="nav-lower">
   <div class="container-fluid">
 
-    <% if current_user && current_user.admin? %> 
-      <%= simple_form_for :query, url: admin_products_path, method: :get,  wrapper: :inline_form  do |f| %>
+    <%# if current_user && current_user.admin? %> 
+<!--       <%= simple_form_for :query, url: admin_products_path, method: :get,  wrapper: :inline_form  do |f| %>
         <div class="row">
           <div class="col-10 col-md-8 offset-md-2">
             <%= f.input  :keyword, placeholder: "rechercher un article", input_html: {class: "input-search"} %>
@@ -97,21 +101,21 @@
             <% end %>
           </div>
         </div>
-      <% end %>
-    <% else %>
+      <% end %> -->
+    <%# else %>
       <%= simple_form_for :query, url: clients_products_path, method: :get,  wrapper: :inline_form  do |f| %>
         <div class="row">
-          <div class="col-10 col-md-8 offset-md-2">
-            <%= f.input  :keyword, placeholder: "rechercher un article", input_html: {class: "input-search"} %>
+          <div class="col-10 col-md-2">
+            <%= f.input  :keyword, placeholder: "Rechercher", input_html: {class: "input-search"} %>
           </div>
           <div class="col-2 col-md-2">
-            <%= button_tag type: 'submit', class: 'btn btn-warning search-btn-nav' do %>
+            <%= button_tag type: 'submit', class: 'search-btn-nav' do %>
               <i class="fa fa-search"></i>
             <% end %>
           </div>
         </div>
       <% end %>
-  <% end %>
+  <%# end %>
 
   </div>
 </div>

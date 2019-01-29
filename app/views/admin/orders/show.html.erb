@@ -8,14 +8,14 @@
 	<div class="row">
 		<div class="col-4">
 			<p>Adresse de livraison</p>
-				<%= @order.user.shipping_address.first_name %>  <%= @order.user.shipping_address.last_name %>
+				<%= @order.user.first_name %>  <%= @order.user.last_name %>
 				<br>
-				<%= @order.user.shipping_address.address_1 %>
-				<%= @order.user.shipping_address.address_2 if @order.user.shipping_address.address_2 %>
+				<%= @order.user.address_1 %>
+				<%= @order.user.address_2 if @order.user.address_2 %>
 				<br>
-				<%= @order.user.shipping_address.zipcode %> <%= @order.user.shipping_address.city %>
+				<%= @order.user.zipcode %> <%= @order.user.city %>
 				<br>
-				<%= @order.user.shipping_address.phone %>
+				<%= @order.user.phone %>
 				<br><br>
 		</div>
 		<div class="col-4">

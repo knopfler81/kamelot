@@ -1,77 +1,56 @@
 <div class="container">
 	
-	<h1>VÉRIFIEZ VOTRE COMMANDE</h1>
+	<h1 class="primary_title">VÉRIFIEZ VOTRE COMMANDE</h1>
+	<hr>
 	<div class="row">
 		<div class="col-12 col-md-7"> <!--tableau -->
-			<table class='table striped'>
+			<div class="order-tab">
 				<% @order.items.each do |item| %>
-					<tbody>
-						<tr>
-							<td><%= item.product.brand %></td>
-							<td><%= item.product.title %></td>
-							<td><%= item.size.size_name %></td>
-							<td><%= number_to_currency_euro item.price %></td>
-						</tr>
-					</tbody>
+					<div class="row order-row">
+						<div class="col-2">
+							<%= image_tag(item.product.attachments.first.url, class: "small_image") %>
+						</div>
+						<div class="col-6">
+							<small><%= item.product.brand %> - <%= item.product.title %></small>
+							<small>Couleur : <%= item.product.color %></small>
+							<br>
+							<small>Taille : <%= item.size.size_name %></small>
+							<br>
+							<small>Quantité : <%= item.quantity %></small>
+						</div>
+						<div class="col-2 offset-1">
+							<p><%= number_to_currency_euro item.price * item.quantity %></p>
+						</div>
+					</div>
 				<% end %>
-				<tbody>
-					<td></td>
-					<td></td>
-					<td>Sous total</td>
-					<td ><%= number_to_currency_euro @order.items.map {|i| i.price}.sum  %></td>
-				</tbody>
-				<tbody>
-					<td></td>
-					<td></td>
-					<td>Livraison</td>
-					<td><%= number_to_currency_euro @order.shipping_fees %></td>
-				</tbody>
-				<tfoot>
-					<td></td>
-					<td></td>
-					<td>Total</td>
-					<td><%= number_to_currency_euro @order.items.map {|i| i.price }.sum + 5 %></td>
-				</tfoot>
-			</table>
-			<br>
-			<br>
-			<br>
-			<%= form_for @order, url: clients_checkout_path do |f| %>
-				<%= f.hidden_field :user_id %>
-
-						<%= f.submit "Payer", class: "btn btn-success btn-block" %>
-
-			<% end %>
+				
+			</div>
 		</div>
 
-		<div class="col-12 col-md-5">
+		<div class="col-12 col-md-4 offset-md-1">
 			<div class="row">
 				<div class="col-12">
-					<h3>ADRESSE DE LIVRAISON
+					<h3 class="secondary_title">ADRESSE DE LIVRAISON
 						<%= link_to edit_registration_path(current_user) do  %>
 							<i class="fa fa-edit"></i>
 						<% end %>
 					</h3>	
 					<hr>
-
-						
-						<p><%=  current_user.first_name %> <%=  current_user.last_name %></p>
+						<p class="full_name"><%=  current_user.first_name %> <%=  current_user.last_name %></p>
 						<p><%=  current_user.address_1 %></p>
 						<p><%=  current_user.address_2 %></p>
 						<p><%=  current_user.zipcode %> <%=  current_user.city %></p>
 					  <p><%=  current_user.phone %></p>
-			
 				</div>
 				<div class="col-12">
-
-					<h3>ADRESSE DE FACTURATION
+					<h3 class="secondary_title">ADRESSE DE FACTURATION
 						<%= link_to new_billing_address_path(current_user.billing_address) do %>
 							<i class="fa fa-edit"></i>
 						<% end %>
 					</h3>
 						<hr>
 					<% if current_user.billing_address.present?%>
-						<p><%=  current_user.billing_address.first_name %> <%=  current_user.billing_address.last_name %></p>
+						<p class="full_name"><%=  current_user.billing_address.first_name %> <%=  current_user.billing_address.last_name %></p>
 						<p><%=  current_user.billing_address.address_1 %></p>
 						<p><%=  current_user.billing_address.address_2 %></p>
 						<p><%=  current_user.billing_address.zipcode %> <%=  current_user.billing_address.city %></p>
@@ -81,8 +60,32 @@
 					<% end %>
 				</div>
 			</div>
+			<div class="total">
+				<div class="row">
+					<hr>
+					<div class="col-6">
+						<p>SOUS TOTAL</p>
+						<p>LIVRAISON</p>
+						<p>TOTAL</p>	
+					</div>
+					<div class="col-6 align-right">
+						<p><%= number_to_currency_euro @order.items.map {|i| i.price * i.quantity}.sum  %></p>
+						<p><%= number_to_currency_euro @order.shipping_fees %></p>
+						<p><%= number_to_currency_euro @order.items.map {|i| i.price * i.quantity }.sum + 5 %></p>
+					</div>
+					<div class="col-12">
+						<%= form_for @order, url: clients_checkout_path do |f| %>
+							<%= f.hidden_field :user_id %>
+								<%= f.submit "Valider le paiement", class: "btn btn-success btn-block" %>
+						<% end %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<small>Livraison estimée entre <%= l(delivery_date_1,  format: '%d %B %Y' ) %> et <%= l(delivery_date_2, format: '%d %B %Y') %></small>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-
-
 </div>

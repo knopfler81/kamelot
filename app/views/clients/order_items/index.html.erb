@@ -1,24 +1,16 @@
 <div class="container">
-	<h1>Panier</h1>
+	<h1 class="primary_title">MON PANIER</h1>
 		<% if @items.count > 0 %>
 			<div class="row">
-				<div class="col-9">
+				<div class="col-12 col-md-10">
 					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Article</th>
-								<th>Quantité</th>
-								<th>Prix</th>
-								<th>Taille</th>
-								<th></th>
-							</tr>
-						</thead>
 						<tbody>
 							<%  @items.each do |item| %>
 							<tr>
-								<td class="tab_image <%= 'fade_img' if item.size.quantity == 0 %>"><%= image_tag(item.product.attachments.first.url, class: "tiny_image") %> 
-									<span class="<%= 'not_available' if item.size.quantity == 0 %>"><%= link_to item.product.title, clients_product_path(item.product_id), class: "title_in_tab" %></span>
-								</td>	
+								<td class="tab_image product_image_tab  <%= 'fade_img' if item.size.quantity == 0 %>"><%= image_tag(item.product.attachments.first.url, class: "tiny_image") %></td>	
+								<td><span class="<%= 'not_available' if item.size.quantity == 0 %>"><%= link_to item.product.title, clients_product_path(item.product_id), class: "title_in_tab" %></span></td>
+								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= number_to_currency_euro(item.price * item.quantity) %></td>
+								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= item.size.size_name %> </td>
 								<td class="tab_quantity">	
 									<% if item.size.quantity == 0 %>
 										<small>n'est plus disponible</small>
@@ -27,14 +19,11 @@
 											<%= f.hidden_field :id, value: item.id %>
 											<%= f.hidden_field :product_id, value: item.product.id %>
 											<%= f.hidden_field :size_id, value: item.size.id %>
-											<%= f.select :quantity, options_for_select((1..Size.where(id: item.size.id).last.quantity), selected: item.quantity) %>
-											<%= f.submit "MAJ", class: "btn btn-success submit-btn" %>
+											<%= f.select :quantity, options_for_select((1..Size.where(id: item.size.id).last.quantity), selected: item.quantity) , {}, { value: item.quantity, class: 'form-control', onchange: 'this.form.submit();' } %>
 										<% end %>
 									<% end %>
 								</td>
-								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= number_to_currency_euro item.price  * item.quantity %></td>
-								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= item.size.size_name %> </td>
-								<td>	  
+								<td align="right">	  
 									<%= link_to clients_order_item_path(item), method: :delete, remote: true ,data: {confirm: "Voulez vous vraiment supprimer cet article?"}, class: ' btn btn-danger delete_btn' do  %>
 										<i class="fa fa-trash"></i>
 									<% end %>
@@ -44,21 +33,27 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan='4' align="right" id="total_amount"><%= number_to_currency_euro @current_cart.sub_total %></td>
+								<td colspan='6' align="right" id="total_amount"><%= number_to_currency_euro @current_cart.sub_total %></td>
 							</tr>
 						</tfoot>
 					</table>
 				</div>
-				<div class="col-3">
-					<br><br>
-					<%= link_to "Continuer les achats", root_path, class: "btn btn-primary" %>
-					<br><br>
-					
-						<% if current_user %>
-							<%= link_to "Commander", clients_checkout_path, class: "btn btn-success" %>
-						<% else %>
-								<%= link_to  "Commander", new_user_session_path, class: "btn btn-success" %>
-						<% end %>
+				<div class="col-12 col-md-2">
+					<div class="row">
+						<div class="col-6 col-md-12">
+							<br>
+							<%= link_to "Continuer les achats", root_path, class: "btn btn-primary" %>	
+						</div>
+						<div class="col-6 col-md-12">
+							<% if current_user %>
+								<br>
+								<%= link_to "Commander", clients_checkout_path, class: "btn btn-success" %>
+							<% else %>
+								<br>
+									<%= link_to  "Commander", new_user_session_path, class: "btn btn-success" %>
+							<% end %>
+						</div>
+					</div>
 
 
 					<br>

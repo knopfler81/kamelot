@@ -30,18 +30,18 @@ a:hover {
 }
 
 .nav-upper {
-	background-color: #BCC0C0FF!important;
+	background-color: transparent!important;
 }
 
 .nav-heart {
-	font-size: 20px;
+	font-size: 25px;
 	position: absolute;
-	color: white;
+	color: #666;
 	}
 
 
 .nav-lower {
-	background-color: #BCC0C0FF;
+
 	margin-top: -30px;
 	padding-bottom: 20px;
 }
@@ -54,19 +54,17 @@ a:hover {
   margin: 0;
   border-radius: 50%;
   position: absolute;
- 	left: 10px;
+ 	left: 20px;
+ 	top: -5px;
   padding: 0 4px;
   color: #fff;
 }
 
-.search-btn-nav {
-	margin-left: -30px;
-}
 
 .fa-shopping-bag {
-	font-size: 20px;
+	font-size: 25px;
 	position: relative;
-	color: white;
+	color: #666;
 }
 
 #items_count {
@@ -76,8 +74,8 @@ a:hover {
   height: auto;
   border-radius: 50%;
   position: absolute;
-  top: 0px;
- 	left: 10px;
+  top: -5px;
+ 	left: 18px;
   padding: 0 4px;
   color: #fff;
 }
@@ -86,6 +84,20 @@ a:hover {
 	position:relative;
 }
 
+
+.input-search {
+	// background-color: #BCC0C0FF;
+	border: 0px;
+	border-radius: 0px;
+	border-bottom: 3px solid #000;
+}
+
 .search-btn-nav {
-	margin-left: -30px;
+	color: #000;
+	margin-left: -50px;
+	border: 0px;
+	background-color: transparent;
+	.fa-search {
+		font-size: 30px;	
+	}
 }

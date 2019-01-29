@@ -2,141 +2,334 @@ Category.destroy_all
 Order.destroy_all
 Product.destroy_all
 BillingAddress.destroy_all
-User.where(admin: false).destroy_all
+User.destroy_all
 
 puts "Seeds cleaned"
 
-nelly = User.create!(email: "nelly@example.com", password: "password", first_name: "Nelly", last_name: "Duclos", address_1: "my super addresse", city: "SuperTown", zipcode: "424242", phone: '1234567890', country: "France", birth_date: 30.years.ago)
+nelly = User.create!(
+	email: "nelly@example.com", 
+	password: "password", 
+	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: "Nelly",
+	last_name: "Duclos",
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
+	)
 
-user_1 = User.create(
+user_1 = User.create!(
 	admin: false,
 	email: "guest1@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_2 = User.create(
+user_2 = User.create!(
 	admin: false,
 	email: "guest2@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_3 = User.create(
+user_3 = User.create!(
 	admin: false,
 	email: "guest3@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_4 = User.create(
+user_4 = User.create!(
 	admin: false,
 	email: "guest4@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_5 = User.create(
+user_5 = User.create!(
 	admin: false,
 	email: "guest5@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_6 = User.create(
+user_6 = User.create!(
 	admin: false,
-	email: "guest6example.com",
+	email: "guest6@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_7 = User.create(
+user_7 = User.create!(
 	admin: false,
 	email: "guest7@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_8 = User.create(
+user_8 = User.create!(
 	admin: false,
 	email: "guest8@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_9 = User.create(
+user_9 = User.create!(
 	admin: false,
 	email: "guest9@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_10 = User.create(
+user_10 = User.create!(
 	admin: false,
 	email: "guest10@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_11 = User.create(
+user_11 = User.create!(
 	admin: false,
 	email: "guest11@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_12 = User.create(
+user_12 = User.create!(
 	admin: false,
-	email: "guest12example.com",
+	email: "guest12@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_13 = User.create(
+user_13 = User.create!(
 	admin: false,
 	email: "guest13@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_14 = User.create(
+user_14 = User.create!(
 	admin: false,
 	email: "guest14@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_15 = User.create(
+user_15 = User.create!(
 	admin: false,
 	email: "guest15@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_16 = User.create(
+user_16 = User.create!(
 	admin: false,
 	email: "guest16@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_17 = User.create(
+user_17 = User.create!(
 	admin: false,
 	email: "guest17@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
-user_18 = User.create(
+user_18 = User.create!(
 	admin: false,
-	email: "guest18example.com",
+	email: "guest18@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_19 = User.create(
+user_19 = User.create!(
 	admin: false,
 	email: "guest19@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
-user_20 = User.create(
+user_20 = User.create!(
 	admin: false,
-	email: "guest20example.com",
+	email: "guest20@example.com",
 	password: "password",
 	password_confirmation: "password",
+	gender: ["Monsieur", "Madame"].sample,
+	birth_date: 30.years.ago,
+	first_name: Faker::Name.first_name,
+	last_name: Faker::Name.last_name,
+	address_1: Faker::Address.street_name,
+	zipcode: Faker::Address.zip_code,
+	city: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
+	country: Faker::Address.country
 )
 
 puts "Users & admin created"
@@ -151,12 +344,13 @@ puts "Categories created"
 
 
 product_1 = Product.create!(
+	ref: "SP00",
 	brand: "Side Park",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price_cents: 30,
 	color: "Noir",
-	title: "Pull Noir",
+	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_1.jpg")),
@@ -168,12 +362,13 @@ product_1 = Product.create!(
 
 
 product_2 = Product.create(
-	brand: "Side Park",
+	ref: "GU00",
+	brand: "Guess",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price_cents: 40,
 	color: "Blanc",
-	title: "Pull Blanc",
+	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_1.jpg")),
@@ -185,12 +380,13 @@ product_2 = Product.create(
 
 
 product_3 = Product.create(
+	ref:"SP00" ,
 	brand: "Side Park",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price_cents: 45,
 	color: "Rouge",
-	title: "Pull Rouge",
+	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_1.jpg")),
@@ -202,12 +398,13 @@ product_3 = Product.create(
 
 
 product_4 = Product.create(
-	brand: "Side Park",
+	ref: "LE00",
+	brand: "Levis",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price_cents: 49,
 	color: "Jaune",
-	title: "Pantalon Jaune",
+	title: "Pantalon",
 	description: "Pantalon blablablabalbla",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_1.jpg")),
@@ -219,12 +416,13 @@ product_4 = Product.create(
 
 
 product_5 = Product.create(
-	brand: "Side Park",
+	ref: "LE00" ,
+	brand: "Levis",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price_cents: 60,
 	color: "Gris",
-	title: "Jean Gris",
+	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_1.jpg")),
@@ -236,12 +434,13 @@ product_5 = Product.create(
 
 
 product_6 = Product.create(
-	brand: "Side Park",
+	ref: "KA00",
+	brand: "Kaporal",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price_cents: 20,
 	color: "Bleu",
-	title: "Jean Bleu",
+	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_1.jpg")),
@@ -252,12 +451,13 @@ product_6 = Product.create(
 )
 
 product_7 = Product.create!(
+	ref: "SP00",
 	brand: "Side Park",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price_cents: 45,
 	color: "Noir",
-	title: "Pull Noir",
+	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_2.jpg")),
@@ -267,49 +467,66 @@ product_7 = Product.create!(
 	],
 )
 
-
 product_8 = Product.create(
-	brand: "Side Park",
+	ref: "GU00",
+	brand: "Guess",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price_cents: 30,
-	color: "Blanc",
-	title: "Pull Blanc",
+	color: "Vert",
+	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_4.jpg"))
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_2.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_1.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_3.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_4.jpg"))
 	],
 )
 
-
-
 product_9 = Product.create(
-	brand: "Side Park",
+	ref: "GU00",
+	brand: "Guess",
 	category_id: pulls.id,
 	user_id: nelly.id,
 	price_cents: 70,
-	color: "Rouge",
-	title: "Pull Rouge",
+	color: "Beige",
+	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_4.jpg"))
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_1.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_2.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_3.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_4.jpg"))
+	],	
+)
+
+product_10 = Product.create(
+	ref: "GU00",
+	brand: "Guess",
+	category_id: pulls.id,
+	user_id: nelly.id,
+	price_cents: 70,
+	color: "Camel",
+	title: "Pull",
+	description: "Pull très chaud en laine blablablabalbla",
+	attachments:[
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_1.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_2.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_3.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_4.jpg"))
 	],	
 )
 
 
-product_10= Product.create(
+product_11 = Product.create(
+	ref: "SP01",
 	brand: "Side Park",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price_cents: 39,
 	color: "Jaune",
-	title: "Pantalon Jaune",
+	title: "Pantalon",
 	description: "Pantalon blablablabalbla",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_2.jpg")),
@@ -320,13 +537,14 @@ product_10= Product.create(
 )
 
 
-product_11 = Product.create(
+product_12 = Product.create(
+	ref: "SP01",
 	brand: "Side Park",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price_cents: 45,
 	color: "Gris",
-	title: "Jean Gris",
+	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_2.jpg")),
@@ -337,13 +555,14 @@ product_11 = Product.create(
 )
 
 
-product_12 = Product.create(
+product_13 = Product.create(
+	ref: "SP02",
 	brand: "Side Park",
 	category_id: pantalons.id,
 	user_id: nelly.id,
 	price_cents: 30,
 	color: "Bleu",
-	title: "Jean Bleu",
+	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_3.jpg")),
@@ -352,6 +571,9 @@ product_12 = Product.create(
 		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_4.jpg"))
 	],
 )
+
+
+
 
 puts "Products Created"
 
@@ -403,13 +625,22 @@ size_39 = Size.create(size_name: "XL", quantity: 10, product_id: product_9.id)
 size_40 = Size.create(size_name: "S", quantity: 10, product_id: product_10.id)
 size_41 = Size.create(size_name: "M", quantity: 10, product_id: product_10.id)
 size_42 = Size.create(size_name: "L", quantity: 10, product_id: product_10.id)
-size_42 = Size.create(size_name: "XL", quantity: 10, product_id: product_9.id)
+size_42 = Size.create(size_name: "XL", quantity: 10, product_id: product_10.id)
 
 size_43 = Size.create(size_name: "S", quantity: 10, product_id: product_11.id)
 size_44 = Size.create(size_name: "M", quantity: 10, product_id: product_11.id)
 size_45 = Size.create(size_name: "L", quantity: 10, product_id: product_11.id)
 size_46 = Size.create(size_name: "XL", quantity: 10, product_id: product_11.id)
 
+size_47 = Size.create(size_name: "S", quantity: 10, product_id: product_12.id)
+size_48 = Size.create(size_name: "M", quantity: 10, product_id: product_12.id)
+size_49 = Size.create(size_name: "L", quantity: 10, product_id: product_12.id)
+size_50 = Size.create(size_name: "XL", quantity: 10, product_id: product_12.id)
+
+size_51 = Size.create(size_name: "S", quantity: 10, product_id: product_13.id)
+size_52 = Size.create(size_name: "M", quantity: 10, product_id: product_13.id)
+size_53 = Size.create(size_name: "L", quantity: 10, product_id: product_13.id)
+size_54 = Size.create(size_name: "XL", quantity: 10, product_id: product_13.id)
 
 puts "Sizes created"
 
@@ -576,6 +807,14 @@ OrderItem.create(price: product_10.price_cents, order_id: order_38.id, product_i
 #ORDER 39
 order_39 = Order.create(created_at: 2.months.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_11.price_cents, total_cents: 400)
 OrderItem.create(price: product_11.price_cents, order_id: order_39.id, product_id: product_11.id, quantity: 1, size_id: size_43.id)
+
+#ORDER 40
+order_40 = Order.create(created_at: 3.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_12.price_cents, total_cents: 400)
+OrderItem.create(price: product_12.price_cents, order_id: order_40.id, product_id: product_12.id, quantity: 1, size_id: size_47.id)
+
+#ORDER 41
+order_41 = Order.create(created_at: 3.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees_cents: 5, sub_total_cents: product_13.price_cents, total_cents: 400)
+OrderItem.create(price: product_12.price_cents, order_id: order_41.id, product_id: product_13.id, quantity: 1, size_id: size_51.id)
 
 puts "Orders created"
 
