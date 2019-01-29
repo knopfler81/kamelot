@@ -1,6 +1,6 @@
 <div class="container">
 	
-	<h1 class="primary_title">VÉRIFIEZ VOTRE COMMANDE</h1>
+	<h1 class="primary_title">VALIDATION DE VOTRE COMMANDE</h1>
 	<hr>
 	<div class="row">
 		<div class="col-12 col-md-7"> <!--tableau -->
@@ -76,7 +76,7 @@
 					<div class="col-12">
 						<%= form_for @order, url: clients_checkout_path do |f| %>
 							<%= f.hidden_field :user_id %>
-								<%= f.submit "Valider le paiement", class: "btn btn-main btn-block" %>
+								<%= f.submit "Valider la commande", class: "btn btn-main btn-block" %>
 						<% end %>
 					</div>
 					
