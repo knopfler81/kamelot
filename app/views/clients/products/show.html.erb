@@ -41,9 +41,9 @@
 
 							<div class="row">
 								<div class="col-8">
-									<%= select_tag :size_id, options_from_collection_for_select(@product.sizes.where('quantity >=1'), :id, :size_name), prompt: "Votre taille", class: 'form-control'%>
-									<br>
-									<%= submit_tag "Ajouter Au Panier", class: "btn btn-primary", id: "add_to_cart" %>
+									<%= select_tag :size_id, options_from_collection_for_select(@product.sizes.where('quantity >=1'), :id, :size_name), prompt: "Votre taille", class: 'form-control custom-select'%>
+									<br><br>
+									<%= submit_tag "Ajouter Au Panier", class: "btn-main", id: "add_to_cart" %>
 								</div>
 							</div>
 
@@ -60,8 +60,8 @@
 											</div>	
 										<% else %>
 											<div id="like_<%= @product.id %>">
-												<%= link_to clients_product_favorites_path(@product), method: :post, remote: true, class: 'btn btn-warning'  do %>
-													<small></small>Ajouter a mes favoris<i class= "fa fa-heart not-favorite"></i>
+												<%= link_to clients_product_favorites_path(@product), method: :post, remote: true, class: 'btn-secondary'  do %>
+													Ajouter a mes favoris <i class= "fa fa-heart"></i>
 												<% end %>
 											</div>
 										<% end %>	

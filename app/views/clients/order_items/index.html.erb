@@ -2,7 +2,7 @@
 	<h1 class="primary_title">MON PANIER</h1>
 		<% if @items.count > 0 %>
 			<div class="row">
-				<div class="col-12 col-md-10">
+				<div class="col-12 col-md-9">
 					<table class="table table-striped">
 						<tbody>
 							<%  @items.each do |item| %>
@@ -38,19 +38,19 @@
 						</tfoot>
 					</table>
 				</div>
-				<div class="col-12 col-md-2">
+				<div class="col-12 col-md-3">
 					<div class="row">
 						<div class="col-6 col-md-12">
 							<br>
-							<%= link_to "Continuer les achats", root_path, class: "btn btn-primary" %>	
+							<%= link_to "Continuer les achats", root_path, class: "btn-main" %>	
 						</div>
 						<div class="col-6 col-md-12">
 							<% if current_user %>
 								<br>
-								<%= link_to "Commander", clients_checkout_path, class: "btn btn-success" %>
+								<%= link_to "Commander", clients_checkout_path, class: "btn-secondary" %>
 							<% else %>
 								<br>
-									<%= link_to  "Commander", new_user_session_path, class: "btn btn-success" %>
+									<%= link_to  "Commander", new_user_session_path, class: "btn-secondary" %>
 							<% end %>
 						</div>
 					</div>
