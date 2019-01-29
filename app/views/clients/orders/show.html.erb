@@ -3,11 +3,7 @@
 	<h1 class="primary_title">MA COMMANDE N° <%= @order.id %></h1>
 	<hr>
 	<div class="row">
-		<div class="d-none d-sm-block col-md-2">
-		<%= render 'clients/shared/menu_user' %>
-		</div>
-
-		<div class="col-12 col-md-10">
+		<div class="col-12 col-md-10 offset-1">
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<p>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></p>

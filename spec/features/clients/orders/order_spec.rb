@@ -20,7 +20,7 @@ RSpec.describe Order do
 
 			click_on "Commander"
 
-			expect(page).to have_content("VÉRIFIEZ VOTRE COMMANDE")
+			expect(page).to have_content("VALIDATION DE VOTRE COMMANDE")
 		end
 	end
 
