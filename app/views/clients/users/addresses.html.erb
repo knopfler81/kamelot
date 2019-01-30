@@ -23,7 +23,7 @@
 			</div>
 			<div class="col-12 col-md-4">
 				<h2>FACTURATION 
-					<%= link_to new_billing_address_path do  %>
+					<%= link_to new_clients_billing_address_path do  %>
 						<i class="fa fa-edit"></i>
 					<% end %>
 				</h2>
@@ -37,7 +37,7 @@
 					<hr>
 				<% else %>
 					<p>Identique à l'adresse de livraison</p>
-					<%= link_to "Modifier votre adresse", new_billing_address_path(current_user.billing_address)  %>	
+					<%= link_to "Modifier votre adresse", new_clients_billing_address_path(current_user.billing_address)  %>	
 				<% end %>
 			</div>
 		</div>

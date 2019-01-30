@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<%= simple_form_for(@shipping_address, url: clients_shipping_addresses_path) do |f| %>
+				<%= f.input :address_1, label: false, placeholder: "Adresse" %>
+				<%= f.input :address_2, label: false, placeholder: "Complément d'adresse" %>
+				<%= f.input :zip_code, label: false, placeholder:  "Code Postal" %>
+				<%= f.input :city, label: false, placeholder: "Ville" %>
+				<br><br>
+				<%= f.submit "Valider", class: "btn-secondary btn-block" %>
+			<% end %>
+		</div>
+	</div>
+</div>

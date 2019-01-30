@@ -17,7 +17,7 @@
             <%= f.input :gender,  collection: ["Madame", "Monsieur"], prompt: "Choisir", label: false , hint: "Séléctionnez votre genre",input_html: { class: "custom-select" } %>
           </div>
           <div class="col-12 col-md-6">     
-            <%= f.input :birth_date, as: :date, start_year: Date.today.year - 90, label: false, hint: "Entrez date de naissance",input_html: { class: "custom-select" }  %>
+            <%= f.input :birth_date, as: "string", placeholder: "Date de naissance", label: false, required: true, input_html: { class: 'datepicker' } %>
           </div>
         </div>
 
@@ -33,27 +33,6 @@
         
         <div class="row">
           <div class="col-12 col-md-6">
-            <%= f.input :address_1, autofocus: true, placeholder: "Adresse", label: false %>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <%= f.input :address_2, autofocus: true, placeholder: "Complément d'adresse", label: false %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-md-4">
-           <%= f.input :zipcode, autofocus: true, placeholder: "Code postal", label: false %>
-          </div>
-          <div class="col-12 col-md-4">
-           <%= f.input :city, autofocus: true, placeholder: "Ville", label: false %>
-          </div>
-          <div class="col-12 col-md-4">
-            <%= f.input :country, label: false, selected: 'FR' %>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-12 col-md-6">
             <%= f.input :phone, autofocus: true, placeholder: "Numéro de téléphone", label: false %>
           </div>
           <div class="col-12 col-md-6">
@@ -61,9 +40,6 @@
           </div>
         </div>
         
-
-
-
         <div class="row">
           <div class="col-12 col-md-6">
             <%= f.input :password, placeholder: "Mot de passe", hint: "A remplir seulement si vous souhaitez modifier votre mot de passe", label: false %>
@@ -77,12 +53,12 @@
         <hr>
         <div class="row">
           <div class="col-6">
-            <%= f.submit "Modifier mon inscription", class: 'btn-secondary btn-block' %>
+            <%= f.submit "Modifier mon inscription", class: 'btn btn-main btn-block' %>
           </div>
         </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
+
 
     </div>
   </div>

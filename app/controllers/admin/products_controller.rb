@@ -17,6 +17,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def show
 		@products = Product.all
+		@product_size_options = @product.sizes.where('quantity >=1')
 	end
 
 	def new

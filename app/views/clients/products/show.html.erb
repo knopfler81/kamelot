@@ -34,41 +34,39 @@
 						<% if @product.sizes.map(&:quantity).sum == 0 %>
 							<p>Rupture de stock sur cet article</p>
 						<% else %>
-							<%= form_tag clients_order_items_path do %>
-							<%= hidden_field_tag :product_id, @product.id %>
-							<%= hidden_field_tag :user_id, @token %>
-							<%= hidden_field_tag :quantity, 1 %>
-
+							<%= form_tag clients_order_items_path, input_html: {id: "orderform"} do %>
+								<%= hidden_field_tag :product_id, @product.id %>
+								<%= hidden_field_tag :user_id, @token %>
+								<%= hidden_field_tag :quantity, 1 %>
 							<div class="row">
 								<div class="col-8">
-									<%= select_tag :size_id, options_from_collection_for_select(@product.sizes.where('quantity >=1'), :id, :size_name), prompt: "Votre taille", class: 'form-control custom-select'%>
+									<%= select_tag :size_id, options_from_collection_for_select(@product_size_options, :id, :size_name), prompt: "Votre taille", required: true, class: 'form-control custom-select'%>
 									<br><br>
 									<%= submit_tag "Ajouter Au Panier", class: "btn-main", id: "add_to_cart" %>
 								</div>
 							</div>
-
-							<div class="row">
-								<div class="col-12">
-									<div class="favorites" id="header_box_<%= @product.id %>">
-										<br>
-										<% if @product.favoriting_users.include? current_user %>
-											<div id="unlike_<%= @product.id %>">
-												<% fav = @product.favorites.find { |fav| fav.user_id == current_user.id} %>
-												<%= link_to clients_favorites_path do %>
-													<i class= "fa fa-heart favorite-active"></i> 
-												<% end %>	
-											</div>	
-										<% else %>
-											<div id="like_<%= @product.id %>">
-												<%= link_to clients_product_favorites_path(@product), method: :post, remote: true, class: 'btn-secondary'  do %>
-													Ajouter a mes favoris <i class= "fa fa-heart"></i>
-												<% end %>
-											</div>
-										<% end %>	
-									</div>
+						<% end %>
+						<div class="row">
+							<div class="col-12">
+								<div class="favorites" id="header_box_<%= @product.id %>">
+									<br>
+									<% if @product.favoriting_users.include? current_user %>
+										<div id="unlike_<%= @product.id %>">
+											<% fav = @product.favorites.find { |fav| fav.user_id == current_user.id} %>
+											<%= link_to clients_favorites_path do %>
+												<i class= "fa fa-heart favorite-active"></i> 
+											<% end %>	
+										</div>	
+									<% else %>
+										<div id="like_<%= @product.id %>">
+											<%= link_to clients_product_favorites_path(@product), method: :post, remote: true, class: 'btn-secondary'  do %>
+												Ajouter a mes favoris <i class= "fa fa-heart"></i>
+											<% end %>
+										</div>
+									<% end %>	
 								</div>
 							</div>
-						<% end %>
+						</div>
 					<% end %>
 				</div>
 			</div>

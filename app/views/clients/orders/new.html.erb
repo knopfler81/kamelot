@@ -1,5 +1,5 @@
 <div class="container">
-	
+
 	<h1 class="primary_title">VALIDATION DE VOTRE COMMANDE</h1>
 	<hr>
 	<div class="row">
@@ -37,14 +37,16 @@
 					</h3>	
 					<hr>
 						<p class="full_name"><%=  current_user.first_name %> <%=  current_user.last_name %></p>
-						<p><%=  current_user.address_1 %></p>
-						<p><%=  current_user.address_2 %></p>
-						<p><%=  current_user.zipcode %> <%=  current_user.city %></p>
+							<% if current_user.shipping_address %>
+								<p><%=  current_user.shipping_address.address_1 %></p>
+								<p><%=  current_user.shipping_address.address_2 %></p>
+								<p><%=  current_user.shipping_address.zip_code %> <%=  current_user.shipping_address.city %></p>
+							<% end %>
 					  <p><%=  current_user.phone %></p>
 				</div>
 				<div class="col-12">
 					<h3 class="secondary_title">ADRESSE DE FACTURATION
-						<%= link_to new_billing_address_path(current_user.billing_address) do %>
+						<%= link_to new_clients_billing_address_path(current_user.billing_address) do %>
 							<i class="fa fa-edit"></i>
 						<% end %>
 					</h3>
@@ -74,9 +76,13 @@
 						<p><%= number_to_currency_euro @order.items.map {|i| i.price * i.quantity }.sum + 5 %></p>
 					</div>
 					<div class="col-12">
-						<%= form_for @order, url: clients_checkout_path do |f| %>
-							<%= f.hidden_field :user_id %>
-								<%= f.submit "Valider la commande", class: "btn btn-main btn-block" %>
+						<% if current_user.shipping_address %>
+							<%= form_for @order, url: clients_checkout_path do |f| %>
+								<%= f.hidden_field :user_id %>
+									<%= f.submit "Valider la commande", class: "btn btn-main btn-block" %>
+							<% end %>
+						<% else %>
+						<%= link_to "Valider la commande", new_clients_shipping_address_path, class: "btn btn-main btn-block" %>
 						<% end %>
 					</div>
 					

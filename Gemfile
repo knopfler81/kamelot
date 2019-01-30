@@ -33,10 +33,9 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'font-awesome-rails'
-
+gem 'bootstrap-datepicker-rails'
 
 gem 'will_paginate', '>= 3.1'
-gem 'country_select', require: 'country_select_without_sort_alphabetical'
 
 #uploads images  PDF
 gem 'fog'

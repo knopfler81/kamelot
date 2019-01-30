@@ -27,8 +27,9 @@ module SuperShop
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-
     # Don't generate system test files.
+
+    config.action_dispatch.default_headers.merge!('Cache-Control' => 'no-store, no-cache')
     config.generators.system_tests = nil
     #config.autoload_path += %W(#{config.root}/lib)
     config.before_configuration do

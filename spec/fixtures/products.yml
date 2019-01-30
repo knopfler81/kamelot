@@ -6,6 +6,7 @@ warm_sweat:
   category: pull
   user: nelly
   attachments: pull_rouge_1.jpg
+  ref: FF01
 
 black_k_l:
   brand: Side Park
@@ -16,6 +17,7 @@ black_k_l:
   category: pull
   user: nelly
   attachments: pull_noir_1.jpg
+  ref: FF01
 
 red_shirt:
   brand: Side Park
@@ -26,6 +28,7 @@ red_shirt:
   category: chemise
   user: nelly
   attachments: pull_noir_2.jpg
+  ref: FF01
 
 blue_shirt:
   brand: Side Park
@@ -36,3 +39,4 @@ blue_shirt:
   category: chemise
   user: nelly
   attachments: pull_noir_2.jpg
+  ref: FF01
