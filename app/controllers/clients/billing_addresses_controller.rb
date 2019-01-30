@@ -1,4 +1,4 @@
-class BillingAddressesController < ApplicationController
+class Clients::BillingAddressesController <  Clients::ApplicationController
 
 	before_action :set_billing_address, only:  [:edit, :update, :destroy]
 
@@ -14,10 +14,6 @@ class BillingAddressesController < ApplicationController
 			render :new, alert: "PLOC"
 		end
 	end
-
-	# def show
-	# 	@billing_address = BillingAddress.find(params[:id])
-	# end
 
 	def edit
 		@billing_address = BillingAddress.find(params[:id])

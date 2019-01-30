@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
  	devise_for :users, :controllers => { registrations: 'registrations' }
 	
-	resources :billing_addresses
 
  	root to: "clients/products#index"
 
@@ -45,6 +44,10 @@ Rails.application.routes.draw do
 
 		resources :favorites, only: :index
 
+		resources :billing_addresses
+		
+		resources :shipping_addresses
+		
 		resources :products do 
 			resources :favorites
 		end

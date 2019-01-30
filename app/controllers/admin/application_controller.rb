@@ -2,7 +2,6 @@ class Admin::ApplicationController < ActionController::Base
 
   layout "admin/application"
 
-	protect_from_forgery with: :exception
 
 	before_action :current_cart
 	before_action :favorites_products

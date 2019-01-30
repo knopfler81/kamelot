@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_083928) do
+ActiveRecord::Schema.define(version: 2019_01_30_191447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,17 @@ ActiveRecord::Schema.define(version: 2019_01_28_083928) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "zip_code"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
+  end
+
   create_table "sizes", force: :cascade do |t|
     t.string "size_name"
     t.integer "quantity"
@@ -107,14 +118,9 @@ ActiveRecord::Schema.define(version: 2019_01_28_083928) do
     t.boolean "admin", default: false
     t.string "first_name"
     t.string "last_name"
-    t.string "address_1"
-    t.string "address_2"
-    t.string "city"
-    t.string "zipcode"
     t.string "phone"
     t.boolean "gender", default: true
     t.datetime "birth_date"
-    t.string "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

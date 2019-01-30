@@ -9,6 +9,7 @@ class Clients::ProductsController < Clients::ApplicationController
 	def show
 		set_product
 		@products = Product.all
+		@product_size_options = @product.sizes.where('quantity >=1')
 	end
 
 	private

@@ -2,5 +2,4 @@ $(".delete_btn").bind('ajax:success', function(){
 	$(this).closest('tr').fadeOut();
 	$("#items_count").html("<%= @current_cart.items_count %>");
 	$("#total_amount").html("<%= number_to_currency_euro @current_cart.sub_total %>");
-
-})
+});

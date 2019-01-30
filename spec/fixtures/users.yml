@@ -11,11 +11,6 @@ john:
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   first_name: John
   last_name: Doe 
-  address_1: Route 66
-  address_2: 
-  zipcode: 42000
-  city: Saint Etienne
-  country: France
   phone: 0678765432
   gender: Monsieur
   admin: false

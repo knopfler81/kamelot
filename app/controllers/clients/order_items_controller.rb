@@ -5,6 +5,7 @@ class Clients::OrderItemsController < Clients::ApplicationController
   end
 
   def create
+    @item = current_cart
     @size = Size.find(params[:size_id])
 
     if @size.quantity >= params[:quantity].to_i

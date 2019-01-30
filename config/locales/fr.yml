@@ -4,6 +4,7 @@ fr:
       user:
         registration:
           updated: "Votre compte a bien été mis à jour."
+        birth_date: Date de naissance
         email: Email
         password: Mot de passe
         first_name: Prénom

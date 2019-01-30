@@ -4,6 +4,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require cocoon
+//= require bootstrap-datepicker
 //= require_tree .
 
 window.setTimeout(function() {
@@ -11,3 +12,10 @@ window.setTimeout(function() {
        $(this).hide();
    });
 }, 3000);
+
+
+$(document).ready(function(){
+  $('.datepicker').datepicker({dateFormat: "dd/mm/yyyy", language: "fr"});
+});
+
+
