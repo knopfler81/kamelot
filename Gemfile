@@ -14,7 +14,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'cocoon'
 gem 'rails-i18n'
 
-
 #environement variables
 gem "figaro"
 
@@ -29,7 +28,7 @@ gem 'twilio-ruby'
 gem 'devise'
 
 #styles
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'font-awesome-rails'

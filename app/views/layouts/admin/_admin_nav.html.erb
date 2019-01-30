@@ -17,8 +17,8 @@
           <%= link_to   "Mon Stock", admin_products_path, class: "nav-link" %>
         </li>
       <% end %>
-       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <li class="nav-item sticky-nav">
+          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" >
           <% if current_user %>
             <%= current_user.first_name %>
           <% else %>
@@ -26,22 +26,11 @@
           <% end %>
           </a>
          <% if current_user %>
-           <% if current_user.admin? %>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
-               <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
-               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-             </div>
-           <% else %>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%= link_to "Mon profile", admin_user_path(current_user), class: "dropdown-item"  %>
-               <%= link_to "Mes adresses", admin_myaddresses_path, class: "dropdown-item" %>
-               <%= link_to "Mes commandes", admin_orders_path, class: "dropdown-item"  %>
-               <%= link_to "Mes favoris", admin_favorites_path, class: "dropdown-item"  %>
-               <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
-               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-             </div>
-           <% end %>
+           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+             <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
+             <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
+             <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+           </div>
         <% else %>
            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
              <%= link_to "Connection", new_user_session_path, class: "dropdown-item"  %>

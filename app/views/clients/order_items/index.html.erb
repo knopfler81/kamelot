@@ -42,15 +42,15 @@
 					<div class="row">
 						<div class="col-6 col-md-12">
 							<br>
-							<%= link_to "Continuer les achats", root_path, class: "btn-main" %>	
+							<%= link_to "Continuer les achats", root_path, class: "btn btn-main" %>	
 						</div>
 						<div class="col-6 col-md-12">
 							<% if current_user %>
 								<br>
-								<%= link_to "Commander", clients_checkout_path, class: "btn-secondary" %>
+								<%= link_to "Commander", clients_checkout_path, class: "btn btn-secondary" %>
 							<% else %>
 								<br>
-									<%= link_to  "Commander", new_user_session_path, class: "btn-secondary" %>
+									<%= link_to  "Commander", new_user_session_path, class: "btn btn-secondary" %>
 							<% end %>
 						</div>
 					</div>

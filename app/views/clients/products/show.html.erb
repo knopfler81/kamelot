@@ -8,7 +8,7 @@
 
 		<div class="row">
 
-			<div class="col-12 col-md-8 images_gallery">
+			<div class="col-12 col-md-7 images_gallery">
 				<div class="row">
 					<div class=" col-2 offset-1 ">
 						<% @product.attachments.each do |img| %>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 
-		<div class="col-12 col-md-4">
+		<div class="col-12 col-md-5">
 			<br>
 			<div class="row">
 				<div class="col-10">
@@ -61,7 +61,7 @@
 										<% else %>
 											<div id="like_<%= @product.id %>">
 												<%= link_to clients_product_favorites_path(@product), method: :post, remote: true, class: 'btn-secondary'  do %>
-													Ajouter a mes favoris <i class= "fa fa-heart"></i>
+													Ajouter à mes <i class= "fa fa-heart"></i>
 												<% end %>
 											</div>
 										<% end %>	

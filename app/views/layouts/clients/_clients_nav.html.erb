@@ -13,7 +13,7 @@
      </ul>
      <ul class="navbar-nav ml-auto">
        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
           <% if current_user %>
             <%= current_user.first_name %>
           <% else %>
@@ -25,7 +25,6 @@
              <%= link_to "Mes adresses", clients_myaddresses_path, class: "dropdown-item" %>
              <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
              <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
-             <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
              <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
            </div>
         <% else %>
@@ -67,6 +66,7 @@
 
  </div>
 </nav>
+
 <div class="nav-lower">
   <div class="container-fluid">
     <%= simple_form_for :query, url: clients_products_path, method: :get,  wrapper: :inline_form  do |f| %>

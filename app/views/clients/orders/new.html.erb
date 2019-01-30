@@ -7,7 +7,7 @@
 			<div class="order-tab">
 				<% @order.items.each do |item| %>
 					<div class="row order-row">
-						<div class="col-2">
+						<div class="col-3">
 							<%= image_tag(item.product.attachments.first.url, class: "small_image") %>
 						</div>
 						<div class="col-6">
