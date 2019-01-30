@@ -18,6 +18,7 @@ RSpec.describe "Creating Product" , :js do
 			fill_in "product[price_cents]", with: 50
 			fill_in "product[description]", with: "Une description pour ce pull"
 			fill_in "product[color]", with: "Noir"
+			fill_in "product[ref]", with: "FF00"
 			select "Pull", from: "product[category_id]"
 
 			attach_file "product[attachments][]", Rails.root.join("spec/fixtures/product/attachments/pull_noir_1.jpg")
