@@ -4,7 +4,6 @@ RSpec.feature Favorite do
 
 	fixtures :users, :categories, :products
 
-
 	before :each do 
 		john = users(:john)
 		login_as john
@@ -17,10 +16,10 @@ RSpec.feature Favorite do
 
 		visit root_path
 
-		first(".not-favorite").click
+		page.all(".not-favorite")[1].click
 
 		visit clients_favorites_path
 
-		expect(page).to have_content("Gros pull")
+		expect(page).to have_content("Pull Kenzaro")
 	end 
 end

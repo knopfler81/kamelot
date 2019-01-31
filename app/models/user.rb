@@ -24,4 +24,9 @@ class User < ApplicationRecord
       errors.add(:birth_date, "ne peut pas être supérieure à la date d'aujourd'hui")
     end
   end
+
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

@@ -1,1 +1,17 @@
-<%= render 'form' %>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<%= simple_form_for(@billing_address, url: clients_billing_address_path(@billing_address)) do |f| %>
+				<%= f.input :first_name, label: false, placeholder: "Prénom", value: current_user.first_name, required: true %>
+				<%= f.input :last_name, label: false, placeholder: "Nom", value: current_user.last_name, required: true %>
+				<%= f.input :address_1, label: false, placeholder: "Adresse", required: true %>
+				<%= f.input :address_2, label: false, placeholder: "Complément d'adresse", required: true %>
+				<%= f.input :zipcode, label: false, placeholder:  "Code Postal", required: true %>
+				<%= f.input :city, label: false, placeholder: "Ville", required: true %>
+				<%= f.hidden_field :user_id, value: current_user.id %>
+				<br><br>
+				<%= f.submit "Valider", class: "btn-secondary btn-block" %>
+			<% end %>
+		</div>
+	</div>
+</div>

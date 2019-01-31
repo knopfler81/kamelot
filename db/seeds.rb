@@ -2,11 +2,13 @@ Category.destroy_all
 Order.destroy_all
 Product.destroy_all
 BillingAddress.destroy_all
+ShippingAddress.destroy_all
 User.destroy_all
 
 puts "Seeds cleaned"
 
 nelly = User.create!(
+	admin: true,
 	email: "nelly@example.com", 
 	password: "password", 
 	password_confirmation: "password",
@@ -14,11 +16,7 @@ nelly = User.create!(
 	birth_date: 30.years.ago,
 	first_name: "Nelly",
 	last_name: "Duclos",
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 	)
 
 user_1 = User.create!(
@@ -30,11 +28,7 @@ user_1 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_2 = User.create!(
@@ -46,11 +40,7 @@ user_2 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_3 = User.create!(
@@ -62,11 +52,7 @@ user_3 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_4 = User.create!(
 	admin: false,
@@ -77,11 +63,7 @@ user_4 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_5 = User.create!(
 	admin: false,
@@ -92,11 +74,7 @@ user_5 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_6 = User.create!(
 	admin: false,
@@ -107,11 +85,7 @@ user_6 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_7 = User.create!(
@@ -123,11 +97,7 @@ user_7 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_8 = User.create!(
@@ -139,11 +109,7 @@ user_8 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_9 = User.create!(
@@ -155,11 +121,7 @@ user_9 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_10 = User.create!(
 	admin: false,
@@ -170,11 +132,7 @@ user_10 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_11 = User.create!(
 	admin: false,
@@ -185,11 +143,7 @@ user_11 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_12 = User.create!(
 	admin: false,
@@ -200,11 +154,7 @@ user_12 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_13 = User.create!(
@@ -216,11 +166,7 @@ user_13 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_14 = User.create!(
@@ -232,11 +178,7 @@ user_14 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_15 = User.create!(
@@ -248,11 +190,7 @@ user_15 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_16 = User.create!(
 	admin: false,
@@ -263,11 +201,7 @@ user_16 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_17 = User.create!(
 	admin: false,
@@ -278,11 +212,7 @@ user_17 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 user_18 = User.create!(
 	admin: false,
@@ -293,11 +223,7 @@ user_18 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_19 = User.create!(
@@ -309,11 +235,7 @@ user_19 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 user_20 = User.create!(
@@ -325,11 +247,7 @@ user_20 = User.create!(
 	birth_date: 30.years.ago,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
 	phone: Faker::PhoneNumber.phone_number,
-	country: Faker::Address.country
 )
 
 puts "Users & admin created"
@@ -819,208 +737,337 @@ OrderItem.create(price: product_12.price_cents, order_id: order_41.id, product_i
 puts "Orders created"
 
 
-BillingAddress.create(
-	user_id: user_2.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_2.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
-BillingAddress.create(
-	user_id: user_3.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_3.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_4.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_4.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_5.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_5.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_6.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_6.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_7.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_7.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
-BillingAddress.create(
-	user_id: user_8.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_8.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_9.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_9.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_10.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_10.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_11.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_11.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_12.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_12.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_13.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_13.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
-BillingAddress.create(
-	user_id: user_14.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_14.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
-BillingAddress.create(
-	user_id: user_15.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_15.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
 
-BillingAddress.create(
-	user_id: user_16.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_16.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
 
-BillingAddress.create(
-	user_id: user_17.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_17.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
 
-BillingAddress.create(
-	user_id: user_18.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_18.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
 
-BillingAddress.create(
-	user_id: user_19.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_19.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
 
-BillingAddress.create(
-	user_id: user_20.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# ShippingAddress.create(
+# 	user_id: user_20.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# )
+
+# BillingAddress.create(
+# 	user_id: user_2.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
 
-puts "Shipping and Billing addresses created"
+# BillingAddress.create(
+# 	user_id: user_3.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_4.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_5.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_6.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_7.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
 
+# BillingAddress.create(
+# 	user_id: user_8.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_9.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_10.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_11.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_12.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_13.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_14.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_15.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+
+# BillingAddress.create(
+# 	user_id: user_16.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	address_1: Faker::Address.street_name,
+# 	zipcode: Faker::Address.zip_code,
+# 	city: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
+# puts "Shipping and Billing addresses created"

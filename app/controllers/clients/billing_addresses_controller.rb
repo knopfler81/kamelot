@@ -7,12 +7,17 @@ class Clients::BillingAddressesController <  Clients::ApplicationController
 	end
 
 	def create
-		@billing_address = BillingAddress.create(billing_address_params)
-		if @billing_address.save!
-			redirect_to clients_user_path(current_user)
-		else
-			render :new, alert: "PLOC"
-		end
+		@billing_address  =  BillingAddress.new(billing_address_params)
+			@billing_address.user_id = current_user.id
+			if @billing_address.save!
+				if current_cart.order.items.count > 0
+					redirect_to clients_cart_checkout_path
+				else
+					redirect_to clients_user_path(current_user)
+				end
+			else
+				render :new
+			end
 	end
 
 	def edit
@@ -22,7 +27,11 @@ class Clients::BillingAddressesController <  Clients::ApplicationController
 
 	def update
 		if @billing_address.update_attributes(billing_address_params)
-			redirect_to clients_user_path(current_user), notice: "L'adresse a bien été modifiée"
+			if current_cart.order.items.count > 0
+				redirect_to clients_cart_checkout_path, notice: "L'adresse a bien été modifiée"
+			else
+				redirect_to clients_user_path(current_user), notice: "L'adresse a bien été modifiée"
+			end
 		end
 	end
 
@@ -40,8 +49,6 @@ class Clients::BillingAddressesController <  Clients::ApplicationController
 	end
 
 	def billing_address_params
-	 	params.require(:billing_address).permit(:address_1, :address_2, :user_id, :zipcode, :city, :phone, :title, :first_name, :last_name)#order_id
+	 	params.require(:billing_address).permit(:first_name, :last_name, :address_1, :address_2, :user_id, :zipcode, :city)#order_id
 	end
-
-
 end
