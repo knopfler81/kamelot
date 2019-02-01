@@ -34,8 +34,7 @@
              </div>
            <% else %>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%= link_to "Mon profile", admin_user_path(current_user), class: "dropdown-item"  %>
-               <%= link_to "Mes adresses", admin_myaddresses_path, class: "dropdown-item" %>
+               <%#= link_to "Mes adresses", admin_user_path(current_user), class: "dropdown-item"  %>
                <%= link_to "Mes commandes", admin_orders_path, class: "dropdown-item"  %>
                <%= link_to "Mes favoris", admin_favorites_path, class: "dropdown-item"  %>
                <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>

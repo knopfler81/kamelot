@@ -13,7 +13,7 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 			if current_cart.order.items.count > 0
 				redirect_to clients_cart_checkout_path
 			else
-				redirect_to root_path
+				redirect_to clients_user_path(current_user)
 			end
 		else
 			render :new
@@ -26,7 +26,11 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 
 	def update
 		if @shipping_address.update_attributes(shipping_address_params)
-			redirect_to clients_user_path(current_user), notice: "L'adresse a bien été modifiée"
+			if current_cart.order.items.count > 0
+				redirect_to clients_cart_checkout_path, notice: "L'adresse a bien été modifiée"
+			else
+				redirect_to clients_user_path(current_user), notice: "L'adresse a bien été modifiée"
+			end
 		end
 	end
 
@@ -43,7 +47,7 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 	end
 
 	def shipping_address_params
-	 	params.require(:shipping_address).permit(:address_1, :address_2, :user_id, :zip_code, :city)#order_id
+	 	params.require(:shipping_address).permit(:first_name, :last_name, :address_1, :address_2, :user_id, :zipcode, :city)
 	end
 
 
