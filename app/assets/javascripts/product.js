@@ -1,7 +1,5 @@
 var images = Array.from(document.getElementsByClassName('small_image'));
 
-
-
 images.forEach(function(img) {
 	img.addEventListener('mouseover', displayImage);
 

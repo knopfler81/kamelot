@@ -8,7 +8,6 @@ class Size < ApplicationRecord
 
  	scope :available, -> { where('sizes.quantity > ?',  "0")}
 
-
  	def re_add_in_stock
  		self.quantity += 1
  	end

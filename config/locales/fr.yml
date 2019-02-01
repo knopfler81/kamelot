@@ -1,5 +1,17 @@
 fr:
   activerecord:
+    models:
+      user: Utilisateur
+      product: Article
+      size: Taille
+    errors:
+      models:
+        product:
+          attributes:
+            base:
+              require_size: Vous devez ajouter au moins une taille
+              inferior_quota: Vous devez metre au moins 4 images
+              exceeded_quota: Vous ne pouvez pas mettre plus de 4 images
     attributes:
       user:
         registration:
@@ -14,6 +26,10 @@ fr:
         zipcode: Code postal
         city: Ville
         phone: Numéro de téléphone
+      product:
+        attachments: Images
+      product/sizes:
+        size_n: Taille
   admin:
     orders:
       _base: &_base

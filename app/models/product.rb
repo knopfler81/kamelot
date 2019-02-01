@@ -19,5 +19,26 @@ class Product < ApplicationRecord
 	validates :brand,       presence: true
 	validates :category_id, presence: true
 	validates :ref, 				presence: true
+	validates :attachments, presence: true
 
+	validate  :attachment_size
+	validate  :at_least_one_size
+
+
+	private
+	
+	def attachment_size
+		if  self.attachments.count < 1
+			errors.add(:base, :inferior_quota)
+		elsif self.attachments.count > 4
+			errors.add(:base, :exceeded_quota)
+		end
+	end
+
+
+	def at_least_one_size
+		if self.sizes.empty?
+			errors.add(:base, :require_size)
+		end
+	end
 end

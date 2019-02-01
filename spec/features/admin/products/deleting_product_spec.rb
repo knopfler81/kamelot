@@ -12,7 +12,7 @@ RSpec.describe "Deleting Product" do
 		end
 
 		scenario "Destroy a product" do 
-			ken = products(:warm_sweat)
+			ken = products(:black_k_l)
 
 			visit admin_product_path(ken)
 			
