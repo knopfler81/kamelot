@@ -16,10 +16,10 @@ RSpec.feature Favorite do
 
 		visit root_path
 
-		page.all(".not-favorite")[1].click
+		first(".not-favorite").click
 
 		visit clients_favorites_path
 
-		expect(page).to have_content("Pull Kenzaro")
+		expect(page).to have_content("Side Park")
 	end 
 end

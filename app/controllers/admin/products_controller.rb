@@ -25,18 +25,14 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def create
-		if current_user.admin
-			@product =  Product.new(params_product)
-			@product.user_id = current_user.id
+		@product =  Product.new(params_product)
+		@product.user_id = current_user.id
 
-			if @product.save!
-				redirect_to admin_product_path(@product), notice: "Créé avec succès"
-			else
-				render :new, alert: "Woops une erreur"
-			end
+		if @product.save
+			redirect_to admin_product_path(@product), notice: "Créé avec succès"
 		else
-			redirect_to root_path,  alert: "Vous n'êtes pas autorisé 😡"
-		end
+			render :new, alert: "Woops une erreur"
+		end	
 	end
 
 	def destroy
@@ -56,8 +52,12 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def update
-		if @product.update_attributes!(params_product)
-			redirect_to admin_product_path(@product), notice: "Modifié avec succès"
+		if @product.update_attributes(params_product)
+			respond_to do |format|
+				format.html {redirect_to admin_product_path(@product), notice: "Modifié avec succès"}
+				format.js
+			end
+			
 		else
 			render :edit, alert: "Woooops"
 		end

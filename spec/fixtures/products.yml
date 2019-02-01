@@ -5,7 +5,7 @@ warm_sweat:
   color: Noir
   category: pull
   user: nelly
-  attachments: pull_rouge_1.jpg
+  attachments:  [<%= Rails.root.join("spec/assets/images/pull_noir_1.jpg") %>, <%= Rails.root.join("spec/assets/images/pull_noir_2.jpg") %>]
   ref: FF01
 
 black_k_l:
@@ -16,7 +16,7 @@ black_k_l:
   color: Noir
   category: pull
   user: nelly
-  attachments: pull_noir_1.jpg
+  attachments: [<%= Rails.root.join("spec/assets/images/pull_noir_1.jpg") %>, <%= Rails.root.join("spec/assets/images/pull_noir_2.jpg") %>]
   ref: FF01
 
 red_shirt:
@@ -27,7 +27,7 @@ red_shirt:
   color: Rouge
   category: chemise
   user: nelly
-  attachments: pull_noir_2.jpg
+  attachments: [<%= Rails.root.join("spec/assets/images/pull_noir_1.jpg") %>, <%= Rails.root.join("spec/assets/images/pull_noir_2.jpg") %>]
   ref: FF01
 
 blue_shirt:
@@ -38,5 +38,5 @@ blue_shirt:
   color: Bleue
   category: chemise
   user: nelly
-  attachments: pull_noir_2.jpg
+  attachments: [<%= Rails.root.join("spec/assets/images/pull_noir_1.jpg") %>, <%= Rails.root.join("spec/assets/images/pull_noir_2.jpg") %>]
   ref: FF01

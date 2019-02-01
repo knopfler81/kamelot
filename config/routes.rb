@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
 			resources :products
 
+			resources :products do
+				resources :attachments, only: [:create, :destroy]
+			end
+
 			get "desktop", to: "products#desktop"
 
 		 	resources :categories do 
@@ -51,6 +55,8 @@ Rails.application.routes.draw do
 		resources :products do 
 			resources :favorites
 		end
+
+
 
 	 	resources :categories, only: [:index, :show] do
 	 		resources :products, only: [:index, :show]
