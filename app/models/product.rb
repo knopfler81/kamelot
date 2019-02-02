@@ -22,7 +22,7 @@ class Product < ApplicationRecord
 	validates :attachments, presence: true
 
 	validate  :attachment_size
-	validate  :at_least_one_size
+	#validate  :at_least_one_size
 
 
 	private
