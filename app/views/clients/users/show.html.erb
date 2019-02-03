@@ -12,9 +12,9 @@
 							<i class="fa fa-edit"></i>
 						<% end %>
 					<% else %>
-					<%= link_to new_clients_shipping_address_path(current_user) do  %>
-						<i class="fa fa-plus-square"></i>
-					<% end %>
+						<%= link_to new_clients_shipping_address_path(current_user) do  %>
+							<i class="fa fa-plus-square"></i>
+						<% end %>
 					<% end %>
 				</h2>
 					<% if current_user.shipping_address %>
@@ -32,8 +32,14 @@
 			</div>
 			<div class="col-12 col-md-4">
 				<h2>FACTURATION 
-					<%= link_to edit_clients_billing_address_path(current_user.billing_address) do  %>
-						<i class="fa fa-edit"></i>
+					<% if current_user.billing_address %>
+						<%= link_to edit_clients_billing_address_path(current_user.billing_address) do  %>
+							<i class="fa fa-edit"></i>
+						<% end %>
+					<% else %>
+						<%= link_to new_clients_billing_address_path(current_user) do  %>
+							<i class="fa fa-plus-square"></i>
+						<% end %>
 					<% end %>
 				</h2>
 

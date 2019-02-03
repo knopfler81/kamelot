@@ -1,0 +1,78 @@
+
+.nav-upper-admin {
+	font-family: 'Montserrat';
+	background-color: #111!important;
+	.navbar-brand {
+		color: #ddd;
+	}
+
+	.nav-link{
+		color: #ddd!important;
+	}
+
+	.dropdown-item {
+		color: #111;
+	}
+	a {
+		color: #ddd;
+	}
+}
+
+.nav-upper-clients {
+	background-color: transparent!important;
+}
+
+.nav-heart {
+	font-size: 25px;
+	position: absolute;
+	color: #666;
+	}
+
+#likes_counter {
+	font-size: 10px;
+  background: #79B0FEFF;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border-radius: 50%;
+  position: absolute;
+ 	left: 20px;
+ 	top: -5px;
+  padding: 0 4px;
+  color: #fff;
+}
+
+
+.fa-shopping-bag {
+	font-size: 25px;
+	position: relative;
+	color: #666;
+}
+
+#items_count {
+	font-size: 10px;
+  background: red;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+ 	left: 18px;
+  padding: 0 4px;
+  color: #fff;
+}
+
+.fa-users  {
+	color: green;
+	font-size:25px;
+}
+
+.icon-wrapper {
+	position:relative;
+}
+
+.nav-lower-admin {
+	background: #111;
+	margin-top: -30px;
+	padding-bottom: 20px;
+}
