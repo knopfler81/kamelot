@@ -1,5 +1,18 @@
 <div class="container">
-	<div class="row">
-		
-	</div>
+	<% content_for :head do %>
+	  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+	<% end %>
+
+	<% [:orders, :clients, :products].each do |button| %>
+    <li class="tabs list-inline-item <%= params[:button] == button.to_s ? "tabs__item--active" : "tabs__item--inactive" %>">
+      <%= link_to admin_dashboard_url(button: button) do  %>
+        <%= button.capitalize %>
+      <% end %>
+    </li>
+	<% end %>
+	<br><br>
+
+  <%= render "#{@button}" %>
+
 </div>
+

@@ -14,6 +14,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'cocoon'
 gem 'rails-i18n'
 
+#satistiques
+gem "groupdate", "~> 3.1.1"  
+gem "chartkick"
 
 #environement variables
 gem "figaro"

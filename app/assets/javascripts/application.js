@@ -5,6 +5,8 @@
 //= require jquery_ujs
 //= require cocoon
 //= require bootstrap-datepicker
+//= require highcharts
+//= require chartkick
 //= require_tree .
 
 window.setTimeout(function() {

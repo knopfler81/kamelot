@@ -27,7 +27,6 @@ class Admin::ProductsController < Admin::ApplicationController
 	def create
 		@product =  Product.new(params_product)
 		@product.user_id = current_user.id
-
 		if @product.save
 			redirect_to admin_product_path(@product), notice: "Créé avec succès"
 		else
