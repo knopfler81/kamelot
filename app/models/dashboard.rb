@@ -21,7 +21,7 @@ class Dashboard
 	end
 
 	def sizes_per_products
-		@sizes = Product.joins(:sizes).group(:size_name).count
+		@sizes = Product.joins(:sizes).group(:size_name).sum(:quantity)
 	end
 
 	##### CLIENTS #####
