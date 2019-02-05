@@ -34,7 +34,7 @@
 			<% if @order.status == "paid" %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 				  <%= f.hidden_field :status, value: "confirmed" %>
-				  <%= submit_tag "Je prépare la commande" , class: "btn btn-secondary"%>
+				  <%= submit_tag "Je prépare la commande" , class: "btn btn-secondary", data: {confirm: "Pense bien a revenir valider l'expédition une fois l'article envoyé" }%>
 				<% end %>
 				<br><br>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>

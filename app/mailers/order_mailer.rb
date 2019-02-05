@@ -10,4 +10,10 @@ class OrderMailer < ApplicationMailer
 
     mail( to: @order.user.email, subject: "Nous ne pouvons pas satisfaire votre demande")
   end
+
+  def order_sent(order)
+    @order = order
+
+    mail( to: @order.user.email, subject: "Nous avons expédié votre commande")
+  end
 end

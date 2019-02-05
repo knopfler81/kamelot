@@ -19,6 +19,12 @@ class Admin::OrdersController < Admin::ApplicationController
 
 		if @order.status == "cancelled"
 			OrderMailer.we_are_sorry(@order).deliver_now
+			redirect_to admin_order_path(@order)
+		elsif @order.status == "shipped"
+			OrderMailer.order_sent(@order).deliver_now
+			redirect_to admin_order_path(@order)
+		elsif @order.status == "confirmed"
+			redirect_to admin_order_path(@order)
 		end
 
 	end
