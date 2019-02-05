@@ -10,10 +10,9 @@
 			<p>Adresse de livraison</p>
 				<%= @order.user.first_name %>  <%= @order.user.last_name %>
 				<br>
-				<%= @order.user.shipping_address.address_1 %>
-				<%= @order.user.shipping_address.address_2 if @order.user.shipping_address.address_2 %>
+				<%= @order.user.shipping_address.street_number %> <%= @order.user.shipping_address.route %>
 				<br>
-				<%= @order.user.shipping_address.zipcode %> <%= @order.user.shipping_address.city %>
+				<%= @order.user.shipping_address.postal_code %> <%= @order.user.shipping_address.locality %>
 				<br>
 				<%= @order.user.phone %>
 				<br><br>
@@ -23,10 +22,9 @@
 				<p>Adresse de Facturation</p>
 					<%= @order.user.billing_address.first_name %>  <%= @order.user.billing_address.last_name %>
 					<br>
-					<%= @order.user.billing_address.address_1 %>
-					<%= @order.user.billing_address.address_2 if @order.user.billing_address.address_2 %>
+					<%= @order.user.billing_address.street_number %> <%= @order.user.billing_address.route %>
 					<br>
-					<%= @order.user.billing_address.zipcode %>  <%= @order.user.billing_address.city %>
+					<%= @order.user.billing_address.postal_code %>  <%= @order.user.billing_address.locality %>
 					<br>
 					<%= @order.user.billing_address.phone %>
 					<br><br>
@@ -41,7 +39,7 @@
 				<br><br>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 				  <%= f.hidden_field :status, value: "cancelled" %>
-				  <%= submit_tag "Arg... l'article est indisponible" , class: "btn btn-danger"%>
+				  <%= submit_tag "Arg... l'article est indisponible", data: {confirm: "Un email va pévenir le client que l'article est indisponible, voulez vous vraiment le marquer comme tel ?"}, class: "btn btn-danger"%>
 				<% end %>
 			<% elsif @order.status == "confirmed" %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>

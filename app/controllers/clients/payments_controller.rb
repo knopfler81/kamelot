@@ -22,6 +22,7 @@ class Clients::PaymentsController < Clients::ApplicationController
 	  if @order.save
 		  find_paid_order
 		  PaymentMailer.confirmation(@order).deliver_now
+		  PaymentMailer.new_order(@order).deliver_now
 
 		 text_message = "Nouvelle commande  ref: #{@order.id} \n\n" 
 
