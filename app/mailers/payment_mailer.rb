@@ -7,7 +7,11 @@ class PaymentMailer < ApplicationMailer
   #
   def confirmation(order)
     @order = order
-
     mail( to: @order.user.email, subject: "Confirmation de commande")
+  end
+
+  def new_order(order)
+  	@order = order
+  	mail(to: ENV["ADMIN_EMAIL"], subject: "Nouvelle commande")
   end
 end

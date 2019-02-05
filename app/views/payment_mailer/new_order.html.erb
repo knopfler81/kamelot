@@ -1,0 +1,19 @@
+
+<h2 style="color:red">Bonjour!</h2>
+
+
+<div style="background: green; padding: 30px">
+<p><%= @order.user.full_name %> vient de passer commande.</p>
+
+
+<p>Commande n° <%= @order.id %> pour laquelle on estime une livraison entre <%= l(@order.delivery_date_1,  format: '%d %B %Y' ) %> et <%= l(@order.delivery_date_2, format: '%d %B %Y') %></p>
+
+<% @order.items.each do |item| %>
+	<ul>
+		<li> <%= item.quantity %> X <%=item.product.title %>, <%= item.product.brand %> , <%= item.product.color %> , en taille <%= item.size.size_name  %> </li>
+	</ul>
+<% end %>
+
+
+<p>Voir la commande en ligne <%= link_to "Commande", admin_orders_url %></p>
+

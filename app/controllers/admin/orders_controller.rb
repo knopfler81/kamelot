@@ -16,7 +16,17 @@ class Admin::OrdersController < Admin::ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
-		redirect_to admin_order_path(@order)
+
+		if @order.status == "cancelled"
+			OrderMailer.we_are_sorry(@order).deliver_now
+			redirect_to admin_order_path(@order)
+		elsif @order.status == "shipped"
+			OrderMailer.order_sent(@order).deliver_now
+			redirect_to admin_order_path(@order)
+		elsif @order.status == "confirmed"
+			redirect_to admin_order_path(@order)
+		end
+
 	end
 
 	private
