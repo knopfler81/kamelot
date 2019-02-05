@@ -21,6 +21,10 @@ gem "chartkick"
 #environement variables
 gem "figaro"
 
+# autocomplete
+gem "geocoder"
+gem 'jquery-rails' 
+
 #payment 
 gem 'money-rails'
 gem 'stripe'

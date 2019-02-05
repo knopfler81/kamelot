@@ -1,8 +1,8 @@
 home:
   title: Home
   user: nelly
-  address_1: 1 rue du bidule
-  address_2: Allée 3
-  zipcode: 42000
-  city: St Etienne
+  street_number: 1
+  route:  rue du bidule
+  postal_code: 42000
+  locality: St Etienne
   phone: 098765432
