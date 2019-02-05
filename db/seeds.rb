@@ -1022,9 +1022,10 @@ ShippingAddress.create(
 	user_id: user_2.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1032,45 +1033,50 @@ ShippingAddress.create(
 	user_id: user_3.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_4.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_5.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_6.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_7.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1078,54 +1084,60 @@ ShippingAddress.create(
 	user_id: user_8.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_9.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_10.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_11.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_12.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_13.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1133,9 +1145,10 @@ ShippingAddress.create(
 	user_id: user_14.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1143,9 +1156,10 @@ ShippingAddress.create(
 	user_id: user_15.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1154,9 +1168,10 @@ ShippingAddress.create(
 	user_id: user_16.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1165,9 +1180,10 @@ ShippingAddress.create(
 	user_id: user_17.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1176,9 +1192,10 @@ ShippingAddress.create(
 	user_id: user_18.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 
@@ -1186,169 +1203,186 @@ ShippingAddress.create(
 	user_id: user_19.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
 ShippingAddress.create(
 	user_id: user_20.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
+	street_number: rand(1..400),
+	route: Faker::Address.street_name,
+	postal_code: Faker::Address.zip_code,
+	locality: Faker::Address.city,
 )
 
-BillingAddress.create(
-	user_id: user_2.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_2.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
 
-BillingAddress.create(
-	user_id: user_3.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_3.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_4.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_4.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_5.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_5.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_6.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_6.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_7.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_7.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
 
-BillingAddress.create(
-	user_id: user_8.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_8.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_9.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_9.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_10.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_10.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_11.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_11.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_12.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_12.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_13.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_13.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_14.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_14.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_15.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_15.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 
-BillingAddress.create(
-	user_id: user_16.id,
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
-	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+# BillingAddress.create(
+# 	user_id: user_16.id,
+# 	first_name: Faker::Name.first_name,
+# 	last_name: Faker::Name.last_name,
+# 	street_number: rand(1..400),
+# 	route: Faker::Address.street_name,
+# 	postal_code: Faker::Address.zip_code,
+# 	locality: Faker::Address.city,
+# 	phone: Faker::PhoneNumber.phone_number
+# )
 puts "Shipping and Billing addresses created"

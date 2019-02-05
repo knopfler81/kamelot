@@ -10,16 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_132845) do
+ActiveRecord::Schema.define(version: 2019_02_05_154943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "billing_addresses", force: :cascade do |t|
-    t.string "address_1"
-    t.string "address_2"
-    t.string "zipcode"
-    t.string "city"
     t.string "phone"
     t.string "title"
     t.bigint "user_id"
@@ -28,6 +24,12 @@ ActiveRecord::Schema.define(version: 2019_01_31_132845) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "address"
+    t.string "locality"
+    t.string "route"
+    t.string "administrative_area_level_1"
+    t.integer "postal_code"
+    t.integer "street_number"
     t.index ["order_id"], name: "index_billing_addresses_on_order_id"
     t.index ["user_id"], name: "index_billing_addresses_on_user_id"
   end
@@ -88,15 +90,17 @@ ActiveRecord::Schema.define(version: 2019_01_31_132845) do
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
-    t.string "address_1"
-    t.string "address_2"
-    t.string "city"
-    t.string "zipcode"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "address"
+    t.string "locality"
+    t.string "route"
+    t.string "administrative_area_level_1"
+    t.integer "postal_code"
+    t.integer "street_number"
     t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
   end
 

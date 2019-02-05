@@ -2,7 +2,8 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery
-//= require jquery_ujs
+//= require rails-ujs
+//= require turbolinks
 //= require cocoon
 //= require bootstrap-datepicker
 //= require highcharts

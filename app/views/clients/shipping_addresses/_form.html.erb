@@ -4,10 +4,14 @@
 			<%= simple_form_for(@shipping_address, url: clients_shipping_addresses_path) do |f| %>
 				<%= f.input :first_name, label: false, placeholder: current_user.first_name, input_html: {value: current_user.first_name}, required: true %>
 				<%= f.input :last_name, label: false, placeholder: current_user.last_name,input_html: { value: current_user.last_name}, required: true %>
-				<%= f.input :address_1, label: false, placeholder: "Adresse", required: true %>
-				<%= f.input :address_2, label: false, placeholder: "Complément d'adresse", required: true %>
-				<%= f.input :zipcode, label: false, placeholder:  "Code Postal", required: true %>
-				<%= f.input :city, label: false, placeholder: "Ville", required: true %>
+
+				<%= f.input :address, 										label: false,	placeholder: "Recherchez votre adresse",    input_html: { id: "autocomplete_address"} %>
+
+				<%= f.input :street_number, 							label: false,	placeholder: "N°rue",			  required: true, input_html: { id: "street_number"} %>
+				<%= f.input :route, 										  label: false,	placeholder: "Voie",        required: true, input_html: { id: "route"} %>
+				<%= f.input :postal_code, 								label: false, placeholder: "Code Postal", required: true, input_html: { id: "postal_code"} %>
+				<%= f.input :locality, 										label: false,	placeholder: "Ville", 			required: true, input_html: { id: "locality"} %>
+				<%= f.input :administrative_area_level_1, label: false, placeholder: "Région",			required: true, input_html: { id: "administrative_area_level_1"} %>
 				<br><br>
 				<%= f.submit "Valider", class: "btn-secondary btn-block" %>
 			<% end %>
