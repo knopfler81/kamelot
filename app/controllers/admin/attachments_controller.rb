@@ -5,8 +5,8 @@ class Admin::AttachmentsController < Admin::ApplicationController
 
   def create
     add_more_attachments(attachments_params[:attachments])
-    if @product.save
-      redirect_to edit_admin_product_path(@product), notice: "Successfully added"
+    if @product.save!
+      redirect_to edit_admin_product_path(@product), notice: "Les images ont bien été ajoutées"
     else
       flash[:alert] = "NOOOOOOO WAYYY"
     end
@@ -14,9 +14,8 @@ class Admin::AttachmentsController < Admin::ApplicationController
 
   def destroy
     remove_attachments_at_index(params[:id].to_i)
-    if @product.save
-      
-      redirect_to edit_admin_product_path(@product), notice: "Picture was successfully destroyed"
+    if @product.save!
+      redirect_to edit_admin_product_path(@product), notice: "L'image a bien été supprimée"
     end
   end
 

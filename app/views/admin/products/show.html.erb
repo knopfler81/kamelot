@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<%= link_to "Edit", edit_admin_product_path, class: "btn btn-warning edit_product" %>
+			<%= link_to "Edit", edit_admin_product_path, data: { turbolinks: false }, class: "btn btn-warning edit_product" %>
 			<%= link_to "Supprimer", admin_product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
 			<hr>
 		</div>

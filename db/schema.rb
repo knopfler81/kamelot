@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_112357) do
+ActiveRecord::Schema.define(version: 2019_02_06_135041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2019_02_06_112357) do
     t.json "attachments"
     t.string "brand"
     t.string "ref"
-    t.decimal "price", precision: 10, scale: 2
+    t.decimal "price"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

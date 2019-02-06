@@ -24,8 +24,6 @@ class Clients::FavoritesController < Clients::ApplicationController
 	 	end
 	end
 
-
-
 	def destroy 
 	 	if @favorite.destroy!
 	 		respond_to do |format|

@@ -19,7 +19,6 @@ class Product < ApplicationRecord
 	validates :brand,       presence: true
 	validates :category_id, presence: true
 	validates :ref, 				presence: true
-	validates :attachments, presence: true
 
 	validate  :attachment_size
 	validate  :at_least_one_size, on: :create
