@@ -1,6 +1,5 @@
 class Admin::ProductsController < Admin::ApplicationController
-
-
+	protect_from_forgery
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
 	before_action :set_product, only: [:show, :destroy, :update, :edit]
 
@@ -28,7 +27,7 @@ class Admin::ProductsController < Admin::ApplicationController
 		@product =  Product.new(params_product)
 		@product.user_id = current_user.id
 		if @product.save
-			redirect_to admin_product_path(@product), notice: "Créé avec succès"
+			redirect_to admin_product_path(@product), notice: "L'article a bien été créé"
 		else
 			render :new, alert: "Woops une erreur"
 		end	
@@ -37,7 +36,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	def destroy
 		if current_user.admin
 			if	@product.destroy
-				redirect_to root_path, notice: "Supprimé avec succès"
+				redirect_to root_path, notice: "L'article a bien été supprimé"
 			else
 				render :show, alert: "Wooops"
 			end
@@ -48,9 +47,9 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def update
-		if @product.update_attributes(params_product)
+		if @product.update_attributes!(params_product)
 			respond_to do |format|
-				format.html {redirect_to admin_product_path(@product), notice: "Modifié avec succès"}
+				format.html {redirect_to admin_product_path(@product), notice: "L'article a bien été modifié"}
 				format.js
 			end
 		else

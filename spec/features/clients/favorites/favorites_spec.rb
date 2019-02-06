@@ -10,7 +10,6 @@ RSpec.feature Favorite do
 	end
 
 	scenario "add a product to favorites", js: true do 
-		nelly = users(:nelly)
 		pull  = categories(:pull)
 		ken = products(:warm_sweat)
 

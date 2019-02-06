@@ -10,6 +10,7 @@
 //= require chartkick
 //= require_tree .
 
+
 window.setTimeout(function() {
    $(".alert").fadeTo(1000, 0).slideUp(2000, function() {
        $(this).hide();
@@ -20,5 +21,3 @@ window.setTimeout(function() {
 $(document).ready(function(){
   $('.datepicker').datepicker({dateFormat: "dd/mm/yyyy", language: "fr"});
 });
-
-

@@ -1,11 +1,11 @@
 $(document).on('turbolinks:load', function() {
-function initializeAutocomplete(id) {     
+  function initializeAutocomplete(id) {     
      var element = document.getElementById(id);
      if (element) {
        var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'], componentRestrictions: {country: 'fr'} });
        google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-       }
-}
+      }
+  }
 
 function onPlaceChanged() {
      var place = this.getPlace();     

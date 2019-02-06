@@ -1,104 +1,103 @@
 <div class="container">
-
-<section class="section">
-	<h2 class="primary_title">Modifier <%= @product.title %> - <%= @product.color %></h1>
+	<section class="section">
+		<h2 class="primary_title">Modifier <%= @product.title %> - <%= @product.color %></h2>
 		<hr>
-	<%= simple_form_for(@product, url: admin_product_path(@product)) do |f| %>		
-		<div class="row">
-			<div class="col-12 <%= 'error_message' if @product.errors.full_messages.any? %> ">
+		<%= simple_form_for(@product, url: admin_product_path(@product)) do |f| %>		
+			<div class="row">
+				<div class="col-12 <%= 'error_message' if @product.errors.full_messages.any? %> ">
 
-			<% if  @product.errors.any? %>
-				<% @product.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
+				<% if  @product.errors.any? %>
+					<% @product.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
 				<% end %>
-			<% end %>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="co-12 col-md-4">
-			<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie", input_html: { class: "custom-select"}, required: true %>
-		</div>
-		<div class="co-12 col-md-4">
-			<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
-		</div>
-		<div class="co-12 col-md-4">
-			<%= f.input :title, placeholder: "Titre", label: false, required: true %>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="co-12 col-md-4">
-			<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
-		</div>
-		<div class="co-12 col-md-4">
-			<%= f.input :price, placeholder: "Prix", label: false, value: @product.price, required: true %>
-		</div>
-		<div class="co-12 col-md-4">
-			<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-12">
-			<%= f.input :description, placeholder: "Description", input_html: {rows: 5}, label: false, required: true %>
-		</div>
-	</div>
-</section>
-
-<section class="section">
-	<h2>Modifier les images</h2>
-	<hr>
-		<div class="row">
-			<div class="col-16 col-md-4">
-				<% if @product.attachments.size >= 4 %>
-				<button type="button" class="btn btn-main add-pic-modal" disabled >
-				 Ajouter des images
-				</button>
-				<% else %>
-				<button type="button" class="btn btn-main add-pic-modal" data-toggle="modal" data-target="#addpicmodal">
-				 Ajouter des images
-				</button>
-				<% end %>
-				
+				</div>
 			</div>
-			<div class="col-12 col-md-8">
-				<% @product.attachments.each_with_index do | product, index| %>
+
+			<div class="row">
+				<div class="co-12 col-md-4">
+					<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie", input_html: { class: "custom-select"}, required: true %>
+				</div>
+				<div class="co-12 col-md-4">
+					<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
+				</div>
+				<div class="co-12 col-md-4">
+					<%= f.input :title, placeholder: "Titre", label: false, required: true %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="co-12 col-md-4">
+					<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
+				</div>
+				<div class="co-12 col-md-4">
+					<%= f.input :price, label: false, required: true %>
+				</div>
+				<div class="co-12 col-md-4">
+					<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<%= f.input :description, placeholder: "Description", input_html: {rows: 5}, label: false, required: true %>
+				</div>
+			</div>
+	</section>
+
+	<section class="section">
+		<h2>Modifier les images</h2>
+		<hr>
+			<div class="row">
+				<div class="col-16 col-md-4">
+					<% if @product.attachments.size >= 4 %>
+						<button type="button" class="btn btn-main add-pic-modal" disabled >
+						 Ajouter des images
+						</button>
+						<% else %>
+						<button type="button" class="btn btn-main add-pic-modal" data-toggle="modal" data-target="#addpicmodal">
+						 Ajouter des images
+						</button>
+					<% end %>
+				</div>
+				<div class="col-12 col-md-8">
+					<% @product.attachments.each_with_index do | product, index| %>
 						<%= image_tag product.url, class: "tiny_image" %>
 						<% unless @product.attachments.index(@product.attachments.last) == 0 %>
 							<%= link_to admin_product_attachment_path(@product, index), method: :delete, data: { confirm: "La suppression de l'image est irreversible?" }, class: "delete_img_link"  do %>
 								<i class="fa fa-trash trash"></i>
 							<% end %>
 						<% end %>
-				<% end %>
+					<% end %>
+				</div>
+			</div>
+		<br>
+		<br>
+	</section>
+
+	<section class="section">
+		<div class="row">
+			<div class="col-12">
+				<div id="sizes">
+					<h2>Modifier les tailles </h2>
+					<hr>
+
+				  <%= f.simple_fields_for :sizes do |size| %>
+			      <%= render "size_fields", f: size %>
+			    <% end %>
+			   	<div class="links">
+			     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class: "btn btn-secondary btn-lg" %>
+			   	</div>
+				</div>
 			</div>
 		</div>
-	<br>
-	<br>
-</section>
+		  <br><br>
+		  <div class="col-12">
+				<%= f.submit "Valider le produit", class: "btn btn-main btn-lg btn-block" %>
+		  </div>
+		<% end %>
+	</section>
+	<%= render "modal_add_pic" %>
+</div>
 
-<section class="section">
-	<div class="row">
-		<div class="col-12">
-			<div id="sizes">
-				<h2>Modifier les tailles </h2>
-				<hr>
 
-			  <%= f.simple_fields_for :sizes do |size| %>
-		      <%= render "size_fields", f: size %>
-		    <% end %>
-		   	<div class="links">
-		     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class: "btn btn-secondary btn-lg" %>
-		   	</div>
-			</div>
-		</div>
-	</div>
-	  <br><br>
-	  <div class="col-12">
-			<%= f.submit "Valider le produit", class: "btn btn-main btn-lg btn-block" %>
-	  </div>
-	<% end %>
-	</div>
-</section>
-
-<%= render "modal_add_pic" %>

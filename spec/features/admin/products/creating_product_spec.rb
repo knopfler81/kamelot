@@ -28,7 +28,7 @@ RSpec.describe "Creating Product" , :js do
 			find('.nested-fields:nth-child(1)').fill_in "Quantité dans cette taille", with: 9
 			click_on "Valider le produit"
 
-			expect(page).to have_content("Créé avec succès")
+			expect(page).to have_content("L'article a bien été créé")
 		end
 	end
 end

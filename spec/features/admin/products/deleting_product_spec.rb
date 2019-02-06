@@ -18,7 +18,7 @@ RSpec.describe "Deleting Product" do
 			
 			find(".delete_product").click
 
-			expect(page).to have_content("Supprimé avec succès")		
+			expect(page).to have_content("L'article a bien été supprimé")		
 		end
 	end	
 end
