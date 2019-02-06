@@ -7,7 +7,6 @@ class OrderItem < ApplicationRecord
 
 	#after_initialize :double_check_if_exist
 
-
 	validates :size_id, presence: true
 
 	def double_check_if_exist

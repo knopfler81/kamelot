@@ -13,7 +13,7 @@ class Product < ApplicationRecord
 	accepts_nested_attributes_for :sizes, reject_if: :all_blank, allow_destroy: true
 	
 	validates :title,       presence: true
-	validates :price_cents, presence: true
+	validates :price,       presence: true
 	validates :description, presence: true
 	validates :color,       presence: true
 	validates :brand,       presence: true
