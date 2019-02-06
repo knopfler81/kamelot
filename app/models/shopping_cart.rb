@@ -26,7 +26,7 @@ class ShoppingCart
      order.items.new(product_id: product_id, size_id: size_id)
     end
     
-    @order_item.price = @product.price_cents
+    @order_item.price = @product.price
     @order_item.quantity = quantity.to_i
 
     ActiveRecord::Base.transaction do
@@ -59,6 +59,7 @@ class ShoppingCart
   private
 
   def update_sub_total!
+
     order.sub_total = order.items.sum('quantity * price')
     order.save
   end

@@ -27,7 +27,7 @@
 															<i class= "fa fa-heart not-favorite"></i>
 														<% end %>
 													</div>
-												<% end %>	
+												<% end %>
 											</div>
 										<%= link_to clients_product_path(favorite.product) do  %>
 											<div id="carousel_<%= favorite.product.id%>" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -63,7 +63,7 @@
 										<small><%=favorite. product.title %> </small>
 									</div>
 									<div class="col-6">
-										<small><%= number_to_currency_euro(favorite.product.price_cents) %></small>
+										<small><%= number_to_currency_euro(favorite.product.price) %></small>
 									</div>
 								</div>
 							

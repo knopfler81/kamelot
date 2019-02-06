@@ -45,9 +45,6 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def edit
-		unless current_user.admin?
-			redirect_to root_path,  alert: "Vous n'êtes pas autorisé 😡"
-		end
 	end
 
 	def update
@@ -56,7 +53,6 @@ class Admin::ProductsController < Admin::ApplicationController
 				format.html {redirect_to admin_product_path(@product), notice: "Modifié avec succès"}
 				format.js
 			end
-			
 		else
 			render :edit, alert: "Woooops"
 		end
@@ -69,7 +65,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:title, :ref, :brand, :description, :price_cents, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+		params.require(:product).permit(:title, :ref, :brand, :description, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
 
 	def filter_products
