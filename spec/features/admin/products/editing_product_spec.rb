@@ -21,7 +21,7 @@ RSpec.describe "Editing Product" do
 			fill_in "product[title]", with: "Pull en laine"
 			fill_in "product[description]", with: "Une autre description"
 
-			click_on "Valider le produit"
+			click_on "Mettre à jour l'article"
 
 			expect(page).to have_content("L'article a bien été modifié")
 		end
