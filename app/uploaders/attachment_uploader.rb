@@ -8,10 +8,12 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   else
     storage :file
   end
-  
+
+  process resize_to_fill: [395, 595]
+
   version :thumb do
-     process resize_to_fill: [280, 280]
-   end
+    process resize_to_fill: [280, 280]
+  end
 
   def default_url(*args)
     "/images/fallback/" + [version_name, "random.jpg"].compact.join('_')

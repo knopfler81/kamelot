@@ -11,5 +11,11 @@ RSpec.configure do |config|
 
   config.example_status_persistence_file_path = 'tmp/rspec_examples.txt'
   config.order = :random
-  config.shared_context_metadata_behavior = :apply_to_host_groups    
+  config.shared_context_metadata_behavior = :apply_to_host_groups 
+
+  config.after(:all) do
+    if Rails.env.test? 
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end 
+  end    
 end
