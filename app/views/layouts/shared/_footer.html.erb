@@ -1,0 +1,74 @@
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+<hr>
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="offset-md-2 col-md-3 mt-md-0 mt-3">
+
+          <!-- Content -->
+         <h5 class="text-uppercase">Commander en ligne</h5>
+
+        	<ul class="list-unstyled">
+					   <li class="item"><%= link_to "Livraison", delivery_path, "target"=>"_blank"  %></li>
+					   <li class="item"><%= link_to "Paiment sécurisé", secure_payment_path, "target"=>"_blank"  %></li>
+					   <li class="item"><%= link_to "Conditions générales de ventes", general_condition_of_sales_path, "target"=>"_blank"  %></li>
+					</ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Mark Web</h5>
+
+            	<ul class="list-unstyled">
+            		<li class="item"><%= link_to "Mentions légales", legal_notice_path, "target"=>"_blank"  %></li>
+            		<li class="item"><%= link_to "Politique de confidentialité", confidentiality_policy_path, "target"=>"_blank"  %></li>
+            		<li class="item"><%= link_to "Politique des cookies", cookies_policy_path, "target"=>"_blank"  %></li>
+							</ul>
+
+
+
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Guide d'achat</h5>
+
+
+							<ul class="list-unstyled">
+								<li class="item"><%= link_to "Guide des tailles", sizes_guide_path, "target"=>"_blank"  %></li>
+								<li class="item"><%= link_to "Plan du site", site_map_path, "target"=>"_blank"  %></li>
+							</ul>
+
+
+          </div>
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="#">MarketWeb</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>

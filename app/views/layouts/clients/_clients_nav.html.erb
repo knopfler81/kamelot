@@ -1,41 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-upper-clients">
- <div class="container-fluid">
-  <%= link_to "MarketWeb", root_path,  class:"navbar-brand" %>
-   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
+  <div class="container-fluid">
+    <%= link_to "MarketWeb", root_path,  class:"navbar-brand" %>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-     <ul class="navbar-nav ml-auto">
-       <% Category.order('title ASC').all.each do |cat| %>
-         <li class="nav-item"><%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %></li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% Category.order('title ASC').all.each do |cat| %>
+        <% if cat.products.any? %>
+          <li class="nav-item"><%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %></li>
+        <% end %>
        <% end %>
-     </ul>
-     <ul class="navbar-nav ml-auto">
-       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" >
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" >
           <% if current_user %>
             <%= current_user.first_name %>
           <% else %>
               Mon Compte
           <% end %>
-          </a>
-         <% if current_user %>
-           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-             <%= link_to "Mes adresses", clients_user_path(current_user), class: "dropdown-item" %>
-             <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
-             <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
-             <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
-             <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-           </div>
+        </a>
+        <% if current_user %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Mes adresses", clients_user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
+            <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
+            <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
+            <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+         </div>
         <% else %>
-           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-             <%= link_to "Connection", new_user_session_path, class: "dropdown-item"  %>
-           </div>           
-         <% end %>
-       </li>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Connection", new_user_session_path, class: "dropdown-item"  %>
+          </div>           
+        <% end %>
+      </li>
 
-       <li class= "nav-link">
+      <li class= "nav-link">
         <div class="icon-wrapper">
           <%= link_to clients_cart_path do %>
             <i class="fa fa-shopping-bag"></i>  
@@ -44,10 +46,10 @@
             <span id="items_count"><%= @current_cart.items_count %></span>
           <% end %>
         </div>
-       </li>
-       <% if current_user %>
-         <li class="nav-link" style="margin-right: 20px; margin-bottom: 20px;">
-           <div class="icon-wrapper">
+      </li>
+      <% if current_user %>
+        <li class="nav-link" style="margin-right: 20px; margin-bottom: 20px;">
+          <div class="icon-wrapper">
             <%= link_to clients_favorites_path do %>
               <i class="fa fa-heart nav-heart"></i>  
               <% if @favorites.count > 0 %>
@@ -55,12 +57,12 @@
               <% end %>
             <% end %>
           </div>
-         </li>
-       <% end %>
-       <% if current_user && current_user.admin? %>
-         <li class="nav-link">
-           <%= link_to  "Site admin", admin_products_path %>
-         </li>
+        </li>
+      <% end %>
+      <% if current_user && current_user.admin? %>
+          <li class="nav-link">
+            <%= link_to  "Site admin", admin_products_path %>
+          </li>
        <% end %>
      </ul>
    </div>

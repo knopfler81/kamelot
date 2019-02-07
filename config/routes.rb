@@ -87,6 +87,13 @@ Rails.application.routes.draw do
 		patch '/cart/checkout', to: 'orders#create'
 	end
 
-
+	get "secure_payment", to: "pages#secure_payment"
+	get "delivery", to: "pages#delivery"
+	get "general_condition_of_sales", to: "pages#general_condition_of_sales"
+	get "legal_notice", to: "pages#legal_notice"
+	get "confidentiality_policy", to: "pages#confidentiality_policy"
+	get "cookies_policy", to: "pages#cookies_policy"
+	get "sizes_guide", to: "pages#sizes_guide"
+	get "site_map", to: "pages#site_map"
 
 end
