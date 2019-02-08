@@ -770,248 +770,179 @@ product_13 = Product.create(
 		]
 )
 
-
-
-
 puts "Products Created"
 
-# size_1 = Size.create(size_name: "S", quantity: 10, product_id: product_1.id)
-# size_2 = Size.create(size_name: "M", quantity: 10, product_id: product_1.id)
-# size_3 = Size.create(size_name: "L", quantity: 10, product_id: product_1.id)
-# size_4 = Size.create(size_name: "XL", quantity: 10, product_id: product_1.id)
-
-# size_5 = Size.create(size_name: "S", quantity: 10, product_id: product_2.id)
-# size_6 = Size.create(size_name: "M", quantity: 10, product_id: product_2.id)
-# size_7 = Size.create(size_name: "L", quantity: 10, product_id: product_2.id)
-# size_8 = Size.create(size_name: "XL", quantity: 10, product_id: product_2.id)
-
-# size_9 = Size.create(size_name: "S", quantity: 10, product_id: product_3.id)
-# size_10 = Size.create(size_name: "M", quantity: 10, product_id: product_3.id)
-# size_12 = Size.create(size_name: "L", quantity: 10, product_id: product_3.id)
-# size_13 = Size.create(size_name: "XL", quantity: 10, product_id: product_3.id)
-
-# size_14 = Size.create(size_name: "S", quantity: 10, product_id: product_4.id)
-# size_15 = Size.create(size_name: "M", quantity: 10, product_id: product_4.id)
-# size_16 = Size.create(size_name: "L", quantity: 10, product_id: product_4.id)
-# size_17 = Size.create(size_name: "XL", quantity: 10, product_id: product_4.id)
-
-# size_18 = Size.create(size_name: "S", quantity: 10, product_id: product_5.id)
-# size_19 = Size.create(size_name: "M", quantity: 10, product_id: product_5.id)
-# size_20 = Size.create(size_name: "L", quantity: 10, product_id: product_5.id)
-# size_21 = Size.create(size_name: "XL", quantity: 10, product_id: product_5.id)
-
-# size_22 = Size.create(size_name: "S", quantity: 10, product_id: product_6.id)
-# size_23 = Size.create(size_name: "M", quantity: 10, product_id: product_6.id)
-# size_24 = Size.create(size_name: "L", quantity: 10, product_id: product_6.id)
-# size_25 = Size.create(size_name: "XL", quantity: 10, product_id: product_6.id)
-
-# size_26 = Size.create(size_name: "S", quantity: 10, product_id: product_7.id)
-# size_27 = Size.create(size_name: "M", quantity: 10, product_id: product_7.id)
-# size_28 = Size.create(size_name: "L", quantity: 10, product_id: product_7.id)
-# size_29 = Size.create(size_name: "XL", quantity: 10, product_id: product_7.id)
-
-# size_30 = Size.create(size_name: "S", quantity: 10, product_id: product_8.id)
-# size_31 = Size.create(size_name: "M", quantity: 10, product_id: product_8.id)
-# size_34 = Size.create(size_name: "L", quantity: 10, product_id: product_8.id)
-# size_35 = Size.create(size_name: "XL", quantity: 10, product_id: product_8.id)
-
-# size_36 = Size.create(size_name: "S", quantity: 10, product_id: product_9.id)
-# size_37 = Size.create(size_name: "M", quantity: 10, product_id: product_9.id)
-# size_38 = Size.create(size_name: "L", quantity: 10, product_id: product_9.id)
-# size_39 = Size.create(size_name: "XL", quantity: 10, product_id: product_9.id)
-
-# size_40 = Size.create(size_name: "S", quantity: 10, product_id: product_10.id)
-# size_41 = Size.create(size_name: "M", quantity: 10, product_id: product_10.id)
-# size_42 = Size.create(size_name: "L", quantity: 10, product_id: product_10.id)
-# size_42 = Size.create(size_name: "XL", quantity: 10, product_id: product_10.id)
-
-# size_43 = Size.create(size_name: "S", quantity: 10, product_id: product_11.id)
-# size_44 = Size.create(size_name: "M", quantity: 10, product_id: product_11.id)
-# size_45 = Size.create(size_name: "L", quantity: 10, product_id: product_11.id)
-# size_46 = Size.create(size_name: "XL", quantity: 10, product_id: product_11.id)
-
-# size_47 = Size.create(size_name: "S", quantity: 10, product_id: product_12.id)
-# size_48 = Size.create(size_name: "M", quantity: 10, product_id: product_12.id)
-# size_49 = Size.create(size_name: "L", quantity: 10, product_id: product_12.id)
-# size_50 = Size.create(size_name: "XL", quantity: 10, product_id: product_12.id)
-
-# size_51 = Size.create(size_name: "S", quantity: 10, product_id: product_13.id)
-# size_52 = Size.create(size_name: "M", quantity: 10, product_id: product_13.id)
-# size_53 = Size.create(size_name: "L", quantity: 10, product_id: product_13.id)
-# size_54 = Size.create(size_name: "XL", quantity: 10, product_id: product_13.id)
-
-#puts "Sizes created"
 
 #ORDER 1
-order_1  = Order.create(payment: "{'stub','stripe'}", created_at: 5.months.ago, user_id: user_2.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: [product_1.price + product_1.price].sum , total: 135)
+order_1  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 5.months.ago, user_id: user_2.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: [product_1.price + product_1.price].sum , total: 135)
 OrderItem.create(price: product_1.price, order_id: order_1.id, product_id: product_1.id, quantity: 1, size_id: product_1.sizes[0].id)
 OrderItem.create(price: product_2.price, order_id: order_1.id, product_id: product_2.id, quantity: 1, size_id: product_2.sizes[1].id)
 
 #ORDER 2
-order_2  = Order.create(payment: "{'stub','stripe'}", created_at: 5.months.ago, user_id: user_2.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: [product_1.price + product_1.price].sum , total: 135)
+order_2  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 5.months.ago, user_id: user_2.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: [product_1.price + product_1.price].sum , total: 135)
 OrderItem.create(price: product_1.price, order_id: order_2.id, product_id: product_1.id, quantity: 1, size_id: product_1.sizes[0].id)
 OrderItem.create(price: product_2.price, order_id: order_2.id, product_id: product_2.id, quantity: 1, size_id: product_2.sizes[2].id)
 
 #ORDER 3
-order_3  = Order.create(payment: "{'stub','stripe'}", created_at: 5.months.ago, user_id: user_3.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: [product_1.price * 2 + product_2.price * 2].sum , total: 135)
+order_3  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 5.months.ago, user_id: user_3.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: [product_1.price * 2 + product_2.price * 2].sum , total: 135)
 OrderItem.create(price: product_1.price, order_id: order_3.id, product_id: product_1.id, quantity: 2, size_id: product_1.sizes[0].id)
 OrderItem.create(price: product_3.price, order_id: order_3.id, product_id: product_3.id, quantity: 2, size_id: product_3.sizes[1].id)
 
 #ORDER 4
-order_4  = Order.create(payment: "{'stub','stripe'}", created_at: 4.months.ago - 5.days, user_id: user_4.id,  token: SecureRandom.hex(8), status: 4, shipping_fees: 5, sub_total: product_2.price , total: 135)
+order_4  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 4.months.ago - 5.days, user_id: user_4.id,  token: SecureRandom.hex(8), status: 4, shipping_fees: 5, sub_total: product_2.price , total: 135)
 OrderItem.create(price: product_2.price, order_id: order_4.id, product_id: product_2.id, quantity: 1, size_id: product_2.sizes[0].id)
 
 #ORDER 5
-order_5  = Order.create(payment: "{'stub','stripe'}", created_at: 4.months.ago, user_id: user_5.id,  token: SecureRandom.hex(8), status: 5, shipping_fees: 5, sub_total: product_2.price , total: 135)
+order_5  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 4.months.ago, user_id: user_5.id,  token: SecureRandom.hex(8), status: 5, shipping_fees: 5, sub_total: product_2.price , total: 135)
 OrderItem.create(price: product_2.price, order_id: order_5.id, product_id: product_2.id, quantity: 1, size_id: product_2.sizes[0].id)
 
 #ORDER 6
-order_6  = Order.create(payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_6.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: [product_2.price * 2 + product_3.price + product_3.price].sum , total: 135)
+order_6  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_6.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: [product_2.price * 2 + product_3.price + product_3.price].sum , total: 135)
 OrderItem.create(price: product_2.price, order_id: order_6.id, product_id: product_2.id, quantity: 2, size_id: product_2.sizes[0].id)
 OrderItem.create(price: product_3.price, order_id: order_6.id, product_id: product_3.id, quantity: 1, size_id: product_3.sizes[0].id)
 OrderItem.create(price: product_3.price, order_id: order_6.id, product_id: product_3.id, quantity: 1, size_id: product_3.sizes[0].id)
 
 #ORDER 7
-order_7  = Order.create(payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_7.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_3.price , total: 135)
+order_7  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_7.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_3.price , total: 135)
 OrderItem.create(price: product_3.price, order_id: order_7.id, product_id: product_3.id, quantity: 1, size_id: product_3.sizes[1].id)
 
 #ORER 8
-order_8  = Order.create(payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_8.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_3.price * 2 , total: 135)
+order_8  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_8.id,  token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_3.price * 2 , total: 135)
 OrderItem.create(price: product_3.price, order_id: order_8.id, product_id: product_3.id, quantity: 1, size_id: product_3.sizes[2].id)
 OrderItem.create(price: product_3.price, order_id: order_8.id, product_id: product_3.id, quantity: 2, size_id: product_3.sizes[0].id)
 
 #ORDER 9
-order_9  = Order.create(payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_9.id,  token: SecureRandom.hex(8), status: 5, shipping_fees: 5, sub_total: product_4.price , total: 135)
+order_9  = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_9.id,  token: SecureRandom.hex(8), status: 5, shipping_fees: 5, sub_total: product_4.price , total: 135)
 OrderItem.create(price: product_4.price, order_id: order_9.id, product_id: product_4.id, quantity: 1, size_id: product_4.sizes[0].id)
 
 #ORDER 10
-order_10 = Order.create(payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_10.id, token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_4.price , total: 135)
+order_10 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_10.id, token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_4.price , total: 135)
 OrderItem.create(price: product_4.price, order_id: order_10.id, product_id: product_4.id, quantity: 1, size_id: product_4.sizes[0].id)
 
 #ORDER 11 
-order_11 = Order.create(payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_11.id, token: SecureRandom.hex(8), status: 4, shipping_fees: 5, sub_total: product_5.price * 3 , total: 135)
+order_11 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_11.id, token: SecureRandom.hex(8), status: 4, shipping_fees: 5, sub_total: product_5.price * 3 , total: 135)
 OrderItem.create(price: product_5.price, order_id: order_11.id, product_id: product_5.id, quantity: 2, size_id: product_5.sizes[0].id)
 OrderItem.create(price: product_5.price, order_id: order_11.id, product_id: product_5.id, quantity: 1, size_id: product_5.sizes[2].id)
 
 #ORDER 12
-order_12 = Order.create(payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_12.id, token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_7.price, total: 135)
+order_12 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.months.ago, user_id: user_12.id, token: SecureRandom.hex(8), status: 3, shipping_fees: 5, sub_total: product_7.price, total: 135)
 OrderItem.create(price: product_7.price, order_id: order_12.id, product_id: product_7.id, quantity: 1, size_id: product_7.sizes[0].id)
 
 #ORDER 13
-order_13 = Order.create(payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_13.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_6.price, total: 135)
+order_13 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_13.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_6.price, total: 135)
 OrderItem.create(price: product_6.price, order_id: order_13.id, product_id: product_6.id, quantity: 1, size_id: product_6.sizes[0].id)
 
 #ORDER 14
-order_14 = Order.create(payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_14.id, token: SecureRandom.hex(8), status: 2, shipping_fees: 5, sub_total: product_6.price, total: 135)
+order_14 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_14.id, token: SecureRandom.hex(8), status: 2, shipping_fees: 5, sub_total: product_6.price, total: 135)
 OrderItem.create(price: product_6.price, order_id: order_14.id, product_id: product_6.id, quantity: 1, size_id: product_6.sizes[1].id)
 
 #ORDER 15
-order_15 = Order.create(payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_15.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_6.price * 3 , total: 135)
+order_15 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_15.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_6.price * 3 , total: 135)
 OrderItem.create(price: product_8.price, order_id: order_15.id, product_id: product_8.id, quantity: 3, size_id: product_8.sizes[0].id)
 
 #ORDER 16
-order_16 = Order.create(payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_16.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_8.price * 2 , total: 135)
+order_16 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_16.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_8.price * 2 , total: 135)
 OrderItem.create(price: product_8.price, order_id: order_16.id, product_id: product_8.id, quantity: 2, size_id: product_8.sizes[0].id)
 
 #ORDER 17
-order_17 = Order.create(payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_9.price, total: 135)
+order_17 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_9.price, total: 135)
 OrderItem.create(price: product_9.price, order_id: order_17.id, product_id: product_9.id, quantity: 1, size_id: product_9.sizes[1].id)
 
 #ORDER 18
-order_18 = Order.create(payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_10.price, total: 135)
+order_18 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_10.price, total: 135)
 OrderItem.create(price: product_10.price, order_id: order_18.id, product_id: product_10.id, quantity: 1, size_id: product_10.sizes[2].id)
 
 #ORDER 19
-order_19 = Order.create(payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price, total: 135)
+order_19 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 2.months.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_19.id, product_id: product_11.id, quantity: 1, size_id: product_11.sizes[1].id)
 
 #ORDER 20
-order_20 = Order.create(payment: "{'stub','stripe'}", created_at: Time.now, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_20 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: Time.now, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_20.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[3].id)
 
 #ORDER 21
-order_21 = Order.create(payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_21 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_21.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[3].id)
 
 #ORDER 22
-order_22 = Order.create(payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_22 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_20.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[2].id)
 
 #ORDER 23
-order_23 = Order.create(payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_23 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_23.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[0].id)
 
 #ORDER 24
-order_24 = Order.create(payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_24 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_24.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[1].id)
 
 #ORDER 25
-order_25 = Order.create(payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_25 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_25.id, product_id: product_11.id, quantity: 3, size_id: product_1.sizes[0].id)
 
 #ORDER 26
-order_26 = Order.create(payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_26 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 1.month.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_26.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[0].id)
 
 
 #ORDER 27
-order_27 = Order.create(payment: "{'stub','stripe'}", created_at: 4.weeks.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_9.price, total: 135)
+order_27 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 4.weeks.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_9.price, total: 135)
 OrderItem.create(price: product_9.price, order_id: order_27.id, product_id: product_9.id, quantity: 1, size_id: product_9.sizes[0].id)
 
 #ORDER 28
-order_28 = Order.create(payment: "{'stub','stripe'}", created_at: 4.weeks.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_10.price, total: 135)
+order_28 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 4.weeks.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_10.price, total: 135)
 OrderItem.create(price: product_10.price, order_id: order_28.id, product_id: product_10.id, quantity: 1, size_id: product_10.sizes[2].id)
 
 #ORDER 29
-order_29 = Order.create(payment: "{'stub','stripe'}", created_at: 4.weeks.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price, total: 135)
+order_29 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 4.weeks.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_29.id, product_id: product_11.id, quantity: 1, size_id: product_11.sizes[3].id)
 
 #ORDER 30
-order_30 = Order.create(payment: "{'stub','stripe'}", created_at: 15.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_30 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 15.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_30.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[0].id)
 
 #ORDER 31
-order_31 = Order.create(payment: "{'stub','stripe'}", created_at: 15.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_31 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 15.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_31.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[1].id)
 
 #ORDER 32
-order_32 = Order.create(payment: "{'stub','stripe'}", created_at: 13.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_32 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 13.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_11.price, order_id: order_32.id, product_id: product_11.id, quantity: 3, size_id: product_11.sizes[0].id)
 
 #ORDER 33
-order_33 = Order.create(payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
+order_33 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price * 3, total: 135)
 OrderItem.create(price: product_12.price, order_id: order_33.id, product_id: product_12.id, quantity: 3, size_id: product_12.sizes[0].id)
 
 #ORDER 34
-order_34 = Order.create(payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price * 3, total: 135)
+order_34 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price * 3, total: 135)
 OrderItem.create(price: product_12.price, order_id: order_34.id, product_id: product_12.id, quantity: 3, size_id: product_12.sizes[1].id)
 
 #ORDER 35
-order_35 = Order.create(payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price * 3, total: 135)
+order_35 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price * 3, total: 135)
 OrderItem.create(price: product_12.price, order_id: order_35.id, product_id: product_12.id, quantity: 3, size_id: product_12.sizes[0].id)
 
 #ORDER 36
-order_36 = Order.create(payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price * 3, total: 135)
+order_36 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_4.id,  token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price * 3, total: 135)
 OrderItem.create(price: product_12.price, order_id: order_36.id, product_id: product_12.id, quantity: 3, size_id: product_12.sizes[0].id)
 
 #ORDER 37
-order_37 = Order.create(payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_9.price, total: 135)
+order_37 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_9.price, total: 135)
 OrderItem.create(price: product_9.price, order_id: order_37.id, product_id: product_9.id, quantity: 1, size_id: product_9.sizes[0].id)
 
 #ORDER 38
-order_38 = Order.create(payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_10.price, total: 135)
+order_38 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 11.days.ago, user_id: user_17.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_10.price, total: 135)
 OrderItem.create(price: product_10.price, order_id: order_38.id, product_id: product_10.id, quantity: 1, size_id: product_10.sizes[0].id)
 
 #ORDER 39
-order_39 = Order.create(payment: "{'stub','stripe'}", created_at: 8.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price, total: 400)
+order_39 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 8.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_11.price, total: 400)
 OrderItem.create(price: product_11.price, order_id: order_39.id, product_id: product_11.id, quantity: 1, size_id: product_11.sizes[0].id)
 
 #ORDER 40
-order_40 = Order.create(payment: "{'stub','stripe'}", created_at: 3.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price, total: 400)
+order_40 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_12.price, total: 400)
 OrderItem.create(price: product_12.price, order_id: order_40.id, product_id: product_12.id, quantity: 1, size_id: product_13.sizes[2].id)
 
 #ORDER 41
-order_41 = Order.create(payment: "{'stub','stripe'}", created_at: 3.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_13.price, total: 400)
+order_41 = Order.create(gcos_accepted: true, payment: "{'stub','stripe'}", created_at: 3.days.ago, user_id: user_18.id, token: SecureRandom.hex(8), status: 1, shipping_fees: 5, sub_total: product_13.price, total: 400)
 OrderItem.create(price: product_13.price, order_id: order_41.id, product_id: product_13.id, quantity: 1, size_id: product_13.sizes[0].id)
 
 puts "Orders created"

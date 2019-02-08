@@ -87,9 +87,25 @@
 					</div>
 					<div class="col-12">
 						<% if current_user.shipping_address %>
-							<%= form_for @order, url: clients_checkout_path do |f| %>
-								<%= f.hidden_field :user_id %>
-									<%= f.submit "Valider la commande", class: "btn btn-main btn-block" %>
+							<%= simple_form_for @order, url: clients_checkout_path do |f| %>
+							  <div class="<%= 'error_message' if @order.errors.full_messages.any? %> ">
+							   <% if  @order.errors.any? %>
+							     <% @order.errors.full_messages.each do |msg| %>
+							      <li><%= msg %></li>
+							     <% end %>
+							    <% end %>
+							 </div>
+							  <%= f.hidden_field :user_id %>
+							  <%	 if @order.gcos_accepted == true %>
+							   	<small>Vous avez accepté les <%= link_to "CGV", general_condition_of_sales_path %></small>
+							   	<br>
+							  <%	 else %>
+							 		  <%= f.input :gcos_accepted, as: :boolean, 
+												checked_value: true, 
+												unchecked_value: false, 
+												label: ("J'ai lu et accepte les #{link_to 'CGV', general_condition_of_sales_path}.").html_safe %>
+								<% end %>
+							  <%= f.submit "Valider la commande", class: "btn btn-main btn-block" %>
 							<% end %>
 						<% else %>
 						<%= link_to "Valider la commande", new_clients_shipping_address_path, class: "btn btn-main btn-block" %>
