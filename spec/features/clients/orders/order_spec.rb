@@ -70,4 +70,23 @@ RSpec.describe Order do
 		 end
 	end
 
+	context "general condition of sales must be checked to process payment" do 
+		scenario "the user hasn't check the box" do 
+			home  = shipping_addresses(:home)
+			john 	= users(:john)
+			login_as(john)
+			product = products(:red_shirt)
+			visit clients_product_path(product)
+			select "S", from: "size_id"
+
+			click_on "Ajouter Au Panier"
+			expect(page).to have_content("Correctement ajouté au panier")
+
+			click_on "Commander"
+			click_on "Valider la commande"
+
+			expect(page).to have_content("Vous devez accepter les conditions générales de vente pour continuer")
+		end
+	end
+
 end
