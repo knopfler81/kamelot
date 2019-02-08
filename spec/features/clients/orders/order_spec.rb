@@ -2,41 +2,72 @@ require 'rails_helper'
 
 RSpec.describe Order do 
 
-	fixtures :users, :categories, :products, :sizes, :billing_addresses
+	fixtures :users, :categories, :products, :sizes, :shipping_addresses, :orders
 
-	context "A user with a completed profile" do 
-		scenario "can checkout" do
-			john 	= users(:nelly)
-			address = billing_addresses(:home)
+	context "A not logged-in user" do 
+		scenario "is asked to login before checking out" do
 			product = products(:red_shirt)
-
-			login_as(john)
-
 			visit clients_product_path(product)
 			select "S", from: "size_id"
 
 			click_on "Ajouter Au Panier"
-			expect(page).to have_content("Correctement ajouté au panier")
+
+			visit clients_cart_path
 
 			click_on "Commander"
-
-			expect(page).to have_content("VALIDATION DE VOTRE COMMANDE")
-		end
-	end
-
-	context "A user with out an account" do 
-		scenario "is asked to create an before checking out" do
-			product = products(:red_shirt)
-
-			visit clients_product_path(product)
-			
-			select "S", from: "size_id"
-
-			click_on "Ajouter Au Panier"
-			expect(page).to have_content("Correctement ajouté au panier")
-			click_on "Commander"
-	
+		
 			expect(page).to have_content("S'identifier")
 		end
 	end
+
+	context "A logged-in user with out any address" do 
+
+		before(:each) do
+			john 	= users(:mark)
+			login_as(john)
+		end
+
+		scenario "is asked to fill in shipping address" do
+			product = products(:red_shirt)
+
+			visit clients_product_path(product)
+			select "S", from: "size_id"
+
+			click_on "Ajouter Au Panier"
+			expect(page).to have_content("Correctement ajouté au panier")
+
+			click_on "Commander"
+
+			click_on "Valider la commande"
+
+			expect(page).to have_content("REMPLISSEZ VOTRE ADRESSE DE LIVRAISON")
+		end
+	end
+
+	context "A logged-in user with shipping address" do 
+		before(:each) do
+			home  = shipping_addresses(:home)
+			john 	= users(:john)
+			login_as(john)
+		end
+		 scenario "can check out" do 
+		 	product = products(:red_shirt)
+		 	visit clients_product_path(product)
+		 	select "S", from: "size_id"
+
+		 	click_on "Ajouter Au Panier"
+		 	expect(page).to have_content("Correctement ajouté au panier")
+
+		 	click_on "Commander"
+		 	
+		  page.check("J'ai lu et accepte les CGV.")
+		  #page.check("#order_gcos_accepted")
+	 		#find(:xpath, "//*[@id='order_gcos_accepted']").click
+
+		 	click_on "Valider la commande"
+
+		 	expect(page).to have_content("PAIMENT PAR CARTE BANCAIRE")
+		 end
+	end
+
 end

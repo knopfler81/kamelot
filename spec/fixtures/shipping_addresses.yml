@@ -1,8 +1,6 @@
 home:
-  title: Home
-  user: nelly
+  user: john
   street_number: 1
   route:  rue du bidule
   postal_code: 42000
   locality: St Etienne
-  phone: 098765432

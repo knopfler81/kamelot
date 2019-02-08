@@ -1,0 +1,19 @@
+first_order:
+  token: "123456789"
+  status: 0
+  payment: nil
+  user: john
+  total_cents: 7005
+  sub_total: 70
+  shipping_fees: 5
+  gcos_accepted: false
+
+second_order:
+  token: "123456789"
+  status: 1
+  payment: {"stub", "stripe"}
+  user: john
+  total_cents: 5005
+  sub_total: 50
+  shipping_fees: 5
+  gcos_accepted: true
