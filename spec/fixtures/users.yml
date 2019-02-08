@@ -12,7 +12,7 @@ john:
   first_name: John
   last_name: Doe 
   phone: 0678765432
-  gender: Monsieur
+  gender: false
   admin: false
   birth_date: 30.years.ago 
 mark:
