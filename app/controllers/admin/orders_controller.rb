@@ -32,6 +32,6 @@ class Admin::OrdersController < Admin::ApplicationController
 	private
 
 	def order_params
-		params.require(:order).permit(:status,  :user_id, :token , :sub_total)
+		params.require(:order).permit(:status,  :user_id, :token , :gcos_accepted, :sub_total)
 	end
 end

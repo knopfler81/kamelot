@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_135041) do
+ActiveRecord::Schema.define(version: 2019_02_08_091620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_02_06_135041) do
     t.integer "total_cents", default: 0, null: false
     t.decimal "sub_total"
     t.decimal "shipping_fees"
+    t.boolean "gcos_accepted", default: false
   end
 
   create_table "products", force: :cascade do |t|

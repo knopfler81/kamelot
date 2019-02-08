@@ -59,7 +59,6 @@ class ShoppingCart
   private
 
   def update_sub_total!
-
     order.sub_total = order.items.sum('quantity * price')
     order.save
   end

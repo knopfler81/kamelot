@@ -2,14 +2,15 @@ class Order < ApplicationRecord
   belongs_to :user,  optional: true
   has_many :items, class_name: "OrderItem", dependent: :destroy
 
+
   after_initialize :shipping_fees_cents
 
   monetize :total_cents
 
   enum status: [:pending, :paid, :confirmed, :shipped, :cancelled, :refunded]
 
-  scope :pending,	 	-> { where(status: :pending) }
-  scope :paid, 			-> { where(status: :paid) }
+  scope :pending,   -> { where(status: :pending) }
+  scope :paid,      -> { where(status: :paid) }
   scope :confirmed, -> { where(status: :confirmed) }
   scope :shipped,   -> { where(status: :shipped) }
   scope :cancelled, -> { where(status: :cancelled) }
@@ -46,7 +47,6 @@ class Order < ApplicationRecord
     self.save
   end
 
-
   def delivery_date_1
     order_date = Date.today 
     delivery_date_1 = order_date + 3
@@ -65,5 +65,4 @@ class Order < ApplicationRecord
     end
     delivery_date_2
   end
-
 end

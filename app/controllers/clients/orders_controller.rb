@@ -18,14 +18,20 @@ class Clients::OrdersController < Clients::ApplicationController
 		@order = current_cart.order
 		@order.update_sub_total!
 		@order.update_total!
-		if @order.update_attributes!(user_id: current_user.id)
-    	redirect_to new_clients_order_payment_path(@order)
+		if @order.update_attributes(order_params.merge(user_id: current_user.id))
+			if @order.gcos_accepted == true 
+    		redirect_to new_clients_order_payment_path(@order)
+    	else
+    		redirect_to clients_checkout_path, alert: "Vous devez accepter les conditions générales de vente pour continuer"
+    	end
+    else
+    	redirect_to clients_checkout_path, alert: 'Woooops something went wrong'
 		end
 	end
 
 	private
 
 	def order_params
-		params.require(:order).permit(:status,  :user_id, :token , :sub_total)
+		params.require(:order).permit(:status,  :user_id, :token , :sub_total, :gcos_accepted)
 	end
 end
