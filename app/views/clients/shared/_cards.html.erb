@@ -20,7 +20,7 @@
 						<% end %>	
 					</div>
 				<% end %>
-				<%= link_to clients_product_path(product) do  %>
+				<%= link_to clients_product_path(product), class: "box_link" do  %>
 					<div id="carousel_<%= product.id%>" class="carousel slide" data-ride="carousel" data-interval="false">
 					  <div class="carousel-inner">
 						  <% product.attachments.each do |img| %>
