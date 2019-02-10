@@ -4,6 +4,7 @@ RSpec.describe Order do
 
 	fixtures :users, :categories, :products, :sizes, :shipping_addresses, :orders
 
+
 	context "A not logged-in user" do 
 		scenario "is asked to login before checking out" do
 			product = products(:red_shirt)
@@ -23,8 +24,8 @@ RSpec.describe Order do
 	context "A logged-in user with out any address" do 
 
 		before(:each) do
-			john 	= users(:mark)
-			login_as(john)
+			mark 	= users(:mark)
+			login_as(mark)
 		end
 
 		scenario "is asked to fill in shipping address" do

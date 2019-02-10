@@ -13,14 +13,9 @@
       
         <div class="row">
           <div class="col-12 col-md-6">
-           
-            <%= f.input :gender,  collection: ["Madame", "Monsieur"], prompt: "Choisir", label: false , hint: "Séléctionnez votre genre",input_html: { class: "custom-select" } %>
-          </div>
-          <div class="col-12 col-md-6">     
-            <%= f.input :birth_date, as: "string", placeholder: "Date de naissance", label: false, required: true, input_html: { class: 'datepicker' } %>
+            <%= f.collection_radio_buttons :gender, [[true, 'Madame'], [false, 'Monsieur']], :first, :last %>
           </div>
         </div>
-
         <div class="row">
           <div class="col-12 col-md-6">
             <%= f.input :first_name, autofocus: true, placeholder: "Prénom", label: false %>
@@ -30,24 +25,25 @@
           </div>
         </div>
         <hr>
-        
+  
         <div class="row">
-          <div class="col-12 col-md-6">
-            <%= f.input :phone, autofocus: true, placeholder: "Numéro de téléphone", label: false %>
-          </div>
           <div class="col-12 col-md-6">
             <%= f.input :email, autofocus: true, placeholder: "email", label: false %>
           </div>
+          <div class="col-12 col-md-6">
+            <%= f.input :birth_date , label: false, placeholder: "Votre date de naissance jj/mm/aaaa" %>
+          </div>
         </div>
         
         <div class="row">
           <div class="col-12 col-md-6">
-            <%= f.input :password, placeholder: "Mot de passe", hint: "A remplir seulement si vous souhaitez modifier votre mot de passe", label: false %>
+            <%= f.input :password, placeholder: "Mot de passe", label: false %>
           </div>
           <div class="col-12 col-md-6">
-            <%= f.input :password_confirmation, placeholder: "Confirmation du mot de passe", hint: "A remplir seulement si vous souhaitez modifier votre mot de passe", label: false %>
+            <%= f.input :password_confirmation, placeholder: "Confirmation du mot de passe", label: false %>
           </div>
         </div>
+
 
 
         <hr>

@@ -8,7 +8,7 @@ RSpec.describe OrderItem do
 		login_as(john)
 	end
 
-	fixtures :users, :categories, :products, :sizes
+	fixtures :users, :categories, :products, :sizes, :shipping_addresses
 
 	scenario "A user can add items to his cart" do
 		product = products(:red_shirt)

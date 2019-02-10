@@ -6,12 +6,17 @@
 		<div class="col-12">
 			<%= simple_form_for(@shipping_address, url: clients_shipping_addresses_path) do |f| %>
 				<div class="row">
-					<div class="col-12 col-md-6">
+					<div class="col-12 col-md-4">
 						<%= f.input :first_name, label: false, placeholder: current_user.first_name, input_html: {value: current_user.first_name}, required: true %>
 					</div>
-					<div class="col-12 col-md-6">
+					<div class="col-12 col-md-4">
 						<%= f.input :last_name, label: false, placeholder: current_user.last_name,input_html: { value: current_user.last_name}, required: true %>
 					</div>
+					<div class="col-12 col-md-4">
+						<%= f.input :phone, label: false, placeholder: "Numéro de téléphone", required: true %>
+					</div>
+
+
 				</div>
 					<br><br>
 				<div class="row">
