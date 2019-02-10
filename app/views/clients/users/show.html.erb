@@ -23,7 +23,6 @@
 						
 						<p><%= current_user.shipping_address.postal_code %> <%= current_user.shipping_address.locality %></p>
 					<% end %>
-					<p><%= current_user.phone %></p>
 					<hr>
 					<% if @current_cart.items_count > 0 %>				
 						<%= link_to "Revenir au panier", clients_checkout_path, class: 'btn btn-main' %>

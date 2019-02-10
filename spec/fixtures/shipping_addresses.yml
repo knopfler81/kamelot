@@ -1,5 +1,6 @@
 home:
   user: john
+  phone: "0909897654"
   street_number: 1
   route:  rue du bidule
   postal_code: 42000

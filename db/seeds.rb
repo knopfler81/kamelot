@@ -13,10 +13,9 @@ nelly = User.create!(
 	password: "password", 
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: "Nelly",
 	last_name: "Duclos",
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 10.months.ago
 	)
 
@@ -26,10 +25,9 @@ user_1 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 9.months.ago
 )
 
@@ -39,10 +37,9 @@ user_2 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 8.months.ago
 )
 
@@ -52,10 +49,9 @@ user_3 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 8.months.ago
 )
 user_4 = User.create!(
@@ -64,10 +60,9 @@ user_4 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 7.months.ago - 20.days
 )
 user_5 = User.create!(
@@ -76,10 +71,9 @@ user_5 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 7.months.ago - 12.days
 )
 user_6 = User.create!(
@@ -88,10 +82,9 @@ user_6 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 7.months.ago - 6.days
 )
 
@@ -101,10 +94,9 @@ user_7 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 7.months.ago - 2.days
 )
 
@@ -114,10 +106,9 @@ user_8 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 6.months.ago  - 24.days
 )
 
@@ -127,10 +118,9 @@ user_9 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 6.months.ago - 3.days
 )
 user_10 = User.create!(
@@ -139,10 +129,9 @@ user_10 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 6.months.ago - 1.day
 )
 user_11 = User.create!(
@@ -151,10 +140,9 @@ user_11 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 6.months.ago
 )
 user_12 = User.create!(
@@ -163,10 +151,9 @@ user_12 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 5.months.ago - 1.week
 )
 
@@ -176,10 +163,9 @@ user_13 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 5.months.ago - 1.week
 )
 
@@ -189,10 +175,9 @@ user_14 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 3.months.ago 
 )
 
@@ -202,10 +187,9 @@ user_15 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 3.months.ago 
 )
 user_16 = User.create!(
@@ -214,10 +198,9 @@ user_16 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 3.months.ago 
 )
 user_17 = User.create!(
@@ -226,10 +209,9 @@ user_17 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 6.weeks.ago - 4.days
 )
 user_18 = User.create!(
@@ -238,10 +220,9 @@ user_18 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 6.weeks.ago - 1.day
 )
 
@@ -251,10 +232,9 @@ user_19 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 6.weeks.ago 
 )
 
@@ -264,10 +244,9 @@ user_20 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 3.weeks.ago 
 )
 
@@ -277,10 +256,9 @@ user_21 = User.create!(
 	password: "password",
 	password_confirmation: "password",
 	gender: ["Monsieur", "Madame"].sample,
-	birth_date: 30.years.ago,
+	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	phone: Faker::PhoneNumber.phone_number,
 	created_at: 1.week.ago 
 )
 
@@ -948,6 +926,7 @@ OrderItem.create(price: product_13.price, order_id: order_41.id, product_id: pro
 puts "Orders created"
 
 
+
 ShippingAddress.create(
 	user_id: user_2.id,
 	first_name: Faker::Name.first_name,
@@ -956,7 +935,9 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
+
 
 
 ShippingAddress.create(
@@ -967,7 +948,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_4.id,
@@ -977,7 +959,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_5.id,
@@ -987,7 +970,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_6.id,
@@ -997,7 +981,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_7.id,
@@ -1007,7 +992,9 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
+
 
 
 ShippingAddress.create(
@@ -1018,7 +1005,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_9.id,
@@ -1028,7 +1016,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_10.id,
@@ -1038,7 +1027,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_11.id,
@@ -1048,7 +1038,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_12.id,
@@ -1058,7 +1049,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_13.id,
@@ -1068,7 +1060,9 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
+
 
 
 ShippingAddress.create(
@@ -1079,7 +1073,9 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
+
 
 
 ShippingAddress.create(
@@ -1090,6 +1086,7 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
 
 
@@ -1102,6 +1099,7 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
 
 
@@ -1114,8 +1112,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
-
 
 
 ShippingAddress.create(
@@ -1126,6 +1124,7 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number
 )
 
 
@@ -1137,7 +1136,8 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
-)
+	phone: Faker::PhoneNumber.phone_number
+	)
 
 ShippingAddress.create(
 	user_id: user_20.id,
@@ -1147,6 +1147,7 @@ ShippingAddress.create(
 	route: Faker::Address.street_name,
 	postal_code: Faker::Address.zip_code,
 	locality: Faker::Address.city,
+	phone: Faker::PhoneNumber.phone_number,
 )
 
 # BillingAddress.create(

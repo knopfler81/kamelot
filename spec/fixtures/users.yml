@@ -2,20 +2,23 @@ nelly:
   email: nelly@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   admin: true
-admin:
-  email: admin@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
-  admin: true
+  first_name: nelly
+  last_name: Duclos 
+  gender: true
+  birth_date: "30/12/1981"
 john:
   email: john@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   first_name: John
   last_name: Doe 
-  phone: 0678765432
   gender: false
   admin: false
-  birth_date: 30.years.ago 
+  birth_date: "30/12/1981"
 mark:
   email: mark@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   admin: false
+  first_name: Mark
+  last_name: Knopfler 
+  gender: false
+  birth_date: "30/12/1981"

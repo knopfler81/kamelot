@@ -47,7 +47,7 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 	end
 
 	def shipping_address_params
-	 	params.require(:shipping_address).permit(:first_name, :last_name, :address, :route, :user_id, :street_number, :locality, :administrative_area_level_1, :postal_code)
+	 	params.require(:shipping_address).permit(:first_name, :last_name, :address, :route, :user_id, :street_number, :locality, :administrative_area_level_1, :postal_code, :phone)
 	end
 
 

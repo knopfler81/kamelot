@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-10 offset-1">
-      <h2>Je n'ai pas encore de compte, je m'inscris pour la première fois</h2>
+      <h2>Première inscription</h2>
       <hr>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -13,14 +13,9 @@
       
         <div class="row">
           <div class="col-12 col-md-6">
-            <%= f.input :gender,  collection: ["Madame", "Monsieur"], prompt: "C", label: false , required: true, input_html: { class: "custom-select" } %>
-          </div>
-          <div class="col-12 col-md-6">     
-            <%#= f.input :birth_date, as: :datepicker, :input_html => { :value => Date.today}%>
-            <%= f.input :birth_date, as: "string", placeholder: "Date de naissance", label: false, required: true %>
+            <%= f.collection_radio_buttons :gender, [[true, 'Madame'], [false, 'Monsieur']], :first, :last %>
           </div>
         </div>
-
         <div class="row">
           <div class="col-12 col-md-6">
             <%= f.input :first_name, autofocus: true, placeholder: "Prénom", label: false %>
@@ -33,10 +28,10 @@
   
         <div class="row">
           <div class="col-12 col-md-6">
-            <%= f.input :phone, autofocus: true, placeholder: "Numéro de téléphone", label: false %>
+            <%= f.input :email, autofocus: true, placeholder: "email", label: false %>
           </div>
           <div class="col-12 col-md-6">
-            <%= f.input :email, autofocus: true, placeholder: "email", label: false %>
+            <%= f.input :birth_date , label: false, placeholder: "Votre date de naissance jj/mm/aaaa" %>
           </div>
         </div>
         
