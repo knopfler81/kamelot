@@ -11,9 +11,9 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 		@shipping_address.user_id = current_user.id
 		if @shipping_address.save!
 			if current_cart.order.items.count > 0
-				redirect_to clients_cart_checkout_path
+				redirect_to clients_cart_checkout_path, notice: "L'adresse a bien été ajoutée"
 			else
-				redirect_to clients_user_path(current_user)
+				redirect_to clients_user_path(current_user), notice: "L'adresse a bien été ajoutée"
 			end
 		else
 			render :new

@@ -36,7 +36,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	def destroy
 		if current_user.admin
 			if	@product.destroy
-				redirect_to root_path, notice: "L'article a bien été supprimé"
+				redirect_to admin_products_path, notice: "L'article a bien été supprimé"
 			else
 				render :show, alert: "Wooops"
 			end

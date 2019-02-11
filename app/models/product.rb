@@ -25,6 +25,12 @@ class Product < ApplicationRecord
 
 
 	private
+
+	def at_least_one_size
+		if self.sizes.empty?
+			errors.add(:base, :require_size)
+		end
+	end
 	
 	def attachment_size
 		if  self.attachments.count < 1
@@ -34,10 +40,4 @@ class Product < ApplicationRecord
 		end
 	end
 
-
-	def at_least_one_size
-		if self.sizes.empty?
-			errors.add(:base, :require_size)
-		end
-	end
 end
