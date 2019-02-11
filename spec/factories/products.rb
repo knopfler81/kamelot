@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :product do
-
   	title { Faker::Artist.name}
   	ref   { Faker::Number.number(10)}
   	price { Faker::Number.number(2) }

@@ -9,14 +9,14 @@ class Clients::BillingAddressesController <  Clients::ApplicationController
 	def create
 		@billing_address  =  BillingAddress.new(billing_address_params)
 			@billing_address.user_id = current_user.id
-			if @billing_address.save!
+			if @billing_address.save
 				if current_cart.order.items.count > 0
-					redirect_to clients_cart_checkout_path
+					redirect_to clients_cart_checkout_path, notice: "L'adresse a bien été ajoutée"
 				else
-					redirect_to clients_user_path(current_user)
+					redirect_to clients_user_path(current_user), notice: "L'adresse a bien été ajoutée"
 				end
 			else
-				render :new
+				render :new, alert: "woooops.... "
 			end
 	end
 
@@ -49,6 +49,6 @@ class Clients::BillingAddressesController <  Clients::ApplicationController
 	end
 
 	def billing_address_params
-	 	params.require(:billing_address).permit(:first_name, :last_name, :address, :route, :user_id, :street_number, :locality, :administrative_area_level_1, :postal_code)#order_id
+	 	params.require(:billing_address).permit(:first_name, :last_name, :address, :route, :user_id, :street_number, :locality, :administrative_area_level_1, :postal_code)
 	end
 end
