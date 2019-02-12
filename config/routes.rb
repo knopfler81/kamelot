@@ -2,7 +2,7 @@ Rails.application.routes.draw do
  	devise_for :users, :controllers => { registrations: 'registrations' }
 	
 
- 	root to: "clients/products#index"
+ 	root to: "pages#landing"
 
 	require "sidekiq/web"
 	
@@ -95,5 +95,6 @@ Rails.application.routes.draw do
 	get "cookies_policy", to: "pages#cookies_policy"
 	get "sizes_guide", to: "pages#sizes_guide"
 	get "site_map", to: "pages#site_map"
+	get "landing", to: "pages#landing"
 
 end

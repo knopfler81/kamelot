@@ -10,6 +10,8 @@
 @import "boxes";
 @import "buttons";
 @import "footer";
+@import "navbars";
+@import "pages"; //landing et footer
 
 .error_message {
 	padding: 15px 30px;
@@ -26,137 +28,7 @@
 	margin-top: 30px;
 }
 
-nav {
-	margin-bottom: 30px;
-}
-
 a:hover {
 	text-decoration: none;
 	color: #000;
-}
-
-
-.nav-upper-admin {
-	font-family: 'Montserrat';
-	background-color: #111!important;
-	.navbar-brand {
-		color: #ddd;
-	}
-
-	.nav-link{
-		color: #ddd!important;
-	}
-
-	.dropdown-item {
-		color: #111;
-	}
-	a {
-		color: #ddd;
-	}
-}
-
-.nav-upper-clients {
-	background-color: transparent!important;
-}
-
-.nav-heart {
-	font-size: 25px;
-	position: absolute;
-	color: #666;
-	}
-
-#likes_counter {
-	font-size: 10px;
-  background: #79B0FEFF;
-  width: auto;
-  height: auto;
-  margin: 0;
-  border-radius: 50%;
-  position: absolute;
- 	left: 20px;
- 	top: -5px;
-  padding: 0 4px;
-  color: #fff;
-}
-
-
-.fa-shopping-bag {
-	font-size: 25px;
-	position: relative;
-	color: #666;
-}
-
-#items_count {
-	font-size: 10px;
-  background: red;
-  width: auto;
-  height: auto;
-  border-radius: 50%;
-  position: absolute;
-  top: -5px;
- 	left: 18px;
-  padding: 0 4px;
-  color: #fff;
-}
-
-.fa-users  {
-	color: green;
-	font-size:25px;
-}
-
-.icon-wrapper {
-	position:relative;
-}
-
-.nav-lower-admin {
-	background: #111;
-	margin-top: -30px;
-	padding-bottom: 20px;
-}
-
-.input-search-admin {
-	background-color: #111;
-	border: 0px;
-	border-radius: 0px!important;
-	border-bottom: 3px solid #ddd;
-}
-
-.input-search-admin:focus{
-	color: #ddd;
-	background-color: #111;
-}
-
-.search-btn-nav-admin {
-	color: #ddd;
-	margin-left: -50px;
-	border: 0px;
-	background-color: transparent;
-	.fa-search {
-		font-size: 30px;	
-	}
-}
-
-
-.nav-lower-clients {
-	background: #ddd;
-	margin-top: -30px;
-	padding-bottom: 20px;
-}
-
-.input-search-clients {
-	background-color: #fff;
-	border: 0px;
-	border-radius: 0px!important;
-	border-radius: 0px;
-	border-bottom: 3px solid #111;
-}
-
-.search-btn-nav-clients {
-	color: #111;
-	margin-left: -50px;
-	border: 0px;
-	background-color: transparent;
-	.fa-search {
-		font-size: 30px;	
-	}
 }

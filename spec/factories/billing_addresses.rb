@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :billing_address do
-  	order
   	user  
   	phone         { Faker::PhoneNumber.phone_number }
   	first_name    { Faker::Name.first_name }

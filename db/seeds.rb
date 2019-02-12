@@ -269,6 +269,7 @@ pantalons 	= Category.create(title: "Pantalons")
 tshirt 			= Category.create(title: "Tshirts")
 accessoires = Category.create(title: "Accessoires")
 chemises 		= Category.create(title: "Chemises")
+polos       = Category.create(title: "Polos")
 
 puts "Categories created"
 
@@ -276,12 +277,12 @@ puts "Categories created"
 product_1 = Product.create!(
 	ref: "SP00",
 	brand: "Side Park",
-	category_id: pulls.id,
+	category_id: polos.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	price: 30,
 	color: "Noir",
-	title: "Pull",
+	title: "Polo",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
 		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_1.jpg")),
