@@ -10,7 +10,7 @@ RSpec.describe Clients::BillingAddressesController, :clients do
 
   describe "PATCH UPDATE" do 
     it "can update a billing_address" do
-      @billing_address = create(:billing_address, order_id: @order.id, user_id: @user.id)
+      @billing_address = create(:billing_address, user_id: @user.id)
 
       patch :update,  params: { id: @billing_address.id, billing_address: @billing_address.attributes.merge(street_number: 9)}
       
@@ -22,7 +22,7 @@ RSpec.describe Clients::BillingAddressesController, :clients do
   describe "POST create" do 
 
     it "create a billing_address" do 
-      post :create, params: { billing_address: attributes_for(:billing_address, order_id: @order.id)}
+      post :create, params: { billing_address: attributes_for(:billing_address)}
       expect(flash[:notice].present?).to be true
     end
   end

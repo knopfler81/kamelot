@@ -1,88 +1,91 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-upper-clients">
-  <div class="container-fluid">
-    <%= link_to "MarketWeb", root_path,  class:"navbar-brand" %>
+ <div class="container-fluid">
     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%= simple_form_for :query, url: clients_products_path, method: :get,  html: {class: "form-inline"} do |f| %>
+        <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-clients"} %>
+        <%= button_tag type: 'submit', class: 'search-btn-nav-clients' do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <%= link_to "MarketWeb", root_path,  class: "navbar-brand mx-auto" %>
+   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" >
+            <% if current_user %>
+              <%= current_user.first_name %>
+            <% else %>
+                Mon Compte
+            <% end %>
+          </a>
+          <% if current_user %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Mes adresses", clients_user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
+              <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
+              <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
+              <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
+           </div>
+          <% else %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Connection", new_user_session_path, class: "dropdown-item"  %>
+            </div>           
+          <% end %>
+        </li>
+
+        <li class= "nav-link">
+          <div class="icon-wrapper">
+            <%= link_to clients_cart_path do %>
+              <i class="fa fa-shopping-bag"></i>  
+            <% end %>
+            <% if @current_cart.items_count > 0 %>
+              <span id="items_count"><%= @current_cart.items_count %></span>
+            <% end %>
+          </div>
+        </li>
+        <% if current_user %>
+          <li class="nav-link" style="margin-right: 20px; margin-bottom: 20px;">
+            <div class="icon-wrapper">
+              <%= link_to clients_favorites_path do %>
+                <i class="fa fa-heart nav-heart"></i>  
+                <% if @favorites.count > 0 %>
+                  <span id="likes_counter"><%= @favorites.count %></span>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+        <% if current_user && current_user.admin? %>
+          <li class="nav-link">
+            <%= link_to  "Site admin", admin_products_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+ </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-lower-clients">
+  <div class="container-fluid">
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mx-auto">
       <% Category.order('title ASC').all.each do |cat| %>
         <% if cat.products.any? %>
           <li class="nav-item"><%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %></li>
         <% end %>
        <% end %>
     </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" >
-          <% if current_user %>
-            <%= current_user.first_name %>
-          <% else %>
-              Mon Compte
-          <% end %>
-        </a>
-        <% if current_user %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Mes adresses", clients_user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
-            <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
-            <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
-            <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-         </div>
-        <% else %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Connection", new_user_session_path, class: "dropdown-item"  %>
-          </div>           
-        <% end %>
-      </li>
-
-      <li class= "nav-link">
-        <div class="icon-wrapper">
-          <%= link_to clients_cart_path do %>
-            <i class="fa fa-shopping-bag"></i>  
-          <% end %>
-          <% if @current_cart.items_count > 0 %>
-            <span id="items_count"><%= @current_cart.items_count %></span>
-          <% end %>
-        </div>
-      </li>
-      <% if current_user %>
-        <li class="nav-link" style="margin-right: 20px; margin-bottom: 20px;">
-          <div class="icon-wrapper">
-            <%= link_to clients_favorites_path do %>
-              <i class="fa fa-heart nav-heart"></i>  
-              <% if @favorites.count > 0 %>
-                <span id="likes_counter"><%= @favorites.count %></span>
-              <% end %>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-      <% if current_user && current_user.admin? %>
-          <li class="nav-link">
-            <%= link_to  "Site admin", admin_products_path %>
-          </li>
-       <% end %>
-     </ul>
-   </div>
-
- </div>
-</nav>
-<div class="nav-lower">
-  <div class="container-fluid">
-    <%= simple_form_for :query, url: clients_products_path, method: :get,  wrapper: :inline_form  do |f| %>
-      <div class="row">
-        <div class="col-10 col-md-2">
-          <%= f.input  :keyword, placeholder: "Rechercher", input_html: {class: "input-search-clients"} %>
-        </div>
-        <div class="col-2 col-md-2">
-          <%= button_tag type: 'submit', class: 'search-btn-nav-clients' do %>
-            <i class="fa fa-search"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
   </div>
-</div>
+</nav>
+
 

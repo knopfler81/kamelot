@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
 
+
+
+	def landing
+	end
+
 	def secure_payment
 	end
 

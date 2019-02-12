@@ -13,7 +13,7 @@ RSpec.feature Favorite do
 		pull  = categories(:pull)
 		ken = products(:warm_sweat)
 
-		visit root_path
+		visit clients_products_path
 
 		first(".not-favorite").click
 

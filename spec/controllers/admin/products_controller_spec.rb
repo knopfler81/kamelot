@@ -10,11 +10,6 @@ RSpec.describe Admin::ProductsController, :admin do
   end
 
   describe "GET index" do
-    it "assigns @products" do
-      get :index
-      expect(assigns(:products)).to eq([@product])
-    end
-
     it "renders the index template" do
       get :index
       expect(response).to render_template("index")

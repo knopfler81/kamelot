@@ -24,6 +24,4 @@ class Clients::ProductsController < Clients::ApplicationController
 	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword]}%"))
 	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword]}%"))
 	end
-
-
 end

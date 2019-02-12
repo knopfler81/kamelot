@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 var images = Array.from(document.getElementsByClassName('small_image'));
 
 images.forEach(function(img) {
@@ -40,3 +41,4 @@ function displayImage(){
         .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
     })
 };
+});
