@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-  	title { Faker::Artist.name}
+  	title { Faker::Artist.name  +  " " + Faker::Color.color_name}
   	ref   { Faker::Number.number(10)}
   	price { Faker::Number.number(2) }
   	color { Faker::Color.color_name }
