@@ -1,5 +1,41 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light nav-upper-clients">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style= "background: <%= prefered_navbar_color %>!important;" id="nav-upper-clients">
+<!-- CUSTOMIZATION -->
+<style>
+  .navbar a {
+    color: <%= prefered_navbar_links_color %>!important;
+  }
+
+  .navbar .fa {
+    color: <%= prefered_navbar_links_color %>!important;
+  }
+
+  .navbar input {
+    background: <%= prefered_navbar_color %>!important;
+    border-color: <%= prefered_navbar_links_color %>!important;
+  }
+
+  .dropdown-menu {
+    background: <%= prefered_navbar_color %>!important;
+  }
+
+  .btn-main {
+    background: <%= prefered_btn_main_color  %>!important;
+    border-color: <%= prefered_btn_main_color  %>!important;
+  }
+
+
+  .btn-secondary {
+    background: <%= prefered_btn_secondary_color  %>!important;
+    border-color: <%= prefered_btn_secondary_color  %>!important;
+  }
+
+  #clients {
+    color: <%= prefered_text_color  %>!important;;
+  }
+  
+</style>
+<!-- CUSTOMIZATION -->
  <div class="container-fluid">
     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -66,7 +102,7 @@
         <% end %>
         <% if current_user && current_user.admin? %>
           <li class="nav-link">
-            <%= link_to  "Site admin", admin_products_path %>
+            <%= link_to  "Site admin", admin_landing_path%>
           </li>
         <% end %>
       </ul>
@@ -74,7 +110,7 @@
  </div>
 </nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light nav-lower-clients">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style= "background: <%= prefered_navbar_color %>!important;" id="nav-lower-clients"">
   <div class="container-fluid">
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_125626) do
+ActiveRecord::Schema.define(version: 2019_02_12_151008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,26 @@ ActiveRecord::Schema.define(version: 2019_02_12_125626) do
     t.string "title", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "customizations", force: :cascade do |t|
+    t.string "main_image", default: "https://s3-eu-west-1.amazonaws.com/mygasoline/landing.jpg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "delivery"
+    t.text "secure_payment"
+    t.text "general_condition_of_sales"
+    t.text "legal_notice"
+    t.text "confidentiality_policy"
+    t.text "cookies_policy"
+    t.string "navbar_color", default: "#fff"
+    t.string "body_color", default: "#fff"
+    t.string "nav_links_color", default: "#6D6B6B"
+    t.string "btn_main_color", default: "#111"
+    t.string "btn_secondary_color", default: "#fff"
+    t.string "text_color", default: "#111"
+    t.string "main_btn_text_color", default: "#fff"
+    t.string "secondary_btn_text_color", default: "#111"
   end
 
   create_table "favorites", force: :cascade do |t|

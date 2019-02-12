@@ -9,12 +9,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %> <!-- doit etre en dessous de turbolink -->
   </head>
 
   <body>
     <%= render "layouts/admin/admin_nav" %>
     <%= render "layouts/shared/flashes" %>  
     <%= yield %>
-    <%= render 'layouts/shared/footer' %>
+    <%= render 'layouts/admin/footer' %>
   </body>
 </html>
