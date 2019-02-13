@@ -1,6 +1,7 @@
 class Clients::CustomizationController < Clients::ApplicationController
 	before_action :find_customization
-
+	include ResetCustomization
+	
 	def show
 	end
 

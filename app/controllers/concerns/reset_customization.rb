@@ -10,6 +10,6 @@ module ResetCustomization
 		@customization.secondary_btn_text_color = Customization.instance.class.columns_hash['secondary_btn_text_color'].default
 		@customization.main_image               = open('https://s3-eu-west-1.amazonaws.com/mygasoline/landing.jpg')
 		@customization.save
-		redirect_to clients_customization_path, notice: "You have successfully reseted your customization"
+		redirect_to clients_customization_path, notice: "La customisation a bien été réinitialisée"
 	end
 end
