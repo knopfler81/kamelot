@@ -19,5 +19,6 @@ RSpec.feature Favorite do
 		visit clients_favorites_path
 
 		expect(page).to have_content("Side Park")
+		
 	end 
 end
