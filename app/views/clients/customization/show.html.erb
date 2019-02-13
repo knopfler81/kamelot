@@ -1,0 +1,141 @@
+<style>
+	.custo-boxe {
+		margin-top: 100px;
+	}
+
+	.custo-boxe-title {
+		font-size: 22px;
+		font-weight: bold;
+	}
+</style>
+
+	<div class="container">
+		<%= simple_form_for(@customization, url: clients_customization_path) do |f| %>
+
+			<h2>CUSTOMISATION DES COULEURS</h2>
+			<hr>
+			<div class="custo-boxe">
+				<div class="row">
+					<div class="col-4">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i> BODY</h3>
+							<%= f.hidden_field :body_color %>
+							<%= react_component('ColorpickerBackground', { color: prefered_body_color, selector: 'customization_body_color'} ) %>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i> MENU</h3>
+							<%= f.hidden_field :navbar_color %>
+							<%= react_component('ColorpickerNavbar', { color: prefered_navbar_color, selector: 'customization_navbar_color'} ) %>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i> ONGLETS</h3>
+							<%= f.hidden_field :nav_links_color %>
+							<%= react_component('ColorpickerNavLinks', { color: prefered_navbar_links_color, selector: 'customization_nav_links_color'} ) %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="custo-boxe">
+				<h2>BOUTONS PRINCIPAUX</h2>
+				<hr>
+				<br><br>
+				<div class="row">
+					<div class="col-4">
+						<%= link_to "Boutons principaux", "#", class: "btn btn-main"  %>
+					</div>
+					<div class="col-4">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i> BACKGROUND</h3>
+							<%= f.hidden_field :btn_main_color %>
+							<%= react_component('ColorpickerMainBtn', { color: prefered_btn_main_color, selector: 'customization_btn_main_color'} ) %>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i>  TEXT</h3>
+							<%= f.hidden_field :main_btn_text_color %>
+							<%= react_component('ColorpickerMainBtnText', { color: prefered_btn_main_text_color, selector: 'customization_main_btn_text_color'} ) %>
+						</div>
+					</div> 
+				</div>
+			</div>
+			<div class="custo-boxe">
+				<h2>BOUTONS SECONDAIRES</h2>
+				<hr>
+				<br><br>
+				<div class="row">
+					<div class="col-4">
+						<%= link_to "Boutons secondaires", "#", class: "btn btn-secondary" %>
+					</div>
+					<div class="col-4">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i>BACKGROUND</h3>
+							<%= f.hidden_field :secondary_btn_text_color %>
+							<%= react_component('ColorpickerSecondaryBtn', { color: prefered_btn_secondary_color, selector: 'customization_btn_secondary_color'} ) %>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i>TEXT</h3>
+							<%= f.hidden_field :btn_secondary_color %>
+							<%= react_component('ColorpickerSecondaryBtnText', { color: prefered_btn_secondary_text_color, selector: 'customization_secondary_btn_text_color'} ) %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="custo-boxe">
+				<h2>POLICES</h2>
+				<hr>
+				<br><br>
+				<div class="row">
+					<div class="col-6">
+						<p>Text paragraphe</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere explicabo, voluptatem amet quasi architecto natus eveniet dicta recusandae, voluptate non pariatur aliquid facilis fuga iure veritatis earum labore quis provident!Eligendi delectus...</p>		
+					</div>
+					<div class="col-6">
+						<div class="picker">
+							<h3 class="custo-boxe-title"><i class="fas fa-palette icon"></i> TEXT</h3>
+							<%= f.hidden_field :text_color %>
+							<%= react_component('ColorpickerTextColor', { color: prefered_text_color, selector: 'customization_text_color'} ) %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<div class="custo-boxe">
+			<div class="row">
+				<div class="col-12">
+					<h2>CUSTOMISATION DES TEXTES</h2>
+					<hr>
+						<%= f.input :delivery , label: "Livraison ", input_html: { rows: 5 }, value: @customization.delivery  %>
+						<%= f.input :secure_payment, label: "Paiment sécurisé", input_html: { rows: 5 }, value: @customization.secure_payment %>
+						<%= f.input :general_condition_of_sales, label: " Conditions générales de ventes", input_html: { rows: 5 }, value: @customization.general_condition_of_sales  %>
+						<%= f.input :legal_notice, label: " Mentions légales", input_html: { rows: 5 }, value: @customization.legal_notice  %>
+						<%= f.input :confidentiality_policy, label: " Politique de confidentialité", input_html: { rows: 5 }, value: @customization.confidentiality_policy  %>
+						<%= f.input :cookies_policy, label: " Politique des cookies", input_html: { rows: 5 }, value: @customization.cookies_policy  %>
+				</div>
+			</div>
+		</div>
+		<div class="custo-boxe">
+			<div class="row">
+				<div class="col-12">
+					<h2>CUSTOMISATION DES IMAGES</h2>
+					<hr>
+					<div class="image-upload-wrap">
+						<%= f.file_field :main_image, class: "file-upload-input", id: "files" %>
+						<h3 class="custo-boxe-title">Cliquez pour ajouter une image ou glissez déposez</h3>
+						<div id="result"></div> 
+					</div>   
+				</div>
+			</div>
+		</div>
+			<%= f.submit "Valider la customization", class: "btn btn-main btn-block" %>
+		<% end %>  
+		<br><br>
+		<%= link_to "Revenir à la customization d'origine", reset_clients_customization_path(@customization), class: "btn btn-danger" %>
+</div>
+	

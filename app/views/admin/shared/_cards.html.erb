@@ -2,19 +2,6 @@
 	<div class="header_box" id="header_box_<%= product.id %>">
 		<div class="row">
 			<div class="col-12">
-				<% if current_user %>
-					<div class="like_unlike">
-						<% if product.favoriting_users.include? current_user %>
-							<div id="unlike_<%= product.id %>">
-									<i class= "fa fa-heart favorite-active"></i>	
-							</div>	
-						<% else %>
-							<div id="like_<%= product.id %>">
-								<i class= "fa fa-heart not-favorite"></i>
-							</div>
-						<% end %>	
-					</div>
-				<% end %>
 				<%= link_to admin_product_path(product) do  %>
 					<div id="carousel_<%= product.id%>" class="carousel slide" data-ride="carousel" data-interval="false">
 					  <div class="carousel-inner">

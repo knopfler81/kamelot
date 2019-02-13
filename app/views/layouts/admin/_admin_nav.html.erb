@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-upper-admin">
+<nav class="navbar navbar-expand-lg navbar-dark nav-upper-admin">
  <div class="container-fluid">
    <button class="navbar-toggler admin " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon admin"></span>
@@ -12,7 +12,7 @@
      <% end %>
    </div>
 
-  <%= link_to "MarketWeb", admin_products_path,  class: "navbar-brand mx-auto" %>
+  <%= link_to "MarketWeb", admin_landing_path,  class: "navbar-brand mx-auto" %>
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav ml-auto">
       <% if current_user && current_user.admin? %>
@@ -33,6 +33,7 @@
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
                <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
+               <%= link_to  "Customization", clients_customization_path, class: "dropdown-item"  %>
                <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
              </div>
            <% else %>
@@ -52,7 +53,7 @@
        </li>
        <% if current_user && current_user.admin? %>
          <li class="nav-link">
-          <%= link_to "Site Clients", clients_products_path %>
+          <%= link_to "Site Clients", clients_landing_path %>
          </li>
        <% end %>
      </ul>

@@ -39,8 +39,9 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'font-awesome-sass', '~> 5.0.9'
 
 gem 'will_paginate', '>= 3.1'
 
@@ -55,6 +56,11 @@ gem 'file_validators'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'sidekiq-failures', '~> 1.0'
+
+
+#react 
+gem 'webpacker'
+gem 'react-rails'
 
 
 group :development do 

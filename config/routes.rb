@@ -2,7 +2,7 @@ Rails.application.routes.draw do
  	devise_for :users, :controllers => { registrations: 'registrations' }
 	
 
- 	root to: "pages#landing"
+ 	root to: "clients/pages#landing"
 
 	require "sidekiq/web"
 	
@@ -39,12 +39,30 @@ Rails.application.routes.draw do
 
 			get '/cart/checkout', to: "orders#new", as: :checkout
 			patch '/cart/checkout', to: 'orders#create'
-		 			
+		 	
+		  get "landing", to: "pages#landing"
+		  get "secure_payment", to: "pages#secure_payment"
+		  get "delivery", to: "pages#delivery"
+		  get "general_condition_of_sales", to: "pages#general_condition_of_sales"
+		  get "legal_notice", to: "pages#legal_notice"
+		  get "confidentiality_policy", to: "pages#confidentiality_policy"
+		  get "cookies_policy", to: "pages#cookies_policy"
+		  get "sizes_guide", to: "pages#sizes_guide"
+		  get "site_map", to: "pages#site_map"
+
 		end
 	end	 		 		
 
 
 	namespace :clients  do
+
+		authenticate :user, lambda { |u| u.admin? } do	
+			resource :customization, only: [:show, :update], controller: "customization" do
+				member do
+	      	get :reset
+	    	end
+	    end
+		end
 
 		resources :favorites, only: :index
 
@@ -81,20 +99,18 @@ Rails.application.routes.draw do
 		end
 
 
-		#resources :orders, only: [:index, :show]
-
 		get '/cart/checkout', to: "orders#new" , as: :checkout
 		patch '/cart/checkout', to: 'orders#create'
+
+		get "landing", to: "pages#landing"
+		get "secure_payment", to: "pages#secure_payment"
+		get "delivery", to: "pages#delivery"
+		get "general_condition_of_sales", to: "pages#general_condition_of_sales"
+		get "legal_notice", to: "pages#legal_notice"
+		get "confidentiality_policy", to: "pages#confidentiality_policy"
+		get "cookies_policy", to: "pages#cookies_policy"
+		get "sizes_guide", to: "pages#sizes_guide"
+		get "site_map", to: "pages#site_map"
+
 	end
-
-	get "secure_payment", to: "pages#secure_payment"
-	get "delivery", to: "pages#delivery"
-	get "general_condition_of_sales", to: "pages#general_condition_of_sales"
-	get "legal_notice", to: "pages#legal_notice"
-	get "confidentiality_policy", to: "pages#confidentiality_policy"
-	get "cookies_policy", to: "pages#cookies_policy"
-	get "sizes_guide", to: "pages#sizes_guide"
-	get "site_map", to: "pages#site_map"
-	get "landing", to: "pages#landing"
-
 end

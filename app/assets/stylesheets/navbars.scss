@@ -18,7 +18,7 @@
 }
 
 .nav-upper-clients {
-	background-color: transparent!important;
+	background-color: #fff;
 }
 
 .nav-heart {
@@ -60,7 +60,7 @@
 	}
 }
 
-.nav-upper-clients {
+#nav-upper-clients {
 	background-color: transparent!important;
 }
 
@@ -104,7 +104,7 @@
 	background-color: #111;
 	border: 0px;
 	border-radius: 0px!important;
-	border-bottom: 3px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 .input-search-admin:focus{
@@ -140,6 +140,6 @@
 	}
 }
 
-.nav-lower-clients {
-	background-color: transparent!important;
+#nav-lower-clients {
+	background-color: #fff;
 }
