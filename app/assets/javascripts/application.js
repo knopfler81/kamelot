@@ -5,7 +5,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require cocoon
-//= require bootstrap-datepicker
 //= require highcharts
 //= require chartkick
 //= require_tree .
@@ -17,12 +16,6 @@ window.setTimeout(function() {
    });
 }, 3000);
 
-
-$(document).ready(function(){
-  $('.datepicker').datepicker({dateFormat: "dd/mm/yyyy", language: "fr"});
-});
-
-
 $(document).ready(function(){ 
 	$('.navbar .navbar-nav > li.dropdown').hover(function(){
 	 $('.dropdown-menu', this).stop(true, true).slideDown(); 
@@ -33,4 +26,3 @@ $(document).ready(function(){
 		$(this).removeClass('show');
 	});
 });
-

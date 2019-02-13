@@ -31,16 +31,20 @@
 		</div>
 
 		<div class="row">
-			<div class="co-12 col-md-4">
+			<div class="co-12 col-md-3">
 				<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
 			</div>
-			<div class="co-12 col-md-4">
-				<%= f.input :price, label: false, required: true %>
+			<div class="co-12 col-md-3">
+				<%= f.input :price, placeholder: "Prix", label: false, required: true %>
 			</div>
-			<div class="co-12 col-md-4">
+			<div class="co-12 col-md-3">
+				<%= f.input :buying_price, placeholder: "Prix d'achat (important pour la comptat)", label: false, required: true %>
+			</div>
+			<div class="co-12 col-md-3">
 				<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
 			</div>
 		</div>
+			
 
 		<div class="row">
 			<div class="col-12">

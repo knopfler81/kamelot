@@ -1,4 +1,3 @@
-@import "bootstrap-datepicker3";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
@@ -11,7 +10,8 @@
 @import "boxes";
 @import "buttons";
 @import "footer";
-@import "navbars";
+@import "navbars"; 
+@import "dashboards";
 @import "pages"; //landing et footer
 
 .error_message {
