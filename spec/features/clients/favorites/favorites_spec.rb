@@ -10,8 +10,7 @@ RSpec.feature Favorite do
 	end
 
 	scenario "add a product to favorites", js: true do 
-		pull  = categories(:pull)
-		ken = products(:warm_sweat)
+		ken   = products(:warm_sweat)
 
 		visit clients_products_path
 
