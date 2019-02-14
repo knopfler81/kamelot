@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe OrderMailer, type: :mailer do
-  describe "we_are_sorry", :skip do
+  describe "we_are_sorry", :skip => "A faire"do
 
     let(:mail) { OrderMailer.we_are_sorry(order) }
 

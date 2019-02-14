@@ -17,8 +17,8 @@ require 'rails_helper'
 
  	describe "#count_articles" do 
  		it "counts the numbers of similar articles" do 
- 			order_items_1 = OrderItem.create(order_id: @order.id, product_id: @shirt.id , quantity: 2, size_id: @small.id, price: 20)
-			order_items_2 = OrderItem.create(order_id: @order.id, product_id: @shirt.id , quantity: 3, size_id: @large.id, price: 20)
+ 			order_items_1 = OrderItem.create(order_id: @order.id, quantity: 2, size_id: @small.id, price: 20)
+			order_items_2 = OrderItem.create(order_id: @order.id, quantity: 3, size_id: @large.id, price: 20)
  			
  			expect(@order.count_articles).to eq 5
  		end

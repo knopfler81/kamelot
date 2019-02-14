@@ -23,12 +23,12 @@
 					<% @order.items.each do |item| %>
 						<div class="row">	
 							<div class="col-4">
-								<%= link_to clients_product_path(item.product) do  %>
-									<%= image_tag(item.product.attachments.first.url, class: "small_image") %>
+								<%= link_to clients_product_path(item.size.product) do  %>
+									<%= image_tag(item.size.product.attachments.first.url, class: "small_image") %>
 								<% end %>
 							</div>
 							<div class="col-8">
-								<p><%= item.quantity %>-<%= item.product.title %> | Taille <%= item.size.size_name %> | <%= number_to_currency_euro(item.product.price) %></p>
+								<p><%= item.quantity %>-<%= item.size.product.title %> | Taille <%= item.size.size_name %> | <%= number_to_currency_euro(item.size.product.price) %></p>
 							</div>
 						</div>
 					<hr>

@@ -2,12 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Order do 
 
-	fixtures :users, :categories, :products, :sizes, :shipping_addresses, :orders
-
-
 	context "A not logged-in user" do 
 		scenario "is asked to login before checking out" do
-			product = products(:red_shirt)
+			product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "S", quantity: "3"])
+
 			visit clients_product_path(product)
 			select "S", from: "size_id"
 
@@ -24,15 +22,15 @@ RSpec.describe Order do
 	context "A logged-in user with out any address" do 
 
 		before(:each) do
-			mark 	= users(:mark)
+			mark 	= create(:user)
 			login_as(mark)
+			@product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "L", quantity: "3"])
 		end
 
 		scenario "is asked to fill in shipping address" do
-			product = products(:red_shirt)
 
-			visit clients_product_path(product)
-			select "S", from: "size_id"
+			visit clients_product_path(@product)
+			select "L", from: "size_id"
 
 			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")
@@ -47,14 +45,15 @@ RSpec.describe Order do
 
 	context "A logged-in user with shipping address" do 
 		before(:each) do
-			home  = shipping_addresses(:home)
-			john 	= users(:john)
-			login_as(john)
+			mark 	= create(:user)
+			login_as(mark)
+			create(:shipping_address, user_id: mark.id)
+			@product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "L", quantity: "3"])
 		end
 		 scenario "can check out" do 
-		 	product = products(:red_shirt)
-		 	visit clients_product_path(product)
-		 	select "S", from: "size_id"
+		 
+		 	visit clients_product_path(@product)
+		 	select "L", from: "size_id"
 
 		 	click_on "Ajouter Au Panier"
 		 	expect(page).to have_content("Correctement ajouté au panier")
@@ -72,12 +71,15 @@ RSpec.describe Order do
 	end
 
 	context "general condition of sales must be checked to process payment" do 
+		before(:each) do
+			mark 	= create(:user)
+			login_as(mark)
+			create(:shipping_address, user_id: mark.id)
+			@product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "S", quantity: "3"])
+		end
 		scenario "the user hasn't check the box" do 
-			home  = shipping_addresses(:home)
-			john 	= users(:john)
-			login_as(john)
-			product = products(:red_shirt)
-			visit clients_product_path(product)
+			
+			visit clients_product_path(@product)
 			select "S", from: "size_id"
 
 			click_on "Ajouter Au Panier"
@@ -89,5 +91,4 @@ RSpec.describe Order do
 			expect(page).to have_content("Vous devez accepter les conditions générales de vente pour continuer")
 		end
 	end
-
 end

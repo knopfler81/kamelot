@@ -11,14 +11,13 @@ class Clients::OrderItemsController < Clients::ApplicationController
     if @size.quantity >= params[:quantity].to_i
 
       current_cart.add_item(
-        product_id: params[:product_id],
         quantity: params[:quantity],
         size_id: params[:size_id],
       )
 
       redirect_to clients_cart_path, notice: "Correctement ajouté au panier"
     else
-      redirect_to clients_product_path(Product.find(params[:product_id]))
+      redirect_to clients_product_path(Product.find(size.product.id))
       flash[:alert] = "Il y a plus que #{@size.quantity} articles en stock"
     end
   end
@@ -34,7 +33,7 @@ class Clients::OrderItemsController < Clients::ApplicationController
         @item = current_cart
         @item.change_qty( 
           id: params[:id],
-          product_id: params[:product_id],
+
           quantity: params[:quantity],
           size_id: params[:size_id]
         )
@@ -42,7 +41,7 @@ class Clients::OrderItemsController < Clients::ApplicationController
         format.html { redirect_to clients_cart_path, notice: "Quantité modifiée" }
       else
         format.js { flash.now[:notice] = "Il y a plus que #{@size.quantity} articles en stock" }
-        format.html { redirect_to clients_product_path(Product.find(params[:product_id])), alert: "oh oh"}
+        format.html { redirect_to clients_product_path(Product.find(size.product.id)), alert: "oh oh"}
       end
     end
   end
@@ -59,6 +58,6 @@ class Clients::OrderItemsController < Clients::ApplicationController
 
 
   def order_item_params
-    params.require(:order_item).permit(:id, :product_id, :quantity, :user_id, :size_id, :order_id)
+    params.require(:order_item).permit(:id, :quantity, :user_id, :size_id, :order_id)
   end
 end

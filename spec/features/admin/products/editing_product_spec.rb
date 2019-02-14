@@ -2,17 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Editing Product" do 
 
-	fixtures :users, :categories, :products, :sizes
-
 	context "As an admin I can" do 
-
-		before(:each) do 
-			nelly = users(:nelly)
-			login_as(nelly)
-		end
-
 		scenario "Edit a product",:js do 
-			product = products(:red_shirt)
+			nelly = create(:user, admin: true)
+			login_as(nelly)
+			product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "L", quantity: "3"])
 			
 			visit admin_product_path(product)
 

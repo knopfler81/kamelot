@@ -6,7 +6,7 @@ RSpec.describe Admin::OrdersController, :admin do
     sign_in FactoryBot.create(:user)
     @order    = create(:order)
   end
-
+  
   describe "GET index" do
     it "renders the index template" do
       get :index

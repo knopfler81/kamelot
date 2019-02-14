@@ -8,8 +8,12 @@ class Dashboard
 		@date_to   = parsed_date(params[:date_to], (Date.today + 1).to_s)
 	end
 
-	def date_range
+	def size_date_range
 		Size.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
+	end
+
+	def product_date_range
+		Product.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
 	end
 
 	##### PRODUCT #####
@@ -101,26 +105,26 @@ class Dashboard
 
 
 	def total_starting_stock
-		date_range.map {|size| size.quantity }.sum
+		size_date_range.map {|size| size.quantity }.sum
 	end
 
 	def total_buying_price
-		date_range.map {|size| size.product.buying_price }.sum
+		size_date_range.map {|size| size.product.buying_price }.sum
 	end
 
 	def total_selling_price
-		date_range.map {|size| size.product.price }.sum
+		size_date_range.map {|size| size.product.price }.sum
 	end
 
 	def total_cost_price
-		products = date_range.map do |size|
+		products = size_date_range.map do |size|
 			size.product.price - size.product.buying_price 
 		end
 		products.sum
 	end
 
 	def total_number_of_sales
-		products = date_range.map do |product|
+		products = product_date_range.map do |product|
 			OrderItem.joins(:order).where(product_id: product.id).count
 		end
 		products.sum
@@ -131,7 +135,7 @@ class Dashboard
 	end
 
 	def total_remaining_stock_value
-		date_range.map {|s| remaining_stock_value(s)}.sum
+		size_date_range.map {|s| remaining_stock_value(s)}.sum
 	end
 
 	def sizes_and_quantity(product)

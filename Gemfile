@@ -69,14 +69,11 @@ group :development do
   gem 'better_errors'
 end
 
-
-
 group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'launchy'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
-  gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
   gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'

@@ -1,3 +1,4 @@
+
 Category.destroy_all
 Order.destroy_all
 Product.destroy_all
@@ -700,7 +701,7 @@ product_11 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 5,
 			created_at: 2.weeks.ago,
 			},
 			{
@@ -819,14 +820,14 @@ order_1  = Order.create(
 	OrderItem.create(
 		price: product_1.price, 
 		order_id: order_1.id,
-		product_id: product_1.id,
+
 		quantity: 3,
 		size_id: product_1.sizes[0].id,
 	)
 	OrderItem.create(
 		price: product_2.price, 
 		order_id: order_1.id, 
-		product_id: product_2.id,
+
 		quantity: 3,
 		size_id: product_2.sizes[1].id,
 	)
@@ -847,14 +848,14 @@ order_2  = Order.create(
 	OrderItem.create(
 		price: product_1.price, 
 		order_id: order_2.id,
-		product_id: product_1.id,
+
 		quantity: 3,
 		size_id: product_1.sizes[0].id
 	)
 	OrderItem.create(
 		price: product_2.price, 
 		order_id: order_2.id, 
-		product_id: product_2.id, 
+
 		quantity: 3,
 		size_id: product_2.sizes[2].id
 	)
@@ -874,14 +875,14 @@ order_3  = Order.create(
 	OrderItem.create(
 		price: product_1.price, 
 		order_id: order_3.id,
-		product_id: product_1.id,
+
 		quantity: 2,
 		size_id: product_1.sizes[1].id
 	)
 	OrderItem.create(
 		price: product_3.price, 
 		order_id: order_3.id,
-		product_id: product_3.id,
+
 		quantity: 2,
 		size_id: product_3.sizes[1].id
 	)
@@ -899,7 +900,6 @@ order_4  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_2.price, 
 	order_id: order_4.id,
-	product_id: product_2.id,
 	quantity: 3,
 	size_id: product_2.sizes[1].id)
 
@@ -917,7 +917,6 @@ order_5  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_2.price, 
 	order_id: order_5.id,
-	product_id: product_2.id,
 	quantity: 3,
 	size_id: product_2.sizes[0].id)
 
@@ -934,19 +933,16 @@ order_6  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_2.price, 
 	order_id: order_6.id,
-	product_id: product_2.id,
 	quantity: 2,
 	size_id: product_2.sizes[0].id)
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_6.id,
-	product_id: product_3.id,
 	quantity: 3,
 	size_id: product_3.sizes[0].id)
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_6.id,
-	product_id: product_3.id,
 	quantity: 3,
 	size_id: product_3.sizes[0].id)
 
@@ -964,7 +960,6 @@ order_7  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_7.id,
-	product_id: product_3.id,
 	quantity: 3,
 	size_id: product_3.sizes[1].id)
 
@@ -981,14 +976,12 @@ order_8  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_8.id,
-	product_id: product_3.id,
 	quantity: 3,
 	size_id: product_3.sizes[2].id
 	)
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_8.id,
-	product_id: product_3.id,
 	quantity: 2,
 	size_id: product_3.sizes[0].id)
 
@@ -1006,7 +999,6 @@ order_9  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_4.price, 
 	order_id: order_9.id,
-	product_id: product_4.id,
 	quantity: 3,
 	size_id: product_4.sizes[0].id)
 
@@ -1025,7 +1017,6 @@ order_10 = Order.create(
 OrderItem.create(
 	price: product_4.price, 
 	order_id: order_10.id, 
-	product_id: product_4.id,
 	quantity: 3,
 	size_id: product_4.sizes[0].id)
 
@@ -1045,14 +1036,12 @@ order_11 = Order.create(
 OrderItem.create(
 	price: product_5.price, 
 	order_id: order_11.id, 
-	product_id: product_5.id,
 	quantity: 2,
 	size_id: product_5.sizes[0].id
 	)
 OrderItem.create(
 	price: product_5.price, 
 	order_id: order_11.id, 
-	product_id: product_5.id,
 	quantity: 3,
 	size_id: product_5.sizes[2].id
 	)
@@ -1073,7 +1062,6 @@ order_12 = Order.create(
 OrderItem.create(
 	price: product_7.price, 
 	order_id: order_12.id, 
-	product_id: product_7.id,
 	quantity: 3,
 	size_id: product_7.sizes[0].id)
 
@@ -1093,7 +1081,6 @@ order_13 = Order.create(
 OrderItem.create(
 	price: product_6.price, 
 	order_id: order_13.id, 
-	product_id: product_6.id,
 	quantity: 3,
 	size_id: product_6.sizes[0].id)
 
@@ -1113,7 +1100,6 @@ order_14 = Order.create(
 OrderItem.create(
 	price: product_6.price, 
 	order_id: order_14.id, 
-	product_id: product_6.id,
 	quantity: 3,
 	size_id: product_6.sizes[1].id)
 
@@ -1132,7 +1118,6 @@ order_15 = Order.create(
 OrderItem.create(
 	price: product_8.price, 
 	order_id: order_15.id, 
-	product_id: product_8.id,
 	quantity: 3,
 	size_id: product_8.sizes[0].id)
 
@@ -1151,7 +1136,6 @@ order_16 = Order.create(
 OrderItem.create(
 	price: product_8.price, 
 	order_id: order_16.id, 
-	product_id: product_8.id,
 	quantity: 2,
 	size_id: product_8.sizes[0].id)
 
@@ -1171,7 +1155,6 @@ order_17 = Order.create(
 OrderItem.create(
 	price: product_9.price, 
 	order_id: order_17.id, 
-	product_id: product_9.id,
 	quantity: 3,
 	size_id: product_9.sizes[1].id)
 
@@ -1191,7 +1174,6 @@ order_18 = Order.create(
 OrderItem.create(
 	price: product_10.price,
 	order_id: order_18.id,
-	product_id: product_10.id,
 	quantity: 3, 
 	size_id: product_10.sizes[2].id
 	)
@@ -1211,8 +1193,7 @@ order_19 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_19.id,
-	product_id: product_11.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[1].id
 	)
 
@@ -1225,13 +1206,12 @@ order_20 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 1,
  	shipping_fees: 5,
- 	sub_total: product_11.price * 3, 
+ 	sub_total: product_11.price * 2, 
  	total: 135)
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_20.id,
-	product_id: product_11.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[2].id
 	)
 
@@ -1249,7 +1229,6 @@ order_21 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_21.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[2].id
 	)
@@ -1268,7 +1247,6 @@ order_22 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_20.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[2].id
 	)
@@ -1287,7 +1265,6 @@ order_23 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_23.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[0].id
 	)
@@ -1307,7 +1284,6 @@ order_24 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_24.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[1].id
 	)
@@ -1327,7 +1303,6 @@ order_25 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_25.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_1.sizes[0].id)
 
@@ -1347,7 +1322,6 @@ order_26 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_26.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[0].id
 	)
@@ -1368,7 +1342,6 @@ order_27 = Order.create(
 OrderItem.create(
 	price: product_9.price, 
 	order_id: order_27.id, 
-	product_id: product_9.id,
 	quantity: 3,
 	size_id: product_9.sizes[0].id)
 
@@ -1388,7 +1361,6 @@ order_28 = Order.create(
 OrderItem.create(
 	price: product_10.price,
 	order_id: order_28.id,
-	product_id: product_10.id,
 	quantity: 3, 
 	size_id: product_10.sizes[2].id
 	)
@@ -1408,7 +1380,6 @@ order_29 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_29.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[2].id
 	)
@@ -1428,7 +1399,6 @@ order_30 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_30.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[0].id
 	)
@@ -1448,7 +1418,6 @@ order_31 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_31.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[1].id
 	)
@@ -1468,7 +1437,6 @@ order_32 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_32.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[0].id
 	)
@@ -1488,7 +1456,6 @@ order_33 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_33.id,
-	product_id: product_12.id,
 	quantity: 3, 
 	size_id: product_12.sizes[1].id
 	)
@@ -1508,7 +1475,6 @@ order_34 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_34.id,
-	product_id: product_12.id,
 	quantity: 3, 
 	size_id: product_12.sizes[1].id
 	)
@@ -1528,7 +1494,6 @@ order_35 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_35.id,
-	product_id: product_12.id,
 	quantity: 3, 
 	size_id: product_12.sizes[0].id
 	)
@@ -1548,7 +1513,6 @@ order_36 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_36.id,
-	product_id: product_12.id,
 	quantity: 3, 
 	size_id: product_12.sizes[0].id
 	)
@@ -1568,7 +1532,6 @@ order_37 = Order.create(
 OrderItem.create(
 	price: product_9.price, 
 	order_id: order_37.id, 
-	product_id: product_9.id,
 	quantity: 3,
 	size_id: product_9.sizes[0].id)
 
@@ -1588,7 +1551,6 @@ order_38 = Order.create(
 OrderItem.create(
 	price: product_10.price,
 	order_id: order_38.id,
-	product_id: product_10.id,
 	quantity: 3, 
 	size_id: product_10.sizes[0].id
 	)
@@ -1608,7 +1570,6 @@ order_39 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_39.id,
-	product_id: product_11.id,
 	quantity: 3, 
 	size_id: product_11.sizes[0].id
 	)
@@ -1628,7 +1589,6 @@ order_40 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_40.id,
-	product_id: product_12.id,
 	quantity: 3, 
 	size_id: product_13.sizes[2].id
 	)
@@ -1648,7 +1608,6 @@ order_41 = Order.create(
 OrderItem.create(
 	price: product_13.price,
 	order_id: order_41.id,
-	product_id: product_13.id,
 	quantity: 3, 
 	size_id: product_13.sizes[0].id
 	)

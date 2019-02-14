@@ -3,7 +3,7 @@ class Admin::DashboardsController < Admin::ApplicationController
 	def show
 		@button ||= set_button || :journal
 		@dashboard = Dashboard.new(params[:search])
-		@sizes = @dashboard.date_range
+		@sizes = @dashboard.size_date_range
 		@sizes = @sizes.order('created_at ASC')
 	end
 
