@@ -8,7 +8,6 @@ class Admin::ProductsController < Admin::ApplicationController
     @products ||= Product.all
 	end
 
-
 	def desktop
  		filter_products if params[:query].present?
     @products ||= Product.all
@@ -47,7 +46,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def update
-		if @product.update_attributes!(params_product)
+		if @product.update_attributes(params_product)
 			respond_to do |format|
 				format.html {redirect_to admin_product_path(@product), notice: "L'article a bien été modifié"}
 				format.js
@@ -64,7 +63,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+		params.require(:product).permit(:id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
 
 	def filter_products

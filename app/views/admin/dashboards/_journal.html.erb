@@ -7,14 +7,15 @@
 				<th>Ref article</th>
 				<th>Marque</th>
 				<th>Couleur</th>
-				<th>Tailles/Quantité</th>
+				<th>Tailles</th>
 				<th>Stock départ</th>
-				<th>Prix achat</th>
+				<th>Prix achat/article</th>
+				<th>Marge/article</th>
 				<th>Prix vente</th>
-				<th>Prix de revient</th>
 				<th>Nombre de vente</th>
 				<th>Stock restant</th>
 				<th>Valeur stock restant</th>
+				<th>C-A</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,13 +28,14 @@
 					<td><%= size.product.brand %></td>
 					<td><%= size.product.color %></td>
 					<td><%= size.size_name %></td>
-					<td><%= size.quantity %></td>
+					<td><%#= size.quantity_on_update  %></td> <!-- attention ca calcul le nombre de taille en cours et non le stock de départ -->
 					<td><%= size.product.buying_price%></td>
-					<td><%= size.product.price %></td>
 					<td><%= @dashboard.cost_price(size) %></td>
+					<td><%= size.product.price %></td>
 					<td><%= @dashboard.number_of_sales(size) %></td>
 					<td><%= @dashboard.remaining_stock(size) %></td>
 					<td class="stock_value"><%= @dashboard.remaining_stock_value(size)%></td>
+					<th><%=  size.product.price *  @dashboard.number_of_sales(size) %></th>
 				</tr>
 			<% end %>
 		</tbody>
@@ -49,8 +51,8 @@
 				<td>X</td>
 				<td><%= @dashboard.total_starting_stock %></td>
 				<td><%= @dashboard.total_buying_price %></td>
-				<td><%= @dashboard.total_selling_price %></td>
 				<td><%= @dashboard.total_cost_price %></td>
+				<td><%= @dashboard.total_selling_price %></td>
 				<td><%= @dashboard.total_number_of_sales %></td>
 				<td><%= @dashboard.total_remaining_stock %></td>
 				<td><%= @dashboard.total_remaining_stock_value %></td>

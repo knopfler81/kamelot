@@ -5,7 +5,6 @@ class Admin::SizesController < Admin::ApplicationController
 	def edit
 	end
 
-
 	def update
 		@size.update_attributes(size_params)
 	end
@@ -27,7 +26,7 @@ class Admin::SizesController < Admin::ApplicationController
 	private
 
 	def size_params
-		params.require(:size).permit(:size_params, :quantity, :product_id)
+		params.require(:size).permit(:id, :size_name, :quantity, :product_id)
 	end
 
 	def find_size

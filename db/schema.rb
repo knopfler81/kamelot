@@ -48,14 +48,14 @@ ActiveRecord::Schema.define(version: 2019_02_15_164927) do
     t.text "legal_notice"
     t.text "confidentiality_policy"
     t.text "cookies_policy"
-    t.string "navbar_color", default: "#fff"
-    t.string "body_color", default: "#fff"
-    t.string "nav_links_color", default: "#6D6B6B"
-    t.string "btn_main_color", default: "#111"
-    t.string "btn_secondary_color", default: "#fff"
-    t.string "text_color", default: "#111"
-    t.string "main_btn_text_color", default: "#fff"
-    t.string "secondary_btn_text_color", default: "#111"
+    t.string "navbar_color"
+    t.string "body_color"
+    t.string "nav_links_color"
+    t.string "btn_main_color"
+    t.string "btn_secondary_color"
+    t.string "text_color"
+    t.string "main_btn_text_color"
+    t.string "secondary_btn_text_color"
   end
 
   create_table "favorites", force: :cascade do |t|

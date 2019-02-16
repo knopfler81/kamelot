@@ -1,7 +1,5 @@
 $(document).on('turbolinks:load', function() {
 
-
-
   $(function() {
 
     function readURL(input) {

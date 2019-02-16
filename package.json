@@ -6,10 +6,10 @@
     "babel-preset-react": "^6.24.1",
     "flatpickr": "^4.5.2",
     "highcharts": "^7.0.2",
-    "prop-types": "^15.7.1",
-    "react": "^16.8.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.2",
     "react-color": "^2.17.0",
-    "react-dom": "^16.8.1",
+    "react-dom": "^16.8.2",
     "react_ujs": "^2.4.4"
   },
   "devDependencies": {

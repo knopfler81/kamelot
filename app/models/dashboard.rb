@@ -124,8 +124,8 @@ class Dashboard
 	end
 
 	def total_number_of_sales
-		products = product_date_range.map do |product|
-			OrderItem.joins(:order).where(product_id: product.id).count
+		products = size_date_range.map do |size|
+			OrderItem.joins(:order).where(size_id: size.id).count
 		end
 		products.sum
 	end

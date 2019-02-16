@@ -46,7 +46,7 @@ module ApplicationHelper
 
 	def prefered_btn_secondary_color
 		return Customization.instance.btn_secondary_color if Customization.instance.btn_secondary_color.present?
-		"#18B134"
+		"#fff"
 	end
 
 	def prefered_btn_secondary_text_color
