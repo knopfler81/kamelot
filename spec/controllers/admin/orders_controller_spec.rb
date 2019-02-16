@@ -6,13 +6,8 @@ RSpec.describe Admin::OrdersController, :admin do
     sign_in FactoryBot.create(:user)
     @order    = create(:order)
   end
-
+  
   describe "GET index" do
-    it "assigns @orders" do
-      get :index
-      expect(assigns(:orders)).to eq([@order])
-    end
-
     it "renders the index template" do
       get :index
       expect(response).to render_template("index")

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_151008) do
+ActiveRecord::Schema.define(version: 2019_02_15_164927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,14 +48,14 @@ ActiveRecord::Schema.define(version: 2019_02_12_151008) do
     t.text "legal_notice"
     t.text "confidentiality_policy"
     t.text "cookies_policy"
-    t.string "navbar_color", default: "#fff"
-    t.string "body_color", default: "#fff"
-    t.string "nav_links_color", default: "#6D6B6B"
-    t.string "btn_main_color", default: "#111"
-    t.string "btn_secondary_color", default: "#fff"
-    t.string "text_color", default: "#111"
-    t.string "main_btn_text_color", default: "#fff"
-    t.string "secondary_btn_text_color", default: "#111"
+    t.string "navbar_color"
+    t.string "body_color"
+    t.string "nav_links_color"
+    t.string "btn_main_color"
+    t.string "btn_secondary_color"
+    t.string "text_color"
+    t.string "main_btn_text_color"
+    t.string "secondary_btn_text_color"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -69,14 +69,12 @@ ActiveRecord::Schema.define(version: 2019_02_12_151008) do
 
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id", null: false
-    t.bigint "product_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "price"
     t.bigint "size_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
-    t.index ["product_id"], name: "index_order_items_on_product_id"
     t.index ["size_id"], name: "index_order_items_on_size_id"
   end
 
@@ -105,6 +103,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_151008) do
     t.string "brand"
     t.string "ref"
     t.decimal "price"
+    t.decimal "buying_price", precision: 10, scale: 2
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
@@ -153,7 +152,6 @@ ActiveRecord::Schema.define(version: 2019_02_12_151008) do
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "order_items", "orders", name: "fk_order_items_to_order"
-  add_foreign_key "order_items", "products", name: "fk_order_items_to_product"
   add_foreign_key "order_items", "sizes"
   add_foreign_key "sizes", "products"
 end

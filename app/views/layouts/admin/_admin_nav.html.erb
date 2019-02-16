@@ -34,6 +34,7 @@
                <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
                <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
                <%= link_to  "Customization", clients_customization_path, class: "dropdown-item"  %>
+               <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-item" %>
                <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
              </div>
            <% else %>

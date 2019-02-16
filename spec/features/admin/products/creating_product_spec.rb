@@ -16,6 +16,7 @@ RSpec.describe "Creating Product" , :js do
 			fill_in "product[brand]", with: "Side Park"
 			fill_in "product[title]", with: "Pull en laine"
 			fill_in "product[price]", with: 50
+			fill_in "product[buying_price]", with: 10
 			fill_in "product[description]", with: "Une description pour ce pull"
 			fill_in "product[color]", with: "Noir"
 			fill_in "product[ref]", with: "FF00"
@@ -26,6 +27,9 @@ RSpec.describe "Creating Product" , :js do
 			click_on "Ajouter une taille"
 			find('.nested-fields:nth-child(1)').fill_in "Taille", with: "M"
 			find('.nested-fields:nth-child(1)').fill_in "Quantité dans cette taille", with: 9
+			click_on "Ajouter une taille"
+			find('.nested-fields:nth-child(2)').fill_in "Taille", with: "L"
+			find('.nested-fields:nth-child(2)').fill_in "Quantité dans cette taille", with: 9
 			click_on "Valider le produit"
 
 			expect(page).to have_content("L'article a bien été créé")

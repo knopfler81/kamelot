@@ -10,7 +10,7 @@
 
 <% @order.items.each do |item| %>
 	<ul>
-		<li> <%= item.quantity %> X <%=item.product.title %>, <%= item.product.brand %> , <%= item.product.color %> , en taille <%= item.size.size_name  %> </li>
+		<li> <%= item.quantity %> X <%=item.size.product.title %>, <%= item.size.product.brand %> , <%= item.size.product.color %> , en taille <%= item.size.size_name  %> </li>
 	</ul>
 <% end %>
 

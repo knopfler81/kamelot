@@ -4,16 +4,14 @@ RSpec.describe OrderItem do
 
 
 	before(:each) do 
-		john 	= users(:john)
+		john = create(:user)
 		login_as(john)
+		@product = create(:product, title: "Chemise", brand: "Side Park", title: "Chemise cool", price: 50, sizes_attributes: [size_name: "S", quantity: "5"])
 	end
 
-	fixtures :users, :categories, :products, :sizes, :shipping_addresses
-
 	scenario "A user can add items to his cart" do
-		product = products(:red_shirt)
 
-		visit clients_product_path(product)
+		visit clients_product_path(@product)
 		select "S", from: "size_id"
 		click_on "Ajouter Au Panier"
 		
@@ -33,9 +31,8 @@ RSpec.describe OrderItem do
 	end
 
 	scenario "A user can updated item quantity in his cart", :js do
-		product = products(:red_shirt)
 
-		visit clients_product_path(product)
+		visit clients_product_path(@product)
 		select "S", from: "size_id"
 		click_on "Ajouter Au Panier"
 
@@ -43,13 +40,12 @@ RSpec.describe OrderItem do
 
 		select "3", from: "quantity"
 
-		expect(page).to have_content("60.00 €")
+		expect(page).to have_content("150.00 €")
 	end
 
 	scenario "A user can remove items from his cart" do
-		product = products(:red_shirt)
 
-		visit clients_product_path(product)
+		visit clients_product_path(@product)
 		select "S", from: "size_id"
 		click_on "Ajouter Au Panier"
 

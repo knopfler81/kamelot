@@ -1,10 +1,13 @@
 class Admin::SizesController < Admin::ApplicationController
 
-	before_action :find_size
+	before_action :find_size, except: [:create]
 
 	def edit
 	end
 
+	def create
+		@size = Size.new(size_params)
+	end
 
 	def update
 		@size.update_attributes(size_params)
@@ -27,11 +30,10 @@ class Admin::SizesController < Admin::ApplicationController
 	private
 
 	def size_params
-		params.require(:size).permit(:size_params, :quantity, :product_id)
+		params.require(:size).permit(:id, :size_name, :quantity, :product_id)
 	end
 
 	def find_size
 		@size = Size.find(params[:id])
 	end	
-
 end

@@ -16,14 +16,14 @@ class ShoppingCart
     order.items.exclude_if_size_quantity_zero.sum(:quantity)
   end
 
-  def add_item(product_id:, quantity:1 , size_id:) 
-    @product = Product.find(product_id)
+  def add_item(quantity:1 , size_id:) 
     @size = Size.find_by(id: size_id)
+    @product = @size.product
 
-    @order_item =  if order.items.where(product_id: product_id).where(size_id: size_id).any?
-       order.items.find_by(product_id: product_id, size_id: size_id)
+    @order_item =  if order.items.where(size_id: size_id).any?
+      order.items.find_by(size_id: size_id)
     else
-     order.items.new(product_id: product_id, size_id: size_id)
+     order.items.new(size_id: size_id)
     end
     
     @order_item.price = @product.price
@@ -41,9 +41,9 @@ class ShoppingCart
     end
   end
 
-  def change_qty(id:, quantity:1, product_id:, size_id:)
+  def change_qty(id:, quantity:1, size_id:)
     @size = Size.find_by(id: size_id)
-    @order_item = order.items.find_by(product_id: product_id, size_id: size_id)
+    @order_item = order.items.find_by(size_id: size_id)
     @order_item.quantity = quantity.to_i
     @order_item.save
     update_sub_total!

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe PaymentMailer, type: :mailer do
-  describe "confirmation", :skip do
+  describe "confirmation", :skip => "A faire" do
     let(:mail) { PaymentMailer.confirmation }
 
     it "renders the headers" do

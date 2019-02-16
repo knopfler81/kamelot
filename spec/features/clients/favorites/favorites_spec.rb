@@ -1,16 +1,11 @@
 require "rails_helper"
 
-RSpec.feature Favorite do 
-
-	fixtures :users, :categories, :products
-
-	before :each do 
-		john = users(:john)
-		login_as john
-	end
+RSpec.describe Favorite do 
 
 	scenario "add a product to favorites", js: true do 
-		ken   = products(:warm_sweat)
+		john = create(:user)
+		login_as john
+		create(:product, brand: "Side Park", sizes_attributes: [size_name: "L", quantity: "3"])
 
 		visit clients_products_path
 

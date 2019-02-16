@@ -21,7 +21,7 @@ class Order < ApplicationRecord
 
   def remove_from_stock
     self.items.each do |item|
-      @size = Size.where(id: item.size_id, product_id: item.product_id).last
+      @size = Size.where(id: item.size_id).last
       @size.quantity -= item.quantity.to_i
       @size.save
     end

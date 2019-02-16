@@ -5,7 +5,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require cocoon
-//= require bootstrap-datepicker
 //= require highcharts
 //= require chartkick
 //= require_tree .
@@ -16,12 +15,6 @@ window.setTimeout(function() {
        $(this).hide();
    });
 }, 3000);
-
-
-$(document).ready(function(){
-  $('.datepicker').datepicker({dateFormat: "dd/mm/yyyy", language: "fr"});
-});
-
 
 $(document).ready(function(){ 
 	$('.navbar .navbar-nav > li.dropdown').hover(function(){
@@ -34,3 +27,10 @@ $(document).ready(function(){
 	});
 });
 
+$(document).ready(function() {
+    $('.model_link').click(function() {
+        var buttonName = $(this).attr('id').split('_')[0];
+        $('#button').val(buttonName);
+        $('form').submit();
+    });
+});

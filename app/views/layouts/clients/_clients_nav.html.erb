@@ -27,7 +27,7 @@
 
   .btn-secondary {
     background: <%= prefered_btn_secondary_color  %>!important;
-    border-color: <%= prefered_btn_secondary_color  %>!important;
+    border-color: <%= prefered_text_color  %>!important;
   }
 
   #clients {
@@ -68,7 +68,6 @@
               <%= link_to "Mes adresses", clients_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
               <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
-              <%= link_to "Commandes", clients_orders_path, class: "dropdown-item"  %>
               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
            </div>
           <% else %>

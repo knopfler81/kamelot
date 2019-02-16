@@ -17,5 +17,9 @@ RSpec.configure do |config|
     if Rails.env.test? 
       FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
     end 
-  end    
+  end
+
+  config.append_after :each do |example|
+    CarrierWave.clean_cached_files!(0)
+  end
 end

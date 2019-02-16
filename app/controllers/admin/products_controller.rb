@@ -1,13 +1,12 @@
 class Admin::ProductsController < Admin::ApplicationController
 	protect_from_forgery
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
-	before_action :set_product, only: [:show, :destroy, :update, :edit]
+	before_action :find_product, only: [:show, :destroy, :update, :edit]
 
 	def index
 		filter_products if params[:query].present?
     @products ||= Product.all
 	end
-
 
 	def desktop
  		filter_products if params[:query].present?
@@ -21,8 +20,12 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def new
 		@product = Product.new
+		@product.sizes.build
 	end
 
+	def edit
+		@product.sizes.build
+	end
 	def create
 		@product =  Product.new(params_product)
 		@product.user_id = current_user.id
@@ -43,11 +46,9 @@ class Admin::ProductsController < Admin::ApplicationController
 		end
 	end
 
-	def edit
-	end
 
 	def update
-		if @product.update_attributes!(params_product)
+		if @product.update_attributes(params_product)
 			respond_to do |format|
 				format.html {redirect_to admin_product_path(@product), notice: "L'article a bien été modifié"}
 				format.js
@@ -59,12 +60,16 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	private
 	
-	def set_product
+	def find_product
 		@product = Product.find(params[:id])
 	end
 
+	def find_size
+		@size = Size.find(params[:product_id])
+	end
+
 	def params_product
-		params.require(:product).permit(:title, :ref, :brand, :description, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+		params.require(:product).permit(:id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
 
 	def filter_products

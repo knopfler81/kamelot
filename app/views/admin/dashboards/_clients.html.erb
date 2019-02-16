@@ -1,5 +1,4 @@
-<section style="margin-bottom: 50px;" class= "clients" >
-
+<div class="container">
 	<h2>Utilisateurs -[<%= @dashboard.clients_counts %>]</h2>
 	<hr>
 	<div class="row">
@@ -22,6 +21,4 @@
 			<%= pie_chart  @dashboard.clients_gender, {colors: ["blue", "orange"]}  %>
 		</div>
 	</div>
-</section>
-
-
+</div>
