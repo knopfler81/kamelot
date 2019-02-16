@@ -1,29 +1,32 @@
 <div class="container">
-	<h2>Articles mis en ventes-[<%= @dashboard.products_counts %>]</h2>
+	<h2>Articles mis en ventes</h2>
+	<hr>
 	<br>
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<h5>Articles / Catégories</h5>
-			<br>
-			<%= pie_chart @dashboard.products_per_category, {colors: [ "orange" "black", "yellow", "blue", "red"]} %>
+	<div class="graph_boxe">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<h5>Articles / Catégories - [<%= @dashboard.products_counts %>]</h5>
+				<br>
+				<%= pie_chart @dashboard.products_per_category, {colors: [ "orange" "black", "yellow", "blue", "red"]} %>
+			</div>
+			<div class="col-12 col-md-6">
+				<h5>Articles / tailles - [<%= @dashboard.sizes_counts %>]</h5>
+				<br>
+				<%= pie_chart @dashboard.sizes_per_products , {colors: [ "red", "green", "yellow", "blue", "orange"]}%>
+			</div>
 		</div>
-		<div class="col-12 col-md-6">
-			<h5>Articles / tailles</h5>
-			<br>
-			<%= pie_chart @dashboard.sizes_per_products , {colors: [ "red", "green", "yellow", "blue", "orange"]}%>
-		</div>
-	</div>
-	<br><br>
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<h5>Articles ajoutés / semaine</h5>
-			<br>
-			<%= column_chart @dashboard.products_added_by_week, {colors: ["red"]} %>
-		</div>
-		<div class="col-12 col-md-6">
-			<h5>Articles ajoutés / mois</h5>
-			<br>
-			<%= column_chart @dashboard.products_added_by_month, {colors: ["black"]} %>	
+		<br><br>
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<h5>Articles ajoutés / semaine</h5>
+				<br>
+				<%= column_chart @dashboard.products_added_by_week, {colors: ["red"]} %>
+			</div>
+			<div class="col-12 col-md-6">
+				<h5>Articles ajoutés / mois</h5>
+				<br>
+				<%= column_chart @dashboard.products_added_by_month, {colors: ["black"]} %>	
+			</div>
 		</div>
 	</div>
 </div>

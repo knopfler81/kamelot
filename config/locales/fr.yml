@@ -32,6 +32,11 @@ fr:
       product/sizes:
         size_n: Taille
   admin:
+    dashboards:
+      show:
+        orders: Commandes
+        products: Articles
+        clients: Utilisateurs 
     orders:
       _base: &_base
         pending: En attente de paiement
