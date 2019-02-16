@@ -1,8 +1,12 @@
 class Admin::SizesController < Admin::ApplicationController
 
-	before_action :find_size
+	before_action :find_size, except: [:create]
 
 	def edit
+	end
+
+	def create
+		@size = Size.new(size_params)
 	end
 
 	def update
@@ -32,5 +36,4 @@ class Admin::SizesController < Admin::ApplicationController
 	def find_size
 		@size = Size.find(params[:id])
 	end	
-
 end

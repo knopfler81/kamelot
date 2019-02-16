@@ -84,7 +84,13 @@ class Dashboard
 
 
 	def number_of_sales(size)
-		OrderItem.joins(:order).where(size_id: size.id).count
+
+		@item = OrderItem.joins(:order).where(size_id: size.id)
+		unless @item.nil?
+			@item.map {|s| s.quantity}.sum
+		else
+			0
+		end
 	end
 
 	def cost_price(size)
@@ -92,11 +98,11 @@ class Dashboard
 	end
 
 	def starting_stock(size)
-		size.quantity
+		size.quantity + number_of_sales(size)
 	end
 
 	def remaining_stock(size)
-		starting_stock(size) - number_of_sales(size)
+		size.quantity	
 	end
 
 	def remaining_stock_value(size)

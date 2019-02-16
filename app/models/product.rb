@@ -22,16 +22,16 @@ class Product < ApplicationRecord
 
 	validate  :attachment_size
 	#validate  :at_least_one_size, on: :create
-	validate  :price_error
+	# validate  :price_error
 
 
-	private
+	# private
 
-	def price_error
-		if self.buying_price > self.price 
-			errors.add(:base, :price_error)
-		end
-	end
+	# def price_error
+	# 	if self.buying_price > self.price 
+	# 		errors.add(:base, :price_error)
+	# 	end
+	# end
 
 	def at_least_one_size
 		if self.sizes.empty?

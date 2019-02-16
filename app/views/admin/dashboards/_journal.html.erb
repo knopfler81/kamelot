@@ -2,20 +2,20 @@
 <table class="table table-striped">
 		<thead>
 			<tr>
-				<th>ID</th>
-				<th>Date ajout</th>
-				<th>Ref article</th>
-				<th>Marque</th>
-				<th>Couleur</th>
-				<th>Tailles</th>
-				<th>Stock départ</th>
-				<th>Prix achat/article</th>
-				<th>Marge/article</th>
-				<th>Prix vente</th>
-				<th>Nombre de vente</th>
-				<th>Stock restant</th>
-				<th>Valeur stock restant</th>
-				<th>C-A</th>
+				<th><small>ID</small></th>
+				<th><small>Date ajout</small></th>
+				<th><small>Ref article</small></th>
+				<th><small>Marque</small></th>
+				<th><small>Couleur</small></th>
+				<th><small>Tailles</small></th>
+				<th><small>Stock départ</small></th>
+				<th><small>Prix achat/article</small></th>
+				<th><small>Marge/article</small></th>
+				<th><small>Prix vente</small></th>
+				<th><small>Nombre de vente</small></th>
+				<th><small>Stock restant</small></th>
+				<th><small>Valeur stock restant</small></th>
+				<th><small>C-A</small></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,19 +23,19 @@
 		<% @sizes.each do |size| %>
 				<tr>
 					<td><%= size.product.id %></td>
-					<td><%= l(size.created_at, format: '%d %B %Y' )  %></td>
+					<td><%= l(size.created_at, format: '%d/%m/%Y' )  %></td>
 					<td><%= size.product.title %></td>
 					<td><%= size.product.brand %></td>
 					<td><%= size.product.color %></td>
 					<td><%= size.size_name %></td>
-					<td><%#= size.quantity_on_update  %></td> <!-- attention ca calcul le nombre de taille en cours et non le stock de départ -->
+					<td><%= @dashboard.starting_stock(size) %></td>
 					<td><%= size.product.buying_price%></td>
 					<td><%= @dashboard.cost_price(size) %></td>
 					<td><%= size.product.price %></td>
 					<td><%= @dashboard.number_of_sales(size) %></td>
-					<td><%= @dashboard.remaining_stock(size) %></td>
+					<td><%= (size.quantity + @dashboard.number_of_sales(size)) - @dashboard.number_of_sales(size)%></td>
 					<td class="stock_value"><%= @dashboard.remaining_stock_value(size)%></td>
-					<th><%=  size.product.price *  @dashboard.number_of_sales(size) %></th>
+					<td><%=  size.product.price *  @dashboard.number_of_sales(size) %></td>
 				</tr>
 			<% end %>
 		</tbody>

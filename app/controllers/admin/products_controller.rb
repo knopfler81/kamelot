@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::ApplicationController
 	protect_from_forgery
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
-	before_action :set_product, only: [:show, :destroy, :update, :edit]
+	before_action :find_product, only: [:show, :destroy, :update, :edit]
 
 	def index
 		filter_products if params[:query].present?
@@ -20,8 +20,12 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def new
 		@product = Product.new
+		@product.sizes.build
 	end
 
+	def edit
+		@product.sizes.build
+	end
 	def create
 		@product =  Product.new(params_product)
 		@product.user_id = current_user.id
@@ -42,8 +46,6 @@ class Admin::ProductsController < Admin::ApplicationController
 		end
 	end
 
-	def edit
-	end
 
 	def update
 		if @product.update_attributes(params_product)
@@ -58,8 +60,12 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	private
 	
-	def set_product
+	def find_product
 		@product = Product.find(params[:id])
+	end
+
+	def find_size
+		@size = Size.find(params[:product_id])
 	end
 
 	def params_product
