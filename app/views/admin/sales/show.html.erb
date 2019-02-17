@@ -1,0 +1,39 @@
+<div class="container">
+
+	<h1 class="primary_title">VENTE N° <%= @sale.id %></h1>
+	<hr>
+	<div class="row">
+		<div class="col-12 col-md-10 offset-1">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<p>Vente passée le <%= l(@sale.created_at, format: '%d %B %Y' )%></p>
+					<p>Vente: FR-000<%= @sale.id %></p>
+				</div>
+				<div class="col-12 col-md-6">
+					<p>Nombre d'articles: <%= @sale.count_articles %></p>
+					<p>Total : <%= number_to_currency_euro @sale.total %></p>
+				</div>
+
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-12">
+					<% @sale.items.each do |item| %>
+						<div class="row">	
+							<div class="col-4">
+								<%= link_to clients_product_path(item.size.product) do  %>
+									<%= image_tag(item.size.product.attachments.first.url, class: "small_image") %>
+								<% end %>
+							</div>
+							<div class="col-8">
+								<p><%= item.quantity %>-<%= item.size.product.title %> | Taille <%= item.size.size_name %> | <%= number_to_currency_euro(item.size.product.price) %></p>
+							</div>
+						</div>
+					<hr>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

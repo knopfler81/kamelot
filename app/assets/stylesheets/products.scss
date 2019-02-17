@@ -148,6 +148,13 @@
   overflow: hidden;
 }
 
+.admin_big_image {
+
+	width: auto;
+	height: 300px;
+
+}
+
 .photo {
   position: absolute;
   top: 0;
@@ -161,7 +168,8 @@
 }
 
 
-.destock_card {
+.vending_card {
+	height: 150px;
 	padding: 10px;
 	background: #ccc;
 	margin-top: 20px;
@@ -169,6 +177,22 @@
 		color: #FB002DFF;
 		font-weight: bold;
 	}
+	.small_image {
+		height: 140px;
+	}
+	.product_title {
+		font-size: 18px;
+		color: #111;
+	}
+	.brand {
+		color: red;
+	}
+	.ref {
+		color: blue;
+	}
+	.price {
+		color: #111;
+	}	
 }
 
 .header_destock_card {

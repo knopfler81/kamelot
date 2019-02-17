@@ -23,7 +23,7 @@ RSpec.describe OrderItem do
 		click_on "Ajouter Au Panier"
 		
 		expect(page).to have_content("Correctement ajouté au panier")
-		expect(page).to have_content("50.00 €")
+		expect(page).to have_content("50")
 		
 		click_on "Commander"
 
@@ -40,7 +40,7 @@ RSpec.describe OrderItem do
 
 		select "3", from: "quantity"
 
-		expect(page).to have_content("150.00 €")
+		expect(page).to have_content("150")
 	end
 
 	scenario "A user can remove items from his cart" do

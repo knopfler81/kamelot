@@ -33,7 +33,6 @@ class Clients::OrderItemsController < Clients::ApplicationController
         @item = current_cart
         @item.change_qty( 
           id: params[:id],
-
           quantity: params[:quantity],
           size_id: params[:size_id]
         )

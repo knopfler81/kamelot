@@ -26,6 +26,6 @@ Rails.application.configure do
 
   config.default_url_options = :test
 
-  config.i18n.default_locale = :en
+  config.i18n.default_locale = :fr
 
 end

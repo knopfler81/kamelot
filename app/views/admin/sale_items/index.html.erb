@@ -1,0 +1,60 @@
+<div class="container">
+	<h1 class="primary_title">MON PANIER</h1>
+		<% if @items.count > 0 %>
+			<div class="row">
+				<div class="col-12 col-md-9">
+					<table class="table table-striped">
+						<tbody>
+							<%  @items.each do |item| %>
+							<tr>
+								<td class="tab_image product_image_tab  <%= 'fade_img' if item.size.quantity == 0 %>"><%= image_tag(item.size.product.attachments.first.url, class: "tiny_image") %></td>	
+								<td><span class="<%= 'not_available' if item.size.quantity == 0 %>"><%= link_to item.size.product.title, clients_product_path(item.size.product_id), class: "title_in_tab" %></span></td>
+								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= number_to_currency_euro(item.price * item.quantity) %></td>
+								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= item.size.size_name %> </td>
+								<td class="tab_quantity">	
+									<% if item.size.quantity == 0 %>
+										<small>n'est plus disponible</small>
+									<% else %>
+										<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
+											<%= f.hidden_field :id, value: item.id %>
+											<%#= f.hidden_field :product_id, value: item.product.id %>
+											<%= f.hidden_field :size_id, value: item.size.id %>
+											<%= f.select :quantity, options_for_select((1..Size.where(id: item.size.id).last.quantity), selected: item.quantity) , {}, { value: item.quantity, class: 'form-control', onchange: 'this.form.submit();' } %>
+										<% end %>
+									<% end %>
+								</td>
+								<td align="right">	  
+									<%= link_to admin_sale_item_path(item), method: :delete, remote: true ,data: {confirm: "Voulez vous vraiment supprimer cet article?"}, class: 'delete_link btn btn-danger delete_btn' do  %>
+										<i class="fa fa-trash"></i>
+									<% end %>
+								</td>
+							</tr>	
+							<% end %>		
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan='6' align="right" id="total_amount"><%= number_to_currency_euro @current_basket.sub_total %></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				<div class="col-12 col-md-3">
+					<div class="row">
+						<div class="col-12">
+							<br>
+							<%= link_to "Continuer", admin_products_path, class: "btn-main" %>	
+						</div>
+						<div class="col-12">
+							<% if current_user %>
+								<br>
+								<%= link_to "Encaisser", admin_cash_path, class: "btn-secondary" %>
+							<% else %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+	<% else %>
+		<p>Votre panier est vide</p>
+	<% end %>
+</div>

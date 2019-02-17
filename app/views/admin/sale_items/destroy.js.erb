@@ -1,0 +1,5 @@
+$(".delete_btn").bind('ajax:success', function(){
+	$(this).closest('tr').fadeOut();
+	$("#items_count").html("<%= @current_basket.sales_items_count %>");
+	$("#total_amount").html("<%= number_to_currency_euro @current_basket.sub_total %>");
+});

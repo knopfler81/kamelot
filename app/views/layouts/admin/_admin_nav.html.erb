@@ -16,6 +16,16 @@
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav ml-auto">
       <% if current_user && current_user.admin? %>
+      <li class= "nav-link">
+        <div class="icon-wrapper">
+          <%= link_to admin_basket_path do %>
+            <i class="fa fa-shopping-bag"></i>  
+          <% end %>
+          <% if @current_basket.items_count > 0 %>
+            <span id="items_count"><%= @current_basket.items_count %></span>
+          <% end %>
+        </div>
+      </li>
         <li class="nav-item">
           <%= link_to   "Mon Stock", admin_products_path, class: "nav-link" %>
         </li>
