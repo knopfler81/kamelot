@@ -10,12 +10,16 @@
 //= require_tree .
 
 
+// FlashMessages
 window.setTimeout(function() {
    $(".alert").fadeTo(1000, 0).slideUp(2000, function() {
        $(this).hide();
    });
 }, 3000);
 
+
+
+//DropDownMenu
 $(document).ready(function(){ 
 	$('.navbar .navbar-nav > li.dropdown').hover(function(){
 	 $('.dropdown-menu', this).stop(true, true).slideDown(); 
@@ -27,6 +31,7 @@ $(document).ready(function(){
 	});
 });
 
+//MenuDashboard
 $(document).ready(function() {
     $('.model_link').click(function() {
         var buttonName = $(this).attr('id').split('_')[0];

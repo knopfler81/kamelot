@@ -20,6 +20,17 @@
           <%= link_to   "Mon Stock", admin_products_path, class: "nav-link" %>
         </li>
       <% end %>
+      <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+            Gestion
+         </a>
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+           <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
+           <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
+           <%= link_to "Journal", admin_dashboard_journal_path, class: "dropdown-item" %>
+           <%= link_to "Statistiques", admin_dashboard_path, class: "dropdown-item" %>
+         </div>
+       </li>
        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
           <% if current_user %>
@@ -31,18 +42,7 @@
          <% if current_user %>
            <% if current_user.admin? %>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%= link_to "Ajouter un produits", new_admin_product_path, class: "dropdown-item" %>
-               <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
-               <%= link_to  "Customization", clients_customization_path, class: "dropdown-item"  %>
-               <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-item" %>
-               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-             </div>
-           <% else %>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%#= link_to "Mes adresses", admin_user_path(current_user), class: "dropdown-item"  %>
-               <%= link_to "Mes commandes", admin_orders_path, class: "dropdown-item"  %>
-               <%= link_to "Mes favoris", admin_favorites_path, class: "dropdown-item"  %>
-               <%= link_to "Commandes", admin_orders_path, class: "dropdown-item"  %>
+               <%= link_to "Customization", clients_customization_path, class: "dropdown-item"  %>
                <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
              </div>
            <% end %>
@@ -53,9 +53,9 @@
          <% end %>
        </li>
        <% if current_user && current_user.admin? %>
-         <li class="nav-link">
+        <li class="nav-link">
           <%= link_to "Site Clients", clients_landing_path %>
-         </li>
+        </li>
        <% end %>
      </ul>
    </div>

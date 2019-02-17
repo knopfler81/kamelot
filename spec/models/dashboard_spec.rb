@@ -41,11 +41,11 @@ RSpec.describe Dashboard, type: :model do
 		it "returns the total number of product" do
 			create(:product, created_at: 2.weeks.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.weeks.ago])
 			create(:product, created_at: 2.day.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.day.ago])
-			create(:product, created_at: 1.day.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
+			create(:product, created_at: Date.today + 1 ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
 			
 			res = subject.products_added_by_week
 
-			expect(res.values.last).to eq(2)
+			expect(res.values.last).to eq(1)
 		end
 	end
 
@@ -99,13 +99,13 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#clients_registration_by_week" do 
 		it "returns the total number of user by week" do
-			create(:user, created_at: 2.weeks.ago)
-			create(:user, created_at: 2.day.ago )
-			create(:user, created_at: 1.day.ago)
+			#create(:user, created_at: 2.weeks.ago)
+			create(:user, created_at: Date.today + 1 )
+			#create(:user, created_at: 1.day.ago)
 			
 			res = subject.clients_registration_by_week
 
-			expect(res.values.last).to eq(2)
+			expect(res.values.last).to eq(1)
 		end
 	end
 
@@ -135,8 +135,8 @@ RSpec.describe Dashboard, type: :model do
 	describe "#orders_by_week" do 
 		it "returns the  number of order by week" do
 			create(:order, created_at: 2.weeks.ago)
-			create(:order, created_at: 2.day.ago )
-			create(:order, created_at: 1.day.ago)
+			create(:order, created_at: Date.today + 1 )
+			create(:order, created_at: Date.today + 1)
 			
 			res = subject.orders_by_week
 
@@ -180,12 +180,12 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#turnover_per_month" do 
 		it "returns the turn over by month" do 
-			create(:order, total_cents: 100, created_at: 2.month.ago)
-			create(:order, total_cents: 200, created_at: 2.month.ago)
-			create(:order, total_cents: 300, created_at: 2.month.ago)
-			create(:order, total_cents: 50, created_at: 1.day.ago)
-			create(:order, total_cents: 20, created_at: 1.day.ago)
-			create(:order, total_cents: 300, created_at: 1.day.ago)
+			create(:order, sub_total: 100, created_at: 2.month.ago)
+			create(:order, sub_total: 200, created_at: 2.month.ago)
+			create(:order, sub_total: 300, created_at: 2.month.ago)
+			create(:order, sub_total: 50, created_at: 1.day.ago)
+			create(:order, sub_total: 20, created_at: 1.day.ago)
+			create(:order, sub_total: 300, created_at: 1.day.ago)
 
 			res = subject.turnover_per_month
 

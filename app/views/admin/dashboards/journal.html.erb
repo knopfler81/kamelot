@@ -1,0 +1,108 @@
+<div class="container">
+	<br>
+	<%= form_tag admin_dashboard_journal_path, method: :get do  %>
+		<div class="row">  
+			<div class="offset-sm-2 col-12 col-sm-3">
+				<%= text_field_tag "search[date_from]", @dashboard.date_from, class: "datepicker" %>
+			</div>
+			<div class="col-12 col-sm-3">
+				<%= text_field_tag "search[date_to]", @dashboard.date_to, class: "datepicker" %>
+			</div>
+			<div class="col-12 col-sm-3">
+				<%= submit_tag "Rechercher", class: "btn btn-main" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="offset-2" style="padding-left: 20px;">
+				<small><i>Faites une recherche par période, puis naviguez dans les onglets pour consulter les statistiques</i></small>	
+			</div>
+		</div>
+	<% end %>	
+	<br><br>
+	<div id="dashboard_search">
+		<div class="row">
+			<div class="offset-2">
+				<%= simple_form_for :query, url: admin_dashboard_journal_url, method: :get,  html: {class: "form-inline"} do |f| %>
+				  <%= f.input  :keyword, placeholder: "Recherche", label: false, input_html: {class: "input-search-admin"} %>
+				  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+				    <i class="fa fa-search"></i>
+				  <% end %>
+				<% end %>
+				<small><i>Recherchez un article par nom, marque, categorie, couleur</i></small>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="journal-content">
+	<table class="table table-striped" id="dashboard_table">
+		<thead>
+			<tr>
+				<th><small>ID</small></th>
+				<th><small>Date</small></th>
+				<th><small>Référence</small></th>
+				<th><small>Marque</small></th>
+				<th><small>Couleur</small></th>
+				<th><small>Tailles</small></th>
+				<th><small>Stock départ</small></th>
+				<th><small>Prix achat</small></th>
+				<th><small>Marge/article</small></th>
+				<th><small>Prix de vente</small></th>
+				<th><small>Vendus</small></th>
+				<th><small>Restants</small></th>
+				<th><small>Valeur stock restant</small></th>
+				<th><small>C-A</small></th>
+			</tr>
+		</thead>
+		<tbody>	
+		<% @sizes.each do |size| %>
+				<tr>
+					<td><%= size.product.id %></td>
+					<td><%= l(size.created_at, format: '%d/%m/%Y' )  %></td>
+					<td><%= truncate(size.product.title, length: 10) %></td>
+					<td><%= size.product.brand %></td>
+					<td><%= size.product.color %></td>
+					<td><%= size.size_name %></td>
+					<td><%= @dashboard.starting_stock(size) %></td>
+					<td><%= number_to_currency_euro size.product.buying_price %></td>
+					<td><%= number_to_currency_euro @dashboard.cost_price(size) %></td>
+					<td><%= number_to_currency_euro size.product.price %></td>
+					<td><%= @dashboard.number_of_sales(size) %></td>
+					<td><%= @dashboard.remaining_stock(size) %></td>
+					<td><%= number_to_currency_euro @dashboard.remaining_stock_value(size)%></td>
+					<td class="turnover"><%= number_to_currency_euro @dashboard.turnover(size) %></td>
+				</tr>
+			<% end %>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+				</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td><%= @dashboard.total_starting_stock %></td>
+				<td><%= @dashboard.total_buying_price %></td>
+				<td><%= @dashboard.total_cost_price %></td>
+				<td><%= @dashboard.total_selling_price %></td>
+				<td><%= @dashboard.total_number_of_sales %></td>
+				<td><%= @dashboard.total_remaining_stock %></td>
+				<td><%= @dashboard.total_remaining_stock_value %></td>
+				<td class="turnover_total"><%#= on ajoute les cellules de la colonne CA en JS  %></td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+
+<script>
+	//On calcule le CA en JS ⚠️
+	$(function(){
+		var total = 0
+		$('.turnover').each(function(){
+			total =  total + parseFloat($(this).html());
+		});
+		$('.turnover_total').html(total.toFixed(2) + "€");
+	})
+</script>

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 		 	end
 
 		 	resource :dashboard
+		 	get "dashboard/journal", to: "dashboards#journal"
 
 		 	resources :sizes do
 		 		get 'decrease', on: :member

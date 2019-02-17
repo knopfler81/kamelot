@@ -8,6 +8,7 @@ class Dashboard
 		@date_to   = parsed_date(params[:date_to], (Date.today + 1).to_s)
 	end
 
+
 	def size_date_range
 		Size.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
 	end
@@ -17,9 +18,15 @@ class Dashboard
 	end
 
 	##### PRODUCT #####
-
 	def products_counts
 		Product.count
+	end
+
+	def sizes_counts
+		sizes = Product.all.map do |pr|
+			pr.sizes.map {|s| s.quantity }.sum
+		end
+		sizes.sum
 	end
 
 	def products_added_by_month
@@ -79,7 +86,7 @@ class Dashboard
 	end
 
 	def turnover_per_month
- 		Order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:total_cents)
+ 		Order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:sub_total)
 	end
 
 
@@ -152,6 +159,14 @@ class Dashboard
 		 s.quantity
 		end
 		sizes =  size_name.zip(quantity)
+	end
+
+	def turnover(size)
+		size.product.price * number_of_sales(size)
+	end
+
+	def total_turnover
+		size_date_range.map {|s| turnover(s)}.sum
 	end
 
 	private 

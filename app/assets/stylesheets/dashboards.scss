@@ -1,3 +1,56 @@
 .journal-content {
 	padding: 50px;
 }
+
+
+.graph_boxe {
+	background-color: #333;
+	padding: 50px;
+	margin-bottom: 50px;
+	color: #fff;
+}
+
+
+#dashboard_search {
+	margin-left: 40px;
+	.fa {
+		color: #121212;
+	}
+	input {
+		background-color: #fff;
+		border-color: #121212;
+		width: 300px;
+		color: #121212;
+	}
+}
+
+
+// TABLEAU 
+
+
+#dashboard_table { 
+	tbody {
+		tr:nth-child(odd):hover {
+			background-color: yellow!important;
+		}
+		tr:nth-child(even):hover {
+			background-color: yellow!important;
+		}
+	}
+	th, td{
+					border: 1px solid gray;
+				}
+	tr:nth-child(even) {
+		background-color: #aaa;
+	}
+	
+
+	tfoot {
+		background-color: red;
+	}
+
+	thead {
+		background-color: #121212;
+		color: #fff;
+	}
+}

@@ -2,7 +2,6 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <% end %>
 
-
 <div class="container">
 
 	<%= form_tag admin_dashboard_path, method: :get do  %>
@@ -14,7 +13,7 @@
 				<%= text_field_tag "search[date_to]", @dashboard.date_to, class: "datepicker" %>
 			</div>
 			<div class="col-12 col-sm-3">
-				<%= hidden_field_tag 'button', 'journal', id: 'button' %>
+				<%= hidden_field_tag 'button', 'orders', id: "button" %>
 				<%= submit_tag "Rechercher", class: "btn btn-main" %>
 			</div>
 		</div>
@@ -29,12 +28,12 @@
 <br>
 	<div class="row">
 		<div class="offset-3">
-			<% [:journal, :orders, :clients, :products].each do |button| %>
-			   <li class="tabs list-inline-item <%= params[:button] == button.to_s ? "tabs__item--active" : "tabs__item--inactive" %>">
-			    <%= link_to "#", id: "#{button}_click",  class: 'model_link'  do  %>
-			      <%= button.capitalize %>
-			    <% end %>
-			   </li>
+			<% [:orders, :clients, :products].each do |button| %>
+	     <%= content_tag :li, class: "tabs list-inline-item" do %>
+	       <%= link_to "#", id: "#{button}_click",  class: 'model_link'  do  %>
+	      		<%= t(".#{button}") %>
+	       <% end %>
+	     <% end %>
 			<% end %>
 		</div>
 	</div>
