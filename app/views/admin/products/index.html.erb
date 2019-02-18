@@ -4,43 +4,30 @@
 	<div class="links_desktop">
 		<%= link_to "Liste bureau", admin_desktop_path, class: "btn btn-main"  %>
 	</div>
+
 	<% @products.each do |product| %>
-		<%product.sizes.each do |size| %>
-			<div class="destock_card">
+		<%= link_to admin_product_path(product), class: "card_link" do  %>	
+			<div class="vending_card">
 				<div class="row">
-					<div class="col-12 header_destock_card">
+					<div class="col-3">
+					<%= image_tag(product.attachments.first.url, class: "small_image") %>
+					</div>
+					<div class="offset-1 col-8">
 						<div class="row">
-							<div class="col-12 col-md-6">
-								<%= size.product.title %> - <%= size.product.brand %> - <%= size.product.ref %>
-							</div>
-							<div class="col-12 col-md-6">
-								<%= size.product.color %> - <span class="size_name"><%= size.size_name.upcase %></span>
+							<div class="col-12">
+								<span class="product_title"><%= product.title %></span>
 							</div>
 						</div>
-					<hr>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-2">
-						<%= image_tag(size.product.attachments.first.url, class: "small_image") %>
-						<br><br>
-						<%= link_to "Voir",admin_product_path(product), class: "btn btn-secondary"  %>
-					</div>
-					<div class="col-4 offset-1">
-						<p>Stock : <%= size.quantity %></p>	
-						<p><%= number_to_currency_euro (size.product.price) %></p>
-					</div>
-
-					<div class="col-5">
-						<%= link_to  increase_admin_size_path(id: size.id), class: "btn btn-main btn-block btn-lg" do  %>
-							<span>Remettre</span><br>
-							<span>en Stock</span>
-						<% end %>
-							<br>
-						<%= link_to  decrease_admin_size_path(id: size.id), class: "btn btn-danger btn-block btn-lg" do  %>
-							<span>Enelver</span><br>
-							<span>du Stock</span>
-						<% end %>		
+						<div class="row">
+							<div class="col-12">
+								<span class=brand><%= product.brand %></span> - <span clas="ref"><%= product.ref %>	</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<span class="price"><%= number_to_currency_euro (product.price) %></span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

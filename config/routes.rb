@@ -35,22 +35,20 @@ Rails.application.routes.draw do
 				resources :orders, only: [:index, :show]
 			end
 
+			resources :sales
 
 			resources :orders
 
-			get '/cart/checkout', to: "orders#new", as: :checkout
-			patch '/cart/checkout', to: 'orders#create'
-		 	
 		  get "landing", to: "pages#landing"
-		  get "secure_payment", to: "pages#secure_payment"
-		  get "delivery", to: "pages#delivery"
-		  get "general_condition_of_sales", to: "pages#general_condition_of_sales"
-		  get "legal_notice", to: "pages#legal_notice"
-		  get "confidentiality_policy", to: "pages#confidentiality_policy"
-		  get "cookies_policy", to: "pages#cookies_policy"
-		  get "sizes_guide", to: "pages#sizes_guide"
-		  get "site_map", to: "pages#site_map"
 
+
+			#### NE PAS CHANGER L'ORDRE DE CES ROUTES ####
+			get "basket", to: "sale_items#index"
+			patch "basket", to: "sale_items#update"
+			resources :sale_items, path: '/basket/items'
+			get "/basket/cash", to: "sales#new", as: :cash
+			patch "/basket/cash", to: "sales#create"
+		 	############################################
 		end
 	end	 		 		
 
@@ -75,18 +73,9 @@ Rails.application.routes.draw do
 			resources :favorites
 		end
 
-
-
 	 	resources :categories, only: [:index, :show] do
 	 		resources :products, only: [:index, :show]
 	 	end
-
-	 	get 'cart', to: "order_items#index"
-
-	 	patch "cart", to: "order_items#update"
-
-
-	 	resources :order_items, path: '/cart/items'
 
 	 	resources :users, only: [:show] do 
 			resources :orders, only: [:index, :show]
@@ -98,10 +87,13 @@ Rails.application.routes.draw do
 		resources :orders, only: [ :index, :show, :create] do
 		  resources :payments, only: [:new, :create]
 		end
-
-
+		#### NE PAS CHANGER L'ORDRE DE CES ROUTES ####
+	 	get 'cart', to: "order_items#index"
+	 	patch "cart", to: "order_items#update"
+	 	resources :order_items, path: '/cart/items'
 		get '/cart/checkout', to: "orders#new" , as: :checkout
 		patch '/cart/checkout', to: 'orders#create'
+    ####################################################
 
 		get "landing", to: "pages#landing"
 		get "secure_payment", to: "pages#secure_payment"

@@ -2,14 +2,20 @@ class Admin::ApplicationController < ActionController::Base
 
   layout "admin/application"
 
-
-	before_action :current_cart
+  before_action :current_basket
 	before_action :favorites_products
 	
-  def current_cart
-    @current_cart ||= ShoppingCart.new(token: cart_token)
+  # def current_cart
+  #   @current_cart ||= ShoppingCart.new(token: cart_token)
+  # end
+  
+  # helper_method :current_cart
+
+  def current_basket
+    @current_basket ||= VendingBasket.new(token: basket_token)
   end
-  helper_method :current_cart
+  helper_method :current_basket
+
 
   def current_product
   	@product = Product.find(params[:product_id])
@@ -21,14 +27,14 @@ class Admin::ApplicationController < ActionController::Base
 
 	private
 	
-	 def cart_token
-	   return @cart_token unless @cart_token.nil?
-	   session[:cart_token] ||= SecureRandom.hex(8)
-	   @cart_token = session[:cart_token]
-	 end
-
   def after_sign_out_path_for(resource_or_scope)
     root_path
+  end
+
+  def basket_token
+    return @basket_token unless @basket_token.nil?
+    session[:basket_token] ||= SecureRandom.hex(8)
+    @basket_token = session[:basket_token]
   end
 
 end

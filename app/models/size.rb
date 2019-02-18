@@ -1,6 +1,7 @@
 class Size < ApplicationRecord
 	belongs_to :product
 	has_many :order_items, inverse_of: :size, dependent: :destroy
+	has_many :sale_items, inverse_of: :size, dependent: :destroy
 
 	validates :quantity,  presence: true
 	validates :size_name, presence: true

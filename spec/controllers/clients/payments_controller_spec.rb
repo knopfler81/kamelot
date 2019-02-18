@@ -1,5 +1,5 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe Clients::PaymentsController, type: :controller do
+# RSpec.describe Clients::PaymentsController, type: :controller do
 
-end
+# end
