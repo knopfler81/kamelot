@@ -122,7 +122,7 @@ RSpec.describe Dashboard, type: :model do
 
 	#ORDER###################### 
 	describe "#orders_counts" do 
-		it "returns the total number of users" do
+		it "returns the total number of orders" do
 			create(:order)
 			create(:order)
 			create(:order)
@@ -178,7 +178,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#turnover_per_month" do 
+	describe "#orders_turnover_per_month" do 
 		it "returns the turn over by month" do 
 			create(:order, sub_total: 100, created_at: 2.month.ago)
 			create(:order, sub_total: 200, created_at: 2.month.ago)
@@ -187,27 +187,60 @@ RSpec.describe Dashboard, type: :model do
 			create(:order, sub_total: 20, created_at: 1.day.ago)
 			create(:order, sub_total: 300, created_at: 1.day.ago)
 
-			res = subject.turnover_per_month
+			res = subject.orders_turnover_per_month
 
 			expect(res.values.last).to eq(370)
 		end
 	end
 
-	describe "#number_of_sales" do 
-		it "renders the number of sales in a given size", :skip => "A revoir il y a un truc qui cloche" do 
-			@prod = create(:product, sizes_attributes: [size_name: "S", quantity: 4])
-			@size = create(:size, product_id: @prod.id, size_name: "S", quantity: 4)
+	# describe "#number_of_sales" do 
+	# 	it "renders the number of sales in a given size", :skip => "A revoir il y a un truc qui cloche" do 
+	# 		@prod = create(:product, sizes_attributes: [size_name: "S", quantity: 4])
+	# 		@size = create(:size, product_id: @prod.id, size_name: "S", quantity: 4)
 
-			puts @prod.sizes[0].id.inspect
-			@order = create(:order)
+	# 		puts @prod.sizes[0].id.inspect
+	# 		@order = create(:order)
 
-			@order_item = create(:order_item, order_id: @order.id, size_id:  @prod.sizes[0].id, quantity: 2)
+	# 		@order_item = create(:order_item, order_id: @order.id, size_id:  @prod.sizes[0].id, quantity: 2)
 
-			#a reprendre qq chose est faux
-			# res =  subject.number_of_sales(@order_item.size)
-			# expect(res).to eq(2)
+	# 		#a reprendre qq chose est faux
+	# 		# res =  subject.number_of_sales(@order_item.size)
+	# 		# expect(res).to eq(2)
 
+	# 	end
+	# end
+	#ORDER###################### 
+	describe "#sales_counts" do 
+		it "returns the total number of orders" do
+			create(:sale)
+			create(:sale)
+			create(:sale)
+			
+			res = subject.sales_counts
+			expect(res).to eq(3)
 		end
 	end
 
+	describe "#sales_by_week" do 
+		it "returns the  number of sale by week" do
+			create(:sale, created_at: 2.weeks.ago)
+			create(:sale, created_at: Date.today + 1 )
+			create(:sale, created_at: Date.today + 1)
+			
+			res = subject.sales_by_week
+
+			expect(res.values.last).to eq(2)
+		end
+	end
+
+	describe "#sales_by_month" do 
+		it "returns the number of sale by month" do
+			create(:sale, created_at: 2.day.ago)
+			create(:sale, created_at: 1.day.ago)
+			
+			res = subject.sales_by_month
+
+			expect(res.values.last).to eq(2)
+		end
+	end
 end

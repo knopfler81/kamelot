@@ -28,7 +28,7 @@
 <br>
 	<div class="row">
 		<div class="offset-3">
-			<% [:orders, :clients, :products].each do |button| %>
+			<% [:orders,  :sales, :clients, :products].each do |button| %>
 	     <%= content_tag :li, class: "tabs list-inline-item" do %>
 	       <%= link_to "#", id: "#{button}_click",  class: 'model_link'  do  %>
 	      		<%= t(".#{button}") %>

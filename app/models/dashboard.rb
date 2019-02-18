@@ -8,7 +8,6 @@ class Dashboard
 		@date_to   = parsed_date(params[:date_to], (Date.today + 1).to_s)
 	end
 
-
 	def size_date_range
 		Size.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
 	end
@@ -63,8 +62,34 @@ class Dashboard
 		[["Homme", User.where(gender: false).count],[ "Femme", User.where(gender: true).count]]
 	end
 
-	##### ORDERS #####
+	#### SALES #####@@
+	def sales_counts
+		Sale.count
+	end
+	
+	def sales_by_week
+		Sale.group_by_week(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+	end
 
+	def sales_by_month
+		Sale.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+	end
+
+	def sales_turnover_per_month
+ 		my_hash = Sale.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:total_cents)
+ 		my_hash.each { |k, v| my_hash[k] = v.to_i / 100 } 
+	end
+
+	def number_of_sales(size)
+		@item = SaleItem.joins(:sale).where(size_id: size.id)
+		unless @item.nil?
+			@item.map {|s| s.quantity}.sum
+		else
+			0
+		end
+	end
+
+	##### ORDERS #####
 	def orders_counts
 		Order.count
 	end
@@ -85,13 +110,11 @@ class Dashboard
 		Order.where.not(status: 0).group(:status).count
 	end
 
-	def turnover_per_month
+	def orders_turnover_per_month
  		Order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:sub_total)
 	end
 
-
-	def number_of_sales(size)
-
+	def number_of_orders(size)
 		@item = OrderItem.joins(:order).where(size_id: size.id)
 		unless @item.nil?
 			@item.map {|s| s.quantity}.sum
@@ -100,25 +123,21 @@ class Dashboard
 		end
 	end
 
+	#Calculs journal
 	def cost_price(size)
 		size.product.price - size.product.buying_price 
 	end
 
 	def starting_stock(size)
-		size.quantity + number_of_sales(size)
+		size.quantity + number_of_orders(size) + number_of_sales(size)
 	end
 
 	def remaining_stock(size)
-		size.quantity	
+		size.quantity_stock - (number_of_orders(size) + number_of_sales(size))
 	end
 
 	def remaining_stock_value(size)
-		remaining_stock(size) * cost_price(size)
-	end
-
-
-	def total_starting_stock
-		size_date_range.map {|size| size.quantity }.sum
+		remaining_stock(size) * size.product.buying_price
 	end
 
 	def total_buying_price
@@ -136,19 +155,18 @@ class Dashboard
 		products.sum
 	end
 
-	def total_number_of_sales
+	def total_number_of_orders
 		products = size_date_range.map do |size|
 			OrderItem.joins(:order).where(size_id: size.id).count
 		end
 		products.sum
 	end
 
-	def total_remaining_stock
-		total_starting_stock - total_number_of_sales
-	end
-
-	def total_remaining_stock_value
-		size_date_range.map {|s| remaining_stock_value(s)}.sum
+	def total_number_of_sales
+		products = size_date_range.map do |size|
+			SaleItem.joins(:sale).where(size_id: size.id).count
+		end
+		products.sum
 	end
 
 	def sizes_and_quantity(product)
@@ -161,12 +179,12 @@ class Dashboard
 		sizes =  size_name.zip(quantity)
 	end
 
-	def turnover(size)
-		size.product.price * number_of_sales(size)
+	def turnover_orders(size)
+		size.product.price *  number_of_orders(size)
 	end
 
-	def total_turnover
-		size_date_range.map {|s| turnover(s)}.sum
+	def turnover_sales(size)
+		size.product.price *  number_of_sales(size)
 	end
 
 	private 

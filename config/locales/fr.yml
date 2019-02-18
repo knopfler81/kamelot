@@ -37,6 +37,7 @@ fr:
         orders: Commandes
         products: Articles
         clients: Utilisateurs 
+        sales: Ventes
     orders:
       _base: &_base
         pending: En attente de paiement
