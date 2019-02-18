@@ -1,6 +1,7 @@
 
 Category.destroy_all
 Order.destroy_all
+Sale.destroy_all
 Product.destroy_all
 BillingAddress.destroy_all
 ShippingAddress.destroy_all
@@ -296,12 +297,12 @@ product_1 = Product.create!(
 	sizes_attributes: [
 			{
 			size_name: "S",
-			quantity: 3,
+			quantity: 1,
 			created_at: 10.weeks.ago,
 			},
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 1,
 			created_at: 10.weeks.ago,
 			},
 			{
@@ -343,12 +344,12 @@ product_2 = Product.create(
 			},
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 1,
 			created_at: 10.weeks.ago,
 			},
 			{
 			size_name: "L",
-			quantity: 3,
+			quantity: 1,
 			created_at: 10.weeks.ago,
 			},
 			{
@@ -380,7 +381,7 @@ product_3 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "S",
-			quantity: 3,
+			quantity: 1,
 			created_at: 10.weeks.ago,	
 			},
 			{
@@ -421,7 +422,7 @@ product_4 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "S",
-			quantity: 3,
+			quantity: 1,
 			created_at: 10.weeks.ago,
 			},
 			{
@@ -468,12 +469,12 @@ product_5 = Product.create(
 			},
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 1,
 			created_at: 6.weeks.ago,
 			},
 			{
 			size_name: "L",
-			quantity: 3,
+			quantity: 1,
 			created_at: 6.weeks.ago,
 			},
 			{
@@ -511,12 +512,12 @@ product_6 = Product.create(
 			{
 			size_name: "M",
 			created_at: 6.weeks.ago,		
-			quantity: 3,
+			quantity: 1,
 			},
 			{
 			size_name: "L",
 			created_at: 6.weeks.ago,		
-			quantity: 3,
+			quantity: 1,
 			},
 			{
 			size_name: "XL",
@@ -551,7 +552,7 @@ product_7 = Product.create(
 			},
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 1,
 			created_at: 6.weeks.ago,
 			},
 			{
@@ -587,22 +588,22 @@ product_8 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "S",
-			quantity: 3,
+			quantity: 5,
 			created_at: 6.weeks.ago,
 			},
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 6,
 			created_at: 6.weeks.ago,
 			},
 			{
 			size_name: "L",
-			quantity: 4,
+			quantity: 7,
 			created_at: 6.weeks.ago,
 			},
 			{
 			size_name: "XL",
-			quantity: 3,
+			quantity: 8,
 			created_at: 6.weeks.ago,
 			}
 		]
@@ -628,7 +629,7 @@ product_9 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 1,
 			created_at: 5.weeks.ago,
 			},
 			{
@@ -664,12 +665,12 @@ product_10 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "M",
-			quantity: 3,
+			quantity: 1,
 			created_at: 5.weeks.ago,
 			},
 			{
 			size_name: "L",
-			quantity: 3,
+			quantity: 1,
 			created_at: 5.weeks.ago,
 			},
 			{
@@ -701,17 +702,17 @@ product_11 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "M",
-			quantity: 5,
+			quantity: 6,
 			created_at: 2.weeks.ago,
 			},
 			{
 			size_name: "L",
-			quantity: 4,
+			quantity: 6,
 			created_at: 2.weeks.ago,
 			},
 			{
 			size_name: "XL",
-			quantity: 4,
+			quantity: 10,
 			created_at: 2.weeks.ago,
 			}
 		]
@@ -753,7 +754,7 @@ product_12 = Product.create(
 			},
 			{
 			size_name: "XL",
-			quantity: 3,
+			quantity: 1,
 			created_at: 2.weeks.ago,
 			}
 		]
@@ -780,7 +781,7 @@ product_13 = Product.create(
 	sizes_attributes: [
 			{
 			size_name: "S",
-			quantity: 3,
+			quantity: 1,
 			created_at: 2.weeks.ago,
 			},
 			{
@@ -801,6 +802,47 @@ product_13 = Product.create(
 		]
 )
 
+
+product_14 = Product.create(
+	ref: "SP02",
+	brand: "Side Park",
+	category_id: pantalons.id,
+	created_at: 2.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 5,
+	price: 30,
+	color: "Bleu",
+	title: "Jean",
+	description: "Paalablalntalon blab",
+	attachments:[
+		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_3.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_1.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_2.jpg")),
+		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_4.jpg"))
+	],
+	sizes_attributes: [
+			{
+			size_name: "S",
+			quantity: 1,
+			created_at: 1.week.ago,
+			},
+			{
+			size_name: "M",
+			quantity: 4,
+			created_at: 1.week.ago,
+			},
+			{
+			size_name: "L",
+			quantity: 2,
+			created_at: 1.week.ago,
+			},
+			{
+			size_name: "XL",
+			quantity: 5,
+			created_at: 1.week.ago,
+			}
+		]
+)
 puts "Products and Sizes Created"
 
 
@@ -821,14 +863,14 @@ order_1  = Order.create(
 		price: product_1.price, 
 		order_id: order_1.id,
 
-		quantity: 3,
+		quantity: 1,
 		size_id: product_1.sizes[0].id,
 	)
 	OrderItem.create(
 		price: product_2.price, 
 		order_id: order_1.id, 
 
-		quantity: 3,
+		quantity: 1,
 		size_id: product_2.sizes[1].id,
 	)
 
@@ -849,14 +891,14 @@ order_2  = Order.create(
 		price: product_1.price, 
 		order_id: order_2.id,
 
-		quantity: 3,
+		quantity: 1,
 		size_id: product_1.sizes[0].id
 	)
 	OrderItem.create(
 		price: product_2.price, 
 		order_id: order_2.id, 
 
-		quantity: 3,
+		quantity: 1,
 		size_id: product_2.sizes[2].id
 	)
 
@@ -900,7 +942,7 @@ order_4  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_2.price, 
 	order_id: order_4.id,
-	quantity: 3,
+	quantity: 1,
 	size_id: product_2.sizes[1].id)
 
 #ORDER 5
@@ -917,7 +959,7 @@ order_5  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_2.price, 
 	order_id: order_5.id,
-	quantity: 3,
+	quantity: 1,
 	size_id: product_2.sizes[0].id)
 
 #ORDER 6
@@ -938,12 +980,12 @@ OrderItem.create(
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_6.id,
-	quantity: 3,
+	quantity: 1,
 	size_id: product_3.sizes[0].id)
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_6.id,
-	quantity: 3,
+	quantity: 1,
 	size_id: product_3.sizes[0].id)
 
 #ORDER 7
@@ -960,7 +1002,7 @@ order_7  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_7.id,
-	quantity: 3,
+	quantity: 1,
 	size_id: product_3.sizes[1].id)
 
 #ORER 8
@@ -976,7 +1018,7 @@ order_8  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_3.price, 
 	order_id: order_8.id,
-	quantity: 3,
+	quantity: 1,
 	size_id: product_3.sizes[2].id
 	)
 OrderItem.create(
@@ -999,7 +1041,7 @@ order_9  = Order.create(gcos_accepted: true,
 OrderItem.create(
 	price: product_4.price, 
 	order_id: order_9.id,
-	quantity: 3,
+	quantity: 1,
 	size_id: product_4.sizes[0].id)
 
 #ORDER 10
@@ -1017,7 +1059,7 @@ order_10 = Order.create(
 OrderItem.create(
 	price: product_4.price, 
 	order_id: order_10.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_4.sizes[0].id)
 
 
@@ -1042,7 +1084,7 @@ OrderItem.create(
 OrderItem.create(
 	price: product_5.price, 
 	order_id: order_11.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_5.sizes[2].id
 	)
 
@@ -1062,7 +1104,7 @@ order_12 = Order.create(
 OrderItem.create(
 	price: product_7.price, 
 	order_id: order_12.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_7.sizes[0].id)
 
 
@@ -1081,7 +1123,7 @@ order_13 = Order.create(
 OrderItem.create(
 	price: product_6.price, 
 	order_id: order_13.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_6.sizes[0].id)
 
 
@@ -1100,7 +1142,7 @@ order_14 = Order.create(
 OrderItem.create(
 	price: product_6.price, 
 	order_id: order_14.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_6.sizes[1].id)
 
 
@@ -1118,7 +1160,7 @@ order_15 = Order.create(
 OrderItem.create(
 	price: product_8.price, 
 	order_id: order_15.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_8.sizes[0].id)
 
 
@@ -1155,7 +1197,7 @@ order_17 = Order.create(
 OrderItem.create(
 	price: product_9.price, 
 	order_id: order_17.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_9.sizes[1].id)
 
 
@@ -1174,45 +1216,8 @@ order_18 = Order.create(
 OrderItem.create(
 	price: product_10.price,
 	order_id: order_18.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_10.sizes[2].id
-	)
-
-#ORDER 19
-order_19 = Order.create(
-	gcos_accepted: true,
- 	payment: "{'stub','stripe'}", 
- 	created_at: 2.months.ago,
- 	user_id: user_18.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	shipping_fees: 5,
- 	sub_total: product_11.price,
- 	total: 135
- 	)
-OrderItem.create(
-	price: product_11.price,
-	order_id: order_19.id,
-	quantity: 1, 
-	size_id: product_11.sizes[1].id
-	)
-
-#ORDER 20
-order_20 = Order.create(
-	gcos_accepted: true,
- 	payment: "{'stub','stripe'}", 
- 	created_at: Time.now, 
- 	user_id: user_4.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	shipping_fees: 5,
- 	sub_total: product_11.price * 2, 
- 	total: 135)
-OrderItem.create(
-	price: product_11.price,
-	order_id: order_20.id,
-	quantity: 1, 
-	size_id: product_11.sizes[2].id
 	)
 
 #ORDER 21
@@ -1229,7 +1234,7 @@ order_21 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_21.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[2].id
 	)
 
@@ -1246,27 +1251,9 @@ order_22 = Order.create(
  	total: 135)
 OrderItem.create(
 	price: product_11.price,
-	order_id: order_20.id,
-	quantity: 3, 
+	order_id: order_22.id,
+	quantity: 1, 
 	size_id: product_11.sizes[2].id
-	)
-
-#ORDER 23
-order_23 = Order.create(
-	gcos_accepted: true,
- 	payment: "{'stub','stripe'}", 
- 	created_at: 1.month.ago,
- 	user_id: user_4.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	shipping_fees: 5,
- 	sub_total: product_11.price * 3,
- 	total: 135)
-OrderItem.create(
-	price: product_11.price,
-	order_id: order_23.id,
-	quantity: 3, 
-	size_id: product_11.sizes[0].id
 	)
 
 #ORDER 24
@@ -1284,7 +1271,7 @@ order_24 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_24.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[1].id
 	)
 
@@ -1303,7 +1290,7 @@ order_25 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_25.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_1.sizes[0].id)
 
 
@@ -1322,7 +1309,7 @@ order_26 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_26.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[0].id
 	)
 
@@ -1342,7 +1329,7 @@ order_27 = Order.create(
 OrderItem.create(
 	price: product_9.price, 
 	order_id: order_27.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_9.sizes[0].id)
 
 
@@ -1361,7 +1348,7 @@ order_28 = Order.create(
 OrderItem.create(
 	price: product_10.price,
 	order_id: order_28.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_10.sizes[2].id
 	)
 
@@ -1380,7 +1367,7 @@ order_29 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_29.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[2].id
 	)
 
@@ -1399,7 +1386,7 @@ order_30 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_30.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[0].id
 	)
 
@@ -1418,7 +1405,7 @@ order_31 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_31.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[1].id
 	)
 
@@ -1437,7 +1424,7 @@ order_32 = Order.create(
 OrderItem.create(
 	price: product_11.price,
 	order_id: order_32.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_11.sizes[0].id
 	)
 
@@ -1450,13 +1437,13 @@ order_33 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 1,
  	shipping_fees: 5,
- 	sub_total: product_11.price * 3, 
+ 	sub_total: product_12.price * 3, 
  	total: 135
  	)
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_33.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_12.sizes[1].id
 	)
 
@@ -1475,7 +1462,7 @@ order_34 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_34.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_12.sizes[1].id
 	)
 
@@ -1494,7 +1481,7 @@ order_35 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_35.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_12.sizes[0].id
 	)
 
@@ -1513,7 +1500,7 @@ order_36 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_36.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_12.sizes[0].id
 	)
 
@@ -1532,7 +1519,7 @@ order_37 = Order.create(
 OrderItem.create(
 	price: product_9.price, 
 	order_id: order_37.id, 
-	quantity: 3,
+	quantity: 1,
 	size_id: product_9.sizes[0].id)
 
 
@@ -1551,27 +1538,8 @@ order_38 = Order.create(
 OrderItem.create(
 	price: product_10.price,
 	order_id: order_38.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_10.sizes[0].id
-	)
-
-#ORDER 39
-order_39 = Order.create(
-	gcos_accepted: true,
- 	payment: "{'stub','stripe'}", 
- 	created_at: 8.days.ago,
- 	user_id: user_18.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	shipping_fees: 5,
- 	sub_total: product_11.price,
- 	total: 400
- 	)
-OrderItem.create(
-	price: product_11.price,
-	order_id: order_39.id,
-	quantity: 3, 
-	size_id: product_11.sizes[0].id
 	)
 
 #ORDER 40
@@ -1589,7 +1557,7 @@ order_40 = Order.create(
 OrderItem.create(
 	price: product_12.price,
 	order_id: order_40.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_13.sizes[2].id
 	)
 
@@ -1608,7 +1576,7 @@ order_41 = Order.create(
 OrderItem.create(
 	price: product_13.price,
 	order_id: order_41.id,
-	quantity: 3, 
+	quantity: 1, 
 	size_id: product_13.sizes[0].id
 	)
 
@@ -1839,170 +1807,531 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number,
 )
 
-# BillingAddress.create(
-# 	user_id: user_2.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+
+puts "Shipping addresses created"
 
 
-# BillingAddress.create(
-# 	user_id: user_3.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+#SALE_1
+sale_1  = Sale.create(
+	created_at: 5.months.ago, 
+	user_id: user_2.id,
+	token: SecureRandom.hex(8), 
+	status: 1, 
+	total: 135
+)
 
-# BillingAddress.create(
-# 	user_id: user_4.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+	SaleItem.create(
+		price: product_1.price, 
+		sale_id: sale_1.id,
+		quantity: 1,
+		size_id: product_1.sizes[0].id,
+	)
+	SaleItem.create(
+		price: product_2.price, 
+		sale_id: sale_1.id, 
+		quantity: 1,
+		size_id: product_2.sizes[1].id,
+	)
 
-# BillingAddress.create(
-# 	user_id: user_5.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+#SALE_2
+sale_2  = Sale.create(
+	created_at: 5.months.ago, 
+	user_id: user_2.id,  
+	token: SecureRandom.hex(8), 
+	status: 1, 
+	total: 135
+)
 
-# BillingAddress.create(
-# 	user_id: user_6.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+	SaleItem.create(
+		price: product_1.price, 
+		sale_id: sale_2.id,
 
-# BillingAddress.create(
-# 	user_id: user_7.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+		quantity: 1,
+		size_id: product_1.sizes[0].id
+	)
+	SaleItem.create(
+		price: product_2.price, 
+		sale_id: sale_2.id, 
+		quantity: 1,
+		size_id: product_2.sizes[2].id
+	)
+
+#SALE_3
+sale_3  = Sale.create(
+	created_at: 5.months.ago, 
+	user_id: user_3.id,  
+	token: SecureRandom.hex(8), 
+	status: 1, 
+	total: 135
+)
+	SaleItem.create(
+		price: product_1.price, 
+		sale_id: sale_3.id,
+		quantity: 2,
+		size_id: product_1.sizes[1].id
+	)
+	SaleItem.create(
+		price: product_3.price, 
+		sale_id: sale_3.id,
+		quantity: 2,
+		size_id: product_3.sizes[1].id
+	)
+
+#SALE_4
+sale_4  = Sale.create(
+ 	created_at: 4.months.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1, 
+ 	total: 135)
+SaleItem.create(
+	price: product_2.price, 
+	sale_id: sale_4.id,
+	quantity: 1,
+	size_id: product_2.sizes[1].id)
+
+#SALE_5
+sale_5  = Sale.create(
+ 	created_at: 4.months.ago,
+ 	user_id: user_5.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_2.price, 
+	sale_id: sale_5.id,
+	quantity: 1,
+	size_id: product_2.sizes[0].id)
+
+#SALE_6
+sale_6  = Sale.create(
+ 	created_at: 3.months.ago,
+ 	user_id: user_6.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135)
+SaleItem.create(
+	price: product_2.price, 
+	sale_id: sale_6.id,
+	quantity: 2,
+	size_id: product_2.sizes[0].id)
+SaleItem.create(
+	price: product_3.price, 
+	sale_id: sale_6.id,
+	quantity: 1,
+	size_id: product_3.sizes[0].id)
+SaleItem.create(
+	price: product_3.price, 
+	sale_id: sale_6.id,
+	quantity: 1,
+	size_id: product_3.sizes[0].id)
+
+#SALE_7
+sale_7  = Sale.create(
+ 	created_at: 3.months.ago,
+ 	user_id: user_7.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_3.price, 
+	sale_id: sale_7.id,
+	quantity: 1,
+	size_id: product_3.sizes[1].id)
+
+#ORER 8
+sale_8  = Sale.create(
+ 	created_at: 3.months.ago,
+ 	user_id: user_8.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135)
+SaleItem.create(
+	price: product_3.price, 
+	sale_id: sale_8.id,
+	quantity: 1,
+	size_id: product_3.sizes[2].id
+	)
+SaleItem.create(
+	price: product_3.price, 
+	sale_id: sale_8.id,
+	quantity: 2,
+	size_id: product_3.sizes[0].id)
+
+#SALE_9
+sale_9  = Sale.create(
+ 	created_at: 3.months.ago,
+ 	user_id: user_9.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_4.price, 
+	sale_id: sale_9.id,
+	quantity: 1,
+	size_id: product_4.sizes[0].id)
+
+#SALE_10
+sale_10 = Sale.create(
+ 	created_at: 3.months.ago,
+ 	user_id: user_10.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_4.price, 
+	sale_id: sale_10.id, 
+	quantity: 1,
+	size_id: product_4.sizes[0].id)
 
 
-# BillingAddress.create(
-# 	user_id: user_8.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+#SALE_11 
+sale_11 = Sale.create(
+ 	created_at: 3.months.ago,
+ 	user_id: user_11.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_5.price, 
+	sale_id: sale_11.id, 
+	quantity: 2,
+	size_id: product_5.sizes[0].id
+	)
+SaleItem.create(
+	price: product_5.price, 
+	sale_id: sale_11.id, 
+	quantity: 1,
+	size_id: product_5.sizes[2].id
+	)
 
-# BillingAddress.create(
-# 	user_id: user_9.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
 
-# BillingAddress.create(
-# 	user_id: user_10.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+#SALE_12
+sale_12 = Sale.create(
+ 	created_at: 3.months.ago,
+ 	user_id: user_12.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_7.price, 
+	sale_id: sale_12.id, 
+	quantity: 1,
+	size_id: product_7.sizes[0].id)
 
-# BillingAddress.create(
-# 	user_id: user_11.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
 
-# BillingAddress.create(
-# 	user_id: user_12.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+#SALE_13
+sale_13 = Sale.create(
+ 	created_at: 2.months.ago,
+ 	user_id: user_13.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_6.price, 
+	sale_id: sale_13.id, 
+	quantity: 1,
+	size_id: product_6.sizes[0].id)
 
-# BillingAddress.create(
-# 	user_id: user_13.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
 
-# BillingAddress.create(
-# 	user_id: user_14.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+#SALE_14
+sale_14 = Sale.create(
+ 	created_at: 2.months.ago,
+ 	user_id: user_14.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_6.price, 
+	sale_id: sale_14.id, 
+	quantity: 1,
+	size_id: product_6.sizes[1].id)
 
-# BillingAddress.create(
-# 	user_id: user_15.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
+#SALE_17
+sale_17 = Sale.create(
+ 	created_at: 2.months.ago,
+ 	user_id: user_17.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_9.price, 
+	sale_id: sale_17.id, 
+	quantity: 1,
+	size_id: product_9.sizes[1].id)
 
-# BillingAddress.create(
-# 	user_id: user_16.id,
-# 	first_name: Faker::Name.first_name,
-# 	last_name: Faker::Name.last_name,
-# 	street_number: rand(1..400),
-# 	route: Faker::Address.street_name,
-# 	postal_code: Faker::Address.zip_code,
-# 	locality: Faker::Address.city,
-# 	phone: Faker::PhoneNumber.phone_number
-# )
-puts "Shipping and Billing addresses created"
+
+#SALE_18
+sale_18 = Sale.create(
+ 	created_at: 2.months.ago,
+ 	user_id: user_17.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_10.price,
+	sale_id: sale_18.id,
+	quantity: 1, 
+	size_id: product_10.sizes[2].id
+	)
+
+#SALE_19
+sale_19 = Sale.create(
+ 	created_at: 2.months.ago,
+ 	user_id: user_18.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_14.price,
+	sale_id: sale_19.id,
+	quantity: 1, 
+	size_id: product_14.sizes[1].id
+	)
+
+#SALE_20
+sale_20 = Sale.create(
+ 	created_at: Time.now, 
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135)
+SaleItem.create(
+	price: product_14.price,
+	sale_id: sale_20.id,
+	quantity: 1, 
+	size_id: product_14.sizes[2].id
+	)
+
+#SALE_21
+sale_21 = Sale.create(
+ 	created_at: 1.month.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135)
+SaleItem.create(
+	price: product_14.price,
+	sale_id: sale_21.id,
+	quantity: 1, 
+	size_id: product_14.sizes[2].id
+	)
+
+#SALE_22
+sale_22 = Sale.create(
+ 	created_at: 1.month.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135)
+SaleItem.create(
+	price: product_11.price,
+	sale_id: sale_20.id,
+	quantity: 1, 
+	size_id: product_11.sizes[2].id
+	)
+
+#SALE_23
+sale_23 = Sale.create(
+ 	created_at: 1.month.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135)
+SaleItem.create(
+	price: product_11.price,
+	sale_id: sale_23.id,
+	quantity: 1, 
+	size_id: product_11.sizes[0].id
+	)
+
+#SALE_24
+sale_24 = Sale.create(
+ 	created_at: 1.month.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_11.price,
+	sale_id: sale_24.id,
+	quantity: 1, 
+	size_id: product_11.sizes[1].id
+	)
+
+#SALE_25
+sale_25 = Sale.create(
+ 	created_at: 1.month.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_11.price,
+	sale_id: sale_25.id,
+	quantity: 1, 
+	size_id: product_1.sizes[0].id)
+
+
+#SALE_26
+sale_26 = Sale.create(
+ 	created_at: 1.month.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+
+#SALE_27
+sale_27 = Sale.create(
+ 	created_at: 4.weeks.ago,
+ 	user_id: user_17.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_9.price, 
+	sale_id: sale_27.id, 
+	quantity: 1,
+	size_id: product_9.sizes[0].id)
+
+
+#SALE_28
+sale_28 = Sale.create(
+ 	created_at: 4.weeks.ago,
+ 	user_id: user_17.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_10.price,
+	sale_id: sale_28.id,
+	quantity: 1, 
+	size_id: product_10.sizes[2].id
+	)
+
+#SALE_29
+sale_29 = Sale.create(
+ 	created_at: 4.weeks.ago,
+ 	user_id: user_18.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_11.price,
+	sale_id: sale_29.id,
+	quantity: 1, 
+	size_id: product_11.sizes[2].id
+	)
+
+#SALE_30
+sale_30 = Sale.create(
+ 	created_at: 15.days.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+
+#SALE_31
+sale_31 = Sale.create(
+ 	created_at: 15.days.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+
+
+
+#SALE_33
+sale_33 = Sale.create(
+ 	created_at: 11.days.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_12.price,
+	sale_id: sale_33.id,
+	quantity: 1, 
+	size_id: product_12.sizes[1].id
+	)
+
+#SALE_34
+sale_34 = Sale.create(
+ 	created_at: 11.days.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_12.price,
+	sale_id: sale_34.id,
+	quantity: 1, 
+	size_id: product_12.sizes[1].id
+	)
+
+#SALE_35
+sale_35 = Sale.create(
+ 	created_at: 11.days.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_12.price,
+	sale_id: sale_35.id,
+	quantity: 1, 
+	size_id: product_12.sizes[0].id
+	)
+
+#SALE_36
+sale_36 = Sale.create(
+ 	created_at: 11.days.ago,
+ 	user_id: user_4.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_12.price,
+	sale_id: sale_36.id,
+	quantity: 1, 
+	size_id: product_12.sizes[0].id
+	)
+
+#SALE_37
+sale_37 = Sale.create(
+ 	created_at: 11.days.ago,
+ 	user_id: user_17.id,
+ 	token: SecureRandom.hex(8),
+ 	status: 1,
+ 	total: 135
+ 	)
+SaleItem.create(
+	price: product_9.price, 
+	sale_id: sale_37.id, 
+	quantity: 1,
+	size_id: product_9.sizes[0].id)
+
+	puts "Sales created"

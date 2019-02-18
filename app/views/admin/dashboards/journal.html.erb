@@ -35,42 +35,59 @@
 </div>
 
 <div class="journal-content">
-	<table class="table table-striped" id="dashboard_table">
+	<table class="table table-striped table-resizable" id="dashboard_table">
 		<thead>
-			<tr>
-				<th><small>ID</small></th>
-				<th><small>Date</small></th>
-				<th><small>Référence</small></th>
-				<th><small>Marque</small></th>
-				<th><small>Couleur</small></th>
-				<th><small>Tailles</small></th>
-				<th><small>Stock départ</small></th>
-				<th><small>Prix achat</small></th>
-				<th><small>Marge/article</small></th>
-				<th><small>Prix de vente</small></th>
-				<th><small>Vendus</small></th>
-				<th><small>Restants</small></th>
-				<th><small>Valeur stock restant</small></th>
-				<th><small>C-A</small></th>
+			<tr class="tr_main_head">
+				<th class="th_main" id="dates"   colspan="2">Dates</th>
+				<th class="th_main" id="article" colspan="5">Articles</th>
+				<th class="th_main" id="stock"   colspan="2">Stock</th>
+				<th class="th_main" id="price"   colspan="4">Valeurs</th>
+				<th class="th_main" id="sales"   colspan="2">Ventes</th>
+				<th class="th_main" id="turno"   colspan="2">CA</th>
+			</tr>
+		</thead>
+		<thead >
+			<tr class="tr_second_head">
+				<th class="th_second col_dates"><small>Créé</small></th>
+				<th class="th_second col_dates"><small>MAJ</small></th>
+				<th class="th_second col_pro"><small>ID</small></th>
+				<th class="th_second col_pro"><small>Ref</small></th>
+				<th class="th_second col_pro"><small>Marque</small></th>
+				<th class="th_second col_pro"><small>Couleur</small></th>
+				<th class="th_second col_pro"><small>Tailles</small></th>
+				<th class="th_second col_stock"><small>Départ</small></th>
+				<th class="th_second col_stock"><small>Arrivé</small></th>
+				<th class="th_second col_prices"><small>Prix achat</small></th>
+				<th class="th_second col_prices"><small>Prix de vente</small></th>
+				<th class="th_second col_prices"><small>Marge/article</small></th>
+				<th class="th_second col_prices"><small>Stock restant</small></th>
+				<th class="th_second col_sales"><small>Web</small></th>
+				<th class="th_second col_sales"><small>Marché</small></th>
+				<th class="th_second col_to"><small>Marché</small></th>
+				<th class="th_second col_to"><small>Web</small></th>
 			</tr>
 		</thead>
 		<tbody>	
 		<% @sizes.each do |size| %>
 				<tr>
-					<td><%= size.product.id %></td>
-					<td><%= l(size.created_at, format: '%d/%m/%Y' )  %></td>
-					<td><%= truncate(size.product.title, length: 10) %></td>
-					<td><%= size.product.brand %></td>
-					<td><%= size.product.color %></td>
-					<td><%= size.size_name %></td>
-					<td><%= @dashboard.starting_stock(size) %></td>
-					<td><%= number_to_currency_euro size.product.buying_price %></td>
-					<td><%= number_to_currency_euro @dashboard.cost_price(size) %></td>
-					<td><%= number_to_currency_euro size.product.price %></td>
-					<td><%= @dashboard.number_of_sales(size) %></td>
-					<td><%= @dashboard.remaining_stock(size) %></td>
-					<td><%= number_to_currency_euro @dashboard.remaining_stock_value(size)%></td>
-					<td class="turnover"><%= number_to_currency_euro @dashboard.turnover(size) %></td>
+					<td class="col_dates"><small><%= l(size.created_at, format: '%d/%m/%y' )  %></small></td>
+					<td class="col_dates"><small><%= l(size.updated_at, format: '%d/%m/%y' )  %></small></td>
+					<td class="col_pro"><%= size.product.id %></td>
+					<td class="col_pro"><%= truncate(size.product.title, length: 10) %></td>
+					<td class="col_pro"><%= size.product.brand %></td>
+					<td class="col_pro"><%= size.product.color %></td>
+					<td class="col_pro"><%= size.size_name %></td>
+					<td class="col_stock starting_stock"><%= size.quantity_stock %></td>
+					<td class="col_stock remaining_stock"><%= @dashboard.remaining_stock(size) %></td>
+					<td class="col_prices buying_price"><%= number_to_currency_euro size.product.buying_price %></td>
+					<td class="col_prices selling_price"><%= number_to_currency_euro size.product.price %></td>
+					<td class="col_prices cost_price"><%= number_to_currency_euro @dashboard.cost_price(size) %></td>
+					<td class="col_prices remaining_stock_value"><%= number_to_currency_euro @dashboard.remaining_stock_value(size)%></td>
+					<td class="col_sales number_of_orders"><%= @dashboard.number_of_orders(size) %></td>
+					<td class="col_sales number_of_sales"><%= @dashboard.number_of_sales(size) %></td>
+					<td class="col_to turnover_sales"><%= number_to_currency_euro @dashboard.turnover_sales(size) %></td>
+					<td class="col_to turnover_orders"><%= number_to_currency_euro @dashboard.turnover_orders(size) %></td>
+
 				</tr>
 			<% end %>
 		</tbody>
@@ -83,26 +100,18 @@
 				<td>X</td>
 				<td>X</td>
 				<td>X</td>
-				<td><%= @dashboard.total_starting_stock %></td>
-				<td><%= @dashboard.total_buying_price %></td>
-				<td><%= @dashboard.total_cost_price %></td>
-				<td><%= @dashboard.total_selling_price %></td>
-				<td><%= @dashboard.total_number_of_sales %></td>
-				<td><%= @dashboard.total_remaining_stock %></td>
-				<td><%= @dashboard.total_remaining_stock_value %></td>
-				<td class="turnover_total"><%#= on ajoute les cellules de la colonne CA en JS  %></td>
+				<td>X</td>
+				<td class="total_starting_stock"></td>
+				<td class="total_remaining_stock"><%#= @dashboard.total_remaining_stock %></td>
+				<td class="total_buying_price"><%#= @dashboard.total_buying_price %></td>
+				<td class="total_cost_price"><%#= number_to_currency_euro @dashboard.total_cost_price %></td>
+				<td class="total_selling_price"><%#= number_to_currency_euro @dashboard.total_selling_price %></td>
+				<td class="total_remaining_stock_value"><%#= number_to_currency_euro@dashboard.total_remaining_stock_value %></td>
+				<td class="total_number_of_orders"><%#= @dashboard.total_number_of_orders %></td>
+				<td class="total_number_of_sales"><%#= @dashboard.total_number_of_sales %></td>
+				<td class="turnover_total_sales"><%#= on ajoute les cellules de la colonne CA en JS  %></td>
+				<td class="turnover_total_orders"><%#= on ajoute les cellules de la colonne CA en JS  %></td>
 			</tr>
 		</tfoot>
 	</table>
 </div>
-
-<script>
-	//On calcule le CA en JS ⚠️
-	$(function(){
-		var total = 0
-		$('.turnover').each(function(){
-			total =  total + parseFloat($(this).html());
-		});
-		$('.turnover_total').html(total.toFixed(2) + "€");
-	})
-</script>

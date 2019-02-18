@@ -1,0 +1,27 @@
+<div class="container">
+	<h2>Ventes-[<%= @dashboard.sales_counts %>]</h2>
+	<hr>
+		<div class="graph_boxe">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<h5>Ventes / mois</h5>
+					<br>
+					<%= column_chart @dashboard.sales_by_month, {colors: ["black"]} %>
+				</div>
+			<br><br>
+				<div class="col-12 col-md-6">
+					<h5>Ventes / semaine</h5>
+					<br>
+					<%= column_chart @dashboard.sales_by_week, {colors: ["red"]}%>
+				</div>
+			</div>
+			<br><br>
+			<div class="row">
+				<div class="col-12">
+					<h5>Chiffre d'affaire</h5>
+					<br>
+					<%= line_chart @dashboard.sales_turnover_per_month, {colors: ["red"]}%>
+				</div>
+			</div>
+		</div>
+</div>

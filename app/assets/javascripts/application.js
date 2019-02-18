@@ -7,7 +7,8 @@
 //= require cocoon
 //= require highcharts
 //= require chartkick
-//= require_tree .
+//= require journal
+//= require_tree ./channels
 
 
 // FlashMessages
@@ -16,8 +17,6 @@ window.setTimeout(function() {
        $(this).hide();
    });
 }, 3000);
-
-
 
 //DropDownMenu
 $(document).ready(function(){ 

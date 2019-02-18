@@ -25,18 +25,44 @@
 }
 
 
-// TABLEAU 
-
-
+// TABLEAU
 #dashboard_table { 
-	tbody {
-		tr:nth-child(odd):hover {
-			background-color: yellow!important;
-		}
-		tr:nth-child(even):hover {
-			background-color: yellow!important;
+	
+	.tr_second_head {
+		th {
+		color: #111;
+		border-bottom: 3px solid #111;
 		}
 	}
+
+	.col_prices {
+		background-color: #FED9E5FF;
+	}
+
+	.col_stock {
+		background-color: #DDFFE7FF;
+	}
+
+	.col_sales {
+		background-color: #ABD1FEFF;
+	}
+
+	.col_to {
+		background-color: #F5FFE0FF;
+	}
+
+	.col_pro {
+		background-color: #E8E8E8FF;
+	}
+
+	.col_dates {
+		background-color: #fff;
+	}
+
+	.th_main {
+		text-align: center;
+	}
+
 	th, td{
 					border: 1px solid gray;
 				}
@@ -52,5 +78,16 @@
 	thead {
 		background-color: #121212;
 		color: #fff;
+	}
+
+
+	table {
+	  width: 100%;
+	  height: 90%;
+	}
+	
+	table td {
+	  text-align: center;
+	  border: 1px solid black;
 	}
 }
