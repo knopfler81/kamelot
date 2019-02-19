@@ -23,7 +23,6 @@ gem "figaro"
 
 # autocomplete
 gem "geocoder"
-gem 'jquery-rails' 
 
 #payment 
 gem 'money-rails'
@@ -66,6 +65,7 @@ gem 'react-rails'
 gem 'rqrcode'
 
 
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development do 
   gem "letter_opener", group: :development
@@ -90,7 +90,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "factory_bot_rails", "~> 4.0"
   gem 'binding_of_caller'
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 
