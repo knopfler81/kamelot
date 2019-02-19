@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_one :billing_address, dependent: :destroy
   has_one :shipping_address, dependent: :destroy
 
-  validates :first_name,  presence: true, length: { minimum: 3}
-  validates :last_name,   presence: true, length: { minimum: 3}
+  validates :first_name,  presence: true, length: { minimum: 2}
+  validates :last_name,   presence: true, length: { minimum: 2}
   validates :email,       presence: true, uniqueness: true
   validates :birth_date,  presence: true, format: { with: /\A([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$\z/}
 
