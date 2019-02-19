@@ -9,6 +9,7 @@ class Product < ApplicationRecord
 	has_many :favoriting_users, through: :favorites, source: :user
 	has_many :sizes, inverse_of: :product,  dependent: :destroy
 
+	#before_create :attach_qr_code
 
 	accepts_nested_attributes_for :sizes, reject_if: :all_blank, allow_destroy: true
 	
@@ -47,5 +48,4 @@ class Product < ApplicationRecord
 			errors.add(:base, :exceeded_quota)
 		end
 	end
-
 end

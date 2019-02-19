@@ -62,6 +62,11 @@ gem 'webpacker'
 gem 'react-rails'
 
 
+#QR codes 
+gem 'rqrcode'
+
+
+
 group :development do 
   gem "letter_opener", group: :development
   gem 'pry-byebug'

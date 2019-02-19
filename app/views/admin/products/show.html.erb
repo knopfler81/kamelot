@@ -6,7 +6,8 @@
 			<hr>
 		</div>
 	</div>
-
+		<%= render_qr_code("localhost:3000/admin/products/#{@product.id}") %>
+		<%#= image_tag @product.qr_code %>
 		<div class="row">
 			<div class="d-none d-md-block col-md-8 offset-2">
 			<p><%= link_to @product.category.title, admin_categories_path(@product.category) %> / <%= @product.title %> - <%= @product.brand %></p>
