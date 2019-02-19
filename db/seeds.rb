@@ -292,7 +292,6 @@ product_1 = Product.create!(
 		File.open(File.join("app/assets/images/seeds/pull_noir_1.jpg")),
 		File.open(File.join("app/assets/images/seeds/pull_noir_2.jpg")),
 		File.open(File.join("app/assets/images/seeds/pull_noir_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_noir_4.jpg"))
 	],
 	sizes_attributes: [
 			{
@@ -542,7 +541,6 @@ product_7 = Product.create(
 		File.open(File.join("app/assets/images/seeds/pull_noir_2.jpg")),
 		File.open(File.join("app/assets/images/seeds/pull_noir_1.jpg")),
 		File.open(File.join("app/assets/images/seeds/pull_noir_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_noir_4.jpg"))
 	],
 	sizes_attributes: [
 			{
