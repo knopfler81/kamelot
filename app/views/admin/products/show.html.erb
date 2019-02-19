@@ -6,7 +6,13 @@
 			<hr>
 		</div>
 	</div>
-		<%= render_qr_code("https://super-shop-staging.herokuapp.com/admin/products/#{@product.id}") %>
+
+		<% if curret_user.admin? %>
+			<%= render_qr_code("https://super-shop-staging.herokuapp.com/admin/products/#{@product.id}") %>
+		<% else %>
+			<%= render_qr_code("https://super-shop-staging.herokuapp.com/clients/products/#{@product.id}") %>
+		<% end %>
+
 		<%#= image_tag @product.qr_code %>
 		<div class="row">
 			<div class="d-none d-md-block col-md-8 offset-2">
