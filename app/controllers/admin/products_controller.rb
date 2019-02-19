@@ -3,6 +3,8 @@ class Admin::ProductsController < Admin::ApplicationController
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
 	before_action :find_product, only: [:show, :destroy, :update, :edit]
 
+	require 'rqrcode'
+
 	def index
 		filter_products if params[:query].present?
     @products ||= Product.all
@@ -25,6 +27,11 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def edit
 		@product.sizes.build
+	end
+
+	def qr_codes
+		@categories = Category.all
+		@products = Product.all
 	end
 	def create
 		@product =  Product.new(params_product)
@@ -67,7 +74,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, { attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+		params.require(:product).permit(:id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, :qr_code,{ attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
 
 	def filter_products
