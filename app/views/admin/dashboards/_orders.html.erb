@@ -1,33 +1,40 @@
 <div class="container">
-	<h2>Commandes clients-[<%= @dashboard.orders_counts %>]</h2>
+	<h2>Commandes sur le site - [<%= @dashboard.orders_counts %>]</h2>
 	<hr>
 		<div class="graph_boxe">
 			<div class="row">
 				<div class="col-12 col-md-6">
-					<h5>Commandes / mois</h5>
 					<br>
-					<%= column_chart @dashboard.orders_by_month,{colors: ["black"]} %>
+					<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_month ], colors: ["black"], title: "Commandes par mois" %>
 				</div>
 			<br><br>
 				<div class="col-12 col-md-6">
-					<h5>Commandes / semaine</h5>
 					<br>
-					<%= column_chart @dashboard.orders_by_week ,{colors: ["red"]}%>
+					<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_week ], colors: ["red"], title: "Commandes par semaines" %>
 				</div>
 			</div>
 			<br><br>
 			<div class="row">
 				<div class="col-12">
-					<h5>Chiffre d'affaire</h5>
 					<br>
-					<%= line_chart @dashboard.orders_turnover_per_month ,{colors: ["red"]}%>
+					<%= line_chart [name: "Montant " , data: @dashboard.orders_turnover_per_month ] , colors: ["red"], title: "Chiffre d'affaire" %>
 				</div>
 			</div>
 			<br><br>
 			<div class="row">
-				<div class="col-12 col-md-6">
-					<h5>Etat des commandes</h5>
-					<%= pie_chart @dashboard.orders_status, {colors: ["red", "blue", "yellow", "green", "orange", "black"]} %>
+				<div class="col-12 col-md-8">
+					<%= pie_chart @dashboard.orders_status, colors: ["red", "blue", "yellow", "green", "orange", "black"], 
+																									title: "Etat des commandes", 
+																									library: {
+																									  plotOptions: {
+																									    pie: {
+																									    	cursor: 'pointer',
+																									      dataLabels: {
+																									        enabled: false
+																									       },
+																									       showInLegend: true
+																									    }
+																									  }}%>
 				</div>
 			</div>
 		</div>

@@ -5,27 +5,46 @@
 	<div class="graph_boxe">
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<h5>Articles / Catégories - [<%= @dashboard.products_counts %>]</h5>
 				<br>
-				<%= pie_chart @dashboard.products_per_category, {colors: [ "orange" "black", "yellow", "blue", "red"]} %>
+				<%= pie_chart @dashboard.products_per_category, colors: [ "orange" "black", "yellow", "blue", "red"], 
+																												title: "Articles / catégories", 
+																												library: {
+																													plotOptions: {
+																													  pie: {
+																													  	cursor: 'pointer',
+																													    dataLabels: {
+																													      enabled: false
+																													     },
+																													     showInLegend: true
+																													  	}
+																														},
+																													} %>
 			</div>
 			<div class="col-12 col-md-6">
-				<h5>Articles / tailles - [<%= @dashboard.sizes_counts %>]</h5>
 				<br>
-				<%= pie_chart @dashboard.sizes_per_products , {colors: [ "red", "green", "yellow", "blue", "orange"]}%>
+				<%= pie_chart @dashboard.sizes_per_products ,  colors: [ "red", "green", "yellow", "blue", "orange"], 
+																												title: "Articles / tailles", 
+																												library: {
+																												  plotOptions: {
+																												    pie: {
+																												    	cursor: 'pointer',
+																												      dataLabels: {
+																												        enabled: false
+																												       },
+																												       showInLegend: true
+																												    }
+																												  }}%>
 			</div>
 		</div>
 		<br><br>
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<h5>Articles ajoutés / semaine</h5>
 				<br>
-				<%= column_chart @dashboard.products_added_by_week, {colors: ["red"]} %>
+				<%= column_chart [name: "Quantité", data: @dashboard.products_added_by_week], colors: ["red"], title: "Articles ajoutés par semaine" %>
 			</div>
 			<div class="col-12 col-md-6">
-				<h5>Articles ajoutés / mois</h5>
 				<br>
-				<%= column_chart @dashboard.products_added_by_month, {colors: ["black"]} %>	
+				<%= column_chart [name: "Quantité", data: @dashboard.products_added_by_month], colors: ["black"], title: "Articles ajoutés par mois" %>	
 			</div>
 		</div>
 	</div>
