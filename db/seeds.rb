@@ -289,10 +289,10 @@ product_1 = Product.create!(
 	title: "Polo",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -331,10 +331,10 @@ product_2 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_blanc_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -373,10 +373,10 @@ product_3 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_rouge_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -414,10 +414,10 @@ product_4 = Product.create(
 	title: "Pantalon",
 	description: "Pantalon blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -456,10 +456,10 @@ product_5 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -498,10 +498,10 @@ product_6 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -539,10 +539,10 @@ product_7 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -580,10 +580,10 @@ product_8 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_vert_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -621,10 +621,10 @@ product_9 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_beige_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -657,10 +657,10 @@ product_10 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pull_camel_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -694,10 +694,10 @@ product_11 = Product.create(
 	title: "Pantalon",
 	description: "Pantalon blablablabalbla",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/pantalon_jaune_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -731,10 +731,10 @@ product_12 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_gris_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -773,10 +773,10 @@ product_13 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg"
 	],
 	sizes_attributes: [
 			{
@@ -815,10 +815,10 @@ product_14 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_3.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_1.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_2.jpg")),
-		File.open(File.join(Rails.root,"app/assets/images/seeds/jean_bleu_4.jpg"))
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg",
+		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg"
 	],
 	sizes_attributes: [
 			{
