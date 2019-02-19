@@ -7,7 +7,7 @@
 		</div>
 	</div>
 
-		<% if curret_user.admin? %>
+		<% if current_user.admin? %>
 			<%= render_qr_code("https://super-shop-staging.herokuapp.com/admin/products/#{@product.id}") %>
 		<% else %>
 			<%= render_qr_code("https://super-shop-staging.herokuapp.com/clients/products/#{@product.id}") %>
