@@ -289,10 +289,10 @@ product_1 = Product.create!(
 	title: "Polo",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_4.jpg"
+		#open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_3.jpg"),
+		#open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -331,10 +331,10 @@ product_2 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_blanc_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -373,10 +373,10 @@ product_3 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_rouge_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -414,10 +414,10 @@ product_4 = Product.create(
 	title: "Pantalon",
 	description: "Pantalon blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -456,10 +456,10 @@ product_5 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -498,10 +498,10 @@ product_6 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -539,10 +539,9 @@ product_7 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_noir_3.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -580,10 +579,10 @@ product_8 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_vert_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -609,41 +608,41 @@ product_8 = Product.create(
 		]
 )
 
-product_9 = Product.create(
-	ref: "GU00",
-	brand: "Guess",
-	category_id: pulls.id,
-	created_at: 5.weeks.ago,
-	user_id: nelly.id,
-	buying_price: 25,
-	price: 70,
-	color: "Beige",
-	title: "Pull",
-	description: "Pull très chaud en laine blablablabalbla",
-	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_4.jpg"
-	],
-	sizes_attributes: [
-			{
-			size_name: "M",
-			quantity: 1,
-			created_at: 5.weeks.ago,
-			},
-			{
-			size_name: "L",
-			quantity: 2,
-			created_at: 5.weeks.ago,
-			},
-			{
-			size_name: "XL",
-			quantity: 4,
-			created_at: 5.weeks.ago,
-			}
-		]	
-)
+# product_9 = Product.create(
+# 	ref: "GU00",
+# 	brand: "Guess",
+# 	category_id: pulls.id,
+# 	created_at: 5.weeks.ago,
+# 	user_id: nelly.id,
+# 	buying_price: 25,
+# 	price: 70,
+# 	color: "Beige",
+# 	title: "Pull",
+# 	description: "Pull très chaud en laine blablablabalbla",
+# 	attachments:[
+# 		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_1.jpg"),
+# 		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_2.jpg"),
+# 		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_3.jpg"),
+# 		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_beige_4.jpg")
+# 	],
+# 	sizes_attributes: [
+# 			{
+# 			size_name: "M",
+# 			quantity: 1,
+# 			created_at: 5.weeks.ago,
+# 			},
+# 			{
+# 			size_name: "L",
+# 			quantity: 2,
+# 			created_at: 5.weeks.ago,
+# 			},
+# 			{
+# 			size_name: "XL",
+# 			quantity: 4,
+# 			created_at: 5.weeks.ago,
+# 			}
+# 		]	
+# )
 
 product_10 = Product.create(
 	ref: "GU00",
@@ -657,10 +656,10 @@ product_10 = Product.create(
 	title: "Pull",
 	description: "Pull très chaud en laine blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pull_camel_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -694,10 +693,10 @@ product_11 = Product.create(
 	title: "Pantalon",
 	description: "Pantalon blablablabalbla",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/pantalon_jaune_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -731,10 +730,10 @@ product_12 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_gris_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -773,10 +772,10 @@ product_13 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -815,10 +814,10 @@ product_14 = Product.create(
 	title: "Jean",
 	description: "Paalablalntalon blab",
 	attachments:[
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg",
-		"https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg"
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_3.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_1.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_2.jpg"),
+		open("https://s3.eu-west-3.amazonaws.com/mysupershop/seeds/jean_bleu_4.jpg")
 	],
 	sizes_attributes: [
 			{
@@ -1183,22 +1182,22 @@ OrderItem.create(
 
 
 #ORDER 17
-order_17 = Order.create(
-	gcos_accepted: true,
- 	payment: "{'stub','stripe'}", 
- 	created_at: 2.months.ago,
- 	user_id: user_17.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	shipping_fees: 5,
- 	sub_total: product_9.price,
- 	total: 135
- 	)
-OrderItem.create(
-	price: product_9.price, 
-	order_id: order_17.id, 
-	quantity: 1,
-	size_id: product_9.sizes[1].id)
+# order_17 = Order.create(
+# 	gcos_accepted: true,
+#  	payment: "{'stub','stripe'}", 
+#  	created_at: 2.months.ago,
+#  	user_id: user_17.id,
+#  	token: SecureRandom.hex(8),
+#  	status: 1,
+#  	shipping_fees: 5,
+#  	sub_total: product_9.price,
+#  	total: 135
+#  	)
+# OrderItem.create(
+# 	price: product_9.price, 
+# 	order_id: order_17.id, 
+# 	quantity: 1,
+# 	size_id: product_9.sizes[1].id)
 
 
 #ORDER 18
@@ -1314,23 +1313,23 @@ OrderItem.create(
 	)
 
 
-#ORDER 27
-order_27 = Order.create(
-	gcos_accepted: true,
- 	payment: "{'stub','stripe'}", 
- 	created_at: 4.weeks.ago,
- 	user_id: user_17.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	shipping_fees: 5,
- 	sub_total: product_9.price,
- 	total: 135
- 	)
-OrderItem.create(
-	price: product_9.price, 
-	order_id: order_27.id, 
-	quantity: 1,
-	size_id: product_9.sizes[0].id)
+# #ORDER 27
+# order_27 = Order.create(
+# 	gcos_accepted: true,
+#  	payment: "{'stub','stripe'}", 
+#  	created_at: 4.weeks.ago,
+#  	user_id: user_17.id,
+#  	token: SecureRandom.hex(8),
+#  	status: 1,
+#  	shipping_fees: 5,
+#  	sub_total: product_9.price,
+#  	total: 135
+#  	)
+# OrderItem.create(
+# 	price: product_9.price, 
+# 	order_id: order_27.id, 
+# 	quantity: 1,
+# 	size_id: product_9.sizes[0].id)
 
 
 #ORDER 28
@@ -1504,23 +1503,23 @@ OrderItem.create(
 	size_id: product_12.sizes[0].id
 	)
 
-#ORDER 37
-order_37 = Order.create(
-	gcos_accepted: true,
- 	payment: "{'stub','stripe'}", 
- 	created_at: 11.days.ago,
- 	user_id: user_17.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	shipping_fees: 5,
- 	sub_total: product_9.price,
- 	total: 135
- 	)
-OrderItem.create(
-	price: product_9.price, 
-	order_id: order_37.id, 
-	quantity: 1,
-	size_id: product_9.sizes[0].id)
+# #ORDER 37
+# order_37 = Order.create(
+# 	gcos_accepted: true,
+#  	payment: "{'stub','stripe'}", 
+#  	created_at: 11.days.ago,
+#  	user_id: user_17.id,
+#  	token: SecureRandom.hex(8),
+#  	status: 1,
+#  	shipping_fees: 5,
+#  	sub_total: product_9.price,
+#  	total: 135
+#  	)
+# OrderItem.create(
+# 	price: product_9.price, 
+# 	order_id: order_37.id, 
+# 	quantity: 1,
+# 	size_id: product_9.sizes[0].id)
 
 
 #ORDER 38
@@ -2055,19 +2054,19 @@ SaleItem.create(
 	quantity: 1,
 	size_id: product_6.sizes[1].id)
 
-#SALE_17
-sale_17 = Sale.create(
- 	created_at: 2.months.ago,
- 	user_id: user_17.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	total: 135
- 	)
-SaleItem.create(
-	price: product_9.price, 
-	sale_id: sale_17.id, 
-	quantity: 1,
-	size_id: product_9.sizes[1].id)
+# #SALE_17
+# sale_17 = Sale.create(
+#  	created_at: 2.months.ago,
+#  	user_id: user_17.id,
+#  	token: SecureRandom.hex(8),
+#  	status: 1,
+#  	total: 135
+#  	)
+# SaleItem.create(
+# 	price: product_9.price, 
+# 	sale_id: sale_17.id, 
+# 	quantity: 1,
+# 	size_id: product_9.sizes[1].id)
 
 
 #SALE_18
@@ -2195,19 +2194,19 @@ sale_26 = Sale.create(
  	total: 135
  	)
 
-#SALE_27
-sale_27 = Sale.create(
- 	created_at: 4.weeks.ago,
- 	user_id: user_17.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	total: 135
- 	)
-SaleItem.create(
-	price: product_9.price, 
-	sale_id: sale_27.id, 
-	quantity: 1,
-	size_id: product_9.sizes[0].id)
+# #SALE_27
+# sale_27 = Sale.create(
+#  	created_at: 4.weeks.ago,
+#  	user_id: user_17.id,
+#  	token: SecureRandom.hex(8),
+#  	status: 1,
+#  	total: 135
+#  	)
+# SaleItem.create(
+# 	price: product_9.price, 
+# 	sale_id: sale_27.id, 
+# 	quantity: 1,
+# 	size_id: product_9.sizes[0].id)
 
 
 #SALE_28
@@ -2321,17 +2320,17 @@ SaleItem.create(
 	)
 
 #SALE_37
-sale_37 = Sale.create(
- 	created_at: 11.days.ago,
- 	user_id: user_17.id,
- 	token: SecureRandom.hex(8),
- 	status: 1,
- 	total: 135
- 	)
-SaleItem.create(
-	price: product_9.price, 
-	sale_id: sale_37.id, 
-	quantity: 1,
-	size_id: product_9.sizes[0].id)
+# sale_37 = Sale.create(
+ 	# created_at: 11.days.ago,
+ 	# user_id: user_17.id,
+ 	# token: SecureRandom.hex(8),
+ 	# status: 1,
+ 	# total: 135
+ 	# )
+# SaleItem.create(
+	# price: product_9.price, 
+	# sale_id: sale_37.id, 
+	# quantity: 1,
+	# size_id: product_9.sizes[0].id)
 
 	puts "Sales created"
