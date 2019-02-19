@@ -12,7 +12,7 @@
 							<li><%= product.title %></li>
 							<li><%= product.color %></li>
 							<li><%= number_to_currency_euro product.price %></li>
-							<%= render_qr_code("192.168.1.11:3000/admin/products/#{product.id}") %>
+							<%= render_qr_code("https://super-shop-staging.herokuapp.com/admin/products/#{product.id}") %>
 						</div>
 					<% end %>
 				</div>		
