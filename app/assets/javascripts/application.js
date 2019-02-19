@@ -8,6 +8,7 @@
 //= require highcharts
 //= require chartkick
 //= require journal
+//= require highcharts_options
 //= require_tree ./channels
 
 
