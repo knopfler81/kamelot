@@ -9,8 +9,6 @@ class Product < ApplicationRecord
 	has_many :favoriting_users, through: :favorites, source: :user
 	has_many :sizes, inverse_of: :product,  dependent: :destroy
 
-	#before_create :attach_qr_code
-
 	accepts_nested_attributes_for :sizes, reject_if: :all_blank, allow_destroy: true
 	
 	validates :title,        presence: true
@@ -23,17 +21,16 @@ class Product < ApplicationRecord
 	validates :ref, 				 presence: true
 
 	validate  :attachment_size
-	#validate  :at_least_one_size, on: :create
+	# validate  :at_least_one_size, on: :create
 	# validate  :price_error
 
+	private
 
-	# private
-
-	# def price_error
-	# 	if self.buying_price > self.price 
-	# 		errors.add(:base, :price_error)
-	# 	end
-	# end
+	def price_error
+		if self.buying_price > self.price 
+			errors.add(:base, :price_error)
+		end
+	end
 
 	def at_least_one_size
 		if self.sizes.empty?
