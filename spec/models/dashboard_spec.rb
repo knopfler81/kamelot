@@ -40,12 +40,12 @@ RSpec.describe Dashboard, type: :model do
 	describe "#products_added_by_week" do 
 		it "returns the total number of product" do
 			create(:product, created_at: 2.weeks.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.weeks.ago])
-			create(:product, created_at: 2.day.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.day.ago])
+			create(:product, created_at: 2.day.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 10.days.ago])
 			create(:product, created_at: Date.today + 1 ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
 			
 			res = subject.products_added_by_week
 
-			expect(res.values.last).to eq(1)
+			expect(res.values.last).to eq(2)
 		end
 	end
 

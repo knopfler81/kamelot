@@ -20,10 +20,7 @@ gem "chartkick"
 
 #environement variables
 gem "figaro"
-
-# autocomplete
-gem "geocoder"
-
+  
 #payment 
 gem 'money-rails'
 gem 'stripe'

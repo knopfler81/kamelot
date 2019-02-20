@@ -124,7 +124,21 @@ class Dashboard
 	end
 
 	#Calculs journal
-	def cost_price(size)
+
+	def total_margin_value(size)
+		size.quantity_stock * size.product.buying_price 
+	end
+
+
+	def margin_sales_line(size)
+		margin_per_article(size) *  number_of_sales(size)
+	end
+
+	def margin_orders_line(size)
+		margin_per_article(size) *  number_of_orders(size)
+	end
+
+	def margin_per_article(size)
 		size.product.price - size.product.buying_price 
 	end
 
@@ -148,12 +162,6 @@ class Dashboard
 		size_date_range.map {|size| size.product.price }.sum
 	end
 
-	def total_cost_price
-		products = size_date_range.map do |size|
-			size.product.price - size.product.buying_price 
-		end
-		products.sum
-	end
 
 	def total_number_of_orders
 		products = size_date_range.map do |size|

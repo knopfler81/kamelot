@@ -7,9 +7,7 @@
 //= require cocoon
 //= require highcharts
 //= require chartkick
-//= require journal
-//= require highcharts_options
-//= require_tree ./channels
+//= require_tree 
 
 
 // FlashMessages
@@ -39,3 +37,10 @@ $(document).ready(function() {
         $('form').submit();
     });
 });
+
+
+// // = require journal
+// // = require dragdrop
+// // = require customization
+// // = require product
+// // = require highcharts_options

@@ -27,6 +27,8 @@
 
 // TABLEAU
 #dashboard_table { 
+
+	font-size: 12px;
 	
 	.tr_second_head {
 		th {
@@ -58,10 +60,15 @@
 	.col_dates {
 		background-color: #fff;
 	}
-
+	
+	.col_margin {
+		background-color: #FDB286FF;
+	}
 	.th_main {
 		text-align: center;
 	}
+
+
 
 	th, td{
 					border: 1px solid gray;
@@ -73,6 +80,8 @@
 
 	tfoot {
 		background-color: red;
+		border-top: 5px solid #111;
+		font-weight: bold;
 	}
 
 	thead {
