@@ -19,7 +19,7 @@ module Admin::ProductsHelper
     end
   end
 
-  def render_qr_code_small text, size = 1
+  def render_qr_code_small text, size = 3
     return if text.to_s.empty?
     qr = RQRCode::QRCode.new(text)
     sizeStyle = "width: #{size}px; height: #{size}px;"

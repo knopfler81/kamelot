@@ -10,27 +10,12 @@ $(document).on('turbolinks:load', function() {
 
 	$(function(){
 		var total = 0
-		$('.buying_price').each(function(){
+		$('.starting_stock_value').each(function(){
 			total =  total + parseFloat($(this).html());
 		});
-		$('.total_buying_price').html(total.toFixed(2) + "€");
-	});
+		$('.total_starting_stock_value').html(total.toFixed(2).replace(".", ",") + " €");
+	}); 
 
-	$(function(){
-		var total = 0
-		$('.cost_price').each(function(){
-			total =  total + parseFloat($(this).html());
-		});
-		$('.total_cost_price').html(total.toFixed(2) + "€");
-	});
-
-	$(function(){
-		var total = 0
-		$('.selling_price').each(function(){
-			total =  total + parseFloat($(this).html());
-		});
-		$('.total_selling_price').html(total.toFixed(2) + "€");
-	});
 
 	$(function(){
 		var total = 0
@@ -54,7 +39,7 @@ $(document).on('turbolinks:load', function() {
 		$('.turnover_orders').each(function(){
 			total =  total + parseFloat($(this).html());
 		});
-		$('.turnover_total_orders').html(total.toFixed(2) + "€");
+		$('.turnover_total_orders').html(total.toFixed(2).replace(".", ",") + " €");
 	});
 
 	$(function(){
@@ -70,7 +55,7 @@ $(document).on('turbolinks:load', function() {
 		$('.remaining_stock_value').each(function(){
 			total =  total + parseFloat($(this).html());
 		});
-		$('.total_remaining_stock_value').html(total.toFixed(2) + "€");
+		$('.total_remaining_stock_value').html(total.toFixed(2).replace(".", ",") + " €");
 	});
 
 	$(function(){
@@ -78,8 +63,23 @@ $(document).on('turbolinks:load', function() {
 		$('.turnover_sales').each(function(){
 			total =  total + parseFloat($(this).html());
 		});
-		$('.turnover_total_sales').html(total.toFixed(2) + "€");
+		$('.turnover_total_sales').html(total.toFixed(2).replace(".", ",") + " €");
 	});
 
+	$(function(){
+		var total = 0
+		$('.margin_web').each(function(){
+			total =  total + parseFloat($(this).html());
+		});
+		$('.total_margin_web').html(total.toFixed(2).replace(".", ",") + " €");
+	});
+
+	$(function(){
+		var total = 0
+		$('.margin_sales').each(function(){
+			total =  total + parseFloat($(this).html());
+		});
+		$('.total_margin_sales').html(total.toFixed(2).replace(".", ",") + " €");
+	});
 
 });
