@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_133744) do
+ActiveRecord::Schema.define(version: 2019_02_20_080750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_133744) do
   end
 
   create_table "customizations", force: :cascade do |t|
-    t.string "main_image", default: "https://s3-eu-west-1.amazonaws.com/mygasoline/landing.jpg"
+    t.string "main_image", default: "https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "delivery"
@@ -48,14 +48,14 @@ ActiveRecord::Schema.define(version: 2019_02_18_133744) do
     t.text "legal_notice"
     t.text "confidentiality_policy"
     t.text "cookies_policy"
-    t.string "navbar_color"
-    t.string "body_color"
-    t.string "nav_links_color"
-    t.string "btn_main_color"
-    t.string "btn_secondary_color"
-    t.string "text_color"
-    t.string "main_btn_text_color"
-    t.string "secondary_btn_text_color"
+    t.string "navbar_color", default: "#FFFFFF"
+    t.string "body_color", default: "#FFFFFF"
+    t.string "nav_links_color", default: "#AAAAAA"
+    t.string "btn_main_color", default: "#111"
+    t.string "btn_secondary_color", default: "#FFFF"
+    t.string "text_color", default: "#111"
+    t.string "main_btn_text_color", default: "#FFF"
+    t.string "secondary_btn_text_color", default: "#111"
   end
 
   create_table "favorites", force: :cascade do |t|
