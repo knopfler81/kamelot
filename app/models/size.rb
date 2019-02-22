@@ -1,5 +1,6 @@
 class Size < ApplicationRecord
-	belongs_to :product
+	belongs_to :sizeable, polymorphic: true
+
 	has_many :order_items, inverse_of: :size, dependent: :destroy
 	has_many :sale_items, inverse_of: :size, dependent: :destroy
 
@@ -11,6 +12,7 @@ class Size < ApplicationRecord
 
  	before_create :quantity_on_create 
  	before_update :quantity_on_update
+	audited
 
  	def re_add_in_stock
  		self.quantity += 1

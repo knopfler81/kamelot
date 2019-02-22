@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_080750) do
+ActiveRecord::Schema.define(version: 2019_02_22_190831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audits", force: :cascade do |t|
+    t.integer "auditable_id"
+    t.string "auditable_type"
+    t.integer "associated_id"
+    t.string "associated_type"
+    t.integer "user_id"
+    t.string "user_type"
+    t.string "username"
+    t.string "action"
+    t.text "audited_changes"
+    t.integer "version", default: 0
+    t.string "comment"
+    t.string "remote_address"
+    t.string "request_uuid"
+    t.datetime "created_at"
+    t.index ["associated_type", "associated_id"], name: "associated_index"
+    t.index ["auditable_type", "auditable_id", "version"], name: "auditable_index"
+    t.index ["created_at"], name: "index_audits_on_created_at"
+    t.index ["request_uuid"], name: "index_audits_on_request_uuid"
+    t.index ["user_id", "user_type"], name: "user_index"
+  end
 
   create_table "billing_addresses", force: :cascade do |t|
     t.string "phone"
@@ -107,6 +129,17 @@ ActiveRecord::Schema.define(version: 2019_02_20_080750) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "restockings", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "sizeable_id"
+    t.decimal "price", precision: 10, scale: 2
+    t.decimal "buying_price", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_restockings_on_product_id"
+    t.index ["sizeable_id"], name: "index_restockings_on_sizeable_id"
+  end
+
   create_table "sale_items", force: :cascade do |t|
     t.bigint "sale_id", null: false
     t.integer "quantity", null: false
@@ -152,7 +185,10 @@ ActiveRecord::Schema.define(version: 2019_02_20_080750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity_stock"
+    t.string "sizeable_type"
+    t.bigint "sizeable_id"
     t.index ["product_id"], name: "index_sizes_on_product_id"
+    t.index ["sizeable_type", "sizeable_id"], name: "index_sizes_on_sizeable_type_and_sizeable_id"
   end
 
   create_table "users", force: :cascade do |t|
