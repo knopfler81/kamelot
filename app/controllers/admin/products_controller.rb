@@ -26,7 +26,6 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def edit
-		@product.sizes.build
 	end
 
 	def qr_codes
@@ -51,7 +50,6 @@ class Admin::ProductsController < Admin::ApplicationController
 		end
 	end
 
-
 	def update
 		if @product.update_attributes(params_product)
 			respond_to do |format|
@@ -74,7 +72,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, :qr_code,{ attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, :qr_code,{ attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
 
 	def filter_products

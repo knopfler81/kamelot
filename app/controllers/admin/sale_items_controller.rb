@@ -37,7 +37,7 @@ class Admin::SaleItemsController < Admin::ApplicationController
           size_id: params[:size_id]
         )
         format.js  
-        format.html { redirect_to admin_cash_path, notice: "Quantité modifiée" }
+        format.html { redirect_to admin_basket_path, notice: "Quantité modifiée" }
       else
         format.js { flash.now[:notice] = "Il y a plus que #{@size.quantity} articles en stock" }
         format.html { redirect_to admin_product_path(Product.find(size.product.id)), alert: "oh oh"}

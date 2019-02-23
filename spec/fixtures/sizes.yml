@@ -1,44 +1,44 @@
 small_red_shirt:
   size_name: S
   quantity: 10
-  product: red_shirt
+  sizeable: red_shirt (Product)
 
 medium_red_shirt:
   size_name: M
   quantity: 12
-  product: red_shirt
+  sizeable: red_shirt (Product)
 
 large_red_shirt:
   size_name: L
   quantity: 10
-  product: red_shirt
+  sizeable: red_shirt (Product)
 
 xlarge_red_shirt:
   size_name: XL
   quantity: 12
-  product: red_shirt
+  sizeable: red_shirt (Product)
 
 small_blue_shirt:
   size_name: S
   quantity: 10
-  product: blue_shirt
+  sizeable: blue_shirt (Product)
 
 medium_blue_shirt:
   size_name: M
   quantity: 12
-  product: blue_shirt
+  sizeable: blue_shirt (Product)
 
 large_blue_shirt:
   size_name: L
   quantity: 10
-  product: blue_shirt
+  sizeable: blue_shirt (Product)
 
 xlarge_blue_shirt:
   size_name: XL
   quantity: 12
-  product: blue_shirt
+  sizeable: blue_shirt (Product)
 
 small_warm_sweat:
   size_name: S
   quantity: 12
-  product: warm_sweat
+  sizeable: warm_sweat (Product)

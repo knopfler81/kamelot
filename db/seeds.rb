@@ -15,7 +15,7 @@ nelly = User.create!(
 	email: "nelly@example.com", 
 	password: "password", 
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: "Nelly",
 	last_name: "Duclos",
@@ -27,7 +27,7 @@ user_1 = User.create!(
 	email: "guest1@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -39,7 +39,7 @@ user_2 = User.create!(
 	email: "guest2@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -51,7 +51,7 @@ user_3 = User.create!(
 	email: "guest3@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -62,7 +62,7 @@ user_4 = User.create!(
 	email: "guest4@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -73,7 +73,7 @@ user_5 = User.create!(
 	email: "guest5@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -84,7 +84,7 @@ user_6 = User.create!(
 	email: "guest6@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -96,7 +96,7 @@ user_7 = User.create!(
 	email: "guest7@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -108,7 +108,7 @@ user_8 = User.create!(
 	email: "guest8@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -120,7 +120,7 @@ user_9 = User.create!(
 	email: "guest9@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -131,7 +131,7 @@ user_10 = User.create!(
 	email: "guest10@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -142,7 +142,7 @@ user_11 = User.create!(
 	email: "guest11@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -153,7 +153,7 @@ user_12 = User.create!(
 	email: "guest12@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -165,7 +165,7 @@ user_13 = User.create!(
 	email: "guest13@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -177,7 +177,7 @@ user_14 = User.create!(
 	email: "guest14@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -189,7 +189,7 @@ user_15 = User.create!(
 	email: "guest15@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -200,7 +200,7 @@ user_16 = User.create!(
 	email: "guest16@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -211,7 +211,7 @@ user_17 = User.create!(
 	email: "guest17@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -222,7 +222,7 @@ user_18 = User.create!(
 	email: "guest18@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -234,7 +234,7 @@ user_19 = User.create!(
 	email: "guest19@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -246,7 +246,7 @@ user_20 = User.create!(
 	email: "guest20@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -258,7 +258,7 @@ user_21 = User.create!(
 	email: "guest21@example.com",
 	password: "password",
 	password_confirmation: "password",
-	gender: ["Monsieur", "Madame"].sample,
+	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -856,18 +856,15 @@ order_1  = Order.create(
 	sub_total: [product_1.price + product_1.price].sum,
 	total: 135
 )
-
 	OrderItem.create(
 		price: product_1.price, 
 		order_id: order_1.id,
-
 		quantity: 1,
 		size_id: product_1.sizes[0].id,
 	)
 	OrderItem.create(
 		price: product_2.price, 
 		order_id: order_1.id, 
-
 		quantity: 1,
 		size_id: product_2.sizes[1].id,
 	)
@@ -888,14 +885,12 @@ order_2  = Order.create(
 	OrderItem.create(
 		price: product_1.price, 
 		order_id: order_2.id,
-
 		quantity: 1,
 		size_id: product_1.sizes[0].id
 	)
 	OrderItem.create(
 		price: product_2.price, 
 		order_id: order_2.id, 
-
 		quantity: 1,
 		size_id: product_2.sizes[2].id
 	)
@@ -907,7 +902,7 @@ order_3  = Order.create(
 	created_at: 5.months.ago, 
 	user_id: user_4.id,  
 	token: SecureRandom.hex(8), 
-	status: 1, 
+	status: 3, 
 	shipping_fees: 5, 
 	sub_total: [product_1.price * 2 + product_2.price * 2].sum,
 	total: 135
@@ -949,7 +944,7 @@ order_5  = Order.create(gcos_accepted: true,
  	created_at: 4.months.ago,
  	user_id: user_5.id,
  	token: SecureRandom.hex(8),
- 	status: 5,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_2.price,
  	total: 135
@@ -1031,7 +1026,7 @@ order_9  = Order.create(gcos_accepted: true,
  	created_at: 3.months.ago,
  	user_id: user_9.id,
  	token: SecureRandom.hex(8),
- 	status: 5,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_4.price,
  	total: 135
@@ -1068,7 +1063,7 @@ order_11 = Order.create(
  	created_at: 3.months.ago,
  	user_id: user_11.id,
  	token: SecureRandom.hex(8),
- 	status: 4,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_5.price * 3 , 
  	total: 135
@@ -1085,7 +1080,6 @@ OrderItem.create(
 	quantity: 1,
 	size_id: product_5.sizes[2].id
 	)
-
 
 #ORDER 12
 order_12 = Order.create(
@@ -1105,7 +1099,6 @@ OrderItem.create(
 	quantity: 1,
 	size_id: product_7.sizes[0].id)
 
-
 #ORDER 13
 order_13 = Order.create(
 	gcos_accepted: true,
@@ -1113,7 +1106,7 @@ order_13 = Order.create(
  	created_at: 2.months.ago,
  	user_id: user_13.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_6.price,
  	total: 135
@@ -1132,7 +1125,7 @@ order_14 = Order.create(
  	created_at: 2.months.ago,
  	user_id: user_14.id,
  	token: SecureRandom.hex(8),
- 	status: 2,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_6.price,
  	total: 135
@@ -1151,7 +1144,7 @@ order_15 = Order.create(
  	created_at: 2.months.ago,
  	user_id: user_15.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 4,
  	shipping_fees: 5,
  	sub_total: product_6.price * 3, 
  	total: 135)
@@ -1169,7 +1162,7 @@ order_16 = Order.create(
  	created_at: 2.months.ago,
  	user_id: user_16.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_8.price * 2,
  	total: 135)
@@ -1187,7 +1180,7 @@ order_17 = Order.create(
  	created_at: 2.months.ago,
  	user_id: user_17.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_9.price,
  	total: 135
@@ -1206,7 +1199,7 @@ order_18 = Order.create(
  	created_at: 2.months.ago,
  	user_id: user_18.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_10.price,
  	total: 135
@@ -1225,7 +1218,7 @@ order_21 = Order.create(
  	created_at: 1.month.ago,
  	user_id: user_19.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3, 
  	total: 135)
@@ -1243,7 +1236,7 @@ order_22 = Order.create(
  	created_at: 1.month.ago,
  	user_id: user_20.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3, 
  	total: 135)
@@ -1261,7 +1254,7 @@ order_24 = Order.create(
  	created_at: 1.month.ago,
  	user_id: user_3.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3,
  	total: 135
@@ -1280,7 +1273,7 @@ order_25 = Order.create(
  	created_at: 1.month.ago,
  	user_id: user_21.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 4,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3,
  	total: 135
@@ -1299,7 +1292,7 @@ order_26 = Order.create(
  	created_at: 1.month.ago,
  	user_id: user_1.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3, 
  	total: 135
@@ -1319,7 +1312,7 @@ order_27 = Order.create(
  	created_at: 4.weeks.ago,
  	user_id: user_18.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_9.price,
  	total: 135
@@ -1338,7 +1331,7 @@ order_28 = Order.create(
  	created_at: 4.weeks.ago,
  	user_id: user_20.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_10.price,
  	total: 135
@@ -1357,7 +1350,7 @@ order_29 = Order.create(
  	created_at: 4.weeks.ago,
  	user_id: user_3.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price,
  	total: 135
@@ -1376,7 +1369,7 @@ order_30 = Order.create(
  	created_at: 15.days.ago,
  	user_id: user_9.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3, 
  	total: 135
@@ -1395,7 +1388,7 @@ order_31 = Order.create(
  	created_at: 15.days.ago,
  	user_id: user_8.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3, 
  	total: 135
@@ -1414,7 +1407,7 @@ order_32 = Order.create(
  	created_at: 13.days.ago,
  	user_id: user_11.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_11.price * 3, 
  	total: 135
@@ -1433,7 +1426,7 @@ order_33 = Order.create(
  	created_at: 11.days.ago,
  	user_id: user_16.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_12.price * 3, 
  	total: 135
@@ -1452,7 +1445,7 @@ order_34 = Order.create(
  	created_at: 11.days.ago,
  	user_id: user_6.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_12.price * 3, 
  	total: 135
@@ -1471,7 +1464,7 @@ order_35 = Order.create(
  	created_at: 11.days.ago,
  	user_id: user_20.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_12.price * 3, 
  	total: 135
@@ -1487,10 +1480,10 @@ OrderItem.create(
 order_36 = Order.create(
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
- 	created_at: 11.days.ago,
+ 	created_at: 10.days.ago,
  	user_id: user_2.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_12.price * 3, 
  	total: 135
@@ -1528,7 +1521,7 @@ order_38 = Order.create(
  	created_at: 11.days.ago,
  	user_id: user_11.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 3,
  	shipping_fees: 5,
  	sub_total: product_10.price,
  	total: 135
@@ -1547,7 +1540,7 @@ order_40 = Order.create(
  	created_at: 3.days.ago,
  	user_id: user_5.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 2,
  	shipping_fees: 5,
  	sub_total: product_12.price,
  	total: 400
@@ -1566,7 +1559,7 @@ order_41 = Order.create(
  	created_at: 3.days.ago,
  	user_id: user_6.id,
  	token: SecureRandom.hex(8),
- 	status: 1,
+ 	status: 2,
  	shipping_fees: 5,
  	sub_total: product_13.price,
  	total: 400

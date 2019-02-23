@@ -61,8 +61,11 @@ gem 'react-rails'
 #QR codes 
 gem 'rqrcode'
 
+#conserve les versions après edition
+#gem "audited", "~> 4.7"
 
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development do 
   gem "letter_opener", group: :development

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 			get '/products/qr_codes', to: "products#qr_codes"
 			resources :products
 
+			resources :products do 
+				resources :restockings 
+			end
+
 			resources :products do
 				resources :attachments, only: [:create, :destroy]
 			end

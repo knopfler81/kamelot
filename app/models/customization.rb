@@ -2,7 +2,6 @@ class Customization < ApplicationRecord
 
 	mount_uploader :main_image, MainImageUploader
 
-
 	INSTANCE_ID =  66
 
 	def self.instance
