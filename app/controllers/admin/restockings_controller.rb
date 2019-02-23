@@ -17,7 +17,6 @@ class Admin::RestockingsController < Admin::ApplicationController
 		params.require(:restocking).permit(:id, :product_id, :buying_price, :price,  sizes_attributes: [:id, :size_name, :quantity, :_destroy])
 	end
 
-
 	def find_product
 		@product = Product.find(params[:product_id])
 	end

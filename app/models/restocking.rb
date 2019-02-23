@@ -1,6 +1,11 @@
 class Restocking < ApplicationRecord
+	
 	has_many :sizes, as: :sizeable
 	belongs_to :product
+
+	validates :price,        presence: true
+	validates :buying_price, presence: true
+
 	accepts_nested_attributes_for :sizes
 
 
