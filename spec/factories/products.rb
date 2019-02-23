@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :product do
+  factory :product, class: Product do
   	title { Faker::Artist.name  +  " " + Faker::Color.color_name}
   	ref   { Faker::Number.number(10)}
   	price { Faker::Number.number(2) }
@@ -15,5 +15,10 @@ FactoryBot.define do
     ] }
     user { User.first || association(:user, admin: true)}
     category 
+    
+    after(:create) do |product|
+      create(:size, sizeable: product)
+    end
+
   end
 end

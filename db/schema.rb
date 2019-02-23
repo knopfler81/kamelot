@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_190831) do
+ActiveRecord::Schema.define(version: 2019_02_23_100035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,13 +181,11 @@ ActiveRecord::Schema.define(version: 2019_02_22_190831) do
   create_table "sizes", force: :cascade do |t|
     t.string "size_name"
     t.integer "quantity"
-    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity_stock"
     t.string "sizeable_type"
     t.bigint "sizeable_id"
-    t.index ["product_id"], name: "index_sizes_on_product_id"
     t.index ["sizeable_type", "sizeable_id"], name: "index_sizes_on_sizeable_type_and_sizeable_id"
   end
 
@@ -214,5 +212,4 @@ ActiveRecord::Schema.define(version: 2019_02_22_190831) do
   add_foreign_key "order_items", "sizes"
   add_foreign_key "sale_items", "sales", name: "fk_sale_items_to_sale"
   add_foreign_key "sales", "users"
-  add_foreign_key "sizes", "products"
 end

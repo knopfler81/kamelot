@@ -20,10 +20,12 @@ class Order < ApplicationRecord
   end
 
   def remove_from_stock
-    self.items.each do |item|
-      @size = Size.where(id: item.size_id).last
-      @size.quantity -= item.quantity.to_i
-      @size.save
+    self.with_lock do 
+      self.items.each do |item|
+        @size = Size.where(id: item.size_id).last
+        @size.quantity -= item.quantity.to_i
+        @size.save
+      end
     end
   end
 

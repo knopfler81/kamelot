@@ -26,7 +26,6 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def edit
-		@product.sizes.build
 	end
 
 	def qr_codes

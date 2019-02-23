@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.describe SaleItem do
 
-
 	before(:each) do 
 		nelly = create(:user, admin: true)
 		login_as(nelly)
-		@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, sizes_attributes: [size_name: "S", quantity: "5"])
+		@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, sizes_attributes: [size_name: "S", quantity: "3"])
 	end
 
 	scenario "The admin can add items to the basket" do

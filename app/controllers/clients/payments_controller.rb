@@ -28,8 +28,8 @@ class Clients::PaymentsController < Clients::ApplicationController
 
 			@order.items.each do |item|
   			text_message << "Quantité: #{item.quantity} \n"
-  			text_message << "Ref: #{item.size.product.title} \n"
-  			text_message << "Marque: #{item.size.product.brand} \n"
+  			text_message << "Ref: #{item.size.sizeable.title} \n"
+  			text_message << "Marque: #{item.size.sizeable.brand} \n"
   			text_message << "Taille: #{item.size.size_name} \n"
   			text_message << "---------------\n\n"
   		end

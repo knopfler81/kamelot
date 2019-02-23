@@ -7,8 +7,8 @@
 						<tbody>
 							<%  @items.each do |item| %>
 							<tr>
-								<td class="tab_image product_image_tab  <%= 'fade_img' if item.size.quantity == 0 %>"><%= image_tag(item.size.product.attachments.first.url, class: "tiny_image") %></td>	
-								<td><span class="<%= 'not_available' if item.size.quantity == 0 %>"><%= link_to item.size.product.title, clients_product_path(item.size.product_id), class: "title_in_tab" %></span></td>
+								<td class="tab_image product_image_tab  <%= 'fade_img' if item.size.quantity == 0 %>"><%= image_tag(item.size.sizeable.attachments.first.url, class: "tiny_image") %></td>	
+								<td><span class="<%= 'not_available' if item.size.quantity == 0 %>"><%= link_to item.size.sizeable.title, clients_product_path(item.size.sizeable_id), class: "title_in_tab" %></span></td>
 								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= number_to_currency_euro(item.price * item.quantity) %></td>
 								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= item.size.size_name %> </td>
 								<td class="tab_quantity">	

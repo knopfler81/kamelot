@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-	audited
+	#audited
 
 	mount_uploaders :attachments, AttachmentUploader
 

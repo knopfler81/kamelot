@@ -5,22 +5,25 @@ class Restocking < ApplicationRecord
 
 
 	def update_existing_product
-		product = self.product
-		product.update_attributes(
-			price: self.price,
-			buying_price: self.buying_price,
-			# sizes_attributes: [
-			# 	product.sizes.each do |sp|
-			# 		self.sizes.each do |sr|
-			# 			if sp.size_name == sr.size_name 
-			# 				sp.quantity +=  sr.quantity
-			# 			else
-			# 				sp.size_name = sr.size_name
-			# 				sp.quantity = sr.quantity
-			# 			end
-			# 		end
-			# 	end	
-			# ]
-		)
+		self.with_lock do 
+			product = self.product
+			product.update_attributes(
+				price: self.price,
+				buying_price: self.buying_price,
+			)
+			sizes = Size.where(sizeable_id: self.product_id)
+			self.sizes.each do |restocking_size|
+			  if (existing_size = sizes.find{|s| s.size_name == restocking_size.size_name })
+			    existing_size.tap{|s| s.quantity += restocking_size.quantity }.save!
+			  else
+			   	Size.create!(
+			   		sizeable_id: self.product_id,
+			   		sizeable_type: "Product",
+			   		size_name: restocking_size.size_name,
+			   		quantity: restocking_size.quantity,
+			   	)
+			  end
+			end
+		 end
 	end
 end

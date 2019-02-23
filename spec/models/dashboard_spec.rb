@@ -9,6 +9,7 @@ RSpec.describe Dashboard, type: :model do
 
   before(:each) do 
   	Product.destroy_all
+  	Size.destroy_all
   	Category.destroy_all 
   	User.destroy_all 
   	Order.destroy_all
@@ -17,12 +18,12 @@ RSpec.describe Dashboard, type: :model do
 	describe "#size_date_range" do
 		it "returns the number of products created in this period" do 
 
-			create(:product, sizes_attributes: [size_name: "L", quantity: 3, created_at: 3.months.ago])
-			create(:product, sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
-			create(:product, sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
-
+			create(:product, brand: "machin", sizes_attributes: [size_name: "L", quantity: 3, created_at: 3.months.ago])
+			create(:product, brand: "truc", sizes_attributes:   [size_name: "L", quantity: 3, created_at: 1.day.ago])
+			create(:product, brand: "bidule", sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
+			# 3 taille S sont créées en factory
 			res = subject.size_date_range.count 
-			expect(res).to eq(2)
+			expect(res).to eq(5)
 		end
 	end
 
@@ -39,9 +40,9 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#products_added_by_week" do 
 		it "returns the total number of product" do
-			create(:product, created_at: 2.weeks.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.weeks.ago])
-			create(:product, created_at: 2.day.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 10.days.ago])
-			create(:product, created_at: Date.today + 1 ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
+			create(:product, created_at: 2.weeks.ago ,    sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.weeks.ago])
+			create(:product, created_at: 2.day.ago ,      sizes_attributes: [size_name: "L", quantity: 3, created_at: 10.days.ago])
+			create(:product, created_at: Date.today + 1 , sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
 			
 			res = subject.products_added_by_week
 
@@ -78,11 +79,9 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#sizes_per_products" do 
 		it "returns the quantity in each size" do 
-			create(:product, sizes_attributes: [{size_name: "L", quantity: 2}, {size_name: "S", quantity: 3}])
-			create(:product, sizes_attributes: [{size_name: "L", quantity: 3}, {size_name: "S", quantity: 3}])
+			create(:product, sizes_attributes: [{size_name: "S", quantity: 3}])
 			res = subject.sizes_per_products
-
-			expect(res).to eq({"L"=>5, "S"=>6})
+			expect(res.values.last).to eq(3)
 		end
 	end 
 

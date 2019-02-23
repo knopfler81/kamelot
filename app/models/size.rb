@@ -12,7 +12,7 @@ class Size < ApplicationRecord
 
  	before_create :quantity_on_create 
  	before_update :quantity_on_update
-	audited
+	#audited
 
  	def re_add_in_stock
  		self.quantity += 1
