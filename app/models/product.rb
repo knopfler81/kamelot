@@ -8,9 +8,8 @@ class Product < ApplicationRecord
 
 	has_many :favorites, dependent: :destroy
 	has_many :favoriting_users, through: :favorites, source: :user
-	has_many :sizes, dependent: :destroy, as: :sizeable
-	has_many :restokings
-
+	has_many :sizes, dependent: :destroy
+	
 	accepts_nested_attributes_for :sizes, reject_if: :all_blank, allow_destroy: true
 	
 	validates :title,        presence: true

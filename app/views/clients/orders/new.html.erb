@@ -8,11 +8,11 @@
 				<% @order.items.each do |item| %>
 					<div class="row order-row">
 						<div class="col-2">
-							<%= image_tag(item.size.sizeable.attachments.first.url, class: "small_image") %>
+							<%= image_tag(item.size.product.attachments.first.url, class: "small_image") %>
 						</div>
 						<div class="col-6">
-							<small><%= item.size.sizeable.brand %> - <%= item.size.sizeable.title %></small>
-							<small>Couleur : <%= item.size.sizeable.color %></small>
+							<small><%= item.size.product.brand %> - <%= item.size.product.title %></small>
+							<small>Couleur : <%= item.size.product.color %></small>
 							<br>
 							<small>Taille : <%= item.size.size_name %></small>
 							<br>

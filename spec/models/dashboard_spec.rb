@@ -21,9 +21,8 @@ RSpec.describe Dashboard, type: :model do
 			create(:product, brand: "machin", sizes_attributes: [size_name: "L", quantity: 3, created_at: 3.months.ago])
 			create(:product, brand: "truc", sizes_attributes:   [size_name: "L", quantity: 3, created_at: 1.day.ago])
 			create(:product, brand: "bidule", sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
-			# 3 taille S sont créées en factory
 			res = subject.size_date_range.count 
-			expect(res).to eq(5)
+			expect(res).to eq(2)
 		end
 	end
 
@@ -46,7 +45,7 @@ RSpec.describe Dashboard, type: :model do
 			
 			res = subject.products_added_by_week
 
-			expect(res.values.last).to eq(2)
+			expect(res.values.last).to eq(1)
 		end
 	end
 

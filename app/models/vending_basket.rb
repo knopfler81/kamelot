@@ -18,7 +18,7 @@ class VendingBasket
 
   def add_item(quantity:1 , size_id:) 
     @size = Size.find_by(id: size_id)
-    @product = @size.sizeable
+    @product = @size.product
 
     @sale_item =  if sale.items.where(size_id: size_id).any?
       sale.items.find_by(size_id: size_id)
