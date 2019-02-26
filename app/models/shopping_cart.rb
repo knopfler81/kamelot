@@ -18,7 +18,7 @@ class ShoppingCart
 
   def add_item(quantity:1 , size_id:) 
     @size = Size.find_by(id: size_id)
-    @product = @size.sizeable
+    @product = @size.product
 
     @order_item =  if order.items.where(size_id: size_id).any?
       order.items.find_by(size_id: size_id)

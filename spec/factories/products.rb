@@ -15,10 +15,5 @@ FactoryBot.define do
     ] }
     user { User.first || association(:user, admin: true)}
     category 
-    
-    after(:create) do |product|
-      create(:size, sizeable: product)
-    end
-
   end
 end

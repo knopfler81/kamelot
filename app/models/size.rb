@@ -1,5 +1,5 @@
 class Size < ApplicationRecord
-	belongs_to :sizeable, polymorphic: true
+	belongs_to :product
 
 	has_many :order_items, inverse_of: :size, dependent: :destroy
 	has_many :sale_items, inverse_of: :size, dependent: :destroy
