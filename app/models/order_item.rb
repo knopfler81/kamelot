@@ -1,6 +1,6 @@
 class OrderItem < ApplicationRecord
 	belongs_to :order
-	belongs_to :size
+	#belongs_to :size
 
 	scope :exclude_if_size_quantity_zero, ->  { joins(:size).where('sizes.quantity >?' ,0)}
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_151440) do
+ActiveRecord::Schema.define(version: 2019_02_26_173121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,6 +177,14 @@ ActiveRecord::Schema.define(version: 2019_02_22_151440) do
     t.index ["product_id"], name: "index_sizes_on_product_id"
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "variant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["variant_id"], name: "index_stocks_on_variant_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -194,6 +202,17 @@ ActiveRecord::Schema.define(version: 2019_02_22_151440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variants", force: :cascade do |t|
+    t.string "color"
+    t.string "size"
+    t.string "cost_price"
+    t.string "price"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_variants_on_product_id"
+  end
+
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "order_items", "orders", name: "fk_order_items_to_order"
@@ -201,4 +220,6 @@ ActiveRecord::Schema.define(version: 2019_02_22_151440) do
   add_foreign_key "sale_items", "sales", name: "fk_sale_items_to_sale"
   add_foreign_key "sales", "users"
   add_foreign_key "sizes", "products"
+  add_foreign_key "stocks", "variants"
+  add_foreign_key "variants", "products"
 end

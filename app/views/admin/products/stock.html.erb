@@ -1,0 +1,42 @@
+<div class="container">
+	<h3><%= @product.title %></h3>
+	<hr>
+	<section>
+	<%= simple_form_for(Stock.new, url: admin_stocks_path) do |f| %>
+		<div class="row">
+			<div class="col-12 col-md-4">
+	  		<%= f.select :variant_id, options_from_collection_for_select(@product.variants, :id, :size), input_html: {class: "custom-select"}, prompt: "Choissiez un article selon sa variante ",required: true %>
+			</div>
+			<div class="col-12 col-md-6">
+				<%= f.input :quantity, label: false, placeholder: "Entrez une quantité", required: true %>
+			</div>
+		</div>
+	  <%= f.submit "Enregistrer ce stock" %>
+	<% end %>
+	  
+	</section>
+
+<br><br>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Variantes</th>
+			<th>Stock</th>
+		</tr>
+	</thead>
+	<% @product.variants.each do |var| %>
+		<tbody>
+			<tr>
+				<td>
+					Taille : <%= var.size %>
+					<br>
+					Couleur : <%= var.color if !var.color.nil? %>
+				</td>
+			<td>	<%= var.stocks.map(&:quantity).sum %></td>
+			
+			</tr>
+		</tbody>
+	<% end %>
+</table>
+</div>

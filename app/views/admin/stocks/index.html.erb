@@ -1,0 +1,23 @@
+<div class="container">
+	<% @variants.each do |var| %>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Variante</th>
+				<th>Information stock </th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>
+					<li><%= var.product.title %></li> 
+					<li><%= var.size %></li>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<% end %>
+</div>

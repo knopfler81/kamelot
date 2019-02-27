@@ -69,28 +69,26 @@
 				</div>
 			</div>
 		</section>
-
-		<section class="section">
-		 	<h3>AJOUTER LES TAILLES DISPONIBLES</h3>
-		 	<small>Cliquer sur le bouton "Ajouter une taille" pour chaque taille que vous souhaitez ajouter.</small>
+		 	<section>
+		 		<h3>AJOUTER DES VARIANTES</h3>
 		 		<hr>
-		 		<br>
 		 		<div class="row">
 		 			<div class="col-12">
-			 			<div id="sizes">
-			 			  <%= f.simple_fields_for :sizes do |size| %>
-			 		      <%= render "size_fields", f: size %>
+			 			<div id="variants">
+			 			  <%= f.simple_fields_for :variants do |variant| %>
+			 		      <%= render "variant_fields", f: variant %>
 			 		    <% end %>
 			 		   	<div class="links">
-			 		     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class: "btn btn-secondary btn-lg" %>
+			 		     	<%= link_to_add_association "Ajouter une variante", f, :variants, partial: "variant_fields", class: "btn btn-secondary btn-lg" %>
 			 		   	</div>
 			 			</div>
 		 			</div>
 		 		</div>
-		 	  <br><br>
-		 	  <div class="col-12">
-		 			<%= f.submit "Valider le produit", class: "btn btn-main btn-lg btn-block" %>
-		 	  </div>
-		</section>
+				<br><br>
+		 	<%= f.submit "Valider le produit", class: "btn btn-main btn-lg btn-block" %>
+		 	<br><br>
+		 	</section>
+
+
 	<% end %>
 </div>
