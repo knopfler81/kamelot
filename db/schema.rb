@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_123909) do
+ActiveRecord::Schema.define(version: 2019_02_28_164524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_123909) do
     t.bigint "variant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "initial_quantity"
     t.index ["variant_id"], name: "index_stocks_on_variant_id"
   end
 

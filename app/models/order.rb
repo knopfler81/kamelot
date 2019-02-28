@@ -22,9 +22,9 @@ class Order < ApplicationRecord
   def remove_from_stock
     self.with_lock do 
       self.items.each do |item|
-        @variant = Variant.where(id: item.variant_id).last
-        @variant.stocks.last.quantity -= item.quantity.to_i
-        @variant.save
+        @stock = Stock.joins(:variant).where(variant_id: item.variant_id).last
+        @stock.quantity -= item.quantity.to_i
+        @stock.save
       end
     end
   end
