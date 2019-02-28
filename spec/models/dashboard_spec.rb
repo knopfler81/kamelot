@@ -15,7 +15,7 @@ RSpec.describe Dashboard, type: :model do
   	Order.destroy_all
   end
 
-	describe "#size_date_range" do
+	describe "#size_date_range", :skip do
 		it "returns the number of products created in this period" do 
 
 			create(:product, brand: "machin", sizes_attributes: [size_name: "L", quantity: 3, created_at: 3.months.ago])
@@ -26,7 +26,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#products_counts" do 
+	describe "#products_counts", :skip do 
 		it "returns the total number of product" do
 			create(:product, sizes_attributes: [size_name: "L", quantity: 3, created_at: 3.months.ago])
 			create(:product, sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
@@ -37,7 +37,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#products_added_by_week" do 
+	describe "#products_added_by_week", :skip do 
 		it "returns the total number of product" do
 			create(:product, created_at: 2.weeks.ago ,    sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.weeks.ago])
 			create(:product, created_at: 2.day.ago ,      sizes_attributes: [size_name: "L", quantity: 3, created_at: 10.days.ago])
@@ -49,7 +49,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#products_added_by_month" do 
+	describe "#products_added_by_month", :skip do 
 		it "returns the total number of product" do
 			create(:product, created_at: 2.day.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 2.day.ago])
 			create(:product, created_at: 1.day.ago ,sizes_attributes: [size_name: "L", quantity: 3, created_at: 1.day.ago])
@@ -60,7 +60,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#products_per_category" do 
+	describe "#products_per_category", :skip do 
 
 		it "return the number of product per category" do 
 			pull   = create(:category, title: "Pull")
@@ -76,7 +76,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#sizes_per_products" do 
+	describe "#sizes_per_products", :skip do 
 		it "returns the quantity in each size" do 
 			create(:product, sizes_attributes: [{size_name: "S", quantity: 3}])
 			res = subject.sizes_per_products
@@ -84,7 +84,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end 
 
-	describe "#clients_counts" do 
+	describe "#clients_counts", :skip do 
 		it "returns the total number of users" do
 			create(:user)
 			create(:user)
@@ -95,7 +95,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#clients_registration_by_week" do 
+	describe "#clients_registration_by_week", :skip do 
 		it "returns the total number of user by week" do
 			#create(:user, created_at: 2.weeks.ago)
 			create(:user, created_at: Date.today + 1 )
@@ -107,7 +107,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#clients_registration_by_month" do 
+	describe "#clients_registration_by_month", :skip do 
 		it "returns the total number of user by month" do
 			create(:user, created_at: 2.day.ago)
 			create(:user, created_at: 1.day.ago)
@@ -119,7 +119,7 @@ RSpec.describe Dashboard, type: :model do
 	end
 
 	#ORDER###################### 
-	describe "#orders_counts" do 
+	describe "#orders_counts", :skip do 
 		it "returns the total number of orders" do
 			create(:order)
 			create(:order)
@@ -130,7 +130,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#orders_by_week" do 
+	describe "#orders_by_week", :skip do 
 		it "returns the  number of order by week" do
 			create(:order, created_at: 2.weeks.ago)
 			create(:order, created_at: Date.today + 1 )
@@ -142,7 +142,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#orders_by_month" do 
+	describe "#orders_by_month", :skip do 
 		it "returns the number of order by month" do
 			create(:order, created_at: 2.day.ago)
 			create(:order, created_at: 1.day.ago)
@@ -153,7 +153,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#refunded_orders_count" do 
+	describe "#refunded_orders_count", :skip do 
 		it "returns the number of refunded order" do
 			create(:order, status: 1)
 			create(:order, status: 4)
@@ -164,7 +164,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#orders_status" do 
+	describe "#orders_status", :skip do 
 		it "returns the number of user" do
 			create(:order, status: 1)
 			create(:order, status: 1)
@@ -176,7 +176,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#orders_turnover_per_month" do 
+	describe "#orders_turnover_per_month", :skip do 
 		it "returns the turn over by month" do 
 			create(:order, sub_total: 100, created_at: 2.month.ago)
 			create(:order, sub_total: 200, created_at: 2.month.ago)
@@ -191,7 +191,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	# describe "#number_of_sales" do 
+	# describe "#number_of_sales", :skip do 
 	# 	it "renders the number of sales in a given size", :skip => "A revoir il y a un truc qui cloche" do 
 	# 		@prod = create(:product, sizes_attributes: [size_name: "S", quantity: 4])
 	# 		@size = create(:size, product_id: @prod.id, size_name: "S", quantity: 4)
@@ -208,7 +208,7 @@ RSpec.describe Dashboard, type: :model do
 	# 	end
 	# end
 	#ORDER###################### 
-	describe "#sales_counts" do 
+	describe "#sales_counts", :skip do 
 		it "returns the total number of orders" do
 			create(:sale)
 			create(:sale)
@@ -219,7 +219,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#sales_by_week" do 
+	describe "#sales_by_week", :skip do 
 		it "returns the  number of sale by week" do
 			create(:sale, created_at: 2.weeks.ago)
 			create(:sale, created_at: Date.today + 1 )
@@ -231,7 +231,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	describe "#sales_by_month" do 
+	describe "#sales_by_month", :skip do 
 		it "returns the number of sale by month" do
 			create(:sale, created_at: 2.day.ago)
 			create(:sale, created_at: 1.day.ago)

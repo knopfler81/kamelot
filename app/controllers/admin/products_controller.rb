@@ -22,7 +22,6 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def new
 		@product = Product.new
-		@product.variants.build
 	end
 
 	def edit
@@ -35,7 +34,6 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 	def create
 		@product =  Product.create!(params_product)
-		@product.variants.build
 		@product.user_id = current_user.id
 		if @product.save
 			redirect_to admin_product_path(@product), notice: "L'article a bien été créé"

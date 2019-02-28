@@ -1,9 +1,10 @@
 class Variant < ApplicationRecord
   belongs_to :product
-  has_many :sale_items, inverse_of: :variants, dependent: :destroy
-  has_many :order_items, inverse_of: :variants, dependent: :destroy
-
+  has_many :sale_items, dependent: :destroy
+  has_many :order_items, dependent: :destroy
   has_many :stocks
+
+  validates :size, presence: true, on: :create
 
   def size_and_color
 	  if self.color == ""

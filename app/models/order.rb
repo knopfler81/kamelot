@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user,  optional: true
-  has_many :items, class_name: "OrderItem", dependent: :destroy
+  has_many   :items, class_name: "OrderItem", dependent: :destroy
 
   after_initialize :shipping_fees_cents
 

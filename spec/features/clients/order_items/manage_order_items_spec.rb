@@ -6,20 +6,22 @@ RSpec.describe OrderItem do
 	before(:each) do 
 		john = create(:user)
 		login_as(john)
-		@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, sizes_attributes: [size_name: "S", quantity: "5"])
+		@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+		@variant = create(:variant, product_id: @product.id, size: "S")
+		@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
 	end
 
 	scenario "A user can add items to his cart" do
 
 		visit clients_product_path(@product)
-		select "S", from: "size_id"
+		select "S", from: "variant_id"
 		click_on "Ajouter Au Panier"
 		
 		expect(page).to have_content("Correctement ajouté au panier")
 
 		click_on "Continuer les achats"
 		page.first(".box_link").click
-		select "S", from: "size_id"
+		select "S", from: "variant_id"
 		click_on "Ajouter Au Panier"
 		
 		expect(page).to have_content("Correctement ajouté au panier")
@@ -33,7 +35,7 @@ RSpec.describe OrderItem do
 	scenario "A user can updated item quantity in his cart", :js do
 
 		visit clients_product_path(@product)
-		select "S", from: "size_id"
+		select "S", from: "variant_id"
 		click_on "Ajouter Au Panier"
 
 		expect(page).to have_content("Chemise cool")
@@ -46,7 +48,7 @@ RSpec.describe OrderItem do
 	scenario "A user can remove items from his cart" do
 
 		visit clients_product_path(@product)
-		select "S", from: "size_id"
+		select "S", from: "variant_id"
 		click_on "Ajouter Au Panier"
 
 		expect(page).to have_content("Chemise cool")
