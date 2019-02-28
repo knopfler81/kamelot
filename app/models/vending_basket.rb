@@ -13,17 +13,17 @@ class VendingBasket
   end
 
   def items_count
-    sale.items.exclude_if_size_quantity_zero.sum(:quantity)
+    sale.items.map {|s| s.quantity }.sum
   end
 
-  def add_item(quantity:1 , size_id:) 
-    @size = Size.find_by(id: size_id)
-    @product = @size.product
+  def add_item(quantity:1 , variant_id:) 
+    @variant = Variant.find_by(id: variant_id)
+    @product = @variant.product
 
-    @sale_item =  if sale.items.where(size_id: size_id).any?
-      sale.items.find_by(size_id: size_id)
+    @sale_item =  if sale.items.where(variant_id: variant_id).any?
+      sale.items.find_by(variant_id: variant_id)
     else
-     sale.items.new(size_id: size_id)
+     sale.items.new(variant_id: variant_id)
     end
     
     @sale_item.price = @product.price
@@ -35,9 +35,9 @@ class VendingBasket
     end
   end
 
-  def change_qty(id:, quantity:1, size_id:)
-    @size = Size.find_by(id: size_id)
-    @sale_item = sale.items.find_by(size_id: size_id)
+  def change_qty(id:, quantity:1, variant_id:)
+    @variant = Variant.find_by(id: variant_id)
+    @sale_item = sale.items.find_by(variant_id: variant_id)
     @sale_item.quantity = quantity.to_i
     @sale_item.save
     update_sub_total!

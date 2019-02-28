@@ -5,7 +5,7 @@
 	<%= simple_form_for(Stock.new, url: admin_stocks_path) do |f| %>
 		<div class="row">
 			<div class="col-12 col-md-4">
-	  		<%= f.select :variant_id, options_from_collection_for_select(@product.variants, :id, :size), input_html: {class: "custom-select"}, prompt: "Choissiez un article selon sa variante ",required: true %>
+	  		<%= f.select :variant_id, options_from_collection_for_select(@product.variants, :id, :size_and_color), input_html: {class: "custom-select"}, prompt: "Choissiez un article selon sa variante ",required: true %>
 			</div>
 			<div class="col-12 col-md-6">
 				<%= f.input :quantity, label: false, placeholder: "Entrez une quantité", required: true %>

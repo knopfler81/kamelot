@@ -8,13 +8,13 @@
 				<% @sale.items.each do |item| %>
 					<div class="row order-row">
 						<div class="col-2">
-							<%= image_tag(item.size.product.attachments.first.url, class: "small_image") %>
+							<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
 						</div>
 						<div class="col-6">
-							<small><%= item.size.product.brand %> - <%= item.size.product.title %></small>
-							<small>Couleur : <%= item.size.product.color %></small>
+							<small><%= item.variant.product.brand %> - <%= item.variant.product.title %></small>
+							<small>Couleur : <%= item.variant.product.color %></small>
 							<br>
-							<small>Taille : <%= item.size.size_name %></small>
+							<small>Taille : <%= item.variant.size %></small>
 							<br>
 							<small>Quantité : <%= item.quantity %></small>
 						</div>

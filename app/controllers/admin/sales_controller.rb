@@ -17,7 +17,6 @@ class Admin::SalesController < Admin::ApplicationController
 			@sale.remove_from_stock
 			session[:basket_token] == nil
 			@sale.update_total!
-
 			if @sale.save
 			 	redirect_to admin_sales_path, notice: "Vente enregistrée"
 			 else

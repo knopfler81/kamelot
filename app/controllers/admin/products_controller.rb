@@ -17,6 +17,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def show
 		@products = Product.all
+		@product_size_options = @product.variants
 	end
 
 	def new

@@ -6,19 +6,20 @@ class Admin::SaleItemsController < Admin::ApplicationController
 
   def create
     @item = current_basket
-    @size = Size.find(params[:size_id])
+    @variant = Variant.find(params[:variant_id])
 
-    if @size.quantity >= params[:quantity].to_i
+    @stock = @variant.stocks.map(&:quantity).sum 
+
+    if @stock >= params[:quantity].to_i
 
       current_basket.add_item(
         quantity: params[:quantity],
-        size_id: params[:size_id],
+        variant_id: params[:variant_id],
       )
 
       redirect_to admin_basket_path, notice: "Correctement ajouté au panier"
     else
-      redirect_to admin_product_path(Product.find(size.product.id))
-      flash[:alert] = "Il y a plus que #{@size.quantity} articles en stock"
+      redirect_to admin_product_path(Product.find(variant.product.id))
     end
   end
 
@@ -27,20 +28,21 @@ class Admin::SaleItemsController < Admin::ApplicationController
   end
 
   def update
-    @size = Size.find(params[:size_id])
+    @variant = Variant.find(params[:variant_id])
+    @stock = @variant.stocks.map(&:quantity).sum 
     respond_to do |format|
-      if @size.quantity >= params[:quantity].to_i
+      if @stock >= params[:quantity].to_i
         @item = current_basket
         @item.change_qty( 
           id: params[:id],
           quantity: params[:quantity],
-          size_id: params[:size_id]
+          variant_id: params[:variant_id]
         )
         format.js  
         format.html { redirect_to admin_basket_path, notice: "Quantité modifiée" }
       else
-        format.js { flash.now[:notice] = "Il y a plus que #{@size.quantity} articles en stock" }
-        format.html { redirect_to admin_product_path(Product.find(size.product.id)), alert: "oh oh"}
+        format.js
+        format.html { redirect_to admin_product_path(Product.find(variant.product.id)), alert: "oh oh"}
       end
     end
   end
@@ -57,6 +59,6 @@ class Admin::SaleItemsController < Admin::ApplicationController
 
 
   def sale_item_params
-    params.require(:sale_item).permit(:id, :quantity, :user_id, :size_id, :sale_id)
+    params.require(:sale_item).permit(:id, :quantity, :user_id, :variant_id, :sale_id)
   end
 end
