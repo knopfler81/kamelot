@@ -6,19 +6,21 @@ class Clients::OrderItemsController < Clients::ApplicationController
 
   def create
     @item = current_cart
-    @size = Size.find(params[:size_id])
+    @variant = Variant.find(params[:variant_id])
 
-    if @size.quantity >= params[:quantity].to_i
+    @stock = @variant.stocks.map(&:quantity).sum 
+
+    if @stock >= params[:quantity].to_i
 
       current_cart.add_item(
         quantity: params[:quantity],
-        size_id: params[:size_id],
+        variant_id: params[:variant_id],
       )
 
       redirect_to clients_cart_path, notice: "Correctement ajouté au panier"
     else
-      redirect_to clients_product_path(Product.find(size.product.id))
-      flash[:alert] = "Il y a plus que #{@size.quantity} articles en stock"
+      redirect_to clients_product_path(Product.find(variant.product.id))
+      flash[:alert] = "Il y a plus que #{@variant.quantity} articles en stock"
     end
   end
 
@@ -27,20 +29,22 @@ class Clients::OrderItemsController < Clients::ApplicationController
   end
 
   def update
-    @size = Size.find(params[:size_id])
+    @variant = Variant.find(params[:variant_id])
     respond_to do |format|
-      if @size.quantity >= params[:quantity].to_i
+    @stock = @variant.stocks.map(&:quantity).sum 
+
+    if @stock >= params[:quantity].to_i
         @item = current_cart
         @item.change_qty( 
           id: params[:id],
           quantity: params[:quantity],
-          size_id: params[:size_id]
+          variant_id: params[:variant_id]
         )
         format.js
         format.html { redirect_to clients_cart_path, notice: "Quantité modifiée" }
       else
-        format.js { flash.now[:notice] = "Il y a plus que #{@size.quantity} articles en stock" }
-        format.html { redirect_to clients_product_path(Product.find(size.product.id)), alert: "oh oh"}
+        format.js { flash.now[:notice] = "Il y a plus que #{@variant.quantity} articles en stock" }
+        format.html { redirect_to clients_product_path(Product.find(variant.product.id)), alert: "oh oh"}
       end
     end
   end
@@ -57,6 +61,6 @@ class Clients::OrderItemsController < Clients::ApplicationController
 
 
   def order_item_params
-    params.require(:order_item).permit(:id, :quantity, :user_id, :size_id, :order_id)
+    params.require(:order_item).permit(:id, :quantity, :user_id, :variant_id, :order_id)
   end
 end

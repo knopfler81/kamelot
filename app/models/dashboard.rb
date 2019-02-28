@@ -5,11 +5,11 @@ class Dashboard
 	def initialize(params)
 		params ||= {}
 		@date_from = parsed_date(params[:date_from],Time.now.beginning_of_month.to_date.to_s)
-		@date_to   = parsed_date(params[:date_to], (Date.today + 1).to_s)
+		@date_to   = parsed_date(params[:date_to], (Date.today.end_of_day - 1.hour).to_s)
 	end
 
-	def size_date_range
-		Size.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
+	def variant_date_range
+		Product.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
 	end
 
 	def product_date_range
@@ -21,11 +21,11 @@ class Dashboard
 		Product.count
 	end
 
-	def sizes_counts
-		sizes = Product.all.map do |pr|
-			pr.sizes.map {|s| s.quantity }.sum
+	def stock_counts
+		stocks = Variant.all.map do |var|
+			var.stocks.map(&:quantity)
 		end
-		sizes.sum
+		stocks.flatten.sum
 	end
 
 	def products_added_by_month
@@ -40,8 +40,8 @@ class Dashboard
 		@categories = Category.joins(:products).group(:title).count
 	end
 
-	def sizes_per_products
-		@sizes = Product.joins(:sizes).group(:size_name).sum(:quantity)
+	def variants_per_products
+		@variants = Product.joins(:variants).group(:size).count
 	end
 
 	##### CLIENTS #####
@@ -80,8 +80,8 @@ class Dashboard
  		my_hash.each { |k, v| my_hash[k] = v.to_i / 100 } 
 	end
 
-	def number_of_sales(size)
-		@item = SaleItem.joins(:sale).where(size_id: size.id)
+	def number_of_sales(variant)
+		@item = SaleItem.joins(:sale).where(variant_id: variant.id)
 		unless @item.nil?
 			@item.map {|s| s.quantity}.sum
 		else
@@ -114,8 +114,8 @@ class Dashboard
  		Order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:sub_total)
 	end
 
-	def number_of_orders(size)
-		@item = OrderItem.joins(:order).where(size_id: size.id)
+	def number_of_orders(variant)
+		@item = OrderItem.joins(:order).where(variant_id: variant.id)
 		unless @item.nil?
 			@item.map {|s| s.quantity}.sum
 		else
@@ -125,74 +125,74 @@ class Dashboard
 
 	#Calculs journal
 
-	def total_margin_value(size)
-		size.quantity_stock * size.product.buying_price 
+	def total_margin_value(variant)
+		variant.stocks.map(&:quantity).sum * variant.product.buying_price 
 	end
 
 
-	def margin_sales_line(size)
-		margin_per_article(size) *  number_of_sales(size)
+	def margin_sales_line(variant)
+		margin_per_article(variant) *  number_of_sales(variant)
 	end
 
-	def margin_orders_line(size)
-		margin_per_article(size) *  number_of_orders(size)
+	def margin_orders_line(variant)
+		margin_per_article(variant) *  number_of_orders(variant)
 	end
 
-	def margin_per_article(size)
-		size.product.price - size.product.buying_price 
+	def margin_per_article(variant)
+		variant.product.price - variant.product.buying_price 
 	end
 
-	def starting_stock(size)
-		size.quantity + number_of_orders(size) + number_of_sales(size)
+	def starting_stock(variant)
+		variant.quantity + number_of_orders(variant) + number_of_sales(variant)
 	end
 
-	def remaining_stock(size)
-		size.quantity_stock - (number_of_orders(size) + number_of_sales(size))
+	def remaining_stock(variant)
+		variant.stocks.sum(:quantity)
 	end
 
-	def remaining_stock_value(size)
-		remaining_stock(size) * size.product.buying_price
+	def remaining_stock_value(variant)
+		remaining_stock(variant) * variant.product.buying_price
 	end
 
 	def total_buying_price
-		size_date_range.map {|size| size.product.buying_price }.sum
+		variant_date_range.map {|variant| variant.product.buying_price }.sum
 	end
 
 	def total_selling_price
-		size_date_range.map {|size| size.product.price }.sum
+		variant_date_range.map {|variant| variant.product.price }.sum
 	end
 
 
 	def total_number_of_orders
-		products = size_date_range.map do |size|
-			OrderItem.joins(:order).where(size_id: size.id).count
+		products = variant_date_range.map do |variant|
+			OrderItem.joins(:order).where(variant_id: variant.id).count
 		end
 		products.sum
 	end
 
 	def total_number_of_sales
-		products = size_date_range.map do |size|
-			SaleItem.joins(:sale).where(size_id: size.id).count
+		products = variant_date_range.map do |variant|
+			SaleItem.joins(:sale).where(variant_id: variant.id).count
 		end
 		products.sum
 	end
 
-	def sizes_and_quantity(product)
-		size_name = product.sizes.map do |s|
-		 s.size_name
+	def variants_and_quantity(product)
+		variant_name = product.variants.map do |s|
+		 s.variant_name
 		end
-		quantity = product.sizes.map do |s|
+		quantity = product.variants.map do |s|
 		 s.quantity
 		end
-		sizes =  size_name.zip(quantity)
+		variants =  variant_name.zip(quantity)
 	end
 
-	def turnover_orders(size)
-		size.product.price *  number_of_orders(size)
+	def turnover_orders(variant)
+		variant.product.price *  number_of_orders(variant)
 	end
 
-	def turnover_sales(size)
-		size.product.price *  number_of_sales(size)
+	def turnover_sales(variant)
+		variant.product.price *  number_of_sales(variant)
 	end
 
 	private 

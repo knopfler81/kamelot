@@ -35,12 +35,6 @@
 				<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
 			</div>
 			<div class="co-12 col-md-3">
-				<%= f.input :price, placeholder: "Prix", label: false, required: true %>
-			</div>
-			<div class="co-12 col-md-3">
-				<%= f.input :buying_price, placeholder: "Prix d'achat (important pour la comptat)", label: false, required: true %>
-			</div>
-			<div class="co-12 col-md-3">
 				<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
 			</div>
 		</div>
@@ -84,30 +78,29 @@
 		<br>
 	</section>
 
-	<section class="section">
-		<div class="row">
-			<div class="col-12">
-				<div id="sizes">
-					<h3>MODIFIER LES TAILLES</h3>
-					<small>Cliquez sur le bouton "Ajouter une taille" pour chaque taille que vous souhaitez ajouter ou sur le bouton "supprimer une taille" si vous souhaitez l'enlever</small>
-					<hr>
-					<br>
-				  <%= f.simple_fields_for :sizes do |size| %>
-			      <%= render "size_fields", f: size %>
-			    <% end %>
-			   	<div class="links">
-			     	<%= link_to_add_association "Ajouter une taille", f, :sizes, partial: "size_fields", class: "btn btn-secondary btn-lg" %>
-			   	</div>
-				</div>
-			</div>
-		</div>
-		  <br><br>
-		  <div class="col-12">
-				<%= f.submit "Mettre à jour l'article", class: "btn btn-main btn-lg btn-block" %>
-		  </div>
-	</section>
+<section>
+		 		<h3>AJOUTER DES VARIANTES</h3>
+	 		<hr>
+	 		<div class="row">
+	 			<div class="col-12">
+		 			<div id="variants">
+		 			  <%= f.simple_fields_for :variants do |variant| %>
+		 		      <%= render "variant_fields", f: variant %>
+		 		    <% end %>
+		 		   	<div class="links">
+		 		     	<%= link_to_add_association "Ajouter une variante", f, :variants, partial: "variant_fields", class: "btn btn-secondary btn-lg" %>
+		 		   	</div>
+		 			</div>
+	 			</div>
+	 		</div>
+	<%= f.submit "Mettre à jour l'article", class: "btn btn-main btn-lg btn-block" %>
+
+</section>
+
+
+
 	<% end %>
 </div>
-<%= render "modal_add_pic" %>
+<%#= render "modal_add_pic" %>
 
 

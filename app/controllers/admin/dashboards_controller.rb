@@ -3,15 +3,15 @@ class Admin::DashboardsController < Admin::ApplicationController
 	def show
 		@button 	||= set_button || :orders
 		@dashboard 	= Dashboard.new((params[:search]))
-		@sizes 		||= @dashboard.size_date_range
-		@sizes 			= @sizes.order('created_at DESC')
+		@variants 		||= @dashboard.variant_date_range
+		@variants 			= @variants.order('created_at DESC')
 	end
 
 	def journal
 		filter_products if params[:query].present?
 		@dashboard 	= Dashboard.new((params[:search]))
-		@sizes 		||= @dashboard.size_date_range
-		@sizes 			= @sizes.order('created_at DESC')
+		@variants 		||= @dashboard.variant_date_range
+		@variants 		= @variants.order('created_at DESC')
 	end
 
 	private
@@ -26,9 +26,9 @@ class Admin::DashboardsController < Admin::ApplicationController
 
 	def filter_products
 	  return if params[:query].blank?
-	  @sizes = Size.joins(:product).where('lower(products.title) LIKE ?', "%#{params[:query][:keyword].downcase }%")
-	  .or(Size.joins(:product).where('lower(products.description) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
-	  .or(Size.joins(:product).where('lower(products.color) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
-		.or(Size.joins(:product).where('lower(products.brand) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
+	  @variants = Variant.joins(:product).where('lower(products.title) LIKE ?', "%#{params[:query][:keyword].downcase }%")
+	  .or(Variant.joins(:product).where('lower(products.description) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
+	  .or(Variant.joins(:product).where('lower(products.color) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
+		.or(Variant.joins(:product).where('lower(products.brand) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	end
 end

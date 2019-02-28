@@ -1,0 +1,63 @@
+small_red_shirt:
+  size: S
+  product: red_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+medium_red_shirt:
+  size: M
+  product: red_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+large_red_shirt:
+  size: L
+  product: red_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+xlarge_red_shirt:
+  size: XL
+  product: red_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+small_blue_shirt:
+  size: S
+  product: blue_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+medium_blue_shirt:
+  size: M
+  product: blue_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+large_blue_shirt:
+  size: L
+  product: blue_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+xlarge_blue_shirt:
+  size: XL
+  product: blue_shirt
+  cost_price: ""
+  price: ""
+  color: ""
+  
+small_warm_sweat:
+  size: S
+  product: warm_sweat
+  cost_price: ""
+  price: ""
+  color: ""
+  

@@ -5,7 +5,7 @@
 
 
 <% @order.items.each do |item| %>
-	<%= item.size.sizeable.brand %> - <%= item.size.size_name  %> - <%= item.quantity %> 
+	<%= item.variant.product.brand %> - <%= item.variant.size  %> - <%= item.quantity %> 
 <% end %>
 
 <p>Voir votre <%= link_to "Commande", clients_orders_url %></p>

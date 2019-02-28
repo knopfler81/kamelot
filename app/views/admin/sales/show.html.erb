@@ -21,12 +21,12 @@
 					<% @sale.items.each do |item| %>
 						<div class="row">	
 							<div class="col-4">
-								<%= link_to clients_product_path(item.size.product) do  %>
-									<%= image_tag(item.size.product.attachments.first.url, class: "small_image") %>
+								<%= link_to clients_product_path(item.variant.product) do  %>
+									<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
 								<% end %>
 							</div>
 							<div class="col-8">
-								<p><%= item.quantity %>-<%= item.size.product.title %> | Taille <%= item.size.size_name %> | <%= number_to_currency_euro(item.size.product.price) %></p>
+								<p><%= item.quantity %>-<%= item.variant.product.title %> | Taille <%= item.variant.size %> | <%= number_to_currency_euro(item.variant.product.price) %></p>
 							</div>
 						</div>
 					<hr>

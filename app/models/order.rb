@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user,  optional: true
-  has_many :items, class_name: "OrderItem", dependent: :destroy
+  has_many   :items, class_name: "OrderItem", dependent: :destroy
 
   after_initialize :shipping_fees_cents
 
@@ -22,9 +22,9 @@ class Order < ApplicationRecord
   def remove_from_stock
     self.with_lock do 
       self.items.each do |item|
-        @size = Size.where(id: item.size_id).last
-        @size.quantity -= item.quantity.to_i
-        @size.save
+        @stock = Stock.joins(:variant).where(variant_id: item.variant_id).last
+        @stock.quantity -= item.quantity.to_i
+        @stock.save
       end
     end
   end

@@ -12,15 +12,41 @@ Rails.application.routes.draw do
 		namespace :admin do
 
 			get '/products/qr_codes', to: "products#qr_codes"
-			resources :products
+
 
 			resources :products do 
-				resources :restockings 
-			end
+				member do
+        	get :stock
+      	end
+    	end
+
+    	resources :stocks, only: [:create, :update, :destroy]
 
 			resources :products do
 				resources :attachments, only: [:create, :destroy]
 			end
+
+
+			resources :products do
+				resources :variants do 
+				end
+			end
+
+
+
+
+			#get "products/:id/stock", to: "products#stock"
+			# resources :products do 
+			# 	resources :stocks
+			# end	
+			
+			# resources :variants do
+			# 	resources :stocks
+			# end
+
+
+			resources :stocks
+
 
 			get "desktop", to: "products#desktop"
 

@@ -31,21 +31,18 @@
 					<h1 class="primary_title"><%= @product.title.capitalize %> - <%= @product.brand.capitalize %></h1>
 					<h4><%= number_to_currency_euro @product.price %></h4>
 					<p>Couleur: <%=  @product.color %></p>
-						<% if @product.sizes.map(&:quantity).sum == 0 %>
-							<p>Rupture de stock sur cet article</p>
-						<% else %>
-							<%= form_tag clients_order_items_path, input_html: {id: "orderform"} do %>
-								<%= hidden_field_tag :product_id, @product.id %>
-								<%= hidden_field_tag :user_id, @token %>
-								<%= hidden_field_tag :quantity, 1 %>
-							<div class="row">
-								<div class="col-8">
-									<%= select_tag :size_id, options_from_collection_for_select(@product_size_options, :id, :size_name), prompt: "Votre taille", required: true, class: 'form-control custom-select'%>
-									<br><br>
-									<%= submit_tag "Ajouter Au Panier", class: "btn-main", id: "add_to_cart" %>
-								</div>
+											<%= form_tag clients_order_items_path , input_html: {id: "salesform"} do %>
+						<%= hidden_field_tag :product_id, @product.id %>
+						<%= hidden_field_tag :user_id, @token %>
+						<%= hidden_field_tag :quantity, 1 %>
+						<div class="row">
+							<div class="col-12">
+								<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color_stock), prompt: "Taille", class: 'custom-select', required: true %>
+								<br><br>
+								<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
 							</div>
-						<% end %>
+						</div>
+					
 						<div class="row">
 							<div class="col-12">
 								<div class="favorites" id="header_box_<%= @product.id %>">

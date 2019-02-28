@@ -4,10 +4,12 @@ RSpec.describe Order do
 
 	context "A not logged-in user" do 
 		scenario "is asked to login before checking out" do
-			product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "S", quantity: "3"])
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@variant = create(:variant, product_id: @product.id, size: "S")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
 
-			visit clients_product_path(product)
-			select "S", from: "size_id"
+			visit clients_product_path(@product)
+			select "S", from: "variant_id"
 
 			click_on "Ajouter Au Panier"
 
@@ -21,16 +23,15 @@ RSpec.describe Order do
 
 	context "A logged-in user with out any address" do 
 
-		before(:each) do
+		scenario "is asked to fill in shipping address" do
 			mark 	= create(:user)
 			login_as(mark)
-			@product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "L", quantity: "3"])
-		end
-
-		scenario "is asked to fill in shipping address" do
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@variant = create(:variant, product_id: @product.id, size: "L")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
 
 			visit clients_product_path(@product)
-			select "L", from: "size_id"
+			select "L", from: "variant_id"
 
 			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")
@@ -44,16 +45,16 @@ RSpec.describe Order do
 	end
 
 	context "A logged-in user with shipping address" do 
-		before(:each) do
-			mark 	= create(:user)
-			login_as(mark)
-			create(:shipping_address, user_id: mark.id)
-			@product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "L", quantity: "3"])
-		end
 		 scenario "can check out" do 
-		 
+		 mark 	= create(:user)
+		 login_as(mark)
+		 @product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+		 @variant = create(:variant, product_id: @product.id, size: "L")
+		 @stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+		 create(:shipping_address, user_id: mark.id)
+
 		 	visit clients_product_path(@product)
-		 	select "L", from: "size_id"
+		 	select "L", from: "variant_id"
 
 		 	click_on "Ajouter Au Panier"
 		 	expect(page).to have_content("Correctement ajouté au panier")
@@ -71,16 +72,17 @@ RSpec.describe Order do
 	end
 
 	context "general condition of sales must be checked to process payment" do 
-		before(:each) do
+
+		scenario "the user hasn't check the box" do 
 			mark 	= create(:user)
 			login_as(mark)
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@variant = create(:variant, product_id: @product.id, size: "L")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
 			create(:shipping_address, user_id: mark.id)
-			@product = create(:product, brand: "Side Park", sizes_attributes: [size_name: "S", quantity: "3"])
-		end
-		scenario "the user hasn't check the box" do 
-			
+
 			visit clients_product_path(@product)
-			select "S", from: "size_id"
+			select "L", from: "variant_id"
 
 			click_on "Ajouter Au Panier"
 			expect(page).to have_content("Correctement ajouté au panier")

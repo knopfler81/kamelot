@@ -3,11 +3,11 @@ item_1:
   product: red_shirt
   quantity: 2      
   price: 30
-  size: small_red_shirt
+  variant: small_red_shirt
 
 item_2:
   order: first_order
   product: warm_sweat
   quantity: 1
   price: 20
-  size: small_warm_sweat
+  variant: small_warm_sweat

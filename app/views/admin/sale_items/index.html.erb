@@ -7,19 +7,19 @@
 						<tbody>
 							<%  @items.each do |item| %>
 							<tr>
-								<td class="tab_image product_image_tab  <%= 'fade_img' if item.size.quantity == 0 %>"><%= image_tag(item.size.product.attachments.first.url, class: "tiny_image") %></td>	
-								<td><span class="<%= 'not_available' if item.size.quantity == 0 %>"><%= link_to item.size.product.title, clients_product_path(item.size.product_id), class: "title_in_tab" %></span></td>
-								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= number_to_currency_euro(item.price * item.quantity) %></td>
-								<td class="<%= 'not_available' if item.size.quantity == 0 %>"><%= item.size.size_name %> </td>
+								<td class="tab_image product_image_tab  <%= 'fade_img' if item.variant.remaining_stock == 0 %>"><%= image_tag(item.variant.product.attachments.first.url, class: "tiny_image") %></td>	
+								<td><span class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= link_to item.variant.product.title, clients_product_path(item.variant.product_id), class: "title_in_tab" %></span></td>
+								<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= number_to_currency_euro(item.price * item.quantity) %></td>
+								<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= item.variant.size %> </td>
 								<td class="tab_quantity">	
-									<% if item.size.quantity == 0 %>
+									<% if item.variant.remaining_stock == 0 %>
 										<small>n'est plus disponible</small>
 									<% else %>
 										<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
 											<%= f.hidden_field :id, value: item.id %>
 											<%#= f.hidden_field :product_id, value: item.product.id %>
-											<%= f.hidden_field :size_id, value: item.size.id %>
-											<%= f.select :quantity, options_for_select((1..Size.where(id: item.size.id).last.quantity), selected: item.quantity) , {}, { value: item.quantity, class: 'form-control', onchange: 'this.form.submit();' } %>
+											<%= f.hidden_field :variant_id, value: item.variant.id %>
+											<%= f.select :quantity, options_for_select((1..Variant.where(id: item.variant.id).last.remaining_stock), selected: item.quantity) , {}, { value: item.quantity, class: 'form-control', onchange: 'this.form.submit();' } %>
 										<% end %>
 									<% end %>
 								</td>

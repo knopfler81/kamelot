@@ -5,7 +5,7 @@ RSpec.describe Clients::ProductsController, :clients do
   before(:each) do 
     sign_in FactoryBot.create(:user, admin: true)
     category = create(:category)
-    @product = create(:product, category_id: category.id, sizes_attributes: [attributes_for(:size)])
+    @product = create(:product, category_id: category.id)
   end
 
   describe "GET index" do

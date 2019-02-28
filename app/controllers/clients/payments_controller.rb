@@ -16,11 +16,10 @@ class Clients::PaymentsController < Clients::ApplicationController
 	  )
 
 	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
-	  @order.remove_from_stock
-	  session[:cart_token] == nil
 
 	  if @order.save
-		  find_paid_order
+		  @order.remove_from_stock
+		  session[:cart_token] == nil
 		  PaymentMailer.confirmation(@order).deliver_now
 		  PaymentMailer.new_order(@order).deliver_now
 
@@ -28,9 +27,9 @@ class Clients::PaymentsController < Clients::ApplicationController
 
 			@order.items.each do |item|
   			text_message << "Quantité: #{item.quantity} \n"
-  			text_message << "Ref: #{item.size.sizeable.title} \n"
-  			text_message << "Marque: #{item.size.sizeable.brand} \n"
-  			text_message << "Taille: #{item.size.size_name} \n"
+  			text_message << "Ref: #{item.variant.product.title} \n"
+  			text_message << "Marque: #{item.variant.product.brand} \n"
+  			text_message << "Taille: #{item.variant.size} \n"
   			text_message << "---------------\n\n"
   		end
 

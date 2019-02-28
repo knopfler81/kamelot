@@ -5,7 +5,7 @@ RSpec.describe Favorite do
 	scenario "add a product to favorites", js: true do 
 		john = create(:user)
 		login_as john
-		create(:product, brand: "Side Park", sizes_attributes: [size_name: "L", quantity: "3"])
+		create(:product, brand: "Side Park")
 
 		visit clients_products_path
 

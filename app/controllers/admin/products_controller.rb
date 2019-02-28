@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::ApplicationController
 	protect_from_forgery
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
-	before_action :find_product, only: [:show, :destroy, :update, :edit]
+	before_action :find_product, only: [:show, :destroy, :update, :edit, :stock]
 
 	require 'rqrcode'
 
@@ -17,15 +17,15 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def show
 		@products = Product.all
-		@product_size_options = @product.sizes.where('quantity >=1')
+		@product_size_options = @product.variants
 	end
 
 	def new
 		@product = Product.new
-		@product.sizes.build
 	end
 
 	def edit
+		@product.variants.build
 	end
 
 	def qr_codes
@@ -33,7 +33,7 @@ class Admin::ProductsController < Admin::ApplicationController
 		@products = Product.all
 	end
 	def create
-		@product =  Product.new(params_product)
+		@product =  Product.create!(params_product)
 		@product.user_id = current_user.id
 		if @product.save
 			redirect_to admin_product_path(@product), notice: "L'article a bien été créé"
@@ -61,6 +61,11 @@ class Admin::ProductsController < Admin::ApplicationController
 		end
 	end
 
+
+	def stock
+		@variants = @product.variants
+	end
+
 	private
 	
 	def find_product
@@ -72,7 +77,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, :qr_code,{ attachments:[]}, sizes_attributes: [:id, :size_name, :quantity, :_destroy])
+		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, :qr_code,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :_destroy])
 	end
 
 	def filter_products
