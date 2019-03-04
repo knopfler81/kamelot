@@ -5,7 +5,8 @@ class Admin::StocksController < Admin::ApplicationController
 	end
 
 	def index
-		@stocks = Stock.all
+		filter_stocks if params[:query].present?
+		@stocks ||= Stock.joins(:variant).order('variants.product_id')
 		@variants = Variant.all
 	end
 
@@ -26,13 +27,26 @@ class Admin::StocksController < Admin::ApplicationController
 		end
 	end
 
+
+	def stock
+		@variants = @product.variants
+	end
+
+
+
 	private
 
 	def stock_params
-		params.require(:stock).permit(:id, :quantity, :variant_id, :initial_quantity )
+		params.require(:stock).permit(:id, :quantity, :variant_id, :initial_quantity , :supplier_id, :cost_price, :price,)
 	end
 
 	def find_variant
 		@variant = Variant.find(stock_params[:variant_id])
+	end
+
+
+	def filter_stocks
+		@stocks = Stock.joins(variant: :product).where('lower(products.title) LIKE ?', "%#{params[:query][:keyword].downcase }%")
+			.or( Stock.joins(variant: :product).where('lower(products.brand) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	end
 end

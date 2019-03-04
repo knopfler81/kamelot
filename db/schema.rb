@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_164524) do
+ActiveRecord::Schema.define(version: 2019_03_04_150530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,7 +126,9 @@ ActiveRecord::Schema.define(version: 2019_02_28_164524) do
     t.string "ref"
     t.decimal "price"
     t.decimal "buying_price", precision: 10, scale: 2
+    t.integer "supplier_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
   create_table "sale_items", force: :cascade do |t|
@@ -183,7 +185,23 @@ ActiveRecord::Schema.define(version: 2019_02_28_164524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "initial_quantity"
+    t.bigint "supplier_id"
+    t.decimal "cost_price"
+    t.decimal "price"
+    t.index ["supplier_id"], name: "index_stocks_on_supplier_id"
     t.index ["variant_id"], name: "index_stocks_on_variant_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "company"
+    t.string "address"
+    t.string "zipcode"
+    t.string "country"
+    t.string "city"
+    t.string "phone_number"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -206,8 +224,6 @@ ActiveRecord::Schema.define(version: 2019_02_28_164524) do
   create_table "variants", force: :cascade do |t|
     t.string "color"
     t.string "size"
-    t.string "cost_price"
-    t.string "price"
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -222,6 +238,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_164524) do
   add_foreign_key "sale_items", "variants"
   add_foreign_key "sales", "users"
   add_foreign_key "sizes", "products"
+  add_foreign_key "stocks", "suppliers"
   add_foreign_key "stocks", "variants"
   add_foreign_key "variants", "products"
 end

@@ -10,7 +10,9 @@ class Product < ApplicationRecord
 	has_many :favoriting_users, through: :favorites, source: :user
 
 	has_many :variants, dependent: :destroy
-	has_many :stocks, through: :variants
+	has_many :stocks,   through: :variants
+
+	belongs_to :supplier
 
 	accepts_nested_attributes_for :variants
 	
@@ -24,6 +26,7 @@ class Product < ApplicationRecord
 	validates :ref, 				 presence: true
 
 	validate  :attachment_size
+
 
 	private
 

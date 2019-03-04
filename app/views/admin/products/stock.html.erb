@@ -1,42 +1,65 @@
-<div class="container">
-	<h3><%= @product.title %></h3>
-	<hr>
-	<section>
-	<%= simple_form_for(Stock.new, url: admin_stocks_path) do |f| %>
-		<div class="row">
-			<div class="col-12 col-md-4">
-	  		<%= f.select :variant_id, options_from_collection_for_select(@product.variants, :id, :size_and_color), input_html: {class: "custom-select"}, prompt: "Choissiez un article selon sa variante ",required: true %>
-			</div>
-			<div class="col-12 col-md-6">
-				<%= f.input :quantity, label: false, placeholder: "Entrez une quantité", required: true %>
-			</div>
+<div class="content">
+	<div class="row">
+		<div class="col-2">
+			<%= render "admin/shared/menu" %>
 		</div>
-	  <%= f.submit "Enregistrer ce stock" %>
-	<% end %>
-	  
-	</section>
+		<div class="col-8">
+			<br>
+			<br>
+			<br>
+				<h3>Gestion du stock pour <%= @product.title %></h3>
+				<hr>
+				<section>
+					<div class="row">
+						<% @product.variants.each do |var| %>
+							<div class="col-6">
+								<div class="variant-box" style="border:1px black solid; padding: 10px; margin: 5px;">			
+									<%= simple_form_for(Stock.new, url: admin_stocks_path) do |f| %>
+										<div class="row">
 
-<br><br>
+											<div class="col-6" >
+												<p>Variante <span style="color: red"><%= var.size_and_color %></span></p>
+											</div>
+											<div class="col-6">
+												<p><%= var.stocks.map(&:quantity).sum %> unités en stock</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-6">
+												
+												<% @supplier =   Stock.where(variant_id: var.id).last.supplier if var.stocks.any? %>
+												<% if  @supplier.nil? %>
+													<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true, selected: @product.supplier.id %>
+													<% else %>
+													<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true, selected: @supplier.id %>
+												<% end %>
+											</div>
+											<div class="col-6">
+												<%= f.hidden_field :variant_id, value: var.id %>
+												<%= f.input :quantity, label: false, placeholder: "Entrer la quantité" , required: true %>
+											</div>
+											</div>
 
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Variantes</th>
-			<th>Stock</th>
-		</tr>
-	</thead>
-	<% @product.variants.each do |var| %>
-		<tbody>
-			<tr>
-				<td>
-					Taille : <%= var.size %>
-					<br>
-					Couleur : <%= var.color if !var.color.nil? %>
-				</td>
-			<td><%= var.stocks.map(&:quantity).sum %></td>
-			
-			</tr>
-		</tbody>
-	<% end %>
-</table>
+											<div class="row">
+												<div class="col-6">
+													<%= f.input :cost_price, label: "Prix d'achat", input_html: {value: Stock.where(variant_id: var.id).any? ? Stock.where(variant_id: var.id).last.cost_price : @product.buying_price , class: "price_different" }%>
+												</div>
+												<div class="col-6">
+													<%= f.input :price, label: "Prix de vente", input_html: {value: Stock.where(variant_id: var.id).any? ? Stock.where(variant_id: var.id).last.price : @product.price, class: "price_different"} %>
+												</div>
+												
+											</div>
+											<div class="row">
+												<div class="col-12">
+													<%= f.submit "Mettre à jour le stock" , class: "btn btn-main btn-block" %>		
+												</div>
+											</div>
+									<% end %>
+								</div>
+							</div>
+						<% end %>
+					</div>
+				</section>
+		</div>
+	</div>
 </div>

@@ -15,5 +15,6 @@ FactoryBot.define do
     ] }
     user { User.first || association(:user, admin: true)}
     category 
+    supplier
   end
 end

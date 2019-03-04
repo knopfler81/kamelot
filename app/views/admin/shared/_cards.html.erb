@@ -2,7 +2,7 @@
 	<div class="header_box" id="header_box_<%= product.id %>">
 		<div class="row">
 			<div class="col-12">
-				<%= link_to admin_product_path(product) do  %>
+				<%= link_to admin_product_path(product), class: "box_link"  do  %>
 					<div id="carousel_<%= product.id%>" class="carousel slide" data-ride="carousel" data-interval="false">
 					  <div class="carousel-inner">
 						  <% product.attachments.each do |img| %>

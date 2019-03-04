@@ -1,17 +1,10 @@
 <div class="nested-fields">
 	<div class="row">
-		<div class="col-12">
-			<div class="row">
-					<div class="col-6">
-				    <%= f.input :size, label: false, placeholder: "Taille", autofocus: true %>
-				    <%= f.input :color, label: false, placeholder: "Couleur, si autres couleurs disponibles" %>
-					</div>
-					<div class="col-6">
-				    <%= f.input :cost_price, label: false, placeholder: "Prix d'achat si différent selon la taille" %>
-				    <%= f.input :price, label: false, placeholder: "Prix de vente si différent selon la taille" %>
-					</div>
-			</div>
-
+		<div class="col-6">
+		  <%= f.input :size, label: "Taille" , placeholder: "Ex: S", autofocus: true %>
+		</div>
+		<div class="col-6">
+			<%= f.input :color, label: "Couleur", placeholder: "S'il existe différents coloris" %>
 		</div>
 		<div class="col-12 col-md-4">
 			<%= link_to_remove_association "supprimer cette variante", f, class: "btn btn-danger delete_size" %>

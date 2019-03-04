@@ -5,11 +5,12 @@ class Dashboard
 	def initialize(params)
 		params ||= {}
 		@date_from = parsed_date(params[:date_from],Time.now.beginning_of_month.to_date.to_s)
-		@date_to   = parsed_date(params[:date_to], (Date.today.end_of_day - 1.hour).to_s)
+		@date_to   = parsed_date(params[:date_to], Date.today.to_s)
 	end
 
+
 	def variant_date_range
-		Product.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
+		Variant.where('created_at BETWEEN ? AND ?', @date_from, @date_to)
 	end
 
 	def product_date_range

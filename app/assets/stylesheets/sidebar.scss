@@ -1,0 +1,36 @@
+.nav-sidebar {
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #EEEe;
+  border-right: 1px solid #aaaa;
+  height: calc(100% - 50px);
+  z-index: 999;
+
+  a.sidebar-submenu-item:hover {
+    text-decoration: none;
+    background-color: #eee;
+    cursor: pointer;
+  }
+
+  ul.nav-sidebar {
+    > li {
+      > a {
+        color: gray;
+
+        &:hover,
+        &[aria-expanded="true"] {
+          text-decoration: none;
+          background-color: #eee;
+        }
+
+        .icon-chevron-left,
+        .icon-chevron-down {
+          font-size: .5rem;
+          line-height: 2;
+          right: 1rem;
+          top: 50%;
+          margin-top: -.5rem;
+        }
+      }
+    }
+  }
+}
