@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<%= simple_form_for(@supplier, url: admin_supplier_path(@supplier)) do |f| %>
+			<%= f.input :company, input_html: { value: @supplier.company } %>
+			<%= f.input :address, input_html: { value: @supplier.address } %>
+			<%= f.input :zipcode, input_html: { value: @supplier.zipcode } %>
+			<%#= f.input :country, input_html: { value: @supplier.country } %>
+			<%= f.input :city, input_html: { value: @supplier.city } %>
+
+			<%= f.input :phone_number, input_html: { value: @supplier.phone_number } %>
+			<%= f.input :email, input_html: { value: @supplier.email } %>
+			<%= f.submit %>
+				
+		<% end %>
+		  
+	</div>
+</div>

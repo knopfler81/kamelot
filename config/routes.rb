@@ -32,23 +32,14 @@ Rails.application.routes.draw do
 				end
 			end
 
+			resources :suppliers
 
-
-
-			#get "products/:id/stock", to: "products#stock"
-			# resources :products do 
-			# 	resources :stocks
-			# end	
-			
-			# resources :variants do
-			# 	resources :stocks
-			# end
-
+			resources :variants, only: :index
 
 			resources :stocks
 
 
-			get "desktop", to: "products#desktop"
+			get "list", to: "products#list"
 
 		 	resources :categories do 
 		 		resources :products

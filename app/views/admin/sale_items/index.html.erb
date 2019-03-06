@@ -17,7 +17,6 @@
 									<% else %>
 										<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
 											<%= f.hidden_field :id, value: item.id %>
-											<%#= f.hidden_field :product_id, value: item.product.id %>
 											<%= f.hidden_field :variant_id, value: item.variant.id %>
 											<%= f.select :quantity, options_for_select((1..Variant.where(id: item.variant.id).last.remaining_stock), selected: item.quantity) , {}, { value: item.quantity, class: 'form-control', onchange: 'this.form.submit();' } %>
 										<% end %>

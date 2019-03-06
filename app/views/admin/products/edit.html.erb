@@ -1,106 +1,132 @@
-<div class="container">
-	<section class="section">
-		<h1 class="primary_title"><%= @product.title.upcase %> - <%= @product.color.upcase %></h1>
-		<hr>
-		<%= simple_form_for(@product, url: admin_product_path(@product)) do |f| %>		
-			<div class="row">
-				<div class="col-12 <%= 'error_message' if @product.errors.full_messages.any? %> ">
+<div class="content">
+	<br>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-3">
+			<ul class="menu-product">
+				<li class="list-item">
+					<%= link_to "Voir l'article", admin_product_path(@product), target: '_blank'  %>
+				</li>
+				<li class="list-item">
+					<%= link_to "Ajouter le stock", stock_admin_product_path(@product)%>
+				</li>
 
-				<% if  @product.errors.any? %>
-					<% @product.errors.full_messages.each do |msg| %>
-						<li><%= msg %></li>
-					<% end %>
+				<li class="list-item"> 
+					<%= link_to "Tous les articles", admin_list_path  %></li>
+			</ul>
+		</div>
+		<div class="col-8">
+				<section class="section">
+					<h1 class="primary_title"><%= @product.title.upcase %> - <%= @product.color.upcase %></h1>
+					<hr>
+					<%= simple_form_for(@product, url: admin_product_path(@product)) do |f| %>		
+						<div class="row">
+							<div class="col-12 <%= 'error_message' if @product.errors.full_messages.any? %> ">
+
+							<% if  @product.errors.any? %>
+								<% @product.errors.full_messages.each do |msg| %>
+									<li><%= msg %></li>
+								<% end %>
+							<% end %>
+							</div>
+						</div>
+				</section>
+				<section class="section">
+					<h3>DESCRIPTION DE L'ARTICLE</h3>
+					<hr>
+					<br>
+					<div class="row">
+						<div class="col-12 col-md-3">
+							<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true, selected: @product.supplier_id  %>
+		
+						</div>
+						<div class="co-12 col-md-3">
+							<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie", input_html: { class: "custom-select"}, required: true %>
+						</div>
+						<div class="co-12 col-md-3">
+							<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
+						</div>
+						<div class="co-12 col-md-3">
+							<%= f.input :title, placeholder: "Titre", label: false, required: true %>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="co-12 col-md-3">
+							<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
+						</div>
+						<div class="co-12 col-md-3">
+							<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
+						</div>
+					</div>
+						
+
+					<div class="row">
+						<div class="col-12">
+							<%= f.input :description, placeholder: "Description", input_html: {rows: 5}, label: false, required: true %>
+						</div>
+					</div>
+				</section>
+
+				<section class="section">
+					<h3>LES IMAGES</h3>
+					<hr>
+					<br>
+					<div class="row">
+						<div class="col-16 col-md-4">
+							<% if @product.attachments.size >= 4 %>
+								<button type="button" class="btn btn-main add-pic-modal" disabled >
+								 Ajouter des images
+								</button>
+								<% else %>
+								<button type="button" class="btn btn-main add-pic-modal" data-toggle="modal" data-target="#addpicmodal">
+								 Ajouter des images
+								</button>
+							<% end %>
+						</div>
+						<div class="col-12 col-md-8">
+							<% @product.attachments.each_with_index do | product, index| %>
+								<%= image_tag product.url, class: "tiny_image" %>
+								<% unless @product.attachments.index(@product.attachments.last) == 0 %>
+									<%= link_to admin_product_attachment_path(@product, index), method: :delete, data: { confirm: "La suppression de l'image est irreversible?" }, class: "delete_img_link"  do %>
+										<i class="fa fa-trash trash"></i>
+									<% end %>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+					<br>
+					<br>
+				</section>
+
+			<section>
+					 		<h3>AJOUTER DES VARIANTES</h3>
+				 		<hr>
+				 		<div class="row">
+				 			<div class="col-12">
+					 			<div id="variants">
+					 			  <%= f.simple_fields_for :variants do |variant| %>
+					 		      <%= render "variant_fields", f: variant %>
+					 		    <% end %>
+					 		   	<div class="links">
+					 		     	<%= link_to_add_association "Ajouter une variante", f, :variants, partial: "variant_fields", class: "btn btn-secondary btn-lg" %>
+					 		   	</div>
+					 			</div>
+				 			</div>
+				 		</div>
+				<%= f.submit "Mettre à jour l'article", class: "btn btn-main btn-lg btn-block" %>
+
+			</section>
+
+
+
 				<% end %>
-				</div>
-			</div>
-	</section>
-	<section class="section">
-		<h3>MODIFIER LA DESCRIPTION DE L'ARTICLE</h3>
-		<hr>
-		<br>
-		<div class="row">
-			<div class="co-12 col-md-4">
-				<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie", input_html: { class: "custom-select"}, required: true %>
-			</div>
-			<div class="co-12 col-md-4">
-				<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
-			</div>
-			<div class="co-12 col-md-4">
-				<%= f.input :title, placeholder: "Titre", label: false, required: true %>
-			</div>
 		</div>
-
-		<div class="row">
-			<div class="co-12 col-md-3">
-				<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
-			</div>
-			<div class="co-12 col-md-3">
-				<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
-			</div>
-		</div>
-			
-
-		<div class="row">
-			<div class="col-12">
-				<%= f.input :description, placeholder: "Description", input_html: {rows: 5}, label: false, required: true %>
-			</div>
-		</div>
-	</section>
-
-	<section class="section">
-		<h3>MODIFIER LES IMAGES</h3>
-		<hr>
-		<br>
-		<div class="row">
-			<div class="col-16 col-md-4">
-				<% if @product.attachments.size >= 4 %>
-					<button type="button" class="btn btn-main add-pic-modal" disabled >
-					 Ajouter des images
-					</button>
-					<% else %>
-					<button type="button" class="btn btn-main add-pic-modal" data-toggle="modal" data-target="#addpicmodal">
-					 Ajouter des images
-					</button>
-				<% end %>
-			</div>
-			<div class="col-12 col-md-8">
-				<% @product.attachments.each_with_index do | product, index| %>
-					<%= image_tag product.url, class: "tiny_image" %>
-					<% unless @product.attachments.index(@product.attachments.last) == 0 %>
-						<%= link_to admin_product_attachment_path(@product, index), method: :delete, data: { confirm: "La suppression de l'image est irreversible?" }, class: "delete_img_link"  do %>
-							<i class="fa fa-trash trash"></i>
-						<% end %>
-					<% end %>
-				<% end %>
-			</div>
-		</div>
-		<br>
-		<br>
-	</section>
-
-<section>
-		 		<h3>AJOUTER DES VARIANTES</h3>
-	 		<hr>
-	 		<div class="row">
-	 			<div class="col-12">
-		 			<div id="variants">
-		 			  <%= f.simple_fields_for :variants do |variant| %>
-		 		      <%= render "variant_fields", f: variant %>
-		 		    <% end %>
-		 		   	<div class="links">
-		 		     	<%= link_to_add_association "Ajouter une variante", f, :variants, partial: "variant_fields", class: "btn btn-secondary btn-lg" %>
-		 		   	</div>
-		 			</div>
-	 			</div>
-	 		</div>
-	<%= f.submit "Mettre à jour l'article", class: "btn btn-main btn-lg btn-block" %>
-
-</section>
+	</div>
 
 
-
-	<% end %>
 </div>
-<%#= render "modal_add_pic" %>
+<%= render "modal_add_pic" %>
 
 

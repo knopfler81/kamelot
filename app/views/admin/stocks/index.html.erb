@@ -1,23 +1,50 @@
 <div class="container">
-	<% @variants.each do |var| %>
+
+	
+
+	<%= simple_form_for :query, url: admin_stocks_url, method: :get,  html: {class: "form-inline"} do |f| %>
+	  <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-admin"} %>
+	  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+	    <i class="fa fa-search"></i>
+	  <% end %>
+	<% end %>
+
+	<br>
 
 
-	<table>
+
+	<table class="table table-striped">
 		<thead>
 			<tr>
+				<th>stock id</th>
+				<th>Mise à jour le</th>
+				<th>Article</th>
+				<th>ID</th>
+				<th>Marque</th>
 				<th>Variante</th>
-				<th>Information stock </th>
+				<th>Stock initial</th>
+				<th>Srock restant</th>
+				<th>Fournisseur</th>
+				<th>Prix achat unitaire</th>
 			</tr>
 		</thead>
 
 		<tbody>
+			<% @stocks.each do |stock| %>
 			<tr>
-				<td>
-					<li><%= var.product.title %></li> 
-					<li><%= var.size %></li>
-				</td>
+				<td><%= stock.id %></td>
+				<td><%= l(stock.created_at,  format: '%d/%m/%y' )  %></td>
+				<td><%= stock.variant.product.title %></td>
+				<td><%= stock.variant.product.id %></td>
+				<td><%= stock.variant.product.brand %></td>
+				<td><%= stock.variant.size_and_color_stock %></td>
+				<td><%= stock.initial_quantity %></td>
+				<td><%= stock.quantity %></td>
+
+				<td><%= stock.define_supplier%></td>
+				<td> <%=number_to_currency_euro  stock.price.nil? ? stock.variant.product.buying_price : stock.cost_price %></td>
 			</tr>
+	<% end %>
 		</tbody>
 	</table>
-	<% end %>
 </div>

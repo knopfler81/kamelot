@@ -22,28 +22,33 @@
 
 			<div class="row">
 				<div class="co-12 col-md-4">
+					<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true  %>
+				</div>
+				<div class="co-12 col-md-4">
 					<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie", input_html: { class: "custom-select"}, required: true %>
 				</div>
 				<div class="co-12 col-md-4">
 					<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
 				</div>
-				<div class="co-12 col-md-4">
-					<%= f.input :title, placeholder: "Titre", label: false, required: true %>
-				</div>
 			</div>
 
 			<div class="row">
-				<div class="co-12 col-md-3">
+				<div class="co-12 col-md-4">
+					<%= f.input :title, placeholder: "Titre", label: false, required: true %>
+				</div>
+				<div class="co-12 col-md-4">
 					<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
 				</div>
-				<div class="co-12 col-md-3">
-					<%= f.input :price, placeholder: "Prix", label: false, required: true %>
+				<div class="co-12 col-md-4">
+					<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
 				</div>
-				<div class="co-12 col-md-3">
+			</div>
+			<div class="row">
+				<div class="co-12 col-md-6">
 					<%= f.input :buying_price, placeholder: "Prix d'achat (important pour la comptat)", label: false, required: true %>
 				</div>
-				<div class="co-12 col-md-3">
-					<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
+				<div class="co-12 col-md-6">
+					<%= f.input :price, placeholder: "Prix de vente", label: false, required: true %>
 				</div>
 			</div>
 			
@@ -69,25 +74,8 @@
 				</div>
 			</div>
 		</section>
-		 	<section>
-		 		<h3>AJOUTER DES VARIANTES</h3>
-		 		<hr>
-		 		<div class="row">
-		 			<div class="col-12">
-			 			<div id="variants">
-			 			  <%= f.simple_fields_for :variants do |variant| %>
-			 		      <%= render "variant_fields", f: variant %>
-			 		    <% end %>
-			 		   	<div class="links">
-			 		     	<%= link_to_add_association "Ajouter une variante", f, :variants, partial: "variant_fields", class: "btn btn-secondary btn-lg" %>
-			 		   	</div>
-			 			</div>
-		 			</div>
-		 		</div>
-				<br><br>
+
 		 	<%= f.submit "Valider le produit", class: "btn btn-main btn-lg btn-block" %>
-		 	<br><br>
-		 	</section>
 
 
 	<% end %>

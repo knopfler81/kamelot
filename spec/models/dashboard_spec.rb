@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard, type: :model do
-	# let(:date_from) { 5.days.ago.to_date }
- #  let(:date_to)   { Date.today }
+	 let(:date_from) { 5.days.ago.to_date }
+   let(:date_to)   { Date.today }
 
 
   subject { Dashboard.new(date_from: @date_from, date_to: @date_to) }
@@ -18,10 +18,11 @@ RSpec.describe Dashboard, type: :model do
 	describe "#variant_date_range" do
 		it "returns the number of products created in this period" do 
 			create(:product, brand: "machin", created_at: 1.month.ago)
-			create(:product, brand: "truc",   created_at: 1.day.ago)
-			create(:product, brand: "bidule", created_at: 1.day.ago)
+			bidule = create(:product, brand: "bidule", created_at: 1.day.ago)
+			create(:variant, product_id: bidule.id, created_at: 1.day.ago )
 			res = subject.variant_date_range.count 
-			expect(res).to eq(2)
+
+			expect(res).to eq(1)
 		end
 	end
 
@@ -99,12 +100,12 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#clients_registration_by_week" do 
 		it "returns the total number of user by week" do
-			create(:user, created_at: 2.days.ago)
+			#create(:user, created_at: 2.days.ago)
 			create(:user, created_at: Date.today )
 			
 			res = subject.clients_registration_by_week
 
-			expect(res.values.last).to eq(2)
+			expect(res.values.last).to eq(1)
 		end
 	end
 

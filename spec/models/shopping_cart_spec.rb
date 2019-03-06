@@ -6,6 +6,8 @@ require 'rails_helper'
  		@shirt  = create(:product)
  		@small  = create(:variant, size: "S")
  		@large  = create(:variant, size: "L")
+ 		@stock_1  = create(:stock, variant_id: @small.id, price: 59)
+ 		@stock_2  = create(:stock, variant_id: @large.id, price: 59)
  		@john   = create(:user)
  		@token  = 12345678
 	 	@current_cart ||= ShoppingCart.new(token: @token)
@@ -24,8 +26,8 @@ require 'rails_helper'
 
  	describe ".add_item" do 
  		it 'add item to the cart' do 
- 			@current_cart.add_item(quantity: 1, variant_id: @large.id, )
-	 		@current_cart.add_item(quantity: 2, variant_id: @small.id, )
+ 			@current_cart.add_item(quantity: 1, variant_id: @large.id )
+	 		@current_cart.add_item(quantity: 2, variant_id: @small.id )
 
 	 		expect(@current_cart.items_count).to eq(3)
 	 	end

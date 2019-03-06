@@ -1,9 +1,8 @@
 <div class="container">
 	<div class="row">
 		<div class="d-none d-md-block">
-			<%= link_to "Ajouter le stock", stock_admin_product_path(@product), class: "btn btn-warning"  %>
 			<%= link_to "Modifier", edit_admin_product_path, data: { turbolinks: false }, class: "btn btn-warning edit_product" %>
-			<%#= link_to "Supprimer", admin_product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
+			<%= link_to "Supprimer", admin_product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
 			<hr>
 			<%= render_qr_code_small("https://super-shop-staging.herokuapp.com/admin/products/#{@product.id}") %>
 		</div>
@@ -40,27 +39,27 @@
 							<div class="col-3 d-block d-md-none">
 								<%= image_tag(@product.attachments[0].url, class: "small_image") %>
 							</div>
-						<div class="col-9">
-							<h1 class="primary_title"><%= @product.title.capitalize %></h1>
-							<h1 class="primary_title"><%= @product.brand.capitalize %></h1>
-							<h4><%= number_to_currency_euro @product.price %></h4>
-							<p>Couleur: <%=  @product.color %></p>
-						</div>
-					</div>
-					<%= form_tag admin_sale_items_path , input_html: {id: "salesform"} do %>
-						<%= hidden_field_tag :product_id, @product.id %>
-						<%= hidden_field_tag :user_id, @token %>
-						<%= hidden_field_tag :quantity, 1 %>
-						<div class="row">
-							<div class="col-12">
-								<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color_stock), prompt: "Taille", class: 'custom-select', required: true %>
-								<br><br>
-								<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
+							<div class="col-9">
+								<h1 class="primary_title"><%= @product.title.capitalize %></h1>
+								<h1 class="primary_title"><%= @product.brand.capitalize %></h1>
+								<small>Prix de départ</small>
+								<h4 id="product_price"><%= number_to_currency_euro @product.price %> </h4>
+								<p>Couleur: <%=  @product.color %></p>
 							</div>
 						</div>
-					<% end %>
+						<%= form_tag admin_sale_items_path , input_html: {id: "salesform"} do %>
+							<%= hidden_field_tag :product_id, @product.id %>
+							<%= hidden_field_tag :user_id, @token %>
+							<%= hidden_field_tag :quantity, 1 %>
+							<div class="row">
+								<div class="col-12">
+									<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color_stock), prompt: "Taille", class: 'custom-select variant', id: "variant-select", required: true %>
+									<br><br>
+									<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
+								</div>
+							</div>
+						<% end %>
 					</div>
-
 					<div class="row">
 						<div class="col-12 d-none d-md-block">
 							<br><br>

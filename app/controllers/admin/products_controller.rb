@@ -10,9 +10,10 @@ class Admin::ProductsController < Admin::ApplicationController
     @products ||= Product.all
 	end
 
-	def desktop
- 		filter_products if params[:query].present?
-    @products ||= Product.all
+
+	def list
+		filter_products if params[:query].present?
+		@products ||= Product.all
 	end
 
 	def show
@@ -36,7 +37,7 @@ class Admin::ProductsController < Admin::ApplicationController
 		@product =  Product.create!(params_product)
 		@product.user_id = current_user.id
 		if @product.save
-			redirect_to admin_product_path(@product), notice: "L'article a bien été créé"
+			redirect_to edit_admin_product_path(@product), notice: "L'article a bien été créé"
 		else
 			render :new, alert: "Woops une erreur"
 		end	
@@ -53,7 +54,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	def update
 		if @product.update_attributes(params_product)
 			respond_to do |format|
-				format.html {redirect_to admin_product_path(@product), notice: "L'article a bien été modifié"}
+				format.html {redirect_to edit_admin_product_path(@product), notice: "L'article a bien été modifié" }
 				format.js
 			end
 		else
@@ -77,7 +78,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :color, :qr_code,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :_destroy])
+		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
 	end
 
 	def filter_products

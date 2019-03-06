@@ -18,6 +18,7 @@ class ShoppingCart
 
   def add_item(quantity:1 , variant_id:) 
     @variant = Variant.find_by(id: variant_id)
+    @stock = Stock.where(variant_id: @variant.id).last
     @product = @variant.product
 
     @order_item =  if order.items.where(variant_id: variant_id).any?
@@ -26,14 +27,21 @@ class ShoppingCart
      order.items.new(variant_id: variant_id)
     end
     
-    @order_item.price = @product.price
+    
+    if !@stock.price.nil?
+       @order_item.price = @stock.price
+    else
+      @order_item.price  = @product.price
+    end
+
     @order_item.quantity = quantity.to_i
 
     ActiveRecord::Base.transaction do
       @order_item.save
       update_sub_total!
     end
-    #remettre à 30min 
+    # TODO
+    # remettre à 30min , est ce encore utile?? a vérifier
     if Rails.env.development?
       CartCleanupJob.set(wait: 1.minutes).perform_later(order.id) 
     else

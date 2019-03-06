@@ -1,0 +1,41 @@
+<div class="container">
+	<h1 class="primary_title manage_stock_title">ARTICLES</h1>
+	<hr>
+	<br><br>
+
+	<%= simple_form_for :query, url: admin_list_url, method: :get,  html: {class: "form-inline"} do |f| %>
+	  <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-admin"} %>
+	  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+	    <i class="fa fa-search"></i>
+	  <% end %>
+	<% end %>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Image</th>
+					<th>Nom</th>
+					<th>Marque</th>
+					<th>Ref</th>
+					<th>Prix</th>
+					<th>Voir</th>
+					<th>Edition</th>
+					<th>Ajouter stock</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each do |product| %>
+				<tr>
+					<td><%= image_tag(product.attachments.first.url, class: "small_image") %></td>
+					<td><%= product.title %></td>
+					<td><%= product.brand %></td>
+					<td><%= product.ref %></td>
+					<td><%= number_to_currency_euro (product.price) %></td>
+					<td><%= link_to "Voir",admin_product_path(product)  %></td>
+					<td><%= link_to "Modifier", edit_admin_product_path(product)  %></td>
+					<td><%= link_to "Ajouter stock", stock_admin_product_path(product)  %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+</div>

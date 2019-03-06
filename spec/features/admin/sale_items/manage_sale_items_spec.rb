@@ -19,7 +19,7 @@ RSpec.describe SaleItem do
 		expect(page).to have_content("Correctement ajouté au panier")
 
 		click_on "Continuer"
-		page.first(".card_link").click
+		page.first(".box_link").click
 		select "S", from: "variant_id"
 		click_on "Ajouter Au Panier"
 		

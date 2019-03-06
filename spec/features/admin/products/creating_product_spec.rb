@@ -6,6 +6,7 @@ RSpec.describe "Creating Product" , :js do
 
 		before(:each) do 
 			nelly = create(:user, admin: true)
+			company = create(:supplier, company: "Morrin")
 			gillet = create(:category, title: "Gillet")
 			login_as(nelly)
 		end
@@ -19,13 +20,14 @@ RSpec.describe "Creating Product" , :js do
 			fill_in "product[description]", with: "Une description pour ce gillet"
 			fill_in "product[color]", with: "Noir"
 			fill_in "product[ref]", with: "FF00"
-			select "Gillet", from: "product[category_id]"
+			select "Gillet",  from: "product[category_id]"
+			select "Morrin", from: "product[supplier_id]"
 
 			attach_file "product[attachments][]", Rails.root.join("spec/fixtures/product/attachments/pull_noir_1.jpg")
 
-			click_on "Ajouter une variante"
-			find('.nested-fields:nth-child(1)').fill_in "Taille", with: "M"
-			find('.nested-fields:nth-child(1)').fill_in "Couleur, si autres couleurs disponibles", with: 9
+			# click_on "Ajouter une variante"
+			# find('.nested-fields:nth-child(1)').fill_in "Taille", with: "M"
+			# find('.nested-fields:nth-child(1)').fill_in "Couleur, si autres couleurs disponibles", with: 9
 
 			click_on "Valider le produit"
 
