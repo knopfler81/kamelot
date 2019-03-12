@@ -1,0 +1,133 @@
+<% unless controller_name == "pages" && action_name == 'landing' %>
+  <div class="page-wrapper chiller-theme toggled" data-turbolinks="false">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper">
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <a href="#">Menu pro</a>
+          <div id="close-sidebar">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li class="sidebar-dropdown">
+              <a href="#">
+               <i class="fas fa-cart-arrow-down"></i>
+                <span>Commandes</span>
+                <% if Order.where(status: "paid").count >= 1 %>
+                  
+                <span class="badge badge-pill badge-danger"><%= Order.where(status: "paid").count %></span>
+                <% end %>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Commandes internet", admin_orders_path,  class: "list-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>      
+            </li>
+
+            <li class="sidebar-dropdown">
+              <a href="#">
+               <i class="fas fa-truck"></i>
+                <span>Marchés</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Ventes marchés", admin_sales_path,  class: "list-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>      
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="article">
+               <i class="fas fa-tshirt"></i>
+                <span>Articles</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Tous les articles",  admin_list_path , class: "drop-item" %>
+                  </li>
+                  <li>
+                    <%= link_to "Ajouter un article", new_admin_product_path, class: "drop-item" %>
+                  </li>
+                  <% unless @product.nil? || @product.new_record? %>
+                    <li>
+                      <%= link_to "Ajouter le stock",   stock_admin_product_path(@product), class: "drop-item" %>
+                    </li>
+                    <li>
+                      <%= link_to "Voir l'article",     admin_product_path(@product), target: '_blank', class: "drop-item" %>
+                    </li>
+                    <li>
+                      <%= link_to "Modifier l'article", edit_admin_product_path, data: { turbolinks: false }, class: "drop-item edit_product" %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="suppliers">
+                <i class="fas fa-address-book"></i>
+                <span>Fournisseurs</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Ajouter fournisseur", new_admin_supplier_path,  class: "drop-item" %>
+                  </li>
+                  <li>
+                    <%= link_to "Fournisseurs", admin_suppliers_path,  class: "drop-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+            <li class="sidebar-dropdown">
+              <a href="#">
+                <i class="fas fa-users"></i>
+                <span>Utilisateurs</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Utilisateurs", "#",  class: "list-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="dashboard">
+                <i class="fa fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Journal", admin_dashboard_journal_path, class: "drop-item" %>
+                  </li>
+                  <li>
+                    <%= link_to "Statistiques", admin_dashboard_path,  class: "drop-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+               <%= link_to "Customisation", clients_customization_path, class: "list-item"  %>
+            </li>
+          </ul>
+        </div>
+        <!-- sidebar-menu  -->
+      </div>
+    </nav>
+  </div>
+<% end %>

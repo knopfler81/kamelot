@@ -37,12 +37,3 @@ $(document).ready(function() {
         $('form').submit();
     });
 });
-
-
-// // = require journal
-// // = require dragdrop
-// // = require customization
-// // = require product
-// // = require highcharts_options
-
-
