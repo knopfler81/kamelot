@@ -1,9 +1,7 @@
 <div class="container">
 
-	
-
 	<%= simple_form_for :query, url: admin_stocks_url, method: :get,  html: {class: "form-inline"} do |f| %>
-	  <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-admin"} %>
+	  <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search"} %>
 	  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
 	    <i class="fa fa-search"></i>
 	  <% end %>
@@ -12,14 +10,13 @@
 	<br>
 
 
-
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>stock id</th>
 				<th>Mise à jour le</th>
 				<th>Article</th>
-				<th>ID</th>
+				<th>product ID</th>
 				<th>Marque</th>
 				<th>Variante</th>
 				<th>Stock initial</th>
@@ -32,6 +29,7 @@
 		<tbody>
 			<% @stocks.each do |stock| %>
 			<tr>
+        
 				<td><%= stock.id %></td>
 				<td><%= l(stock.created_at,  format: '%d/%m/%y' )  %></td>
 				<td><%= stock.variant.product.title %></td>

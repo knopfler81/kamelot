@@ -66,12 +66,12 @@
                       <%= link_to "Ajouter le stock",   stock_admin_product_path(@product), class: "drop-item" %>
                     </li>
                     <li>
-                      <%= link_to "Voir l'article",     admin_product_path(@product), target: '_blank', class: "drop-item" %>
-                    </li>
-                    <li>
                       <%= link_to "Modifier l'article", edit_admin_product_path, data: { turbolinks: false }, class: "drop-item edit_product" %>
                     </li>
                   <% end %>
+                    <li>
+                      <%= link_to "Gestion du stock", admin_stocks_path,  class: "drop-item" %>
+                    </li>
                 </ul>
               </div>
             </li>

@@ -6,9 +6,6 @@ class Variant < ApplicationRecord
   has_many :stocks, dependent: :destroy
 
 
-  #validates :size, presence: true, on: :create
-
-
   def size_and_color
 	  if self.color == ""
 	  	"#{size}"
@@ -31,7 +28,4 @@ class Variant < ApplicationRecord
 	def remaining_stock
 		self.stocks.map(&:quantity).sum
 	end
-
-
-
 end
