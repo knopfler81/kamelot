@@ -81,5 +81,4 @@ $(document).on('turbolinks:load', function() {
 		});
 		$('.total_margin_sales').html(total.toFixed(2).replace(".", ",") + " €");
 	});
-
 });

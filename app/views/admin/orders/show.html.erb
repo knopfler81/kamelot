@@ -74,13 +74,13 @@
 				<% @order.items.each do |item| %>
 					<div class="row body_order_card ">	
 						<div class="col-2">
-							<%= link_to clients_product_path(item.size.product) do  %>
-								<%= image_tag(item.size.product.attachments.first.url) %>
+							<%= link_to clients_product_path(item.variant.product) do  %>
+								<%= image_tag(item.variant.product.attachments.first.url) %>
 							<% end %>
 						</div>
 					 	<div class="col-4">
-					 		<p><%= item.quantity %>-<%= item.size.product.title %>, taille <%= item.size.size_name %></p>
-					 		<p><%= number_to_currency_euro(item.size.product.price) %></p>
+					 		<p><%= item.quantity %>-<%= item.variant.product.title %>, taille <%= item.variant.size %></p>
+					 		<p><%= number_to_currency_euro(item.variant.product.price) %></p>
 					 	</div>
 					</div>
 				<% end %>
