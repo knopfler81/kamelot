@@ -14,6 +14,22 @@
         <div class="sidebar-menu">
           <ul>
             <li class="sidebar-dropdown">
+               <a href="#">
+               <% if current_user %>
+               <i class="fas fa-toggle-on"></i>
+                 <%= current_user.first_name %>
+               <% end %>
+               </a>
+              <% if current_user %>
+                <% if current_user.admin? %>
+                  <div class="sidebar-submenu">
+                    <%= link_to "Customization", clients_customization_path, class: "list-item"  %>
+                    <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "list-item" %>
+                <% end %>
+                </div>           
+              <% end %>
+            </li>
+            <li class="sidebar-dropdown">
               <a href="#">
                <i class="fas fa-cart-arrow-down"></i>
                 <span>Commandes</span>

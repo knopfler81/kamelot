@@ -6,12 +6,11 @@ class Sale < ApplicationRecord
 
 	enum status: [:pending, :paid, :cancelled ]
 
-
 	def remove_from_stock
 		self.items.each do |item|
 			Stock.where(variant_id: item.variant_id).where('quantity > 0').order(:created_at).reduce(item.quantity.to_i) do |quantity, stock|
-			  if leftover = item.quantity.to_i - stock.quantity <= 0
-			    stock.update_attributes! quantity: stock.quantity - item.quantity.to_i 
+			  if (leftover = quantity - stock.quantity) <= 0
+			    stock.update_attributes! quantity: stock.quantity - quantity
 			    break
 			  else
 			    stock.update_attributes! quantity: 0

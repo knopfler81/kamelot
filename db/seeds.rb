@@ -784,7 +784,7 @@ puts "Products and Sizes Created"
 [product_1, product_2, product_3, product_4, product_13 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
-		quantity: 7,
+		quantity: 8,
 		variant_id: var.id,
 		supplier_id: supplier_1.id
 	)
@@ -794,7 +794,7 @@ end
 [product_5, product_6, product_7, product_8, product_14 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
-		quantity: 8,
+		quantity: 9,
 		variant_id: var.id,
 		supplier_id: supplier_2.id
 	)
@@ -812,20 +812,16 @@ end
 	end
 end
 
-[product_9, product_10, product_11, product_12 ].each do |pd|
+[product_1, product_5, product_8].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
-		quantity: 10,
+		quantity: 12,
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
 		updated_at: 1.day.ago,
 	)
 	end
 end
-
-
-
-
 
 def remove_from_stock(order)
   order.items.each do |item|
