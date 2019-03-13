@@ -8,13 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400" rel="stylesheet">    
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= stylesheet_pack_tag    'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= render "layouts/admin/admin_nav" %>
     <%= render "layouts/admin/menu" %>
+    <%= render "layouts/admin/admin_nav" %>
     <%= render "layouts/shared/flashes" %>  
     <%= yield %>
     <!-- !!!!!! Il faut laisser les javascript_tags sous le yield si non probleme de react--> 

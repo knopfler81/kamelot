@@ -4,19 +4,21 @@
 	<div class="graph_boxe">
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<hr>
-				<%= column_chart [name: "Inscriptions", data: @dashboard.clients_registration_by_week], colors: ["red"], title: "Inscriptions par semaine" %>	
+				<div class="stats">
+						<%= column_chart [name: "Inscriptions", data: @dashboard.clients_registration_by_week], colors: ["red"], title: "Inscriptions par semaine" %>		
+				</div>
 			</div>
 			<div class="col-12 col-md-6">
-				<hr>
-				<%= column_chart [name: "Inscriptions", data: @dashboard.clients_registration_by_month], colors: ["black"], title: "Inscriptions par mois" %>
+				<div class="stats">
+						<%= column_chart [name: "Inscriptions", data: @dashboard.clients_registration_by_month], colors: ["black"], title: "Inscriptions par mois" %>	
+				</div>
 			</div>
 		</div>
-		<br><br>
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<hr>
-				<%= pie_chart  @dashboard.clients_gender, colors: ["blue", "orange"], title: "Genres"  %>
+				<div class="stats">
+					<%= pie_chart  @dashboard.clients_gender, colors: ["blue", "orange"], title: "Genres"  %>
+				</div>
 			</div>
 		</div>
 	</div>

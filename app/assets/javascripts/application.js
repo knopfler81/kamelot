@@ -37,3 +37,16 @@ $(document).ready(function() {
         $('form').submit();
     });
 });
+
+
+//on off session
+$(document).on('turbolinks:load', function() {
+	$('#session').mouseenter(function(){
+		$(".fa-toggle-on").css('display', 'none');
+		$(".fa-toggle-off").css('display', 'inline-block');
+	})
+	$('#session').mouseleave(function(){
+		$(".fa-toggle-on").css('display', 'inline-block');
+		$(".fa-toggle-off").css('display', 'none');
+	})
+});

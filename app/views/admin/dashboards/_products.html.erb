@@ -5,7 +5,8 @@
 	<div class="graph_boxe">
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<br>
+				<div class="stats">
+					
 				<%= pie_chart @dashboard.products_per_category, colors: [ "orange" "black", "yellow", "blue", "red"], 
 																												title: "Articles / catégories", 
 																												library: {
@@ -19,10 +20,12 @@
 																													  	}
 																														},
 																													} %>
+				</div>
 			</div>
 			<div class="col-12 col-md-6">
-				<br>
-				<%= pie_chart @dashboard.variants_per_products ,  colors: [ "red", "green", "yellow", "blue", "orange"], 
+				<div class="stats">
+					
+					<%= pie_chart @dashboard.variants_per_products ,  colors: [ "red", "green", "yellow", "blue", "orange"], 
 																												title: "Articles / tailles", 
 																												library: {
 																												  plotOptions: {
@@ -34,17 +37,19 @@
 																												       showInLegend: true
 																												    }
 																												  }}%>
+				</div>
 			</div>
 		</div>
-		<br><br>
 		<div class="row">
 			<div class="col-12 col-md-6">
-				<br>
-				<%= column_chart [name: "Quantité", data: @dashboard.products_added_by_week], colors: ["red"], title: "Articles ajoutés par semaine" %>
+				<div class="stats">
+					<%= column_chart [name: "Quantité", data: @dashboard.products_added_by_week], colors: ["red"], title: "Articles ajoutés par semaine" %>
+				</div>
 			</div>
 			<div class="col-12 col-md-6">
-				<br>
-				<%= column_chart [name: "Quantité", data: @dashboard.products_added_by_month], colors: ["black"], title: "Articles ajoutés par mois" %>	
+				<div class="stats">
+					<%= column_chart [name: "Quantité", data: @dashboard.products_added_by_month], colors: ["black"], title: "Articles ajoutés par mois" %>	
+				</div>
 			</div>
 		</div>
 	</div>

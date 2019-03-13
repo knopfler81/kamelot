@@ -2,33 +2,32 @@
 	<br>
 	<%= form_tag admin_dashboard_journal_path, method: :get do  %>
 		<div class="row">  
-			<div class="offset-sm-2 col-12 col-sm-3">
+			<div class="col-12 col-md-3">
 				<%= text_field_tag "search[date_from]", @dashboard.date_from, class: "datepicker" %>
 			</div>
-			<div class="col-12 col-sm-3">
+			<div class="col-12 col-md-3">
 				<%= text_field_tag "search[date_to]", @dashboard.date_to, class: "datepicker" %>
+				
 			</div>
-			<div class="col-12 col-sm-3">
-				<%= submit_tag "Rechercher", class: "btn btn-main" %>
+			<div class="col-12 col-md-3">
+				<%= submit_tag "Rechercher", class: "btn btn-main btn-block datepicker-btn" %>
 			</div>
-		</div>
-		<div class="row">
-			<div class="offset-2" style="padding-left: 20px;">
-				<small><i>Faites une recherche par période</i></small>	
+			<div class="col-12">
+				<small><i>Faites une recherche par période</i></small>
 			</div>
 		</div>
 	<% end %>	
 	<br><br>
 	<div id="dashboard_search">
 		<div class="row">
-			<div class="offset-2">
+			<div class="col-12">
 				<%= simple_form_for :query, url: admin_dashboard_journal_url, method: :get,  html: {class: "form-inline"} do |f| %>
 				  <%= f.input  :keyword, placeholder: "Recherche", label: false, input_html: {class: "input-search-admin"} %>
 				  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
 				    <i class="fa fa-search"></i>
 				  <% end %>
 				<% end %>
-				<small><i>Recherchez un article par nom, marque, categorie, couleur</i></small>
+				<small><i>Recherchez par nom, marque, categorie, couleur</i></small>
 			</div>
 		</div>
 	</div>
