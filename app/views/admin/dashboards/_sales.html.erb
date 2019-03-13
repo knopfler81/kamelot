@@ -4,20 +4,21 @@
 		<div class="graph_boxe">
 			<div class="row">
 				<div class="col-12 col-md-6">
-					<br>
-					<%= column_chart [name: "Nombre de ventes", data: @dashboard.sales_by_month], title: "Ventes par mois", colors: ["black"] %>
+					<div class="stats">
+						<%= column_chart [name: "Nombre de ventes", data: @dashboard.sales_by_month], title: "Ventes par mois", colors: ["black"] %>
+					</div>
 				</div>
-			<br><br>
 				<div class="col-12 col-md-6">
-					<br>
-					<%= column_chart [name: "Nombre de ventes", data: @dashboard.sales_by_week], title: "Ventes par semaine", colors: ["red"] %>
+					<div class="stats">
+						<%= column_chart [name: "Nombre de ventes", data: @dashboard.sales_by_week], title: "Ventes par semaine", colors: ["red"] %>
+					</div>
 				</div>
 			</div>
-			<br><br>
 			<div class="row">
 				<div class="col-12">
-					<br>
-					<%= line_chart [name: "Montant", data: @dashboard.sales_turnover_per_month], title: "Chiffre d'affaire en €", colors: ['green'] %>
+					<div class="stats">
+						<%= line_chart [name: "Montant", data: @dashboard.sales_turnover_per_month], title: "Chiffre d'affaire en €", colors: ['green'] %>
+					</div>
 				</div>
 			</div>
 		</div>

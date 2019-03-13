@@ -4,38 +4,41 @@
 		<div class="graph_boxe">
 			<div class="row">
 				<div class="col-12 col-md-6">
-					<br>
-					<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_month ], colors: ["black"], title: "Commandes par mois" %>
+					<div class="stats">
+						<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_month ], colors: ["black"], title: "Commandes par mois" %>
+					</div>
 				</div>
-			<br><br>
 				<div class="col-12 col-md-6">
-					<br>
-					<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_week ], colors: ["red"], title: "Commandes par semaines" %>
+					<div class="stats">
+						<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_week ], colors: ["red"], title: "Commandes par semaines" %>
+					</div>
 				</div>
 			</div>
-			<br><br>
+
 			<div class="row">
 				<div class="col-12">
-					<br>
-					<%= line_chart [name: "Montant " , data: @dashboard.orders_turnover_per_month ] , colors: ["red"], title: "Chiffre d'affaire" %>
+					<div class="stats">
+						<%= line_chart [name: "Montant " , data: @dashboard.orders_turnover_per_month ] , colors: ["red"], title: "Chiffre d'affaire" %>
+					</div>
 				</div>
 			</div>
-			<br><br>
 			<div class="row">
 				<div class="col-12 col-md-8">
-					<%= pie_chart @dashboard.orders_status, colors: ["red", "blue", "yellow", "green", "orange", "black"], 
-																									title: "Etat des commandes", 
-																									library: {
-																									  plotOptions: {
-																									    pie: {
-																									    	cursor: 'pointer',
-																									      dataLabels: {
+					<div class="stats">
+						<%= pie_chart @dashboard.orders_status, colors: ["red", "blue", "yellow", "green", "orange", "black"], 
+																			 							title: "Etat des commandes", 
+																									  library: {
+																									  	plotOptions: {
+																									    	pie: {
+																									    		cursor: 'pointer',
+																									      	dataLabels: {
 																									        enabled: false
 																									       },
 																									       showInLegend: true
 																									    }
 																									  }}%>
 				</div>
+					</div>
 			</div>
 		</div>
 </div>

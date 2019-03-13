@@ -27,45 +27,15 @@
         </div>
       </li>
       <% end %>
-<!--       <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-            Gestion
-         </a>
-         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-           <%#= link_to "Ajouter un article", new_admin_product_path, class: "dropdown-item" %>
-           <%#= link_to "Commandes",    admin_orders_path,            class: "dropdown-item" %>
-           <%#= link_to "Mes articles", admin_list_path,              class: "dropdown-item" %>
-           <%#= link_to "Journal",      admin_dashboard_journal_path, class: "dropdown-item" %>
-           <%#= link_to "Statistiques", admin_dashboard_path,         class: "dropdown-item" %>
-         </div>
-       </li> -->
-       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-          <% if current_user %>
-            <%= current_user.first_name %>
-          <% else %>
-              Mon Compte
+      <li class="nav-link" id="show-sidebar">Administration</li>
+       <li class="nav-link" id="session">
+          <%= link_to destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true } do %>
+            <i class="fas fa-toggle-on"></i><i class="fas fa-toggle-off"></i> <%= current_user.first_name %>
           <% end %>
-          </a>
-         <% if current_user %>
-           <% if current_user.admin? %>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <%= link_to "Customization", clients_customization_path, class: "dropdown-item"  %>
-               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
-             </div>
-           <% end %>
-        <% else %>
-           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-             <%= link_to "S'identifier", new_user_session_path,      class: "dropdown-item"  %>
-             <%= link_to "S'inscrire",   new_user_registration_path, class: "dropdown-item"  %>
-           </div>           
-         <% end %>
+          <li class="nav-link">
+            <%= link_to "Site Clients", clients_landing_path %>
+          </li>
        </li>
-       <% if current_user && current_user.admin? %>
-        <li class="nav-link">
-          <%= link_to "Site Clients", clients_landing_path %>
-        </li>
-       <% end %>
      </ul>
    </div>
  </div>

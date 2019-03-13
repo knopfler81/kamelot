@@ -37,7 +37,7 @@
 						<%= hidden_field_tag :quantity, 1 %>
 						<div class="row">
 							<div class="col-12">
-								<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color_stock), prompt: "Taille", class: 'custom-select', required: true %>
+								<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select', required: true %>
 								<br><br>
 								<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
 							</div>

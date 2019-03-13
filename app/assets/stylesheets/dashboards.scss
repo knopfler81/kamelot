@@ -2,24 +2,26 @@
 	padding: 50px;
 }
 
-
 .graph_boxe {
 	background-color: #333;
-	padding: 50px;
-	margin-bottom: 50px;
+	padding: 30px 30px 0px 30px;
 	color: #fff;
+	margin-bottom: 30px;
 }
 
+.stats {
+	margin-bottom: 30px;
+}
 
 #dashboard_search {
-	margin-left: 40px;
 	.fa {
 		color: #121212;
+		padding-bottom: 5px;
 	}
 	input {
 		background-color: #fff;
 		border-color: #121212;
-		width: 300px;
+		width: 350px;
 		color: #121212;
 	}
 }
@@ -99,4 +101,17 @@
 	  text-align: center;
 	  border: 1px solid black;
 	}
+}
+
+@media (max-width: 480px) {
+  
+ #dashboard_search {
+ 	input {
+ 		width: 300px;
+ 	}
+	.fa {
+		color: #111;
+		padding-bottom: 20px;
+	}
+}
 }

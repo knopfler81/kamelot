@@ -9,8 +9,28 @@
 		color: #ddd!important;
 	}
 
+	.fa-toggle-on {
+		color: green;
+		font-size: 20px;
+		transition: 0.8s;
+	}
+
+	.fa-toggle-off {
+		color: red;
+		display: none;
+		font-size: 20px;
+		transition: 0.8s;
+	}
+
+	.dropdown-menu {
+		background: #111;
+		margin-bottom: 5px;
+		padding: 10px;
+		border: 1px #333 solid; 
+	}
 	.dropdown-item {
-		color: #111;
+		background: #111;
+		color: #ddd;
 	}
 	a {
 		color: #ddd;
@@ -44,7 +64,7 @@
 
 .nav-upper-admin {
 	font-family: 'Montserrat';
-	background-color: #111!important;
+	background: #111!important;
 	.navbar-brand {
 		color: #ddd;
 	}
@@ -54,9 +74,14 @@
 	}
 
 	.dropdown-item {
-		color: #111;
+		background: #111;
+		color: #ddd;
 	}
 	a {
+		color: #ddd;
+	}
+
+	a:hover {
 		color: #ddd;
 	}
 }
@@ -138,4 +163,13 @@
 
 #nav-lower-clients {
 	background-color: #fff;
+}
+
+
+@media (min-width: 992px) {
+  
+  #connexion_admin{
+    display:  none;
+  }
+
 }

@@ -8,11 +8,13 @@ RSpec.describe Dashboard, type: :model do
   subject { Dashboard.new(date_from: @date_from, date_to: @date_to) }
 
   before(:each) do 
+  	Stock.destroy_all
+  	Variant.destroy_all
   	Product.destroy_all
-  	Size.destroy_all
   	Category.destroy_all 
-  	User.destroy_all 
   	Order.destroy_all
+  	Sale.destroy_all
+  	User.destroy_all
   end
 
 	describe "#variant_date_range" do
