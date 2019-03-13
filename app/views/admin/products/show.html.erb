@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="d-none d-md-block">
 			<%= link_to "Modifier", edit_admin_product_path, data: { turbolinks: false }, class: "btn btn-warning edit_product" %>
-			<%= link_to "Supprimer", admin_product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
+			<%#= link_to "Supprimer", admin_product_path(@product), method: :delete, data: {confirm: "La supression de cet article est irreversible"}, class:" btn btn-danger delete_product" %>
 			<hr>
 			<%= render_qr_code_small("https://super-shop-staging.herokuapp.com/admin/products/#{@product.id}") %>
 		</div>
@@ -53,7 +53,7 @@
 							<%= hidden_field_tag :quantity, 1 %>
 							<div class="row">
 								<div class="col-12">
-									<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color_stock), prompt: "Taille", class: 'custom-select variant', id: "variant-select", required: true %>
+									<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select variant', id: "variant-select", required: true %>
 									<br><br>
 									<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
 								</div>

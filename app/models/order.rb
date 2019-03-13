@@ -20,11 +20,15 @@ class Order < ApplicationRecord
   end
 
   def remove_from_stock
-    self.with_lock do 
-      self.items.each do |item|
-        @stock = Stock.joins(:variant).where(variant_id: item.variant_id).last
-        @stock.quantity -= item.quantity.to_i
-        @stock.save
+    self.items.each do |item|
+      Stock.where(variant_id: item.variant_id).where('quantity > 0').order(:created_at).reduce(item.quantity.to_i) do |quantity, stock|
+        if leftover = item.quantity.to_i - stock.quantity <= 0
+          stock.update_attributes! quantity: stock.quantity - item.quantity.to_i 
+          break
+        else
+          stock.update_attributes! quantity: 0
+          leftover
+        end
       end
     end
   end

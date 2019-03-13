@@ -6,7 +6,7 @@ class Admin::StocksController < Admin::ApplicationController
 
 	def index
 		filter_stocks if params[:query].present?
-		@stocks ||= Stock.joins(:variant).order('variants.product_id')
+		@stocks ||= Stock.joins(:variant).order('variants').order('created_at ASC')
 		@variants = Variant.all
 	end
 
@@ -21,9 +21,9 @@ class Admin::StocksController < Admin::ApplicationController
 		@product = @variant.product
 		@stock = Stock.new(stock_params)
 		if @stock.save
-			redirect_to  stock_admin_product_path(@product)
+			redirect_to  stock_admin_product_path(@product), notice: "Vous venez d'ajouter #{@stock.quantity} articles dans la variante  \" #{@stock.variant.size} #{@stock.variant.color} \" pour #{@stock.variant.product.title}"
 		else
-			redirect_to stock_admin_product_path(@product), alert: "Woops"
+			redirect_to stock_admin_product_path(@product), alert: "Woops petit soucis, recommencez"
 		end
 	end
 
@@ -46,7 +46,7 @@ class Admin::StocksController < Admin::ApplicationController
 
 
 	def filter_stocks
-		@stocks = Stock.joins(variant: :product).where('lower(products.title) LIKE ?', "%#{params[:query][:keyword].downcase }%")
-			.or( Stock.joins(variant: :product).where('lower(products.brand) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
+		@stocks = Stock.joins(variant: :product).order('variants').order('created_at ASC').where('lower(products.title) LIKE ?', "%#{params[:query][:keyword].downcase }%")
+			.or( Stock.joins(variant: :product).order('variants').order('created_at ASC').where('lower(products.brand) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	end
 end

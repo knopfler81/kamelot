@@ -5,6 +5,10 @@ class Stock < ApplicationRecord
 
   before_validation :to_initial_quantity, on: :create
 
+  # def total_per_variant
+  #  Stock.where(variant_id: self.variant_id).map(&:quantity).sum 
+  # end
+
   def define_supplier
   	if self.supplier.company != self.variant.product.supplier.company
  			self.supplier.company

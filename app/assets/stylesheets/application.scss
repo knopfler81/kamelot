@@ -34,3 +34,21 @@ a:hover {
 	text-decoration: none;
 	color: #000;
 }
+
+
+
+//Alert flash
+#message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+#inner-message-success {
+    margin: 0 auto;
+}
+
+#inner-message-danger {
+    margin: 0 auto;
+}
