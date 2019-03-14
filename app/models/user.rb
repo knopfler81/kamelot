@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :first_name,  presence: true, length: { minimum: 2}
   validates :last_name,   presence: true, length: { minimum: 2}
   validates :email,       presence: true, uniqueness: true
-  validates :birth_date,  presence: true, format: { with: /\A([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$\z/}
+  validates :birth_date,  format: { with: /\A([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$\z/}, allow_blank: true
 
 
   def full_name

@@ -27,7 +27,6 @@ class Product < ApplicationRecord
 
 	validate  :attachment_size
 
-
 	private
 
 	def attachment_size

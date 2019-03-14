@@ -15,7 +15,8 @@
 
 <body style="background: <%= prefered_body_color %>" id="clients">
     <%= render "layouts/clients/clients_nav" %>
-    <%= render "layouts/shared/flashes" %>  
+    <%= render "layouts/shared/flashes" %> 
+    <%= render "layouts/shared/back_button" %>
     <%= yield %>
     <%= render 'layouts/clients/footer' %>
   </body>

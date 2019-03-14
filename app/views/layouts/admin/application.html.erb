@@ -15,7 +15,8 @@
   <body>
     <%= render "layouts/admin/menu" %>
     <%= render "layouts/admin/admin_nav" %>
-    <%= render "layouts/shared/flashes" %>  
+    <%= render "layouts/shared/flashes" %> 
+    <%= render "layouts/shared/back_button" %>  
     <%= yield %>
     <!-- !!!!!! Il faut laisser les javascript_tags sous le yield si non probleme de react--> 
     <%= javascript_pack_tag 'application' %> <!-- doit etre en dessous de turbolink -->
