@@ -53,7 +53,14 @@
 							<%= hidden_field_tag :quantity, 1 %>
 							<div class="row">
 								<div class="col-12">
-									<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select variant', id: "variant-select", required: true %>
+									<% if @product_size_options.count == 1 %>
+										
+										<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), selected: @product_size_options.last, class: 'custom-select variant', id: "variant-select", required: true %>
+										<% else %>
+										<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select variant', id: "variant-select", required: true %>
+									<% end %>
+								
+									
 									<br><br>
 									<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
 								</div>
