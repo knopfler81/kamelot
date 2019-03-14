@@ -12,7 +12,7 @@
 
 // FlashMessages
 window.setTimeout(function() {
-   $(".alert").fadeTo(1000, 0).slideUp(2000, function() {
+   $(".alert").fadeTo(3000, 0).slideUp(2000, function() {
        $(this).hide();
    });
 }, 3000);
