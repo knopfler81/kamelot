@@ -1,25 +1,9 @@
 <div class="container">
 	<div class="row">
-		<div class="col-12">
-			<% @sales.order('created_at DESC').each do |sale| %>
-				<%= link_to admin_sale_path(sale) do  %>
-					<div class="small-cards">
-						<div class="row">
-							<div class="col-6">
-								<p>Vendu le : </p><p><%= l(sale.created_at, format: '%d %B %Y' )%></p>
-							</div>
-							<div class="col-4">
-								<p>Articles: <%= sale.count_articles %></p>
-								<p>Total : <%= number_to_currency_euro sale.total %></p>
-							</div>
-							<div class="col-2">
-								<i class="fa fa-chevron-right"></i>
-							</div>
-						</div>		
-					</div>
-				<% end %>
-			<% end %>
+		<div class="col-12" id="sales">
+			<%= render 'sales' %>
 		</div>
+		<%= will_paginate @sales %>
 	</div>
 </div>
 

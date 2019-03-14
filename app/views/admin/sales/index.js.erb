@@ -1,0 +1,6 @@
+$('#sales').append("	<%= j render 'sales'%>");
+ <% if @sales.next_page %>
+   $('.pagination').replaceWith('<%= j will_paginate(@sales) %>');
+ <% else %>
+   $('.pagination').remove();
+ <% end %>

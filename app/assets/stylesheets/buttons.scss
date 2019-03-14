@@ -1,7 +1,14 @@
-.back-button {
-	left: 30px;
-	top: 30px;
-	position: relative;
+#back-button {
+	left: 20px;
+	bottom: 30px;
+	position: fixed;
+	z-index: 998;
+}
+
+#top-button {
+	right: 20px;
+	bottom: 30px;
+	position: fixed;
 	z-index: 998;
 }
 

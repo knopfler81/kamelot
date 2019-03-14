@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="row">
-		<div class="col-3">
+		<div class="col-12 col-md-3">
 			<%= simple_form_for :query, url: admin_stocks_url, method: :get,  html: {class: "form-inline"} do |f| %>
 			  <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search"} %>
 			  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
@@ -9,8 +9,8 @@
 			  <% end %>
 			<% end %>
 		</div>
-		<div class="col-3">
-			<%= link_to "Raffraichir", admin_stocks_path, class: " btn btn-main"  %>	
+		<div class="col-12 col-md-3">
+			<%= link_to "Raffraichir", admin_stocks_path, class: "btn btn-main"  %>	
 		</div>
 	</div>
 
@@ -34,31 +34,13 @@
 			</tr>
 		</thead>
 
-		<tbody>
-			<% @stocks.each do |stock| %>
+		<tbody id="stocks">
 
-			<% @variant = stock.variant %>
+			<%= render partial: "stocks" %>
 			
-			<% @first_stock = @variant.stocks.first %>
-
-			<tr class="<%= 'first-stock' if @variant.stocks.order('created_at ASC').first == stock %>">
-
-        <td><%= link_to "Voir", stock_admin_product_path(stock.variant.product) %></td>
-				<td><%= stock.id %></td>
-				<td><%= l(stock.created_at,  format: '%d/%m/%y' )  %></td>
-				<td><%= stock.variant.product.title %></td>
-				<td><%= stock.variant.product.id %></td>
-				<td><%= stock.variant.product.brand %></td>
-				<td><%= stock.variant.size_and_color %></td>
-				<td><%= stock.initial_quantity %></td>
-				<td><%= stock.quantity %></td>
-
-				<td><%= stock.define_supplier%></td>
-				<td> <%=number_to_currency_euro  stock.cost_price.nil? ? stock.variant.product.buying_price : stock.cost_price %></td>
-			</tr>
-	<% end %>
 		</tbody>
 	</table>
+	<%= will_paginate @stocks %>
 </div>
 
 

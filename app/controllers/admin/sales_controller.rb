@@ -1,6 +1,6 @@
 class Admin::SalesController < Admin::ApplicationController
 		def index
-			@sales = Sale.all
+			@sales = Sale.all.paginate(page: params[:page], per_page: 10)
 		end
 
 		def show

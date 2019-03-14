@@ -38,7 +38,7 @@ gem 'simple_form'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-sass', '~> 5.0.9'
 
-gem 'will_paginate', '>= 3.1'
+gem 'will_paginate'
 
 #uploads images  PDF
 gem 'fog'

@@ -12,39 +12,23 @@
 				 	</li>
 	    <% end %>
 		</ul>
-
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Date</th>
-						<th scope="col">Ref Client</th>
-						<th scope="col">Nom</th>
-						<th scope="col">Prénom</th>
-						<th >Commande n° </th>
-						<th >Etat de la commande</th>
-						<th>Total</th>
-						<th>Voir</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @orders.each do |order| %>
-							<tr>
-								<td><%= l(order.created_at, format: '%d %B %Y' ) %></td>
-								<td>FR-000<%= order.user_id %></td>
-								<td><%= order.user.last_name %> </td>
-								<td><%= order.user.first_name %></td>
-								<td >#00<%= order.id %></td>
-								<td class="<%= "#{order.status.downcase}_status_tab" %>" ><%= t(".#{order.status}") %></td>
-								<td><%= number_to_currency_euro(order.sub_total) %></p></td>
-								<td><%= link_to "Voir", admin_order_path(order) %></td>
-							</tr>
-					<% end %>
-				</tbody>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th scope="col">Ref Client</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Prénom</th>
+					<th >Commande n° </th>
+					<th >Etat de la commande</th>
+					<th>Total</th>
+					<th>Voir</th>
+				</tr>
+			</thead>
+			<tbody id="orders">
+				<%= render "orders" %>
+			</tbody>
 		</table>
-	 </div>
-	 <div class="row">
-	 	<div class="col-12 col-md-8 offset-4">
-	 		<%= will_paginate @orders %>
-	 	</div>
+	 	<%= will_paginate @orders %>
 	 </div>
 </div>
