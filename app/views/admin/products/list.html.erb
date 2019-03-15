@@ -4,11 +4,12 @@
 	<br><br>
 
 	<%= simple_form_for :query, url: admin_list_url, method: :get,  html: {class: "form-inline"} do |f| %>
-	  <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-admin"} %>
+	  <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "search-article"} %>
 	  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
 	    <i class="fa fa-search"></i>
 	  <% end %>
 	<% end %>
+	<br>
 
 		<table class="table table-striped">
 			<thead>

@@ -1,8 +1,16 @@
 <div class="container" data-turbolinks="false">
-		<h1>Gestion des commandes</h1>
+		<h3>LES COMMANDES INTERNET</h3>
 		<hr>
 		<br><br>
 		<div class="admin_panel">
+
+     <%= simple_form_for :query, url: admin_orders_path, method: :get,  html: {class: "form-inline"} do |f| %>
+       <%= f.input  :keyword, placeholder: "Rechercher par nom", label: false, input_html: {class: "search-order"} %>
+       <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+         <i class="fa fa-search"></i>
+       <% end %>
+     <% end %>
+     <br>
 
 		<ul class="list-inline">
 	   	<li class="tabs list-inline-item "><%= link_to "Toutes", admin_orders_path  %></li>
@@ -16,7 +24,6 @@
 			<thead>
 				<tr>
 					<th>Date</th>
-					<th scope="col">Ref Client</th>
 					<th scope="col">Nom</th>
 					<th scope="col">Prénom</th>
 					<th >Commande n° </th>
@@ -26,7 +33,7 @@
 				</tr>
 			</thead>
 			<tbody id="orders">
-				<%= render "orders" %>
+				<%= render partial: "orders" %>
 			</tbody>
 		</table>
 	 	<%= will_paginate @orders %>
