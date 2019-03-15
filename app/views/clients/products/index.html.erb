@@ -1,22 +1,7 @@
-
-	<div class="container boxes">
-		<br>
-			<% if @products.count > 0 %>
-				<div class="row">
-					<% @products.each do |product| %>
-					<div class="col-6 col-md-4 col-lg-3">
-						<%= render  'clients/shared/cards', product: product %>
-					</div>
-					<% end %>
-				</div>
-			<% else %>
-			<div class="row">
-				<% Product.all.each do |product| %>
-					<div class="col-6 col-md-4 col-lg-3">
-						<%= render  'clients/shared/cards', product: product %>
-					</div>
-				<% end %>
-				</div>
-
-			<% end %>
+<div class="container boxes">
+	<br>
+	<div class="row" id="client_products">
+		<%= render 'client_products' %>
 	</div>
+	<%= will_paginate(@client_products) %>
+</div>

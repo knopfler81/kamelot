@@ -3,15 +3,11 @@
 	<hr>
 	<br>
 	<div class="boxes">
-		<div class="row">
-			<% @category.products.each do |product| %>
-				<div class="col-6 col-md-4 col-lg-3">
-					<%= link_to clients_category_product_path(@category, product) do  %>
-						<%= render "admin/shared/cards", product: product %>
-					<% end %>
-				</div>
-			<% end %>
+		<div class="row" id= "cat_products">
+			<%= render partial: 'cat_products' %>
 		</div>
+		<%= will_paginate @cat_products %>
+
 	</div>
 </div>
 

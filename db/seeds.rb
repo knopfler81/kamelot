@@ -45,7 +45,7 @@ nelly = User.create!(
 	birth_date: "12/02/1980",
 	first_name: "Nelly",
 	last_name: "Duclos",
-	created_at: 10.months.ago
+	confirmed_at: 10.months.ago
 	)
 
 user_1 = User.create!(
@@ -57,7 +57,7 @@ user_1 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 9.months.ago
+	confirmed_at: 9.months.ago
 )
 
 user_2 = User.create!(
@@ -69,7 +69,7 @@ user_2 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 8.months.ago
+	confirmed_at: 8.months.ago
 )
 
 user_3 = User.create!(
@@ -81,7 +81,7 @@ user_3 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 8.months.ago
+	confirmed_at: 8.months.ago
 )
 user_4 = User.create!(
 	admin: false,
@@ -92,7 +92,7 @@ user_4 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 7.months.ago - 20.days
+	confirmed_at: 7.months.ago - 20.days
 )
 user_5 = User.create!(
 	admin: false,
@@ -103,7 +103,7 @@ user_5 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 7.months.ago - 12.days
+	confirmed_at: 7.months.ago - 12.days
 )
 user_6 = User.create!(
 	admin: false,
@@ -114,7 +114,7 @@ user_6 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 7.months.ago - 6.days
+	confirmed_at: 7.months.ago - 6.days
 )
 
 user_7 = User.create!(
@@ -126,7 +126,7 @@ user_7 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 7.months.ago - 2.days
+	confirmed_at: 7.months.ago - 2.days
 )
 
 user_8 = User.create!(
@@ -138,7 +138,7 @@ user_8 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 6.months.ago  - 24.days
+	confirmed_at: 6.months.ago  - 24.days
 )
 
 user_9 = User.create!(
@@ -150,7 +150,7 @@ user_9 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 6.months.ago - 3.days
+	confirmed_at: 6.months.ago - 3.days
 )
 user_10 = User.create!(
 	admin: false,
@@ -161,7 +161,7 @@ user_10 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 6.months.ago - 1.day
+	confirmed_at: 6.months.ago - 1.day
 )
 user_11 = User.create!(
 	admin: false,
@@ -172,7 +172,7 @@ user_11 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 6.months.ago
+	confirmed_at: 6.months.ago
 )
 user_12 = User.create!(
 	admin: false,
@@ -183,7 +183,7 @@ user_12 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 5.months.ago - 1.week
+	confirmed_at: 5.months.ago - 1.week
 )
 
 user_13 = User.create!(
@@ -195,7 +195,7 @@ user_13 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 5.months.ago - 1.week
+	confirmed_at: 5.months.ago - 1.week
 )
 
 user_14 = User.create!(
@@ -207,7 +207,7 @@ user_14 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 3.months.ago 
+	confirmed_at: 3.months.ago 
 )
 
 user_15 = User.create!(
@@ -219,7 +219,7 @@ user_15 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 3.months.ago 
+	confirmed_at: 3.months.ago 
 )
 user_16 = User.create!(
 	admin: false,
@@ -230,7 +230,7 @@ user_16 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 3.months.ago 
+	confirmed_at: 3.months.ago 
 )
 user_17 = User.create!(
 	admin: false,
@@ -241,7 +241,7 @@ user_17 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 6.weeks.ago - 4.days
+	confirmed_at: 6.weeks.ago - 4.days
 )
 user_18 = User.create!(
 	admin: false,
@@ -252,7 +252,7 @@ user_18 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 6.weeks.ago - 1.day
+	confirmed_at: 6.weeks.ago - 1.day
 )
 
 user_19 = User.create!(
@@ -264,7 +264,7 @@ user_19 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 6.weeks.ago 
+	confirmed_at: 6.weeks.ago 
 )
 
 user_20 = User.create!(
@@ -276,7 +276,7 @@ user_20 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 3.weeks.ago 
+	confirmed_at: 3.weeks.ago 
 )
 
 user_21 = User.create!(
@@ -288,7 +288,7 @@ user_21 = User.create!(
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	created_at: 1.week.ago 
+	confirmed_at: 1.week.ago 
 )
 
 puts "Users & admin created"
@@ -777,11 +777,486 @@ product_14 = Product.create(
 			}
 		]
 )
+
+product_15 = Product.create!(
+	ref: "SP00",
+	brand: "Side Park",
+	category_id: polos.id,
+	created_at: 10.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 10,
+	price: 30,
+	color: "Noir",
+	title: "Polo",
+	description: "Pull très chaud en laine blablablabalbla",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pull_noir_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_noir_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_noir_3.jpg")),
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+
+product_16 = Product.create(
+	ref: "GU00",
+	brand: "Guess",
+	category_id: pulls.id,
+	created_at: 10.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 40,
+	color: "Blanc",
+	title: "Pull",
+	description: "Pull très chaud en laine blablablabalbla",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pull_blanc_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_blanc_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_blanc_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_blanc_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_17 = Product.create(
+	ref:"SP00" ,
+	brand: "Side Park",
+	category_id: pulls.id,
+	created_at: 10.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 15,
+	price: 45,
+	color: "Rouge",
+	title: "Pull",
+	description: "Pull très chaud en laine blablablabalbla",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pull_rouge_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_rouge_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_rouge_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_rouge_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",}
+	
+		]
+)
+
+
+product_18 = Product.create(
+	ref: "LE00",
+	brand: "Levis",
+	category_id: pantalons.id,
+	created_at: 10.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 20,
+	price: 49,
+	color: "Jaune",
+	title: "Pantalon",
+	description: "Pantalon blablablabalbla",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_19 = Product.create(
+	ref: "LE00" ,
+	brand: "Levis",
+	category_id: pantalons.id,
+	created_at: 6.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 60,
+	color: "Gris",
+	title: "Jean",
+	description: "Paalablalntalon blab",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/jean_gris_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_gris_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_gris_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_gris_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_20 = Product.create(
+	ref: "KA00",
+	brand: "Kaporal",
+	category_id: pantalons.id,
+	created_at: 6.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 5,
+	price: 20,
+	color: "Bleu",
+	title: "Jean",
+	description: "Paalablalntalon blab",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_21 = Product.create(
+	ref: "SP00",
+	brand: "Side Park",
+	category_id: pulls.id,
+	created_at: 6.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 17,
+	price: 49,
+	color: "Noir",
+	title: "Pull",
+	description: "Pull très chaud en laine blablablabalbla",
+	supplier_id: supplier_2.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pull_noir_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_noir_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_noir_3.jpg")),
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_22 = Product.create(
+	ref: "GU00",
+	brand: "Guess",
+	category_id: pulls.id,
+	created_at: 6.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 30,
+	color: "Vert",
+	title: "Pull",
+	description: "Pull très chaud en laine blablablabalbla",
+	supplier_id: supplier_2.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pull_vert_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_vert_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_vert_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_vert_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_23 = Product.create(
+	ref: "GU00",
+	brand: "Guess",
+	category_id: pulls.id,
+	created_at: 5.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 25,
+	price: 70,
+	color: "Beige",
+	title: "Pull",
+	description: "Pull très chaud en laine blablablabalbla",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pull_beige_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_beige_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_beige_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_beige_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]	
+)
+
+product_24 = Product.create(
+	ref: "GU00",
+	brand: "Guess",
+	category_id: pulls.id,
+	created_at: 5.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 25,
+	price: 70,
+	color: "Camel",
+	title: "Pull",
+	description: "Pull très chaud en laine blablablabalbla",
+	supplier_id: supplier_2.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pull_camel_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_camel_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_camel_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/pull_camel_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]	
+)
+
+
+product_25 = Product.create(
+	ref: "SP01",
+	brand: "Side Park",
+	category_id: pantalons.id,
+	created_at: 2.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 5,
+	price: 30,
+	color: "Jaune",
+	title: "Pantalon",
+	description: "Pantalon blablablabalbla",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/pantalon_jaune_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_26 = Product.create(
+	ref: "SP01",
+	brand: "Side Park",
+	category_id: pantalons.id,
+	created_at: 2.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 10,
+	price: 40,
+	color: "Gris",
+	title: "Jean",
+	description: "Paalablalntalon blab",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/jean_gris_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_gris_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_gris_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_gris_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_27 = Product.create(
+	ref: "SP02",
+	brand: "Side Park",
+	category_id: pantalons.id,
+	created_at: 2.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 5,
+	price: 30,
+	color: "Bleu",
+	title: "Jean",
+	description: "Paalablalntalon blab",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_28 = Product.create(
+	ref: "SP02",
+	brand: "Side Park",
+	category_id: pantalons.id,
+	created_at: 2.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 5,
+	price: 30,
+	color: "Bleu",
+	title: "Jean",
+	description: "Paalablalntalon blab",
+	supplier_id: supplier_2.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/jean_bleu_4.jpg"))
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			},
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
 puts "Products and Sizes Created"
 
 
 
-[product_1, product_2, product_3, product_4, product_13 ].each do |pd|
+[product_1, product_2, product_3, product_4, product_13, product_15, product_17, product_18, product_28 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
 		quantity: 8,
@@ -791,7 +1266,7 @@ puts "Products and Sizes Created"
 	end
 end
 
-[product_5, product_6, product_7, product_8, product_14 ].each do |pd|
+[product_5, product_6, product_7, product_8, product_14, product_19, product_20, product_21 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
 		quantity: 9,
@@ -801,7 +1276,7 @@ end
 	end
 end
 
-[product_9, product_10, product_11, product_12 ].each do |pd|
+[product_9, product_10, product_11, product_12, product_22, product_23, product_27 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
 		quantity: 10,
@@ -812,7 +1287,7 @@ end
 	end
 end
 
-[product_1, product_5, product_8].each do |pd|
+[product_1, product_5, product_8, product_24, product_25, product_26].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
 		quantity: 12,
@@ -823,21 +1298,34 @@ end
 	end
 end
 
-def remove_from_stock(order)
-  order.items.each do |item|
-    @stock = Stock.joins(:variant).where(variant_id: item.variant_id).last
-    @stock.quantity -= item.quantity.to_i
-    @stock.save
-  end
-end
 
-def remove_from_stock(sale)
-  sale.items.each do |item|
-    @stock = Stock.joins(:variant).where(variant_id: item.variant_id).last
-    @stock.quantity -= item.quantity.to_i
-    @stock.save
+  def remove_from_stock(sale)
+    sale.items.each do |item|
+      Stock.where(variant_id: item.variant_id).where('quantity > 0').order(:created_at).reduce(item.quantity.to_i) do |quantity, stock|
+        if leftover = item.quantity.to_i - stock.quantity <= 0
+          stock.update_attributes! quantity: stock.quantity - item.quantity.to_i 
+          break
+        else
+          stock.update_attributes! quantity: 0
+          leftover
+        end
+      end
+    end
   end
-end
+
+  def remove_from_stock(order)
+    order.items.each do |item|
+      Stock.where(variant_id: item.variant_id).where('quantity > 0').order(:created_at).reduce(item.quantity.to_i) do |quantity, stock|
+        if leftover = item.quantity.to_i - stock.quantity <= 0
+          stock.update_attributes! quantity: stock.quantity - item.quantity.to_i 
+          break
+        else
+          stock.update_attributes! quantity: 0
+          leftover
+        end
+      end
+    end
+  end
 
 #ORDER 1
 order_1  = Order.create(
@@ -1043,14 +1531,14 @@ order_10 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_4.price,
+ 	sub_total: product_24.price,
  	total: 135
  	)
 OrderItem.create(
-	price: product_4.price, 
+	price: product_24.price, 
 	order_id: order_10.id, 
 	quantity: 1,
-	variant_id: product_4.variants[0].id)
+	variant_id: product_24.variants[0].id)
 
 
 #ORDER 11 
@@ -1087,14 +1575,14 @@ order_12 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_7.price,
+ 	sub_total: product_17.price,
  	total: 135
  	)
 OrderItem.create(
-	price: product_7.price, 
+	price: product_17.price, 
 	order_id: order_12.id, 
 	quantity: 1,
-	variant_id: product_7.variants[0].id)
+	variant_id: product_17.variants[0].id)
 
 #ORDER 13
 order_13 = Order.create(
@@ -1161,13 +1649,13 @@ order_16 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_8.price * 2,
+ 	sub_total: product_28.price * 2,
  	total: 135)
 OrderItem.create(
-	price: product_8.price, 
+	price: product_28.price, 
 	order_id: order_16.id, 
 	quantity: 2,
-	variant_id: product_8.variants[0].id)
+	variant_id: product_28.variants[0].id)
 
 
 #ORDER 17
@@ -1179,14 +1667,14 @@ order_17 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_9.price,
+ 	sub_total: product_19.price,
  	total: 135
  	)
 OrderItem.create(
-	price: product_9.price, 
+	price: product_19.price, 
 	order_id: order_17.id, 
 	quantity: 1,
-	variant_id: product_9.variants[1].id)
+	variant_id: product_19.variants[1].id)
 
 
 #ORDER 18
@@ -1198,14 +1686,14 @@ order_18 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_10.price,
+ 	sub_total: product_20.price,
  	total: 135
  	)
 OrderItem.create(
-	price: product_10.price,
+	price: product_20.price,
 	order_id: order_18.id,
 	quantity: 1, 
-	variant_id: product_10.variants[2].id
+	variant_id: product_20.variants[2].id
 	)
 
 #ORDER 21
@@ -1217,13 +1705,13 @@ order_21 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_11.price * 3, 
+ 	sub_total: product_21.price * 3, 
  	total: 135)
 OrderItem.create(
-	price: product_11.price,
+	price: product_21.price,
 	order_id: order_21.id,
 	quantity: 1, 
-	variant_id: product_11.variants[2].id
+	variant_id: product_21.variants[2].id
 	)
 
 #ORDER 22
@@ -1235,13 +1723,13 @@ order_22 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_11.price * 3, 
+ 	sub_total: product_22.price * 3, 
  	total: 135)
 OrderItem.create(
-	price: product_11.price,
+	price: product_22.price,
 	order_id: order_22.id,
 	quantity: 1, 
-	variant_id: product_11.variants[2].id
+	variant_id: product_22.variants[2].id
 	)
 
 #ORDER 24
@@ -1330,14 +1818,14 @@ order_28 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_10.price,
+ 	sub_total: product_25.price,
  	total: 135
  	)
 OrderItem.create(
-	price: product_10.price,
+	price: product_25.price,
 	order_id: order_28.id,
 	quantity: 1, 
-	variant_id: product_10.variants[2].id
+	variant_id: product_25.variants[2].id
 	)
 
 #ORDER 29
@@ -1349,14 +1837,14 @@ order_29 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_11.price,
+ 	sub_total: product_27.price,
  	total: 135
  	)
 OrderItem.create(
-	price: product_11.price,
+	price: product_27.price,
 	order_id: order_29.id,
 	quantity: 1, 
-	variant_id: product_11.variants[2].id
+	variant_id: product_27.variants[2].id
 	)
 
 #ORDER 30
@@ -1368,14 +1856,14 @@ order_30 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_11.price * 3, 
+ 	sub_total: product_27.price * 3, 
  	total: 135
  	)
 OrderItem.create(
-	price: product_11.price,
+	price: product_27.price,
 	order_id: order_30.id,
 	quantity: 1, 
-	variant_id: product_11.variants[0].id
+	variant_id: product_27.variants[0].id
 	)
 
 #ORDER 31
@@ -1387,14 +1875,14 @@ order_31 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_11.price * 3, 
+ 	sub_total: product_27.price * 3, 
  	total: 135
  	)
 OrderItem.create(
-	price: product_11.price,
+	price: product_27.price,
 	order_id: order_31.id,
 	quantity: 1, 
-	variant_id: product_11.variants[1].id
+	variant_id: product_27.variants[1].id
 	)
 
 #ORDER 32
@@ -1406,14 +1894,14 @@ order_32 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_11.price * 3, 
+ 	sub_total: product_27.price * 3, 
  	total: 135
  	)
 OrderItem.create(
-	price: product_11.price,
+	price: product_27.price,
 	order_id: order_32.id,
 	quantity: 1, 
-	variant_id: product_11.variants[0].id
+	variant_id: product_27.variants[0].id
 	)
 
 #ORDER 33
@@ -1425,14 +1913,14 @@ order_33 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_12.price * 3, 
+ 	sub_total: product_19.price * 3, 
  	total: 135
  	)
 OrderItem.create(
-	price: product_12.price,
+	price: product_19.price,
 	order_id: order_33.id,
 	quantity: 1, 
-	variant_id: product_12.variants[1].id
+	variant_id: product_19.variants[1].id
 	)
 
 #ORDER 34
@@ -1444,14 +1932,14 @@ order_34 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_12.price * 3, 
+ 	sub_total: product_19.price * 3, 
  	total: 135
  	)
 OrderItem.create(
-	price: product_12.price,
+	price: product_19.price,
 	order_id: order_34.id,
 	quantity: 1, 
-	variant_id: product_12.variants[1].id
+	variant_id: product_19.variants[1].id
 	)
 
 #ORDER 35
@@ -1463,14 +1951,14 @@ order_35 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_12.price * 3, 
+ 	sub_total: product_19.price * 3, 
  	total: 135
  	)
 OrderItem.create(
-	price: product_12.price,
+	price: product_19.price,
 	order_id: order_35.id,
 	quantity: 1, 
-	variant_id: product_12.variants[0].id
+	variant_id: product_19.variants[0].id
 	)
 
 #ORDER 36
@@ -1482,14 +1970,14 @@ order_36 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 3,
  	shipping_fees: 5,
- 	sub_total: product_12.price * 3, 
+ 	sub_total: product_16.price * 3, 
  	total: 135
  	)
 OrderItem.create(
-	price: product_12.price,
+	price: product_16.price,
 	order_id: order_36.id,
 	quantity: 1, 
-	variant_id: product_12.variants[0].id
+	variant_id: product_16.variants[0].id
 	)
 
 #ORDER 37
@@ -1539,11 +2027,11 @@ order_40 = Order.create(
  	token: SecureRandom.hex(8),
  	status: 2,
  	shipping_fees: 5,
- 	sub_total: product_12.price,
+ 	sub_total: product_16.price,
  	total: 400
  	)
 OrderItem.create(
-	price: product_12.price,
+	price: product_16.price,
 	order_id: order_40.id,
 	quantity: 1, 
 	variant_id: product_13.variants[2].id
@@ -2124,10 +2612,10 @@ sale_22 = Sale.create(
  	status: 1,
  	total: 135)
 SaleItem.create(
-	price: product_11.price,
+	price: product_24.price,
 	sale_id: sale_20.id,
 	quantity: 1, 
-	variant_id: product_11.variants[2].id
+	variant_id: product_24.variants[2].id
 	)
 
 #SALE_23
@@ -2138,10 +2626,10 @@ sale_23 = Sale.create(
  	status: 1,
  	total: 135)
 SaleItem.create(
-	price: product_11.price,
+	price: product_24.price,
 	sale_id: sale_23.id,
 	quantity: 1, 
-	variant_id: product_11.variants[0].id
+	variant_id: product_24.variants[0].id
 	)
 
 #SALE_24
@@ -2153,10 +2641,10 @@ sale_24 = Sale.create(
  	total: 135
  	)
 SaleItem.create(
-	price: product_11.price,
+	price: product_24.price,
 	sale_id: sale_24.id,
 	quantity: 1, 
-	variant_id: product_11.variants[1].id
+	variant_id: product_24.variants[1].id
 	)
 
 #SALE_25
@@ -2171,7 +2659,7 @@ SaleItem.create(
 	price: product_11.price,
 	sale_id: sale_25.id,
 	quantity: 1, 
-	variant_id: product_1.variants[0].id)
+	variant_id: product_11.variants[0].id)
 
 
 #SALE_26

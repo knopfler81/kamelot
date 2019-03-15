@@ -1,0 +1,12 @@
+<% @orders.each do |order| %>
+	<tr>
+		<td><%= l(order.created_at, format: '%d %B %Y' ) %></td>
+		<td>FR-000<%= order.user_id %></td>
+		<td><%= order.user.last_name %> </td>
+		<td><%= order.user.first_name %></td>
+		<td >#00<%= order.id %></td>
+		<td class="<%= "#{order.status.downcase}_status_tab" %>" ><%= t(".#{order.status}") %></td>
+		<td><%= number_to_currency_euro(order.sub_total) %></p></td>
+		<td><%= link_to "Voir", admin_order_path(order) %></td>
+	</tr>
+<% end %>

@@ -5,9 +5,11 @@ class Admin::StocksController < Admin::ApplicationController
 	end
 
 	def index
-		filter_stocks if params[:query].present?
-		@stocks ||= Stock.joins(:variant).order('variants').order('created_at ASC')
-		@variants = Variant.all
+		if params[:query].present?
+			@stocks = filter_stocks.paginate(page: params[:page], per_page: 10)
+		else
+			@stocks = Stock.joins(:variant).order('variants').order('created_at ASC').paginate(page: params[:page], per_page: 10)
+		end
 	end
 
 	def new 

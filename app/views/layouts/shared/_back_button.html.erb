@@ -1,7 +1,10 @@
 <% unless current_page?(root_path) || current_page?(admin_landing_path) %>
 
-    <%= link_to 'javascript:history.go(-1);', class: "btn btn-main back-button"  do %>
+    <%= link_to 'javascript:history.go(-1);', class: "btn btn-secondary", id: "back-button"  do %>
         <i class="fas fa-arrow-left"></i>
     <% end %>
 
+    <%= link_to  "#", class: "btn btn-secondary",  id: "top-button"  do %>
+        <i class="fas fa-arrow-up"></i>
+    <% end %>
 <% end %>

@@ -6,8 +6,11 @@ class Admin::ProductsController < Admin::ApplicationController
 	require 'rqrcode'
 
 	def index
-		filter_products if params[:query].present?
-    @products ||= Product.all
+		if params[:query].present?
+			@products = filter_products.paginate(page: params[:page], per_page: 12) 
+		else
+    	@products = Product.all.paginate(page: params[:page], per_page: 12)
+    end
 	end
 
 
