@@ -1,11 +1,16 @@
 <div class="container">
 
+		<h2>MES COMMANDES PASSÉES</h2>
+		<hr>
+		<br>
 	<div class="row">
+
 		<div class="col-12" id="client_orders">
-			<%= render "client_orders" %>
+			<%= render partial: "client_orders" %>
 		</div>
-	<%= will_paginate @client_orders %>
+		<%= will_paginate @client_orders %>
 	</div>
+
 </div>
 
 
