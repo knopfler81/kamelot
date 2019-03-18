@@ -3,6 +3,8 @@ class Product < ApplicationRecord
 
 	mount_uploaders :attachments, AttachmentUploader
 
+	enum gender: [:men, :women, :unisex]
+
 	belongs_to :user, optional: true
 	belongs_to :category, optional: true
 
@@ -26,6 +28,12 @@ class Product < ApplicationRecord
 	validates :ref, 				 presence: true
 
 	validate  :attachment_size
+
+
+
+	def with_stock?
+		self.stocks.map(&:quantity).sum >= 1  ? true : false
+	end
 
 	private
 

@@ -47,7 +47,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mx-auto">
       <% Category.order('title ASC').all.each do |cat| %>
-        <% if cat.products.any? %>
+        <% if cat.product_with_stock %>
           <li class="nav-item"><%= link_to  "#{cat.title} ", admin_category_path(cat), class: "nav-link" %></li>
         <% end %>
        <% end %>

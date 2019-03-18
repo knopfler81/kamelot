@@ -1,22 +1,9 @@
-<div class="content">
+<div class="container">
 	<br>
-	<br>
+
 	<br>
 	<div class="row">
-		<div class="col-3">
-			<ul class="menu-product">
-				<li class="list-item">
-					<%= link_to "Voir l'article", admin_product_path(@product), target: '_blank'  %>
-				</li>
-				<li class="list-item">
-					<%= link_to "Ajouter le stock", stock_admin_product_path(@product)%>
-				</li>
-
-				<li class="list-item"> 
-					<%= link_to "Tous les articles", admin_list_path  %></li>
-			</ul>
-		</div>
-		<div class="col-8">
+		<div class="col-12">
 				<section class="section">
 					<h1 class="primary_title"><%= @product.title.upcase %> - <%= @product.color.upcase %></h1>
 					<hr>
@@ -37,34 +24,41 @@
 					<hr>
 					<br>
 					<div class="row">
-						<div class="col-12 col-md-3">
-							<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true, selected: @product.supplier_id  %>
-		
-						</div>
-						<div class="co-12 col-md-3">
+						<div class="co-12 col-md-4">
 							<%= f.input :category_id, collection: Category.all.order('title ASC'), label: false, prompt: "Choisir une catégorie", input_html: { class: "custom-select"}, required: true %>
 						</div>
-						<div class="co-12 col-md-3">
-							<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
+						<div class="co-12 col-md-4">
+							<%= f.input :gender, collection: [['Homme','men'],["Femme", "women"],["Unisexe", "unisex"]], selected: "men", label: false, input_html: { class: "custom-select"}, required: true  %>
 						</div>
-						<div class="co-12 col-md-3">
-							<%= f.input :title, placeholder: "Titre", label: false, required: true %>
+						<div class="co-12 col-md-4">
+							<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="co-12 col-md-3">
+						<div class="co-12 col-md-4">
+							<%= f.input :title, placeholder: "Titre", label: false, required: true %>
+						</div>
+						<div class="co-12 col-md-4">
 							<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
 						</div>
-						<div class="co-12 col-md-3">
+						<div class="co-12 col-md-4">
 							<%= f.input :ref, placeholder: "Référence", label: false, required: true %>
 						</div>
 					</div>
-						
-
+					
 					<div class="row">
 						<div class="col-12">
-							<%= f.input :description, placeholder: "Description", input_html: {rows: 5}, label: false, required: true %>
+							<%= f.input :description, placeholder: "Entrez les description de votre article!", input_html: {rows: 5}, label: false, required: true %>
+							<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true  %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="co-12 col-md-6">
+							<%= f.input :buying_price, placeholder: "Prix d'achat (important pour la comptat)", label: false, required: true %>
+						</div>
+						<div class="co-12 col-md-6">
+							<%= f.input :price, placeholder: "Prix de vente", label: false, required: true %>
 						</div>
 					</div>
 				</section>

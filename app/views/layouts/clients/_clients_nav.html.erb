@@ -110,18 +110,27 @@
  </div>
 </nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style= "background: <%= prefered_navbar_color %>!important;" id="nav-lower-clients"">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style= "background: <%= prefered_navbar_color %>!important;" id="nav-lower-clients">
   <div class="container-fluid">
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mx-auto">
-      <% Category.order('title ASC').all.each do |cat| %>
-        <% if cat.products.any? %>
-          <li class="nav-item"><%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %></li>
-        <% end %>
-       <% end %>
-    </ul>
+    <div class="collapse navbar-collapse" id="genders">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-link" id="men">Homme</li>
+        <li class="nav-link" id="women">Femme</li>
+      </ul>
+    </div>
   </div>
 </nav>
+<div class="navbar navbar-expand-lg" id= "categories" style= "background: <%= prefered_navbar_color %>!important;">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mx-auto">
+    <% Category.order('title ASC').all.each do |cat| %>
+      <% if cat.product_with_stock %>
+        <li class="nav-link"><%= link_to  "#{cat.title} ", clients_category_path(cat), class: "nav-link" %></li>
+      <% end %>
+     <% end %>
+   </ul>
+ </div>
+</div>
+
 
 
