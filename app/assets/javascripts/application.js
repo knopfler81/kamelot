@@ -1,9 +1,8 @@
 //= require jquery3
-//= require popper
-//= require bootstrap-sprockets
-//= require jquery
 //= require rails-ujs
+//= require popper
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require cocoon
 //= require highcharts
 //= require chartkick
@@ -61,10 +60,16 @@ function scrollFunction() {
   } else {
     document.getElementById("top-button").style.display = "none";
   }
-}
+};
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+};
+
+
+
+$(document).on('turbolinks:load', function() {
+ $('.tag-tooltip').toolTip(); 
+});

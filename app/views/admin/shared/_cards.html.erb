@@ -1,4 +1,6 @@
-<div class="box">
+
+
+<div class="box <%= "no_stock" if product.stocks.map(&:quantity).sum < 1 %>">
 	<div class="header_box" id="header_box_<%= product.id %>">
 		<div class="row">
 			<div class="col-12">
@@ -22,7 +24,7 @@
 		</div>
 	</div>
 	<div class="footer_box">
-
+	
 	<div class="row">
 		<div class="col-12">
 			<small><%= product.brand %></small>
@@ -39,3 +41,10 @@
 	
 	</div>
 </div>
+<% if product.stocks.map(&:quantity).sum < 1 %>
+	<div class="no_stock_sticker">
+		<%= link_to  stock_admin_product_path(product), class: "btn btn-secondary" do  %>
+			 <i class="fas fa-plus"></i>
+		<% end %>
+	</div>
+<% end %>

@@ -5,6 +5,7 @@
 	flex-align: center;
 	flex-direction: row;
 }
+
 .box{
 	min-width: 180px;
 	min-height: 250px;
@@ -18,8 +19,9 @@
 }
 
 .box:hover{
-	filter: brightness(1.2);
-	transition: all 0.5s;
+	img {
+		filter: brightness(1.2);
+	}
 }
 
 .footer_box {
@@ -29,3 +31,23 @@
 	height: 60px;
 	color: #000;
 }
+
+.no_stock {
+	img {
+	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	filter: grayscale(100%);
+
+	}
+}
+	.no_stock_sticker{
+		position: absolute;
+		padding: 10px;
+		bottom: 50px;
+		left: 70%;
+		font-size: 13px;
+		.btn-secondary {
+			background-color: green;
+			color: #fff;
+			border: #fff;
+		}
+	}
