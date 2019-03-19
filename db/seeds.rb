@@ -1,5 +1,6 @@
 
 
+
 Category.destroy_all
 Order.destroy_all
 Sale.destroy_all
@@ -9,11 +10,8 @@ ShippingAddress.destroy_all
 User.destroy_all
 Supplier.destroy_all
 
-
-def prior_friday(date)
-  days_before = (date.wday + 1) % 7 + 1
-  date.to_date - days_before
-end
+#COMPANY 
+Company.create(name: "Damien Duclos", address_1: 'Lieu dit Emilieu', zipcode: "43000", city: "Malvalette", country:"France")
 
 #SUPPLIER
 

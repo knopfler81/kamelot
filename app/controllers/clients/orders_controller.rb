@@ -32,6 +32,11 @@ class Clients::OrdersController < Clients::ApplicationController
 		end
 	end
 
+	def invoice
+		@order = Order.find(params[:id])
+		@company = Company.instance
+	end
+
 	private
 
 	def order_params
