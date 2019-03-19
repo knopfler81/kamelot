@@ -1,9 +1,9 @@
 fr:
   activerecord:
     models:
+      category: Catégorie
       user: Utilisateur
       product: Article
-      size: Taille
     errors:
       models:
         product:

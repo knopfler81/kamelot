@@ -4,7 +4,8 @@ RSpec.describe Clients::ProductsController, :clients do
 
   before(:each) do 
     sign_in FactoryBot.create(:user, admin: true)
-    category = create(:category)
+    main     = create(:main_category)
+    category = create(:category, main_category_id: main.id)
     @product = create(:product, category_id: category.id)
   end
 

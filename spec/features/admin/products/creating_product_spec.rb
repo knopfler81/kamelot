@@ -7,7 +7,8 @@ RSpec.describe "Creating Product" , :js do
 		before(:each) do 
 			nelly = create(:user, admin: true)
 			company = create(:supplier, company: "Morrin")
-			gillet = create(:category, title: "Gillet")
+			main   = create(:main_category)
+			gillet = create(:category, title: "Gillet", main_category_id: main.id)
 			login_as(nelly)
 		end
 

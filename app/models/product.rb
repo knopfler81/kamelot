@@ -27,6 +27,12 @@ class Product < ApplicationRecord
 
 	validate  :attachment_size
 
+
+
+	def with_stock?
+		self.stocks.map(&:quantity).sum >= 1  ? true : false
+	end
+
 	private
 
 	def attachment_size

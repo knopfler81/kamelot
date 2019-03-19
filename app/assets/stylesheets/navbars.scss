@@ -1,3 +1,26 @@
+.categories {
+	padding: 20px;
+	background-color: #fff;
+	display: none;
+	z-index: 999;
+	width: 100vw;
+	position: absolute;
+	left: 0;
+	cursor: pointer;
+}
+
+.admin-categories {
+	padding: 20px;
+	background-color: #111;
+	display: none;
+	z-index: 999;
+	width: 100vw;
+	position: absolute;
+	left: 0;
+	cursor: pointer;
+}
+
+
 .nav-upper-admin {
 	font-family: 'Montserrat';
 	background-color: #111!important;
@@ -23,6 +46,7 @@
 	}
 
 	.dropdown-menu {
+		z-index: 1000;
 		background: #111;
 		margin-bottom: 5px;
 		padding: 10px;
