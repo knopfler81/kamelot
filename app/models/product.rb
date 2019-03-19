@@ -3,8 +3,6 @@ class Product < ApplicationRecord
 
 	mount_uploaders :attachments, AttachmentUploader
 
-	enum gender: [:men, :women, :unisex]
-
 	belongs_to :user, optional: true
 	belongs_to :category, optional: true
 

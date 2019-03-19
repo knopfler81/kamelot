@@ -11,6 +11,7 @@ RSpec.describe Dashboard, type: :model do
   	Stock.destroy_all
   	Variant.destroy_all
   	Product.destroy_all
+  	MainCategory.destroy_all
   	Category.destroy_all 
   	Order.destroy_all
   	Sale.destroy_all
@@ -64,8 +65,9 @@ RSpec.describe Dashboard, type: :model do
 	describe "#products_per_category" do 
 
 		it "return the number of product per category" do 
-			pull   = create(:category, title: "Pull")
-			tshirt = create(:category, title: "Tshirt")
+			main   = create(:main_category, gender: 'Homme') 
+			pull   = create(:category, title: "Pull", main_category_id: main.id)
+			tshirt = create(:category, title: "Tshirt", main_category_id: main.id)
 			create(:product, category_id: pull.id, variants_attributes: [size: "L"])
 			create(:product, category_id: pull.id, variants_attributes: [size: "L"])
 			create(:product, category_id: tshirt.id, variants_attributes: [size: "L"])
@@ -226,7 +228,7 @@ RSpec.describe Dashboard, type: :model do
 	describe "#sales_by_week" do 
 		it "returns the  number of sale by week" do
 			create(:sale, created_at: 2.weeks.ago)
-			create(:sale, created_at: 1.day.ago)
+			create(:sale, created_at: Date.today)
 			create(:sale, created_at: Date.today )
 			
 			res = subject.sales_by_week

@@ -1,4 +1,5 @@
 
+
 Category.destroy_all
 Order.destroy_all
 Sale.destroy_all
@@ -293,12 +294,23 @@ user_21 = User.create!(
 
 puts "Users & admin created"
 
-pulls 			= Category.create(title: "Pulls")
-pantalons 	= Category.create(title: "Pantalons")
-tshirt 			= Category.create(title: "Tshirts")
-accessoires = Category.create(title: "Accessoires")
-chemises 		= Category.create(title: "Chemises")
-polos       = Category.create(title: "Polos")
+men =  MainCategory.create(gender: "Homme")
+women = MainCategory.create(gender: "Femme")
+
+pulls_m 			= Category.create!(title: "Pulls",       main_category_id: men.id)
+pantalons_m 	= Category.create!(title: "Pantalons",   main_category_id: men.id)
+tshirt_m 			= Category.create!(title: "Tshirts",     main_category_id: men.id)
+accessoires_m = Category.create!(title: "Accessoires", main_category_id: men.id)
+chemises_m 		= Category.create!(title: "Chemises",    main_category_id: men.id)
+polos_m       = Category.create!(title: "Polos",       main_category_id: men.id)
+
+pulls_w 			= Category.create!(title: "Pulls",       main_category_id: women.id)
+pantalons_w 	= Category.create!(title: "Pantalons",   main_category_id: women.id)
+tshirt_w 			= Category.create!(title: "Tshirts",     main_category_id: women.id)
+accessoires_w = Category.create!(title: "Accessoires", main_category_id: women.id)
+chemises_w 		= Category.create!(title: "Chemises",    main_category_id: women.id)
+polos_w       = Category.create!(title: "Polos",       main_category_id: women.id)
+
 
 # puts "Categories created"
 
@@ -306,7 +318,7 @@ polos       = Category.create(title: "Polos")
 product_1 = Product.create!(
 	ref: "SP00",
 	brand: "Side Park",
-	category_id: polos.id,
+	category_id: polos_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 10,
@@ -341,7 +353,7 @@ product_1 = Product.create!(
 product_2 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -376,7 +388,7 @@ product_2 = Product.create(
 product_3 = Product.create(
 	ref:"SP00" ,
 	brand: "Side Park",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 15,
@@ -411,7 +423,7 @@ product_3 = Product.create(
 product_4 = Product.create(
 	ref: "LE00",
 	brand: "Levis",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 20,
@@ -446,7 +458,7 @@ product_4 = Product.create(
 product_5 = Product.create(
 	ref: "LE00" ,
 	brand: "Levis",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -481,7 +493,7 @@ product_5 = Product.create(
 product_6 = Product.create(
 	ref: "KA00",
 	brand: "Kaporal",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -515,7 +527,7 @@ product_6 = Product.create(
 product_7 = Product.create(
 	ref: "SP00",
 	brand: "Side Park",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 17,
@@ -548,7 +560,7 @@ product_7 = Product.create(
 product_8 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -582,7 +594,7 @@ product_8 = Product.create(
 product_9 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 25,
@@ -613,7 +625,7 @@ product_9 = Product.create(
 product_10 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 25,
@@ -645,7 +657,7 @@ product_10 = Product.create(
 product_11 = Product.create(
 	ref: "SP01",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -677,7 +689,7 @@ product_11 = Product.create(
 product_12 = Product.create(
 	ref: "SP01",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 10,
@@ -712,7 +724,7 @@ product_12 = Product.create(
 product_13 = Product.create(
 	ref: "SP02",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -747,7 +759,7 @@ product_13 = Product.create(
 product_14 = Product.create(
 	ref: "SP02",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -781,7 +793,7 @@ product_14 = Product.create(
 product_15 = Product.create!(
 	ref: "SP00",
 	brand: "Side Park",
-	category_id: polos.id,
+	category_id: polos_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 10,
@@ -816,7 +828,7 @@ product_15 = Product.create!(
 product_16 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -851,7 +863,7 @@ product_16 = Product.create(
 product_17 = Product.create(
 	ref:"SP00" ,
 	brand: "Side Park",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 15,
@@ -886,7 +898,7 @@ product_17 = Product.create(
 product_18 = Product.create(
 	ref: "LE00",
 	brand: "Levis",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 20,
@@ -921,7 +933,7 @@ product_18 = Product.create(
 product_19 = Product.create(
 	ref: "LE00" ,
 	brand: "Levis",
-	category_id: pantalons.id,
+	category_id: pantalons_w.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -956,7 +968,7 @@ product_19 = Product.create(
 product_20 = Product.create(
 	ref: "KA00",
 	brand: "Kaporal",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -990,7 +1002,7 @@ product_20 = Product.create(
 product_21 = Product.create(
 	ref: "SP00",
 	brand: "Side Park",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 17,
@@ -1023,7 +1035,7 @@ product_21 = Product.create(
 product_22 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -1057,7 +1069,7 @@ product_22 = Product.create(
 product_23 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_w.id,
 	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 25,
@@ -1088,7 +1100,7 @@ product_23 = Product.create(
 product_24 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls.id,
+	category_id: pulls_m.id,
 	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 25,
@@ -1120,7 +1132,7 @@ product_24 = Product.create(
 product_25 = Product.create(
 	ref: "SP01",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1152,7 +1164,7 @@ product_25 = Product.create(
 product_26 = Product.create(
 	ref: "SP01",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 10,
@@ -1187,7 +1199,7 @@ product_26 = Product.create(
 product_27 = Product.create(
 	ref: "SP02",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_w.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1222,7 +1234,7 @@ product_27 = Product.create(
 product_28 = Product.create(
 	ref: "SP02",
 	brand: "Side Park",
-	category_id: pantalons.id,
+	category_id: pantalons_w.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,

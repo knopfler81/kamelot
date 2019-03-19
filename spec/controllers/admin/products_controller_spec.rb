@@ -5,7 +5,8 @@ RSpec.describe Admin::ProductsController, :admin do
   before(:each) do 
     @user = FactoryBot.create(:user, admin: true)
     sign_in @user
-    @category = create(:category)
+    @main     = create(:main_category)
+    @category = create(:category, main_category_id: @main.id)
     @product  = create(:product, category_id: @category.id,)
     @variant  = create(:variant, product_id: @product.id, size: "L")
   end

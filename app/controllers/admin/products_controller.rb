@@ -26,6 +26,8 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def new
 		@product = Product.new
+		@main_categories = MainCategory.all
+		@categories = Category.all
 	end
 
 	def edit
@@ -37,6 +39,8 @@ class Admin::ProductsController < Admin::ApplicationController
 		@products = Product.all
 	end
 	def create
+		@main_categories = MainCategory.all
+		@categories = Category.all
 		@product =  Product.create!(params_product)
 		@product.user_id = current_user.id
 		if @product.save
@@ -81,7 +85,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code, :gender,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
+		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
 	end
 
 	def filter_products

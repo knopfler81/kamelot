@@ -1,15 +1,27 @@
-// ouvre le sous et referme le sous menu
+// ouvre le sous menu et referme le sous menu (admin et clients)
 
 $(document).on('turbolinks:load', function() {
-	$("#genders").mouseenter(function(){
-	  $("#categories").slideDown();
-	})
+  $(".gender").mouseenter(function(){
+    var gender = $(this).data("gender")
+    $(".categories[data-gender=" + gender + "]").slideDown();
+  })
 
-	$("body").click(function() {
-	  $("#categories").slideUp();
-	});
+  $(".categories").mouseleave(function() {
+    $(".categories").each(function() { $(this).slideUp() })
+  });
 
-	$("#categories").click(function(e) {
-	  e.stopPropagation();
-	});
+  $(".gender").mouseenter(function(){
+    var gender = $(this).data("gender")
+    $(".admin-categories[data-gender=" + gender + "]").slideDown();
+  })
+
+
+  $(".gender").mouseenter(function(){
+    var gender = $(this).data("gender")
+    $(".admin-categories[data-gender=" + gender + "]").slideDown();
+  })
+
+  $(".admin-categories").mouseleave(function() {
+    $(".admin-categories").each(function() { $(this).slideUp() })
+  });
 });
