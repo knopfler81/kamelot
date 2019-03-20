@@ -40,7 +40,7 @@ gem 'font-awesome-sass', '~> 5.0.9'
 
 gem 'will_paginate'
 
-#uploads images  PDF
+#uploads images
 gem 'fog'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick'
@@ -57,6 +57,17 @@ gem 'sidekiq-failures', '~> 1.0'
 gem 'webpacker'
 gem 'react-rails'
 
+
+
+#PDF 
+
+gem 'pdfkit'
+gem 'render_anywhere', require: false
+gem 'wkhtmltopdf-binary', '~> 0.12.3'
+
+group :production do
+  gem "wkhtmltopdf-heroku"
+end
 
 #QR codes 
 gem 'rqrcode'

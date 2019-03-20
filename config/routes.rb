@@ -108,6 +108,7 @@ Rails.application.routes.draw do
 
 		resources :orders, only: [ :index, :show, :create] do
 		  resources :payments, only: [:new, :create]
+			resource :download, only: :show
 		end
 		#### NE PAS CHANGER L'ORDRE DE CES ROUTES ####
 	 	get 'cart', to: "order_items#index"
