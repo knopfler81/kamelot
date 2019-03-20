@@ -32,11 +32,6 @@ class Clients::OrdersController < Clients::ApplicationController
 		end
 	end
 
-	# def pdf
-	# 	@order = Order.find(params[:id])
-	# 	@company = Company.instance
-	# end
-
 	private
 
 	def order_params
