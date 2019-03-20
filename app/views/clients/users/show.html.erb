@@ -19,9 +19,10 @@
 				</h2>
 					<% if current_user.shipping_address %>
 						<p><%= current_user.shipping_address.first_name %> <%= current_user.shipping_address.last_name %></p>
-						<p><%= current_user.shipping_address.street_number %> <%=current_user.shipping_address.route  %></p>
+						<p><%= current_user.shipping_address.address_1 %></p>
+						<p><%=current_user.shipping_address.address_2  %></p>
 						
-						<p><%= current_user.shipping_address.postal_code %> <%= current_user.shipping_address.locality %></p>
+						<p><%= current_user.shipping_address.zipcode %> <%= current_user.shipping_address.city %></p>
 					<% end %>
 					<hr>
 					<% if @current_cart.items_count > 0 %>				
@@ -43,10 +44,10 @@
 
 				<% if current_user.billing_address.present? %>
 					<p><%= current_user.billing_address.first_name %> <%= current_user.billing_address.last_name %></p>
-						<p><%= current_user.billing_address.first_name %> <%= current_user.billing_address.last_name %></p>
-						<p><%= current_user.billing_address.street_number %> <%=current_user.billing_address.route  %></p>
+					<p><%= current_user.billing_address.address_1 %></p>
+					<p><%=current_user.billing_address.address_2  %></p>
 						
-						<p><%= current_user.billing_address.postal_code %> <%= current_user.billing_address.locality %></p>
+						<p><%= current_user.billing_address.zipcode %> <%= current_user.billing_address.city %></p>
 					<hr>
 				<% else %>
 					<p>Identique à l'adresse de livraison</p>

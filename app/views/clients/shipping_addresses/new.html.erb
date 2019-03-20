@@ -18,22 +18,22 @@
 
 
 				</div>
-				<br><br>
 				<div class="row">
-					<div class="col-6 col-md-3">
-						<%= f.input :street_number, label: false,	placeholder: "N° de rue",	required: true, input_html: { id: "street_number"} %>	
+					<div class="col-12">
+						<%= f.input :address_1, label: false,	placeholder: "Adresse",	required: true %>	
 					</div>
-					<div class="col-6 col-md-9">
-						<%= f.input :route, label: false,	placeholder: "Voie", required: true, input_html: { id: "route"} %>
+					<div class="col-12">
+						<%= f.input :address_2, label: false,	placeholder: "Complément d'adresse" %>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12 col-md-3">
-							<%= f.input :postal_code, label: false, placeholder: "Code Postal", required: true, input_html: { id: "postal_code"} %>
+							<%= f.input :zipcode, label: false, placeholder: "Code Postal", required: true  %>
 					</div>
-					<div class="col-12 col-md-">
-							<%= f.input :locality, label: false,	placeholder: "Ville", required: true, input_html: { id: "locality"} %>
+					<div class="col-12 col-md-9">
+							<%= f.input :city, label: false,	placeholder: "Ville", required: true  %>
 					</div>
+
 				</div>
 				<br><br>
 				<%= f.submit "Valider", class: "btn-main btn-block" %>
