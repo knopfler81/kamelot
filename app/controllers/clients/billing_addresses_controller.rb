@@ -49,6 +49,6 @@ class Clients::BillingAddressesController <  Clients::ApplicationController
 	end
 
 	def billing_address_params
-	 	params.require(:billing_address).permit(:first_name, :last_name, :address, :route, :user_id, :street_number, :locality, :administrative_area_level_1, :postal_code)
+	 	params.require(:billing_address).permit(:first_name, :last_name, :address_1, :address_2, :user_id, :city, :zipcode, :user_id,)
 	end
 end

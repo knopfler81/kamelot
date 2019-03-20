@@ -7,12 +7,14 @@
   <div class="contact">
     <% if order.user.billing_address.present? %>
       <p><%= order.user.billing_address.full_name %></p>
-      <p><%= order.user.billing_address.street_number %> <%= order.user.billing_address.route %></p>
-      <p><%= order.user.billing_address.postal_code %> <%= order.user.billing_address.locality %></p>
+      <p><%= order.user.billing_address.address_1 %></p>
+      <p><%= order.user.billing_address.address_2 %></p>
+      <p><%= order.user.billing_address.zipcode%> <%= order.user.billing_address.city %></p>
     <% else %>
       <p><%= order.user.shipping_address.full_name %></p>
-      <p><%= order.user.shipping_address.street_number %> <%= order.user.shipping_address.route %></p>
-      <p><%= order.user.shipping_address.postal_code %> <%= order.user.shipping_address.locality %></p>
+      <p><%= order.user.shipping_address.address_1 %></p>
+      <p><%= order.user.shipping_address.address_2 %></p>
+      <p><%= order.user.shipping_address.zipcode%> <%= order.user.shipping_address.city %></p>
     <% end %>
   </div>
   <div class="company">
