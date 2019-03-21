@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  require 'csv'
+
   belongs_to :user,  optional: true
   has_many   :items, class_name: "OrderItem", dependent: :destroy
 
@@ -70,4 +72,14 @@ class Order < ApplicationRecord
     end
     delivery_date_2
   end
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ["Raison sociale", "*Civilité (autorisée : 'M.'ou  'Mme' )",  "*Nom",  "*Prénom", "Appartement/Chez",  "Bâtiment/Immeuble",  "*N° et libellé de voie",   "Lieu-dit/BP",  "*Code postal" , "*Ville", "*Pays", "E-mail"]
+      Order.where(status: "confirmed").each do |o|
+        csv << ["rs",  "M.", "#{o.user.shipping_address.first_name}", "#{o.user.shipping_address.last_name}", "", "#{o.user.shipping_address.address_1} #{o.user.shipping_address.address_2}", "LD", "#{o.user.shipping_address.zipcode}", "#{o.user.shipping_address.city}", "France", "#{o.user.email}"]  
+      end
+    end
+  end
+
 end

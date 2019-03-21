@@ -8,6 +8,10 @@ class Admin::OrdersController < Admin::ApplicationController
 		else
 			@orders = Order.where.not(user_id: nil).order('created_at DESC').paginate(page: params[:page], per_page: 10)
 		end
+		respond_to do |format|
+      format.html
+      format.csv { send_data @orders.to_csv }
+    end
 	end
 
 	def show
@@ -33,6 +37,8 @@ class Admin::OrdersController < Admin::ApplicationController
 		end
 
 	end
+
+
 
 	private
 

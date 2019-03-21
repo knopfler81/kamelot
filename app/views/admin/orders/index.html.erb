@@ -4,6 +4,9 @@
 		<br><br>
 		<div class="admin_panel">
 
+			<%= link_to 'csv1', admin_orders_path(format: "csv"), class: "btn btn-warning" %>
+
+
      <%= simple_form_for :query, url: admin_orders_path, method: :get,  html: {class: "form-inline"} do |f| %>
        <%= f.input  :keyword, placeholder: "Rechercher par nom", label: false, input_html: {class: "search-order"} %>
        <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
