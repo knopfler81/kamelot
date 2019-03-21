@@ -21,6 +21,9 @@ class Order < ApplicationRecord
     send(status)
   end
 
+
+  before_save :set_total_weight
+
   def remove_from_stock
     self.items.each do |item|
       Stock.where(variant_id: item.variant_id).where('quantity > 0').order(:created_at).reduce(item.quantity.to_i) do |quantity, stock|
@@ -33,6 +36,11 @@ class Order < ApplicationRecord
         end
       end
     end
+  end
+
+
+  def set_total_weight
+    self.total_weight =  self.items.map(&:weight).sum
   end
 
   def count_articles

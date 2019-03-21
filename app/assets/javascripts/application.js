@@ -70,6 +70,6 @@ function topFunction() {
 
 
 
-$(document).on('turbolinks:load', function() {
- $('.tag-tooltip').toolTip(); 
-});
+// $(document).on('turbolinks:load', function() {
+//  $('.tag-tooltip').toolTip(); 
+// });
