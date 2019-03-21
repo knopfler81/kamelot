@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_145935) do
+ActiveRecord::Schema.define(version: 2019_03_21_114349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_145935) do
     t.datetime "updated_at", null: false
     t.decimal "price"
     t.bigint "variant_id"
+    t.float "weight"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["variant_id"], name: "index_order_items_on_variant_id"
   end
@@ -130,6 +131,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_145935) do
     t.decimal "sub_total"
     t.decimal "shipping_fees"
     t.boolean "gcos_accepted", default: false
+    t.float "total_weight"
   end
 
   create_table "products", force: :cascade do |t|
@@ -146,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_145935) do
     t.decimal "price"
     t.decimal "buying_price", precision: 10, scale: 2
     t.integer "supplier_id"
+    t.float "weight"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end

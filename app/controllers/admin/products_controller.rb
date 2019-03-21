@@ -69,7 +69,6 @@ class Admin::ProductsController < Admin::ApplicationController
 		end
 	end
 
-
 	def stock
 		@variants = @product.variants
 	end
@@ -85,7 +84,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
+		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :weight, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
 	end
 
 	def filter_products

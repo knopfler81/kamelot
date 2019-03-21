@@ -25,8 +25,7 @@ class ShoppingCart
       order.items.find_by(variant_id: variant_id)
     else
      order.items.new(variant_id: variant_id)
-    end
-    
+    end    
     
     if !@stock.price.nil?
        @order_item.price = @stock.price

@@ -27,15 +27,17 @@
 						<div class="co-12 col-md-4">
 							<%= f.input :category_id, as: :grouped_select, collection: MainCategory.all, group_method: :categories, group_label_method: :gender, input_html: { class: "custom-select"}, label: false, prompt: "Choisir une catégorie" %>
 						</div>
-
 						<div class="co-12 col-md-4">
 							<%= f.input :brand, placeholder: "Marque", label: false, required: true %>
+						</div>
+						<div class="co-12 col-md-4">
+							<%= f.input :title, placeholder: "Titre", label: false, required: true %>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="co-12 col-md-4">
-							<%= f.input :title, placeholder: "Titre", label: false, required: true %>
+							<%= f.input :weight, placeholder: "Poids", label: false, required: true %>
 						</div>
 						<div class="co-12 col-md-4">
 							<%= f.input :color, placeholder: "Couleur", label: false, required: true %>
