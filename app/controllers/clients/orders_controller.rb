@@ -21,6 +21,7 @@ class Clients::OrdersController < Clients::ApplicationController
 		@order = current_cart.order
 		@order.update_sub_total!
 		@order.update_total!
+		@order.set_total_weight
 		if @order.update_attributes(order_params.merge(user_id: current_user.id))
 			if @order.gcos_accepted == true 
     		redirect_to new_clients_order_payment_path(@order)

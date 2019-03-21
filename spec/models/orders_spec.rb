@@ -42,6 +42,27 @@ describe "#remove_from_stock" do
 			expect(Stock.where(variant_id: variant_m.id).first.quantity).to eq(9)
 
 		end
+ 	end
 
+ 	describe "#set_total_weight!" do 
+ 		it "returns the total weight for all items" do 
+			john   = create(:user)
+	 		token  = 12345678
+		 	current_cart ||= ShoppingCart.new(token: token)
+			product   = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, weight: 0.300)
+			variant_s = create(:variant, product_id: product.id, size: "S")
+			variant_m = create(:variant, product_id: product.id, size: "M")
+
+			stock_s   = create(:stock, variant_id: variant_s.id, quantity: 6)
+			stock_m   = create(:stock, variant_id: variant_m.id, quantity: 10)
+			order     = create(:order, user_id: john.id)
+
+			create(:order_item, order_id: order.id, quantity: 2, variant_id: variant_s.id, price: 20)
+      create(:order_item, order_id: order.id, quantity: 1, variant_id: variant_m.id, price: 20)
+
+			order.set_total_weight
+
+			expect(order.total_weight).to eq(0.900)
+ 		end
  	end
 end
