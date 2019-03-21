@@ -4,6 +4,7 @@ FactoryBot.define do
   	ref   { Faker::Number.number(10)}
   	price { Faker::Number.number(2) }
     buying_price  { 5 }
+    weight { 0.3 }
   	color { Faker::Color.color_name }
   	brand { Faker::TvShows::BreakingBad }
   	description { Faker::Lorem.sentence(3) }
