@@ -38,6 +38,7 @@ class ShoppingCart
     ActiveRecord::Base.transaction do
       @order_item.save
       update_sub_total!
+      set_total_weight
     end
     # TODO
     # remettre à 30min , est ce encore utile?? a vérifier
@@ -60,6 +61,7 @@ class ShoppingCart
     ActiveRecord::Base.transaction do
       order.items.destroy(id)
       update_sub_total!
+      set_total_weight
     end
   end
 

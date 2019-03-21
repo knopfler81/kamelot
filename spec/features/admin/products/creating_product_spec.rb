@@ -21,6 +21,7 @@ RSpec.describe "Creating Product" , :js do
 			fill_in "product[description]", with: "Une description pour ce gillet"
 			fill_in "product[color]", with: "Noir"
 			fill_in "product[ref]", with: "FF00"
+			fill_in "product[weight]", with: 0.300
 			select "Gillet",  from: "product[category_id]"
 			select "Morrin", from: "product[supplier_id]"
 
