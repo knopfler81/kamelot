@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: e7578357beb09afbd04f0c7ec8ee18a0a83911b1
+  revision: 32bac72d67d275bfb26ee7049efe5f3489fff3d0
   branch: master
   specs:
     faker (1.9.3)
@@ -238,7 +238,7 @@ GEM
     fog-ecloud (0.3.0)
       fog-core
       fog-xml
-    fog-google (1.8.2)
+    fog-google (1.9.0)
       fog-core (<= 2.1.0)
       fog-json (~> 1.2)
       fog-xml (~> 0.1.0)
@@ -306,9 +306,9 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (2.5.0)
+    fog-vsphere (3.0.0)
       fog-core
-      rbvmomi (~> 1.9)
+      rbvmomi (>= 1.9, < 3)
     fog-xenserver (1.0.0)
       fog-core
       fog-xml
@@ -397,6 +397,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    optimist (3.0.0)
     orm_adapter (0.5.0)
     os (1.0.0)
     ovirt-engine-sdk (4.3.0)
@@ -462,11 +463,11 @@ GEM
     rbovirt (0.1.7)
       nokogiri
       rest-client (> 1.7.0)
-    rbvmomi (1.13.0)
+    rbvmomi (2.0.1)
       builder (~> 3.0)
       json (>= 1.8)
       nokogiri (~> 1.5)
-      trollop (~> 2.1)
+      optimist (~> 3.0)
     react-rails (2.4.7)
       babel-transpiler (>= 0.7.0)
       connection_pool
@@ -571,7 +572,6 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
-    trollop (2.9.9)
     tty-color (0.4.3)
     tty-pager (0.12.1)
       strings (~> 0.1.4)
@@ -599,7 +599,7 @@ GEM
     unicode_utils (1.4.0)
     warden (1.2.8)
       rack (>= 2.0.6)
-    webpacker (4.0.2)
+    webpacker (3.5.5)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -673,7 +673,7 @@ DEPENDENCIES
   twilio-ruby
   tzinfo-data
   uglifier (>= 1.3.0)
-  webpacker
+  webpacker (~> 3.5.5)
   will_paginate
   wkhtmltopdf-binary (~> 0.12.3)
   wkhtmltopdf-heroku
