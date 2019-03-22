@@ -54,16 +54,16 @@ gem 'sidekiq-failures', '~> 1.0'
 
 
 #react 
-gem 'webpacker'
+gem 'webpacker', '~> 3.5.5' # ⚠️ version qui fonctionne avec flatpickr 
 gem 'react-rails'
 
 
 
 #PDF 
-
 gem 'pdfkit'
 gem 'render_anywhere', require: false
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
+
 
 group :production do
   gem "wkhtmltopdf-heroku"
