@@ -1,4 +1,4 @@
-  <div class="page-wrapper chiller-theme" data-turbolinks="false">
+  <div class="page-wrapper chiller-theme toggled">
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
         <div class="sidebar-brand">
@@ -62,7 +62,7 @@
                       <%= link_to "Ajouter le stock",   stock_admin_product_path(@product), class: "drop-item" %>
                     </li>
                     <li>
-                      <%= link_to "Modifier l'article", edit_admin_product_path, data: { turbolinks: false }, class: "drop-item edit_product" %>
+                      <%= link_to "Modifier l'article", edit_admin_product_path, class: "drop-item edit_product" %>
                     </li>
                   <% end %>
                     <li>
