@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::ApplicationController
 	protect_from_forgery
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
-	before_action :find_product, only: [:show, :destroy, :update, :edit, :stock]
+	before_action :find_product, only: [:show, :destroy, :update, :edit, :stock, :stickers]
 
 	require 'rqrcode'
 
@@ -12,7 +12,6 @@ class Admin::ProductsController < Admin::ApplicationController
     	@products = Product.all.paginate(page: params[:page], per_page: 12)
     end
 	end
-
 
 	def list
 		filter_products if params[:query].present?
@@ -38,6 +37,7 @@ class Admin::ProductsController < Admin::ApplicationController
 		@categories = Category.all
 		@products = Product.all
 	end
+
 	def create
 		@main_categories = MainCategory.all
 		@categories = Category.all
@@ -72,6 +72,12 @@ class Admin::ProductsController < Admin::ApplicationController
 	def stock
 		@variants = @product.variants
 	end
+
+
+	def stickers
+
+	end
+
 
 	private
 	

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_114349) do
+ActiveRecord::Schema.define(version: 2019_03_25_212830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_114349) do
     t.decimal "buying_price", precision: 10, scale: 2
     t.integer "supplier_id"
     t.float "weight"
+    t.string "qr_code"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
@@ -197,6 +198,14 @@ ActiveRecord::Schema.define(version: 2019_03_21_114349) do
     t.datetime "updated_at", null: false
     t.integer "quantity_stock"
     t.index ["product_id"], name: "index_sizes_on_product_id"
+  end
+
+  create_table "stickers", force: :cascade do |t|
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_stickers_on_product_id"
   end
 
   create_table "stocks", force: :cascade do |t|

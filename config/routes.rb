@@ -15,10 +15,18 @@ Rails.application.routes.draw do
 
 
 			resources :products do 
+    		resources :stickers
 				member do
         	get :stock
       	end
     	end
+
+			resources :products do 
+    		resources :stickers, only: [:show, :new, :create] do 
+    			resource :download_sticker, only: :show
+    		end	
+    	end
+
 
     	resources :stocks, only: [:create, :update, :destroy]
 
@@ -110,6 +118,7 @@ Rails.application.routes.draw do
 		  resources :payments, only: [:new, :create]
 			resource :download, only: :show
 		end
+
 		#### NE PAS CHANGER L'ORDRE DE CES ROUTES ####
 	 	get 'cart', to: "order_items#index"
 	 	patch "cart", to: "order_items#update"

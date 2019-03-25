@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<div class="content">
+
+	<div id="stickers">
+		<div class="row">
+		<% sticker.quantity.times do  %>
+			<div class="col-xs-3">
+				<div class="sticker">
+					<div class="row">
+						<div class="col-xs-12">
+							<%= render_qr_code_small("https://super-shop-staging.herokuapp.com/admin/products/#{sticker.product}") %>	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<ul class="list list-unstyled">
+								<li><%= number_to_currency_euro sticker.product.price %></li>
+								<li><%= sticker.product.title %> - <%= sticker.product.color %></li>
+								<li><%= sticker.product.brand %></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+				
+		</div>
+		
+	</div>
+</div>

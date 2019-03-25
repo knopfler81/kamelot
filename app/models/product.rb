@@ -6,11 +6,13 @@ class Product < ApplicationRecord
 	belongs_to :user, optional: true
 	belongs_to :category, optional: true
 
+
 	has_many :favorites, dependent: :destroy
 	has_many :favoriting_users, through: :favorites, source: :user
 
 	has_many :variants, dependent: :destroy
 	has_many :stocks,   through: :variants
+	has_many :stickers
 
 	belongs_to :supplier
 
@@ -28,11 +30,10 @@ class Product < ApplicationRecord
 
 	validate  :attachment_size
 
-
-
 	def with_stock?
 		self.stocks.map(&:quantity).sum >= 1  ? true : false
 	end
+
 
 	private
 
