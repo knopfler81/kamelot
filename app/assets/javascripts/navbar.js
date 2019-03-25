@@ -1,5 +1,4 @@
 // ouvre le sous menu et referme le sous menu (admin et clients)
-
 $(document).on('turbolinks:load', function() {
   $(".gender").click(function(){
     var gender = $(this).data("gender")
