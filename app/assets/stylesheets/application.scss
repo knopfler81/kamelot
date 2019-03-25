@@ -15,6 +15,9 @@
 @import "pages"; //landing et footer
 @import "sidebar";
 
+.content {
+	padding: 50px;
+}
 
 .search-order, .search-article {
 	width: 300px!important;

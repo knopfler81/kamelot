@@ -35,7 +35,7 @@ function displayImage(){
     // big_images set up
     .each(function(){
       $(this)
-        // add a photo container
+        // add a photo content
         .append('<div class="photo"></div>')
         // set up a background image for each tile based on data-image attribute
         .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
