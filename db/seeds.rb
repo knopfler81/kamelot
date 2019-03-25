@@ -332,15 +332,19 @@ product_1 = Product.create!(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 1.weeks.ago
 			}
 		]
 )
@@ -369,15 +373,19 @@ product_2 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 3.weeks.ago
 			}
 		]
 )
@@ -405,15 +413,20 @@ product_3 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 3.weeks.ago
 			},
 			{
-			size: "XL",}
+			size: "XL",
+			created_at: 3.weeks.ago
+		}
 	
 		]
 )
@@ -441,15 +454,19 @@ product_4 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 5.weeks.ago
 			}
 		]
 )
@@ -477,15 +494,19 @@ product_5 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 5.weeks.ago
 			}
 		]
 )
@@ -495,7 +516,7 @@ product_6 = Product.create(
 	ref: "KA00",
 	brand: "Kaporal",
 	category_id: pantalons_m.id,
-	created_at: 6.weeks.ago,
+	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
@@ -513,15 +534,19 @@ product_6 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 5.weeks.ago
 			}
 		]
 )
@@ -547,15 +572,19 @@ product_7 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 6.weeks.ago
 			}
 		]
 )
@@ -582,15 +611,19 @@ product_8 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 6.weeks.ago
 			}
 		]
 )
@@ -617,12 +650,15 @@ product_9 = Product.create(
 	variants_attributes: [
 			{
 			size: "M",
+			created_at: 7.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 7.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 7.weeks.ago
 			}
 		]	
 )
@@ -649,12 +685,15 @@ product_10 = Product.create(
 	variants_attributes: [
 			{
 			size: "M",
+			created_at: 7.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 7.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 7.weeks.ago
 			}
 		]	
 )
@@ -682,12 +721,15 @@ product_11 = Product.create(
 	variants_attributes: [
 			{
 			size: "M",
+			created_at: 7.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 7.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 7.weeks.ago
 			}
 		]
 )
@@ -715,15 +757,19 @@ product_12 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 8.weeks.ago
 			}
 		]
 )
@@ -751,15 +797,19 @@ product_13 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 8.weeks.ago
 			}
 		]
 )
@@ -787,15 +837,19 @@ product_14 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 9.weeks.ago
 			}
 		]
 )
@@ -821,15 +875,19 @@ product_15 = Product.create!(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 9.weeks.ago
 			}
 		]
 )
@@ -858,15 +916,19 @@ product_16 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 6.weeks.ago
 			}
 		]
 )
@@ -894,15 +956,20 @@ product_17 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 6.weeks.ago
 			},
 			{
-			size: "XL",}
+			size: "XL",
+			created_at: 6.weeks.ago
+		}
 	
 		]
 )
@@ -930,15 +997,19 @@ product_18 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 6.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 6.weeks.ago
 			}
 		]
 )
@@ -966,15 +1037,19 @@ product_19 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 9.weeks.ago
 			}
 		]
 )
@@ -984,7 +1059,7 @@ product_20 = Product.create(
 	ref: "KA00",
 	brand: "Kaporal",
 	category_id: pantalons_m.id,
-	created_at: 6.weeks.ago,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
@@ -1002,15 +1077,19 @@ product_20 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 9.weeks.ago
 			}
 		]
 )
@@ -1019,7 +1098,7 @@ product_21 = Product.create(
 	ref: "SP00",
 	brand: "Side Park",
 	category_id: pulls_m.id,
-	created_at: 6.weeks.ago,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 17,
 	price: 49,
@@ -1036,15 +1115,19 @@ product_21 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 9.weeks.ago
 			}
 		]
 )
@@ -1053,7 +1136,7 @@ product_22 = Product.create(
 	ref: "GU00",
 	brand: "Guess",
 	category_id: pulls_m.id,
-	created_at: 6.weeks.ago,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
 	price: 30,
@@ -1071,15 +1154,19 @@ product_22 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 9.weeks.ago
 			}
 		]
 )
@@ -1106,12 +1193,15 @@ product_23 = Product.create(
 	variants_attributes: [
 			{
 			size: "M",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 8.weeks.ago
 			}
 		]	
 )
@@ -1138,12 +1228,15 @@ product_24 = Product.create(
 	variants_attributes: [
 			{
 			size: "M",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 8.weeks.ago
 			}
 		]	
 )
@@ -1171,12 +1264,15 @@ product_25 = Product.create(
 	variants_attributes: [
 			{
 			size: "M",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 8.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 8.weeks.ago
 			}
 		]
 )
@@ -1204,15 +1300,19 @@ product_26 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 10.weeks.ago
 			}
 		]
 )
@@ -1240,15 +1340,19 @@ product_27 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 10.weeks.ago
 			}
 		]
 )
@@ -1276,15 +1380,19 @@ product_28 = Product.create(
 	variants_attributes: [
 			{
 			size: "S",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "M",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "L",
+			created_at: 10.weeks.ago
 			},
 			{
 			size: "XL",
+			created_at: 10.weeks.ago
 			}
 		]
 )

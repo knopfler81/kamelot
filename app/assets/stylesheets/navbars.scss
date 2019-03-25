@@ -9,6 +9,7 @@
 	cursor: pointer;
 }
 
+
 .admin-categories {
 	padding: 20px;
 	background-color: #111;
@@ -71,6 +72,22 @@
 		color: #ddd;
 	}
 }
+
+.nav-gender-admin {
+	font-family: 'Montserrat';
+	background-color: #111!important;
+
+	.nav-link{
+		color: #ddd!important;
+	}
+
+
+}
+
+	.nav-link:hover {
+		color: #fff!important;
+		cursor: pointer;
+	}
 
 .nav-upper-clients {
 	background-color: #fff;
