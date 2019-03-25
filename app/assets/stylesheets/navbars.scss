@@ -20,8 +20,19 @@
 	cursor: pointer;
 }
 
+.nav-gender-admin {
+	z-index: 10000;
+	font-family: 'Montserrat';
+	background-color: #111!important;
+
+	.nav-link{
+		color: #ddd!important;
+		cursor: pointer;
+	}
+}
 
 .nav-upper-admin {
+	z-index: 10000;
 	font-family: 'Montserrat';
 	background-color: #111!important;
 	.navbar-brand {
@@ -86,29 +97,6 @@
   color: #fff;
 }
 
-.nav-upper-admin {
-	font-family: 'Montserrat';
-	background: #111!important;
-	.navbar-brand {
-		color: #ddd;
-	}
-
-	.nav-link{
-		color: #ddd!important;
-	}
-
-	.dropdown-item {
-		background: #111;
-		color: #ddd;
-	}
-	a {
-		color: #ddd;
-	}
-
-	a:hover {
-		color: #ddd;
-	}
-}
 
 #nav-upper-clients {
 	background-color: transparent!important;
