@@ -1,4 +1,7 @@
 module ApplicationHelper
+
+	require 'rqrcode'
+	
 	def delivery_date_1
 	  order_date = Date.today 
 	  delivery_date_1 = order_date + 3
@@ -17,6 +20,47 @@ module ApplicationHelper
 	  end
 	  delivery_date_2
 	end
+
+	def number_to_currency_euro(number)
+	  number_to_currency(number, :unit => "€", percision: 2 , :delimiter => ".", format: "%n %u")
+	end
+
+
+  def render_qr_code text, size = 5
+    return if text.to_s.empty?
+    qr = RQRCode::QRCode.new(text)
+    sizeStyle = "width: #{size}px; height: #{size}px;"
+
+    content_tag :table, class: "qrcode pull-right" do
+      qr.modules.each_index do |x|
+        concat(content_tag(:tr) do
+          qr.modules.each_index do |y|
+            color = qr.dark?(x, y) ? 'black' : 'white'
+            concat content_tag(:td, nil, class: color, style: sizeStyle)
+          end
+        end)
+      end
+    end
+  end
+
+  def render_qr_code_small text, size = 3
+    return if text.to_s.empty?
+    qr = RQRCode::QRCode.new(text)
+    # png = qr.to_img
+    # png.resize(100, 100).save("public/qrcodes/#{@product.id}_qrcode.png")
+    sizeStyle = "width: #{size}px; height: #{size}px;"
+
+    content_tag :table, class: "qrcode pull-right" do
+      qr.modules.each_index do |x|
+        concat(content_tag(:tr) do
+          qr.modules.each_index do |y|
+            color = qr.dark?(x, y) ? 'black' : 'white'
+            concat content_tag(:td, nil, class: color, style: sizeStyle)
+          end
+        end)
+      end
+    end
+  end
 
 
 	def prefered_body_color

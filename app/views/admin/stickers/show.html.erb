@@ -1,0 +1,21 @@
+<div class="container">
+
+	<div id="stickers">
+		<%= link_to "Télécharger le PDF", admin_product_sticker_path(@product, @sticker,format: "pdf") %>
+		<div class="row">
+		<% @sticker.quantity.times do  %>
+			<div class="col-3">
+			<div class="sticker">
+				<%= render_qr_code_small("https://super-shop-staging.herokuapp.com/admin/products/#{@sticker.product.id}") %>
+				<ul class="list list-unstyled">
+					<li><%= number_to_currency_euro @sticker.product.price %></li>
+					<li><%= @sticker.product.title %> - <%= @sticker.product.color %></li>
+					<li><%= @sticker.product.brand %></li>
+				</ul>
+			</div>
+			</div>
+		<% end %>
+				
+		</div>
+	</div>
+</div>

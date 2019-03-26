@@ -60,8 +60,9 @@ gem 'react-rails'
 
 
 #PDF 
-gem 'pdfkit'
-gem 'render_anywhere', require: false
+# gem 'pdfkit'
+# gem 'render_anywhere', require: false
+gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
 
 
@@ -70,6 +71,7 @@ group :production do
 end
 
 #QR codes 
+gem 'rqrcode_png'
 gem 'rqrcode'
 
 #conserve les versions après edition
