@@ -33,3 +33,43 @@
 	    }
 	  }
 	}
+
+
+// FACTURES 
+#container {
+	padding: 10px;
+	position: relative;
+	width: 100%;
+	margin: 30px auto;
+	font-size: 15px;
+}
+
+.reference_invoice {
+	padding: 5px;
+	border: 1px solid #111;
+	margin-bottom: 50px;
+}
+
+.line-items {
+	font-size: 15px;
+  th, td {
+  	line-height: 12px;
+  }
+}
+
+
+header {
+  margin-bottom: 25px;
+
+  .contact {
+    float: right;
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#notes {
+	position: fixed;
+	bottom: 0;
+}

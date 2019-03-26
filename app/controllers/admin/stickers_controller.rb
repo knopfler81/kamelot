@@ -19,9 +19,9 @@ class Admin::StickersController < Admin::ApplicationController
 	  respond_to do |format|
 	    format.html { }
 	    format.pdf do 
-	      html = render_to_string(template: "admin/stickers/show.pdf.erb", layout: "layouts/admin/application.pdf.erb", orientation: "Landscape" )
+	      html = render_to_string(template: "admin/stickers/show.pdf.erb", layout: "layouts/application.pdf.erb", orientation: "Landscape" )
 	      pdf = WickedPdf.new.pdf_from_string(html)
-	      send_data(pdf, filename: "sticker.pdf", type: "admin/application/pdf", disposition: 'attachment')     
+	      send_data(pdf, filename: "sticker.pdf", type: "application/pdf", disposition: 'attachment')     
 	    end
 	  end
 	end
