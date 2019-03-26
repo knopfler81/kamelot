@@ -10,6 +10,14 @@ class Clients::OrdersController < Clients::ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
+		respond_to do |format|
+		  format.html { }
+		  format.pdf do 
+		    html = render_to_string(template: "clients/orders/show.pdf.erb", layout: "layouts/application.pdf.erb", orientation: "Landscape" )
+		    pdf = WickedPdf.new.pdf_from_string(html)
+		    send_data(pdf, filename: "order.pdf", type: "application/pdf", disposition: 'attachment')     
+		  end
+		end
 	end
 
 	def new

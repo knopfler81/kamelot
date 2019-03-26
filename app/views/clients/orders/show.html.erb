@@ -14,7 +14,7 @@
 				<div class="col-12 col-md-6">
 					<p>Etat de la commande: <%= t(".#{@order.status}") %></p>
 					<p>Commande: FR-000<%= @order.id %></p>
-					<p><%= link_to "MA FACTURE", clients_order_download_path(@order, format: "pdf"),
+					<p><%= link_to "MA FACTURE", clients_order_path(@order, format: "pdf"),
   								target: "_blank",
  									class: "download" %></p>
 				</div>
