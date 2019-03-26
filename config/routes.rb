@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
  	root to: "clients/pages#landing"
 
-	require "sidekiq/web"
-	
-	authenticate :user, lambda { |u| u.admin? } do	 		
+
+
+	authenticate :user, lambda { |u| u.admin? } do
+		 		
+  	require "sidekiq/web"
+    require 'sidekiq/cron/web'
     mount Sidekiq::Web => '/sidekiq'
 
 		namespace :admin do

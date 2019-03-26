@@ -49,6 +49,7 @@ gem 'file_validators'
 
 #jobs
 gem 'sidekiq'
+gem 'sidekiq-cron'
 gem 'sinatra'
 gem 'sidekiq-failures', '~> 1.0'
 
@@ -73,10 +74,6 @@ end
 #QR codes 
 gem 'rqrcode_png'
 gem 'rqrcode'
-
-#conserve les versions après edition
-#gem "audited", "~> 4.7"
-
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 

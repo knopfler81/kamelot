@@ -1,0 +1,4 @@
+remove_old_stickers:
+  cron: "* * * * 0"
+  class: "RemoveOldStickersJob"
+  queue: default

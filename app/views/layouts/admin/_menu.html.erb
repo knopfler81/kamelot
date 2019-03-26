@@ -59,23 +59,23 @@
                   </li>
                   <% unless @product.nil? || @product.new_record? %>
                     <li>
-                      <%= link_to "Ajouter le stock",   stock_admin_product_path(@product), class: "drop-item" %>
+                      <%= link_to "Ajouter stock",   stock_admin_product_path(@product), class: "drop-item" %>
                     </li>
                     <li>
-                      <%= link_to "Modifier l'article", edit_admin_product_path(@product), class: "drop-item" %>
+                      <%= link_to "Gestion du stock", admin_stocks_path,  class: "drop-item" %>
                     </li>
+                    <li>
+                      <%= link_to "Modifier article", edit_admin_product_path(@product), class: "drop-item" %>
                     </li>
                     <li>
                       <%= link_to "Créer étiquettes", new_admin_product_sticker_path(@product),  class: "drop-item" %>
                     </li>
                       <% unless @sticker.nil? || @sticker.new_record? %>
                         <li>
-                          <%= link_to "Imprimer étiquettes", admin_product_sticker_path(@product, @sticker),  class: "drop-item" %>
+                          <%= link_to "Télécharger étiquettes", admin_product_sticker_path(@product, @sticker,format: "pdf"), class: "drop-item" %>
                         </li>
                     <% end %>
                   <% end %>
-                    <li>
-                      <%= link_to "Gestion du stock", admin_stocks_path,  class: "drop-item" %>
                 </ul>
               </div>
             </li>
