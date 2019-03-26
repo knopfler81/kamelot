@@ -1,6 +1,7 @@
 class Admin::StickersController < Admin::ApplicationController
 	protect_from_forgery
 	before_action :authenticate_user!, only: [:new, :create,:destroy , :update, :edit]
+	before_action :find_sticker, only: [:show]
 	before_action :find_product
 
 	def new
@@ -15,9 +16,16 @@ class Admin::StickersController < Admin::ApplicationController
 	end
 
 	def show
-		@sticker = Sticker.find(params[:id])
+	  respond_to do |format|
+	    format.html { }
+	    format.pdf do 
+	      html = render_to_string(template: "admin/stickers/show.pdf.erb", layout: "layouts/admin/application.pdf.erb", orientation: "Landscape" )
+	      pdf = WickedPdf.new.pdf_from_string(html)
+	      send_data(pdf, filename: "sticker.pdf", type: "admin/application/pdf", disposition: 'attachment')     
+	    end
+	  end
 	end
-
+	
 	def index
 		@stickers = Sticker.all
 	end
@@ -26,6 +34,10 @@ class Admin::StickersController < Admin::ApplicationController
 
 	 def sticker_params
 	 	params.require(:sticker).permit(:quantity, :product_id)
+	 end
+
+	 def find_sticker
+	 	@sticker = Sticker.find(params[:id])
 	 end
 
 	 def find_product

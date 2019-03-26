@@ -21,11 +21,10 @@ Rails.application.routes.draw do
       	end
     	end
 
-			resources :products do 
-    		resources :stickers, only: [:show, :new, :create] do 
-    			resource :download_sticker, only: :show
-    		end	
-    	end
+
+    	resources :stickers
+
+    		
 
 
     	resources :stocks, only: [:create, :update, :destroy]
