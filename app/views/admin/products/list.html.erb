@@ -22,6 +22,7 @@
 					<th>Voir</th>
 					<th>Edition</th>
 					<th>Ajouter stock</th>
+					<th>Etiquettes</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,6 +36,7 @@
 					<td><%= link_to "Voir",admin_product_path(product)  %></td>
 					<td><%= link_to "Modifier", edit_admin_product_path(product)  %></td>
 					<td><%= link_to "Ajouter stock", stock_admin_product_path(product)  %></td>
+					<td><%= link_to "Créer étiquette", new_admin_product_sticker_path(product) %></td>
 				</tr>
 				<% end %>
 			</tbody>

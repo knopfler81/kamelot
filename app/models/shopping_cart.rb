@@ -41,11 +41,11 @@ class ShoppingCart
     end
     # TODO
     # remettre à 30min , est ce encore utile?? a vérifier
-    if Rails.env.development?
-      CartCleanupJob.set(wait: 1.minutes).perform_later(order.id) 
-    else
-      CartCleanupJob.set(wait: 30.minutes).perform_later(order.id) 
-    end
+    # if Rails.env.development?
+    #   CartCleanupJob.set(wait: 1.minutes).perform_later(order.id) 
+    # else
+    #   CartCleanupJob.set(wait: 30.minutes).perform_later(order.id) 
+    # end
   end
 
   def change_qty(id:, quantity:1, variant_id:)

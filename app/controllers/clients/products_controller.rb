@@ -8,7 +8,6 @@ class Clients::ProductsController < Clients::ApplicationController
     end
 	end
 
-
 	def show
 		set_product
 		@products = Product.all

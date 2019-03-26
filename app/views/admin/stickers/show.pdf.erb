@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<div class="content">
+<div class="container">
 	<div id="stickers">
 		<div class="row">
 		<% @sticker.quantity.times do  %>
-			<div class="col-xs-3">
-				<div class="sticker">
+			<div class="col-xs-3 ">
+				<div class="sticker nobreak">
 					<div class="row">
 						<div class="col-xs-12">
 							<%= render_qr_code_small("https://super-shop-staging.herokuapp.com/admin/products/#{@sticker.product}") %>	

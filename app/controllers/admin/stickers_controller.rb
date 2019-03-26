@@ -25,10 +25,6 @@ class Admin::StickersController < Admin::ApplicationController
 	    end
 	  end
 	end
-	
-	def index
-		@stickers = Sticker.all
-	end
 
 	private
 
@@ -43,4 +39,5 @@ class Admin::StickersController < Admin::ApplicationController
 	 def find_product
 	 	@product = Product.find(params[:product_id])
 	 end
+	 
 end

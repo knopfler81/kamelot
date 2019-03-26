@@ -1,10 +1,14 @@
 <div class="container">
+	<h1 class="primary_title">CREATION DES ETIQUETTES</h1>
+	<hr>
+	<br>
 	<div class="row">
-		<div class="col-12">
-			<%= simple_form_for(@sticker, url: admin_product_stickers_path) do |f| %>
+		<div class="col-12 col-md-10 offset-md-1">
+			<p>Entrez le nombre d'étiquettes dont vous avez besoin pour le <%= @product.title %> <%= @product.color %></p>
+			<%= simple_form_for(@sticker, url: admin_product_stickers_path, html: {class: 'form-inline'}) do |f| %>
 				<%= f.hidden_field :product_id, value: @product.id %>
-				<%= f.input :quantity %>
-				<%= f.submit %>				
+				<%= f.input :quantity, label: false, placeholder: "Example: 8" %>
+				<%= f.submit "Go", class: "bnt btn-main" %>				
 			<% end %>
 		</div>
 	</div>
