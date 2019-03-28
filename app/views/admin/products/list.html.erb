@@ -1,4 +1,5 @@
 <div class="container">
+	
 	<h1 class="primary_title manage_stock_title">ARTICLES</h1>
 	<hr>
 	<br><br>
@@ -33,10 +34,10 @@
 					<td><%= product.brand %></td>
 					<td><%= product.ref %></td>
 					<td><%= number_to_currency_euro (product.price) %></td>
-					<td><%= link_to "Voir",admin_product_path(product)  %></td>
-					<td><%= link_to "Modifier", edit_admin_product_path(product)  %></td>
-					<td><%= link_to "Ajouter stock", stock_admin_product_path(product)  %></td>
-					<td><%= link_to "Créer étiquette", new_admin_product_sticker_path(product) %></td>
+					<td><%= link_to "Voir",admin_product_path(product), class: "btn btn-main btn-sm"  %></td>
+					<td><%= link_to "Modifier", edit_admin_product_path(product), class: "btn btn-main btn-sm"  %></td>
+					<td><%= link_to "Ajouter stock", stock_admin_product_path(product), class: "btn btn-main btn-sm"  %></td>
+					<td><%= link_to "Créer étiquettes", new_admin_product_sticker_path(product), class: "btn btn-main btn-sm" %></td>
 				</tr>
 				<% end %>
 			</tbody>
