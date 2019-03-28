@@ -249,9 +249,9 @@ ul ul a {
 
 @media (max-width: 768px) {
     #sidebar {
-      margin-left: -400px;
-      min-width: 400px;
-      max-width: 400px;
+      margin-left: -100%;
+      min-width: 100%;
+      max-width: 100%;
       min-height: 100vh;
       z-index: 999999;
     }
