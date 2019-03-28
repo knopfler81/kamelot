@@ -49,6 +49,4 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 	def shipping_address_params
 	 	params.require(:shipping_address).permit(:first_name, :last_name, :address_1, :address_2, :user_id, :city, :zipcode, :phone)
 	end
-
-
 end

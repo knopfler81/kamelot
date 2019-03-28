@@ -10,6 +10,7 @@
 	bottom: 30px;
 	position: fixed;
 	z-index: 99999;
+	display: hidden;
 }
 
 .btn-main {
@@ -72,6 +73,55 @@
 	border-radius: 50px;
 	transition: 0.8s;
 
+}
+
+.btn-watch {
+	background-color: #4BA7FDFF;
+	border: 1px solid #4BA7FDFF;
+	color: #fff;
+}
+
+.btn-watch:hover {
+	background-color: #fff;
+	border: 1px solid #4BA7FDFF;
+	color: #4BA7FDFF;
+}
+
+.btn-edit {
+	background-color: #FBB350FF;
+	border: 1px solid #FBB350FF;
+	color: #fff;
+}
+
+.btn-edit:hover {
+	background-color: #fff;
+	border: 1px solid #FBB350FF;
+	color: #FBB350FF;
+}
+
+.btn-add {
+	background-color: #1CAF25FF;
+	border: 1px solid #1CAF25FF;
+	color: #fff;
+}
+
+.btn-add:hover {
+	background-color: #fff;
+	border: 1px solid #1CAF25FF;
+	color: #1CAF25FF;
+}
+
+
+.btn-sticker {
+	background-color: #FB2945FF;
+	border: 1px solid #FB2945FF;
+	color: #fff;
+}
+
+.btn-sticker:hover {
+	background-color: #fff;
+	border: 1px solid #FB2945FF;
+	color: #FB2945FF;
 }
 
 input {

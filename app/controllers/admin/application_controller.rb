@@ -5,12 +5,6 @@ class Admin::ApplicationController < ActionController::Base
   before_action :current_basket
 	before_action :favorites_products
 	
-  # def current_cart
-  #   @current_cart ||= ShoppingCart.new(token: cart_token)
-  # end
-  
-  # helper_method :current_cart
-
   def current_basket
     @current_basket ||= VendingBasket.new(token: basket_token)
   end
