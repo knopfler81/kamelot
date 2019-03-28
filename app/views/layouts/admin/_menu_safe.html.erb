@@ -1,0 +1,141 @@
+ <div class="page-wrapper chiller-theme toggled reduced-men" >
+    <nav id="sidebar" class="sidebar-wrapper">
+      <div class="sidebar-container">
+        <div class="sidebar-brand">
+          <div id="close-sidebar">
+           <i class="fas fa-angle-left"></i>
+          </div>
+          <div id="show-sidebar">
+           <i class="fas fa-angle-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li class="sidebar-dropdown">
+              <a href="#" id="orders">
+               <i class="fas fa-cart-arrow-down"></i>
+                <span class="menu-title">Commandes</span>
+                <% if Order.where(status: "paid").count >= 1 %>
+                  
+                <span class="badge badge-pill badge-danger"><%#= Order.where(status: "paid").count %></span>
+                <% end %>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Commandes internet", admin_orders_path,  class: "list-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>      
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="market">
+               <i class="fas fa-truck"></i>
+                <span class="menu-title">Marchés</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Ventes marchés", admin_sales_path,  class: "list-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>      
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="articles">
+               <i class="fas fa-tshirt"></i>
+                <span class="menu-title">Articles</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Tous les articles",  admin_list_path , class: "drop-item" %>
+                  </li>
+                  <li>
+                    <%= link_to "Ajouter un article", new_admin_product_path, class: "drop-item" %>
+                  </li>
+                  <% unless @product.nil? || @product.new_record? %>
+                    <li>
+                      <%= link_to "Ajouter stock",   stock_admin_product_path(@product), class: "drop-item" %>
+                    </li>
+                    <li>
+                      <%= link_to "Gestion du stock", admin_stocks_path,  class: "drop-item" %>
+                    </li>
+                    <li>
+                      <%= link_to "Modifier article", edit_admin_product_path(@product), class: "drop-item" %>
+                    </li>
+                    <li>
+                      <%= link_to "Créer étiquettes", new_admin_product_sticker_path(@product),  class: "drop-item" %>
+                    </li>
+                      <% unless @sticker.nil? || @sticker.new_record? %>
+                        <li>
+                          <%= link_to "Télécharger étiquettes", admin_product_sticker_path(@product, @sticker,format: "pdf"), class: "drop-item" %>
+                        </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="suppliers">
+                <i class="fas fa-address-book"></i>
+                <span class="menu-title">Fournisseurs</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Ajouter fournisseur", new_admin_supplier_path,  class: "drop-item" %>
+                  </li>
+                  <li>
+                    <%= link_to "Fournisseurs", admin_suppliers_path,  class: "drop-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="users">
+                <i class="fas fa-users"></i>
+                <span class="menu-title">Utilisateurs</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Utilisateurs", "#",  class: "list-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#" id="dashboard">
+                <i class="fa fa-tachometer-alt"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <%= link_to "Journal", admin_dashboard_journal_path, class: "drop-item" %>
+                  </li>
+                  <li>
+                    <%= link_to "Statistiques", admin_dashboard_path,  class: "drop-item" %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+               <%= link_to  clients_customization_path, class: "list-item" do %>
+               <i class="fa fa-palette"></i> 
+                <span class="menu-title">Customisation</span>
+               <% end %>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+  

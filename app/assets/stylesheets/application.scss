@@ -14,64 +14,13 @@
 @import "dashboards";
 @import "pages"; //landing et footer
 @import "sidebar";
-
-.content {
-	padding: 50px;
-}
-
-.search-order, .search-article {
-	width: 300px!important;
-}
-
-.datepicker {
-	width: 100%;
-	height: 45px;
-	margin-bottom: 5px;
-	background-color: transparent!important;
-}
-
-
-.datepicker-btn {
-	height: 45px;
-	margin: 5px;
-}
-
-.flatpickr-input { -webkit-appearance: none; /* your custom styles here */ }
-
-.error_message {
-	padding: 15px 30px;
-	margin-bottom: 20px;
-	border-radius: 50px;
-	color: #fff;
-	background-color: #FB2945FF;
-	h2 {
-		color: #fff;
-	}
-}
-
-.container {
-	margin-top: 30px;
-}
-
-a:hover {
-	text-decoration: none;
-	color: #000;
-}
+@import "alert";
+@import "flatpickr";
 
 
 
-//Alert flash
-#message {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-}
-#inner-message-success {
-    margin: 0 auto;
-}
 
-#inner-message-danger {
-    margin: 0 auto;
-}
+
+
+
+

@@ -9,81 +9,10 @@
 	cursor: pointer;
 }
 
-
-.admin-categories {
-	padding: 20px;
-	background-color: #111;
-	display: none;
-	z-index: 999;
-	width: 100vw;
-	position: absolute;
-	left: 0;
-	cursor: pointer;
-}
-
-.nav-gender-admin {
-	z-index: 10000;
-	font-family: 'Montserrat';
-	background-color: #111!important;
-
-	.nav-link{
-		color: #ddd!important;
-		cursor: pointer;
-	}
-}
-
 .nav-upper-admin {
 	z-index: 10000;
-	font-family: 'Montserrat';
 	background-color: #111!important;
-	.navbar-brand {
-		color: #ddd;
-	}
-
-	.nav-link{
-		color: #ddd!important;
-	}
-
-	.fa-toggle-on {
-		color: green;
-		font-size: 20px;
-		transition: 0.8s;
-	}
-
-	.fa-toggle-off {
-		color: red;
-		display: none;
-		font-size: 20px;
-		transition: 0.8s;
-	}
-
-	.dropdown-menu {
-		z-index: 1000;
-		background: #111;
-		margin-bottom: 5px;
-		padding: 10px;
-		border: 1px #333 solid; 
-	}
-	.dropdown-item {
-		background: #111;
-		color: #ddd;
-	}
-	a {
-		color: #ddd;
-	}
 }
-
-.nav-gender-admin {
-	font-family: 'Montserrat';
-	background-color: #111!important;
-
-	.nav-link{
-		color: #ddd!important;
-	}
-
-
-}
-
 
 .nav-upper-clients {
 	background-color: #fff;
@@ -110,11 +39,9 @@
   color: #fff;
 }
 
-
 #nav-upper-clients {
 	background-color: transparent!important;
 }
-
 
 .fa-shopping-bag {
 	font-size: 25px;
