@@ -1,7 +1,0 @@
-<% @cat_products.each do |product| %>
-	<div class="col-6 col-md-4 col-lg-3 ">
-		<%= link_to clients_category_product_path(product) do  %>
-			<%= render "admin/shared/cards", product: product %>
-		<% end %>
-	</div>
-<% end %>

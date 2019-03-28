@@ -223,11 +223,11 @@ table.qrcode {
     height: 3px;
 
     &.black {
-      background-color: #000 !important
+      background-color: #000 !important;
     }
 
     &.white {
-      background-color: #fff !important
+      background-color: #fff !important;
     }
   }
 }
@@ -245,6 +245,20 @@ table.qrcode {
 .fa-chevron-left {
 	padding-left: -5px;
   color: #333;
+}
+
+
+#articles-table {
+	td {
+		vertical-align: middle;
+	}
+}
+
+
+// listes de tous les articles 
+
+.task-list {
+	text-decoration: underline;
 }
 
 @media (max-width: 667px) {

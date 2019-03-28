@@ -47,12 +47,20 @@
 		  <a href="#market" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 		   <i class="fas fa-truck"></i>
 		    <span class="menu-title">Marchés</span>
+        <% if @current_basket.items_count > 0 %>
+         
+          <span class="badge badge-pill badge-danger"><%= @current_basket.items_count %></span>
+        <% end %>
 		  </a>
-		    <ul class="collapse list-unstyled submenu" id="market">
-		      <li>
-		        <%= link_to "Ventes marchés", admin_sales_path,  class: "list-item" %>
-		      </li>
-		    </ul>
+	    <ul class="collapse list-unstyled submenu" id="market">
+	      <li>
+	        <%= link_to "Ventes marchés", admin_sales_path,  class: "list-item" %>
+	      </li>
+
+	     	<li>
+	     		<%= link_to "Panier", admin_basket_path, class: "list-item"  %>
+	     	</li>
+	    </ul>
 		</li>
 
 		<li class="sidebar-dropdown">

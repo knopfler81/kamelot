@@ -11,7 +11,8 @@
 	  <% end %>
 	<% end %>
 	<br>
-
+	<div id="articles-table">
+		
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -22,7 +23,7 @@
 					<th>Prix</th>
 					<th>Voir</th>
 					<th>Edition</th>
-					<th>Ajouter stock</th>
+					<th>Stock</th>
 					<th>Etiquettes</th>
 				</tr>
 			</thead>
@@ -34,12 +35,25 @@
 					<td><%= product.brand %></td>
 					<td><%= product.ref %></td>
 					<td><%= number_to_currency_euro (product.price) %></td>
-					<td><%= link_to "Voir",admin_product_path(product), class: "btn btn-main btn-sm"  %></td>
-					<td><%= link_to "Modifier", edit_admin_product_path(product), class: "btn btn-main btn-sm"  %></td>
-					<td><%= link_to "Ajouter stock", stock_admin_product_path(product), class: "btn btn-main btn-sm"  %></td>
-					<td><%= link_to "Créer étiquettes", new_admin_product_sticker_path(product), class: "btn btn-main btn-sm" %></td>
+					<td><%= link_to admin_product_path(product), class: "btn btn-watch " do %>
+						<i class="fa fa-eye"></i>
+					<% end %>
+					</td>
+					<td><%= link_to edit_admin_product_path(product), class: "btn btn-edit " do  %>
+						<i class="fas fa-edit"></i>
+					<% end %>
+					</td>
+					<td><%= link_to stock_admin_product_path(product), class: "btn btn-add "   do %>
+						<i class="fa fa-plus-square"></i>
+					<% end %>
+					</td>
+					<td><%= link_to new_admin_product_sticker_path(product), class: "btn btn-sticker " do  %>
+					<i class="fas fa-sticky-note"></i>
+					<% end %>
+					</td>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
+	</div>
 </div>

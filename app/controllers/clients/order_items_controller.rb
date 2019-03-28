@@ -59,7 +59,6 @@ class Clients::OrderItemsController < Clients::ApplicationController
 
   private 
 
-
   def order_item_params
     params.require(:order_item).permit(:id, :quantity, :user_id, :variant_id, :order_id)
   end
