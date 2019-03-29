@@ -121,7 +121,7 @@
             <ul class="navbar-nav">
                <% Category.where(main_category_id: main_cat.id).order('title ASC').each do |cat| %>
                  <% if cat.product_with_stock %>
-                    <li class="nav-link"><%= link_to "#{cat.title}", clients_category_path(cat), class: "nav-link" %></li>  
+                    <li class="nav-link link-product"><%= link_to "#{cat.title}", clients_category_path(cat) %></li>  
                  <% end %>
                <% end %>
             </ul>

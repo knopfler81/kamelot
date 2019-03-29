@@ -291,38 +291,38 @@ user_21 = User.create!(
 puts "Users & admin created"
 
 men =  MainCategory.create(gender: "Homme")
-women = MainCategory.create(gender: "Femme")
+# women = MainCategory.create(gender: "Femme")
 
 pulls_m 			= Category.create!(title: "Pulls",       main_category_id: men.id)
 pantalons_m 	= Category.create!(title: "Pantalons",   main_category_id: men.id)
 tshirt_m 			= Category.create!(title: "Tshirts",     main_category_id: men.id)
 accessoires_m = Category.create!(title: "Accessoires", main_category_id: men.id)
-chemises_m 		= Category.create!(title: "Chemises",    main_category_id: men.id)
+chemise_m 		= Category.create!(title: "Chemises",    main_category_id: men.id)
 polos_m       = Category.create!(title: "Polos",       main_category_id: men.id)
 
-pulls_w 			= Category.create!(title: "Pulls",       main_category_id: women.id)
-pantalons_w 	= Category.create!(title: "Pantalons",   main_category_id: women.id)
-tshirt_w 			= Category.create!(title: "Tshirts",     main_category_id: women.id)
-accessoires_w = Category.create!(title: "Accessoires", main_category_id: women.id)
-chemises_w 		= Category.create!(title: "Chemises",    main_category_id: women.id)
-polos_w       = Category.create!(title: "Polos",       main_category_id: women.id)
+# pulls_w 			= Category.create!(title: "Pulls",       main_category_id: women.id)
+# pantalons_w 	= Category.create!(title: "Pantalons",   main_category_id: women.id)
+# tshirt_w 			= Category.create!(title: "Tshirts",     main_category_id: women.id)
+# accessoires_w = Category.create!(title: "Accessoires", main_category_id: women.id)
+# chemise_w 		= Category.create!(title: "Chemises",    main_category_id: women.id)
+# polos_w       = Category.create!(title: "Polos",       main_category_id: women.id)
 
 
-# puts5"Categories created"
+ puts "Categories created"
 
 
 product_1 = Product.create!(
 	ref: "SP00",
-	brand: "Side Park",
-	category_id: polos_m.id,
+	brand: "Still Park",
+	category_id: pulls_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 10,
 	price: 30,
 	color: "Noir",
-	title: "Polo",
+	title: "Pull",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pull_noir_1.jpg")),
@@ -362,7 +362,7 @@ product_2 = Product.create(
 	color: "Blanc",
 	title: "Pull",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pull_blanc_1.jpg")),
@@ -393,7 +393,7 @@ product_2 = Product.create(
 
 product_3 = Product.create(
 	ref:"SP00" ,
-	brand: "Side Park",
+	brand: "Still Park",
 	category_id: pulls_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
@@ -402,7 +402,7 @@ product_3 = Product.create(
 	color: "Rouge",
 	title: "Pull",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pull_rouge_1.jpg")),
@@ -443,7 +443,7 @@ product_4 = Product.create(
 	color: "Jaune",
 	title: "Pantalon",
 	weight: 0.300,
-	description: "Pantalon blablablabalbla",
+	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pantalon_jaune_1.jpg")),
@@ -483,7 +483,7 @@ product_5 = Product.create(
 	color: "Gris",
 	title: "Jean",
 	weight: 0.300,
-	description: "Paalablalntalon blab",
+	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/jean_gris_1.jpg")),
@@ -523,7 +523,7 @@ product_6 = Product.create(
 	color: "Bleu",
 	title: "Jean",
 	weight: 0.300,
-	description: "Paalablalntalon blab",
+	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
@@ -553,7 +553,7 @@ product_6 = Product.create(
 
 product_7 = Product.create(
 	ref: "SP00",
-	brand: "Side Park",
+	brand: "Still Park",
 	category_id: pulls_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
@@ -562,7 +562,7 @@ product_7 = Product.create(
 	color: "Noir",
 	title: "Pull",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pull_noir_2.jpg")),
@@ -600,7 +600,7 @@ product_8 = Product.create(
 	color: "Vert",
 	title: "Pull",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pull_vert_2.jpg")),
@@ -639,7 +639,7 @@ product_9 = Product.create(
 	color: "Beige",
 	title: "Pull",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pull_beige_1.jpg")),
@@ -674,7 +674,7 @@ product_10 = Product.create(
 	color: "Camel",
 	title: "Pull",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pull_camel_1.jpg")),
@@ -701,7 +701,7 @@ product_10 = Product.create(
 
 product_11 = Product.create(
 	ref: "SP01",
-	brand: "Side Park",
+	brand: "Still Park",
 	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
@@ -710,7 +710,7 @@ product_11 = Product.create(
 	color: "Jaune",
 	title: "Pantalon",
 	weight: 0.300,
-	description: "Pantalon blablablabalbla",
+	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/pantalon_jaune_2.jpg")),
@@ -737,7 +737,7 @@ product_11 = Product.create(
 
 product_12 = Product.create(
 	ref: "SP01",
-	brand: "Side Park",
+	brand: "Still Park",
 	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
@@ -746,7 +746,7 @@ product_12 = Product.create(
 	color: "Gris",
 	title: "Jean",
 	weight: 0.300,
-	description: "Paalablalntalon blab",
+	description: "Pantalon ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/jean_gris_2.jpg")),
@@ -777,7 +777,7 @@ product_12 = Product.create(
 
 product_13 = Product.create(
 	ref: "SP02",
-	brand: "Side Park",
+	brand: "Still Park",
 	category_id: pantalons_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
@@ -786,7 +786,7 @@ product_13 = Product.create(
 	color: "Bleu",
 	title: "Jean",
 	weight: 0.300,
-	description: "Paalablalntalon blab",
+	description: "Pantalon rem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
 		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
@@ -816,223 +816,215 @@ product_13 = Product.create(
 
 
 product_14 = Product.create(
-	ref: "SP02",
-	brand: "Side Park",
-	category_id: pantalons_m.id,
+	ref: "KP02",
+	brand: "KAPORAL",
+	category_id: tshirt_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 30,
 	color: "Bleu",
-	title: "Jean",
+	title: "Tshirts",
 	weight: 0.300,
-	description: "Paalablalntalon blab",
+	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/tshirt_marine_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_marine_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_marine_2.jpg")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 9.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 9.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 9.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 9.weeks.ago
+			created_at: 5.weeks.ago
 			}
 		]
 )
 
-product_15 = Product.create!(
-	ref: "SP00",
-	brand: "Side Park",
-	category_id: polos_m.id,
-	created_at: 10.weeks.ago,
+product_15 = Product.create(
+	ref: "KP02",
+	brand: "KAPORAL",
+	category_id: tshirt_m.id,
+	created_at: 2.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 10,
+	buying_price: 5,
 	price: 30,
-	color: "Noir",
-	title: "Polo",
+	color: "Blanc",
+	title: "Tshirts",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
-	supplier_id: supplier_1.id,
+	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pull_noir_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_noir_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_noir_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_blanc_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_blanc_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_blanc_2.jpg")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 9.weeks.ago
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 9.weeks.ago
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 9.weeks.ago
+			created_at: 3.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 9.weeks.ago
+			created_at: 3.weeks.ago
 			}
 		]
 )
-
 
 
 product_16 = Product.create(
-	ref: "GU00",
-	brand: "Guess",
-	category_id: pulls_m.id,
-	created_at: 10.weeks.ago,
+	ref: "KP02",
+	brand: "KAPORAL",
+	category_id: tshirt_m.id,
+	created_at: 2.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 12,
-	price: 40,
-	color: "Blanc",
-	title: "Pull",
+	buying_price: 5,
+	price: 30,
+	color: "Rouge",
+	title: "Tshirts",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
-	supplier_id: supplier_1.id,
+	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pull_blanc_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_blanc_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_blanc_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_blanc_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/tshirt_rouge_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_rouge_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_rouge_2.jpg")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 6.weeks.ago
+			created_at: 2.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 6.weeks.ago
+			created_at: 2.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 6.weeks.ago
+			created_at: 2.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 6.weeks.ago
+			created_at: 2.weeks.ago
 			}
 		]
 )
 
-
 product_17 = Product.create(
-	ref:"SP00" ,
-	brand: "Side Park",
-	category_id: pulls_m.id,
-	created_at: 10.weeks.ago,
+	ref: "KP03",
+	brand: "KAPORAL",
+	category_id: tshirt_m.id,
+	created_at: 2.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 15,
-	price: 45,
-	color: "Rouge",
-	title: "Pull",
+	buying_price: 5,
+	price: 30,
+	color: "Gris",
+	title: "Tshirts",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
-	supplier_id: supplier_1.id,
+	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pull_rouge_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_rouge_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_rouge_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_rouge_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/tshirt_question_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_question_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_question_2.jpg")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 6.weeks.ago
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 6.weeks.ago
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 6.weeks.ago
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 6.weeks.ago
-		}
-	
+			created_at: 1.weeks.ago
+			}
 		]
 )
+
 
 
 product_18 = Product.create(
-	ref: "LE00",
-	brand: "Levis",
-	category_id: pantalons_m.id,
-	created_at: 10.weeks.ago,
+	ref: "KP04",
+	brand: "KAPORAL",
+	category_id: tshirt_m.id,
+	created_at: 2.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 20,
-	price: 49,
-	color: "Jaune",
-	title: "Pantalon",
+	buying_price: 5,
+	price: 30,
+	color: "Gris",
+	title: "Tshirts",
 	weight: 0.300,
-	description: "Pantalon blablablabalbla",
-	supplier_id: supplier_1.id,
+	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/tshirt_skull_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_skull_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_skull_3.jpg")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 6.weeks.ago
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 6.weeks.ago
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 6.weeks.ago
+			created_at: 1.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 6.weeks.ago
+			created_at: 1.weeks.ago
 			}
 		]
 )
 
-
 product_19 = Product.create(
-	ref: "LE00" ,
-	brand: "Levis",
-	category_id: pantalons_w.id,
+	ref: "KA00" ,
+	brand: "KAPORAL",
+	category_id: polos_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
 	price: 60,
-	color: "Gris",
-	title: "Jean",
+	color: "Marine",
+	title: "Polo",
 	weight: 0.500,
-	description: "Paalablalntalon blab",
+	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/jean_gris_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_gris_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_gris_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_gris_4.jpg"))
+	attachments: [
+		File.open(File.join("app/assets/images/seeds/k_polo_marine_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_marine_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_marine_3.JPG")),
 	],
 	variants_attributes: [
 			{
@@ -1058,21 +1050,20 @@ product_19 = Product.create(
 product_20 = Product.create(
 	ref: "KA00",
 	brand: "Kaporal",
-	category_id: pantalons_m.id,
+	category_id: polos_m.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
-	color: "Bleu",
-	title: "Jean",
+	color: "Rose",
+	title: "Polo",
 	weight: 0.300,
-	description: "Paalablalntalon blab",
+	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/k_polo_rose_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_rose_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_rose_3.JPG")),
 	],
 	variants_attributes: [
 			{
@@ -1095,22 +1086,22 @@ product_20 = Product.create(
 )
 
 product_21 = Product.create(
-	ref: "SP00",
-	brand: "Side Park",
-	category_id: pulls_m.id,
+	ref: "KA00",
+	brand: "Kaporal",
+	category_id: polos_m.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 17,
-	price: 49,
-	color: "Noir",
-	title: "Pull",
+	buying_price: 5,
+	price: 20,
+	color: "Rose",
+	title: "Polo",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
-	supplier_id: supplier_2.id,
+	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pull_noir_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_noir_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_noir_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/k_polo_jaune_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_jaune_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_jaune_3.JPG")),
 	],
 	variants_attributes: [
 			{
@@ -1132,24 +1123,24 @@ product_21 = Product.create(
 		]
 )
 
+
 product_22 = Product.create(
-	ref: "GU00",
-	brand: "Guess",
-	category_id: pulls_m.id,
+	ref: "KA01",
+	brand: "Kaporal",
+	category_id: polos_m.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 12,
-	price: 30,
-	color: "Vert",
-	title: "Pull",
+	buying_price: 5,
+	price: 20,
+	color: "Bleu",
+	title: "Polo",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
-	supplier_id: supplier_2.id,
+	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pull_vert_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_vert_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_vert_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_vert_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/k_polo_motif_bleu_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_motif_bleu_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_motif_bleu_3.JPG")),
 	],
 	variants_attributes: [
 			{
@@ -1172,235 +1163,240 @@ product_22 = Product.create(
 )
 
 product_23 = Product.create(
-	ref: "GU00",
-	brand: "Guess",
-	category_id: pulls_w.id,
-	created_at: 5.weeks.ago,
+	ref: "KA01",
+	brand: "Kaporal",
+	category_id: polos_m.id,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 25,
-	price: 70,
-	color: "Beige",
-	title: "Pull",
+	buying_price: 5,
+	price: 20,
+	color: "Blanc",
+	title: "Polo",
 	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
+	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pull_beige_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_beige_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_beige_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_beige_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/k_polo_motif_blanc_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_motif_blanc_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/k_polo_motif_blanc_3.JPG")),
 	],
 	variants_attributes: [
 			{
+			size: "S",
+			created_at: 9.weeks.ago
+			},
+			{
 			size: "M",
-			created_at: 8.weeks.ago
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 8.weeks.ago
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 8.weeks.ago
+			created_at: 9.weeks.ago
 			}
-		]	
+		]
 )
 
 product_24 = Product.create(
-	ref: "GU00",
-	brand: "Guess",
-	category_id: pulls_m.id,
-	created_at: 5.weeks.ago,
-	user_id: nelly.id,
-	buying_price: 25,
-	price: 70,
-	color: "Camel",
-	title: "Pull",
-	weight: 0.300,
-	description: "Pull très chaud en laine blablablabalbla",
-	supplier_id: supplier_2.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/pull_camel_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_camel_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_camel_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pull_camel_4.jpg"))
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			created_at: 8.weeks.ago
-			},
-			{
-			size: "L",
-			created_at: 8.weeks.ago
-			},
-			{
-			size: "XL",
-			created_at: 8.weeks.ago
-			}
-		]	
-)
-
-
-product_25 = Product.create(
-	ref: "SP01",
-	brand: "Side Park",
-	category_id: pantalons_m.id,
-	created_at: 2.weeks.ago,
+	ref: "KA05",
+	brand: "Kaporal",
+	category_id: chemise_m.id,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
-	price: 30,
-	color: "Jaune",
-	title: "Pantalon",
+	price: 20,
+	color: "Orange",
+	title: "Chemise",
 	weight: 0.300,
-	description: "Pantalon blablablabalbla",
+	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/pantalon_jaune_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/chemise_orange_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_orange_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_orange_3.JPG")),
 	],
 	variants_attributes: [
 			{
+			size: "S",
+			created_at: 9.weeks.ago
+			},
+			{
 			size: "M",
-			created_at: 8.weeks.ago
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 8.weeks.ago
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 8.weeks.ago
+			created_at: 9.weeks.ago
+			}
+		]
+)
+
+product_25 = Product.create(
+	ref: "KA06",
+	brand: "Kaporal",
+	category_id: chemise_m.id,
+	created_at: 9.weeks.ago,
+	user_id: nelly.id,
+	buying_price: 5,
+	price: 20,
+	color: "Turquoise",
+	title: "Chemise",
+	weight: 0.300,
+	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_1.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/chemise_turq_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_turq_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_turq_3.JPG")),
+	],
+	variants_attributes: [
+			{
+			size: "S",
+			created_at: 9.weeks.ago
+			},
+			{
+			size: "M",
+			created_at: 9.weeks.ago
+			},
+			{
+			size: "L",
+			created_at: 9.weeks.ago
+			},
+			{
+			size: "XL",
+			created_at: 9.weeks.ago
 			}
 		]
 )
 
 
 product_26 = Product.create(
-	ref: "SP01",
-	brand: "Side Park",
-	category_id: pantalons_m.id,
-	created_at: 2.weeks.ago,
+	ref: "KA06",
+	brand: "Kaporal",
+	category_id: chemise_m.id,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
-	buying_price: 10,
-	price: 40,
-	color: "Gris",
-	title: "Jean",
+	buying_price: 5,
+	price: 20,
+	color: "Rouge",
+	title: "Chemise",
 	weight: 0.300,
-	description: "Paalablalntalon blab",
+	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/jean_gris_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_gris_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_gris_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_gris_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/chemise_rouge_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_rouge_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_rouge_3.JPG")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 10.weeks.ago
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 10.weeks.ago
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 10.weeks.ago
+			created_at: 9.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 10.weeks.ago
+			created_at: 9.weeks.ago
 			}
 		]
 )
 
-
 product_27 = Product.create(
-	ref: "SP02",
-	brand: "Side Park",
-	category_id: pantalons_w.id,
-	created_at: 2.weeks.ago,
+	ref: "KA06",
+	brand: "Kaporal",
+	category_id: chemise_m.id,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
-	price: 30,
-	color: "Bleu",
-	title: "Jean",
-	weight: 0.500,
-	description: "Paalablalntalon blab",
+	price: 20,
+	color: "Marine",
+	title: "Chemise",
+	weight: 0.300,
+	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/chemise_marine_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_marine_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_marine_3.JPG")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			}
 		]
 )
 
 
 product_28 = Product.create(
-	ref: "SP02",
-	brand: "Side Park",
-	category_id: pantalons_w.id,
-	created_at: 2.weeks.ago,
+	ref: "KA06",
+	brand: "Kaporal",
+	category_id: chemise_m.id,
+	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
-	price: 30,
-	color: "Bleu",
-	title: "Jean",
-	weight: 0.500,
-	description: "Paalablalntalon blab",
-	supplier_id: supplier_2.id,
+	price: 20,
+	color: "Noire",
+	title: "Chemise",
+	weight: 0.300,
+	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
+	supplier_id: supplier_1.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/jean_bleu_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/jean_bleu_4.jpg"))
+		File.open(File.join("app/assets/images/seeds/chemise_noire_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_noire_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/chemise_noire_3.JPG")),
 	],
 	variants_attributes: [
 			{
 			size: "S",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "M",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "L",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			},
 			{
 			size: "XL",
-			created_at: 10.weeks.ago
+			created_at: 5.weeks.ago
 			}
 		]
 )
+
 puts "Products and Sizes Created"
 
 
 
-[product_1, product_2, product_3, product_4, product_13, product_15, product_17, product_18, product_28 ].each do |pd|
+[product_1, product_2, product_3, product_4, product_13, product_15, product_17, product_18 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create(
 		quantity: 8,
