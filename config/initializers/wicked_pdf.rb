@@ -9,27 +9,31 @@
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
 
-
-WickedPdf.config = {
+if Rails.env.production?
+  WickedPdf.config = {
 
   # Path to the wkhtmltopdf executable: This usually isn't needed if using
   # one of the wkhtmltopdf-binary family of gems.
-  if Rails.env.production?
-    exe_path: Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf-linux-amd64'),
-  else
-    exe_path: '/usr/local/bin/wkhtmltopdf',
-  end
+  exe_path: Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf-linux-amd64'),
   page_size: 'Letter',
   orientation: 'Portrait',
   margin: { top:    2,
-            bottom: 2,
-            left:   2,
-            right:  2 }
-  
-  #   or
-  # exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
+           bottom: 2,
+           left:   2,
+           right:  2 }
+ }
 
-  # Layout file to be used for all PDFs
-  # (but can be overridden in `render :pdf` calls)
-  # layout: 'pdf.html',
-}
+else
+  
+ WickedPdf.config = {
+    exe_path: '/usr/local/bin/wkhtmltopdf',
+    page_size: 'Letter',
+    orientation: 'Portrait',
+    margin: { top:    2,
+             bottom: 2,
+             left:   2,
+             right:  2 }
+
+  }
+end
+
