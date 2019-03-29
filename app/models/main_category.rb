@@ -5,8 +5,8 @@ class MainCategory < ApplicationRecord
 
 
 	def self.for_select
-	    MainCategory.all.map do |mc|
-	      [mc, mc.categories.map { |c| [c.id, c.title] }]
-	    end
-	  end
+    MainCategory.all.map do |mc|
+      [mc, mc.categories.map { |c| [c.id, c.title] }]
+    end
+  end
 end
