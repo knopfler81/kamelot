@@ -20,7 +20,12 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def show
 		@products = Product.all
-		@product_size_options = @product.variants
+		@product_size_options = []	
+		@product.variants.map do |var| 
+			if var.has_stock == true
+				@product_size_options  << var
+			end
+	  end
 	end
 
 	def new
@@ -61,7 +66,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	def update
 		if @product.update_attributes(params_product)
 			respond_to do |format|
-				format.html {redirect_to edit_admin_product_path(@product), notice: "L'article a bien été modifié" }
+				format.html {redirect_to stock_admin_product_path(@product), notice: "L'article a bien été modifié" }
 				format.js
 			end
 		else
