@@ -67,9 +67,9 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
 
 
-group :production do
-  gem "wkhtmltopdf-heroku"
-end
+
+gem "wkhtmltopdf-heroku"
+
 
 #QR codes 
 gem 'rqrcode_png'

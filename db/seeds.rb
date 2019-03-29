@@ -512,7 +512,7 @@ product_5 = Product.create(
 
 
 product_6 = Product.create(
-	ref: "KA00",
+	ref: "KA0",
 	brand: "Kaporal",
 	category_id: pantalons_m.id,
 	created_at: 5.weeks.ago,
@@ -1092,7 +1092,7 @@ product_21 = Product.create(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
-	color: "Rose",
+	color: "Jaune",
 	title: "Polo",
 	weight: 0.300,
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
