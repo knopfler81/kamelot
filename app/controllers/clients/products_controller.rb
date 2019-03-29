@@ -11,7 +11,12 @@ class Clients::ProductsController < Clients::ApplicationController
 	def show
 		set_product
 		@products = Product.all
-		@product_size_options = @product.variants
+		@product_size_options = []	
+		@product.variants.map do |var| 
+			if var.has_stock == true
+				@product_size_options  << var
+			end
+	  end
 	end
 
 	private

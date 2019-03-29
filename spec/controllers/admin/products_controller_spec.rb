@@ -38,7 +38,7 @@ RSpec.describe Admin::ProductsController, :admin do
   describe "PATCH update" do 
     it "can change the title" do
      post :update, params: { id: @product.id, product: @product.attributes.merge(title: "Chemise verte")}
-     expect(response).to redirect_to(edit_admin_product_path(@product))
+     expect(response).to redirect_to(stock_admin_product_path(@product))
      expect(flash[:notice].present?).to be true
     end 
   end

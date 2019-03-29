@@ -1,21 +1,14 @@
 <div class="nested-fields">
 	<div class="row">
 		<div class="col-6">
-		  <%= f.input :size, label: "Taille" , placeholder: "Ex: S", autofocus: true %>
+		  <%= f.input :size, label: "Taille" , placeholder: "Ex: S", autofocus: true, required: true %>
 		</div>
 		<div class="col-6">
 			<%= f.input :color, label: "Couleur", placeholder: "S'il existe différents coloris" %>
 		</div>
 		<div class="col-12 col-md-4">
-			<%= link_to_remove_association "supprimer cette variante", f, class: "btn btn-danger delete_size" %>
+			<%= link_to_remove_association "Supprimer cette variante", f, class: "btn btn-danger delete_size" %>
 		</div>
 	</div>
 </div>
 
-<style>
-	.nested-fields {
-		background-color: lightgray;
-		padding: 20px;
-		margin-bottom: 20px;
-	}
-</style>

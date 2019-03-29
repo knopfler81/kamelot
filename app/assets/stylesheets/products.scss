@@ -261,6 +261,30 @@ table.qrcode {
 	text-decoration: underline;
 }
 
+
+
+.nested-fields {
+	background-color: lightgray;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+
+.variant-box {
+	border:1px black solid;
+	margin-bottom: 10px;
+}
+
+.variant-box-header {
+	background-color: #111;
+	color: #fff;
+	padding: 10px;
+}
+
+.variant-box-body {
+	padding: 10px;
+}
+
 @media (max-width: 667px) {
 	
 	.links_desktop {
