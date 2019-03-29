@@ -905,9 +905,9 @@ product_16 = Product.create(
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/tshirt_rouge_1.JPG")),
-		File.open(File.join("app/assets/images/seeds/tshirt_rouge_3.JPG")),
-		File.open(File.join("app/assets/images/seeds/tshirt_rouge_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/tshirt_rouge_1.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_rouge_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_rouge_2.jpg")),
 	],
 	variants_attributes: [
 			{
