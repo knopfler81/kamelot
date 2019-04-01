@@ -34,257 +34,279 @@ supplier_2 =   Supplier.create(
 
 nelly = User.create!(
 	admin: true,
-	email: "nelly@example.com", 
+	email: "nelly@example.com",
+	email_confirmation: "nelly@example.com", 
 	password: "password", 
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: "Nelly",
 	last_name: "Duclos",
-	confirmed_at: 10.months.ago
+	# confirmed_at: 10.months.ago
 	)
 
 user_1 = User.create!(
 	admin: false,
 	email: "guest1@example.com",
+	email_confirmation: "guest1@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 9.months.ago
+	# confirmed_at: 9.months.ago
 )
 
 user_2 = User.create!(
 	admin: false,
 	email: "guest2@example.com",
+	email_confirmation: "guest2@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 8.months.ago
+	# confirmed_at: 8.months.ago
 )
 
 user_3 = User.create!(
 	admin: false,
 	email: "guest3@example.com",
+	email_confirmation: "guest3@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 8.months.ago
+	# confirmed_at: 8.months.ago
 )
 user_4 = User.create!(
 	admin: false,
 	email: "guest4@example.com",
+	email_confirmation: "guest4@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 7.months.ago - 20.days
+	# confirmed_at: 7.months.ago - 20.days
 )
 user_5 = User.create!(
 	admin: false,
 	email: "guest5@example.com",
+	email_confirmation: "guest5@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 7.months.ago - 12.days
+	# confirmed_at: 7.months.ago - 12.days
 )
 user_6 = User.create!(
 	admin: false,
 	email: "guest6@example.com",
+	email_confirmation: "guest6@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 7.months.ago - 6.days
+	# confirmed_at: 7.months.ago - 6.days
 )
 
 user_7 = User.create!(
 	admin: false,
 	email: "guest7@example.com",
+	email_confirmation: "guest7@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 7.months.ago - 2.days
+	# confirmed_at: 7.months.ago - 2.days
 )
 
 user_8 = User.create!(
 	admin: false,
 	email: "guest8@example.com",
+	email_confirmation: "guest8@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 6.months.ago  - 24.days
+	# confirmed_at: 6.months.ago  - 24.days
 )
 
 user_9 = User.create!(
 	admin: false,
 	email: "guest9@example.com",
+	email_confirmation: "guest9@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 6.months.ago - 3.days
+	# confirmed_at: 6.months.ago - 3.days
 )
 user_10 = User.create!(
 	admin: false,
 	email: "guest10@example.com",
+	email_confirmation: "guest10@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 6.months.ago - 1.day
+	# confirmed_at: 6.months.ago - 1.day
 )
 user_11 = User.create!(
 	admin: false,
 	email: "guest11@example.com",
+	email_confirmation: "guest11@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 6.months.ago
+	# confirmed_at: 6.months.ago
 )
 user_12 = User.create!(
 	admin: false,
 	email: "guest12@example.com",
+	email_confirmation: "guest12@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 5.months.ago - 1.week
+	# confirmed_at: 5.months.ago - 1.week
 )
 
 user_13 = User.create!(
 	admin: false,
 	email: "guest13@example.com",
+	email_confirmation: "guest13@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 5.months.ago - 1.week
+	# confirmed_at: 5.months.ago - 1.week
 )
 
 user_14 = User.create!(
 	admin: false,
 	email: "guest14@example.com",
+	email_confirmation: "guest14@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 3.months.ago 
+	# confirmed_at: 3.months.ago 
 )
 
 user_15 = User.create!(
 	admin: false,
 	email: "guest15@example.com",
+	email_confirmation: "guest15@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 3.months.ago 
+	# confirmed_at: 3.months.ago 
 )
 user_16 = User.create!(
 	admin: false,
 	email: "guest16@example.com",
+	email_confirmation: "guest16@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 3.months.ago 
+	# confirmed_at: 3.months.ago 
 )
 user_17 = User.create!(
 	admin: false,
 	email: "guest17@example.com",
+	email_confirmation: "guest17@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 6.weeks.ago - 4.days
+	# confirmed_at: 6.weeks.ago - 4.days
 )
 user_18 = User.create!(
 	admin: false,
 	email: "guest18@example.com",
+	email_confirmation: "guest18@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 6.weeks.ago - 1.day
+	# confirmed_at: 6.weeks.ago - 1.day
 )
 
 user_19 = User.create!(
 	admin: false,
 	email: "guest19@example.com",
+	email_confirmation: "guest19@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 6.weeks.ago 
+	# confirmed_at: 6.weeks.ago 
 )
 
 user_20 = User.create!(
 	admin: false,
 	email: "guest20@example.com",
+	email_confirmation: "guest20@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 3.weeks.ago 
+	# confirmed_at: 3.weeks.ago 
 )
 
 user_21 = User.create!(
 	admin: false,
 	email: "guest21@example.com",
+	email_confirmation: "guest21@example.com",
 	password: "password",
 	password_confirmation: "password",
 	gender: [true, false].sample,
 	birth_date: "12/02/1980",
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
-	confirmed_at: 1.week.ago 
+	# confirmed_at: 1.week.ago 
 )
 
 puts "Users & admin created"

@@ -5,7 +5,6 @@ RSpec.describe Favorite do
 	scenario "add a product to favorites", js: true do 
 		john = create(:user)
 		login_as john
-		create(:product, brand: "Side Park")
 
 		visit clients_products_path
 
@@ -13,6 +12,6 @@ RSpec.describe Favorite do
 
 		visit clients_favorites_path
 
-		expect(page).to have_content("Side Park")
+		expect(page).to have_content("Still Park")
 	end 
 end

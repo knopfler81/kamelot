@@ -13,6 +13,10 @@ fr:
               inferior_quota: Vous devez metre au moins 4 images
               exceeded_quota: Vous ne pouvez pas mettre plus de 4 images
               price_error: Le prix d'achat ne peut pas être plus haut que le prix de vente
+        user:
+          attributes:
+            base:
+              email_must_match: Les emails doivent être identiques
     attributes:
       user:
         registration:

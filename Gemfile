@@ -83,6 +83,8 @@ group :development do
 end
 
 group :development, :test do
+  gem 'capybara-screenshot'
+  gem 'timecop'
   gem 'rspec-rails', '~> 3.7'
   gem 'launchy'
   gem 'chromedriver-helper'
