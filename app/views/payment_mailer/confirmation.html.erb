@@ -1,14 +1,19 @@
 <h2>Bonjour <%= @order.user.first_name %></h2>
 <p>
-  Nous avons bien reçu votre commande pour:
+  Nous avons bien reçu votre commande passée sur notre site, et vous en remercions. 
 </p>
 
 
 <% @order.items.each do |item| %>
-	<%= item.variant.product.brand %> - <%= item.variant.size  %> - <%= item.quantity %> 
+<ul>
+	<li><%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
+</ul>
 <% end %>
 
-<p>Voir votre <%= link_to "Commande", clients_orders_url %></p>
+<p>Vous pouvez consulter à tout moment le statut de votre commande sur votre  <%= link_to "espace client", clients_order_url(@order) %></p>
 
-<p>Livraison estimée entre <%= l(@order.delivery_date_1,  format: '%d %B %Y' ) %> et <%= l(@order.delivery_date_2, format: '%d %B %Y') %></p>
+<p>La livraison  est estimée entre le <%= l(@order.delivery_date_1,  format: '%d %B %Y' ) %> et le <%= l(@order.delivery_date_2, format: '%d %B %Y') %></p>
 
+<p>Nous vous remercions de votre achat</p>
+
+<p>L'équipe Damien</p>

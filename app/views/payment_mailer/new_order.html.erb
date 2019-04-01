@@ -1,8 +1,4 @@
-
-<h2 style="color:red">Bonjour!</h2>
-
-
-<div style="background: green; padding: 30px">
+<p>Salut <%= Company.instance.name %>,</p>
 <p><%= @order.user.full_name %> vient de passer commande.</p>
 
 
@@ -10,7 +6,7 @@
 
 <% @order.items.each do |item| %>
 	<ul>
-		<li> <%= item.quantity %> X <%=item.variant.product.title %>, <%= item.variant.product.brand %> , <%= item.variant.product.color  if item.variant.product.color %> %= item.variant.color  if item.variant.color %> , en taille <%= item.variant.size %> </li>
+		<li> <%= item.quantity %> <%=item.variant.product.title %>, <%= item.variant.product.brand %> , <%= item.variant.product.color  if item.variant.product.color %>, en taille <%= item.variant.size %> </li>
 	</ul>
 <% end %>
 
