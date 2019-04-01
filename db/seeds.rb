@@ -294,14 +294,14 @@ men =  MainCategory.create(gender: "Homme")
 
 pulls_m 			= Category.create!(title: "Pulls",       main_category_id: men.id)
 pantalons_m 	= Category.create!(title: "Pantalons",   main_category_id: men.id)
-tshirt_m 			= Category.create!(title: "Tshirts",     main_category_id: men.id)
+tshirt_m 			= Category.create!(title: "Tshirt",     main_category_id: men.id)
 accessoires_m = Category.create!(title: "Accessoires", main_category_id: men.id)
 chemise_m 		= Category.create!(title: "Chemises",    main_category_id: men.id)
 polos_m       = Category.create!(title: "Polos",       main_category_id: men.id)
 
 # pulls_w 			= Category.create!(title: "Pulls",       main_category_id: women.id)
 # pantalons_w 	= Category.create!(title: "Pantalons",   main_category_id: women.id)
-# tshirt_w 			= Category.create!(title: "Tshirts",     main_category_id: women.id)
+# tshirt_w 			= Category.create!(title: "Tshirt",     main_category_id: women.id)
 # accessoires_w = Category.create!(title: "Accessoires", main_category_id: women.id)
 # chemise_w 		= Category.create!(title: "Chemises",    main_category_id: women.id)
 # polos_w       = Category.create!(title: "Polos",       main_category_id: women.id)
@@ -823,7 +823,7 @@ product_14 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Bleu",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
@@ -861,7 +861,7 @@ product_15 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Blanc",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
@@ -900,7 +900,7 @@ product_16 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Rouge",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
@@ -938,7 +938,7 @@ product_17 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Gris",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
@@ -978,7 +978,7 @@ product_18 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Gris",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,

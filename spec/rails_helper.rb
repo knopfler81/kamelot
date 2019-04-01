@@ -14,7 +14,6 @@ def login_as(user)
   click_on 'Se connecter'
 end
 
-
 CarrierWave.configure do |config|
   config.root              = Rails.root.join('spec/fixtures')
   config.cache_only        = true
