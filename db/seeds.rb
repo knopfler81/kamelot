@@ -31,7 +31,6 @@ supplier_2 =   Supplier.create(
 	email: "suplier_2@example.com"
 	)
 
-# puts "Seeds cleaned"
 
 nelly = User.create!(
 	admin: true,
@@ -295,14 +294,14 @@ men =  MainCategory.create(gender: "Homme")
 
 pulls_m 			= Category.create!(title: "Pulls",       main_category_id: men.id)
 pantalons_m 	= Category.create!(title: "Pantalons",   main_category_id: men.id)
-tshirt_m 			= Category.create!(title: "Tshirts",     main_category_id: men.id)
+tshirt_m 			= Category.create!(title: "Tshirt",     main_category_id: men.id)
 accessoires_m = Category.create!(title: "Accessoires", main_category_id: men.id)
 chemise_m 		= Category.create!(title: "Chemises",    main_category_id: men.id)
 polos_m       = Category.create!(title: "Polos",       main_category_id: men.id)
 
 # pulls_w 			= Category.create!(title: "Pulls",       main_category_id: women.id)
 # pantalons_w 	= Category.create!(title: "Pantalons",   main_category_id: women.id)
-# tshirt_w 			= Category.create!(title: "Tshirts",     main_category_id: women.id)
+# tshirt_w 			= Category.create!(title: "Tshirt",     main_category_id: women.id)
 # accessoires_w = Category.create!(title: "Accessoires", main_category_id: women.id)
 # chemise_w 		= Category.create!(title: "Chemises",    main_category_id: women.id)
 # polos_w       = Category.create!(title: "Polos",       main_category_id: women.id)
@@ -513,7 +512,7 @@ product_5 = Product.create(
 
 
 product_6 = Product.create(
-	ref: "KA00",
+	ref: "KA0",
 	brand: "Kaporal",
 	category_id: pantalons_m.id,
 	created_at: 5.weeks.ago,
@@ -824,7 +823,7 @@ product_14 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Bleu",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
@@ -862,14 +861,14 @@ product_15 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Blanc",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/tshirt_blanc_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/tshirt_blanc_3.jpg")),
-		File.open(File.join("app/assets/images/seeds/tshirt_blanc_2.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_blanc_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/tshirt_blanc_3.JPG")),
+		File.open(File.join("app/assets/images/seeds/tshirt_blanc_2.JPG")),
 	],
 	variants_attributes: [
 			{
@@ -901,7 +900,7 @@ product_16 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Rouge",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
@@ -939,7 +938,7 @@ product_17 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Gris",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
@@ -979,14 +978,14 @@ product_18 = Product.create(
 	buying_price: 5,
 	price: 30,
 	color: "Gris",
-	title: "Tshirts",
+	title: "Tshirt",
 	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
-		File.open(File.join("app/assets/images/seeds/tshirt_skull_1.jpg")),
-		File.open(File.join("app/assets/images/seeds/tshirt_skull_2.jpg")),
-		File.open(File.join("app/assets/images/seeds/tshirt_skull_3.jpg")),
+		File.open(File.join("app/assets/images/seeds/tshirt_skull_1.JPG")),
+		File.open(File.join("app/assets/images/seeds/tshirt_skull_2.JPG")),
+		File.open(File.join("app/assets/images/seeds/tshirt_skull_3.JPG")),
 	],
 	variants_attributes: [
 			{
@@ -1093,7 +1092,7 @@ product_21 = Product.create(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
-	color: "Rose",
+	color: "Jaune",
 	title: "Polo",
 	weight: 0.300,
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",

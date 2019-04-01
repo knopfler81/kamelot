@@ -9,4 +9,5 @@ class MainCategory < ApplicationRecord
       [mc, mc.categories.map { |c| [c.id, c.title] }]
     end
   end
+  
 end
