@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'support/factory_bot'
 require 'devise'
+require 'capybara-screenshot/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 

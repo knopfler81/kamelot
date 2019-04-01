@@ -17,21 +17,24 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-4">
             <%= f.input :first_name, autofocus: true, placeholder: "Prénom", label: false %>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-4">
             <%= f.input :last_name, autofocus: true, placeholder: "Nom", label: false %>
+          </div>
+          <div class="col-12 col-md-4">
+            <%= f.input :birth_date , label: false, placeholder: "Votre date de naissance jj/mm/aaaa" %>
           </div>
         </div>
         <hr>
-  
+        
         <div class="row">
           <div class="col-12 col-md-6">
-            <%= f.input :email, autofocus: true, placeholder: "email", label: false %>
+            <%= f.input :email, autofocus: true, placeholder: "E-mail", label: false %>
           </div>
           <div class="col-12 col-md-6">
-            <%= f.input :birth_date , label: false, placeholder: "Votre date de naissance jj/mm/aaaa" %>
+            <%= f.input :email_confirmation, autofocus: true, placeholder: "Confirmation de l'E-mail", label: false %>
           </div>
         </div>
         

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard, type: :model do
-	 let(:date_from) { 5.days.ago.to_date }
-   let(:date_to)   { Date.today }
+	 let(:date_from) { 6.days.ago.to_date }
+   let(:date_to)   { 1.day.ago}
 
 
   subject { Dashboard.new(date_from: @date_from, date_to: @date_to) }
@@ -16,6 +16,7 @@ RSpec.describe Dashboard, type: :model do
   	Order.destroy_all
   	Sale.destroy_all
   	User.destroy_all
+    Timecop.freeze(Time.now.beginning_of_month + 24.days)
   end
 
 	describe "#variant_date_range" do
@@ -43,7 +44,7 @@ RSpec.describe Dashboard, type: :model do
 	describe "#products_added_by_week" do 
 		it "returns the total number of product" do
 			create(:product, created_at: 2.weeks.ago, variants_attributes: [size: "L"])
-			create(:product, created_at: Date.today , variants_attributes: [size: "L"])
+			create(:product, created_at: 1.day.ago, variants_attributes: [size: "L"])
 			
 			res = subject.products_added_by_week
 
@@ -105,7 +106,7 @@ RSpec.describe Dashboard, type: :model do
 	describe "#clients_registration_by_week" do 
 		it "returns the total number of user by week" do
 			#create(:user, created_at: 2.days.ago)
-			create(:user, created_at: Date.today )
+			create(:user, created_at: 1.day.ago)
 			
 			res = subject.clients_registration_by_week
 
@@ -139,8 +140,8 @@ RSpec.describe Dashboard, type: :model do
 	describe "#orders_by_week" do 
 		it "returns the  number of order by week" do
 			create(:order, created_at: 2.weeks.ago)
-			create(:order, created_at: Date.today)
-			create(:order, created_at: Date.today)
+			create(:order, created_at: 2.days.ago)
+			create(:order, created_at: 2.days.ago)
 			
 			res = subject.orders_by_week
 
@@ -150,7 +151,7 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#orders_by_month" do 
 		it "returns the number of order by month" do
-			create(:order, created_at: 2.day.ago)
+			create(:order, created_at: 2.days.ago)
 			create(:order, created_at: 1.day.ago)
 			
 			res = subject.orders_by_month
@@ -197,23 +198,7 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-	# describe "#number_of_sales" do 
-	# 	it "renders the number of sales in a given size" => "A revoir il y a un truc qui cloche" do 
-	# 		@prod = create(:product, variants_attributes: [size: "S", quantity: 4])
-	# 		@size = create(:size, product_id: @prod.id, size: "S", quantity: 4)
-
-	# 		puts @prod.variants[0].id.inspect
-	# 		@order = create(:order)
-
-	# 		@order_item = create(:order_item, order_id: @order.id, size_id:  @prod.variants[0].id, quantity: 2)
-
-	# 		#a reprendre qq chose est faux
-	# 		# res =  subject.number_of_sales(@order_item.size)
-	# 		# expect(res).to eq(2)
-
-	# 	end
-	# end
-	#ORDER###################### 
+	#SALES ###################### 
 	describe "#sales_counts" do 
 		it "returns the total number of orders" do
 			create(:sale)
@@ -226,20 +211,20 @@ RSpec.describe Dashboard, type: :model do
 	end
 
 	describe "#sales_by_week" do 
-		it "returns the  number of sale by week" do
+		it "returns the  number of sales by week" do
 			create(:sale, created_at: 2.weeks.ago)
-			create(:sale, created_at: Date.today)
-			create(:sale, created_at: Date.today )
+			create(:sale, created_at: 2.days.ago)
+			create(:sale, created_at: 1.day.ago)
 			
 			res = subject.sales_by_week
-
+		
 			expect(res.values.last).to eq(2)
 		end
 	end
 
 	describe "#sales_by_month" do 
 		it "returns the number of sale by month" do
-			create(:sale, created_at: 2.day.ago)
+			create(:sale, created_at: 2.days.ago)
 			create(:sale, created_at: 1.day.ago)
 			
 			res = subject.sales_by_month
