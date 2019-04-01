@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validate :email_matching
 
 
-  after_save :send_welcome_email
+  after_create :send_welcome_email
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
