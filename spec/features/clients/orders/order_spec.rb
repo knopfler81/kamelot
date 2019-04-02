@@ -94,7 +94,6 @@ RSpec.describe Order do
 		end
 	end
 
-
 	context "the order with a paid status" do 
 		scenario "the user can cancel his order" do 
 			order = create(:order, status: "paid")
