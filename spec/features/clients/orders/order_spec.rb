@@ -93,4 +93,36 @@ RSpec.describe Order do
 			expect(page).to have_content("Vous devez accepter les conditions générales de vente pour continuer")
 		end
 	end
+
+	context "the order with a paid status" do 
+		scenario "the user can cancel his order" do 
+			order = create(:order, status: "paid")
+
+			visit clients_order_path(order)
+			
+			click_on "Annuler ma commande"
+
+			expect(page).to have_content("Votre commande a été annulée")
+		end
+	end
+
+	context "the order with a confirmed status" do 
+		scenario "the user can't cancel his order" do 
+			order = create(:order, status: "confirmed")
+
+			visit clients_order_path(order)
+			
+			expect(page).not_to have_content("Votre commande a été annulée")
+		end
+	end
+
+	context "the order with a shipped status" do 
+		scenario "the user can't cancel his order" do 
+			order = create(:order, status: "shipped")
+
+			visit clients_order_path(order)
+			
+			expect(page).not_to have_content("Votre commande a été annulée")
+		end
+	end
 end

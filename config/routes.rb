@@ -113,7 +113,7 @@ Rails.application.routes.draw do
 		get "myaccount", to: "users#show"
 		get "myaddresses", to: "users#addresses"
 
-		resources :orders, only: [ :index, :show, :create] do
+		resources :orders, only: [ :index, :show, :create, :edit, :update] do
 		  resources :payments, only: [:new, :create]
 		end
 

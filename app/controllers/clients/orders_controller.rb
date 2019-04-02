@@ -1,5 +1,7 @@
 class Clients::OrdersController < Clients::ApplicationController
 
+	before_action :find_order, only: [:show, :edit, :update]
+
 	def index
 		if params[:status]
 			@client_orders = Order.where(user_id: current_user.id).filter_by_status(params[:status]).paginate(page: params[:page], per_page: 3)
@@ -9,7 +11,6 @@ class Clients::OrdersController < Clients::ApplicationController
 	end
 
 	def show
-		@order = Order.find(params[:id])
 		respond_to do |format|
 		  format.html { }
 		  format.pdf do 
@@ -41,7 +42,22 @@ class Clients::OrdersController < Clients::ApplicationController
 		end
 	end
 
+
+	def update
+		if @order.update_attributes(order_params)
+			redirect_to clients_order_path(@order), notice: "Votre commande a bien été annulée"
+		end
+	end
+
+
+	def edit
+	end
+
 	private
+
+	def find_order
+		@order = Order.find(params[:id])
+	end
 
 	def order_params
 		params.require(:order).permit(:status,  :user_id, :token , :sub_total, :gcos_accepted)
