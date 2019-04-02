@@ -6,5 +6,6 @@ FactoryBot.define do
     city { "MyString" }
     country { "MyString" }
     subject_vat { false }
+    email { 'admin@example.com'}
   end
 end

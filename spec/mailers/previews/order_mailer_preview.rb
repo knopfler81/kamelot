@@ -13,4 +13,14 @@ class OrderMailerPreview < ActionMailer::Preview
 	  OrderMailer.order_sent(order)
   end
 
+  def cancel_order
+		order = Order.first
+	  OrderMailer.cancel_order(order)
+  end
+
+  def confirm_cancel_order
+		order = Order.first
+	  OrderMailer.confirm_cancel_order(order)
+  end
+
 end

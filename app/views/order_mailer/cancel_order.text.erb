@@ -1,0 +1,9 @@
+	Bonjour <%= Company.instance.name%>
+
+	<%= @order.user.full_name %> vient d'annuler sa commande.
+
+	<% @order.items.each do |item| %>
+		<ul>
+			<li style="list-style: none"> <%= item.quantity %> <%=item.variant.product.title %>, <%= item.variant.product.brand %> , <%= item.variant.product.color  if item.variant.product.color %>, en taille <%= item.variant.size %> </li>
+		</ul>
+	<% end %>
