@@ -16,4 +16,15 @@ class OrderMailer < ApplicationMailer
 
     mail( to: @order.user.email, subject: "Nous avons expédié votre commande")
   end
+
+  def cancel_order(order)
+    @order = order
+    mail(to: Company.instance.email, subject: "Commande annulée")
+  end
+
+  def confirm_cancel_order(order)
+    @order = order
+
+    mail( to: @order.user.email, subject: "Nous avons bien annulé votre commande")
+  end
 end

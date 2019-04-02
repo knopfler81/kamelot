@@ -12,6 +12,6 @@ class PaymentMailer < ApplicationMailer
 
   def new_order(order)
   	@order = order
-  	mail(to: ENV["ADMIN_EMAIL"], subject: "Nouvelle commande")
+  	mail(to: Company.intance.email, subject: "Nouvelle commande")
   end
 end

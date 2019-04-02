@@ -1,0 +1,15 @@
+Bonjour <%= @order.user.first_name %>
+ 
+ 
+Nous vous informons que nous avons bien annulé votre commande N° FR00<%= @order.id %>
+
+<% @order.items.each do |item| %>
+	<ul>
+		<li> <%= item.quantity %> <%=item.variant.product.title %>, <%= item.variant.product.brand %> , <%= item.variant.product.color  if item.variant.product.color %>, en taille <%= item.variant.size %> </li>
+	</ul>
+
+<% end %>
+
+Nous espérons vous revoir bientot sur notre site.
+
+L'équipe de Damien

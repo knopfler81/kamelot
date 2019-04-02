@@ -44,8 +44,10 @@ class Clients::OrdersController < Clients::ApplicationController
 
 
 	def update
-		if @order.update_attributes(order_params)
+		if @order.update_attributes(status: "cancelled")
 			redirect_to clients_order_path(@order), notice: "Votre commande a bien été annulée"
+			OrderMailer.cancel_order(@order).deliver_now
+			OrderMailer.confirm_cancel_order(@order).deliver_now
 		end
 	end
 
