@@ -1490,6 +1490,7 @@ end
 
 #ORDER 1
 order_1  = Order.create(
+	return_asked: false,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1520,6 +1521,7 @@ order_1  = Order.create(
 
 #ORDER 2
 order_2  = Order.create(
+	return_asked: false,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1549,6 +1551,7 @@ order_2  = Order.create(
 
 #ORDER 3
 order_3  = Order.create(
+	return_asked: false,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1577,6 +1580,7 @@ order_3  = Order.create(
 
 #ORDER 4
 order_4  = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
@@ -1597,6 +1601,7 @@ OrderItem.create(
 
 #ORDER 5
 order_5  = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
@@ -1617,6 +1622,7 @@ OrderItem.create(
 
 #ORDER 6
 order_6  = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1648,6 +1654,7 @@ OrderItem.create(
 
 #ORDER 7
 order_7  = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1668,6 +1675,7 @@ OrderItem.create(
 
 #ORER 8
 order_8  = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1694,6 +1702,7 @@ OrderItem.create(
 
 #ORDER 9
 order_9  = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1714,6 +1723,7 @@ OrderItem.create(
 
 #ORDER 10
 order_10 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1735,6 +1745,7 @@ OrderItem.create(
 
 #ORDER 11 
 order_11 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1763,6 +1774,7 @@ OrderItem.create(
 
 #ORDER 12
 order_12 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1783,6 +1795,7 @@ OrderItem.create(
 
 #ORDER 13
 order_13 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1804,6 +1817,7 @@ OrderItem.create(
 
 #ORDER 14
 order_14 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1825,6 +1839,7 @@ OrderItem.create(
 
 #ORDER 15
 order_15 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1846,6 +1861,7 @@ OrderItem.create(
 
 #ORDER 16
 order_16 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1866,6 +1882,7 @@ OrderItem.create(
 
 #ORDER 17
 order_17 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1887,6 +1904,7 @@ OrderItem.create(
 
 #ORDER 18
 order_18 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1908,6 +1926,7 @@ OrderItem.create(
 
 #ORDER 21
 order_21 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -1928,6 +1947,7 @@ OrderItem.create(
 
 #ORDER 22
 order_22 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -1948,6 +1968,7 @@ OrderItem.create(
 
 #ORDER 24
 order_24 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -1969,6 +1990,7 @@ OrderItem.create(
 
 #ORDER 25
 order_25 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -1991,6 +2013,7 @@ OrderItem.create(
 
 #ORDER 26
 order_26 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -2013,6 +2036,7 @@ OrderItem.create(
 
 #ORDER 27
 order_27 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2034,6 +2058,7 @@ OrderItem.create(
 
 #ORDER 28
 order_28 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2055,6 +2080,7 @@ OrderItem.create(
 
 #ORDER 29
 order_29 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2076,6 +2102,7 @@ OrderItem.create(
 
 #ORDER 30
 order_30 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 15.days.ago,
@@ -2097,6 +2124,7 @@ OrderItem.create(
 
 #ORDER 31
 order_31 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 15.days.ago,
@@ -2118,6 +2146,7 @@ OrderItem.create(
 
 #ORDER 32
 order_32 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 13.days.ago,
@@ -2139,6 +2168,7 @@ OrderItem.create(
 
 #ORDER 33
 order_33 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2160,6 +2190,7 @@ OrderItem.create(
 
 #ORDER 34
 order_34 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2181,6 +2212,7 @@ OrderItem.create(
 
 #ORDER 35
 order_35 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2202,6 +2234,7 @@ OrderItem.create(
 
 #ORDER 36
 order_36 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 10.days.ago,
@@ -2223,6 +2256,7 @@ OrderItem.create(
 
 #ORDER 37
 order_37 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2244,6 +2278,7 @@ OrderItem.create(
 
 #ORDER 38
 order_38 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2265,6 +2300,7 @@ OrderItem.create(
 
 #ORDER 40
 order_40 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.days.ago,
@@ -2286,6 +2322,7 @@ OrderItem.create(
 
 #ORDER 41
 order_41 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.days.ago,

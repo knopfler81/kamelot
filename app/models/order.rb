@@ -4,6 +4,7 @@ class Order < ApplicationRecord
 
   belongs_to :user,  optional: true
   has_many   :items, class_name: "OrderItem", dependent: :destroy
+  has_one    :returning
 
   after_initialize :shipping_fees_cents
 
@@ -22,11 +23,26 @@ class Order < ApplicationRecord
     send(status)
   end
 
+ after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: ("paid" || "confirmed"), to: 'shipped') }
+ after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: "paid", to: 'cancelled') }
+ after_save :ask_for_return
+
+  def cancelled_order
+    OrderMailer.cancel_order(self).deliver_now
+    OrderMailer.confirm_cancel_order(self).deliver_now
+  end
+
+  def ask_for_return
+    if self.return_asked == true 
+      returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days)
+      returning.save
+    end
+  end
 
 
- # after_save :set_return_limit_date if self.status_changed?(from: "confirmed", to: "shipped")
- after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: "confirmed", to: 'shipped') }
+  def path_after_update
 
+  end
 
   def remove_from_stock
     self.items.each do |item|

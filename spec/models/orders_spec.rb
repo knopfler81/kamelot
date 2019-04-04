@@ -20,7 +20,7 @@ require 'rails_helper'
  		end
  	end
 
-describe "#remove_from_stock" do 
+	describe "#remove_from_stock" do 
 		it "removes the numbers of articles ordered" do
 			john   = create(:user)
 	 		token  = 12345678

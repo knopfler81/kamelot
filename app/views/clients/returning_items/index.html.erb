@@ -1,0 +1,25 @@
+<div class="container">
+		<h3>Séléctionner les articles que vous souhaitez retouner</h3>
+		<hr>
+		<br>
+	<div class="row">
+
+
+			<% @returning_items.each do |item|%>
+	
+				<div class="col-6">
+					<li><%= item.order_item.variant.product.title %></li>
+					<li><%= item.order_item.variant.size %></li>
+					<li><%= item.order_item.variant.product.color %></li>
+					<hr>
+				</div>
+				<div class="col-6">
+					<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
+						<%= f.hidden_field :id, value: item.id %>
+						<%= f.check_box :selected, { value: item.selected, class: 'form-control', onchange: 'this.form.submit();' } %>								
+					<% end %>
+				</div>
+			<% end %>
+	
+		</div>
+</div>
