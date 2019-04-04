@@ -53,6 +53,9 @@
 						<p>Votre commande a été prise en charge par notre équipe, nous ne pouvons plus pas l'annuler.</p>
 					<% elsif @order.status == "shipped" %>
 					<p>Votre commande a été expédiée</p>
+						<% if Date.today <= @order.return_limit_date %>
+								Vous pouvez retourner vos articles jusqu'au <%= l(@order.return_limit_date, format: '%d %B %Y') %> inclus
+						<% end %>
 					<% end %>
 				</div>
 			</div>

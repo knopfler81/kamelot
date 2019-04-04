@@ -1576,12 +1576,14 @@ order_3  = Order.create(
 	)
 
 #ORDER 4
-order_4  = Order.create(gcos_accepted: true,
+order_4  = Order.create(
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
  	user_id: user_1.id,
  	token: SecureRandom.hex(8),
  	status: 4,
+ 	return_limit_date: Date.today + 10,
  	shipping_fees: 5, 
  	total_weight: 0.300,
  	sub_total: product_2.price,
@@ -1594,7 +1596,8 @@ OrderItem.create(
 	variant_id: product_2.variants[1].id)
 
 #ORDER 5
-order_5  = Order.create(gcos_accepted: true,
+order_5  = Order.create(
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
  	user_id: user_5.id,
@@ -1613,7 +1616,8 @@ OrderItem.create(
 	variant_id: product_2.variants[0].id)
 
 #ORDER 6
-order_6  = Order.create(gcos_accepted: true,
+order_6  = Order.create(
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_6.id,
@@ -1643,7 +1647,8 @@ OrderItem.create(
 	variant_id: product_3.variants[0].id)
 
 #ORDER 7
-order_7  = Order.create(gcos_accepted: true,
+order_7  = Order.create(
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_7.id,
@@ -1662,7 +1667,8 @@ OrderItem.create(
 	variant_id: product_3.variants[1].id)
 
 #ORER 8
-order_8  = Order.create(gcos_accepted: true,
+order_8  = Order.create(
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_8.id,
@@ -1687,7 +1693,8 @@ OrderItem.create(
 	variant_id: product_3.variants[0].id)
 
 #ORDER 9
-order_9  = Order.create(gcos_accepted: true,
+order_9  = Order.create(
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_9.id,
@@ -1824,6 +1831,7 @@ order_15 = Order.create(
  	user_id: user_15.id,
  	token: SecureRandom.hex(8),
  	status: 4,
+ 	return_limit_date: Date.today + 10,
  	shipping_fees: 5,
  	total_weight: 0.900,
  	sub_total: product_6.price * 3, 
@@ -1967,6 +1975,7 @@ order_25 = Order.create(
  	user_id: user_21.id,
  	token: SecureRandom.hex(8),
  	status: 4,
+ 	return_limit_date: Date.today + 10,
  	shipping_fees: 5,
  	total_weight: 0.900,
  	sub_total: product_11.price * 3,

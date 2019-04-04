@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+
   #require 'csv'
 
   belongs_to :user,  optional: true
@@ -20,6 +21,12 @@ class Order < ApplicationRecord
   scope :filter_by_status, -> (status) do
     send(status)
   end
+
+
+
+ # after_save :set_return_limit_date if self.status_changed?(from: "confirmed", to: "shipped")
+ after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: "confirmed", to: 'shipped') }
+
 
   def remove_from_stock
     self.items.each do |item|
@@ -76,6 +83,10 @@ class Order < ApplicationRecord
       delivery_date_2 += 1
     end
     delivery_date_2
+  end
+  
+  def set_return_limit_date  
+    self.update_attributes(return_limit_date: self.updated_at + 10.days  )
   end
 
   def send_message(text_message)
