@@ -1,7 +1,6 @@
 require_relative 'boot'
 
 require "rails"
-# Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -11,27 +10,28 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
-# require "rails/test_unit/railtie"
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module SuperShop
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
+
+
+    config.x.features.send_sms = ENV["APP_SEND_SMS"].present?
+    config.x.features.stats    = ENV["APP_WITH_STATS"].present?
+
+
+
+
     config.load_defaults 5.2
     config.active_job.queue_adapter = :sidekiq
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
-    # Don't generate system test files.
-
     config.action_dispatch.default_headers.merge!('Cache-Control' => 'no-store, no-cache')
     config.generators.system_tests = nil
-    #config.autoload_path += %W(#{config.root}/lib)
+
+
+
+    #TODO verifier mais apparement plus besoin on utilise figaro et application.yml
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'secrets.yml')
       YAML.load(File.open(env_file)).each do |key, value|

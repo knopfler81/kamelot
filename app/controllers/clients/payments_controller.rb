@@ -9,7 +9,7 @@ class Clients::PaymentsController < Clients::ApplicationController
 	  )
 
 	  charge = Stripe::Charge.create(
-	    customer:     customer.id,   # You should store this customer id and re-use it.
+	    customer:     customer.id,
 	    amount:       @order.total_cents,
 	    description:  "Paiment pour la commande #{@order.id}",
 	    currency:     @order.total.currency
@@ -20,26 +20,29 @@ class Clients::PaymentsController < Clients::ApplicationController
 	  if @order.save
 		  @order.remove_from_stock
 		  session[:cart_token] == nil
+
 		  PaymentMailer.confirmation(@order).deliver_now
 		  PaymentMailer.new_order(@order).deliver_now
 
-		 text_message = "Nouvelle commande  ref: #{@order.id} \n\n" 
+		  if FeatureSwitch.enabled?(:send_sms)
+			  @text_message = "Nouvelle commande  ref: #{@order.id} \n\n" 
+		  	
+				@order.items.each do |item|
+	  			@text_message << "Quantité: #{item.quantity} \n"
+	  			@text_message << "Ref: #{item.variant.product.title} \n"
+	  			@text_message << "Marque: #{item.variant.product.brand} \n"
+	  			@text_message << "Taille: #{item.variant.size} \n"
+	  			@text_message << "---------------\n\n"
+	  		end
 
-			@order.items.each do |item|
-  			text_message << "Quantité: #{item.quantity} \n"
-  			text_message << "Ref: #{item.variant.product.title} \n"
-  			text_message << "Marque: #{item.variant.product.brand} \n"
-  			text_message << "Taille: #{item.variant.size} \n"
-  			text_message << "---------------\n\n"
-  		end
-
-		  #send_message(text_message) à réactiver pour l'envoi de sms
+		  	@order.send_message(@text_message)
+			end
 
 			redirect_to clients_orders_path
 	  end
 
-	rescue Stripe::CardError => e
-	  flash[:alert] = e.message
+		rescue Stripe::CardError => e
+		  flash[:alert] = e.message
 	end
 	
 	private
@@ -51,16 +54,5 @@ class Clients::PaymentsController < Clients::ApplicationController
 
   def set_order
     @order = Order.where(status: 'pending', token: session[:cart_token]).find(params[:order_id])
-  end
-
-  def send_message(text_message)
-    client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-
-    client.messages.create({
-      from: ENV["TWILIO_PHONE_NUMBER"],
-      to: 	ENV["MY_PERSONAL_PHONE_NUMBER"],  
-      body: text_message
-    })
-
   end
 end

@@ -1,125 +1,127 @@
-<div class="container">
-	
-		<%= form_tag admin_dashboard_journal_path, method: :get do  %>
-			<div class="row">  
-				<div class="col-12 col-md-3">
-					<%= text_field_tag "search[date_from]", @dashboard.date_from, class: "datepicker" %>
+<% if FeatureSwitch.enabled?(:stats) %>
+	<div class="container">
+		
+			<%= form_tag admin_dashboard_journal_path, method: :get do  %>
+				<div class="row">  
+					<div class="col-12 col-md-3">
+						<%= text_field_tag "search[date_from]", @dashboard.date_from, class: "datepicker" %>
+					</div>
+					<div class="col-12 col-md-3">
+						<%= text_field_tag "search[date_to]", @dashboard.date_to, class: "datepicker" %>
+						
+					</div>
+					<div class="col-12 col-md-3">
+						<%= submit_tag "Rechercher", class: "btn btn-main btn-block" %>
+					</div>
+					<div class="col-12">
+						<small><i>Faites une recherche par période</i></small>
+					</div>
 				</div>
-				<div class="col-12 col-md-3">
-					<%= text_field_tag "search[date_to]", @dashboard.date_to, class: "datepicker" %>
-					
-				</div>
-				<div class="col-12 col-md-3">
-					<%= submit_tag "Rechercher", class: "btn btn-main btn-block" %>
-				</div>
-				<div class="col-12">
-					<small><i>Faites une recherche par période</i></small>
+			<% end %>	
+
+			<div id="dashboard_search">
+				<div class="row">
+					<div class="col-12">
+						<%= simple_form_for :query, url: admin_dashboard_journal_url, method: :get,  html: {class: "form-inline"} do |f| %>
+						  <%= f.input  :keyword, placeholder: "Recherche", label: false, input_html: {class: "input-search-admin"} %>
+						  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+						    <i class="fa fa-search"></i>
+						  <% end %>
+						<% end %>
+						<small><i>Recherchez par nom, marque, categorie, couleur</i></small>
+					</div>
 				</div>
 			</div>
-		<% end %>	
 
-		<div id="dashboard_search">
-			<div class="row">
-				<div class="col-12">
-					<%= simple_form_for :query, url: admin_dashboard_journal_url, method: :get,  html: {class: "form-inline"} do |f| %>
-					  <%= f.input  :keyword, placeholder: "Recherche", label: false, input_html: {class: "input-search-admin"} %>
-					  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
-					    <i class="fa fa-search"></i>
-					  <% end %>
-					<% end %>
-					<small><i>Recherchez par nom, marque, categorie, couleur</i></small>
-				</div>
-			</div>
-		</div>
-
-	<div class="journal-content">
-		<table class="table table-striped table-resizable" id="dashboard_table">
-			<thead>
-				<tr class="tr_main_head">
-					<th class="cells th_main" id="dates"   colspan="2">Dates</th>
-					<th class="cells th_main" id="article" colspan="5">Articles</th>
-					<th class="cells th_main" id="stock"   colspan="2">Stock initial</th>
-					<th class="cells th_main" id="price"   colspan="3">Valeur moyenne / article</th>
-					<th class="cells th_main" id="sales"   colspan="2">Ventes</th>
-					<th class="cells th_main" id="turno"   colspan="2">CA</th>
-					<th class="cells th_main" id="stock"   colspan="2">Stock final</th>
-					<th class="cells th_main" id="cost"    colspan="2">Marge Totale</th>
-				</tr>
-			</thead>
-			<thead >
-				<tr class="tr_second_head">
-					<th class="cells th_second col_dates"><small>Créé</small></th>
-					<th class="cells th_second col_dates"><small>MAJ</small></th>
-					<th class="cells th_second col_pro"><small>ID</small></th>
-					<th class="cells th_second col_pro"><small>Ref</small></th>
-					<th class="cells th_second col_pro"><small>Marque</small></th>
-					<th class="cells th_second col_pro"><small>Couleur</small></th>
-					<th class="cells th_second col_pro"><small>Taille</small></th>
-					<th class="cells th_second col_stock"><small>Initial</small></th>
-					<th class="cells th_second col_stock"><small>Valeur</small></th>
-					<th class="cells th_second col_prices"><small>Prix revient</small></th>
-					<th class="cells th_second col_prices"><small>Prix vente</small></th>
-					<th class="cells th_second col_prices"><small>Marge</small></th>
-					<th class="cells th_second col_sales"><small>Marché</small></th>
-					<th class="cells th_second col_sales"><small>Web</small></th>
-					<th class="cells th_second col_to"><small>Marché</small></th>
-					<th class="cells th_second col_to"><small>Web</small></th>
-					<th class="cells th_second col_stock"><small>Quantité</small></th>
-					<th class="cells th_second col_stock"><small>Valeur</small></th>
-					<th class="cells th_second col_margin"><small>Marchés</small></th>
-					<th class="cells th_second col_margin"><small>Web</small></th>
-				</tr>
-			</thead>
-			<tbody>	
-			<% @variants.each do |variant| %>
-					<tr>
-						<td class="cells col_dates"><small><%= l(variant.created_at, format: '%d/%m/%y' )  %></small></td>
-						<td class="cells col_dates"><small><%= l(variant.updated_at, format: '%d/%m/%y' )  %></small></td>
-						<td class="cells col_pro"><small><%= variant.product.id %></small></td>
-						<td class="cells col_pro"><small><%= truncate(variant.product.title, length: 10) %></small></td>
-						<td class="cells col_pro"><small><%= variant.product.brand %></small></td>
-						<td class="cells col_pro"><small><%= variant.product.color %></small></td>
-						<td class="cells col_pro"><small><%= variant.size %></small></td>
-						<td class="cells col_stock starting_stock"><%= variant.stocks.map(&:initial_quantity).sum %></td>
-						<td class="cells col_stock starting_stock_value"><%= number_to_currency_euro @dashboard.total_margin_value(variant) %></td>
-						<td class="cells col_prices buying_price"><%= number_to_currency_euro variant.product.buying_price %></td>
-						<td class="cells col_prices selling_price"><%= number_to_currency_euro variant.product.price %></td>
-						<td class="cells col_prices cost_price"><%= number_to_currency_euro @dashboard.margin_per_article(variant) %></td>
-						<td class="cells col_sales number_of_sales"><%= @dashboard.number_of_sales(variant) %></td>
-						<td class="cells col_sales number_of_orders"><%= @dashboard.number_of_orders(variant) %></td>
-						<td class="cells col_to turnover_sales"><%= number_to_currency_euro @dashboard.turnover_sales(variant) %></td>
-						<td class="cells col_to turnover_orders"><%= number_to_currency_euro @dashboard.turnover_orders(variant) %></td>
-						<td class="cells col_stock remaining_stock"><%= @dashboard.remaining_stock(variant) %></td>
-						<td class="cells col_stock remaining_stock_value"><%= number_to_currency_euro @dashboard.remaining_stock_value(variant)%></td>
-						<td class="cells col_margin margin_sales"><%=  number_to_currency_euro @dashboard.margin_sales_line(variant) %></th>
-						<td class="cells col_margin margin_web"><%= number_to_currency_euro @dashboard.margin_orders_line(variant) %></th>
+		<div class="journal-content">
+			<table class="table table-striped table-resizable" id="dashboard_table">
+				<thead>
+					<tr class="tr_main_head">
+						<th class="cells th_main" id="dates"   colspan="2">Dates</th>
+						<th class="cells th_main" id="article" colspan="5">Articles</th>
+						<th class="cells th_main" id="stock"   colspan="2">Stock initial</th>
+						<th class="cells th_main" id="price"   colspan="3">Valeur moyenne / article</th>
+						<th class="cells th_main" id="sales"   colspan="2">Ventes</th>
+						<th class="cells th_main" id="turno"   colspan="2">CA</th>
+						<th class="cells th_main" id="stock"   colspan="2">Stock final</th>
+						<th class="cells th_main" id="cost"    colspan="2">Marge Totale</th>
 					</tr>
-				<% end %>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td>X</td>
-					<td>X</td>
-					<td>X</td>
-					<td>X</td>
-					<td>X</td>
-					<td>X</td>
-					<td>X</td>
-					<td class="cells total_starting_stock"></td>
-					<td class="cells total_starting_stock_value"></td>
-					<td class="cells ">X</td>
-					<td class="cells ">X</td>
-					<td class="cells ">X</td>
-					<td class="cells total_number_of_orders"></td>
-					<td class="cells total_number_of_sales"></td>
-					<td class="cells turnover_total_sales"></td>
-					<td class="cells turnover_total_orders"></td>
-					<td class="cells total_remaining_stock"></td>
-					<td class="cells total_remaining_stock_value"></td>
-					<td class="cells total_margin_sales"></th>
-					<td class="cells total_margin_web"></th>
-				</tr>
-			</tfoot>
-		</table>
+				</thead>
+				<thead >
+					<tr class="tr_second_head">
+						<th class="cells th_second col_dates"><small>Créé</small></th>
+						<th class="cells th_second col_dates"><small>MAJ</small></th>
+						<th class="cells th_second col_pro"><small>ID</small></th>
+						<th class="cells th_second col_pro"><small>Ref</small></th>
+						<th class="cells th_second col_pro"><small>Marque</small></th>
+						<th class="cells th_second col_pro"><small>Couleur</small></th>
+						<th class="cells th_second col_pro"><small>Taille</small></th>
+						<th class="cells th_second col_stock"><small>Initial</small></th>
+						<th class="cells th_second col_stock"><small>Valeur</small></th>
+						<th class="cells th_second col_prices"><small>Prix revient</small></th>
+						<th class="cells th_second col_prices"><small>Prix vente</small></th>
+						<th class="cells th_second col_prices"><small>Marge</small></th>
+						<th class="cells th_second col_sales"><small>Marché</small></th>
+						<th class="cells th_second col_sales"><small>Web</small></th>
+						<th class="cells th_second col_to"><small>Marché</small></th>
+						<th class="cells th_second col_to"><small>Web</small></th>
+						<th class="cells th_second col_stock"><small>Quantité</small></th>
+						<th class="cells th_second col_stock"><small>Valeur</small></th>
+						<th class="cells th_second col_margin"><small>Marchés</small></th>
+						<th class="cells th_second col_margin"><small>Web</small></th>
+					</tr>
+				</thead>
+				<tbody>	
+				<% @variants.each do |variant| %>
+						<tr>
+							<td class="cells col_dates"><small><%= l(variant.created_at, format: '%d/%m/%y' )  %></small></td>
+							<td class="cells col_dates"><small><%= l(variant.updated_at, format: '%d/%m/%y' )  %></small></td>
+							<td class="cells col_pro"><small><%= variant.product.id %></small></td>
+							<td class="cells col_pro"><small><%= truncate(variant.product.title, length: 10) %></small></td>
+							<td class="cells col_pro"><small><%= variant.product.brand %></small></td>
+							<td class="cells col_pro"><small><%= variant.product.color %></small></td>
+							<td class="cells col_pro"><small><%= variant.size %></small></td>
+							<td class="cells col_stock starting_stock"><%= variant.stocks.map(&:initial_quantity).sum %></td>
+							<td class="cells col_stock starting_stock_value"><%= number_to_currency_euro @dashboard.total_margin_value(variant) %></td>
+							<td class="cells col_prices buying_price"><%= number_to_currency_euro variant.product.buying_price %></td>
+							<td class="cells col_prices selling_price"><%= number_to_currency_euro variant.product.price %></td>
+							<td class="cells col_prices cost_price"><%= number_to_currency_euro @dashboard.margin_per_article(variant) %></td>
+							<td class="cells col_sales number_of_sales"><%= @dashboard.number_of_sales(variant) %></td>
+							<td class="cells col_sales number_of_orders"><%= @dashboard.number_of_orders(variant) %></td>
+							<td class="cells col_to turnover_sales"><%= number_to_currency_euro @dashboard.turnover_sales(variant) %></td>
+							<td class="cells col_to turnover_orders"><%= number_to_currency_euro @dashboard.turnover_orders(variant) %></td>
+							<td class="cells col_stock remaining_stock"><%= @dashboard.remaining_stock(variant) %></td>
+							<td class="cells col_stock remaining_stock_value"><%= number_to_currency_euro @dashboard.remaining_stock_value(variant)%></td>
+							<td class="cells col_margin margin_sales"><%=  number_to_currency_euro @dashboard.margin_sales_line(variant) %></th>
+							<td class="cells col_margin margin_web"><%= number_to_currency_euro @dashboard.margin_orders_line(variant) %></th>
+						</tr>
+					<% end %>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>X</td>
+						<td>X</td>
+						<td>X</td>
+						<td>X</td>
+						<td>X</td>
+						<td>X</td>
+						<td>X</td>
+						<td class="cells total_starting_stock"></td>
+						<td class="cells total_starting_stock_value"></td>
+						<td class="cells ">X</td>
+						<td class="cells ">X</td>
+						<td class="cells ">X</td>
+						<td class="cells total_number_of_orders"></td>
+						<td class="cells total_number_of_sales"></td>
+						<td class="cells turnover_total_sales"></td>
+						<td class="cells turnover_total_orders"></td>
+						<td class="cells total_remaining_stock"></td>
+						<td class="cells total_remaining_stock_value"></td>
+						<td class="cells total_margin_sales"></th>
+						<td class="cells total_margin_web"></th>
+					</tr>
+				</tfoot>
+			</table>
 
-</div>
+	</div>
+<% end %>

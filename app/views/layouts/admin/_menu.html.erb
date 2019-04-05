@@ -123,21 +123,23 @@
 	      </li>
 	    </ul>
 		</li>
-
-		<li class="sidebar-dropdown">
-		 <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-		    <i class="fa fa-tachometer-alt"></i>
-		    <span class="menu-title">Dashboard</span>
-		  </a>
-		 	<ul class="collapse list-unstyled submenu" id="dashboard">
-	      <li>
-	        <%= link_to "Journal", admin_dashboard_journal_path, class: "drop-item" %>
-	      </li>
-	      <li>
-	        <%= link_to "Statistiques", admin_dashboard_path,  class: "drop-item" %>
-	      </li>
-	    </ul>
-		</li>
+		
+		<% if FeatureSwitch.enabled?(:stats) %>
+			<li class="sidebar-dropdown">
+			 <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+			    <i class="fa fa-tachometer-alt"></i>
+			    <span class="menu-title">Dashboard</span>
+			  </a>
+			 	<ul class="collapse list-unstyled submenu" id="dashboard">
+		      <li>
+		        <%= link_to "Journal", admin_dashboard_journal_path, class: "drop-item" %>
+		      </li>
+		      <li>
+		        <%= link_to "Statistiques", admin_dashboard_path,  class: "drop-item" %>
+		      </li>
+		    </ul>
+			</li>
+		<% end %>
 		<li>
 		   <%= link_to  clients_customization_path, class: "list-item" do %>
 		   <i class="fa fa-palette"></i> 
