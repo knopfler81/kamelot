@@ -1,5 +1,7 @@
 module ApplicationHelper
+	
 
+	
 	require 'rqrcode'
 
   def render_qr_code text, size = 5

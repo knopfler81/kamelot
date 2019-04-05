@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
  	root to: "clients/pages#landing"
 
-
-
 	authenticate :user, lambda { |u| u.admin? } do
 		 		
   	require "sidekiq/web"
@@ -52,8 +50,10 @@ Rails.application.routes.draw do
 		 		resources :products
 		 	end
 
-		 	resource :dashboard
-		 	get "dashboard/journal", to: "dashboards#journal"
+		 	if FeatureSwitch.enabled?(:stats)
+			 	resource :dashboard
+			 	get "dashboard/journal", to: "dashboards#journal"
+			end
 
 		 	resources :sizes do
 		 		get 'decrease', on: :member
@@ -110,11 +110,16 @@ Rails.application.routes.draw do
 			resources :orders, only: [:index, :show]
 		end
 
+
 		get "myaccount", to: "users#show"
 		get "myaddresses", to: "users#addresses"
 
 		resources :orders, only: [ :index, :show, :create, :edit, :update] do
 		  resources :payments, only: [:new, :create]
+		  resources :returnings do 
+		  	patch "returning_items", to: "returning_items#update"
+		  	resources :returning_items
+		  end
 		end
 
 		#### NE PAS CHANGER L'ORDRE DE CES ROUTES ####

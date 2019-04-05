@@ -78,6 +78,16 @@ class Order < ApplicationRecord
     delivery_date_2
   end
 
+  def send_message(text_message)
+    client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+
+    client.messages.create({
+      from: ENV["TWILIO_PHONE_NUMBER"],
+      to:   ENV["MY_PERSONAL_PHONE_NUMBER"],  
+      body: text_message
+    })
+  end
+
   # def self.to_csv
   #   CSV.generate do |csv|
   #     csv << ["Raison sociale", "*Civilité (autorisée : 'M.'ou  'Mme' )",  "*Nom",  "*Prénom", "Appartement/Chez",  "Bâtiment/Immeuble",  "*N° et libellé de voie",   "Lieu-dit/BP",  "*Code postal" , "*Ville", "*Pays", "E-mail"]

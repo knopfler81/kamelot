@@ -2,7 +2,6 @@ class Clients::ApplicationController < ActionController::Base
   
   layout "clients/application"
 
-
 	before_action :current_cart
 	before_action :favorites_products
 	
