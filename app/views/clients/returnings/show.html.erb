@@ -1,5 +1,16 @@
 <div class="container">
+<h3>Votre retour</h3>
+<hr>
+<br>
 	<div class="row">
-		<%= @returning.returning_items.inspect%>
+	<ul>
+		<% @returning.items.where(selected: true).each do |item| %>
+		<%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %>
+			<li><%= item.order_item.variant.size %></li>
+			<li><%= item.order_item.variant.product.title %></li>
+			<li><%= item.order_item.variant.product.price %></li>
+
+		<% end %>
+	</ul>
 	</div>
 </div>

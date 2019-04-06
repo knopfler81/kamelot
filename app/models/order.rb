@@ -25,7 +25,7 @@ class Order < ApplicationRecord
 
  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: ("paid" || "confirmed"), to: 'shipped') }
  after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: "paid", to: 'cancelled') }
- after_save :ask_for_return
+ after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
 
   def cancelled_order
     OrderMailer.cancel_order(self).deliver_now
@@ -37,11 +37,6 @@ class Order < ApplicationRecord
       returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days)
       returning.save
     end
-  end
-
-
-  def path_after_update
-
   end
 
   def remove_from_stock

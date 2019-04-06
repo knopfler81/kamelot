@@ -61,7 +61,7 @@
 								<%= f.submit "Demander un retour", class: " btn btn-link" , id: "ask-return" %>
 							<% end %>
 							<% if !@returning.nil? %>
-								<%= link_to "Voir le retour",  clients_order_returning_returning_items_path(@order, @returning), class: "btn btn-link" %>	
+								<%= link_to "Voir le retour",  clients_order_returning_path(@order, @returning), class: "btn btn-link" %>	
 							<% end %>
 					<% end %>
 				</div>

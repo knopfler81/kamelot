@@ -3,9 +3,10 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 	def create
 	end
 
-	def index 
+	def index
 		find_returing
 		@returning_items = ReturningItem.where(returning_id: @returning.id)
+		@order = Order.find(params[:order_id])
 	end
 
 
@@ -14,6 +15,7 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 
 
 	def update
+		@returning_item = ReturningItem.find(params[:id])
 		@returning_item.update_attributes(returning_item_params)
 	end
 
@@ -25,6 +27,6 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 	end
 
 	def returning_item_params
-		params.require(:returning_item).permit(:id, :returning_id, :order_item_id, :selected)
+		params.permit(:id, :returning_id, :order_item_id, :selected, :reason)
 	end
 end

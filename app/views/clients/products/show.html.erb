@@ -31,7 +31,7 @@
 					<h1 class="primary_title"><%= @product.title.capitalize %> - <%= @product.brand.capitalize %></h1>
 					<h4><%= number_to_currency_euro @product.price %></h4>
 					<p>Couleur: <%=  @product.color %></p>
-											<%= form_tag clients_order_items_path , input_html: {id: "salesform"} do %>
+					<%= form_tag clients_order_items_path , input_html: {id: "salesform"} do %>
 						<%= hidden_field_tag :product_id, @product.id %>
 						<%= hidden_field_tag :user_id, @token %>
 						<%= hidden_field_tag :quantity, 1 %>

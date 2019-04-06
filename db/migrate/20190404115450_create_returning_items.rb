@@ -6,6 +6,7 @@ class CreateReturningItems < ActiveRecord::Migration[5.2]
       t.string :state
       t.boolean :selected, default: false
       t.references :order_item
+      
 
       t.timestamps
     end

@@ -4,15 +4,12 @@ class Clients::ReturningsController < Clients::ApplicationController
 	def edit
 	end
 
-
 	def show
 	end
-
 
 	def update
 		@returning.update_attributes(returning_params)
 	end
-
 
 	private
 
@@ -21,6 +18,6 @@ class Clients::ReturningsController < Clients::ApplicationController
 	end
 	
 	def returning_params
-		params.require(:returning).permit(:order_id, :limit_date, :state, :number, :selected)
+		params.permit(:order_id, :limit_date, :state, :number)
 	end
 end
