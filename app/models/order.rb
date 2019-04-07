@@ -10,7 +10,7 @@ class Order < ApplicationRecord
 
   monetize :total_cents
 
-  enum status: [:pending, :paid, :confirmed, :shipped, :cancelled, :refunded]
+  enum status: { pending: 0, paid: 1, confirmed: 2 , shipped: 3, cancelled: 4, refunded: 5 }
 
   scope :pending,   -> { where(status: :pending) }
   scope :paid,      -> { where(status: :paid) }
@@ -34,7 +34,7 @@ class Order < ApplicationRecord
 
   def ask_for_return
     if self.return_asked == true 
-      returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days)
+      returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days, status: 0)
       returning.save
     end
   end

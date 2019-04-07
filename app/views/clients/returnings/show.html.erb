@@ -3,14 +3,38 @@
 <hr>
 <br>
 	<div class="row">
-	<ul>
-		<% @returning.items.where(selected: true).each do |item| %>
-		<%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %>
-			<li><%= item.order_item.variant.size %></li>
-			<li><%= item.order_item.variant.product.title %></li>
-			<li><%= item.order_item.variant.product.price %></li>
 
-		<% end %>
-	</ul>
+		<div class="col-6">
+			<p>Vous avez demandé un retour pour le/les articles suivants: </p>
+			<p>Veuillez nous renvoyer le colis avant le <%= l(@returning.limit_date, format: '%d %B %Y') %></p>
+		</div>
+		<div class="col-6">
+			<p>Etat de votre retour: <%= @returning.status %></p>
+		</div>	
+		
+
+	
+	<table class="table table-striped">
+		<tbody>
+			<% @returning.items.where(selected: true).each do |item| %>
+				<tr>
+					<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+					<td>
+						<%= item.order_item.variant.product.title %> 
+						<br>
+						<%= item.order_item.variant.product.color %>
+					</td>
+					<td>Taille: <%= item.order_item.variant.size %></td>
+					<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<div class="col-12">
+		<h4>La raison de votre retour</h4>
+		<hr><br>
+		<p> <%= simple_format @returning.reason %></p>
+		
+	</div> 
 	</div>
 </div>

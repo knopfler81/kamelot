@@ -5,6 +5,8 @@ class Returning < ApplicationRecord
 
 	after_create :set_returning_items
 
+	enum status: { pending: 0, confirmed: 1, refunded: 2 }
+
 	def set_returning_items
 
 		order = self.order

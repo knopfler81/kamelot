@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :returning do
+  	order
     number { "MyString" }
-    limit_date { "MyString" }
-    state { "MyString" }
-    references { "" }
+    limit_date { Date.today }
+    status { 0 }
+    reason { nil }
   end
 end

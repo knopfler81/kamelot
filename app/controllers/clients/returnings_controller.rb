@@ -8,7 +8,9 @@ class Clients::ReturningsController < Clients::ApplicationController
 	end
 
 	def update
-		@returning.update_attributes(returning_params)
+		if @returning.update_attributes(returning_params)
+			redirect_to clients_order_returning_path(@returning), notice: "Votre retour a bien été envoyé"
+		end
 	end
 
 	private
@@ -18,6 +20,6 @@ class Clients::ReturningsController < Clients::ApplicationController
 	end
 	
 	def returning_params
-		params.permit(:order_id, :limit_date, :state, :number)
+		params.require(:returning).permit(:order_id, :limit_date, :status, :number, :reason)
 	end
 end

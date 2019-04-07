@@ -1,6 +1,7 @@
 class Clients::OrdersController < Clients::ApplicationController
 
 	before_action :find_order, only: [:show, :edit, :update]
+	before_action :set_cache_buster, only: [:edit, :show]
 
 	def index
 		if params[:status]
@@ -45,11 +46,24 @@ class Clients::OrdersController < Clients::ApplicationController
 
 
 	def update
-	 	@order.update_attributes(order_params)
+	 	if @order.status == "cancelled"
+	 		redirect_to clients_order_path(@order), notice: "Votre commande a été annulée"
+	 	end
+	 	if @order.update_attributes(order_params)
+	 		redirect_to clients_order_path(@order)
+	 	end
 	end
 
 
 	def edit
+	end
+
+	protected
+
+	def set_cache_buster
+	  response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+	  response.headers["Pragma"] = "no-cache"
+	  response.headers["Expires"] = "#{1.year.ago}"
 	end
 
 	private

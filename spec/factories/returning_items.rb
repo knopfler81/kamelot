@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :returning_item do
   	returning
-    reason { "MyText" }
-    state { "MyString" }
+  	order_item
+  	selected { true }
   end
 end

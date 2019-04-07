@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_115450) do
+ActiveRecord::Schema.define(version: 2019_04_06_114759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,7 +137,6 @@ ActiveRecord::Schema.define(version: 2019_04_04_115450) do
   end
 
   create_table "returning_items", force: :cascade do |t|
-    t.text "reason"
     t.bigint "returning_id"
     t.string "state"
     t.boolean "selected", default: false
@@ -151,10 +150,11 @@ ActiveRecord::Schema.define(version: 2019_04_04_115450) do
   create_table "returnings", force: :cascade do |t|
     t.string "number"
     t.date "limit_date"
-    t.string "status"
+    t.integer "status"
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "reason"
     t.index ["order_id"], name: "index_returnings_on_order_id"
   end
 

@@ -4,23 +4,43 @@
 		<br>
 	<div class="row">
 
+		<table class="table table-striped">
+			<tbody>
+				<% @returning_items.each do |item|%>
+					<tr>
+						
+						<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+						<td>
+							<%= item.order_item.variant.product.title %> 
+							<br>
+							<%= item.order_item.variant.product.color %>
+						</td>
+						<td><%= item.order_item.variant.size %></td>
+						<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
 
-			<% @returning_items.each do |item|%>
-	
-				<div class="col-6">
-					<li><%= item.order_item.variant.product.title %></li>
-					<li><%= item.order_item.variant.size %></li>
-					<li><%= item.order_item.variant.product.color %></li>
-					<hr>
-				</div>
-				<div class="col-6">
-					<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
-						<%= f.hidden_field :id, value: item.id %>
-						<%= f.check_box :selected, { value: item.selected, class: 'form-control', onchange: 'this.form.submit();' } %>								
-					<% end %>
-				</div>
-			<% end %>
+						<td>
+							<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
+								<%= f.hidden_field :id, value: item.id %>
+								<% if item.selected == true %>
+									<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control', onchange: 'this.form.submit();' } %>	
+								<% else %>
+									<%= f.check_box :selected, { checked: false, value: item.selected, class: 'form-control return_check', id:"return_check", onchange: 'this.form.submit();' } %>	
+								<% end %>							
+							<% end %>
+						</td>
+					</tr>
+
+				<% end %>
+			</tbody>
+		</table>
 		
-			<%= link_to "Continuer le retour",  clients_order_returning_path(@order, @returning), class: "btn btn-secondary" %>	
+		<%= link_to "Continuer le retour",  edit_clients_order_returning_path(@order, @returning), class: "btn btn-main btn-block" %>	
 		</div>
-</div>
+</div> 
+
+<style>
+	input[type=checkbox] {
+	    cursor: pointer;
+	    transform: scale(1.5);
+	}
+</style>
