@@ -27,6 +27,6 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 	end
 
 	def returning_item_params
-		params.permit(:id, :returning_id, :order_item_id, :selected)
+		params.permit(:id, :returning_id, :order_item_id, :selected, :price)
 	end
 end

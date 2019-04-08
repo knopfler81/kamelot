@@ -1,0 +1,52 @@
+<div class="container">
+<h3>RETOUR <%= @returning.user.full_name.upcase %></h3>
+<hr>
+<br>
+	<div class="row">
+
+		<div class="col-6">
+			<p>Le client a demandé un retour pour la commande suivante n° <%= @returning.order.id %> </p>
+			<p>Le colis est attendu avant le <%= l(@returning.limit_date, format: '%d %B %Y') %></p>
+		</div>
+		<div class="col-6">
+			<p>Etat du retour: <%= @returning.status %></p>
+
+		<% if @returning.status == "pending" %>
+			<%= simple_form_for(@returning, url: admin_returning_path(@returning) )do |f| %>
+			  <%= f.hidden_field :status, value: "confirmed" %>
+			  <%= submit_tag "Le retour est arrivé" , class: "btn btn-secondary", data: {confirm: "N'oubliez pas de rembourser le client" }%>
+			<% end %>
+		<% elsif @returning.status == "confirmed" %>
+			<%= simple_form_for(@returning, url: admin_returning_path(@returning) )do |f| %>
+        <%= f.hidden_field :status, value: "refunded" %>
+        <%= submit_tag "Le remboursement a été fait" , class: "btn btn-secondary"%>
+      <% end %>
+   <% end %>
+   <br>
+		</div>	
+		
+	<table class="table table-striped">
+		<tbody>
+			<% @returning.items.where(selected: true).each do |item| %>
+				<tr>
+					<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+					<td>
+						<%= item.order_item.variant.product.title %> 
+						<br>
+						<%= item.order_item.variant.product.color %>
+					</td>
+					<td>Taille: <%= item.order_item.variant.size %></td>
+					<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<div class="col-12">
+		<br>
+		<h4>La raison du retour client</h4>
+		<hr>
+		<p> <%= simple_format @returning.reason %></p>
+		
+	</div> 
+	</div>
+</div>

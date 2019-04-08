@@ -1,5 +1,10 @@
-class Clients::ReturningsController < Clients::ApplicationController
-	before_action :find_returning
+class Admin::ReturningsController < Admin::ApplicationController
+
+	before_action :find_returning, only: [:show, :edit, :update]
+	 
+	def index
+		@returnings = Returning.order('created_at DESC').paginate(page: params[:page], per_page: 10)
+	end
 
 	def edit
 	end
@@ -9,7 +14,7 @@ class Clients::ReturningsController < Clients::ApplicationController
 
 	def update
 		if @returning.update_attributes(returning_params)
-			redirect_to clients_order_returning_path(@returning), notice: "Votre retour a bien été envoyé"
+			redirect_to admin_returning_path(@returning)
 		end
 	end
 

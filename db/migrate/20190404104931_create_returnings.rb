@@ -5,6 +5,8 @@ class CreateReturnings < ActiveRecord::Migration[5.2]
       t.date :limit_date
       t.integer :status
       t.references :order
+      t.text :reason
+      t.references :user
 
       t.timestamps
     end
