@@ -99,9 +99,9 @@ RSpec.describe Order do
 			order = create(:order, status: "paid")
 
 			visit clients_order_path(order)
-			
-			click_on "Annuler ma commande"
 
+			click_on "Annuler ma commande"
+			
 			expect(page).to have_content("Votre commande a été annulée")
 		end
 	end
@@ -112,7 +112,7 @@ RSpec.describe Order do
 
 			visit clients_order_path(order)
 			
-			expect(page).not_to have_content("Votre commande a été annulée")
+			expect(page).to have_content("Votre commande a été prise en charge")
 		end
 	end
 
@@ -122,7 +122,7 @@ RSpec.describe Order do
 
 			visit clients_order_path(order)
 			
-			expect(page).not_to have_content("Votre commande a été annulée")
+			expect(page).not_to have_content("Annuler ma commande")
 		end
 	end
 end

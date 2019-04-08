@@ -1,3 +1,5 @@
+ActionMailer::Base.perform_deliveries = false
+
 Category.destroy_all
 Order.destroy_all
 Sale.destroy_all
@@ -32,282 +34,325 @@ supplier_2 =   Supplier.create(
 	)
 
 
-nelly = User.create!(
-	admin: true,
-	email: "nelly@example.com",
-	email_confirmation: "nelly@example.com", 
-	password: "password", 
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: "Nelly",
-	last_name: "Duclos",
-	# confirmed_at: 10.months.ago
-	)
+nelly = User.new.tap do |u|
+	u.admin =  true
+	u.email = "nelly@example.com"
+	u.email_confirmation = "nelly@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = "Nelly"
+	u.last_name = "Duclos"
+	u.skip_confirmation!
+	u.save!
+end
 
-user_1 = User.create!(
-	admin: false,
-	email: "guest1@example.com",
-	email_confirmation: "guest1@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 9.months.ago
-)
+user_1 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest1@example.com"
+	u.email_confirmation = "guest1@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_2 = User.create!(
-	admin: false,
-	email: "guest2@example.com",
-	email_confirmation: "guest2@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 8.months.ago
-)
+user_2 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest2@example.com"
+	u.email_confirmation = "guest2@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_3 = User.create!(
-	admin: false,
-	email: "guest3@example.com",
-	email_confirmation: "guest3@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 8.months.ago
-)
-user_4 = User.create!(
-	admin: false,
-	email: "guest4@example.com",
-	email_confirmation: "guest4@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 7.months.ago - 20.days
-)
-user_5 = User.create!(
-	admin: false,
-	email: "guest5@example.com",
-	email_confirmation: "guest5@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 7.months.ago - 12.days
-)
-user_6 = User.create!(
-	admin: false,
-	email: "guest6@example.com",
-	email_confirmation: "guest6@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 7.months.ago - 6.days
-)
+user_3 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest3@example.com"
+	u.email_confirmation = "guest3@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_7 = User.create!(
-	admin: false,
-	email: "guest7@example.com",
-	email_confirmation: "guest7@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 7.months.ago - 2.days
-)
+user_4 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest4@example.com"
+	u.email_confirmation = "guest4@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_8 = User.create!(
-	admin: false,
-	email: "guest8@example.com",
-	email_confirmation: "guest8@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 6.months.ago  - 24.days
-)
+user_5 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest5@example.com"
+	u.email_confirmation = "guest5@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_9 = User.create!(
-	admin: false,
-	email: "guest9@example.com",
-	email_confirmation: "guest9@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 6.months.ago - 3.days
-)
-user_10 = User.create!(
-	admin: false,
-	email: "guest10@example.com",
-	email_confirmation: "guest10@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 6.months.ago - 1.day
-)
-user_11 = User.create!(
-	admin: false,
-	email: "guest11@example.com",
-	email_confirmation: "guest11@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 6.months.ago
-)
-user_12 = User.create!(
-	admin: false,
-	email: "guest12@example.com",
-	email_confirmation: "guest12@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 5.months.ago - 1.week
-)
+user_6 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest6@example.com"
+	u.email_confirmation = "guest6@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_13 = User.create!(
-	admin: false,
-	email: "guest13@example.com",
-	email_confirmation: "guest13@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 5.months.ago - 1.week
-)
 
-user_14 = User.create!(
-	admin: false,
-	email: "guest14@example.com",
-	email_confirmation: "guest14@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 3.months.ago 
-)
+user_7 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest7@example.com"
+	u.email_confirmation = "guest7@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_15 = User.create!(
-	admin: false,
-	email: "guest15@example.com",
-	email_confirmation: "guest15@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 3.months.ago 
-)
-user_16 = User.create!(
-	admin: false,
-	email: "guest16@example.com",
-	email_confirmation: "guest16@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 3.months.ago 
-)
-user_17 = User.create!(
-	admin: false,
-	email: "guest17@example.com",
-	email_confirmation: "guest17@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 6.weeks.ago - 4.days
-)
-user_18 = User.create!(
-	admin: false,
-	email: "guest18@example.com",
-	email_confirmation: "guest18@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 6.weeks.ago - 1.day
-)
 
-user_19 = User.create!(
-	admin: false,
-	email: "guest19@example.com",
-	email_confirmation: "guest19@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 6.weeks.ago 
-)
+user_8 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest8@example.com"
+	u.email_confirmation = "guest8@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
 
-user_20 = User.create!(
-	admin: false,
-	email: "guest20@example.com",
-	email_confirmation: "guest20@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 3.weeks.ago 
-)
 
-user_21 = User.create!(
-	admin: false,
-	email: "guest21@example.com",
-	email_confirmation: "guest21@example.com",
-	password: "password",
-	password_confirmation: "password",
-	gender: [true, false].sample,
-	birth_date: "12/02/1980",
-	first_name: Faker::Name.first_name,
-	last_name: Faker::Name.last_name,
-	# confirmed_at: 1.week.ago 
-)
+user_9 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest9@example.com"
+	u.email_confirmation = "guest9@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_10 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest10@example.com"
+	u.email_confirmation = "guest10@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_11 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest11@example.com"
+	u.email_confirmation = "guest11@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+user_12 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest12@example.com"
+	u.email_confirmation = "guest12@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_13 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest13@example.com"
+	u.email_confirmation = "guest13@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_14 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest14@example.com"
+	u.email_confirmation = "guest14@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_15 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest15@example.com"
+	u.email_confirmation = "guest15@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+user_16 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest16@example.com"
+	u.email_confirmation = "guest16@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+user_17 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest17@example.com"
+	u.email_confirmation = "guest17@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+user_18 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest18@example.com"
+	u.email_confirmation = "guest18@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_19 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest19@example.com"
+	u.email_confirmation = "guest19@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_20 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest20@example.com"
+	u.email_confirmation = "guest20@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
+
+user_21 = User.new.tap do |u|
+	u.admin =  false
+	u.email = "guest21@example.com"
+	u.email_confirmation = "guest21@example.com"
+	u.password =  "password"
+	u.password_confirmation =  "password"
+	u.gender = [true, false].sample
+	u.birth_date = "12/02/1980"
+	u.first_name = Faker::Name.first_name
+	u.last_name = Faker::Name.last_name
+	u.skip_confirmation!
+	u.save!
+end
+
 
 puts "Users & admin created"
 
@@ -1490,6 +1535,7 @@ end
 
 #ORDER 1
 order_1  = Order.create(
+	return_asked: false,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1520,6 +1566,7 @@ order_1  = Order.create(
 
 #ORDER 2
 order_2  = Order.create(
+	return_asked: false,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1549,6 +1596,7 @@ order_2  = Order.create(
 
 #ORDER 3
 order_3  = Order.create(
+	return_asked: false,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1576,12 +1624,15 @@ order_3  = Order.create(
 	)
 
 #ORDER 4
-order_4  = Order.create(gcos_accepted: true,
+order_4  = Order.create(
+	return_asked: false,
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
  	user_id: user_1.id,
  	token: SecureRandom.hex(8),
  	status: 4,
+ 	return_limit_date: Date.today + 10,
  	shipping_fees: 5, 
  	total_weight: 0.300,
  	sub_total: product_2.price,
@@ -1594,7 +1645,9 @@ OrderItem.create(
 	variant_id: product_2.variants[1].id)
 
 #ORDER 5
-order_5  = Order.create(gcos_accepted: true,
+order_5  = Order.create(
+	return_asked: false,
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
  	user_id: user_5.id,
@@ -1613,7 +1666,9 @@ OrderItem.create(
 	variant_id: product_2.variants[0].id)
 
 #ORDER 6
-order_6  = Order.create(gcos_accepted: true,
+order_6  = Order.create(
+	return_asked: false,
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_6.id,
@@ -1643,7 +1698,9 @@ OrderItem.create(
 	variant_id: product_3.variants[0].id)
 
 #ORDER 7
-order_7  = Order.create(gcos_accepted: true,
+order_7  = Order.create(
+	return_asked: false,
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_7.id,
@@ -1662,7 +1719,9 @@ OrderItem.create(
 	variant_id: product_3.variants[1].id)
 
 #ORER 8
-order_8  = Order.create(gcos_accepted: true,
+order_8  = Order.create(
+	return_asked: false,
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_8.id,
@@ -1687,7 +1746,9 @@ OrderItem.create(
 	variant_id: product_3.variants[0].id)
 
 #ORDER 9
-order_9  = Order.create(gcos_accepted: true,
+order_9  = Order.create(
+	return_asked: false,
+	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
  	user_id: user_9.id,
@@ -1707,6 +1768,7 @@ OrderItem.create(
 
 #ORDER 10
 order_10 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1728,6 +1790,7 @@ OrderItem.create(
 
 #ORDER 11 
 order_11 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1756,6 +1819,7 @@ OrderItem.create(
 
 #ORDER 12
 order_12 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1776,6 +1840,7 @@ OrderItem.create(
 
 #ORDER 13
 order_13 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1797,6 +1862,7 @@ OrderItem.create(
 
 #ORDER 14
 order_14 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1818,12 +1884,14 @@ OrderItem.create(
 
 #ORDER 15
 order_15 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
  	user_id: user_15.id,
  	token: SecureRandom.hex(8),
  	status: 4,
+ 	return_limit_date: Date.today + 10,
  	shipping_fees: 5,
  	total_weight: 0.900,
  	sub_total: product_6.price * 3, 
@@ -1838,6 +1906,7 @@ OrderItem.create(
 
 #ORDER 16
 order_16 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1858,6 +1927,7 @@ OrderItem.create(
 
 #ORDER 17
 order_17 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1879,6 +1949,7 @@ OrderItem.create(
 
 #ORDER 18
 order_18 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1900,6 +1971,7 @@ OrderItem.create(
 
 #ORDER 21
 order_21 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -1920,6 +1992,7 @@ OrderItem.create(
 
 #ORDER 22
 order_22 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -1940,6 +2013,7 @@ OrderItem.create(
 
 #ORDER 24
 order_24 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -1961,12 +2035,14 @@ OrderItem.create(
 
 #ORDER 25
 order_25 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
  	user_id: user_21.id,
  	token: SecureRandom.hex(8),
  	status: 4,
+ 	return_limit_date: Date.today + 10,
  	shipping_fees: 5,
  	total_weight: 0.900,
  	sub_total: product_11.price * 3,
@@ -1982,6 +2058,7 @@ OrderItem.create(
 
 #ORDER 26
 order_26 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -2004,6 +2081,7 @@ OrderItem.create(
 
 #ORDER 27
 order_27 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2025,6 +2103,7 @@ OrderItem.create(
 
 #ORDER 28
 order_28 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2046,6 +2125,7 @@ OrderItem.create(
 
 #ORDER 29
 order_29 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2067,6 +2147,7 @@ OrderItem.create(
 
 #ORDER 30
 order_30 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 15.days.ago,
@@ -2088,6 +2169,7 @@ OrderItem.create(
 
 #ORDER 31
 order_31 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 15.days.ago,
@@ -2109,6 +2191,7 @@ OrderItem.create(
 
 #ORDER 32
 order_32 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 13.days.ago,
@@ -2130,6 +2213,7 @@ OrderItem.create(
 
 #ORDER 33
 order_33 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2151,6 +2235,7 @@ OrderItem.create(
 
 #ORDER 34
 order_34 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2172,6 +2257,7 @@ OrderItem.create(
 
 #ORDER 35
 order_35 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2193,6 +2279,7 @@ OrderItem.create(
 
 #ORDER 36
 order_36 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 10.days.ago,
@@ -2214,6 +2301,7 @@ OrderItem.create(
 
 #ORDER 37
 order_37 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2235,6 +2323,7 @@ OrderItem.create(
 
 #ORDER 38
 order_38 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2256,6 +2345,7 @@ OrderItem.create(
 
 #ORDER 40
 order_40 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.days.ago,
@@ -2277,6 +2367,7 @@ OrderItem.create(
 
 #ORDER 41
 order_41 = Order.create(
+	return_asked: false,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.days.ago,

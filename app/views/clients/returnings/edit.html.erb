@@ -1,0 +1,38 @@
+<div class="container">
+<h3>Terminez votre retour</h3>
+<hr>
+<br>
+	<div class="row">
+		<table class="table table-striped">
+			<tbody>
+				<% @returning.items.where(selected: true).each do |item| %>
+					<tr>
+						<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+						<td>
+							<%= item.order_item.variant.product.title %> 
+							<br>
+							<%= item.order_item.variant.product.color %>
+						</td>
+						<td><%= item.order_item.variant.size %></td>
+						<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
+
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<div class="col-12">
+			<% if @returning.reason.nil? %>
+				<p>Expliquez nous la raison de votre retour:</p>
+				<%= simple_form_for(@returning, url: clients_order_returning_path(@returning),remote: true,  method: :patch) do |f| %>
+						<%= f.input :reason, label: false, input_html: {rows: 6}, required: true %>
+						<%= f.hidden_field :status, value: :pending %>
+							<%= f.submit "Valider la demande de retour", class: "bnt btn-main btn-block" %>
+						<% end %>
+			<% else %>
+				<p>La raison de votre retour :</p>
+				<p><%= @returning.reason %></p>
+			<% end %>
+		</div>
+		  
+	</div>
+</div>

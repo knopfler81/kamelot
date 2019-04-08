@@ -1,0 +1,46 @@
+<div class="container">
+		<h3>Séléctionner les articles que vous souhaitez retouner !!!!!</h3>
+		<hr>
+		<br>
+	<div class="row">
+
+		<table class="table table-striped">
+			<tbody>
+				<% @returning_items.each do |item|%>
+					<tr>
+						
+						<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+						<td>
+							<%= item.order_item.variant.product.title %> 
+							<br>
+							<%= item.order_item.variant.product.color %>
+						</td>
+						<td><%= item.order_item.variant.size %></td>
+						<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
+
+						<td>
+							<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
+								<%= f.hidden_field :id, value: item.id %>
+								<% if item.selected == true %>
+									<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control', onchange: 'this.form.submit();' } %>	
+								<% else %>
+									<%= f.check_box :selected, { checked: false, value: item.selected, class: 'form-control return_check', id:"return_check", onchange: 'this.form.submit();' } %>	
+								<% end %>							
+							<% end %>
+						</td>
+					</tr>
+
+				<% end %>
+			</tbody>
+		</table>
+		
+		<%= link_to "Continuer le retour",  edit_clients_order_returning_path(@order, @returning), class: "btn btn-main btn-block" %>	
+		</div>
+</div> 
+
+<style>
+	input[type=checkbox] {
+	    cursor: pointer;
+	    transform: scale(1.5);
+	}
+</style>

@@ -13,7 +13,7 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 
-module SuperShop
+module Kamelot
   class Application < Rails::Application
 
 

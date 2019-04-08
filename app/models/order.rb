@@ -1,14 +1,16 @@
 class Order < ApplicationRecord
+
   #require 'csv'
 
   belongs_to :user,  optional: true
   has_many   :items, class_name: "OrderItem", dependent: :destroy
+  has_one    :returning
 
   after_initialize :shipping_fees_cents
 
   monetize :total_cents
 
-  enum status: [:pending, :paid, :confirmed, :shipped, :cancelled, :refunded]
+  enum status: { pending: 0, paid: 1, confirmed: 2 , shipped: 3, cancelled: 4, refunded: 5 }
 
   scope :pending,   -> { where(status: :pending) }
   scope :paid,      -> { where(status: :paid) }
@@ -19,6 +21,22 @@ class Order < ApplicationRecord
 
   scope :filter_by_status, -> (status) do
     send(status)
+  end
+
+ after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: ("paid" || "confirmed"), to: 'shipped') }
+ after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: "paid", to: 'cancelled') }
+ after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
+
+  def cancelled_order
+    OrderMailer.cancel_order(self).deliver_now
+    OrderMailer.confirm_cancel_order(self).deliver_now
+  end
+
+  def ask_for_return
+    if self.return_asked == true 
+      returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days, status: 0)
+      returning.save
+    end
   end
 
   def remove_from_stock
@@ -76,6 +94,10 @@ class Order < ApplicationRecord
       delivery_date_2 += 1
     end
     delivery_date_2
+  end
+  
+  def set_return_limit_date  
+    self.update_attributes(return_limit_date: self.updated_at + 10.days  )
   end
 
   def send_message(text_message)

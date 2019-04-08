@@ -1,6 +1,7 @@
 class Clients::OrdersController < Clients::ApplicationController
 
 	before_action :find_order, only: [:show, :edit, :update]
+	before_action :set_cache_buster, only: [:edit, :show]
 
 	def index
 		if params[:status]
@@ -11,6 +12,7 @@ class Clients::OrdersController < Clients::ApplicationController
 	end
 
 	def show
+		@returning = Returning.find_by(order_id: @order.id)
 		respond_to do |format|
 		  format.html { }
 		  format.pdf do 
@@ -44,15 +46,24 @@ class Clients::OrdersController < Clients::ApplicationController
 
 
 	def update
-		if @order.update_attributes(status: "cancelled")
-			redirect_to clients_order_path(@order), notice: "Votre commande a bien été annulée"
-			OrderMailer.cancel_order(@order).deliver_now
-			OrderMailer.confirm_cancel_order(@order).deliver_now
-		end
+	 	if @order.status == "cancelled"
+	 		redirect_to clients_order_path(@order), notice: "Votre commande a été annulée"
+	 	end
+	 	if @order.update_attributes(order_params)
+	 		redirect_to clients_order_path(@order)
+	 	end
 	end
 
 
 	def edit
+	end
+
+	protected
+
+	def set_cache_buster
+	  response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+	  response.headers["Pragma"] = "no-cache"
+	  response.headers["Expires"] = "#{1.year.ago}"
 	end
 
 	private
@@ -62,6 +73,6 @@ class Clients::OrdersController < Clients::ApplicationController
 	end
 
 	def order_params
-		params.require(:order).permit(:status,  :user_id, :token , :sub_total, :gcos_accepted)
+		params.require(:order).permit(:status,  :user_id, :token , :return_asked, :return_limit_date, :number, :sub_total, :gcos_accepted)
 	end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_093947) do
+ActiveRecord::Schema.define(version: 2019_04_06_114759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,9 @@ ActiveRecord::Schema.define(version: 2019_04_02_093947) do
     t.decimal "shipping_fees"
     t.boolean "gcos_accepted", default: false
     t.float "total_weight"
+    t.date "return_limit_date"
+    t.string "number"
+    t.boolean "return_asked", default: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -131,6 +134,28 @@ ActiveRecord::Schema.define(version: 2019_04_02_093947) do
     t.string "qr_code"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
+  end
+
+  create_table "returning_items", force: :cascade do |t|
+    t.bigint "returning_id"
+    t.string "state"
+    t.boolean "selected", default: false
+    t.bigint "order_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_item_id"], name: "index_returning_items_on_order_item_id"
+    t.index ["returning_id"], name: "index_returning_items_on_returning_id"
+  end
+
+  create_table "returnings", force: :cascade do |t|
+    t.string "number"
+    t.date "limit_date"
+    t.integer "status"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "reason"
+    t.index ["order_id"], name: "index_returnings_on_order_id"
   end
 
   create_table "sale_items", force: :cascade do |t|
@@ -257,6 +282,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_093947) do
   add_foreign_key "favorites", "users"
   add_foreign_key "order_items", "orders", name: "fk_order_items_to_order"
   add_foreign_key "order_items", "variants"
+  add_foreign_key "returning_items", "returnings"
   add_foreign_key "sale_items", "sales", name: "fk_sale_items_to_sale"
   add_foreign_key "sale_items", "variants"
   add_foreign_key "sales", "users"

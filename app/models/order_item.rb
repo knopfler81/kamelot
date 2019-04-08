@@ -1,6 +1,7 @@
 class OrderItem < ApplicationRecord
 	belongs_to :order
 	belongs_to :variant
+	has_one    :returning_item
 
 
 	before_save :set_weight
