@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :sales #only admin
   has_many :favorites, dependent: :destroy
+  has_many :returnings
 
   has_one :billing_address, dependent: :destroy
   has_one :shipping_address, dependent: :destroy

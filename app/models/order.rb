@@ -23,9 +23,16 @@ class Order < ApplicationRecord
     send(status)
   end
 
- after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: ("paid" || "confirmed"), to: 'shipped') }
- after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: "paid", to: 'cancelled') }
- after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
+  before_save :set_default_limit_date, on: :create
+
+  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: ("paid" || "confirmed"), to: 'shipped') }
+  after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: "paid", to: 'cancelled') }
+  after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
+
+
+  def set_default_limit_date
+    self.return_limit_date = Date.today + 10.days
+  end
 
   def cancelled_order
     OrderMailer.cancel_order(self).deliver_now
@@ -34,7 +41,7 @@ class Order < ApplicationRecord
 
   def ask_for_return
     if self.return_asked == true 
-      returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days, status: 0)
+      returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days, status: 0, user_id: self.user_id)
       returning.save
     end
   end

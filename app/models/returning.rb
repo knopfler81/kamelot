@@ -1,5 +1,6 @@
 class Returning < ApplicationRecord
 	belongs_to :order
+	belongs_to :user
 	has_many   :items, class_name: "ReturningItem", dependent: :destroy
 
 
@@ -15,7 +16,13 @@ class Returning < ApplicationRecord
 			ReturningItem.create!(
 				returning_id: self.id,
 				order_item_id: item.id,
+				price: item.price
 				)
 		end
+	end
+
+
+	def total_refund
+		self.items.where(selected: true).map(&:price).sum
 	end
 end

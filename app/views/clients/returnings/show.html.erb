@@ -10,6 +10,7 @@
 		</div>
 		<div class="col-6">
 			<p>Etat de votre retour: <%= @returning.status %></p>
+			<p>Montant remboursé: <%= number_to_currency_euro  @returning.total_refund %></p>
 		</div>	
 		
 

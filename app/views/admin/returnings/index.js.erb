@@ -1,0 +1,6 @@
+$('#returnings').append('<%= j render "returnings" %>');
+ <% if @returnings.next_page %>
+   $('.pagination').replaceWith('<%= j will_paginate(@returnings) %>');
+ <% else %>
+   $('.pagination').remove();
+ <% end %>

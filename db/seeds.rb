@@ -44,7 +44,6 @@ nelly = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = "Nelly"
 	u.last_name = "Duclos"
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -58,7 +57,6 @@ user_1 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -72,7 +70,6 @@ user_2 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -86,7 +83,6 @@ user_3 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -100,7 +96,6 @@ user_4 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -114,7 +109,6 @@ user_5 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -128,7 +122,6 @@ user_6 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -143,7 +136,6 @@ user_7 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -158,7 +150,6 @@ user_8 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -173,7 +164,6 @@ user_9 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -188,7 +178,6 @@ user_10 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -203,7 +192,6 @@ user_11 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -217,7 +205,6 @@ user_12 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -232,7 +219,6 @@ user_13 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -247,7 +233,6 @@ user_14 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -262,7 +247,6 @@ user_15 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -276,7 +260,6 @@ user_16 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -290,7 +273,6 @@ user_17 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -304,7 +286,6 @@ user_18 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -319,7 +300,6 @@ user_19 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -334,7 +314,6 @@ user_20 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
@@ -349,7 +328,6 @@ user_21 = User.new.tap do |u|
 	u.birth_date = "12/02/1980"
 	u.first_name = Faker::Name.first_name
 	u.last_name = Faker::Name.last_name
-	u.skip_confirmation!
 	u.save!
 end
 
