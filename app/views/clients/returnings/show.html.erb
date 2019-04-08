@@ -1,41 +1,42 @@
 <div class="container">
-<h3>Votre retour</h3>
+<h3>RETOUR - COMMANDE #<%= @returning.order.id %></h3>
 <hr>
 <br>
+<div class="block_return_clients">
+	<div class="row">
+		<div class="col-6">
+			<p>Date limite retour :  <%= l(@returning.limit_date, format: '%d %B %Y') %></p>
+			<p>Total à rembourser:   <%= number_to_currency_euro @returning.total_refund %></p>
+			<p>Nombre d'articles :   <%= @returning.total_items_count %></p>
+			<p>Etat du retour :      <%= @returning.status %> </p>
+		</div>	
+		<div class="col-6">
+			<p>Date commande : <%= l(@returning.order.created_at, format: '%d %B %Y') %></p>
+			<p>N° commande : <%= @returning.order.id %></p>
+		</div>
+	</div>
+</div>
+
 	<div class="row">
 
-		<div class="col-6">
-			<p>Vous avez demandé un retour pour le/les articles suivants: </p>
-			<p>Veuillez nous renvoyer le colis avant le <%= l(@returning.limit_date, format: '%d %B %Y') %></p>
-		</div>
-		<div class="col-6">
-			<p>Etat de votre retour: <%= @returning.status %></p>
-			<p>Montant remboursé: <%= number_to_currency_euro  @returning.total_refund %></p>
-		</div>	
-		
-
 	
-	<table class="table table-striped">
-		<tbody>
-			<% @returning.items.where(selected: true).each do |item| %>
-				<tr>
-					<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
-					<td>
-						<%= item.order_item.variant.product.title %> 
-						<br>
-						<%= item.order_item.variant.product.color %>
-					</td>
-					<td>Taille: <%= item.order_item.variant.size %></td>
-					<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
 	<div class="col-12">
-		<h4>La raison de votre retour</h4>
-		<hr><br>
-		<p> <%= simple_format @returning.reason %></p>
-		
-	</div> 
+		<table class="table table-striped">
+			<tbody>
+				<% @returning.items.where(selected: true).each do |item| %>
+					<tr>
+						<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+						<td>
+							<%= item.order_item.variant.product.title %> 
+							<br>
+							<%= item.order_item.variant.product.color %>
+						</td>
+						<td>Taille: <%= item.order_item.variant.size %></td>
+						<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 	</div>
 </div>

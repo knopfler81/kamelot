@@ -42,7 +42,8 @@ Rails.application.routes.draw do
 			resources :variants, only: :index
 
 			resources :stocks
-
+			
+			resources :returnings
 
 			get "list", to: "products#list"
 
@@ -121,6 +122,8 @@ Rails.application.routes.draw do
 		  	resources :returning_items
 		  end
 		end
+
+		resources :returnings
 
 		#### NE PAS CHANGER L'ORDRE DE CES ROUTES ####
 	 	get 'cart', to: "order_items#index"

@@ -1,20 +1,21 @@
 <div class="container">
-<h3>Terminez votre retour</h3>
+<h3>RETOUR - COMMANDE #<%= @returning.order.id %></h3>
 <hr>
 <br>
 	<div class="row">
 		<table class="table table-striped">
 			<tbody>
-				<% @returning.items.where(selected: true).each do |item| %>
+				<% @returning.items.where('quantity >=?',1).each do |item| %>
 					<tr>
 						<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+						<td><%= item.quantity %></td>
 						<td>
 							<%= item.order_item.variant.product.title %> 
 							<br>
 							<%= item.order_item.variant.product.color %>
 						</td>
 						<td><%= item.order_item.variant.size %></td>
-						<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
+						<td><%= number_to_currency_euro item.order_item.variant.product.price * item.quantity %></td>
 
 					</tr>
 				<% end %>
@@ -26,11 +27,14 @@
 				<%= simple_form_for(@returning, url: clients_order_returning_path(@returning),remote: true,  method: :patch) do |f| %>
 						<%= f.input :reason, label: false, input_html: {rows: 6}, required: true %>
 						<%= f.hidden_field :status, value: :pending %>
-							<%= f.submit "Valider la demande de retour", class: "bnt btn-main btn-block" %>
+							<%= f.submit "Valider la demande de retour", class: "bnt btn-main btn-block", id: "change_status" %>
 						<% end %>
 			<% else %>
-				<p>La raison de votre retour :</p>
-				<p><%= @returning.reason %></p>
+			<br>
+				<div class="block_return_clients">
+					<p>Vous avez déjà soumis votre retour, nous ne pouvons plus modifier. </p>
+					<p>La raison de votre retour : <%= simple_format @returning.reason %></p>
+				</div>
 			<% end %>
 		</div>
 		  

@@ -14,7 +14,6 @@
           </article>
 
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-image = "https://media.licdn.com/dms/image/C4E03AQHRkyTkr-HmPQ/profile-displayphoto-shrink_200_200/0?e=1554336000&v=beta&t=o8ADHUWeg1NnuOfEbb8s25IAOXK4sgTSEWon-_CG8y0"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-name="Commande N° <%= @order.id %>"
             data-email="<%= current_user.email %>"

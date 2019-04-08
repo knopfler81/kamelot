@@ -1,0 +1,15 @@
+Bonjour <%= @returning.user.full_name %>
+Nous avons bien receptionné votre retour N° FR00<%= @returning.id %>.
+
+
+ 	<% @returning.items.each do |item| %>
+
+   		<%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %>
+
+ 	<% end %>
+
+
+Nous allons procéder au remboursement dans les plus brefs délais.
+
+
+L'équipe Damien

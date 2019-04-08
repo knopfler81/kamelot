@@ -55,7 +55,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" >
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user %>
               <%= current_user.first_name %>
             <% else %>
@@ -66,14 +66,14 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <%= link_to "Mes adresses", clients_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Mes commandes", clients_orders_path, class: "dropdown-item"  %>
+              <%= link_to "Mes retours", clients_returnings_path, class: "dropdown-item"  %>
               <%= link_to "Mes favoris", clients_favorites_path, class: "dropdown-item"  %>
               <%= link_to "Déconnection", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "dropdown-item" %>
            </div>
           <% else %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <%= link_to "Connection", new_user_session_path,      class: "dropdown-item"  %>
-              <%= link_to "Inscription",   new_user_registration_path, class: "dropdown-item"  %>
-
+              <%= link_to "Inscription",   new_user_registration_path, class: "dropdown-item" %>
             </div>           
           <% end %>
         </li>
