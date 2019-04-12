@@ -42,7 +42,7 @@
 				<% end %>
 				<br><br>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-				  <%= f.hidden_field :status, value: "cancelled" %>
+				  <%= f.hidden_field :status, value: "cancelled_by_admin" %>
 				  <%= submit_tag "Arg... l'article est indisponible", data: {confirm: "Un email va pévenir le client que l'article est indisponible, voulez vous vraiment le marquer comme tel ?"}, class: "btn btn-danger"%>
 				<% end %>
 			<% elsif @order.status == "confirmed" %>

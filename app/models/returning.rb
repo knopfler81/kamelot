@@ -3,15 +3,18 @@ class Returning < ApplicationRecord
 	belongs_to :user
 	has_many   :items, class_name: "ReturningItem", dependent: :destroy
 
+	enum status: { creating: 0, pending: 1, confirmed: 2, refunded: 3 }
+
 	after_create :set_returning_items
 
 	after_save :change_status
 	after_save :re_add_to_stock
-
-	enum status: { creating: 0, pending: 1, confirmed: 2, refunded: 3 }
+  after_save :send_email_with_status
+	after_save :set_order_status
+	
 
 	def re_add_to_stock 
-		if self.status == "refunded"
+		if self.refunded?
 			self.items.where(selected: true).each do |item|
 				stock = Stock.where(variant_id: item.variant_id).last
 				stock.quantity += 1
@@ -21,8 +24,16 @@ class Returning < ApplicationRecord
 	end
 
 	def change_status
-		if !self.reason.nil? && self.status == "creating"
-			self.status == "pending"
+		if !self.reason.nil? && self.creating?
+			self.pending!
+		end
+	end
+
+	def send_email_with_status
+		if self.pending?
+			ReturningMailer.send_returning(self).deliver_now
+		elsif self.confirmed?
+			ReturningMailer.received_returning(self).deliver_now
 		end
 	end
 
@@ -39,7 +50,7 @@ class Returning < ApplicationRecord
 		end
 	end
 
-	def set_order_status 
+	def set_order_status
 	 	self.order.refunded! if self.refunded?
 	end	
 	

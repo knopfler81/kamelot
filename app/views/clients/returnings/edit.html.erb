@@ -5,7 +5,7 @@
 	<div class="row">
 		<table class="table table-striped">
 			<tbody>
-				<% @returning.items.where('quantity >=?',1).each do |item| %>
+				<% @returning.items.where('quantity >=?',1).where(selected: true).each do |item| %>
 					<tr>
 						<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
 						<td><%= item.quantity %></td>

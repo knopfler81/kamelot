@@ -1,0 +1,19 @@
+Bonjour <%= @returning.user.first_name %>
+
+Vous avez demandé un retour N° FR00<%= @returning.id %> pour le/les articles suivants:
+
+<% @returning.items.each do |item| %>
+
+<%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %>
+<% end %>
+
+
+Merci de nous renvoyer au plus vite les articles corrspondant à votre retour à l'adresse: 
+<%= Company.instance.name %>
+<%= Company.instance.address_1 %>
+<%= Company.instance.address_2 %>
+<%= Company.instance.zipcode %> <%= Company.instance.city %>
+
+Nous espérons vous revoir bientôt
+
+L'équipe Damien

@@ -14,9 +14,6 @@ class Admin::ReturningsController < Admin::ApplicationController
 
 	def update
 		if @returning.update_attributes(returning_params)
-			if @returning.status == "confirmed"
-				ReturningMailer.received_returning(@returning).deliver_now
-			end
 			redirect_to admin_returning_path(@returning)
 		end
 	end

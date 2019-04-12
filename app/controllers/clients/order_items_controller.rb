@@ -19,8 +19,8 @@ class Clients::OrderItemsController < Clients::ApplicationController
 
       redirect_to clients_cart_path, notice: "Correctement ajouté au panier"
     else
-      redirect_to clients_product_path(Product.find(variant.product.id))
-      flash[:alert] = "Il y a plus que #{@variant.quantity} articles en stock"
+      redirect_to clients_product_path(Product.find(@variant.product.id))
+      flash[:alert] = "Il y a plus que #{@variant.stocks.map(&:quantity).sum} articles en stock"
     end
   end
 
@@ -43,8 +43,8 @@ class Clients::OrderItemsController < Clients::ApplicationController
         format.js
         format.html { redirect_to clients_cart_path, notice: "Quantité modifiée" }
       else
-        format.js { flash.now[:notice] = "Il y a plus que #{@variant.quantity} articles en stock" }
-        format.html { redirect_to clients_product_path(Product.find(variant.product.id)), alert: "oh oh"}
+        format.js { flash.now[:notice] = "Il y a plus que #{@variant.stocks.map(&:quantity).sum} articles en stock" }
+        format.html { redirect_to clients_product_path(Product.find(@variant.product.id)), alert: "oh oh"}
       end
     end
   end
