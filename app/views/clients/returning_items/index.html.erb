@@ -3,6 +3,9 @@
 		<hr>
 		<br>
 	<div class="row">
+		<% if @returning.items.map {|item| item.quantity > 1} %>	
+  		<p id="message-qty">Merci d'indiquer le nombre d'articles que vous souhaitez nous renvoyer</p>
+		<% end %>
 
 		<table class="table">
 			<tbody>
@@ -11,9 +14,7 @@
 							<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
 							<td><%= item.order_item.quantity %></td>
 							<td>
-								<%= item.order_item.variant.product.title %> 
-								<br>
-								<%= item.order_item.variant.product.color %>
+								<%= item.order_item.variant.product.title %> / <%= item.order_item.variant.product.color %>
 							</td>
 							<td><%= item.order_item.variant.size %></td>
 							<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
@@ -46,8 +47,8 @@
 										<td>
 											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
 												<%= f.hidden_field :id, value: item.id %>
-												<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control return_check', onchange: 'this.form.submit();'} %>
-												<%= f.select :quantity, options_for_select((0..item.order_item.quantity), selected: item.quantity, value: item.quantity), {}, { class: 'form-control select-qty',  onchange: 'this.form.submit();' } %>
+												<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control return_check ', onchange: 'this.form.submit();'} %>
+											<td><%= f.select :quantity, options_for_select((1..item.order_item.quantity), selected: item.quantity, value: item.quantity), {}, { class: 'form-control',  onchange: 'this.form.submit();' } %></td> 
 											<% end %>
 										</td>
 									<% end %>
@@ -66,9 +67,3 @@
 		</div>
 </div> 
 
-<style>
-	input[type=checkbox] {
-	    cursor: pointer;
-	    transform: scale(1.5);
-	}
-</style>

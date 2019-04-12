@@ -10,7 +10,7 @@ class Order < ApplicationRecord
 
   monetize :total_cents
 
-  enum status: { pending: 0, paid: 1, confirmed: 2 , shipped: 3, cancelled: 4, refunded: 5 }
+  enum status: { pending: 0, paid: 1, confirmed: 2 , shipped: 3, cancelled_by_admin: 4, cancelled_by_client: 5, refunded: 6 }
 
   scope :pending,   -> { where(status: :pending) }
   scope :paid,      -> { where(status: :paid) }
@@ -25,8 +25,8 @@ class Order < ApplicationRecord
 
   before_save :set_default_limit_date, on: :create
 
-  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: ("paid" || "confirmed"), to: 'shipped') }
-  after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: "paid", to: 'cancelled') }
+  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (1 || 2), to: 3) }
+  after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: 1, to: 4) }
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
 
 
@@ -80,7 +80,7 @@ class Order < ApplicationRecord
   end
 
   def set_total_weight
-    self.total_weight =self.items.sum('quantity * weight') 
+    self.total_weight = self.items.sum('quantity * weight') 
     self.save
   end
 

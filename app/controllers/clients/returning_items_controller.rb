@@ -20,10 +20,10 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 		respond_to do |format|
 			if	@returning_item.update_attributes(returning_item_params)
 			 format.js
-			 format.html {redirect_to clients_order_returning_returning_items_path(@order, @returning), notice: "Ca marche"}
+			 format.html {redirect_to clients_order_returning_returning_items_path(@order, @returning)}
 			else
 				format.js
-				format.html {redirect_to clients_order_returning_returning_items_path(@order, @returning), notice: "C'est la merde"}
+				format.html {redirect_to clients_order_returning_returning_items_path(@order, @returning)}
 			end
 		 end
 	end

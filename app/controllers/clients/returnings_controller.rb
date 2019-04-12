@@ -15,7 +15,6 @@ class Clients::ReturningsController < Clients::ApplicationController
 		if @returning.update_attributes(returning_params)
 			if @returning.status == "pending"
 				redirect_to clients_order_returning_path(@returning), notice: "Votre retour a été demandé"
-				ReturningMailer.send_returning(@returning).deliver_now
 			else
 				redirect_to clients_order_returning_path(@returning), notice: "YO!"
 			end
