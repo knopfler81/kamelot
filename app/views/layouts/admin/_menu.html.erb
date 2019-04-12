@@ -140,6 +140,16 @@
 		    </ul>
 			</li>
 		<% end %>
+			<li>
+			   <%= link_to  admin_returnings_path, class: "list-item" do %>
+			   <i class="fa fa-undo"></i> 
+			    <span class="menu-title">Retours articles</span>
+			    <% if Returning.where(status: "pending").count >= 1 %>  
+			    	<span class="badge badge-pill badge-danger"><%=Returning.where(status: "pending").count  %></span>
+			    <% end %>
+			   <% end %>
+			</li>
+
 		<li>
 		   <%= link_to  clients_customization_path, class: "list-item" do %>
 		   <i class="fa fa-palette"></i> 

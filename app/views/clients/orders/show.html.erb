@@ -56,14 +56,16 @@
 						<% if Date.today <= @order.return_limit_date %>
 								Vous pouvez retourner vos articles jusqu'au <%= l(@order.return_limit_date, format: '%d %B %Y') %> inclus
 						<% end %>
+							<% if @returning.nil? %>
 							<%= simple_form_for(@order, url: clients_order_path(@order))do |f| %>
 								<%= f.hidden_field :return_asked, value: true %>
 								<%= f.submit "Demander un retour", class: " btn btn-secondary btn-sm" , id: "ask-return" %>
 							<% end %>
-							<% if !@returning.nil? %>
-								<%= link_to "Voir le retour", clients_order_returning_returning_items_path(@order, @returning), class: "btn btn-link" %>	
-							<% end %>
+							<% else %>
+							<br>
+								<%= link_to "Voir le retour", clients_order_returning_returning_items_path(@order, @returning), class: "btn btn-secondary btn-sm" %>	
 					<% end %>
+							<% end %>
 				</div>
 			</div>
 		</div>

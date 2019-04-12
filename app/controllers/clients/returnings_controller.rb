@@ -1,5 +1,9 @@
 class Clients::ReturningsController < Clients::ApplicationController
-	before_action :find_returning
+	before_action :find_returning, except: :index
+
+	def index
+		@client_returnings = Returning.where(user_id: current_user.id).paginate(page: params[:page], per_page: 3)
+	end
 
 	def edit
 	end
@@ -9,7 +13,12 @@ class Clients::ReturningsController < Clients::ApplicationController
 
 	def update
 		if @returning.update_attributes(returning_params)
-			redirect_to clients_order_returning_path(@returning), notice: "Votre retour a bien été envoyé"
+			if @returning.status == "pending"
+				redirect_to clients_order_returning_path(@returning), notice: "Votre retour a été demandé"
+				ReturningMailer.send_returning(@returning).deliver_now
+			else
+				redirect_to clients_order_returning_path(@returning), notice: "YO!"
+			end
 		end
 	end
 

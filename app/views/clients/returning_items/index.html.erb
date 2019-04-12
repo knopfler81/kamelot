@@ -1,40 +1,68 @@
 <div class="container">
-		<h3>Séléctionner les articles que vous souhaitez retouner !!!!!</h3>
+		<h3>Séléctionner les articles que vous souhaitez retourner</h3>
 		<hr>
 		<br>
 	<div class="row">
 
-		<table class="table table-striped">
+		<table class="table">
 			<tbody>
 				<% @returning_items.each do |item|%>
-					<tr>
-						
-						<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
-						<td>
-							<%= item.order_item.variant.product.title %> 
-							<br>
-							<%= item.order_item.variant.product.color %>
-						</td>
-						<td><%= item.order_item.variant.size %></td>
-						<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
-
-						<td>
-							<%= form_with model: @item,  html: { class: "update-form", method: :patch, remote: true, }  do |f| %>
-								<%= f.hidden_field :id, value: item.id %>
-								<% if item.selected == true %>
-									<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control', onchange: 'this.form.submit();' } %>	
-								<% else %>
-									<%= f.check_box :selected, { checked: false, value: item.selected, class: 'form-control return_check', id:"return_check", onchange: 'this.form.submit();' } %>	
-								<% end %>							
-							<% end %>
-						</td>
-					</tr>
-
+						<tr class="mulitple-item">
+							<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
+							<td><%= item.order_item.quantity %></td>
+							<td>
+								<%= item.order_item.variant.product.title %> 
+								<br>
+								<%= item.order_item.variant.product.color %>
+							</td>
+							<td><%= item.order_item.variant.size %></td>
+							<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
+								<% if @returning.status == "creating" %>
+									<% if !item.selected && item.order_item.quantity ==  1 %>
+										<td>
+											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
+												<%= f.hidden_field :id, value: item.id %>
+												<%= f.check_box :selected, { checked: false, value: item.selected, class: 'form-control return_check', onchange: 'this.form.submit();'} %>
+											<% end %>
+										</td>
+										<td></td>
+									<% elsif item.selected && item.order_item.quantity ==  1 %>
+										<td>
+											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
+												<%= f.hidden_field :id, value: item.id %>
+												<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control return_check', onchange: 'this.form.submit();'} %>
+											<% end %>
+										</td>
+										<td></td>
+									<% elsif !item.selected && item.order_item.quantity  > 1 %>
+										<td>
+											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
+												<%= f.hidden_field :id, value: item.id %>
+												<%= f.check_box :selected, { checked: false, value: item.selected, class: 'form-control return_check', onchange: 'this.form.submit();'} %>
+											<% end %>
+										</td>
+										<td></td>
+									<% elsif item.selected && item.order_item.quantity  > 1 %>
+										<td>
+											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
+												<%= f.hidden_field :id, value: item.id %>
+												<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control return_check', onchange: 'this.form.submit();'} %>
+												<%= f.select :quantity, options_for_select((0..item.order_item.quantity), selected: item.quantity, value: item.quantity), {}, { class: 'form-control select-qty',  onchange: 'this.form.submit();' } %>
+											<% end %>
+										</td>
+									<% end %>
+              <% end %>
+						</tr>
 				<% end %>
 			</tbody>
 		</table>
+
+		<% if @returning.status == "creating" %>
+			<%= link_to "Continuer le retour", edit_clients_order_returning_path(@order, @returning), class: "btn btn-main btn-block" %>
+			<% else %>
+			<%= link_to "Voir le retour", edit_clients_order_returning_path(@order, @returning), class: "btn btn-main btn-block" %>
+		<% end %>
 		
-		<%= link_to "Continuer le retour",  edit_clients_order_returning_path(@order, @returning), class: "btn btn-main btn-block" %>	
 		</div>
 </div> 
 

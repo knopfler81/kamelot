@@ -1,15 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Returning do 
+RSpec.describe Returning do
 
 	scenario "Asking for a returning" do
-		order  = create(:order, status: 3, return_asked: true)
-		james = create(:user)
-
+		order  = create(:order, status: 3, return_asked: false)
+		james  = create(:user)
 		login_as(james)
 
 		visit clients_order_path(order)
-
+		
 		expect(page).to have_button(value: "Demander un retour")
 	end
 
@@ -24,13 +23,14 @@ RSpec.describe Returning do
 			item      = create(:returning_item, returning_id: returning.id, selected: false)
 
 			visit clients_order_returning_returning_items_path(order, returning)
-			check 'return_check'
+			check :selected
 			click_on "Continuer le retour"
-			expect(page).to have_content("Terminez votre retour")
+			
+			expect(page).to have_content("RETOUR - COMMANDE ##{order.id}")
 		end
 
 		scenario "add a reason to the returning" do 
-			james 	= create(:user)
+			james 	 = create(:user)
 			login_as(james)
 			order     = create(:order, status: 3, return_asked: true)
 			returning = create(:returning, order_id: order.id)
@@ -41,8 +41,7 @@ RSpec.describe Returning do
 			fill_in "returning[reason]", with: "Some reasons...."
 
 			click_on "Valider la demande de retour"
-
-			expect(page).to have_content("Votre retour a bien été envoyé")
+			expect(page).to have_content("Votre retour a été demandé")
 		end
 	end
 

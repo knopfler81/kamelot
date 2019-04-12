@@ -24,3 +24,19 @@ $(document).ready(function() {
       $('form').submit();
   });
 });
+
+// $(document).on('turbolinks:load', function() {
+
+//   // $(function() {
+//     $('.return_check').on("change",function() { 
+//      if( this.checked == true){
+//        $(this).closest('tr').find('.select-qty').show();
+//      }
+//      else if(this.checked == false){
+//         $(this).closest('tr').find('.select-qty').hide();
+//      } 
+
+//     // }).change(); 
+//   });
+
+// }); 

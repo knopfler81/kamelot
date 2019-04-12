@@ -1,9 +1,10 @@
 class Variant < ApplicationRecord
   belongs_to :product
   
-  has_many :sale_items, dependent: :destroy
-  has_many :order_items, dependent: :destroy
-  has_many :stocks, dependent: :destroy
+  has_many :sale_items,      dependent: :destroy
+  has_many :order_items,     dependent: :destroy
+  has_many :stocks,          dependent: :destroy
+  has_many :returning_items, dependent: :destroy
 
 
   def size_and_color

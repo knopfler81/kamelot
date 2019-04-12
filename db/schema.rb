@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_115450) do
+ActiveRecord::Schema.define(version: 2019_04_10_121514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_115450) do
     t.decimal "price"
     t.bigint "variant_id"
     t.float "weight"
+    t.boolean "selected", default: true
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["variant_id"], name: "index_order_items_on_variant_id"
   end
@@ -138,14 +139,17 @@ ActiveRecord::Schema.define(version: 2019_04_04_115450) do
 
   create_table "returning_items", force: :cascade do |t|
     t.bigint "returning_id"
+    t.bigint "variant_id"
+    t.bigint "order_item_id"
     t.string "state"
     t.boolean "selected", default: false
-    t.bigint "order_item_id"
     t.decimal "price"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_item_id"], name: "index_returning_items_on_order_item_id"
     t.index ["returning_id"], name: "index_returning_items_on_returning_id"
+    t.index ["variant_id"], name: "index_returning_items_on_variant_id"
   end
 
   create_table "returnings", force: :cascade do |t|
