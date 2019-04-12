@@ -179,7 +179,7 @@ RSpec.describe Dashboard, type: :model do
 			
 			res = subject.orders_status
 
-			expect(res).to eq({"cancelled"=>1, "paid"=>2})
+			expect(res).to eq({"cancelled_by_admin"=>1, "paid"=>2})
 		end
 	end
 
