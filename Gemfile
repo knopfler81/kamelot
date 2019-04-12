@@ -17,6 +17,7 @@ gem 'rails-i18n'
 #satistiques
 gem "groupdate", "~> 3.1.1"  
 gem "chartkick"
+gem 'google-api-client', '~> 0.11'
 
 #environement variables
 gem "figaro"
@@ -59,14 +60,14 @@ gem 'webpacker', '~> 3.5.5' # ⚠️ version qui fonctionne avec flatpickr
 gem 'react-rails'
 
 
-
 #PDF 
-
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
 
 
 gem "wkhtmltopdf-heroku"
+
+gem 'cookies_eu'
 
 
 #QR codes 
