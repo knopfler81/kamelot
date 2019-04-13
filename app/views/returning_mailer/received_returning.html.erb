@@ -189,7 +189,7 @@
    									                      <p align="left">Nous avons bien receptionné votre retour N° FR00<%= @returning.id %>.</p>
 
                                           <div align="left">
-	                                         	<% @returning.items.each do |item| %>
+	                                         	<% @returning.items.where(selected: true).each do |item| %>
 		                                         	<ul style="list-style: none;">
 		                                         		<li><%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
 		                                         	</ul>

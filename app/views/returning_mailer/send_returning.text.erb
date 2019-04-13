@@ -2,7 +2,7 @@ Bonjour <%= Company.instance.name %>
 
 Le client <%= @returning.user.full_name %> a demandé un retour pour la marchandise suivante 
 
-<% @returning.items.each do |item| %>
+<% @returning.items.where(selected: true).each do |item| %>
 	<%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %>
 <% end %>
 

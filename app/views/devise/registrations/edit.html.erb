@@ -48,6 +48,15 @@
         </div>
 
         <div class="row">
+          <div class="col-12">
+            <%= f.input :list_subscriber, as: :boolean, 
+                checked_value: true, 
+                unchecked_value: false, 
+                label: "J'accepte de recevoir les news letters et offres promotionnelles" %>
+          </div>
+        </div>
+
+        <div class="row">
           <div class="col-6">
             <br>
             <%= f.submit "Modifier mon inscription", class: 'btn btn-main btn-block' %>

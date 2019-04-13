@@ -46,6 +46,14 @@
             <%= f.input :password_confirmation, placeholder: "Confirmation du mot de passe", label: false %>
           </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <%= f.input :list_subscriber, as: :boolean, 
+                checked_value: true, 
+                unchecked_value: false, 
+                label: "J'accepte de recevoir les news letters et offres promotionnelles" %>
+          </div>
+        </div>
 
         <div class="row">
           <div class="col-12">

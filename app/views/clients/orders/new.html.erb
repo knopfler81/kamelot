@@ -107,10 +107,10 @@
 							   	<small>Vous avez accepté les <%= link_to "CGV", clients_general_condition_of_sales_path %></small>
 							   	<br>
 							  <%	 else %>
-							 		  <%= f.input :gcos_accepted, as: :boolean, 
-												checked_value: true, 
-												unchecked_value: false, 
-												label: ("J'ai lu et accepte les #{link_to 'CGV', clients_general_condition_of_sales_path}.").html_safe %>
+						 		  <%= f.input :gcos_accepted, as: :boolean, 
+											checked_value: true, 
+											unchecked_value: false, 
+											label: ("J'ai lu et accepte les #{link_to 'CGV', clients_general_condition_of_sales_path}.").html_safe %>
 								<% end %>
 							  <%= f.submit "Valider la commande", class: "btn btn-main btn-block" %>
 							<% end %>
