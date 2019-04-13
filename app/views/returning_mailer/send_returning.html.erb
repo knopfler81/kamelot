@@ -189,7 +189,7 @@
    									                      <p align="left">Le client <%= @returning.user.full_name %> a demandé un retour pour la marchandise suivante </p>
 
                                           <div align="left">
-	                                         	<% @returning.items.each do |item| %>
+	                                         	<% @returning.items.where(selected: true).each do |item| %>
 		                                         	<ul style="list-style: none;">
 		                                         		<li><%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
 		                                         	</ul>
