@@ -13,6 +13,6 @@ class Clients::UsersController < Clients::ApplicationController
 	private
 
 	def user_params
-	  params.require(:user).permit(:first_name, :last_name, :birth_date, :gender, :email, :password, :password_confirmation)
+	  params.require(:user).permit(:first_name, :last_name, :birth_date, :gender, :email, :password, :password_confirmation, :list_subscriber)
 	end
 end

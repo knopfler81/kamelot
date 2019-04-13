@@ -35,6 +35,7 @@ supplier_2 =   Supplier.create(
 
 
 nelly = User.new.tap do |u|
+  u.list_subscriber = true
 	u.admin =  true
 	u.email = "nelly@example.com"
 	u.email_confirmation = "nelly@example.com"
@@ -48,6 +49,7 @@ nelly = User.new.tap do |u|
 end
 
 user_1 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest1@example.com"
 	u.email_confirmation = "guest1@example.com"
@@ -61,6 +63,7 @@ user_1 = User.new.tap do |u|
 end
 
 user_2 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest2@example.com"
 	u.email_confirmation = "guest2@example.com"
@@ -74,6 +77,7 @@ user_2 = User.new.tap do |u|
 end
 
 user_3 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest3@example.com"
 	u.email_confirmation = "guest3@example.com"
@@ -87,6 +91,7 @@ user_3 = User.new.tap do |u|
 end
 
 user_4 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest4@example.com"
 	u.email_confirmation = "guest4@example.com"
@@ -100,6 +105,7 @@ user_4 = User.new.tap do |u|
 end
 
 user_5 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest5@example.com"
 	u.email_confirmation = "guest5@example.com"
@@ -113,6 +119,7 @@ user_5 = User.new.tap do |u|
 end
 
 user_6 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest6@example.com"
 	u.email_confirmation = "guest6@example.com"
@@ -127,6 +134,7 @@ end
 
 
 user_7 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest7@example.com"
 	u.email_confirmation = "guest7@example.com"
@@ -141,6 +149,7 @@ end
 
 
 user_8 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest8@example.com"
 	u.email_confirmation = "guest8@example.com"
@@ -155,6 +164,7 @@ end
 
 
 user_9 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest9@example.com"
 	u.email_confirmation = "guest9@example.com"
@@ -169,6 +179,7 @@ end
 
 
 user_10 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest10@example.com"
 	u.email_confirmation = "guest10@example.com"
@@ -183,6 +194,7 @@ end
 
 
 user_11 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest11@example.com"
 	u.email_confirmation = "guest11@example.com"
@@ -196,6 +208,7 @@ user_11 = User.new.tap do |u|
 end
 
 user_12 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest12@example.com"
 	u.email_confirmation = "guest12@example.com"
@@ -210,6 +223,7 @@ end
 
 
 user_13 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest13@example.com"
 	u.email_confirmation = "guest13@example.com"
@@ -224,6 +238,7 @@ end
 
 
 user_14 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest14@example.com"
 	u.email_confirmation = "guest14@example.com"
@@ -238,6 +253,7 @@ end
 
 
 user_15 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest15@example.com"
 	u.email_confirmation = "guest15@example.com"
@@ -251,6 +267,7 @@ user_15 = User.new.tap do |u|
 end
 
 user_16 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest16@example.com"
 	u.email_confirmation = "guest16@example.com"
@@ -264,6 +281,7 @@ user_16 = User.new.tap do |u|
 end
 
 user_17 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest17@example.com"
 	u.email_confirmation = "guest17@example.com"
@@ -277,6 +295,7 @@ user_17 = User.new.tap do |u|
 end
 
 user_18 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest18@example.com"
 	u.email_confirmation = "guest18@example.com"
@@ -291,6 +310,7 @@ end
 
 
 user_19 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest19@example.com"
 	u.email_confirmation = "guest19@example.com"
@@ -305,6 +325,7 @@ end
 
 
 user_20 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest20@example.com"
 	u.email_confirmation = "guest20@example.com"
@@ -319,6 +340,7 @@ end
 
 
 user_21 = User.new.tap do |u|
+	u.list_subscriber = true
 	u.admin =  false
 	u.email = "guest21@example.com"
 	u.email_confirmation = "guest21@example.com"
