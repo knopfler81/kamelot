@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_112611) do
     t.decimal "price"
     t.bigint "variant_id"
     t.float "weight"
-    t.boolean "selected", default: true
+    t.boolean "selected", default: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["variant_id"], name: "index_order_items_on_variant_id"
   end

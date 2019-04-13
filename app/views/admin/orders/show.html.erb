@@ -85,6 +85,9 @@
 					 	<div class="col-4">
 					 		<p><%= item.quantity %>-<%= item.variant.product.title %>, taille <%= item.variant.size %></p>
 					 		<p><%= number_to_currency_euro(item.variant.product.price) %></p>
+					 		<% if item.selected? %>
+					 			<p>L'article a été retourné</p>
+					 		<% end %>
 					 	</div>
 					</div>
 				<% end %>

@@ -1549,6 +1549,7 @@ order_1  = Order.create(
 )
 
 	OrderItem.create(
+		selected: false,
 		price: product_1.price, 
 		order_id: order_1.id,
 		weight: product_1.weight,
@@ -1556,6 +1557,7 @@ order_1  = Order.create(
 		variant_id: product_1.variants[0].id,
 	)
 	OrderItem.create(
+		selected: false,
 		price: product_2.price, 
 		order_id: order_1.id, 
 		weight: product_2.weight,
@@ -1580,6 +1582,7 @@ order_2  = Order.create(
 )
 
 	OrderItem.create(
+		selected: false,
 		price: product_1.price, 
 		order_id: order_2.id,
 		weight: product_1.weight,
@@ -1587,6 +1590,7 @@ order_2  = Order.create(
 		variant_id: product_1.variants[0].id
 	)
 	OrderItem.create(
+		selected: false,
 		price: product_2.price, 
 		order_id: order_2.id, 
 		weight: product_2.weight,
@@ -1609,6 +1613,7 @@ order_3  = Order.create(
 	total: 135
 )
 	OrderItem.create(
+		selected: false,
 		price: product_1.price, 
 		order_id: order_3,
 		weight: 0.200,	
@@ -1616,6 +1621,7 @@ order_3  = Order.create(
 		variant_id: product_1.variants[1].id
 	)
 	OrderItem.create(
+		selected: false,
 		price: product_3.price, 
 		order_id: order_3.id,
 		weight: 0.200,
@@ -1638,6 +1644,7 @@ order_4  = Order.create(
  	sub_total: product_2.price,
  	total: 135)
 OrderItem.create(
+	selected: false,
 	price: product_2.price, 
 	order_id: order_4.id,
 	weight: product_2.weight,
@@ -1659,6 +1666,7 @@ order_5  = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_2.price, 
 	order_id: order_5.id,
 	weight: product_2.weight,
@@ -1679,18 +1687,21 @@ order_6  = Order.create(
  	sub_total: [product_2.price*2 + product_3.price + product_3.price].sum,
  	total: 135)
 OrderItem.create(
+	selected: false,
 	price: product_2.price, 
 	order_id: order_6.id,
 	weight: product_2.weight,
 	quantity: 2,
 	variant_id: product_2.variants[0].id)
 OrderItem.create(
+	selected: false,
 	price: product_3.price, 
 	order_id: order_6.id,
 	weight: product_3.weight,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
 OrderItem.create(
+	selected: false,
 	price: product_3.price, 
 	order_id: order_6.id,
 	weight: product_3.weight,
@@ -1712,6 +1723,7 @@ order_7  = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_3.price, 
 	order_id: order_7.id,
 	weight: product_3.weight,
@@ -1732,6 +1744,7 @@ order_8  = Order.create(
  	sub_total: product_3.price*2, 
  	total: 135)
 OrderItem.create(
+	selected: false,
 	price: product_3.price, 
 	order_id: order_8.id,
 	weight: product_3.weight,
@@ -1739,6 +1752,7 @@ OrderItem.create(
 	variant_id: product_3.variants[2].id
 	)
 OrderItem.create(
+	selected: false,
 	price: product_3.price, 
 	order_id: order_8.id,
 	weight: product_3.weight,
@@ -1760,6 +1774,7 @@ order_9  = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_4.price, 
 	order_id: order_9.id,
 	weight: product_4.weight,
@@ -1781,6 +1796,7 @@ order_10 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_24.price, 
 	order_id: order_10.id, 
 	weight: product_24.weight,
@@ -1803,6 +1819,7 @@ order_11 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_5.price, 
 	order_id: order_11.id, 
 	weight: product_5.weight,
@@ -1810,6 +1827,7 @@ OrderItem.create(
 	variant_id: product_5.variants[0].id
 	)
 OrderItem.create(
+	selected: false,
 	price: product_5.price, 
 	order_id: order_11.id, 
 	weight: product_5.weight,
@@ -1832,6 +1850,7 @@ order_12 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_17.price, 
 	order_id: order_12.id, 
 	weight: product_17.weight,
@@ -1853,6 +1872,7 @@ order_13 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_6.price, 
 	order_id: order_13.id, 
 	weight: product_6.weight,
@@ -1875,6 +1895,7 @@ order_14 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_6.price, 
 	order_id: order_14.id, 
 	weight: product_6.weight,
@@ -1897,6 +1918,7 @@ order_15 = Order.create(
  	sub_total: product_6.price * 3, 
  	total: 135)
 OrderItem.create(
+	selected: false,
 	price: product_8.price, 
 	order_id: order_15.id, 
 	weight: product_8.weight,
@@ -1918,6 +1940,7 @@ order_16 = Order.create(
  	sub_total: product_28.price * 2,
  	total: 135)
 OrderItem.create(
+	selected: false,
 	price: product_28.price, 
 	order_id: order_16.id, 
 	weight: product_28.weight,
@@ -1940,6 +1963,7 @@ order_17 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_19.price, 
 	order_id: order_17.id, 
 	weight: product_19.weight,
@@ -1962,6 +1986,7 @@ order_18 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_20.price,
 	order_id: order_18.id,
 	weight: product_20.weight,
@@ -1983,6 +2008,7 @@ order_21 = Order.create(
  	sub_total: product_21.price * 3, 
  	total: 135)
 OrderItem.create(
+	selected: false,
 	price: product_21.price,
 	order_id: order_21.id,
 	weight: product_21.weight,
@@ -2004,6 +2030,7 @@ order_22 = Order.create(
  	sub_total: product_22.price * 3, 
  	total: 135)
 OrderItem.create(
+	selected: false,
 	price: product_22.price,
 	order_id: order_22.id,
 	weight: product_22.weight,
@@ -2026,6 +2053,7 @@ order_24 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_11.price,
 	order_id: order_24.id,
 	weight: product_11.weight,
@@ -2049,6 +2077,7 @@ order_25 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_11.price,
 	order_id: order_25.id,
 	weight: product_11.weight,
@@ -2071,6 +2100,7 @@ order_26 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_11.price,
 	order_id: order_26.id,
 	weight: product_11.weight,
@@ -2094,6 +2124,7 @@ order_27 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_9.price, 
 	order_id: order_27.id, 
 	weight: product_9.weight,
@@ -2116,6 +2147,7 @@ order_28 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_25.price,
 	order_id: order_28.id,
 	weight: product_25.weight,
@@ -2138,6 +2170,7 @@ order_29 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_27.price,
 	order_id: order_29.id,
 	weight: product_27.weight,
@@ -2160,6 +2193,7 @@ order_30 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_27.price,
 	order_id: order_30.id,
 	weight: product_27.weight,
@@ -2182,6 +2216,7 @@ order_31 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_27.price,
 	order_id: order_31.id,
 	weight: product_27.weight,
@@ -2204,6 +2239,7 @@ order_32 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_27.price,
 	order_id: order_32.id,
 	weight: product_27.weight,
@@ -2226,6 +2262,7 @@ order_33 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_19.price,
 	order_id: order_33.id,
 	weight: product_19.weight,
@@ -2248,6 +2285,7 @@ order_34 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_19.price,
 	order_id: order_34.id,
 	weight: product_19.weight,
@@ -2270,6 +2308,7 @@ order_35 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_19.price,
 	order_id: order_35.id,
 	weight: product_19.weight,
@@ -2292,6 +2331,7 @@ order_36 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_16.price,
 	order_id: order_36.id,
 	weight: product_16.weight,
@@ -2314,6 +2354,7 @@ order_37 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_9.price, 
 	order_id: order_37.id, 
 	weight: product_9.weight,
@@ -2336,6 +2377,7 @@ order_38 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	selected: false,
 	price: product_10.price,
 	order_id: order_38.id,
 	weight: product_10.weight,
@@ -2358,6 +2400,7 @@ order_40 = Order.create(
  	total: 400
  	)
 OrderItem.create(
+	selected: false,
 	price: product_16.price,
 	order_id: order_40.id,
 	weight: product_16.weight,
@@ -2380,6 +2423,7 @@ order_41 = Order.create(
  	total: 400
  	)
 OrderItem.create(
+	selected: false,
 	price: product_13.price,
 	order_id: order_41.id,
 	weight: product_13.weight,
