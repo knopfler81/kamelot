@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<div class="col-8 offset-2">
+			<%= simple_form_for(@contact, url: new_clients_contact_path) do |f| %>
+				<%= f.input :email, label: false, placeholder: 'Vore adresse email', hint: "Entrez une adresse valide!" %>
+				<%= f.input :full_name, label: false, placeholder: 'Votre nom'%>
+				<%= f.input :message_content, as: :text, input_html: {rows: 8}, label: false, placeholder: "Votre message" %>
+				<%= recaptcha_tags %>
+				<%= f.button :submit, "Envoyer le message", class: "btn btn-main" %>
+			<% end %>
+		</div>
+	</div>
+</div>

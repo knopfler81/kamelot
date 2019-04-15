@@ -75,8 +75,13 @@ gem 'savon', '~> 2.12.0'
 gem 'rqrcode_png'
 gem 'rqrcode'
 
-
+#Text editor
 gem 'summernote-rails', '~> 0.8.10.0'
+
+
+#contact_form
+gem 'mail_form'
+gem "recaptcha", require: "recaptcha/rails"
 
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
