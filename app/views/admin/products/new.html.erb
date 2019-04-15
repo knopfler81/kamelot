@@ -47,7 +47,9 @@
 			
 			<div class="row">
 				<div class="col-12">
-					<%= f.input :description, placeholder: "Entrez les description de votre article!", input_html: {rows: 5}, label: false, required: true %>
+
+					<%= f.input :description, as: :summernote, label: false, required: true, id: "summernote" %>
+					<br>
 					<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true  %>
 				</div>
 			</div>
