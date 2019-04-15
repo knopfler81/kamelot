@@ -69,10 +69,15 @@ gem "wkhtmltopdf-heroku"
 
 gem 'cookies_eu'
 
+gem 'savon', '~> 2.12.0'
 
 #QR codes 
 gem 'rqrcode_png'
 gem 'rqrcode'
+
+
+gem 'summernote-rails', '~> 0.8.10.0'
+
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
