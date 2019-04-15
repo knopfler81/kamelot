@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 			
 			resources :returnings
 
+
 			get "list", to: "products#list"
 
 		 	resources :categories do 
@@ -124,6 +125,8 @@ Rails.application.routes.draw do
 		end
 
 		resources :returnings
+		
+		resources :contacts, only: [:new, :create]
 
 		#### NE PAS CHANGER L'ORDRE DE CES ROUTES ####
 	 	get 'cart', to: "order_items#index"
