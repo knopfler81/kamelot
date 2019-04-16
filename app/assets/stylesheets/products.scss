@@ -128,7 +128,7 @@
 
 }
 
- // effet Zoom sur products
+//  // effet Zoom sur products
 
 .big_images {
     position: absolute;
@@ -231,22 +231,12 @@ table.qrcode {
     }
   }
 }
-
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  background-size: 100%, 100%;
-  background-image: none;
+.carousel-control-next {
+    filter: invert(55%);
 }
-
-.fa-chevron-right,
-.fa-chevron-left {
-	padding-left: -5px;
-  color: #333;
+.carousel-control-prev {
+    filter: invert(55%);
 }
-
 
 #articles-table {
 	td {
