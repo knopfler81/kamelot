@@ -22,7 +22,7 @@ class Clients::ProductsController < Clients::ApplicationController
 	private
 	
 	def set_product
-		@product = Product.find(params[:id])
+		@product = Product.friendly.find(params[:id])
 	end
 
 	def filter_products

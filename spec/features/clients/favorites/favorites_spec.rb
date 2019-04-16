@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Favorite do 
+RSpec.describe Favorite, :skip do 
 
 	scenario "add a product to favorites", js: true do 
 		john = create(:user)

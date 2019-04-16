@@ -5,6 +5,8 @@ class Product < ApplicationRecord
 	belongs_to :user, optional: true
 	belongs_to :category, optional: true
 
+	extend FriendlyId
+	friendly_id :slug_title_brand_id, use: :slugged
 
 	has_many :favorites, dependent: :destroy
 	has_many :favoriting_users, through: :favorites, source: :user
@@ -29,10 +31,14 @@ class Product < ApplicationRecord
 
 	validate  :attachment_size
 
+
+	def slug_title_brand_id 
+		"#{self.title}- #{self.brand}-#{self.color}"
+	end
+
 	def with_stock?
 		self.stocks.map(&:quantity).sum >= 1  ? true : false
 	end
-
 
 	private
 

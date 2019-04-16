@@ -69,7 +69,7 @@ gem "wkhtmltopdf-heroku"
 
 gem 'cookies_eu'
 
-gem 'savon', '~> 2.12.0'
+
 
 #QR codes 
 gem 'rqrcode_png'
@@ -83,6 +83,9 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'mail_form'
 gem "recaptcha", require: "recaptcha/rails"
 
+
+#SEO
+gem 'friendly_id', '~> 5.2.4'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 

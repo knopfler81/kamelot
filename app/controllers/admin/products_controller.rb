@@ -80,14 +80,13 @@ class Admin::ProductsController < Admin::ApplicationController
 
 
 	def stickers
-
 	end
 
 
 	private
 	
 	def find_product
-		@product = Product.find(params[:id])
+		@product = Product.friendly.find(params[:id])
 	end
 
 	def find_size
