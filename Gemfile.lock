@@ -568,6 +568,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
+    sitemap_generator (6.0.2)
+      builder (~> 3.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -694,6 +696,7 @@ DEPENDENCIES
   sidekiq-failures (~> 1.0)
   simple_form
   sinatra
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
