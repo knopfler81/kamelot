@@ -40,7 +40,7 @@
     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+    <a class="skip-main btn btn-main" href="<%= clients_products_path %>">Aller directement aux articles</a> 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%= simple_form_for :query, url: clients_products_path, method: :get,  html: {class: "form-inline"} do |f| %>
         <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-clients"} %>
