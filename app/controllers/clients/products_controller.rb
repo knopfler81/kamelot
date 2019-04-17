@@ -10,13 +10,8 @@ class Clients::ProductsController < Clients::ApplicationController
 
 	def show
 		set_product
+		set_variants
 		@products = Product.all
-		@product_size_options = []	
-		@product.variants.map do |var| 
-			if var.has_stock == true
-				@product_size_options  << var
-			end
-	  end
 	end
 
 	private
@@ -30,5 +25,15 @@ class Clients::ProductsController < Clients::ApplicationController
 	  @products = Product.where('lower(title) LIKE ?', "%#{params[:query][:keyword]}%")
 	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword]}%"))
 	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword]}%"))
+	end
+
+
+	def set_variants
+		@product_size_options = []	
+		@product.variants.map do |var| 
+			if var.has_stock == true
+				@product_size_options  << var
+			end
+	  end
 	end
 end

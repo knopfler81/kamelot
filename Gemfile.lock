@@ -382,6 +382,8 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     memoist (0.16.0)
+    meta-tags (2.11.1)
+      actionpack (>= 3.2.0, < 6.1)
     method_source (0.9.2)
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
@@ -674,6 +676,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.0.5)
   mail_form
+  meta-tags
   mini_magick
   money-rails
   pg (>= 0.18, < 2.0)

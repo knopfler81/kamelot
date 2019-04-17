@@ -1,0 +1,5 @@
+meta_product_name: "Kamelot"
+meta_title: "<%= #{@product.brand} - #{@product.title} %>"
+meta_description: "Kamelot est un site e-commerce qui propose des vêtements super cool blablabal"
+meta_image: "landing.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
