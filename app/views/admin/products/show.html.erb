@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} | #{@product.brand}-#{@product.title}-#{@product.color}" %>
+<% content_for :meta_description, @product.description %>
+<% content_for :meta_image, image_url(@product.attachments.first.url) %>
+
 <div class="container">
 
 		<div class="row">
