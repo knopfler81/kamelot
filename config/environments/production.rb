@@ -1,4 +1,9 @@
 Rails.application.configure do
+
+  config.public_file_server.headers = {
+    'Cache-Control' => "public, s-maxage=#{365.days.to_i}, maxage=#{180.days.to_i}",
+    'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
+  }
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
