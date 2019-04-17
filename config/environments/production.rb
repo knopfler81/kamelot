@@ -67,16 +67,19 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'https://super-shop-staging.herokuapp.com/' }
-  config.action_mailer.smtp_settings = {
-    :address   => "smtp.sendgrid.net",
-    :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
-    :enable_starttls_auto => true, # detects and uses STARTTLS
-    :user_name => ENV["SENDGRID_USERNAME"],
-    :password  => ENV["SENDGRID_PASSWORD"], # SMTP password is any valid API key, when user_name is "apikey".
-    :authentication => 'login',
-    :domain => 'super-shop-staging.herokuapp.com/', # your domain to identify your server when connecting
-}
+  config.action_mailer.default_url_options = { host: 'https://damien-staging.herokuapp.com/' }
+
+  ActionMailer::Base.smtp_settings = {
+    address:              "smtp.sendgrid.net",
+    port:                  587,
+    user_name:             ENV['SENDGRID_USERNAME'],
+    password:              ENV['SENDGRID_PASSWORD'],
+    authentication:        "plain",
+    domain:                "heroku.com",
+    enable_starttls_auto:  true
+
+  }
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
