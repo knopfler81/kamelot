@@ -18,6 +18,10 @@ class Clients::ApplicationController < ActionController::Base
   	@favorites = Favorite.where(user: current_user).all
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
 	private
 	
 	 def cart_token

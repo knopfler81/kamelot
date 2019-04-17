@@ -84,10 +84,14 @@ gem 'mail_form'
 gem "recaptcha", require: "recaptcha/rails"
 
 
-#SEO
-gem 'friendly_id', '~> 5.2.4'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+#SEO
+gem 'friendly_id', '~> 5.2.4'
+gem 'sitemap_generator'
+gem 'meta-tags'
+
 
 group :development do 
   gem "letter_opener", group: :development
