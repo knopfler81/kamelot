@@ -111,12 +111,12 @@
 				<div class="col-12">
 					<h2>CUSTOMISATION DES TEXTES</h2>
 					<hr>
-						<%= f.input :delivery , label: "Livraison ", input_html: { rows: 5 }, value: @customization.delivery  %>
-						<%= f.input :secure_payment, label: "Paiment sécurisé", input_html: { rows: 5 }, value: @customization.secure_payment %>
-						<%= f.input :general_condition_of_sales, label: " Conditions générales de ventes", input_html: { rows: 5 }, value: @customization.general_condition_of_sales  %>
-						<%= f.input :legal_notice, label: " Mentions légales", input_html: { rows: 5 }, value: @customization.legal_notice  %>
-						<%= f.input :confidentiality_policy, label: " Politique de confidentialité", input_html: { rows: 5 }, value: @customization.confidentiality_policy  %>
-						<%= f.input :cookies_policy, label: " Politique des cookies", input_html: { rows: 5 }, value: @customization.cookies_policy  %>
+						<%= f.input :delivery , label: "Livraison ",  as: :summernote,input_html: { rows: 5 }, value: @customization.delivery  %>
+						<%= f.input :secure_payment, label: "Paiment sécurisé",  as: :summernote, input_html: { rows: 5 }, value: @customization.secure_payment %>
+						<%= f.input :general_condition_of_sales, as: :summernote, label: " Conditions générales de ventes", input_html: { rows: 5 }, value: @customization.general_condition_of_sales  %>
+						<%= f.input :legal_notice, label: " Mentions légales", as: :summernote, input_html: { rows: 5 }, value: @customization.legal_notice  %>
+						<%= f.input :confidentiality_policy, label: " Politique de confidentialité", as: :summernote, input_html: { rows: 5 }, value: @customization.confidentiality_policy  %>
+						<%= f.input :cookies_policy, label: " Politique des cookies", as: :summernote, input_html: { rows: 5 }, value: @customization.cookies_policy  %>
 				</div>
 			</div>
 		</div>
