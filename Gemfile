@@ -90,8 +90,8 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 #SEO
 gem 'friendly_id', '~> 5.2.4'
 gem 'sitemap_generator'
-gem 'meta-tags'
-gem "green_monkey", '0.2.2'
+# gem 'meta-tags'
+# gem "green_monkey", '0.2.2'
 
 
 group :development do 
