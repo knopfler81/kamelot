@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400" rel="stylesheet">    
@@ -29,11 +29,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<body style="background: <%= prefered_body_color %>" id="clients">
+  <body style="background: <%= prefered_body_color %>" id="clients">
     <%= render "layouts/clients/clients_nav" %>
     <%= render "layouts/shared/flashes" %> 
     <%= render "layouts/shared/back_button" %>
+
     <%= render 'cookies_eu/consent_banner' %>
+
     <%= yield %>
     <%= javascript_pack_tag 'application' %> <!-- doit etre en dessous de turbolink -->
     <%= render 'layouts/clients/footer' %>

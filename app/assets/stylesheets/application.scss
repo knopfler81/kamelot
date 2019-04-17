@@ -18,22 +18,8 @@
 @import "flatpickr";
 @import "returnings";
 @import "cookies_eu";
+@import "cookies";
 @import "summernote-bs4";
 @import "summernote-custom-theme.min";
 
 
-//Force cookies_eu style 
-.cookies-eu {
-	padding: 20px;
-	font-size: 20px !important;
-	color: #ddd;
-	background-color: #D3002AFF !important;
-	height: 100px !important;
-	.cookies-eu-ok {
-		font-size: 20px !important;
-		background: #111 !important;
-		color: #ddd !important;
-		padding: 15px !important;
-		border-radius: 50px !important;
-	}
-}
