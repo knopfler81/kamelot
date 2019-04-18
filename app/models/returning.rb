@@ -51,7 +51,11 @@ class Returning < ApplicationRecord
 	end
 
 	def set_order_status
-	 	self.order.refunded! if self.refunded?
+		if (self.returned_qty < self.ordred_qty )&& self.refunded?
+		 	self.order.partially_refunded!
+		elsif (self.returned_qty == self.ordred_qty) && self.refunded?
+		 	self.order.totally_refunded! 
+		end
 	end	
 	
 	def total_refund
@@ -62,5 +66,13 @@ class Returning < ApplicationRecord
 
 	def total_items_count
 		self.items.where(selected: true).map(&:quantity).sum
+	end
+
+	def returned_qty
+		self.items.map(&:quantity).sum
+	end
+ 
+	def ordred_qty
+		self.order.items.map(&:quantity).sum
 	end
 end

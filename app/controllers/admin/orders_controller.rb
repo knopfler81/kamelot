@@ -25,26 +25,30 @@ class Admin::OrdersController < Admin::ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
-
-		if @order.cancelled_by_admin?
-			OrderMailer.we_are_sorry(@order).deliver_now
-			redirect_to admin_order_path(@order)
-		elsif @order.shipped?
+		if @order.finished?
 			OrderMailer.order_sent(@order).deliver_now
 			redirect_to admin_order_path(@order)
 		elsif @order.confirmed?
 			redirect_to admin_order_path(@order)
+		elsif @order.partially_refunded?
+			redirect_to admin_order_path(@order)
+		elsif @order.totally_refunded?
+			redirect_to admin_order_path(@order)
+		elsif @order.cancelled_by_admin? 
+			redirect_to admin_order_path(@order)
+		elsif @order.missing_item?
+			@order.update_sub_total!
+			@order.update_total!
+			OrderMailer.we_are_sorry(@order).deliver_now
+			redirect_to admin_order_path(@order)
 		end
-
 	end
-
-
 
 	private
 
-
 	def filter_orders
 		@orders = Order.joins(:user).where('lower(users.last_name) LIKE ?', "%#{params[:query][:keyword].downcase }%")
+		.or(Order.joins(:user).where('lower(users.first_name) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	end
 	
 	def order_params

@@ -3,7 +3,8 @@ FactoryBot.define do
   	order
   	variant
   	weight { 0.3 }
-  	quantity { [1,2,3].sample }
+  	quantity { 1 }
   	price    { [12, 20, 45].sample }
+  	missing_quantity { 0 }
   end
 end

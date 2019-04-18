@@ -68,7 +68,10 @@ Rails.application.routes.draw do
 
 			resources :sales
 
-			resources :orders
+			resources :orders do
+				patch "order_items", to: "order_items#update"
+				resources :order_items
+			end
 
 		  get "landing", to: "pages#landing"
 

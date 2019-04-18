@@ -12,14 +12,14 @@
 				<% @returning_items.each do |item|%>
 						<tr class="mulitple-item">
 							<td><%= image_tag item.order_item.variant.product.attachments.first.url, class: "small_image" %></td>
-							<td><%= item.order_item.quantity %></td>
+							<td><%= item.order_item.quantity_sent %></td>
 							<td>
 								<%= item.order_item.variant.product.title %> / <%= item.order_item.variant.product.color %>
 							</td>
 							<td><%= item.order_item.variant.size %></td>
 							<td><%= number_to_currency_euro item.order_item.variant.product.price %></td>
 								<% if @returning.status == "creating" %>
-									<% if !item.selected && item.order_item.quantity ==  1 %>
+									<% if !item.selected && item.order_item.quantity_sent ==  1 %>
 										<td>
 											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
 												<%= f.hidden_field :id, value: item.id %>
@@ -27,7 +27,7 @@
 											<% end %>
 										</td>
 										<td></td>
-									<% elsif item.selected && item.order_item.quantity ==  1 %>
+									<% elsif item.selected && item.order_item.quantity_sent ==  1 %>
 										<td>
 											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
 												<%= f.hidden_field :id, value: item.id %>
@@ -35,7 +35,7 @@
 											<% end %>
 										</td>
 										<td></td>
-									<% elsif !item.selected && item.order_item.quantity  > 1 %>
+									<% elsif !item.selected && item.order_item.quantity_sent  > 1 %>
 										<td>
 											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
 												<%= f.hidden_field :id, value: item.id %>
@@ -43,12 +43,12 @@
 											<% end %>
 										</td>
 										<td></td>
-									<% elsif item.selected && item.order_item.quantity  > 1 %>
+									<% elsif item.selected && item.order_item.quantity_sent  > 1 %>
 										<td>
 											<%= form_with model: @item, method: :patch, remote: true, html: { class: "update-form"}  do |f| %>
 												<%= f.hidden_field :id, value: item.id %>
 												<%= f.check_box :selected, { checked: true, value: item.selected, class: 'form-control return_check ', onchange: 'this.form.submit();'} %>
-											<td><%= f.select :quantity, options_for_select((1..item.order_item.quantity), selected: item.quantity, value: item.quantity), {}, { class: 'form-control',  onchange: 'this.form.submit();' } %></td> 
+											<td><%= f.select :quantity, options_for_select((1..item.order_item.quantity_sent), selected: item.quantity, value: item.quantity), {}, { class: 'form-control',  onchange: 'this.form.submit();' } %></td> 
 											<% end %>
 										</td>
 									<% end %>

@@ -9,6 +9,7 @@ ShippingAddress.destroy_all
 User.destroy_all
 Supplier.destroy_all
 MainCategory.destroy_all
+Returning.destroy_all
 
 #COMPANY 
 Company.create(name: "Damien Duclos", address_1: 'Lieu dit Emilieu', zipcode: "43000", city: "Malvalette", country:"France", email: "admin@example.com")
@@ -1547,8 +1548,9 @@ order_1  = Order.create(
 	sub_total: [product_1.price + product_1.price].sum,
 	total: 135,
 )
-
 	OrderItem.create(
+
+		missing_quantity: 1,
 		selected: false,
 		price: product_1.price, 
 		order_id: order_1.id,
@@ -1557,6 +1559,8 @@ order_1  = Order.create(
 		variant_id: product_1.variants[0].id,
 	)
 	OrderItem.create(
+
+		missing_quantity: 0,
 		selected: false,
 		price: product_2.price, 
 		order_id: order_1.id, 
@@ -1582,6 +1586,8 @@ order_2  = Order.create(
 )
 
 	OrderItem.create(
+
+		missing_quantity: 0,
 		selected: false,
 		price: product_1.price, 
 		order_id: order_2.id,
@@ -1590,6 +1596,8 @@ order_2  = Order.create(
 		variant_id: product_1.variants[0].id
 	)
 	OrderItem.create(
+
+		missing_quantity: 0,
 		selected: false,
 		price: product_2.price, 
 		order_id: order_2.id, 
@@ -1613,6 +1621,8 @@ order_3  = Order.create(
 	total: 135
 )
 	OrderItem.create(
+
+		missing_quantity: 0,
 		selected: false,
 		price: product_1.price, 
 		order_id: order_3,
@@ -1621,6 +1631,8 @@ order_3  = Order.create(
 		variant_id: product_1.variants[1].id
 	)
 	OrderItem.create(
+
+		missing_quantity: 0,
 		selected: false,
 		price: product_3.price, 
 		order_id: order_3.id,
@@ -1644,6 +1656,7 @@ order_4  = Order.create(
  	sub_total: product_2.price,
  	total: 135)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_2.price, 
 	order_id: order_4.id,
@@ -1666,6 +1679,7 @@ order_5  = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_2.price, 
 	order_id: order_5.id,
@@ -1687,6 +1701,7 @@ order_6  = Order.create(
  	sub_total: [product_2.price*2 + product_3.price + product_3.price].sum,
  	total: 135)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_2.price, 
 	order_id: order_6.id,
@@ -1694,6 +1709,7 @@ OrderItem.create(
 	quantity: 2,
 	variant_id: product_2.variants[0].id)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
 	order_id: order_6.id,
@@ -1701,6 +1717,7 @@ OrderItem.create(
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
 	order_id: order_6.id,
@@ -1723,6 +1740,7 @@ order_7  = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
 	order_id: order_7.id,
@@ -1744,6 +1762,7 @@ order_8  = Order.create(
  	sub_total: product_3.price*2, 
  	total: 135)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
 	order_id: order_8.id,
@@ -1752,6 +1771,7 @@ OrderItem.create(
 	variant_id: product_3.variants[2].id
 	)
 OrderItem.create(
+	missing_quantity: 1,
 	selected: false,
 	price: product_3.price, 
 	order_id: order_8.id,
@@ -1774,6 +1794,7 @@ order_9  = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_4.price, 
 	order_id: order_9.id,
@@ -1796,6 +1817,7 @@ order_10 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_24.price, 
 	order_id: order_10.id, 
@@ -1819,6 +1841,7 @@ order_11 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_5.price, 
 	order_id: order_11.id, 
@@ -1827,6 +1850,7 @@ OrderItem.create(
 	variant_id: product_5.variants[0].id
 	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_5.price, 
 	order_id: order_11.id, 
@@ -1850,6 +1874,7 @@ order_12 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_17.price, 
 	order_id: order_12.id, 
@@ -1872,6 +1897,7 @@ order_13 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_6.price, 
 	order_id: order_13.id, 
@@ -1895,6 +1921,7 @@ order_14 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_6.price, 
 	order_id: order_14.id, 
@@ -1918,6 +1945,7 @@ order_15 = Order.create(
  	sub_total: product_6.price * 3, 
  	total: 135)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_8.price, 
 	order_id: order_15.id, 
@@ -1940,6 +1968,7 @@ order_16 = Order.create(
  	sub_total: product_28.price * 2,
  	total: 135)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_28.price, 
 	order_id: order_16.id, 
@@ -1963,6 +1992,7 @@ order_17 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_19.price, 
 	order_id: order_17.id, 
@@ -1986,6 +2016,7 @@ order_18 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_20.price,
 	order_id: order_18.id,
@@ -2008,6 +2039,7 @@ order_21 = Order.create(
  	sub_total: product_21.price * 3, 
  	total: 135)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_21.price,
 	order_id: order_21.id,
@@ -2030,6 +2062,7 @@ order_22 = Order.create(
  	sub_total: product_22.price * 3, 
  	total: 135)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_22.price,
 	order_id: order_22.id,
@@ -2053,6 +2086,7 @@ order_24 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_11.price,
 	order_id: order_24.id,
@@ -2077,6 +2111,7 @@ order_25 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_11.price,
 	order_id: order_25.id,
@@ -2100,6 +2135,7 @@ order_26 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_11.price,
 	order_id: order_26.id,
@@ -2124,6 +2160,7 @@ order_27 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_9.price, 
 	order_id: order_27.id, 
@@ -2147,6 +2184,7 @@ order_28 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_25.price,
 	order_id: order_28.id,
@@ -2170,6 +2208,7 @@ order_29 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
 	order_id: order_29.id,
@@ -2193,6 +2232,7 @@ order_30 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
 	order_id: order_30.id,
@@ -2216,6 +2256,7 @@ order_31 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
 	order_id: order_31.id,
@@ -2239,6 +2280,7 @@ order_32 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
 	order_id: order_32.id,
@@ -2262,6 +2304,7 @@ order_33 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_19.price,
 	order_id: order_33.id,
@@ -2285,6 +2328,7 @@ order_34 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_19.price,
 	order_id: order_34.id,
@@ -2308,6 +2352,7 @@ order_35 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_19.price,
 	order_id: order_35.id,
@@ -2331,6 +2376,7 @@ order_36 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_16.price,
 	order_id: order_36.id,
@@ -2354,6 +2400,7 @@ order_37 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_9.price, 
 	order_id: order_37.id, 
@@ -2377,6 +2424,7 @@ order_38 = Order.create(
  	total: 135
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_10.price,
 	order_id: order_38.id,
@@ -2400,6 +2448,7 @@ order_40 = Order.create(
  	total: 400
  	)
 OrderItem.create(
+	missing_quantity: 0,
 	selected: false,
 	price: product_16.price,
 	order_id: order_40.id,
@@ -2416,13 +2465,14 @@ order_41 = Order.create(
  	created_at: 3.days.ago,
  	user_id: user_6.id,
  	token: SecureRandom.hex(8),
- 	status: 2,
+ 	status: 4,
  	shipping_fees: 5,
  	total_weight: 0.300,
  	sub_total: product_13.price,
  	total: 400
  	)
 OrderItem.create(
+	missing_quantity: 1,
 	selected: false,
 	price: product_13.price,
 	order_id: order_41.id,

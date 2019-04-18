@@ -4,26 +4,36 @@
 	<hr>
 	<br><br>
 	<div class="admin_panel">
-
-
-
-     <%= simple_form_for :query, url: admin_orders_path, method: :get,  html: {class: "form-inline"} do |f| %>
-       <%= f.input  :keyword, placeholder: "Rechercher par nom", label: false, input_html: {class: "search-order"} %>
-       <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
-         <i class="fa fa-search"></i>
-       <% end %>
-     <% end %>
-     <br>
-
+		
+		<div class="row">
+			<div class="col-6">
+		    <%= simple_form_for :query, url: admin_orders_path, method: :get,  html: {class: "form-inline"} do |f| %>
+		      <%= f.input  :keyword, placeholder: "Rechercher par nom", label: false, input_html: {class: "search-order"} %>
+		      <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+		        <i class="fa fa-search"></i>
+		      <% end %>
+		    <% end %>
+				
+			</div>
+			<div class="col-6">
+				<%= form_with model: @order, method: :get,  html: {class: "form-inline"} do |f| %>
+				  <%= f.select :status, options_for_select( orders_filtered_by_status.map {|s| [t("admin.orders.tabs.#{s}"), s] }, selected: params[:status]), {}, {class: 'form-control', onchange: 'this.form.submit();'}%>
+				<% end %> 
+			</div>
+		</div>
+    <br>
+<!-- # TODO 
+		A voir si on remet les tabs plutot que la liste déroulante 
 		<ul class="list-inline">
-	   	<li class="tabs list-inline-item "><%= link_to "Toutes", admin_orders_path  %></li>
-	    <% orders_filtered_by_status.each do |status| %>
-				 	<li class="tabs list-inline-item <%= params[:status] == status.to_s ? "tabs__item--active" : "tabs__item--inactive" %>">
-				 	  <%= link_to t(".#{status}"), status: status %>
-				 	</li>
-	    <% end %>
-		</ul>
-		<table class="table table-striped">
+	    <%# orders_filtered_by_status.each do |status| %>
+			 	<li class="tabs list-inline-item <%#= params[:status] == status.to_s ? "tabs__item--active" : "tabs__item--inactive" %>">
+			 	  <%#= link_to t("admin.orders.tabs.#{status}") + " - #{Order.where(status: status).count}", status: status %>
+			 	</li>
+	    <%# end %>
+	   	<li class="tabs list-inline-item "><%#= link_to t("admin.orders.tabs.all") + " - #{Order.count}", admin_orders_path  %></li>
+		</ul> 
+-->
+		<table class="table table-striped"> 
 			<thead>
 				<tr>
 					<th>Date</th>
@@ -41,5 +51,5 @@
 		</table>
 	 	<%= will_paginate @orders %>
  </div>
-
 </div>
+

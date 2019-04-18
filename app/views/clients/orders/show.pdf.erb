@@ -55,7 +55,11 @@
           <% @order.items.each do |item| %>
       
           <tr>
-            <td align="right"><%= item.quantity %> </td>
+            <% if item.missing_quantity > 0 %>
+              <td align="right"><%= item.quantity - item.missing_quantity %> </td>
+            <% else %>
+              <td align="right"><%= item.quantity %> </td>
+            <% end %>
             <td align="right"><%= item.variant.product.title %></td>
             <td align="right"><%= item.variant.size %></td>
             <td align="right"><%= number_to_currency_euro(item.variant.product.price) %></td>
