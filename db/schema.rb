@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_120542) do
+ActiveRecord::Schema.define(version: 2019_04_18_080918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_120542) do
     t.bigint "variant_id"
     t.float "weight"
     t.boolean "selected", default: false
+    t.integer "missing_quantity", default: 0
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["variant_id"], name: "index_order_items_on_variant_id"
   end

@@ -187,12 +187,12 @@
 
                                           
    
-   									                      <p>Nous avons le plaisir de vous informer que nous venons d'expédier votre commande N° FR00<%= @order.id %>.</p>
+   									    <p>Nous avons le plaisir de vous informer que nous venons d'expédier votre commande N° FR00<%= @order.id %>.</p>
 
                                           <div align="left">
 	                                         	<% @order.items.each do |item| %>
 		                                         	<ul style="list-style: none;">
-		                                         		<li><%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
+		                                         		<li><%= item.quantity_sent %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
 		                                         	</ul>
 	                                         	<% end %>
                                           </div>

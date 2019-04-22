@@ -20,34 +20,55 @@
 				<br><br>
 		</div>
 		<div class="col-4">
-				<% if @order.user.billing_address %>
-				<p>Adresse de Facturation</p>
-					<%= @order.user.billing_address.first_name %>  <%= @order.user.billing_address.last_name %>
-					<br>
-					<%= @order.user.billing_address.address_1 %>
-					<br>
-					<%= @order.user.billing_address.address_2 %>
-					<br>
-					<%= @order.user.billing_address.zipcode %>  <%= @order.user.billing_address.city %>
-					<br>
-					<%= @order.user.billing_address.phone %>
-					<br><br>
-				<% end %>
+			<p>Adresse de Facturation</p>
+			<% if @order.user.billing_address %>
+				<%= @order.user.billing_address.first_name %>  <%= @order.user.billing_address.last_name %>
+				<br>
+				<%= @order.user.billing_address.address_1 %>
+				<br>
+				<%= @order.user.billing_address.address_2 %>
+				<br>
+				<%= @order.user.billing_address.zipcode %>  <%= @order.user.billing_address.city %>
+				<br>
+				<%= @order.user.billing_address.phone %>
+				<br><br>
+			<% else %>
+				<p>Identique à l'adresse de livraison</p>
+			<% end %>
 		</div>
+
 		<div class="col-4">
-			<% if @order.status == "paid" %>
+
+		
+			<% if @order.paid? %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 				  <%= f.hidden_field :status, value: "confirmed" %>
-				  <%= submit_tag "Je prépare la commande" , class: "btn btn-secondary", data: {confirm: "Pense bien a revenir valider l'expédition une fois l'article envoyé" }%>
+				  <%= submit_tag "Je prépare la commande" , class: "btn btn-secondary",id: "prepare_order", data: {confirm: "Pense bien a revenir valider l'expédition une fois l'article envoyé" }%>
 				<% end %>
 				<br><br>
+				<%= link_to "Un article manque ? ", admin_order_order_items_path(@order), class: "btn btn-danger"  %>
+			<% elsif @order.confirmed? %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-				  <%= f.hidden_field :status, value: "cancelled_by_admin" %>
-				  <%= submit_tag "Arg... l'article est indisponible", data: {confirm: "Un email va pévenir le client que l'article est indisponible, voulez vous vraiment le marquer comme tel ?"}, class: "btn btn-danger"%>
-				<% end %>
-			<% elsif @order.status == "confirmed" %>
+	        <%= f.hidden_field :status, value: "finished" %>
+	        <%= submit_tag "J'ai envoyé la commande" , class: "btn btn-secondary"%>
+	      <% end %>
+	    <% elsif @order.cancelled_by_admin? %>
+	      <p>Commande annulée</p>
+	    <% elsif @order.totally_refunded? %>
+	    	<p>La commande a été ermboursée </p>
+	    <% elsif @order.all_is_missing? %>
+  			<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
+          <%= f.hidden_field :status, value: "totally_refunded" %>
+          <%= submit_tag "J'ai totalement remboursé le client" , class: "btn btn-secondary", data: {confirm: "Avez vous bien procédé au remboursement via Stripe" } %>
+        <% end %>
+	    <% elsif @order.missing_item? %>
+  			<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
+          <%= f.hidden_field :status, value: "partially_refunded" %>
+          <%= submit_tag "J'ai partiellement remboursé le client" , class: "btn btn-secondary", data: {confirm: "Avez vous bien procédé au remboursement via Stripe" } %>
+        <% end %>
+        <% elsif @order.partially_refunded?  %>
 				<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-	        <%= f.hidden_field :status, value: "shipped" %>
+	        <%= f.hidden_field :status, value: "finished" %>
 	        <%= submit_tag "J'ai envoyé la commande" , class: "btn btn-secondary"%>
 	      <% end %>
      <% end %>
@@ -64,17 +85,15 @@
 						<small>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></small>
 					</div>
 					<div class="col-4">
-						<small>Total : <%= number_to_currency_euro @order.sub_total %> | </small>
-						<small> Nombre d'articles: <%= @order.count_articles %></small>
+						<small>Sous total : <%= number_to_currency_euro @order.sub_total %> | Nombre d'articles: <%= @order.sent_articles %></small>
 					</div>
 					<div class="col-2">
 						<small>Commande: FR-000<%= @order.id %></small>
 					</div>
 					<div class="col-2">
-						<small>Status: <%= t(".#{@order.status}") %></small>
+						<small>Status: <%= t("admin.orders.#{@order.status}") %></small>
 					</div>
 				</div>
-
 				<% @order.items.each do |item| %>
 					<div class="row body_order_card ">	
 						<div class="col-2">
@@ -82,12 +101,15 @@
 								<%= image_tag(item.variant.product.attachments.first.url) %>
 							<% end %>
 						</div>
-					 	<div class="col-4">
-					 		<p><%= item.quantity %>-<%= item.variant.product.title %>, taille <%= item.variant.size %></p>
-					 		<p><%= number_to_currency_euro(item.variant.product.price) %></p>
-					 		<% if item.selected? %>
-					 			<p>L'article a été retourné</p>
+					 	<div class="col-10">
+							<% if item.missing_quantity >= 1 %>
+								<p><%= item.quantity - item.missing_quantity %> articles disponibles au lieu de <%= item.quantity %> en taille taille <%= item.variant.size %> - <%= number_to_currency_euro item.price * (item.quantity - item.missing_quantity) %></p>
+					 		 <% else %>
+						 		<p><%= item.quantity %>-<%= item.variant.product.title %>, taille <%= item.variant.size %> - <%= number_to_currency_euro item.price * item.quantity %></p>
 					 		<% end %>
+							<% if item.selected == true %>
+								<p>L'article a été retourné</p>
+							<% end %>
 					 	</div>
 					</div>
 				<% end %>

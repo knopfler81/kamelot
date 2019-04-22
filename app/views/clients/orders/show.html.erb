@@ -3,31 +3,42 @@
 	<h1 class="primary_title">MA COMMANDE N° <%= @order.id %></h1>
 	<hr>
 	<div class="row">
-		<div class="col-12 col-md-10 offset-1">
+		<div class="col-12">
 			<div class="row">
-				<div class="col-12 col-md-6">
+				<div class="col-12 col-md-4">
 					<p>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></p>
 					<p>Commande: FR-000<%= @order.id %></p>
-					<hr>
 				</div>
 
-				<div class="col-12 col-md-6">
-					<p>Nombre d'articles: <%= @order.count_articles %></p>
-					<p>Total : <%= number_to_currency_euro @order.total %></p>
-					<hr>
+				<div class="col-12 col-md-4">
+					<p>Nombre d'articles: <%= @order.sent_articles %></p>
+					<p>Sous total : <%= number_to_currency_euro @order.sub_total %></p>
 			 </div>
+
+			 <div class="col-12 col-md-4">
+			 <p>Statut de la commande : </p> 
+			 <p><%= t("clients.orders.#{@order.status}") %></p>
+			 </div>
+			<div class="col-12">
+				<hr>
+			</div>
+		  <br><br>
 
 				<div class="row">
 					<% @order.items.each do |item| %>
-						<div class="col-12">
+						<div class="col-12 col-md-10 offset-md-1">
 							<div class="row">	
-								<div class="col-4">
+								<div class="col-2">
 									<%= link_to clients_product_path(item.variant.product) do  %>
 										<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
 									<% end %>
 								</div>
 								<div class="col-8">
-									<p><%= item.quantity %>-<%= item.variant.product.title %> | Taille <%= item.variant.size %> | <%= number_to_currency_euro(item.variant.product.price) %></p>
+									<% if item.missing_quantity >= 1 %>
+									<p><%= item.quantity - item.missing_quantity %> articles disponibles au lieu de <%= item.quantity %> en taille taille <%= item.variant.size %> - <%= number_to_currency_euro item.price * (item.quantity - item.missing_quantity) %></p>
+							 		 <% else %>
+								 		<p><%= item.quantity %>-<%= item.variant.product.title %>, taille <%= item.variant.size %> - <%= number_to_currency_euro item.price * item.quantity %></p>
+							 		<% end %>
 									<% if item.selected == true %>
 										<p>L'article a été retourné</p>
 									<% end %>
@@ -54,7 +65,7 @@
 						<p>Votre commande a été annulée.</p>
 					<% elsif @order.confirmed? %>
 						<p>Votre commande a été prise en charge par notre équipe, nous ne pouvons plus pas l'annuler.</p>
-					<% elsif @order.shipped? %>
+					<% elsif @order.finished? %>
 					<p>Votre commande a été expédiée</p>
 						<% if Date.today <= @order.return_limit_date %>
 								Vous pouvez retourner vos articles jusqu'au <%= l(@order.return_limit_date, format: '%d %B %Y') %> inclus

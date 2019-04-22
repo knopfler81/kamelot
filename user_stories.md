@@ -157,5 +157,40 @@
 * Je peux voir le numero de la commande
 * Je peux editer ma facture
 
+# Workflow d'une Commande selon les cas... 
+
+### Cas 1 Les articles sont dispos 
+* Le client a payé
+* Le vendeur reçoit la commande
+* Le vendeur prépare la commande 
+* Le vendeur envoie la commande 
+
+## Cas 2 Le client annule sa commande(hors prépa)
+* Le client a payé
+* Le client change d'avis
+* Le client annule sa commande
+* un email de confirmation est envoyé au client 
+* un email prévient le vendeur 
+* le vendeur rembourse le client 
+
+## Cas 3 Un ou plusieurs articles sont indisponibles
+* Le client a payé
+* Le vendeur reçoit la commande
+* Le vendeur séléctionne dans la liste les articles indisponibles 
+* Il clique sur prévenir le client
+* Un email d'explication est envoyé au client
+* Le vendeur rembourse partiellement le client 
+* Le vendeur envoie les articles disponibles 
+
+## Cas 4 Aucun article n'est disponible
+* Le client a payé
+* Le vendeur reçoit la commande
+* Le vendeur séléctionne dans la liste les articles indisponibles
+* Un email d'explication est envoyé au client
+* Le vendeur rembourse totalement (avec les frais de port) le client 
+* Le vendeur annule la commande 
+
+
+
 
 

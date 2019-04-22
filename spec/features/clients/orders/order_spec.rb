@@ -116,9 +116,9 @@ RSpec.describe Order do
 		end
 	end
 
-	context "the order with a shipped status" do 
+	context "the order with a finished status" do 
 		scenario "the user can't cancel his order" do 
-			order = create(:order, status: "shipped")
+			order = create(:order, status: "finished")
 
 			visit clients_order_path(order)
 			

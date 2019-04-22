@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :order do
 		user
 		token 	{ "123456789" }
-		status 	{ [ 0, 1,2,3,4,5].sample }
+		status 	{ [ 0, 1, 2, 3, 4 ,5].sample }
 		payment { {"stub" =>"stripe"}} 
 		total_cents {[50, 120, 90].sample }
 		sub_total  { [40, 115, 85].sample }

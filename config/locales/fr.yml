@@ -40,31 +40,41 @@ fr:
       show:
         orders: Commandes
         products: Articles
-        clients: Utilisateurs 
+        clients: Clients 
         sales: Ventes
     orders:
-      _base: &_base
+      cancelled_by_admin: Annulée par l'admin
+      cancelled_by_client: Annulée par le client
+      confirmed: En cours de préparation
+      missing_item: Articles manquants
+      paid: En attente de traitement
+      partially_refunded: Partiellement remboursée
+      pending: En attente de paiement
+      finished: Envoyée - Terminée
+      totally_refunded: Totallement remboursée
+      tabs:
+        all_orders: Toutes les commandes
+        cancelled_by_admin: Annulées par l'admin
+        cancelled_by_client: Annulées par le client
+        confirmed: En cours de préparations
+        missing_item: Articles manquants
+        paid: En attente de traitement
+        partially_refunded: Partiellement remboursées
         pending: En attente de paiement
-        all: Toutes les commandes
-        paid: Payée
-        confirmed: Confirmée
-        shipped: Envoyée
-        cancelled: Annulée
-        refunded: Remboursée
-      index:
-        <<: *_base
-      show:
-        <<: *_base
+        finished: Envoyées - Terminées
+        totally_refunded: Totallement remboursées
   clients:
     orders:
-     index:
-        pending: En attente de paiement
-        all: Toutes les commandes
-        paid: Payée
-        confirmed: Confirmée
-        shipped: Envoyée
-        cancelled: Annulée
-        refunded: Remboursée
+      all_orders: Toutes les commandes
+      cancelled_by_admin: Annulée par l'admin
+      cancelled_by_client: Annulée par le client
+      confirmed: En cours de préparation
+      missing_item: Articles manquants
+      paid: En attente de traitement
+      partially_refunded: Partiellement remboursée
+      pending: En attente de paiement
+      finished: Envoyée - Terminée
+      totally_refunded: Totallement remboursée
   will_paginate:
      previous_label: "&#8592; Précédente"
      next_label: "Suivante &#8594;"

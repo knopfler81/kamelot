@@ -2,7 +2,7 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 
 	def index
 		@order = Order.find(params[:order_id])
-		find_returing
+		find_returning
 		@returning_items = ReturningItem.where(returning_id: @returning.id).order('created_at ASC')
 	end
 
@@ -10,13 +10,10 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 	end
 
 	def update
+		find_returning
 		@order = Order.find(params[:order_id])
-		find_returing
-	  @returning_item = ReturningItem.find(params[:id])
+		@returning_item = ReturningItem.find(params[:id])
 		@returning_item.update_attributes(returning_item_params)
-		@order = Order.find(params[:order_id])
-		find_returing
-	  @returning_item = ReturningItem.find(params[:id])
 		respond_to do |format|
 			if	@returning_item.update_attributes(returning_item_params)
 			 format.js
@@ -25,12 +22,12 @@ class Clients::ReturningItemsController < Clients::ApplicationController
 				format.js
 				format.html {redirect_to clients_order_returning_returning_items_path(@order, @returning)}
 			end
-		 end
+		end
 	end
 
 	private
 
-	def find_returing
+	def find_returning
 		@returning = Returning.find(params[:returning_id])
 	end
 

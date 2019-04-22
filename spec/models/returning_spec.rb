@@ -26,7 +26,7 @@ require 'rails_helper'
  	 			
  	 			@return.set_order_status
 
- 	 			expect(@return.order.status).to eq "refunded"
+ 	 			expect(@return.order.status).to eq "totally_refunded"
  	 		end
  	 	end
 

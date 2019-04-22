@@ -10,17 +10,20 @@ class Order < ApplicationRecord
 
   monetize :total_cents
 
-  enum status: { pending: 0, paid: 1, confirmed: 2 , shipped: 3, cancelled_by_admin: 4, cancelled_by_client: 5, refunded: 6 }
+  enum status: { pending: 0, paid: 1, confirmed: 2 , finished: 3, cancelled_by_admin: 4, cancelled_by_client: 5, partially_refunded: 6, totally_refunded: 7,  missing_item: 8}
 
-  scope :pending,   -> { where(status: :pending) }
-  scope :paid,      -> { where(status: :paid) }
-  scope :confirmed, -> { where(status: :confirmed) }
-  scope :shipped,   -> { where(status: :shipped) }
-  scope :cancelled, -> { where(status: :cancelled) }
-  scope :refunded,  -> { where(status: :refunded) }
+  scope :pending,            -> { where(status: :pending) }
+  scope :paid,               -> { where(status: :paid) }
+  scope :confirmed,          -> { where(status: :confirmed) }
+  scope :finished,           -> { where(status: :finished) }
+  scope :cancelled,          -> { where(status: :cancelled) }
+  scope :partially_refunded, -> { where(status: :partially_refunded) }
+  scope :totally_refunded,   -> { where(status: :totally_refunded) }
+  scope :missing_item,       -> { where(status: :missing_item) }
+  scope :all_orders,         -> { Order.all }
 
   scope :filter_by_status, -> (status) do
-    send(status)
+    send(status).order('created_at DESC')
   end
 
   before_save :set_default_limit_date, on: :create
@@ -28,7 +31,8 @@ class Order < ApplicationRecord
   after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (1 || 2), to: 3) }
   after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: 1, to: 4) }
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
-
+  after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 3, to: 8)}
+  
 
   def set_default_limit_date
     self.return_limit_date = Date.today + 10.days
@@ -47,7 +51,7 @@ class Order < ApplicationRecord
   end
 
   def remove_from_stock
-    self.items.each do |item|
+    self.items.where(missing_quantity: 0).each do |item|
       Stock.where(variant_id: item.variant_id).where('quantity > 0').order(:created_at).reduce(item.quantity.to_i) do |quantity, stock|
         if leftover = item.quantity.to_i - stock.quantity <= 0
           stock.update_attributes! quantity: stock.quantity - item.quantity.to_i 
@@ -60,8 +64,14 @@ class Order < ApplicationRecord
     end
   end
 
-  def count_articles
-    self.items.map(&:quantity).sum
+  def sent_articles
+    if self.items.map(&:missing_quantity).sum > 0
+      self.items.map do |item|
+        item.quantity - item.missing_quantity
+      end.sum
+    else 
+      self.items.map(&:quantity).sum
+    end
   end
 
   def shipping_fees_cents
@@ -69,18 +79,30 @@ class Order < ApplicationRecord
   end
 
   def update_sub_total!
-    self.sub_total = self.items.sum('quantity * price')
+    if self.items.map(&:missing_quantity).sum > 0
+      self.sub_total = self.items.sum('(quantity - missing_quantity) * price')
+    else 
+      self.sub_total = self.items.sum('quantity * price')
+    end
     self.save
   end
 
 
   def update_total!
-    self.total = self.items.sum('quantity * price') + 5
-    self.save
+   if self.items.map(&:missing_quantity).sum > 0
+     self.total = self.items.sum('(quantity - missing_quantity) * price') + 5
+   else 
+     self.total = self.items.sum('quantity * price') + 5
+   end
+   self.save
   end
 
   def set_total_weight
-    self.total_weight = self.items.sum('quantity * weight') 
+    if self.items.map(&:missing_quantity).sum > 0
+      self.total_weight = self.items.sum('(quantity - missing_quantity) * weight')
+    else 
+      self.total_weight = self.items.sum('quantity * weight')
+    end
     self.save
   end
 
@@ -115,6 +137,18 @@ class Order < ApplicationRecord
       to:   ENV["MY_PERSONAL_PHONE_NUMBER"],  
       body: text_message
     })
+  end
+
+  def item_qty
+    self.items.map(&:quantity).sum
+  end
+
+  def item_missing
+    self.items.map(&:missing_quantity).sum
+  end
+
+  def all_is_missing?
+    item_qty - item_missing == 0 ? true : false
   end
 
   # def self.to_csv
