@@ -1,17 +1,18 @@
 require 'rails_helper'
 
- RSpec.describe SaleItem, type: :model do 	
- 
-	before(:each) do 
-		@shirt  = create(:product)
-		@small  = create(:variant, size: "S")
-		@large  = create(:variant, size: "L")
-		@stock_1  = create(:stock, variant_id: @small.id, price: 59)
-		@stock_2  = create(:stock, variant_id: @large.id, price: 59)
-		@john   = create(:user)
-		@token  = 12345678
+ RSpec.describe VendingBasket, type: :model do
+ 	
+ 	before(:each) do 
+ 		Stock.destroy_all
+ 		@shirt    = create(:product)
+ 		@small    = create(:variant, size: "S")
+ 		@large    = create(:variant, size: "L")
+ 		@stock_1  = create(:stock, variant_id: @small.id, price: 59, quantity: 5)
+ 		@stock_2  = create(:stock, variant_id: @large.id, price: 59, quantity: 5)
+ 		@john     = create(:user, admin: true)
+ 		@token    = 12345678
 	 	@current_basket ||= VendingBasket.new(token: @token)
-	 	@sale  = create( :sale, user_id: @john.id, token: @token, status: "pending", sub_total: 80)
+	 	@sale     = create( :sale, user_id: @john.id, token: @token, status: "pending", sub_total: 80)
 	 end
 
  	describe ".items_count" do 
@@ -22,7 +23,6 @@ require 'rails_helper'
 	 		expect(@current_basket.items_count).to eq(6)
  		end
  	end
-
 
  	describe ".add_item" do 
  		it 'add item to the cart' do 

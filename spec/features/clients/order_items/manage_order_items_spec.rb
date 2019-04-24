@@ -8,7 +8,7 @@ RSpec.describe OrderItem do
 		login_as(john)
 		@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
 		@variant = create(:variant, product_id: @product.id, size: "S")
-		@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+		@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 	end
 
 	scenario "A user can add items to his cart" do

@@ -12,8 +12,8 @@ RSpec.describe Sale, type: :model do
 			variant_s = create(:variant, product_id: product.id, size: "S")
 			variant_m = create(:variant, product_id: product.id, size: "M")
 
-			stock_s   = create(:stock, variant_id: variant_s.id, quantity: 6)
-			stock_m   = create(:stock, variant_id: variant_m.id, quantity: 10)
+			stock_s   = create(:stock, variant_id: variant_s.id, quantity: 6,  price: product.price)
+			stock_m   = create(:stock, variant_id: variant_m.id, quantity: 10, price: product.price)
 			sale      = create(:sale, user_id: john.id)
 
 			create(:sale_item, sale_id: sale.id, quantity: 2, variant_id: variant_s.id, price: 20)

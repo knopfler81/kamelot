@@ -7,8 +7,8 @@
 }
 
 .box{
-	min-width: 180px;
-	min-height: 250px;
+	min-width: 200px;
+	min-height: 270px;
 	padding: 2px;
 	text-align: center;
 	margin-bottom: 20px;
@@ -18,16 +18,37 @@
 	}
 }
 
+.card_old_price {
+	text-decoration: line-through;
+}
+
+.discount_percentage {
+	padding: 10px;
+	position: absolute;
+	right: 25px;
+	top:  10px;
+	background-color: #FDE74FFF;
+	
+}
+
+.card_discount_price {
+	color: green;
+	
+}
+
+
 .box:hover{
 	img {
 		filter: brightness(1.2);
 	}
 }
 
+
 .footer_box {
 	font-size: 1em;
 	background-color: #EEE;
-	padding-top: 10px;
+	padding-top: 6px;
+	margin-bottom: 20px;
 	height: 60px;
 	color: #000;
 }

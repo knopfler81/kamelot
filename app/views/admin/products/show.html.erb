@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-12 col-md-8 images_gallery ">
 				<div class="row">
-					<div class="col-1 d-none d-md-block">
+					<div class="col-2 offset-1 d-none d-md-block">
 						<% @product.attachments.each do |img| %>
 							<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
 						<% end %>
@@ -38,11 +38,17 @@
 							<div class="col-9">
 								<h1 class="primary_title"><%= @product.title.capitalize %></h1>
 								<h1 class="primary_title"><%= @product.brand.capitalize %></h1>
-								<% if @product.discount_percentage != nil %>
-									<small>Prix de départ</small>
-									<h4 class="old_product_price"><%= number_to_currency_euro @product.price %></h4>
-									<small>Promo</small>
-									<h4 class="price_outlet"><%= number_to_currency_euro @product.discounted_price %> </h4>
+								<% if @product.discount_percentage > 0 %>
+									<div class="row">
+										<div class="col-6">
+											<small>Prix de départ</small>
+											<h4 class="old_product_price"><%= number_to_currency_euro @product.price %></h4>
+										</div>
+										<div class="col-6">
+											<small>Promo</small>
+											<h4 class="price_outlet"><%= number_to_currency_euro @product.discounted_price %> </h4>
+										</div>
+									</div>
 								<% else %> 
 									<small>Prix de départ</small>
 									<h4 class="product_price"><%= number_to_currency_euro @product.price %></h4>

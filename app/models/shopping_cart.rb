@@ -27,13 +27,17 @@ class ShoppingCart
      order.items.new(variant_id: variant_id)
     end    
     
-    if @product.discount_percentage > 0
-      @order_item.price  = @product.discounted_price
-    else
-      if !@stock.price.nil?
-         @order_item.price = @stock.price
+    if @stock.price == @product.price
+      if @product.discount_percentage > 0
+        @order_item.price = @product.discounted_price
       else
-        @order_item.price  = @product.price
+        @order_item.price = @product.price
+      end
+    else
+      if @product.discount_percentage > 0
+        @order_item.price = @stock.discount
+      else
+       @order_item.price = @stock.price
       end
     end
 

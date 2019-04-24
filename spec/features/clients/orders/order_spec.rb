@@ -6,7 +6,7 @@ RSpec.describe Order do
 		scenario "is asked to login before checking out" do
 			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "S")
-			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 
 			visit clients_product_path(@product)
 			select "S", from: "variant_id"
@@ -28,7 +28,7 @@ RSpec.describe Order do
 			login_as(mark)
 			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "L")
-			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 
 			visit clients_product_path(@product)
 			select "L", from: "variant_id"
@@ -50,7 +50,7 @@ RSpec.describe Order do
 		 login_as(mark)
 		 @product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
 		 @variant = create(:variant, product_id: @product.id, size: "L")
-		 @stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+		 @stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 		 create(:shipping_address, user_id: mark.id)
 
 		 	visit clients_product_path(@product)
@@ -78,7 +78,7 @@ RSpec.describe Order do
 			login_as(mark)
 			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "L")
-			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 			create(:shipping_address, user_id: mark.id)
 
 			visit clients_product_path(@product)
@@ -128,9 +128,9 @@ RSpec.describe Order do
 
 	context 'the order contains a product with a discount' do 
 		scenario "The discount is applyed" do 
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, discount: 30)
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, discount_percentage: 30)
 			@variant = create(:variant, product_id: @product.id, size: "L")
-			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 
 			visit clients_product_path(@product)
 			expect(page).to have_content("Promo")

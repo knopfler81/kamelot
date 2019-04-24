@@ -12,10 +12,6 @@ class Stock < ApplicationRecord
  		end
   end
 
-  def set_discount
-    self.price - ( self.price * (self.variant.product.discount_percentage / 100))
-  end
-
   private
 
   def to_initial_quantity

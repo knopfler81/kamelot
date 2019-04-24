@@ -1,23 +1,21 @@
 class Product < ApplicationRecord
 
 	mount_uploaders :attachments, AttachmentUploader
-
-	belongs_to :user, optional: true
-	belongs_to :category, optional: true
-
 	extend FriendlyId
 	friendly_id :slug_title_brand_id, use: :slugged
 
+	belongs_to :user, optional: true
+	belongs_to :category, optional: true
+	belongs_to :supplier
+
 	has_many :favorites, dependent: :destroy
 	has_many :favoriting_users, through: :favorites, source: :user
-
 	has_many :variants, dependent: :destroy
 	has_many :stocks,   through: :variants
 	has_many :stickers
 
-	belongs_to :supplier
 
-	after_save :set_discount
+	before_save :set_discount
 
 	accepts_nested_attributes_for :variants
 	
@@ -44,12 +42,15 @@ class Product < ApplicationRecord
 
 
 	def set_discount
-		if self.stocks.any?
-			self.stocks.map do |stock|
-		  	stock.price - ( stock.price * (stock.variant.product.discount_percentage / 100))
-		  	stock.save
-		  end
-		end
+		self.discounted_price = price - (price * discount_percentage / 100)
+		if self.discount_percentage > 0
+			if self.stocks.any?
+				self.stocks.each do |stock|
+			  	stock.discount = stock.price - ( stock.price * stock.variant.product.discount_percentage / 100)
+			  	stock.save!
+			  end
+			end
+	  end
 	end
 
 	private
