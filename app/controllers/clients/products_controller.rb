@@ -2,9 +2,9 @@ class Clients::ProductsController < Clients::ApplicationController
 
 	def index
 		if params[:query].present?
-			@client_products = filter_products.paginate(page: params[:page], per_page: 12) 
+			@client_products = filter_products.paginate(page: params[:page], per_page: 12).order('created_at DESC')
 		else
-    	@client_products = Product.all.paginate(page: params[:page], per_page: 12)
+    	@client_products = Product.all.paginate(page: params[:page], per_page: 12).order('created_at DESC')
     end
 	end
 

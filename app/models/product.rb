@@ -17,6 +17,8 @@ class Product < ApplicationRecord
 
 	belongs_to :supplier
 
+	after_save :set_discount
+
 	accepts_nested_attributes_for :variants
 	
 	validates :title,        presence: true
@@ -38,6 +40,16 @@ class Product < ApplicationRecord
 
 	def with_stock?
 		self.stocks.map(&:quantity).sum >= 1  ? true : false
+	end
+
+
+	def set_discount
+		if self.stocks.any?
+			self.stocks.map do |stock|
+		  	stock.price - ( stock.price * (stock.variant.product.discount_percentage / 100))
+		  	stock.save
+		  end
+		end
 	end
 
 	private

@@ -51,6 +51,7 @@ end
 
 user_1 = User.new.tap do |u|
 	u.list_subscriber = true
+
 	u.admin =  false
 	u.email = "guest1@example.com"
 	u.email_confirmation = "guest1@example.com"
@@ -378,7 +379,7 @@ polos_m       = Category.create!(title: "Polos",       main_category_id: men.id)
  puts "Categories created"
 
 
-product_1 = Product.create!(
+product_1 = Product.create(
 	ref: "SP00",
 	brand: "Still Park",
 	category_id: pulls_m.id,

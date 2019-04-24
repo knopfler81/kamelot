@@ -15,7 +15,7 @@ class Admin::StocksController < Admin::ApplicationController
 	def new 
 		@stock = Stock.new
 		@product = Product.find(params[:product_id])
-		@variants = @product.variants
+		@variants = @product.variants.order("updated_at DESC")
 	end
 
 	def create

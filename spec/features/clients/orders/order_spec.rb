@@ -125,4 +125,21 @@ RSpec.describe Order do
 			expect(page).not_to have_content("Annuler ma commande")
 		end
 	end
+
+	context 'the order contains a product with a discount' do 
+		scenario "The discount is applyed" do 
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, discount: 30)
+			@variant = create(:variant, product_id: @product.id, size: "L")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+
+			visit clients_product_path(@product)
+			expect(page).to have_content("Promo")
+
+
+			select "L", from: "variant_id"
+
+			click_on "Ajouter Au Panier"
+			expect(page).to have_content("Correctement ajouté au panier")
+		end
+	end
 end

@@ -17,5 +17,7 @@ FactoryBot.define do
     user { User.first || association(:user, admin: true)}
     category 
     supplier
+    discount_percentage { nil }
+    discounted_price { nil }
   end
 end

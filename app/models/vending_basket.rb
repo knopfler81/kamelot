@@ -22,16 +22,25 @@ class VendingBasket
 
     @product = @variant.product
 
+
     @sale_item =  if sale.items.where(variant_id: variant_id).any?
       sale.items.find_by(variant_id: variant_id)
     else
-     sale.items.new(variant_id: variant_id)
+      sale.items.new(variant_id: variant_id)
     end
-    
-    if !@stock.price.nil?
-       @sale_item.price = @stock.price
+  
+    if @stock.price != @product.price
+      if @product.discount_percentage != nil
+        @sale_item.price  = @stock.discount
+      else
+       @sale_item.price = 11 #@stock.price
+     end
     else
-      @sale_item.price  = @product.price
+      if @product.discount_percentage != nil
+         @sale_item.price  = 55 #@product.discounted_price
+      else
+        @sale_item.price = 33 #@product.price
+      end
     end
     
     @sale_item.quantity = quantity.to_i
