@@ -2,7 +2,6 @@
 	<h1 class="primary_title">CREATION D'UN NOUVEL ARTICLE</h1>
 	<hr>
 	<%= simple_form_for(@product, url: admin_products_path)do |f| %>		
-		<section class="section">
 			<div class="row">
 				<div class="col-6 ">
 					<div class="<%= 'error_message' if @product.errors.full_messages.any? %> ">
@@ -14,9 +13,9 @@
 					</div>
 				</div>
 			</div>
-		</section>
 
-		<section class="section">
+
+		
 			<h3>AJOUTER LA DESCRIPTION</h3>
 			<hr>
 			<br>
@@ -61,9 +60,9 @@
 					<%= f.input :price, placeholder: "Prix de vente", label: false, required: true %>
 				</div>
 			</div>
-		</section>
 
-		<section class="section">	
+
+			
 			<h3>AJOUTER DES IMAGES</h3>
 			<hr>
 			<br>
@@ -77,7 +76,7 @@
 					</div>   
 				</div>
 			</div>
-		</section>
+
 		 	<%= f.submit "Valider le produit", class: "btn btn-main btn-lg btn-block" %>
 			<br><br>
 	<% end %>

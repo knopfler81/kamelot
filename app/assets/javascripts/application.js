@@ -1,8 +1,9 @@
 //= require jquery3
+//= require jquery
 //= require rails-ujs
 //= require popper
-//= require turbolinks
 //= require bootstrap-sprockets
+//= require turbolinks
 //= require summernote/summernote-bs4.min
 //= require cocoon
 //= require highcharts

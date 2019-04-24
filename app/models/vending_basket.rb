@@ -19,25 +19,31 @@ class VendingBasket
   def add_item(quantity:1 , variant_id:) 
     @variant = Variant.find_by(id: variant_id)
     @stock = Stock.where(variant_id: @variant.id).last
-
     @product = @variant.product
 
     @sale_item =  if sale.items.where(variant_id: variant_id).any?
       sale.items.find_by(variant_id: variant_id)
     else
-     sale.items.new(variant_id: variant_id)
+      sale.items.new(variant_id: variant_id)
     end
-    
-    if !@stock.price.nil?
-       @sale_item.price = @stock.price
+
+    if @stock.price == @product.price
+      if @product.discount_percentage > 0
+        @sale_item.price = @product.discounted_price
+      else
+        @sale_item.price = @product.price
+      end
     else
-      @sale_item.price  = @product.price
+      if @product.discount_percentage > 0
+        @sale_item.price = @stock.discount
+      else
+       @sale_item.price = @stock.price
+      end
     end
-    
     @sale_item.quantity = quantity.to_i
 
     ActiveRecord::Base.transaction do
-      @sale_item.save
+      @sale_item.save!
       update_sub_total!
     end
   end

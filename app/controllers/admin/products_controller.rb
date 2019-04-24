@@ -7,15 +7,15 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def index
 		if params[:query].present?
-			@products = filter_products.paginate(page: params[:page], per_page: 12) 
+			@products = filter_products.paginate(page: params[:page], per_page: 12).order('created_at DESC')
 		else
-    	@products = Product.all.paginate(page: params[:page], per_page: 12)
+    	@products = Product.all.paginate(page: params[:page], per_page: 12).order('created_at DESC')
     end
 	end
 
 	def list
 		filter_products if params[:query].present?
-		@products ||= Product.all
+		@products ||= Product.order('created_at DESC')
 	end
 
 	def show
@@ -75,7 +75,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def stock
-		@variants = @product.variants
+		@variants = @product.variants.order('created_at DESC')
 	end
 
 
@@ -94,7 +94,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def params_product
-		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :weight, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
+		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :weight, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code, :discounted_price, :discount_percentage,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
 	end
 
 	def filter_products

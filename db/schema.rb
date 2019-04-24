@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_080918) do
+ActiveRecord::Schema.define(version: 2019_04_24_155452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_080918) do
     t.float "weight"
     t.string "qr_code"
     t.string "slug"
+    t.integer "discount_percentage", default: 0
+    t.decimal "discounted_price", default: "0.0"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
@@ -223,16 +225,6 @@ ActiveRecord::Schema.define(version: 2019_04_18_080918) do
     t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
   end
 
-  create_table "sizes", force: :cascade do |t|
-    t.string "size_name"
-    t.integer "quantity"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "quantity_stock"
-    t.index ["product_id"], name: "index_sizes_on_product_id"
-  end
-
   create_table "stickers", force: :cascade do |t|
     t.bigint "product_id"
     t.integer "quantity"
@@ -250,6 +242,7 @@ ActiveRecord::Schema.define(version: 2019_04_18_080918) do
     t.bigint "supplier_id"
     t.decimal "cost_price"
     t.decimal "price"
+    t.decimal "discount", default: "0.0"
     t.index ["supplier_id"], name: "index_stocks_on_supplier_id"
     t.index ["variant_id"], name: "index_stocks_on_variant_id"
   end
@@ -316,7 +309,6 @@ ActiveRecord::Schema.define(version: 2019_04_18_080918) do
   add_foreign_key "sale_items", "sales", name: "fk_sale_items_to_sale"
   add_foreign_key "sale_items", "variants"
   add_foreign_key "sales", "users"
-  add_foreign_key "sizes", "products"
   add_foreign_key "stocks", "suppliers"
   add_foreign_key "stocks", "variants"
   add_foreign_key "variants", "products"

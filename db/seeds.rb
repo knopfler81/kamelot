@@ -51,6 +51,7 @@ end
 
 user_1 = User.new.tap do |u|
 	u.list_subscriber = true
+
 	u.admin =  false
 	u.email = "guest1@example.com"
 	u.email_confirmation = "guest1@example.com"
@@ -378,7 +379,9 @@ polos_m       = Category.create!(title: "Polos",       main_category_id: men.id)
  puts "Categories created"
 
 
-product_1 = Product.create!(
+product_1 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "SP00",
 	brand: "Still Park",
 	category_id: pulls_m.id,
@@ -419,6 +422,8 @@ product_1 = Product.create!(
 
 
 product_2 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
 	category_id: pulls_m.id,
@@ -459,13 +464,15 @@ product_2 = Product.create(
 
 
 product_3 = Product.create(
+	discount_percentage: 10,
+	discounted_price: 36,
 	ref:"SP00" ,
 	brand: "Still Park",
 	category_id: pulls_m.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 15,
-	price: 45,
+	price: 40,
 	color: "Rouge",
 	title: "Pull",
 	weight: 0.300,
@@ -500,6 +507,8 @@ product_3 = Product.create(
 
 
 product_4 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "LE00",
 	brand: "Levis",
 	category_id: pantalons_m.id,
@@ -540,6 +549,8 @@ product_4 = Product.create(
 
 
 product_5 = Product.create(
+	discount_percentage: 50,
+	discounted_price: 30,
 	ref: "LE00" ,
 	brand: "Levis",
 	category_id: pantalons_m.id,
@@ -580,6 +591,8 @@ product_5 = Product.create(
 
 
 product_6 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA0",
 	brand: "Kaporal",
 	category_id: pantalons_m.id,
@@ -619,13 +632,15 @@ product_6 = Product.create(
 )
 
 product_7 = Product.create(
+	discount_percentage: 10,
+	discounted_price: 45,
 	ref: "SP00",
 	brand: "Still Park",
 	category_id: pulls_m.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 17,
-	price: 49,
+	price: 50,
 	color: "Noir",
 	title: "Pull",
 	weight: 0.300,
@@ -657,6 +672,8 @@ product_7 = Product.create(
 )
 
 product_8 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
 	category_id: pulls_m.id,
@@ -696,6 +713,8 @@ product_8 = Product.create(
 )
 
 product_9 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
 	category_id: pulls_m.id,
@@ -731,6 +750,8 @@ product_9 = Product.create(
 )
 
 product_10 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
 	category_id: pulls_m.id,
@@ -767,6 +788,8 @@ product_10 = Product.create(
 
 
 product_11 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "SP01",
 	brand: "Still Park",
 	category_id: pantalons_m.id,
@@ -803,6 +826,8 @@ product_11 = Product.create(
 
 
 product_12 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "SP01",
 	brand: "Still Park",
 	category_id: pantalons_m.id,
@@ -843,6 +868,8 @@ product_12 = Product.create(
 
 
 product_13 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "SP02",
 	brand: "Still Park",
 	category_id: pantalons_m.id,
@@ -883,13 +910,15 @@ product_13 = Product.create(
 
 
 product_14 = Product.create(
+	discount_percentage: 5,
+	discounted_price: 45,
 	ref: "KP02",
 	brand: "KAPORAL",
 	category_id: tshirt_m.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
-	price: 30,
+	price: 50,
 	color: "Bleu",
 	title: "Tshirt",
 	weight: 0.300,
@@ -921,6 +950,8 @@ product_14 = Product.create(
 )
 
 product_15 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KP02",
 	brand: "KAPORAL",
 	category_id: tshirt_m.id,
@@ -960,6 +991,8 @@ product_15 = Product.create(
 
 
 product_16 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KP02",
 	brand: "KAPORAL",
 	category_id: tshirt_m.id,
@@ -998,6 +1031,8 @@ product_16 = Product.create(
 )
 
 product_17 = Product.create(
+	discount_percentage: 50,
+	discounted_price: 15,
 	ref: "KP03",
 	brand: "KAPORAL",
 	category_id: tshirt_m.id,
@@ -1038,6 +1073,8 @@ product_17 = Product.create(
 
 
 product_18 = Product.create(
+	discount_percentage: 50,
+	discounted_price: 15,
 	ref: "KP04",
 	brand: "KAPORAL",
 	category_id: tshirt_m.id,
@@ -1076,6 +1113,8 @@ product_18 = Product.create(
 )
 
 product_19 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA00" ,
 	brand: "KAPORAL",
 	category_id: polos_m.id,
@@ -1115,6 +1154,8 @@ product_19 = Product.create(
 
 
 product_20 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA00",
 	brand: "Kaporal",
 	category_id: polos_m.id,
@@ -1153,6 +1194,8 @@ product_20 = Product.create(
 )
 
 product_21 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA00",
 	brand: "Kaporal",
 	category_id: polos_m.id,
@@ -1192,6 +1235,8 @@ product_21 = Product.create(
 
 
 product_22 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA01",
 	brand: "Kaporal",
 	category_id: polos_m.id,
@@ -1230,6 +1275,8 @@ product_22 = Product.create(
 )
 
 product_23 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA01",
 	brand: "Kaporal",
 	category_id: polos_m.id,
@@ -1268,6 +1315,8 @@ product_23 = Product.create(
 )
 
 product_24 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA05",
 	brand: "Kaporal",
 	category_id: chemise_m.id,
@@ -1306,6 +1355,8 @@ product_24 = Product.create(
 )
 
 product_25 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
 	category_id: chemise_m.id,
@@ -1345,6 +1396,8 @@ product_25 = Product.create(
 
 
 product_26 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
 	category_id: chemise_m.id,
@@ -1383,6 +1436,8 @@ product_26 = Product.create(
 )
 
 product_27 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
 	category_id: chemise_m.id,
@@ -1422,6 +1477,8 @@ product_27 = Product.create(
 
 
 product_28 = Product.create(
+	discount_percentage: 0,
+	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
 	category_id: chemise_m.id,
@@ -1468,7 +1525,9 @@ puts "Products and Sizes Created"
 	var.stocks.create(
 		quantity: 8,
 		variant_id: var.id,
-		supplier_id: supplier_1.id
+		supplier_id: supplier_1.id,
+		price: var.product.price,
+		cost_price: var.product.buying_price
 	)
 	end
 end
@@ -1478,7 +1537,9 @@ end
 	var.stocks.create(
 		quantity: 9,
 		variant_id: var.id,
-		supplier_id: supplier_2.id
+		supplier_id: supplier_2.id,
+		price: var.product.price,
+		cost_price: var.product.buying_price
 	)
 	end
 end
@@ -1490,6 +1551,8 @@ end
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
 		updated_at: 5.day.ago,
+		price: var.product.price,
+		cost_price: var.product.buying_price
 	)
 	end
 end
@@ -1501,6 +1564,8 @@ end
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
 		updated_at: 1.day.ago,
+		price: var.product.price,
+		cost_price: var.product.buying_price
 	)
 	end
 end

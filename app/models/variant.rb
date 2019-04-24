@@ -15,7 +15,6 @@ class Variant < ApplicationRecord
 	  end
 	end
 
-
 	def has_stock
 		self.stocks.empty? ? false : true
 	end

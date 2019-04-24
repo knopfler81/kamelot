@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'turbolinks:load', ->
   if $('.pagination').length && $('#orders').length
     $(window).scroll ->
       url = $('.pagination .next_page').attr('href')

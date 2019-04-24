@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :product, class: Product do
   	title { Faker::Artist.name  +  " " + Faker::Color.color_name}
   	ref   { Faker::Number.number(10)}
-  	price { Faker::Number.number(2) }
+  	price { 100 }
     buying_price  { 5 }
     weight { 0.3 }
   	color { Faker::Color.color_name }
@@ -17,5 +17,7 @@ FactoryBot.define do
     user { User.first || association(:user, admin: true)}
     category 
     supplier
+    discount_percentage { 0 }
+    discounted_price { 0 }
   end
 end

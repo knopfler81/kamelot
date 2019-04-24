@@ -7,7 +7,7 @@ RSpec.describe SaleItem do
 		login_as(nelly)
 		@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
 		@variant = create(:variant, product_id: @product.id, size: "S")
-		@stock   = create(:stock, variant_id: @variant.id, quantity: 3)
+		@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 	end
 
 	scenario "The admin can add items to the basket" do
