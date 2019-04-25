@@ -1,9 +1,9 @@
 <% @client_cat_products.each do |product| %>
 	<% if product.stocks.map(&:quantity).sum >= 1 %>
 		<div class="col-6 col-md-4 col-lg-3">
-			<%= link_to clients_category_product_path(product) do  %>
+
 				<%= render "clients/shared/cards", product: product %>
-			<% end %>
+
 		</div>
 	<% end %>
 <% end %>

@@ -17,10 +17,9 @@ module Kamelot
   class Application < Rails::Application
 
 
-    config.x.features.send_sms = ENV["APP_SEND_SMS"].present?
-    config.x.features.stats    = ENV["APP_WITH_STATS"].present?
-
-
+    config.x.features.send_sms         = ENV["APP_SEND_SMS"].present?
+    config.x.features.stats            = ENV["APP_WITH_STATS"].present?
+    config.x.features.main_categories  = ENV["APP_WITH_STATS"].present?
 
 
     config.load_defaults 5.2

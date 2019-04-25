@@ -25,22 +25,29 @@
 		</div>
 	</div>
 	<div class="footer_box">
-	
-	<div class="row">
-		<div class="col-12">
-			<small><%= product.brand %></small>
+		<div class="row">
+			<div class="col-12">
+				<small><%= product.brand %></small>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-6">
-			<small><%= product.title %> </small>
+		<% if product.discount_percentage > 0 %>
+			<small class="discount_percentage">- <%= product.discount_percentage %> %</small>
+			<div class="row">
+				<div class="col-6">
+					<small class="card_old_price"><%= number_to_currency_euro product.price %></small>
+				</div>
+				<div class="col-6">	
+					<small class="card_discount_price"><%= number_to_currency_euro product.discounted_price %> </small>
+				</div>
+			</div>
+			<% else %>
+			<div class="row">
+				<div class="col-12">
+					<small><%= number_to_currency_euro product.price %></small>
+				</div>
+			</div>
+		<% end %>
 		</div>
-		<div class="col-6">
-			<small><%= number_to_currency_euro(product.price) %></small>
-		</div>
-	</div>
-	
-	</div>
 </div>
 <% if product.stocks.map(&:quantity).sum < 1 %>
 	<div class="no_stock_sticker">

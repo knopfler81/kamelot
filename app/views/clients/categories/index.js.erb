@@ -1,0 +1,6 @@
+$('#client_categories_products').append("	<%= j render 'client_cat_products'%>");
+ <% if @client_products.next_page %>
+   $('.pagination').replaceWith('<%= j will_paginate(@client_cat_products) %>');
+ <% else %>
+   $('.pagination').remove();
+ <% end %>

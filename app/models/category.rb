@@ -1,4 +1,8 @@
 class Category < ApplicationRecord
+
+	extend FriendlyId
+	friendly_id :title, use: :slugged
+
 	has_many :products
 	belongs_to :main_category
 	has_many :stocks, through: :products
