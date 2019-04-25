@@ -202,6 +202,31 @@
 	margin-bottom: 20px;
 }
 
+.address_box {
+	padding: 15px;
+	border: 1px solid #111;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	height: 210px;
+}
+
+.order_box {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid #111;
+	margin-top: 20px;
+	height: 210px;
+}
+
+
+.link_invoice {
+	color: #111;
+	font-size: 12px;
+}
+
+.link_invoice:hover {
+	color: #111;
+}
 
 @media (max-width: 667px) {
 	.product_image_tab {

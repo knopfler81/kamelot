@@ -87,7 +87,6 @@ class Order < ApplicationRecord
     self.save
   end
 
-
   def update_total!
    if self.items.map(&:missing_quantity).sum > 0
      self.total = self.items.sum('(quantity - missing_quantity) * price') + 5

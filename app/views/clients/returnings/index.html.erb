@@ -2,17 +2,23 @@
 		<h2>MES RETOURS</h2>
 		<hr>
 		<br>
-	<div class="row">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Retour n°</th>
+				<th>Demandé le</th>
+				<th>Montant</th>
+				<th>Statut</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody id="client_returnings">
+			
+		<%= render partial: "client_returnings" %>
+		</tbody>
+	</table>
+	<%= will_paginate @client_returnings %>
 
-		<div class="col-12" id="client_returnings">
-			<%= render partial: "client_returnings" %>
-		</div>
-		<%= will_paginate @client_returnings %>
-	</div>
 </div>
-
-
-
-
 
 
