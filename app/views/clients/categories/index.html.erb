@@ -1,9 +1,13 @@
 <div class="container fluid">
 	<div class="row">
-		<% @categories.each do |cat| %>
-			<% cat.products.each do |product| %>
-				<%= render "clients/shared/cards", product: product %>
+		<ul class="list list-unstyled">
+			<% @categories.each do |cat| %>
+			
+					<li>
+						<h1><%= link_to cat.title, clients_category_path(cat)  %></h1>
+					</li>
+				
 			<% end %>
-		<% end %>
+		</ul>
 	</div>
 </div>

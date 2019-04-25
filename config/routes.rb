@@ -103,6 +103,7 @@ Rails.application.routes.draw do
 		
 		resources :shipping_addresses
 		
+	 	get 'promos', to: 'products#promos'
 		resources :products do 
 			resources :favorites
 		end

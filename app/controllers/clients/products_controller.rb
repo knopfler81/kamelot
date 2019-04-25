@@ -14,6 +14,11 @@ class Clients::ProductsController < Clients::ApplicationController
 		@products = Product.all
 	end
 
+
+	def promos
+		@client_products = Product.where('discount_percentage >?', 0).paginate(page: params[:page], per_page: 12).order('updated_at DESC')
+	end
+
 	private
 	
 	def set_product
@@ -26,7 +31,6 @@ class Clients::ProductsController < Clients::ApplicationController
 	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword]}%"))
 	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword]}%"))
 	end
-
 
 	def set_variants
 		@product_size_options = []	
