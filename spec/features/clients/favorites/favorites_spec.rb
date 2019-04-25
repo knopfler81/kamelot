@@ -1,9 +1,11 @@
 require "rails_helper"
 
-RSpec.describe Favorite, :skip do 
+RSpec.describe Favorite do 
 
 	scenario "add a product to favorites", js: true do 
-		john = create(:user)
+		category = create(:category, title: "Tshirt")
+		tshirt   = create(:product, brand: "Kaporal", category_id: category.id)
+		john     = create(:user)
 		login_as john
 
 		visit clients_products_path
@@ -12,6 +14,6 @@ RSpec.describe Favorite, :skip do
 
 		visit clients_favorites_path
 
-		expect(page).to have_content("Still Park")
+		expect(page).to have_content("KAPORAL")
 	end 
 end

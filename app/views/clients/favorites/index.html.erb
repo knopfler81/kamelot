@@ -17,7 +17,7 @@
 												<% if favorite.product.favoriting_users.include? current_user %>
 													<div id="unlike_<%= favorite.product.id %>">
 														<% fav = favorite.product.favorites.find { |fav| fav.user_id == current_user.id} %>
-														<%= link_to clients_product_favorite_path(favorite.product, fav), method: :delete , remote: true do %>
+														<%= link_to clients_product_favorite_path(favorite.product.id, fav), method: :delete , remote: true do %>
 															<i class= "fa fa-heart favorite-active"></i>
 														<% end %>	
 													</div>	
