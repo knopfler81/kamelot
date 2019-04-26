@@ -22,6 +22,14 @@ class Clients::CustomizationController < Clients::ApplicationController
 	def customization_params
 		params.require(:customization)
 			.permit(  :main_image, 
+								:text_main_image,       
+								:text_btn_main_image,   
+							  :second_image,          
+							  :third_image,           
+							  :text_second_image,     
+								:text_btn_second_image, 
+							  :text_third_image,      
+								:text_btn_third_image,  
 								:secure_payment, 
 								:delivery, 
 								:general_condition_of_sales, 

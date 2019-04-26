@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
       if (input.files && input.files[0]){
         var reader = new FileReader();
         reader.onload = function (e) {
-          $('#main_img_prev').attr('src', e.target.result);
+          $('#main_image_prev').attr('src', e.target.result);
         } 
         reader.readAsDataURL(input.files[0]);
       }
@@ -14,11 +14,52 @@ $(document).on('turbolinks:load', function() {
 
     $("#main_image_upload").change(function(){ 
 
-        $('#main_img_prev').removeClass('hidden').addClass('tiny_image').parents('.error')
+        $('#main_image_prev').removeClass('hidden').addClass('tiny_image').parents('.error')
       
         readURL(this);
       
     }); 
+  });
 
+  $(function() {
+
+    function readURL(input) {
+      if (input.files && input.files[0]){
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#second_image_prev').attr('src', e.target.result);
+        } 
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#second_image_upload").change(function(){ 
+
+        $('#second_image_prev').removeClass('hidden').addClass('tiny_image').parents('.error')
+      
+        readURL(this);
+      
+    }); 
+  });
+
+  $(function() {
+
+    function readURL(input) {
+      if (input.files && input.files[0]){
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#third_image_prev').attr('src', e.target.result);
+        } 
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#third_image_upload").change(function(){ 
+
+        $('#third_image_prev').removeClass('hidden').addClass('tiny_image').parents('.error')
+      
+        readURL(this);
+      
+    }); 
   });
 });

@@ -1,15 +1,4 @@
-<style>
-	.custo-boxe {
-		margin-top: 100px;
-	}
-
-	.custo-boxe-title {
-		font-size: 22px;
-		font-weight: bold;
-	}
-</style>
-
-	<div class="container">
+	<div class="container" class="customization">
 		<%= simple_form_for(@customization, url: clients_customization_path) do |f| %>
 
 			<h2>CUSTOMISATION DES COULEURS</h2>
@@ -120,19 +109,78 @@
 				</div>
 			</div>
 		</div>
-		<div class="custo-boxe">
+		<div class="custo-boxes">
 			<div class="row">
 				<div class="col-12">
-					<h2>CUSTOMISATION DES IMAGES</h2>
+					<h2>CUSTOMISATION DE LA LANDING PAGE</h2>
 					<hr>
-					<div class="image-upload-wrap">
-						<%= f.file_field :main_image, class: "file-upload-input", id: "files" %>
-						<h3 class="custo-boxe-title">Cliquez pour ajouter une image ou glissez déposez</h3>
-						<div id="result"></div> 
-					</div>   
+					<div class="custo-boxe">
+						<div class="boximage">
+							<style>
+								.boximage {
+									padding: 20px;
+									background-color: #ccc;
+									margin-bottom: 20px
+								}
+							</style>
+							<p>PREMIÈRE IMAGE</p>
+							<hr>
+							<div class="row"> 
+								<div class="col-4">
+									<%= image_tag @customization.main_image_url, class: "tiny_image" %>
+									<label class="btn btn-secondary" >Choisir une image</label>
+									<%= f.file_field :main_image, id: "main_image_upload" , class: "input_file"%><br/> 
+									<%= f.hidden_field :main_image_cache %>
+									<img id="main_image_prev" src="#"  class= "hidden"/>
+									<p id="main_image_error"></p>
+								</div>
+								<div class="col-4">
+									<%= f.input :text_main_image, label: false, placeholder: "ex: Les supers promos" %>
+									<%= f.input :text_btn_main_image, label: false, placeholder: "ex: Les supers promos" %>
+								</div>
+							</div>
+						</div>
+						<div class="boximage">
+							<p>SECONDE IMAGE</p>
+							<hr>
+							<div class="row">
+								<div class="col-4">
+									<%= image_tag @customization.second_image_url, class: "tiny_image" %>
+									<label class="btn btn-secondary" >Choisir une image</label>
+									<%= f.file_field :second_image, id: "second_image_upload" , class: "input_file"%><br/> 
+									<%= f.hidden_field :second_image_cache %>
+									<img id="second_image_prev" src="#"  class= "hidden"/>
+									<p id="second_image_error"></p>
+								</div>
+								<div class="col-4">
+									<%= f.input :text_second_image, label: false, placeholder: "ex: Arrivée  de nouveaux polos" %>
+									<%= f.input :text_btn_second_image, label: false, placeholder: "ex: Je découvre" %>
+								</div>
+							</div>
+						</div>
+						<div class="boximage">
+							<p>TROISIÈME IMAGE</p>
+							<hr>
+							<div class="row">
+								<div class="col-4">
+									<%= image_tag @customization.third_image_url, class: "tiny_image" %>
+									<label class="btn btn-secondary" >Choisir une image</label>
+									<%= f.file_field :third_image, id: "third_image_upload" , class: "input_file"%><br/> 
+									<%= f.hidden_field :third_image_cache %>
+									<img id="third_image_prev" src="#"  class= "hidden"/>
+									<p id="third_image_error"></p>
+								</div>
+								<div class="col-4">
+									<%= f.input :text_third_image, label: false, placeholder: "ex: C'est l'été, prenez en bermudas" %>
+									<%= f.input :text_btn_third_image, label: false, placeholder: "ex: Je découvre" %>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+
 			<%= f.submit "Valider la customization", class: "btn btn-main btn-block" %>
 		<% end %>  
 		<br><br>
