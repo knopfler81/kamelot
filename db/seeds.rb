@@ -10,10 +10,13 @@ User.destroy_all
 Supplier.destroy_all
 MainCategory.destroy_all
 Returning.destroy_all
+Company.destroy_all
 
 
 #COMPANY 
-Company.create(name: "Damien Duclos", address_1: 'Lieu dit Emilieu', zipcode: "43000", city: "Malvalette", country:"France", email: "admin@example.com")
+c = Company.instance
+c.update_attributes(name: "Damien Duclos", address_1: 'Lieu dit Emilieu', zipcode: "43000", city: "Malvalette", country:"France", email: "admin@example.com")
+c.save
 
 #SUPPLIER
 
