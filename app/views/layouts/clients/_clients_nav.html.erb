@@ -120,11 +120,14 @@
           <li class="nav-link gender" data-gender="<%= main_cat.gender %>"><%= main_cat.gender %> 
             <div class="categories" data-gender="<%= main_cat.gender %>">
               <ul class="navbar-nav">
-                 <% Category.where(main_category_id: main_cat.id).order('title ASC').each do |cat| %>
-                   <% if cat.product_with_stock %>
-                      <li class="nav-link link-product"><%= link_to "#{cat.title}", clients_category_path(cat) %></li>  
-                   <% end %>
-                 <% end %>
+                <% Category.where(main_category_id: main_cat.id).order('title ASC').each do |cat| %>
+                  <% if cat.product_with_stock %>
+                    <li class="nav-link link-product"><%= link_to "#{cat.title}", clients_category_path(cat) %></li>  
+                  <% end %>
+                <% end %>
+                <% if Product.where('discount_percentage >?', 0).any? %>
+                  <li class="nav-link link-product"><%= link_to "Promo", clients_promos_path %></li>
+                <% end %>
               </ul>
             </div>
           </li>
@@ -135,9 +138,9 @@
             <li class="nav-link link-product"><%= link_to "#{cat.title}", clients_category_path(cat) %></li>  
           <% end %>
         <% end %>
-      <% end %>
-      <% if Product.where('discount_percentage >?', 0).any? %>
-        <li class="nav-link link-product"><%= link_to "Promo", clients_promos_path %></li>
+        <% if Product.where('discount_percentage >?', 0).any? %>
+          <li class="nav-link link-product"><%= link_to "Promo", clients_promos_path %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>

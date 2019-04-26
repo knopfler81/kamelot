@@ -1,18 +1,23 @@
-<div class="container" data-turbolinks="false">
-		<h2>MES COMMANDES PASSÉES</h2>
+<div class="container">
+		<h2>MES COMMANDES</h2>
 		<hr>
 		<br>
-	<div class="row">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Commande n°</th>
+				<th>Passée le</th>
+				<th>Montant</th>
+				<th>Statut</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody id="client_orders">
+			
+		<%= render partial: "client_orders" %>
+		</tbody>
+	</table>
+	<%= will_paginate @client_orders %>
 
-		<div class="col-12" id="client_orders">
-			<%= render partial: "client_orders" %>
-		</div>
-		<%= will_paginate @client_orders %>
-	</div>
 </div>
-
-
-
-
-
 

@@ -43,25 +43,25 @@ fr:
         clients: Clients 
         sales: Ventes
     orders:
-      cancelled_by_admin: Annulée par l'admin
+      cancelled_by_admin: Annulée par le vendeur
       cancelled_by_client: Annulée par le client
       confirmed: En cours de préparation
       missing_item: Articles manquants
       paid: En attente de traitement
       partially_refunded: Partiellement remboursée
       pending: En attente de paiement
-      finished: Envoyée - Terminée
+      finished: Expédiée
       totally_refunded: Totallement remboursée
       tabs:
         all_orders: Toutes les commandes
-        cancelled_by_admin: Annulées par l'admin
+        cancelled_by_admin: Annulées par le vendeur
         cancelled_by_client: Annulées par le client
         confirmed: En cours de préparations
         missing_item: Articles manquants
         paid: En attente de traitement
         partially_refunded: Partiellement remboursées
         pending: En attente de paiement
-        finished: Envoyées - Terminées
+        finished: Expédiées
         totally_refunded: Totallement remboursées
   clients:
     orders:
@@ -73,7 +73,7 @@ fr:
       paid: En attente de traitement
       partially_refunded: Partiellement remboursée
       pending: En attente de paiement
-      finished: Envoyée - Terminée
+      finished: Expédiée
       totally_refunded: Totallement remboursée
   will_paginate:
      previous_label: "&#8592; Précédente"

@@ -96,19 +96,31 @@ RSpec.describe Order do
 
 	context "the order with a paid status" do 
 		scenario "the user can cancel his order" do 
-			order = create(:order, status: "paid")
+			mark 	= create(:user)
+			login_as(mark)
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@variant = create(:variant, product_id: @product.id, size: "L")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
+			create(:shipping_address, user_id: mark.id)
+			order = create(:order, status: "paid", user_id: mark.id)
 
 			visit clients_order_path(order)
-
+			
 			click_on "Annuler ma commande"
 			
-			expect(page).to have_content("Votre commande a été annulée")
+			expect(page).to have_content("Vous avez annulé votre commande")
 		end
 	end
 
 	context "the order with a confirmed status" do 
 		scenario "the user can't cancel his order" do 
-			order = create(:order, status: "confirmed")
+			mark 	= create(:user)
+			login_as(mark)
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@variant = create(:variant, product_id: @product.id, size: "L")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
+			create(:shipping_address, user_id: mark.id)
+			order = create(:order, status: "confirmed", user_id: mark.id)
 
 			visit clients_order_path(order)
 			
@@ -118,7 +130,13 @@ RSpec.describe Order do
 
 	context "the order with a finished status" do 
 		scenario "the user can't cancel his order" do 
-			order = create(:order, status: "finished")
+			mark 	= create(:user)
+			login_as(mark)
+			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@variant = create(:variant, product_id: @product.id, size: "L")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
+			create(:shipping_address, user_id: mark.id)
+			order = create(:order, status: "finished", user_id: mark.id)
 
 			visit clients_order_path(order)
 			

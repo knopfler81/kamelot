@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe Returning do
 
 	scenario "Asking for a returning" do
-		order  = create(:order, status: 3, return_asked: false)
 		james  = create(:user)
 		login_as(james)
+		address = create(:shipping_address, user_id: james.id)
+		order  = create(:order, status: 3, return_asked: false, user_id: james.id)
 
 		visit clients_order_path(order)
 		

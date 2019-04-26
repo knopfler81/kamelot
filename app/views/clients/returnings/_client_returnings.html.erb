@@ -1,21 +1,16 @@
 <% @client_returnings.order('created_at DESC').each do |returning| %>
-	<%= link_to clients_returning_path(returning) do  %>
-		<div class="small-cards">
-			<div class="row">
-				<div class="col-4">
-					<p>Demandé le : </p><p><%= l(returning.created_at, format: '%d %B %Y' )%></p>
-				</div>
-				<div class="col-4">
-					<p>Articles: <%= returning.total_items_count %></p>
-					<p>Total : <%= number_to_currency_euro returning.total_refund %></p>
-				</div>
-				<div class="col-2">
-					<p><%= returning.status %></p>
-				</div>
-				<div class="col-2">
-					<i class="fa fa-chevron-right"></i>
-				</div>
-			</div>		
-		</div>
-	<% end %>
+	<tr>
+		<td>
+			FR-000<%= returning.id %>
+		</td>
+		<td>
+			<%= l(returning.created_at, format: '%d %B %Y' )%>
+		</td>
+		<td><%= number_to_currency_euro returning.total_refund %></td>
+		<td><%= t("clients.returnings.#{returning.status}") %></td>
+		<td><%= link_to  clients_returning_path(returning), class: "btn btn-watch" do %>
+			<i class="fa fa-eye"></i>
+		<% end %></td>
+	</tr>
 <% end %>
+

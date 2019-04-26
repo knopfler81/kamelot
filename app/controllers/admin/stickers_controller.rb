@@ -37,7 +37,7 @@ class Admin::StickersController < Admin::ApplicationController
 	 end
 
 	 def find_product
-	 	@product = Product.find(params[:product_id])
+	 	@product = Product.friendly.find(params[:product_id])
 	 end
 	 
 end

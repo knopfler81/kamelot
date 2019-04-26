@@ -1,87 +1,154 @@
 <div class="container">
 
-	<h1 class="primary_title">MA COMMANDE N° <%= @order.id %></h1>
+	<h1 class="primary_title">MA COMMANDE N° FR-000<%= @order.id %> - <%= t("clients.orders.#{@order.status}") %></h1>
 	<hr>
 	<div class="row">
 		<div class="col-12">
-			<div class="row">
-				<div class="col-12 col-md-4">
-					<p>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></p>
-					<p>Commande: FR-000<%= @order.id %></p>
-				</div>
-
-				<div class="col-12 col-md-4">
-					<p>Nombre d'articles: <%= @order.sent_articles %></p>
-					<p>Sous total : <%= number_to_currency_euro @order.sub_total %></p>
-			 </div>
-
-			 <div class="col-12 col-md-4">
-			 <p>Statut de la commande : </p> 
-			 <p><%= t("clients.orders.#{@order.status}") %></p>
-			 </div>
-			<div class="col-12">
-				<hr>
-			</div>
-		  <br><br>
-
-				<div class="row">
-					<% @order.items.each do |item| %>
-						<div class="col-12 col-md-10 offset-md-1">
-							<div class="row">	
-								<div class="col-2">
-									<%= link_to clients_product_path(item.variant.product) do  %>
-										<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
-									<% end %>
-								</div>
-								<div class="col-8">
-									<% if item.missing_quantity >= 1 %>
-									<p><%= item.quantity - item.missing_quantity %> articles disponibles au lieu de <%= item.quantity %> en taille taille <%= item.variant.size %> - <%= number_to_currency_euro item.price * (item.quantity - item.missing_quantity) %></p>
-							 		 <% else %>
-								 		<p><%= item.quantity %>-<%= item.variant.product.title %>, taille <%= item.variant.size %> - <%= number_to_currency_euro item.price * item.quantity %></p>
-							 		<% end %>
-									<% if item.selected == true %>
-										<p>L'article a été retourné</p>
-									<% end %>
-								</div>
-							</div>
-						</div>
-					<% end %>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-6">
+			<ul class="list-inline-mb-0">
+				<li class="list-inline-item">
 					<% unless @order.cancelled_by_client? || @order.cancelled_by_admin? %>
-						<%= link_to "Télécharger la facture", clients_order_path(@order, format: "pdf"), target: "_blank", class: "btn btn-secondary" %>
+						<%= link_to "Télécharger la facture", clients_order_path(@order, format: "pdf"), target: "_blank", class: "btn btn-link link_invoice" %>
 					<% end %>
-				</div>
-				<div class="col-6">
-					<% if @order.status == "paid" %>
+				</li>
+				<li class="list-inline-item">
+					<% if @returning.nil? && @order.finished? && Date.today <= @order.return_limit_date %>
+						<%= simple_form_for(@order, url: clients_order_path(@order))do |f| %>
+							<%= f.hidden_field :return_asked, value: true %>
+							<%= f.submit "Demander un retour", class: " btn btn-link link_invoice" , id: "ask-return" %>
+						<% end %>
+					<% elsif @order.return_asked? %>
+						<%= link_to "Voir le retour", clients_order_returning_returning_items_path(@order, @returning), class: "btn btn-link link_invoice" %>	
+					<% end %>
+				</li>
+				<li class="list-inline-item">
+					<% if @order.paid? %>
 						<%= simple_form_for(@order, url: clients_order_path(@order) )do |f| %>
 						  <%= f.hidden_field :status, value: "cancelled_by_client" %>
-						  <%= submit_tag "Annuler ma commande", class: "btn btn-link", data: { confirm: "Etes vous sure de vouloir annuler votre commande?" } %>
+						  <%= submit_tag "Annuler ma commande", class: "btn btn-link link_invoice", data: { confirm: "Etes vous sure de vouloir annuler votre commande?" } %>
 						<% end %>
-					<% elsif @order.cancelled_by_client? %>
-						<p>Votre commande a été annulée.</p>
-					<% elsif @order.confirmed? %>
-						<p>Votre commande a été prise en charge par notre équipe, nous ne pouvons plus pas l'annuler.</p>
-					<% elsif @order.finished? %>
-					<p>Votre commande a été expédiée</p>
-						<% if Date.today <= @order.return_limit_date %>
-								Vous pouvez retourner vos articles jusqu'au <%= l(@order.return_limit_date, format: '%d %B %Y') %> inclus
-						<% end %>
-							<% if @returning.nil? %>
-							<%= simple_form_for(@order, url: clients_order_path(@order))do |f| %>
-								<%= f.hidden_field :return_asked, value: true %>
-								<%= f.submit "Demander un retour", class: " btn btn-secondary btn-sm" , id: "ask-return" %>
-							<% end %>
-							<% else %>
-							<br>
-								<%= link_to "Voir le retour", clients_order_returning_returning_items_path(@order, @returning), class: "btn btn-secondary btn-sm" %>	
 					<% end %>
-							<% end %>
-				</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-12 col-md-4">
+			<div class="address_box">
+				<p>ADRESSE DE LIVRAISON</p>
+				<p><%= @order.user.full_name %></p>
+				<p><%= @order.user.shipping_address.address_1 %></p>
+				<p><%= @order.user.shipping_address.address_2 %></p>
+				<p><%= @order.user.shipping_address.zipcode %> <%= @order.user.shipping_address.city %></p>
+				<p><%= @order.user.shipping_address.phone %></p>
+			</div>
+		</div>
+		<div class="col-12 col-md-4">
+			<div class="address_box">
+				<p>ADRESSE DE FACTURATION</p>
+				<% if @order.user.billing_address %>
+					<p><%= @order.user.full_name%></p>
+					<p><%= @order.user.billing_address.address_1 %></p>
+					<p><%= @order.user.billing_address.address_2 %></p>
+					<p><%= @order.user.billing_address.zipcode %> <%= @order.user.billing_address.city %></p>
+					<p><%= @order.user.billing_address.phone %></p>
+				<% else %>
+					<p><%= @order.user.full_name%></p>
+					<p><%= @order.user.shipping_address.address_1%></p>
+					<p><%= @order.user.shipping_address.address_2 %></p>
+					<p><%= @order.user.shipping_address.zipcode %> <%= @order.user.shipping_address.city %></p>
+					<p><%= @order.user.shipping_address.phone %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-12 col-md-4">
+			<div class="address_box">
+				<p>LIVRAISON</p>
+				<p>La Poste - Colissimo</p>
 			</div>
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<% if @order.cancelled_by_client? %>
+				<p>Vous avez annulé votre commande.</p>
+				<% if @order.totally_refunded? %>
+					<p>Vous avez été remboursé</p>
+				<% end %>
+			<% elsif @order.confirmed? %>
+				<p>Votre commande a été prise en charge par notre équipe, nous ne pouvons plus pas l'annuler.</p>
+		<% end %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+		<p>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></p>
+		</div>
+	</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Article</th>
+				<th>Prix</th>
+				<th>Qté</th>
+				<th>Sous total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @order.items.each do |item| %>
+				<tr>
+					<td>
+						<%= link_to clients_product_path(item.variant.product) do  %>
+							<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
+						<% end %>
+					</td>
+					<td><%= number_to_currency_euro item.price %></td>
+					<td>
+						<p>Commandé: <%= item.quantity %></p>
+						<% if @order.finished? %>
+							<p>Livré: <%= item.quantity - item.missing_quantity %></p>
+						<% end %>
+
+						<% if item.missing_quantity > 0 %>
+							<p>Manquant: <%= item.missing_quantity %></p>
+							<p>Remboursé: <%= item.missing_quantity + (@order.return_asked ? item.returning_item.quantity  : 0 )%></p>
+						<% end %>
+						<% if item.selected == true %>
+						 <p>Retourné: <%= item.returning_item.quantity %></p>
+						<% end %>
+					</td>
+					<td><%= number_to_currency_euro item.price * item.quantity %></td>
+				</tr>
+			<% end %>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan='3' align="left">
+					Sous total
+				</td>
+				<td>
+					<%= number_to_currency_euro @order.sub_total %>
+				</td>
+			</tr>
+			<tr>
+				<td colspan='3' align="left">
+					Frais de port
+				</td>
+				<td>
+				 5,00 €
+				</td>
+			</tr>
+			<tr>
+				<td colspan='3' align="left">
+					Total
+				</td>
+				<td>
+				 <%= number_to_currency_euro @order.sub_total + 5 %>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
 </div>

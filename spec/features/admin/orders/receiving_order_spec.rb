@@ -18,7 +18,7 @@ RSpec.describe Order do
 
 			click_on "Je prépare la commande"
 
-			expect(page).to have_content("Status: En cours de préparation")
+			expect(page).to have_content("En cours de préparation")
 		end
 
 		scenario "Admin send the order" do
@@ -29,7 +29,7 @@ RSpec.describe Order do
 
 			click_on "J'ai envoyé la commande"
 
-			expect(page).to have_content("Status: Envoyée - Terminée")
+			expect(page).to have_content("Expédiée")
 		end
 	end
 
@@ -50,7 +50,7 @@ RSpec.describe Order do
 		
 			click_on "Confirmer et prévenir le client"
 
-			expect(page).to have_content("Status: Articles manquants")
+			expect(page).to have_content("Articles manquants")
 		end
 	end
 
