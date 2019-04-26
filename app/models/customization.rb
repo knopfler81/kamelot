@@ -1,6 +1,9 @@
 class Customization < ApplicationRecord
 
-	mount_uploader :main_image, MainImageUploader
+	mount_uploader :main_image,   MainImageUploader
+	mount_uploader :second_image, SecondImageUploader
+	mount_uploader :third_image,  ThirdImageUploader
+
 
 	INSTANCE_ID =  66
 

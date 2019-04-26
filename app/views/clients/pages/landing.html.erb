@@ -1,13 +1,35 @@
-<div class="landing-image">
-	<style>
-		.landing-image { background-image: url("<%= @customization.main_image.present? ? @customization.main_image_url : 'https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg' %>") }
-	</style>
-	<div class="container">
-
-	    <div class="welcome-text">
-
+<div class="container">
+	<div id="landingCarousel" class="carousel slide" data-ride="carousel">
+	  <div class="carousel-inner">
+	    <div class="carousel-item active">
+	    	<%= image_tag(@customization.main_image.present? ? @customization.main_image_url : 'https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg') %>
+	      <div class="carousel-caption d-none d-md-block">
+		      <h1 class="first-caption"><%= @customization.text_main_image.present? ? @customization.text_main_image : "Ajouter Custom Text"  %></h1>
+		      <%= link_to (@customization.text_btn_main_image.present? ? @customization.text_btn_main_image : "Custom btn Texte"), clients_category_path("pantalons"), class: "btn btn-secondary"  %>
+	    	</div>
 	    </div>
-
+	    <div class="carousel-item">
+	    	<%= image_tag(@customization.second_image.present? ? @customization.second_image_url : 'https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg') %>
+	    		<div class="carousel-caption d-none d-md-block">
+		      <h1 class="second-caption"><%= @customization.text_second_image.present? ? @customization.text_second_image : "Ajouter Custom Text"  %></h1>
+		      <%= link_to (@customization.text_btn_second_image.present? ? @customization.text_btn_second_image : "Custom btn Texte"), clients_category_path("polos"), class: "btn btn-secondary"  %>
+	    	</div>
+	    </div>
+	    <div class="carousel-item">
+	    	<%= image_tag(@customization.third_image.present? ? @customization.third_image_url : 'https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg') %>
+	      <div class="carousel-caption d-none d-md-block">
+		      <h1 class="third-caption"><%= @customization.text_second_image.present? ? @customization.text_second_image : "Ajouter Custom Text"  %></h1>
+		      <%= link_to (@customization.text_btn_third_image ? @customization.text_btn_third_image : "Custom btn Texte"), clients_promos_path(), class: "btn btn-secondary"  %>
+	    	</div>
+	    </div>
+	  </div>
+	  <a class="carousel-control-prev" href="#landingCarousel" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#landingCarousel" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
 	</div>
 </div>
-

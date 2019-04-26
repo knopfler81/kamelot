@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_25_074550) do
+ActiveRecord::Schema.define(version: 2019_04_26_131944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(version: 2019_04_25_074550) do
     t.string "text_color", default: "#111"
     t.string "main_btn_text_color", default: "#FFF"
     t.string "secondary_btn_text_color", default: "#111"
+    t.string "text_main_image"
+    t.string "text_btn_main_image"
+    t.string "second_image"
+    t.string "third_image"
+    t.string "text_second_image"
+    t.string "text_btn_second_image"
+    t.string "text_third_image"
+    t.string "text_btn_third_image"
   end
 
   create_table "favorites", force: :cascade do |t|
