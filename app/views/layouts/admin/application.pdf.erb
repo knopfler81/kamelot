@@ -2,12 +2,12 @@
 <html>
 <head>
 <title>PDF</title>
-  <% if params[:debug].present? %>
-    <%= stylesheet_link_tag 'pdf' %>
-  <% else %>
+  <%# if params[:debug].present? %>
+    <%#= stylesheet_link_tag 'pdf' %>
+  <%# else %>
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-    <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
-  <% end %>
+    <%= wicked_pdf_stylesheet_link_tag 'pdf.scss' %>
+  <%# end %>
 </head>
 <body>
   <div class='container'>
