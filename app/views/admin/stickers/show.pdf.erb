@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<% if params[:debug].present? %>
+  <%= stylesheet_link_tag 'pdf' %>
+<% else %>
+  <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+<% end %>
 
 <div class="container">
 	<div id="stickers">
