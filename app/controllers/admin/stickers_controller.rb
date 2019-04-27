@@ -25,7 +25,7 @@ class Admin::StickersController < Admin::ApplicationController
 	      	viewport_size: '1280x1024',
 	      )
 	      pdf = WickedPdf.new.pdf_from_string(html)
-	      send_data(pdf, filename: "sticker_##{@order.id}.pdf", type: "application/pdf", disposition: 'attachment')     
+	      send_data(pdf, filename: "sticker_##{@product.id}.pdf", type: "application/pdf", disposition: 'attachment')     
 	    end
 	  end
 	end
