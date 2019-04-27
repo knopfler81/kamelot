@@ -17,7 +17,7 @@ table.qrcode {
     height: 4px;
 
     &.black {
-      background-color: red !important
+      background-color: green !important
     }
 
     &.white {
@@ -27,7 +27,7 @@ table.qrcode {
 }
 
 .sticker {
-	border: 1px dashed red;
+	border: 1px dashed green;
 	padding: 10px;
 	height: 260px;
 	width: 170px;
