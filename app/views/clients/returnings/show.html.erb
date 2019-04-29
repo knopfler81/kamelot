@@ -8,7 +8,7 @@
 			<p>Date limite retour :  <%= l(@returning.limit_date, format: '%d %B %Y') %></p>
 			<p>Total à rembourser:   <%= number_to_currency_euro @returning.total_refund %></p>
 			<p>Nombre d'articles :   <%= @returning.total_items_count %></p>
-			<p>Etat du retour :      <%= @returning.status %> </p>
+			<p>Etat du retour :      <%= t("clients.returnings.#{@returning.status}") %> </p>
 		</div>	
 		<div class="col-6">
 			<p>Date commande : <%= l(@returning.order.created_at, format: '%d %B %Y') %></p>

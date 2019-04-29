@@ -44,16 +44,12 @@ class Clients::OrdersController < Clients::ApplicationController
 		end
 	end
 
-
 	def update
-	 	if @order.cancelled_by_client?
-	 		redirect_to clients_order_path(@order), notice: "Votre commande a été annulée"
-	 	end
 	 	if @order.update_attributes(order_params)
 	 		redirect_to clients_order_path(@order)
+	 		@order.cancelled_order if @order.cancelled_by_client?
 	 	end
 	end
-
 
 	def edit
 	end

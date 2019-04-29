@@ -12,15 +12,16 @@ class Order < ApplicationRecord
 
   enum status: { pending: 0, paid: 1, confirmed: 2 , finished: 3, cancelled_by_admin: 4, cancelled_by_client: 5, partially_refunded: 6, totally_refunded: 7,  missing_item: 8}
 
-  scope :pending,            -> { where(status: :pending) }
-  scope :paid,               -> { where(status: :paid) }
-  scope :confirmed,          -> { where(status: :confirmed) }
-  scope :finished,           -> { where(status: :finished) }
-  scope :cancelled,          -> { where(status: :cancelled) }
-  scope :partially_refunded, -> { where(status: :partially_refunded) }
-  scope :totally_refunded,   -> { where(status: :totally_refunded) }
-  scope :missing_item,       -> { where(status: :missing_item) }
-  scope :all_orders,         -> { Order.all }
+  scope :pending,             -> { where(status: :pending) }
+  scope :paid,                -> { where(status: :paid) }
+  scope :confirmed,           -> { where(status: :confirmed) }
+  scope :finished,            -> { where(status: :finished) }
+  scope :cancelled_by_admin,  -> { where(status: :cancelled_by_admin) }
+  scope :cancelled_by_client, -> { where(status: :cancelled_by_client) }
+  scope :partially_refunded,  -> { where(status: :partially_refunded) }
+  scope :totally_refunded,    -> { where(status: :totally_refunded) }
+  scope :missing_item,        -> { where(status: :missing_item) }
+  scope :all_orders,          -> { Order.all }
 
   scope :filter_by_status, -> (status) do
     send(status).order('created_at DESC')
@@ -29,7 +30,6 @@ class Order < ApplicationRecord
   before_save :set_default_limit_date, on: :create
 
   after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (1 || 2), to: 3) }
-  after_save :cancelled_order,       if: Proc.new { saved_change_to_status?(from: 1, to: 4) }
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
   after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 3, to: 8)}
   
@@ -89,9 +89,9 @@ class Order < ApplicationRecord
 
   def update_total!
    if self.items.map(&:missing_quantity).sum > 0
-     self.total = self.items.sum('(quantity - missing_quantity) * price') + 5
+     self.total = self.items.sum('(quantity - missing_quantity) * price') + 5 #shipping_fees
    else 
-     self.total = self.items.sum('quantity * price') + 5
+     self.total = self.items.sum('quantity * price') + 5 #shipping_fees
    end
    self.save
   end
