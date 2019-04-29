@@ -7,16 +7,13 @@
 			<tr class="<%= 'first-stock' if @variant.stocks.order('created_at ASC').first == stock %>">
 
         <td><%= link_to "Voir", stock_admin_product_path(stock.variant.product) %></td>
-				<td><%= stock.id %></td>
 				<td><%= l(stock.created_at,  format: '%d/%m/%y' )  %></td>
 				<td><%= stock.variant.product.title %></td>
-				<td><%= stock.variant.product.id %></td>
 				<td><%= stock.variant.product.brand %></td>
 				<td><%= stock.variant.size_and_color %></td>
 				<td><%= stock.initial_quantity %></td>
 				<td><%= stock.quantity %></td>
-
-				<td><%= stock.define_supplier%></td>
+				<td><%= stock.define_supplier %></td>
 				<td> <%=number_to_currency_euro  stock.cost_price.nil? ? stock.variant.product.buying_price : stock.cost_price %></td>
 			</tr>
 	<% end %>
