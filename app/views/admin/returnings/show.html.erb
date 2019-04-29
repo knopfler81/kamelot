@@ -1,20 +1,20 @@
 <div class="container">
-<h3>RETOUR <%= @returning.user.full_name.upcase %></h3>
+<h3>RETOUR - <%= @returning.number %></h3>
 <hr>
 <br>
 	<div class="header_return">
 		<div class="row">
 			<div class="col-4">
-				<p>N° retour : <%= @returning.id %></p>
+				<p>Client: <%= @returning.user.full_name %></p>
 				<p>Date limite retour : <%= l(@returning.limit_date, format: '%d %B %Y') %></p>
 				<p>Total à rembourser: <%= number_to_currency_euro @returning.total_refund %></p>
 				<p>Nombre d'articles : <%= @returning.total_items_count %></p>
 				<p>Etat du retour : <%= t("admin.returnings.#{@returning.status}") %> </p>
 			</div>	
 			<div class="col-4">
-				<p>N° client : <%= @returning.user.id %></p>
+				<p>N° client : <%= @returning.user.number %></p>
 				<p>Date commande : <%= l(@returning.order.created_at, format: '%d %B %Y') %></p>
-				<p>N° commande : <%= @returning.order.id %></p>
+				<p>N° commande : <%= @returning.order.number %></p>
 			</div>
 			<div class="col-4">
 				<% if @returning.status == "pending" %>

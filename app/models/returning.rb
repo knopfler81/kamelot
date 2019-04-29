@@ -12,6 +12,9 @@ class Returning < ApplicationRecord
   after_save :send_email_with_status
 	after_save :set_order_status
 	
+	def number
+	   "RET-00" + self.id.to_s
+	end
 
 	def re_add_to_stock 
 		if self.refunded?

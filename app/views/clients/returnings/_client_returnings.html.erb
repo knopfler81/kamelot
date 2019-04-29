@@ -1,7 +1,7 @@
 <% @client_returnings.order('created_at DESC').each do |returning| %>
 	<tr>
 		<td>
-			FR-000<%= returning.id %>
+			<%= returning.number %>
 		</td>
 		<td>
 			<%= l(returning.created_at, format: '%d %B %Y' )%>

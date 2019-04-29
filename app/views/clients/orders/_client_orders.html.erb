@@ -1,7 +1,7 @@
 <% @client_orders.order('created_at DESC').each do |order| %>
 	<tr>
 		<td>
-			FR-000<%= order.id %>
+			<%= order.number %>
 		</td>
 		<td>
 			<%= l(order.created_at, format: '%d %B %Y' )%>

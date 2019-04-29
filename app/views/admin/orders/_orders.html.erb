@@ -3,7 +3,7 @@
 		<td><%= l(order.created_at, format: '%d %B %Y' ) %></td>
 		<td><%= order.user.last_name %> </td>
 		<td><%= order.user.first_name %></td>
-		<td >#00<%= order.id %></td>
+		<td ><%= order.number %></td>
 		<td class="<%= "#{order.status.downcase}_status_tab" %>" ><%= I18n.t("admin.orders.#{order.status}") %></td>
 		<td><%= number_to_currency_euro(order.sub_total) %></p></td>
 		<td><%= link_to  admin_order_path(order), class: "btn btn-watch" do %>
