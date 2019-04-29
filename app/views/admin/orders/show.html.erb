@@ -1,11 +1,7 @@
 <div class="container">
-
 	<h1 class="primary_title">COMMANDE N° <%= @order.number %> - <%= t("admin.orders.#{@order.status}") %></h1>
 	<hr>
-
 	<%= link_to " Retour à la liste des commandes", admin_orders_path, class: 'btn btn-main' %> 
-
-
 	<div class="row">
 		<div class="col-12 col-md-4">
 			<div class="address_box">
@@ -35,8 +31,12 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="col-12 col-md-4">
+	</div>
+	<div class="row">
+		<div class="col-12">
 			<div class="order_box">
+				Gestion de la commande: <br>
+					Tous les articles sont disponibles
 				<% if @order.paid? %>
 					<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 					  <%= f.hidden_field :status, value: "confirmed" %>
@@ -76,7 +76,7 @@
 		
 				</div>
 			</div>
-		</div>
+	</div>
 	<div class="row">
 		<div class="col-12">
 		<p>Commande passée le <%= l(@order.created_at, format: '%d %B %Y' )%></p>

@@ -89,10 +89,6 @@ class Admin::ProductsController < Admin::ApplicationController
 		@product = Product.friendly.find(params[:id])
 	end
 
-	def find_size
-		@size = Size.find(params[:product_id])
-	end
-
 	def params_product
 		params.require(:product).permit(:id, :user_id, :title, :ref, :brand, :description, :weight, :buying_price, :price, :category_id, :supplier_id, :color, :qr_code, :discounted_price, :discount_percentage,{ attachments:[]}, variants_attributes: [:id, :size, :color, :price, :cost_price, :supplier_id, :_destroy])
 	end

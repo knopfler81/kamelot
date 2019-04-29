@@ -70,6 +70,7 @@ Rails.application.routes.draw do
 
 			resources :orders do
 				patch "order_items", to: "order_items#update"
+				#post "/pay", to: "orders#pay" (si on veut différer le paiement)
 				resources :order_items
 			end
 

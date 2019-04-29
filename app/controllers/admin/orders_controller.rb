@@ -25,26 +25,39 @@ class Admin::OrdersController < Admin::ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
+
 		if @order.finished?
 			OrderMailer.order_sent(@order).deliver_now
-			redirect_to admin_order_path(@order)
-		elsif @order.confirmed?
-			redirect_to admin_order_path(@order)
-		elsif @order.partially_refunded?
-			redirect_to admin_order_path(@order)
-		elsif @order.totally_refunded?
-			redirect_to admin_order_path(@order)
-		elsif @order.cancelled_by_admin? 
-			redirect_to admin_order_path(@order)
 		elsif @order.missing_item?
 			@order.update_sub_total!
 			@order.update_total!
 			OrderMailer.we_are_sorry(@order).deliver_now
-			redirect_to admin_order_path(@order)
 		end
+
+		redirect_to admin_order_path(@order)
 	end
 
+	# def pay
+	# 	order = Order.find(params[:id])
+	# 	charge = Stripe::Charge.retrieve(order.charge_id)
+	# 	# https://stripe.com/docs/charges#auth-capture
+	# 	charge.capture(amount: order.sub_total)
+
+	# 	if charge.captured?
+	# 		order.update_attributes!(status: 'paid', payment: charge.to_json)
+	# 		# it works, the debit was ok
+	# 	else
+	# 		# it didn't work
+	# 	end
+
+	# 	redirect_to admin_order_path(@order)
+	# end
+
 	private
+
+	# def capture_charge
+	# 	Stripe::Charge.capture(charge.id)
+	# end
 
 	def filter_orders
 		@orders = Order.joins(:user).where('lower(users.last_name) LIKE ?', "%#{params[:query][:keyword].downcase }%")

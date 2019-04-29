@@ -10,7 +10,17 @@ class Order < ApplicationRecord
 
   monetize :total_cents
 
-  enum status: { pending: 0, paid: 1, confirmed: 2 , finished: 3, cancelled_by_admin: 4, cancelled_by_client: 5, partially_refunded: 6, totally_refunded: 7,  missing_item: 8}
+  enum status: {
+    pending: 0,
+    paid: 1,
+    confirmed: 2 ,
+    finished: 3,
+    cancelled_by_admin: 4,
+    cancelled_by_client: 5,
+    partially_refunded: 6,
+    totally_refunded: 7,
+    missing_item: 8,
+  }
 
   scope :pending,             -> { where(status: :pending) }
   scope :paid,                -> { where(status: :paid) }
