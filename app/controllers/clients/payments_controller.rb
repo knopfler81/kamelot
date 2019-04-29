@@ -12,8 +12,25 @@ class Clients::PaymentsController < Clients::ApplicationController
 	    customer:     customer.id,
 	    amount:       @order.total_cents,
 	    description:  "Paiment pour la commande #{@order.id}",
-	    currency:     @order.total.currency
+	    currency:     @order.total.currency,
+	    capture: false
 	  )
+
+	  # Create charge without debit on account
+	  # charge = Stripe::Charge.create(
+	  #   customer:     customer.id,
+	  #   amount:       @order.total_cents,
+	  #   description:  "Paiment pour la commande #{@order.id}",
+	  #   currency:     @order.total.currency,
+	  #   # capture: false
+	  # )
+
+
+	  # Keep charge.id
+
+	  # Debit charge
+	  # charge = Stripe::Charge.retrieve(charge.id)
+	  # charge.capture
 
 	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
 
