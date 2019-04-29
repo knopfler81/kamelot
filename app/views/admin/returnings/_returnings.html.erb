@@ -4,7 +4,7 @@
 		<td><%= returning.user.last_name %> </td>
 		<td><%= returning.user.first_name %></td>
 		<td >#00<%= returning.id %></td>
-		<td class="<%= "#{returning.status.downcase}_status_tab" %>" ><%= t(".#{returning.status}") %></td>
+		<td class="<%= "#{returning.status.downcase}_status_tab" %>" ><%= t("admin.returnings.#{returning.status}") %></td>
 		<td><%#= number_to_currency_euro(returning.sub_total) %></p></td>
 		<td><%= link_to  admin_returning_path(returning), class: "btn btn-watch" do %>
 			<i class="fa fa-eye"></i>
