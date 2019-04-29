@@ -1,5 +1,4 @@
 <div class="container">
-	
 	<h1 class="primary_title manage_stock_title">ARTICLES</h1>
 	<hr>
 	<br><br>
@@ -30,7 +29,7 @@
 			<tbody>
 				<% @products.each do |product| %>
 				<tr>
-					<td><%= image_tag(product.attachments.first.url, class: "small_image") %></td>
+					<td><%= image_tag(product.attachments.first.url, class: "list_images") %></td>
 					<td><%= product.title %></td>
 					<td><%= product.brand %></td>
 					<td><%= product.ref %></td>

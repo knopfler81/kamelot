@@ -36,7 +36,7 @@
 	   				<span class="badge badge-pill badge-danger"><%= Order.where(status: "paid").count %></span>
 	   			<% end %>
 	      </a>
-	       <ul class="collapse list-unstyled submenu" id="order">
+	       <ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('orders') %>" id="order">
 	           <li>
 	              <%= link_to "Commandes internet", admin_orders_path,  class: "list-item" %>
 	           </li>
@@ -68,9 +68,9 @@
 		   <i class="fas fa-tshirt"></i>
 		    <span class="menu-title">Articles</span>
 		  </a>
-	   	<ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('article') %>" id="article">
+	   	<ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('products') %>" id="article">
 	      <li>
-	        <%= link_to "Tous les articles",  admin_list_path , class: "drop-item" %>
+	        <%= link_to "Tous les articles", admin_list_path , class: "drop-item" %>
 	      </li>
 	      <li>
 	        <%= link_to "Ajouter un article", new_admin_product_path, class: "drop-item" %>
@@ -102,7 +102,7 @@
 		    <i class="fas fa-address-book"></i>
 		    <span class="menu-title">Fournisseurs</span>
 		  </a>
-		    <ul class="collapse list-unstyled submenu" id="suppliers">
+		    <ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('suppliers') %>" id="suppliers">
 		      <li>
 		        <%= link_to "Ajouter fournisseur", new_admin_supplier_path,  class: "drop-item" %>
 		      </li>
@@ -117,7 +117,7 @@
 		    <i class="fas fa-users"></i>
 		    <span class="menu-title">Utilisateurs</span>
 		  </a>
-		  <ul class="collapse list-unstyled submenu" id="users">
+		  <ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('users') %>" id="users">
 	      <li>
 	        <%= link_to "Utilisateurs", "#",  class: "list-item" %>
 	      </li>
@@ -130,7 +130,7 @@
 			    <i class="fa fa-tachometer-alt"></i>
 			    <span class="menu-title">Dashboard</span>
 			  </a>
-			 	<ul class="collapse list-unstyled submenu" id="dashboard">
+			 	<ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('dashboards') %>" id="dashboard">
 		      <li>
 		        <%= link_to "Journal", admin_dashboard_journal_path, class: "drop-item" %>
 		      </li>

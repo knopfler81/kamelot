@@ -51,7 +51,7 @@ class Product < ApplicationRecord
 		if self.discount_percentage > 0
 			if self.stocks.any?
 				self.stocks.each do |stock|
-			  	stock.discount = stock.price - ( stock.price * stock.variant.product.discount_percentage / 100)
+			  	stock.discount = stock.price - (stock.price * stock.variant.product.discount_percentage / 100)
 			  	stock.save!
 			  end
 			end
