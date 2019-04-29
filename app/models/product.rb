@@ -16,6 +16,7 @@ class Product < ApplicationRecord
 
 
 	before_save :set_discount
+	before_save :upcase_ref
 
 	accepts_nested_attributes_for :variants
 	
@@ -31,6 +32,10 @@ class Product < ApplicationRecord
 
 	validate  :attachment_size
 
+
+	def upcase_ref
+		self.ref.upcase
+	end
 
 	def slug_title_brand_id 
 		"#{self.title}- #{self.brand}-#{self.color}"
