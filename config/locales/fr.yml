@@ -4,6 +4,7 @@ fr:
       category: Catégorie
       user: Utilisateur
       product: Article
+      supplier: Fournisseur
     errors:
       models:
         product:
@@ -33,8 +34,17 @@ fr:
         phone: Numéro de téléphone
       product:
         attachments: Images
-      product/sizes:
-        size_n: Taille
+        buying_price: Prix d'achat
+        brand: Marque
+        category_id: Catégorie
+        color:  Couleur
+        description: Description
+        discount_percentage: Pourcentage de remise
+        price: Prix de vente
+        ref: Référence
+        supplier_id: Fournisseur
+        title: Titre
+        weight: Poids en grammes
   admin:
     dashboards:
       show:
@@ -63,6 +73,10 @@ fr:
         pending: En attente de paiement
         finished: Expédiées
         totally_refunded: Totallement remboursées
+    returnings:
+      confirmed: Retour réceptionné
+      pending: En attente
+      refunded: Remboursé
   clients:
     orders:
       all_orders: Toutes les commandes
@@ -74,7 +88,11 @@ fr:
       partially_refunded: Partiellement remboursée
       pending: En attente de paiement
       finished: Expédiée
-      totally_refunded: Totallement remboursée
+      totally_refunded: Totallement remboursé
+    returnings:
+      confirmed: Retour réceptionné
+      pending: En attente
+      refunded: Remboursé
   will_paginate:
      previous_label: "&#8592; Précédente"
      next_label: "Suivante &#8594;"
