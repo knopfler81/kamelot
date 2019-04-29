@@ -35,7 +35,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def edit
-		@product.variants.build
+		@product.variants
 	end
 
 	def qr_codes

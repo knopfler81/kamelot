@@ -14,9 +14,9 @@
 									<li><strong><%= number_to_currency_euro @sticker.product.price %></strong></li>
 									<li><%= @sticker.product.title %> - <%= @sticker.product.color %></li>
 									<li><%= @sticker.product.brand %></li>
-									<li class="list-inline-item"><% available_sizes(@sticker.product).map do |size|  %>
-										<%= size %>
-									<% end %>
+									<li class="list-inline-item"><%# available_sizes(@sticker.product).map do |size|  %>
+										<%#= size %>
+									<%# end %>
 								  </li>
 							</div>
 						</div>
