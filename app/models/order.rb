@@ -131,16 +131,6 @@ class Order < ApplicationRecord
     self.update_attributes(return_limit_date: self.updated_at + 10.days  )
   end
 
-  def send_message(text_message)
-    client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-
-    client.messages.create({
-      from: ENV["TWILIO_PHONE_NUMBER"],
-      to:   ENV["MY_PERSONAL_PHONE_NUMBER"],  
-      body: text_message
-    })
-  end
-
   def item_qty
     self.items.map(&:quantity).sum
   end

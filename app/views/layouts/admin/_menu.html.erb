@@ -52,9 +52,9 @@
           <span class="badge badge-pill badge-danger"><%= @current_basket.items_count %></span>
         <% end %>
 		  </a>
-	    <ul class="collapse list-unstyled submenu" id="market">
+	    <ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('sales') %>" id="market">
 	      <li>
-	        <%= link_to "Ventes marchés", admin_sales_path,  class: "list-item" %>
+	        <%= link_to "Ventes marchés", admin_sales_path,  class: "list-item #{'active' if true}" %>
 	      </li>
 
 	     	<li>
@@ -68,7 +68,7 @@
 		   <i class="fas fa-tshirt"></i>
 		    <span class="menu-title">Articles</span>
 		  </a>
-	   	<ul class="collapse list-unstyled submenu" id="article">
+	   	<ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('article') %>" id="article">
 	      <li>
 	        <%= link_to "Tous les articles",  admin_list_path , class: "drop-item" %>
 	      </li>
