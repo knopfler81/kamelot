@@ -23,6 +23,11 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
+
+  def number
+     "USR-00" + self.id.to_s
+  end
+
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end

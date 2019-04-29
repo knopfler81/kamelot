@@ -33,6 +33,9 @@ class Order < ApplicationRecord
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
   after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 3, to: 8)}
   
+  def number
+     "CDE-00" + self.id.to_s
+  end
 
   def set_default_limit_date
     self.return_limit_date = Date.today + 10.days

@@ -1,6 +1,6 @@
 <div class="container">
 
-	<h1 class="primary_title">COMMANDE N° FR-000<%= @order.id %> - <%= t("admin.orders.#{@order.status}") %></h1>
+	<h1 class="primary_title">COMMANDE N° <%= @order.number %> - <%= t("admin.orders.#{@order.status}") %></h1>
 	<hr>
 
 	<%= link_to " Retour à la liste des commandes", admin_orders_path, class: 'btn btn-main' %> 
