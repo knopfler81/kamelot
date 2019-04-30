@@ -12,21 +12,21 @@
 		</div>
 
 		<div class="row">
-			<div class="col-12 col-md-8 images_gallery ">
-				<div class="row">
-					<div class="col-2 offset-1 d-none d-md-block">
-						<% @product.attachments.each do |img| %>
-							<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
-						<% end %>
-					</div>
-					<div class="col-8 d-none d-md-block  ">
-						<div id="big_image_show">
-							<!-- big_images est généré dans le JS  Ici on affiche les images au hover avec le JS -->
-							<%= image_tag(@product.attachments[0].url, class: "big_image") %>
-						</div>
+		<div class="col-12 col-md-8 images_gallery ">
+			<div class="row">
+				<div class="col-2 offset-1 d-none d-md-block">
+					<% @product.attachments.each do |img| %>
+						<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
+					<% end %>
+				</div>
+				<div class="col-8 d-none d-md-block  ">
+					<div id="big_image_show">
+						<!-- big_images est généré dans le JS  Ici on affiche les images au hover avec le JS -->
+						<%= image_tag(@product.attachments[0].url, class: "big_image") %>
 					</div>
 				</div>
 			</div>
+		</div>
 			<div class="col-12 col-md-4">
 				<br>
 				<div class="row">

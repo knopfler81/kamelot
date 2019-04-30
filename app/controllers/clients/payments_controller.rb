@@ -11,9 +11,8 @@ class Clients::PaymentsController < Clients::ApplicationController
 	  charge = Stripe::Charge.create(
 	    customer:     customer.id,
 	    amount:       @order.total_cents,
-	    description:  "Paiment pour la commande #{@order.id}",
+	    description:  "Commande #{@order.id} - #{@order.user.full_name}",
 	    currency:     @order.total.currency,
-	    capture: false
 	  )
 
 	  # Create charge without debit on account

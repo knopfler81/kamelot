@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
 
   #require 'csv'
+  require 'json'
 
   belongs_to :user,  optional: true
   has_many   :items, class_name: "OrderItem", dependent: :destroy
@@ -28,7 +29,6 @@ class Order < ApplicationRecord
   end
 
   before_save :set_default_limit_date, on: :create
-
   after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (1 || 2), to: 3) }
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
   after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 3, to: 8)}
@@ -141,6 +141,10 @@ class Order < ApplicationRecord
 
   def all_is_missing?
     item_qty - item_missing == 0 ? true : false
+  end
+
+  def payment_id
+    JSON.parse(self.payment)["id"]
   end
 
   # def self.to_csv
