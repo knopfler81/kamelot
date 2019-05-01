@@ -8,29 +8,29 @@ class Clients::PaymentsController < Clients::ApplicationController
 	    email:  params[:stripeEmail]
 	  )
 
-	  charge = Stripe::Charge.create(
-	    customer:     customer.id,
-	    amount:       @order.total_cents,
-	    description:  "Commande #{@order.id} - #{@order.user.full_name}",
-	    currency:     @order.total.currency,
-
-	  )
-	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
-
-	  ## Dans le cas où on veut encaisser plus tard
-	  ## Create charge without debit on account
 	  # charge = Stripe::Charge.create(
 	  #   customer:     customer.id,
 	  #   amount:       @order.total_cents,
-	  #   description:  "Paiment pour la commande #{@order.id}",
+	  #   description:  "Commande #{@order.id} - #{@order.user.full_name}",
 	  #   currency:     @order.total.currency,
-	  #   capture: false
+
 	  # )
+	  # @order.update_attributes!(payment: charge.to_json, status: 'paid')
+
+	  ## Dans le cas où on veut encaisser plus tard
+	  ## Create charge without debit on account
+	  charge = Stripe::Charge.create(
+	    customer:     customer.id,
+	    amount:       @order.total_cents,
+	    description:  "Cde #{@order.number} - #{@order.user.full_name}",
+	    currency:     @order.total.currency,
+	    capture: false
+	  )
 	  ## Keep charge.id
-	  ## Debit charge
-	  # charge = Stripe::Charge.retrieve(charge.id)
+	  # Debit charge
+	   charge = Stripe::Charge.retrieve(charge.id)
 	  # charge.capture
-	  #@order.update_attributes!(charge_id: charge.id, status: 'status_qui_encaisse')
+	   @order.update_attributes!(payment: charge.to_json, charge_id: charge.id, status: 'pending')
 
 	  if @order.save
 		  @order.remove_from_stock
@@ -62,6 +62,6 @@ class Clients::PaymentsController < Clients::ApplicationController
 	end
 
   def set_order
-    @order = Order.where(status: 'pending', token: session[:cart_token]).find(params[:order_id])
+    @order = Order.where(status: 'ongoing', token: session[:cart_token]).find(params[:order_id])
   end
 end

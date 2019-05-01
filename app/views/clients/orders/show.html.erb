@@ -12,7 +12,7 @@
 				</li>
 				<li class="list-inline-item">
 
-					<% if @returning.nil? && (@order.full_shipped? || @order.partly_shipped?) && Date.today <= @order.return_limit_date %>
+					<% if @returning.nil? && @order.shipped? && Date.today <= @order.return_limit_date %>
 						<%= simple_form_for(@order, url: clients_order_path(@order))do |f| %>
 							<%= f.hidden_field :return_asked, value: true %>
 							<%= f.submit "Demander un retour", class: " btn btn-link link_invoice" , id: "ask-return" %>
@@ -22,7 +22,7 @@
 					<% end %>
 				</li>
 				<li class="list-inline-item">
-					<% if @order.paid? %>
+					<% if @order.pending? %>
 						<%= simple_form_for(@order, url: clients_order_path(@order) )do |f| %>
 						  <%= f.hidden_field :status, value: "cancelled_by_client" %>
 						  <%= submit_tag "Annuler ma commande", class: "btn btn-link link_invoice", data: { confirm: "Etes vous sure de vouloir annuler votre commande?" } %>
@@ -33,10 +33,9 @@
 		</div>
 	</div>
 
-
 	<div class="row">
 		<div class="col-12 col-md-4">
-			<div class="address_box">
+			<div class="order_box">
 				<p>ADRESSE DE LIVRAISON</p>
 				<p><%= @order.user.full_name %></p>
 				<p><%= @order.user.shipping_address.address_1 %></p>
@@ -46,7 +45,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-md-4">
-			<div class="address_box">
+			<div class="order_box">
 				<p>ADRESSE DE FACTURATION</p>
 				<% if @order.user.billing_address %>
 					<p><%= @order.user.full_name%></p>
@@ -64,7 +63,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-md-4">
-			<div class="address_box">
+			<div class="order_box">
 				<p>LIVRAISON</p>
 				<p>La Poste - Colissimo</p>
 			</div>
@@ -109,7 +108,7 @@
 					<td><%= number_to_currency_euro item.price %></td>
 					<td>
 						<p>Commandé: <%= item.quantity %></p>
-						<% if @order.full_shipped? %>
+						<% if @order.shipped? %>
 							<p>Livré: <%= item.quantity - item.missing_quantity %></p>
 						<% end %>
 

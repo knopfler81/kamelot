@@ -25,38 +25,35 @@ class Admin::OrdersController < Admin::ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
-		if @order.full_shipped?
-
+		if @order.confirmed?
+			debit_payment
+		elsif @order.full_shipped?
 			OrderMailer.order_sent(@order).deliver_now
 		elsif @order.missing_item?
 			@order.update_sub_total!
 			@order.update_total!
 			OrderMailer.we_are_sorry(@order).deliver_now
 		end
-			redirect_to admin_order_path(@order)
 	end
 
-	# def pay
-	# 	order = Order.find(params[:id])
-	# 	charge = Stripe::Charge.retrieve(order.charge_id)
-	# 	# https://stripe.com/docs/charges#auth-capture
-	# 	charge.capture(amount: order.sub_total)
-
-	# 	if charge.captured?
-	# 		order.update_attributes!(status: 'paid', payment: charge.to_json)
-	# 		# it works, the debit was ok
-	# 	else
-	# 		# it didn't work
-	# 	end
-
-	# 	redirect_to admin_order_path(@order)
-	# end
 
 	private
 
-	# def capture_charge
-	# 	Stripe::Charge.capture(charge.id)
-	# end
+	def debit_payment
+		@order = Order.find(params[:id])
+		charge = Stripe::Charge.retrieve(@order.charge_id)
+		# https://stripe.com/docs/charges#auth-capture
+		charge.capture(amount: @order.total_cents)
+		if charge.captured?
+			@order.update_attributes!(status: 'paid')
+			redirect_to admin_order_path(@order), notice: "La commande est encaissée"
+			# it works, the debit was ok
+		else
+			# it didn't work
+			redirect_to admin_order_path(@order), alert: "Oulala ca marche pas"
+		end
+	end
+
 
 	def filter_orders
 		@orders = Order.joins(:user).where('lower(users.last_name) LIKE ?', "%#{params[:query][:keyword].downcase }%")

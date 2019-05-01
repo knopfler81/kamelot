@@ -44,25 +44,16 @@
 	<div class="row">
 		<div class="col-12">
 				<table class='table table'style="background-color: #111; color: #AAA;">
-<!-- 					<thead>
-						<tr>
-						<th></th>
-						<th>1 - Vérification</th>
-						<th>2 - Traitement</th>
-						<th>3 - Action</th>
-						<th>4 - Conclusion</th>
-					</tr>
-					</thead> -->
 					<tbody>
 
-					<% if @order.paid? || @order.confirmed? || @order.full_shipped? %>
+					<% if @order.pending? || @order.paid? || @order.shipped? %>
 						<tr>
 							<td><h1>✅</h1></td>
 							<td>
 								Tout est dispo
 							</td>
 							<td>
-								<% if @order.confirmed? %>
+								<% if @order.paid? %>
 									Prise en charge confirmée
 								<% else %>
 									<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
@@ -72,17 +63,17 @@
 								<% end %>
 							</td>
 							<td>
-								<% if @order.confirmed? %>
+								<% if @order.paid? %>
 									<%= link_to "Créer le colissimo 📦", "https://www.laposte.fr/colissimo-en-ligne"  %>
 								<% end %>
 							</td>
 							<td>
-								<% if @order.confirmed? %>
+								<% if @order.paid? %>
 									<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-				        		<%= f.hidden_field :status, value: "full_shipped" %>
+				        		<%= f.hidden_field :status, value: "shipped" %>
 				        		<%= submit_tag "Commande expédiée" , class: "btn btn-secondary"%>
 				        	<% end %>
-				        <% elsif @order.full_shipped? %>
+				        <% elsif @order.shipped? %>
 				        	Expédiée
 								<% end %>
 			        </td>
@@ -90,49 +81,49 @@
 					<% end %>
 
 
-						<% unless @order.confirmed? || @order.full_shipped? %>
+						
 							<tr>
 								<td><h1>⚠️</h1></td>
 								<td>
 									Un manque ou plus 
 								</td>
 								<td>
-									<% if @order.partly_shipped?  %>
+									
 										Client prévenu
-									<% elsif @order.paid? %>
+									
 										<%= link_to "Signaler article(s) manquant(s)", admin_order_order_items_path(@order), class: "btn btn-secondary "%>
-									<% end %>
+									
 	              </td>
 								<td>
-									<% if @order.missing_item? %>
-										<% unless @order.partially_refunded? %>
-											<%= link_to "Rembourser différence via Stripe", "https://dashboard.stripe.com/test/payments/#{@order.payment_id}", target:"_blank", class: "btn btn-secondary"%>
-										<% end %>
-									<% elsif @order.partly_shipped? %>
+									
+										
+											<%= link_to "Rembourser différence via Stripe", "https://dashboard.stripe.com/test/payments/", target:"_blank", class: "btn btn-secondary"%>
+										
+									
 										Vous avez remboursé et envoyé
-									<% end %>
+									
 								</td>
 								<td>
-									<% if @order.all_is_missing? %>
-										<% if @order.totally_refunded? %>
+									
+										
 					        		Remboursée en totalité
-					        	<% else %>
+					        	
 											<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-						        		<%= f.hidden_field :status, value: "totally_refunded" %>
+						        		
 						        	  <%= submit_tag "Le remboursement est fait" , class: "btn btn-secondary"%>
 											<% end %>
-										<% end %>
-					        <% elsif @order.missing_item? %>
+										
+					        
 										<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-					        		<%= f.hidden_field :status, value: "partly_shipped" %>
+					        		
 					        		<%= submit_tag "Commande expédiée" , class: "btn btn-secondary"%>
 					        	<% end %>
-					        <% elsif @order.partly_shipped? %>
+					        
 					         Expédiée / remboursée
-				        	<% end %>
+				        	
 								</td>
 							</tr>
-						<% end %>
+						
 					</tbody>
 				</table>
 
@@ -164,9 +155,9 @@
 					<td><%= number_to_currency_euro item.price %></td>
 					<td>
 						<p>Commandé: <%= item.quantity %></p>
-						<% if @order.partly_shipped? %>
+						<%#
 							<p>Livré: <%= item.quantity - item.missing_quantity %></p>
-						<% end %>
+						
 
 						<% if item.missing_quantity > 0 %>
 							<p>Manquant: <%= item.missing_quantity %></p>

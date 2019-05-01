@@ -12,28 +12,26 @@ class Order < ApplicationRecord
   monetize :total_cents
 
   enum status: { 
-    pending: 0,
-    paid: 1,
-    missing_item: 2,
-    confirmed: 3 ,
-    full_shipped: 4,
-    partly_shipped: 5,
-    cancelled_by_admin: 6,
-    cancelled_by_client: 7,
-    partially_refunded: 8,
-    totally_refunded: 9,
+    ongoing: 0,
+    pending: 1,
+    confirmed: 2,
+    partly_confirmed: 3,
+    not_confrimed: 4,
+    paid: 5,
+    shipped: 6,
+    cancelled_by_admin: 7,
+    cancelled_by_client: 8,
+    refunded: 9
   }
 
+  scope :not_confrimed,       -> { where(status: :not_confirmed) }
+  scope :partly_confrimed,    -> { where(status: :partly_confirmed) }
+  scope :confirmed,           -> { where(status: :confirmed) }
   scope :pending,             -> { where(status: :pending) }
   scope :paid,                -> { where(status: :paid) }
-  scope :confirmed,           -> { where(status: :confirmed) }
   scope :missing_item,        -> { where(status: :missing_item) }
-  scope :full_shipped,        -> { where(status: :full_shipped) }
-  scope :partly_shipped,      -> { where(status: :partly_shipped) }
+  scope :shipped,             -> { where(status: :shipped) }
   scope :cancelled_by_admin,  -> { where(status: :cancelled_by_admin) }
-  scope :cancelled_by_client, -> { where(status: :cancelled_by_client) }
-  scope :partially_refunded,  -> { where(status: :partially_refunded) }
-  scope :totally_refunded,    -> { where(status: :totally_refunded) }
   scope :all_orders,          -> { Order.all }
 
   scope :filter_by_status, -> (status) do
@@ -41,6 +39,7 @@ class Order < ApplicationRecord
   end
 
   before_save :set_default_limit_date, on: :create
+
   after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (1 || 2), to: 3) }
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
   #TODO REVOIR SUITE MODIF STATUS
@@ -154,10 +153,6 @@ class Order < ApplicationRecord
 
   def all_is_missing?
     item_qty - item_missing == 0 ? true : false
-  end
-
-  def payment_id
-    JSON.parse(self.payment)["id"]
   end
 
   # def self.to_csv
