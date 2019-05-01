@@ -29,7 +29,8 @@
 			<tbody>
 				<% @products.each do |product| %>
 				<tr>
-					<td><%= image_tag(product.attachments.first.url, class: "list_images") %></td>
+					<td><%= image_tag(product.attachments.first.url, class: "index_small_image") %></td>
+
 					<td><%= product.title %></td>
 					<td><%= product.brand %></td>
 					<td><%= product.ref %></td>

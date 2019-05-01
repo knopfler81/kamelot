@@ -1,10 +1,6 @@
 $(document).on('turbolinks:load', function() {
-  var images = Array.from(document.getElementsByClassName('small_image'));
 
-  images.forEach(function(img) {
-  	img.addEventListener('mouseover', displayImage);
-
-  });
+  $('.small_image').on('mouseover', displayImage);
 
   function displayImage(){
 
@@ -41,6 +37,7 @@ $(document).on('turbolinks:load', function() {
           .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
       })
   };
+
 
 });
 

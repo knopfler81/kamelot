@@ -1,48 +1,48 @@
 require 'rails_helper'
 
 RSpec.describe Order do 
-
-	def set_users
-		@user = create(:user)
-		nelly = create(:user, admin: true)
-		address = create(:shipping_address, user_id: @user.id)
+	before(:each) do
+		nelly   = create :user, admin: true 
 		login_as nelly
 	end
 
 	context "Ordered items are in stock" do 
 		scenario "Admin prepare the order" do
-			set_users
-			order = create(:order, user_id: @user.id, status: "paid")
+			user    = create :user 
+			address = create :shipping_address, user_id: user.id
+			order = create(:order, user_id: user.id, status: "paid")
 
 			visit admin_order_path(order)
 
-			click_on "Je prépare la commande"
+			click_on "Confirmer la prise en charge"
 
 			expect(page).to have_content("En cours de préparation")
 		end
 
 		scenario "Admin send the order" do
-			set_users
-			order = create(:order, user_id: @user.id, status: "confirmed")
+			user    = create :user 
+			address = create :shipping_address, user_id: user.id
+			order = create(:order, user_id: user.id, status: "confirmed")
 
 			visit admin_order_path(order)
 
-			click_on "J'ai envoyé la commande"
+			click_on "Commande expédiée"
 
-			expect(page).to have_content("Expédiée")
+			expect(page).to have_content("Commande envoyée dans sa totalité")
 		end
 	end
 
 	context "Some items are missing" do 
-		scenario "Select the missing items", :js do 
-			set_users 
-			order = create(:order, user_id: @user.id, status: "paid")
+		scenario "Select the missing items", :js do  
+			user    = create :user 
+			address = create :shipping_address, user_id: user.id
+			order = create(:order, user_id: user.id, status: "paid")
 			item_1 = create(:order_item, quantity: 3, order_id: order.id, missing_quantity: 0)
 
 
 			visit admin_order_path(order)
 
-			click_on "Un article manque"
+			click_on "Signaler article(s) manquant(s)"
 
 			expect(page).to have_content("Séléctionnez les articles qui ne sont plus disponibles")
 	

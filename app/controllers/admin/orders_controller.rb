@@ -25,16 +25,15 @@ class Admin::OrdersController < Admin::ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
+		if @order.full_shipped?
 
-		if @order.finished?
 			OrderMailer.order_sent(@order).deliver_now
 		elsif @order.missing_item?
 			@order.update_sub_total!
 			@order.update_total!
 			OrderMailer.we_are_sorry(@order).deliver_now
 		end
-
-		redirect_to admin_order_path(@order)
+			redirect_to admin_order_path(@order)
 	end
 
 	# def pay

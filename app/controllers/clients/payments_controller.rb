@@ -11,8 +11,9 @@ class Clients::PaymentsController < Clients::ApplicationController
 	  charge = Stripe::Charge.create(
 	    customer:     customer.id,
 	    amount:       @order.total_cents,
-	    description:  "Paiment pour la commande #{@order.id}",
-	    currency:     @order.total.currency
+	    description:  "Commande #{@order.id} - #{@order.user.full_name}",
+	    currency:     @order.total.currency,
+
 	  )
 	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
 

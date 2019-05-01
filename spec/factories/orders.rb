@@ -3,7 +3,7 @@ FactoryBot.define do
 		user
 		token 	{ "123456789" }
 		status 	{ [ 0, 1, 2, 3, 4 ,5].sample }
-		payment { {"stub" =>"stripe"}} 
+		payment { "{\"id\":\"ch_1EVCHJCERltvGYktQbyege4c\"}"} 
 		total_cents {[50, 120, 90].sample }
 		sub_total  { [40, 115, 85].sample }
 		total_weight { 2.3 }
