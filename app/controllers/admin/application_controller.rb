@@ -9,12 +9,8 @@ class Admin::ApplicationController < ActionController::Base
   def current_basket
     @current_basket ||= VendingBasket.new(token: basket_token)
   end
+
   helper_method :current_basket
-
-
-  def current_product
-  	@product = Product.find(params[:product_id])
-  end
 
   def favorites_products
   	@favorites = Favorite.where(user: current_user).all

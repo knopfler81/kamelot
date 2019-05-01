@@ -26,6 +26,7 @@ class Admin::OrdersController < Admin::ApplicationController
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
 		if @order.full_shipped?
+
 			OrderMailer.order_sent(@order).deliver_now
 		elsif @order.missing_item?
 			@order.update_sub_total!
@@ -35,7 +36,27 @@ class Admin::OrdersController < Admin::ApplicationController
 			redirect_to admin_order_path(@order)
 	end
 
+	# def pay
+	# 	order = Order.find(params[:id])
+	# 	charge = Stripe::Charge.retrieve(order.charge_id)
+	# 	# https://stripe.com/docs/charges#auth-capture
+	# 	charge.capture(amount: order.sub_total)
+
+	# 	if charge.captured?
+	# 		order.update_attributes!(status: 'paid', payment: charge.to_json)
+	# 		# it works, the debit was ok
+	# 	else
+	# 		# it didn't work
+	# 	end
+
+	# 	redirect_to admin_order_path(@order)
+	# end
+
 	private
+
+	# def capture_charge
+	# 	Stripe::Charge.capture(charge.id)
+	# end
 
 	def filter_orders
 		@orders = Order.joins(:user).where('lower(users.last_name) LIKE ?', "%#{params[:query][:keyword].downcase }%")

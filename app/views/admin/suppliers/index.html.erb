@@ -1,5 +1,5 @@
 <div class="container">
 	<% @suppliers.each do |supplier| %>
-		<%= supplier.company %>
+		<%= link_to supplier.company, admin_supplier_path(supplier) %>
 	<% end %>
 </div>

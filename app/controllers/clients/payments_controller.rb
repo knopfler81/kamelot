@@ -13,25 +13,24 @@ class Clients::PaymentsController < Clients::ApplicationController
 	    amount:       @order.total_cents,
 	    description:  "Commande #{@order.id} - #{@order.user.full_name}",
 	    currency:     @order.total.currency,
-	  )
 
-	  # Create charge without debit on account
+	  )
+	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
+
+	  ## Dans le cas où on veut encaisser plus tard
+	  ## Create charge without debit on account
 	  # charge = Stripe::Charge.create(
 	  #   customer:     customer.id,
 	  #   amount:       @order.total_cents,
 	  #   description:  "Paiment pour la commande #{@order.id}",
 	  #   currency:     @order.total.currency,
-	  #   # capture: false
+	  #   capture: false
 	  # )
-
-
-	  # Keep charge.id
-
-	  # Debit charge
+	  ## Keep charge.id
+	  ## Debit charge
 	  # charge = Stripe::Charge.retrieve(charge.id)
 	  # charge.capture
-
-	  @order.update_attributes!(payment: charge.to_json, status: 'paid')
+	  #@order.update_attributes!(charge_id: charge.id, status: 'status_qui_encaisse')
 
 	  if @order.save
 		  @order.remove_from_stock

@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   before_action :current_cart
   before_action :favorites_products
 
-  before_action :cookies
-
   def current_cart
     @current_cart ||= ShoppingCart.new(token: cart_token)
   end

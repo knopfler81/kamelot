@@ -1,1 +1,0 @@
-web: APP_WITH_STATS=1 bundle exec rails server
