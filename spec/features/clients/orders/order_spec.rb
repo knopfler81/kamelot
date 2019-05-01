@@ -128,7 +128,7 @@ RSpec.describe Order do
 		end
 	end
 
-	context "the order with a finished status" do 
+	context "the order with a full_shipped status" do 
 		scenario "the user can't cancel his order" do 
 			mark 	= create(:user)
 			login_as(mark)
@@ -136,7 +136,7 @@ RSpec.describe Order do
 			@variant = create(:variant, product_id: @product.id, size: "L")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 			create(:shipping_address, user_id: mark.id)
-			order = create(:order, status: "finished", user_id: mark.id)
+			order = create(:order, status: "full_shipped", user_id: mark.id)
 
 			visit clients_order_path(order)
 			

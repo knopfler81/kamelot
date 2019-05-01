@@ -60,7 +60,8 @@ fr:
       paid: En attente de traitement
       partially_refunded: Partiellement remboursée
       pending: En attente de paiement
-      finished: Expédiée
+      full_shipped: Commande envoyée dans sa totalité
+      partly_shipped: Commande envoyée en partie
       totally_refunded: Totallement remboursée
       tabs:
         all_orders: Toutes les commandes

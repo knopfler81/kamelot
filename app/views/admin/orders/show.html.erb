@@ -92,7 +92,7 @@
 
 						<% unless @order.confirmed? || @order.full_shipped? %>
 							<tr>
-								<td><h1>🙁</h1></td>
+								<td><h1>⚠️</h1></td>
 								<td>
 									Un manque ou plus 
 								</td>
@@ -100,7 +100,7 @@
 									<% if @order.partly_shipped?  %>
 										Client prévenu
 									<% elsif @order.paid? %>
-										<%= link_to "Signaler article(s) manquants", admin_order_order_items_path(@order), class: "btn btn-secondary "%>
+										<%= link_to "Signaler article(s) manquant(s)", admin_order_order_items_path(@order), class: "btn btn-secondary "%>
 									<% end %>
 	              </td>
 								<td>

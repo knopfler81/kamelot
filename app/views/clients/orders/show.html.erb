@@ -11,7 +11,8 @@
 					<% end %>
 				</li>
 				<li class="list-inline-item">
-					<% if @returning.nil? && @order.finished? && Date.today <= @order.return_limit_date %>
+
+					<% if @returning.nil? && (@order.full_shipped? || @order.partly_shipped?) && Date.today <= @order.return_limit_date %>
 						<%= simple_form_for(@order, url: clients_order_path(@order))do |f| %>
 							<%= f.hidden_field :return_asked, value: true %>
 							<%= f.submit "Demander un retour", class: " btn btn-link link_invoice" , id: "ask-return" %>
@@ -108,7 +109,7 @@
 					<td><%= number_to_currency_euro item.price %></td>
 					<td>
 						<p>Commandé: <%= item.quantity %></p>
-						<% if @order.finished? %>
+						<% if @order.full_shipped? %>
 							<p>Livré: <%= item.quantity - item.missing_quantity %></p>
 						<% end %>
 
