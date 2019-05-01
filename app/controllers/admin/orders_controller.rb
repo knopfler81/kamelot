@@ -25,23 +25,14 @@ class Admin::OrdersController < Admin::ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
-		if @order.finished?
+		if @order.full_shipped?
 			OrderMailer.order_sent(@order).deliver_now
-			redirect_to admin_order_path(@order)
-		elsif @order.confirmed?
-			redirect_to admin_order_path(@order)
-		elsif @order.partially_refunded?
-			redirect_to admin_order_path(@order)
-		elsif @order.totally_refunded?
-			redirect_to admin_order_path(@order)
-		elsif @order.cancelled_by_admin? 
-			redirect_to admin_order_path(@order)
 		elsif @order.missing_item?
 			@order.update_sub_total!
 			@order.update_total!
 			OrderMailer.we_are_sorry(@order).deliver_now
-			redirect_to admin_order_path(@order)
 		end
+			redirect_to admin_order_path(@order)
 	end
 
 	private
