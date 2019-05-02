@@ -22,7 +22,7 @@ class Clients::PaymentsController < Clients::ApplicationController
 	  charge = Stripe::Charge.create(
 	    customer:     customer.id,
 	    amount:       @order.total_cents,
-	    description:  "Cde #{@order.number} - #{@order.user.full_name}",
+	    description:  "#{@order.number} - #{@order.user.full_name}",
 	    currency:     @order.total.currency,
 	    capture: false
 	  )

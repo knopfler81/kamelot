@@ -160,35 +160,36 @@
 # Workflow d'une Commande selon les cas... 
 
 ### Cas 1 Les articles sont dispos 
-* Le client a payé
-* Le vendeur reçoit la commande
-* Le vendeur prépare la commande 
-* Le vendeur envoie la commande 
+* Le client a payé 
+* Le vendeur reçoit la commande       #pending
+* Le vendeur confirme la commande     #confirmed
+* Le vendeur prépare la commande  
+* Le vendeur envoie la commande       #shipped
 
 ## Cas 2 Le client annule sa commande(hors prépa)
 * Le client a payé
-* Le client change d'avis
-* Le client annule sa commande
+* Le client change d'avis                #pending 
+* Le client annule sa commande           #cancelled_by_client
 * un email de confirmation est envoyé au client 
 * un email prévient le vendeur 
-* le vendeur rembourse le client 
+
 
 ## Cas 3 Un ou plusieurs articles sont indisponibles
 * Le client a payé
-* Le vendeur reçoit la commande
-* Le vendeur séléctionne dans la liste les articles indisponibles 
-* Il clique sur prévenir le client
+* Le vendeur reçoit la commande               #pending
+* Le vendeur séléctionne les indisponibles    #missing_item
+* Il clique sur prévenir le client      
 * Un email d'explication est envoyé au client
-* Le vendeur rembourse partiellement le client 
-* Le vendeur envoie les articles disponibles 
+* Le vendeur encaisse ce qui est envoyé
+* Le vendeur envoie les articles disponibles   #shipped
 
 ## Cas 4 Aucun article n'est disponible
 * Le client a payé
-* Le vendeur reçoit la commande
-* Le vendeur séléctionne dans la liste les articles indisponibles
+* Le vendeur reçoit la commande                 #pending
+* Le vendeur séléctionne les indisponibles      #missing_item
 * Un email d'explication est envoyé au client
-* Le vendeur rembourse totalement (avec les frais de port) le client 
-* Le vendeur annule la commande 
+* Le vendeur n'encaisse pas                    
+* Le vendeur annule la commande                 #cancelled
 
 
 

@@ -57,7 +57,7 @@ fr:
       cancelled_by_client: Annulée par le client
       confirmed: En cours de préparation
       missing_item: Articles manquants
-      partially_refunded: Partiellement remboursée
+      partly_paid: Réglement au prorata
       pending: En attente
       full_shipped: Commande envoyée dans sa totalité
       partly_shipped: Commande envoyée en partie
@@ -79,13 +79,14 @@ fr:
   clients:
     orders:
       all_orders: Toutes les commandes
-      cancelled_by_admin: Annulée par l'admin
+      cancelled_by_admin: Annulée par le vendeur
       cancelled_by_client: Annulée par le client
       confirmed: En cours de préparation
       missing_item: Articles manquants
       partially_refunded: Partiellement remboursée
       pending: En attente
-      finished: Expédiée
+      full_shipped: Commande envoyée dans sa totalité
+      partly_shipped: Commande envoyée en partie
       totally_refunded: Totallement remboursé
     returnings:
       confirmed: Retour réceptionné

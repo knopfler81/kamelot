@@ -12,7 +12,7 @@
 				</li>
 				<li class="list-inline-item">
 
-					<% if @returning.nil? && @order.shipped? && Date.today <= @order.return_limit_date %>
+					<% if @returning.nil? && (@order.full_shipped? || @order.partly_shipped?) && ( Date.today <= @order.return_limit_date) %>
 						<%= simple_form_for(@order, url: clients_order_path(@order))do |f| %>
 							<%= f.hidden_field :return_asked, value: true %>
 							<%= f.submit "Demander un retour", class: " btn btn-link link_invoice" , id: "ask-return" %>
@@ -74,7 +74,7 @@
 		<div class="col-12">
 			<% if @order.cancelled_by_client? %>
 				<p>Vous avez annulé votre commande.</p>
-				<% if @order.totally_refunded? %>
+				<% if @order.refunded? %>
 					<p>Vous avez été remboursé</p>
 				<% end %>
 			<% elsif @order.confirmed? %>
@@ -108,19 +108,22 @@
 					<td><%= number_to_currency_euro item.price %></td>
 					<td>
 						<p>Commandé: <%= item.quantity %></p>
-						<% if @order.shipped? %>
+						<% if @order.partly_shipped? %>
 							<p>Livré: <%= item.quantity - item.missing_quantity %></p>
 						<% end %>
-
-						<% if item.missing_quantity > 0 %>
+						<% if item.missing_quantity > 0 &&  @order.partly_shipped? || @order.cancelled_by_admin? %>
 							<p>Manquant: <%= item.missing_quantity %></p>
-							<p>Remboursé: <%= item.missing_quantity + (@order.return_asked ? item.returning_item.quantity  : 0 )%></p>
 						<% end %>
 						<% if item.selected == true %>
 						 <p>Retourné: <%= item.returning_item.quantity %></p>
 						<% end %>
 					</td>
-					<td><%= number_to_currency_euro item.price * item.quantity %></td>
+					<td>
+						<p><%= number_to_currency_euro item.price * item.quantity %></p>
+						<% if item.missing_quantity > 0 &&  @order.partly_shipped?  || @order.cancelled_by_admin? %>
+							<p> - <%= number_to_currency_euro item.price * item.missing_quantity  %></p>
+						<% end %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>

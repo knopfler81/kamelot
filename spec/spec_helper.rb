@@ -1,4 +1,6 @@
 require "capybara/rspec"
+require 'stripe_mock'
+
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|
@@ -22,4 +24,12 @@ RSpec.configure do |config|
   config.append_after :each do |example|
     CarrierWave.clean_cached_files!(0)
   end
+
+  config.before(:each) do
+      @stripe_test_helper = StripeMock.create_test_helper
+      StripeMock.start
+    end
+  config.after(:each) do
+      StripeMock.stop
+    end
 end

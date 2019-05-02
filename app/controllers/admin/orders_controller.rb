@@ -25,34 +25,42 @@ class Admin::OrdersController < Admin::ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
-		if @order.confirmed?
+		if @order.all_missing?
+			OrderMailer.we_are_sorry(@order).deliver_now
+			# remplacer par un email qui explique rien est dispo
+			@order.cancelled_by_admin!
+			@order.update_sub_total!
+			@order.update_total!
+		elsif @order.confirmed?
 			debit_payment
-		elsif @order.full_shipped?
+		elsif @order.full_shipped? || @order.partly_shipped?
 			OrderMailer.order_sent(@order).deliver_now
 		elsif @order.missing_item?
 			@order.update_sub_total!
 			@order.update_total!
 			OrderMailer.we_are_sorry(@order).deliver_now
+			debit_payment
+			@order.partly_paid!
 		end
+		  redirect_to admin_order_path(@order)
 	end
 
 
 	private
 
-	def debit_payment
-		@order = Order.find(params[:id])
-		charge = Stripe::Charge.retrieve(@order.charge_id)
-		# https://stripe.com/docs/charges#auth-capture
-		charge.capture(amount: @order.total_cents)
-		if charge.captured?
-			@order.update_attributes!(status: 'paid')
-			redirect_to admin_order_path(@order), notice: "La commande est encaissée"
-			# it works, the debit was ok
-		else
-			# it didn't work
-			redirect_to admin_order_path(@order), alert: "Oulala ca marche pas"
-		end
+def debit_payment
+	@order = Order.find(params[:id])
+	charge = Stripe::Charge.retrieve(@order.charge_id)
+	# https://stripe.com/docs/charges#auth-capture
+	charge.capture(amount: @order.total_cents)
+	if charge.captured?
+		@order.update_attributes!(status: 'paid')
+		# it works, the debit was ok
+	else
+		@order.update_attributes!(status: 'pending')
+		redirect_to admin_order_path(@order), alert: "Oulala ca marche pas"
 	end
+end
 
 
 	def filter_orders
@@ -61,6 +69,6 @@ class Admin::OrdersController < Admin::ApplicationController
 	end
 	
 	def order_params
-		params.require(:order).permit(:status,  :user_id, :token , :gcos_accepted, :sub_total)
+		params.require(:order).permit(:status, :charge_id, :user_id, :token , :gcos_accepted, :sub_total)
 	end
 end

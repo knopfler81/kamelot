@@ -54,11 +54,7 @@ class Returning < ApplicationRecord
 	end
 
 	def set_order_status
-		if (self.returned_qty < self.ordred_qty )&& self.refunded?
-		 	self.order.partially_refunded!
-		elsif (self.returned_qty == self.ordred_qty) && self.refunded?
-		 	self.order.totally_refunded! 
-		end
+		self.order.refunded!
 	end	
 	
 	def total_refund

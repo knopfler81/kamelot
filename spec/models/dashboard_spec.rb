@@ -172,14 +172,14 @@ RSpec.describe Dashboard, type: :model do
 	end
 
 	describe "#orders_status" do 
-		it "returns the number of user" do
-			create(:order, status: "paid")
-			create(:order, status: "paid")
-			create(:order, status: "full_shipped")
+		it "returns the number of order" do
+			create(:order, status: "pending")
+			create(:order, status: "pending")
+			create(:order, status: "partly_shipped")
 			
 			res = subject.orders_status
 
-			expect(res).to eq({"full_shipped"=>1, "paid"=>2})
+			expect(res).to eq({"partly_shipped"=>1, "pending"=>2})
 		end
 	end
 

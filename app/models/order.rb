@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-
   #require 'csv'
   require 'json'
 
@@ -12,39 +11,50 @@ class Order < ApplicationRecord
   monetize :total_cents
 
   enum status: { 
-    ongoing: 0,
-    pending: 1,
-    confirmed: 2,
-    partly_confirmed: 3,
-    not_confrimed: 4,
-    paid: 5,
-    shipped: 6,
-    cancelled_by_admin: 7,
-    cancelled_by_client: 8,
-    refunded: 9
+    ongoing:              0,
+    pending:              1,
+    confirmed:            2,
+    missing_item:         3,
+    all_missing:          4,
+    paid:                 5,
+    partly_paid:          6,
+    full_shipped:         7,
+    partly_shipped:       8,
+    cancelled_by_admin:   9,
+    cancelled_by_client: 10,
+    refunded:            11,
   }
 
-  scope :not_confrimed,       -> { where(status: :not_confirmed) }
-  scope :partly_confrimed,    -> { where(status: :partly_confirmed) }
-  scope :confirmed,           -> { where(status: :confirmed) }
   scope :pending,             -> { where(status: :pending) }
   scope :paid,                -> { where(status: :paid) }
+  scope :confirmed,           -> { where(status: :confirmed) }
   scope :missing_item,        -> { where(status: :missing_item) }
-  scope :shipped,             -> { where(status: :shipped) }
+  scope :full_shipped,        -> { where(status: :full_shipped) }
+  scope :partly_shipped,      -> { where(status: :partly_shipped) }
   scope :cancelled_by_admin,  -> { where(status: :cancelled_by_admin) }
+  scope :cancelled_by_client, -> { where(status: :cancelled_by_client) }
+  scope :partially_refunded,  -> { where(status: :partially_refunded) }
+  scope :totally_refunded,    -> { where(status: :totally_refunded) }
   scope :all_orders,          -> { Order.all }
 
   scope :filter_by_status, -> (status) do
     send(status).order('created_at DESC')
   end
 
-  before_save :set_default_limit_date, on: :create
-
-  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (1 || 2), to: 3) }
+  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (2 || 3) , to: (7||8)) }
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
-  #TODO REVOIR SUITE MODIF STATUS
-  after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 4, to: 9)}
+  after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 3, to: 8)}
   
+  after_save :check_missing_quantity
+  
+  after_save :set_default_limit_date, on: :create
+
+  def check_missing_quantity
+    if self.missing_item?
+      self.all_missing! if self.sent_articles == 0
+    end
+  end
+
   def number
      "CDE-00" + self.id.to_s
   end

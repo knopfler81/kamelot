@@ -11,7 +11,7 @@ require 'rails_helper'
  		@john   = create(:user)
  		@token  = 12345678
 	 	@current_cart ||= ShoppingCart.new(token: @token)
-	 	@order  = create( :order, user_id: @john.id, token: @token, status: "pending", sub_total: 80)
+	 	@order  = create( :order, user_id: @john.id, token: @token, status: "ongoing", sub_total: 80)
 	 end
 
  	describe ".items_count" do 
