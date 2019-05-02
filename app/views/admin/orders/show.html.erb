@@ -44,27 +44,18 @@
 	<div class="row">
 		<div class="col-12">
 				<table class='table table'style="background-color: #111; color: #AAA;">
-<!-- 					<thead>
-						<tr>
-						<th></th>
-						<th>1 - Vérification</th>
-						<th>2 - Traitement</th>
-						<th>3 - Action</th>
-						<th>4 - Conclusion</th>
-					</tr>
-					</thead> -->
 					<tbody>
 
-					<% if @order.paid? || @order.confirmed? || @order.full_shipped? %>
+					<% if all_items_are_available? %>
 						<tr>
 							<td><h1>✅</h1></td>
 							<td>
-								Tout est dispo
+								Tout est disponible
 							</td>
 							<td>
-								<% if @order.confirmed? %>
+								<% if @order.paid? %>
 									Prise en charge confirmée
-								<% else %>
+								<% elsif @order.pending? %>
 									<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 								  	<%= f.hidden_field :status, value: "confirmed" %>
 								  	<%= submit_tag "Confirmer la prise en charge" , class: "btn btn-secondary",id: "prepare_order", data: {confirm: "Pense bien a revenir valider l'expédition une fois l'article envoyé" }%>
@@ -72,12 +63,12 @@
 								<% end %>
 							</td>
 							<td>
-								<% if @order.confirmed? %>
+								<% if @order.paid? %>
 									<%= link_to "Créer le colissimo 📦", "https://www.laposte.fr/colissimo-en-ligne"  %>
 								<% end %>
 							</td>
 							<td>
-								<% if @order.confirmed? %>
+								<% if @order.paid? %>
 									<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 				        		<%= f.hidden_field :status, value: "full_shipped" %>
 				        		<%= submit_tag "Commande expédiée" , class: "btn btn-secondary"%>
@@ -90,46 +81,37 @@
 					<% end %>
 
 
-						<% unless @order.confirmed? || @order.full_shipped? %>
-							<tr>
+						<% unless some_items_are_missing? %>
+						  <tr>
 								<td><h1>⚠️</h1></td>
 								<td>
 									Un manque ou plus 
 								</td>
 								<td>
-									<% if @order.partly_shipped?  %>
+									<% if @order.missing_item? %>
 										Client prévenu
-									<% elsif @order.paid? %>
+									<% elsif @order.partly_shipped? %>
+										Encaissée en partie
+									<% elsif @order.pending? %>
 										<%= link_to "Signaler article(s) manquant(s)", admin_order_order_items_path(@order), class: "btn btn-secondary "%>
 									<% end %>
 	              </td>
 								<td>
-									<% if @order.missing_item? %>
-										<% unless @order.partially_refunded? %>
-											<%= link_to "Rembourser différence via Stripe", "https://dashboard.stripe.com/test/payments/#{@order.payment_id}", target:"_blank", class: "btn btn-secondary"%>
-										<% end %>
-									<% elsif @order.partly_shipped? %>
-										Vous avez remboursé et envoyé
-									<% end %>
-								</td>
-								<td>
-									<% if @order.all_is_missing? %>
-										<% if @order.totally_refunded? %>
-					        		Remboursée en totalité
-					        	<% else %>
-											<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-						        		<%= f.hidden_field :status, value: "totally_refunded" %>
-						        	  <%= submit_tag "Le remboursement est fait" , class: "btn btn-secondary"%>
-											<% end %>
-										<% end %>
-					        <% elsif @order.missing_item? %>
+									<% if @order.partly_paid? %>
 										<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 					        		<%= f.hidden_field :status, value: "partly_shipped" %>
 					        		<%= submit_tag "Commande expédiée" , class: "btn btn-secondary"%>
 					        	<% end %>
-					        <% elsif @order.partly_shipped? %>
-					         Expédiée / remboursée
-				        	<% end %>
+					       <% elsif @order.cancelled_by_admin? %>
+					       	<p>Paiement non débité</p>
+									<% end %>
+								</td>
+								<td>
+								<% if @order.partly_shipped? %>
+									Expédiée
+								<% elsif @order.cancelled_by_admin? %>
+									<p>Annulée</p>
+								<% end %>
 								</td>
 							</tr>
 						<% end %>
@@ -157,7 +139,7 @@
 			<% @order.items.each do |item| %>
 				<tr>
 					<td>
-						<%= link_to clients_product_path(item.variant.product) do  %>
+						<%= link_to admin_product_path(item.variant.product) do  %>
 							<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
 						<% end %>
 					</td>
@@ -167,16 +149,19 @@
 						<% if @order.partly_shipped? %>
 							<p>Livré: <%= item.quantity - item.missing_quantity %></p>
 						<% end %>
-
-						<% if item.missing_quantity > 0 %>
+						<% if item.missing_quantity > 0 &&  @order.partly_shipped? || @order.cancelled_by_admin? %>
 							<p>Manquant: <%= item.missing_quantity %></p>
-							<p>Remboursé: <%= item.missing_quantity + (@order.return_asked ? item.returning_item.quantity  : 0 )%></p>
 						<% end %>
 						<% if item.selected == true %>
 						 <p>Retourné: <%= item.returning_item.quantity %></p>
 						<% end %>
 					</td>
-					<td><%= number_to_currency_euro item.price * item.quantity %></td>
+					<td>
+						<p><%= number_to_currency_euro item.price * item.quantity %></p>
+						<% if item.missing_quantity > 0 &&  @order.partly_shipped?  || @order.cancelled_by_admin? %>
+							<p> - <%= number_to_currency_euro item.price * item.missing_quantity  %></p>
+						<% end %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>

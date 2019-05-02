@@ -6,7 +6,7 @@ RSpec.describe Returning do
 		james  = create(:user)
 		login_as(james)
 		address = create(:shipping_address, user_id: james.id)
-		order  = create(:order, status: "full_shipped", return_asked: false, user_id: james.id)
+		order   = create(:order, status: "full_shipped", return_asked: false, user_id: james.id, return_limit_date: 10.days.from_now)
 
 		visit clients_order_path(order)
 		

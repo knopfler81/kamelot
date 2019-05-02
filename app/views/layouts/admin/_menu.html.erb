@@ -32,8 +32,8 @@
 	      <a href="#order" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 	   			<i class="fas fa-cart-arrow-down"></i>
 	   			<span class="menu-title">Commandes</span>
-	   			<% if Order.where(status: "paid").count >= 1 %>  
-	   				<span class="badge badge-pill badge-danger"><%= Order.where(status: "paid").count %></span>
+	   			<% if Order.where(status: "pending").count >= 1 %>  
+	   				<span class="badge badge-pill badge-danger"><%= Order.where(status: "pending").count %></span>
 	   			<% end %>
 	      </a>
 	       <ul class="collapse list-unstyled submenu <%= 'show' if active_submenu_for('orders') %>" id="order">

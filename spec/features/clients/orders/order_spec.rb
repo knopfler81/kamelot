@@ -4,7 +4,7 @@ RSpec.describe Order do
 
 	context "A not logged-in user" do 
 		scenario "is asked to login before checking out" do
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "S")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 
@@ -26,7 +26,7 @@ RSpec.describe Order do
 		scenario "is asked to fill in shipping address" do
 			mark 	= create(:user)
 			login_as(mark)
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "L")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 
@@ -48,7 +48,7 @@ RSpec.describe Order do
 		 scenario "can check out" do 
 		 mark 	= create(:user)
 		 login_as(mark)
-		 @product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+		 @product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
 		 @variant = create(:variant, product_id: @product.id, size: "L")
 		 @stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 		 create(:shipping_address, user_id: mark.id)
@@ -76,7 +76,7 @@ RSpec.describe Order do
 		scenario "the user hasn't check the box" do 
 			mark 	= create(:user)
 			login_as(mark)
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "L")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 			create(:shipping_address, user_id: mark.id)
@@ -98,11 +98,11 @@ RSpec.describe Order do
 		scenario "the user can cancel his order" do 
 			mark 	= create(:user)
 			login_as(mark)
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "L")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 			create(:shipping_address, user_id: mark.id)
-			order = create(:order, status: "paid", user_id: mark.id)
+			order = create(:order, status: "pending", user_id: mark.id)
 
 			visit clients_order_path(order)
 			
@@ -116,7 +116,7 @@ RSpec.describe Order do
 		scenario "the user can't cancel his order" do 
 			mark 	= create(:user)
 			login_as(mark)
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "L")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 			create(:shipping_address, user_id: mark.id)
@@ -128,11 +128,11 @@ RSpec.describe Order do
 		end
 	end
 
-	context "the order with a full_shipped status" do 
-		scenario "the user can't cancel his order" do 
+	context "the order with a shipped status" do 
+		scenario "the user can't cancel if his order is fully shipped" do 
 			mark 	= create(:user)
 			login_as(mark)
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
 			@variant = create(:variant, product_id: @product.id, size: "L")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 			create(:shipping_address, user_id: mark.id)
@@ -142,11 +142,25 @@ RSpec.describe Order do
 			
 			expect(page).not_to have_content("Annuler ma commande")
 		end
+
+		scenario "the user can't cancel if his order is partly shipped" do 
+			mark 	= create(:user)
+			login_as(mark)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50)
+			@variant = create(:variant, product_id: @product.id, size: "L")
+			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
+			create(:shipping_address, user_id: mark.id)
+			order = create(:order, status: "partly_shipped", user_id: mark.id)
+
+			visit clients_order_path(order)
+			
+			expect(page).not_to have_content("Annuler ma commande")
+		end
 	end
 
 	context 'the order contains a product with a discount' do 
 		scenario "The discount is applyed" do 
-			@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50, discount_percentage: 30)
+			@product = create(:product, brand: "Stil Park", title: "Chemise cool", price: 50, discount_percentage: 30)
 			@variant = create(:variant, product_id: @product.id, size: "L")
 			@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
 

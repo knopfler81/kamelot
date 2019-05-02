@@ -99,6 +99,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'stripe-ruby-mock', '~> 2.5.6', :require => 'stripe_mock'
   gem 'capybara-screenshot'
   gem 'timecop'
   gem 'rspec-rails', '~> 3.7'

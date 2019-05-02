@@ -5,7 +5,7 @@ class Clients::OrdersController < Clients::ApplicationController
 
 	def index
 		if params[:status]
-			@client_orders = Order.where(user_id: current_user.id).filter_by_status(params[:status]).paginate(page: params[:page], per_page: 3)
+			@client_orders = Order.where(user_id: current_user.id).filter_by_status(params[:status]).paginate(page: params[:page], per_page: 10)
 		else
 			@client_orders = Order.where(user_id: current_user.id).paginate(page: params[:page], per_page: 3)
 		end
@@ -69,6 +69,6 @@ class Clients::OrdersController < Clients::ApplicationController
 	end
 
 	def order_params
-		params.require(:order).permit(:status,  :user_id, :token , :return_asked, :return_limit_date, :number, :sub_total, :gcos_accepted)
+		params.require(:order).permit(:status,  :charge_id, :user_id, :token , :return_asked, :return_limit_date, :number, :sub_total, :gcos_accepted)
 	end
 end

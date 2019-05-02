@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-
   #require 'csv'
   require 'json'
 
@@ -12,16 +11,18 @@ class Order < ApplicationRecord
   monetize :total_cents
 
   enum status: { 
-    pending: 0,
-    paid: 1,
-    missing_item: 2,
-    confirmed: 3 ,
-    full_shipped: 4,
-    partly_shipped: 5,
-    cancelled_by_admin: 6,
-    cancelled_by_client: 7,
-    partially_refunded: 8,
-    totally_refunded: 9,
+    ongoing:              0,
+    pending:              1,
+    confirmed:            2,
+    missing_item:         3,
+    all_missing:          4,
+    paid:                 5,
+    partly_paid:          6,
+    full_shipped:         7,
+    partly_shipped:       8,
+    cancelled_by_admin:   9,
+    cancelled_by_client: 10,
+    refunded:            11,
   }
 
   scope :pending,             -> { where(status: :pending) }
@@ -40,12 +41,20 @@ class Order < ApplicationRecord
     send(status).order('created_at DESC')
   end
 
-  before_save :set_default_limit_date, on: :create
-  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (1 || 2), to: 3) }
+  after_save :set_return_limit_date, if: Proc.new { saved_change_to_status?(from: (2 || 3) , to: (7||8)) }
   after_save :ask_for_return,        if: Proc.new { saved_change_to_return_asked?(from: false, to: true) }
-  #TODO REVOIR SUITE MODIF STATUS
-  after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 4, to: 9)}
+  after_save :sent_articles,         if: Proc.new { saved_change_to_status?(from: 3, to: 8)}
   
+  after_save :check_missing_quantity
+  
+  after_save :set_default_limit_date, on: :create
+
+  def check_missing_quantity
+    if self.missing_item?
+      self.all_missing! if self.sent_articles == 0
+    end
+  end
+
   def number
      "CDE-00" + self.id.to_s
   end
@@ -154,10 +163,6 @@ class Order < ApplicationRecord
 
   def all_is_missing?
     item_qty - item_missing == 0 ? true : false
-  end
-
-  def payment_id
-    JSON.parse(self.payment)["id"]
   end
 
   # def self.to_csv
