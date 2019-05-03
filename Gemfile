@@ -117,6 +117,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "factory_bot_rails", "~> 4.0"
   gem 'binding_of_caller'
+  gem 'simplecov', require: false #savoir le tx de couverture des tests
 end
 
 

@@ -5,6 +5,9 @@ require 'rspec/rails'
 require 'support/factory_bot'
 require 'devise'
 require 'capybara-screenshot/rspec'
+require 'simplecov'
+
+SimpleCov.start 'rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 

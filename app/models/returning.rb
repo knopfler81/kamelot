@@ -10,10 +10,10 @@ class Returning < ApplicationRecord
 	after_save :change_status
 	after_save :re_add_to_stock
   after_save :send_email_with_status
-	after_save :set_order_status
+	# after_save :set_order_status
 	
 	def number
-	   "RET-00" + self.id.to_s
+	  "RET-00" + self.id.to_s
 	end
 
 	def re_add_to_stock 
@@ -53,9 +53,11 @@ class Returning < ApplicationRecord
 		end
 	end
 
-	def set_order_status
-		self.order.refunded!
-	end	
+	# def set_order_status
+	# 	if self.refunded?
+	# 		self.order.refunded!
+	# 	end
+	# end	
 	
 	def total_refund
 		self.items.where(selected: true).map do |item|
@@ -71,7 +73,7 @@ class Returning < ApplicationRecord
 		self.items.map(&:quantity).sum
 	end
  
-	def ordred_qty
+	def ordered_qty
 		self.order.items.map(&:quantity).sum
 	end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_144326) do
+ActiveRecord::Schema.define(version: 2019_05_03_132823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 2019_04_29_144326) do
     t.boolean "gcos_accepted", default: false
     t.float "total_weight"
     t.date "return_limit_date"
-    t.string "number"
     t.boolean "return_asked", default: false
     t.string "charge_id"
   end
