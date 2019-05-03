@@ -63,12 +63,12 @@
 								<% end %>
 							</td>
 							<td>
-								<% if @order.paid? %>
-									<%= link_to "Créer le colissimo 📦", "https://www.laposte.fr/colissimo-en-ligne"  %>
+								<% if @order.paid? || @order.confirmed? %>
+									<%= link_to "Créer le colissimo 📦", "https://www.laposte.fr/colissimo-en-ligne", target: "blank_"  %>
 								<% end %>
 							</td>
 							<td>
-								<% if @order.paid? %>
+								<% if @order.paid? || @order.confirmed? %>
 									<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 				        		<%= f.hidden_field :status, value: "full_shipped" %>
 				        		<%= submit_tag "Commande expédiée" , class: "btn btn-secondary"%>

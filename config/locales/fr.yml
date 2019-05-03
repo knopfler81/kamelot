@@ -58,6 +58,7 @@ fr:
       confirmed: En cours de préparation
       missing_item: Articles manquants
       partly_paid: Réglement au prorata
+      paid: Payée
       pending: En attente
       full_shipped: Commande envoyée dans sa totalité
       partly_shipped: Commande envoyée en partie
@@ -69,8 +70,10 @@ fr:
         confirmed: En cours de préparations
         missing_item: Articles manquants
         refunded: Partiellement remboursées
+        paid: Payée
         pending: En attente
-        finished: Expédiées
+        full_shipped: Commande envoyée dans sa totalité
+        partly_shipped: Commande envoyée en partie
         totally_refunded: Totallement remboursées
     returnings:
       confirmed: Retour réceptionné
@@ -84,6 +87,7 @@ fr:
       confirmed: En cours de préparation
       missing_item: Articles manquants
       partially_refunded: Partiellement remboursée
+      paid: Payée / Confirmée
       pending: En attente
       full_shipped: Commande envoyée dans sa totalité
       partly_shipped: Commande envoyée en partie
