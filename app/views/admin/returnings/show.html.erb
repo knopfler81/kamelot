@@ -23,6 +23,8 @@
 					  <%= submit_tag "Le retour est arrivé" , class: "btn btn-secondary", data: {confirm: "N'oubliez pas de rembourser le client" }%>
 					<% end %>
 				<% elsif @returning.status == "confirmed" %>
+					<%= link_to "Effectuer les remboursement", "https://dashboard.stripe.com/test/payments/#{@returning.order.charge_id}", target: "blank_", class: "btn btn-secondary" %>
+					<br><br>
 					<%= simple_form_for(@returning, url: admin_returning_path(@returning) )do |f| %>
 		        <%= f.hidden_field :status, value: "refunded" %>
 		        <%= submit_tag "Le remboursement a été fait" , class: "btn btn-secondary"%>
