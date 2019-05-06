@@ -28,7 +28,7 @@ install:
   - nvm install node v11.10.0
   - node -v
   - npm i -g yarn
-  - update yarn
+  - yarn
 
 script:
   - bundle exec rails webpacker:compile
