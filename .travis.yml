@@ -25,10 +25,10 @@ cache:
 install:
   - bundle update --bundler
   - bundle install
-  - nvm install node
+  - nvm install node v11.10.0
   - node -v
   - npm i -g yarn
-  - yarn install
+  - yarn
 
 script:
   - bundle exec rails webpacker:compile
