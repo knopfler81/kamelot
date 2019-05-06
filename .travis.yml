@@ -6,6 +6,8 @@ rvm:
 addons:
   postgresql: "9.4"
 
+env: SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=true
+
 before_install:
   - gem install bundler -v '>= 2'
   - "echo 'gem: --no-document' > ~/.gemrc"
