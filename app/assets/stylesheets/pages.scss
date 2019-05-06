@@ -1,15 +1,25 @@
 //LANDING 
-.landing-image {
-	margin-top: -30px;
-  background-repeat            : no-repeat center center fixed;
-  -o-background-size           : cover;
-  -moz-background-size         : cover;
-  -webkit-background-size      : cover;
-  -webkit-filter               : grayscale(40%);
-  background-size              : cover;
-  background-position          : center;
-  height                       : 100vh;
+// .landing-image {
+// 	margin-top: -30px;
+//   background-repeat            : no-repeat center center fixed;
+//   -o-background-size           : cover;
+//   -moz-background-size         : cover;
+//   -webkit-background-size      : cover;
+//   -webkit-filter               : grayscale(40%);
+//   background-size              : cover;
+//   background-position          : center;
+//   height                       : 100vh;
+// }
+
+.landing-content {
+  padding: 0px 90px;
 }
+
+
+.img-fluid {
+  width: 1900px;
+}
+
 
 .welcome-text {
 	color: #fff;
@@ -38,5 +48,10 @@
   		h2 {
   			font-size: 15px;
   		}
+  }
+
+  .landing-content {
+    padding: 0px;
+
   }
 }

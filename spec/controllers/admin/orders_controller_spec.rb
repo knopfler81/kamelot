@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Admin::OrdersController, :admin do
 
   before(:each) do 
-    sign_in FactoryBot.create(:user)
-    @order    = create(:order)
+    sign_in create(:user)
+    @order  = create(:order)
   end
   
   describe "GET index" do

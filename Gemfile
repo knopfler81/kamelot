@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.1'
-gem 'rails', '~> 5.2.2'
+ruby '2.4.4'
+gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
@@ -104,7 +104,7 @@ group :development, :test do
   gem 'timecop'
   gem 'rspec-rails', '~> 3.7'
   gem 'launchy'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
