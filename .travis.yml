@@ -7,6 +7,8 @@ addons:
   postgresql: "9.4"
 
 before_install:
+  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+  - gem install bundler -v '< 2'
   - "echo 'gem: --no-document' > ~/.gemrc"
   - "echo '--colour' > ~/.rspec"
   - export DISPLAY=:99.0
@@ -22,7 +24,6 @@ cache:
   yarn: true
 
 install:
-  - bundle update
   - bundle install
   - nvm install node
   - node -v
