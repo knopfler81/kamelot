@@ -1,5 +1,5 @@
 {
-  "name": "super_shop",
+  "name": "kamelot",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
