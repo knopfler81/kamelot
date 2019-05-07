@@ -2,7 +2,6 @@ class ReturningMailer < ApplicationMailer
 
 	def send_returning(returning)
 	  @returning = returning
-
 	  mail( to: Company.instance.email, subject: "Un retour de marchandise a été demandé")
 	end
 
