@@ -12,6 +12,7 @@ FactoryBot.define do
       File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_1.jpg")),
       File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_2.jpg")),
       File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_3.jpg")),
+      File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_4.jpg"))
     ] }
     user { User.first || association(:user, admin: true)}
     category 
