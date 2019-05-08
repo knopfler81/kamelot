@@ -29,6 +29,7 @@ Rails.application.configure do
   config.i18n.default_locale = :fr
 
   ActionMailer::Base.smtp_settings = {
+
     address:              "smtp.sendgrid.net",
     port:                  587,
     user_name:             ENV['SENDGRID_USERNAME'],

@@ -1,14 +1,14 @@
 language: ruby
 
 rvm:
-  - 2.4.1
+  - 2.4.4
 
 addons:
   postgresql: "9.4"
 
+
 before_install:
-  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
-  - gem install bundler -v '< 2'
+  - gem install bundler -v '>= 2'
   - "echo 'gem: --no-document' > ~/.gemrc"
   - "echo '--colour' > ~/.rspec"
   - export DISPLAY=:99.0
@@ -24,8 +24,9 @@ cache:
   yarn: true
 
 install:
+  - bundle update --bundler
   - bundle install
-  - nvm install node
+  - nvm install node v11.10.0
   - node -v
   - npm i -g yarn
   - yarn
