@@ -7,7 +7,7 @@ RSpec.describe Favorite do
 		login_as john
 	end
 
-	scenario "add a product to favorites", js: true do 
+	scenario "add a product to favorites", :js do 
 		category = create(:category, title: "Tshirt")
 		tshirt   = create(:product, brand: "Kaporal", category_id: category.id)
 		
