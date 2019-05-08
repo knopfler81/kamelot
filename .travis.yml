@@ -24,7 +24,10 @@ cache:
   yarn: true
 
 install:
+<<<<<<< Updated upstream
   - bundle update --bundler
+=======
+>>>>>>> Stashed changes
   - bundle install
   - nvm install node v11.10.0
   - node -v
