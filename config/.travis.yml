@@ -34,5 +34,3 @@ install:
 script:
   - bundle exec rails webpacker:compile
   - bundle exec rails spec
-
-  #ploc
