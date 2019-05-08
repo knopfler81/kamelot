@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Creating Product" , :js do 
+RSpec.describe "Creating Product" do 
 
 	context "As an admin I can" do 
 
@@ -12,8 +12,8 @@ RSpec.describe "Creating Product" , :js do
 			login_as(nelly)
 		end
 
-		scenario "Create a product"  do 
-			visit 'admin/products/new'
+		scenario "Create a product" do 
+			visit new_admin_product_path
 			fill_in "product[brand]", with: "Side Park"
 			fill_in "product[title]", with: "Gillet en laine"
 			fill_in "product[price]", with: 50
@@ -26,10 +26,6 @@ RSpec.describe "Creating Product" , :js do
 			select "Morrin", from: "product[supplier_id]"
 
 			attach_file "product[attachments][]", Rails.root.join("spec/fixtures/product/attachments/pull_noir_1.jpg")
-
-			# click_on "Ajouter une variante"
-			# find('.nested-fields:nth-child(1)').fill_in "Taille", with: "M"
-			# find('.nested-fields:nth-child(1)').fill_in "Couleur, si autres couleurs disponibles", with: 9
 
 			click_on "Valider le produit"
 
