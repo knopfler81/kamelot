@@ -33,4 +33,5 @@ install:
 
 script:
   - bundle exec rails webpacker:compile
-  - bundle exec rails spec
+  - xvfb-run -a bundle exec rspec
+  #- bundle exec rails spec
