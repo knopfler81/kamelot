@@ -100,14 +100,13 @@ end
 
 group :development, :test do
   gem 'stripe-ruby-mock', '~> 2.5.6', :require => 'stripe_mock'
-  gem 'capybara-screenshot'
   gem 'timecop'
   gem 'rspec-rails', '~> 3.7'
   gem 'launchy'
   gem 'webdrivers'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'capybara'
+  # gem 'capybara'
   gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'
   gem 'rails-controller-testing'
   gem 'capybara-screenshot'
