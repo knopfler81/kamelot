@@ -11,8 +11,10 @@
 	ul li a {
 		background-color: #fff!important;
 		color: #666 !important;
+		font-size: 30px;
 	}
 }
+
 
 .nav-upper-admin {
 	z-index: 10000;
@@ -51,7 +53,7 @@
 .fa-shopping-bag {
 	font-size: 25px;
 	position: relative;
-	color: #666;
+	color: red;
 }
 
 #items_count {
@@ -99,7 +101,7 @@
 }
 
 .link-product {
-	font-size: 20px;
+	font-size: 17px;
 }
 
 .link-product:hover {

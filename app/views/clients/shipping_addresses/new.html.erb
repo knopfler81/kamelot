@@ -36,8 +36,18 @@
 
 				</div>
 				<br><br>
-				<%= f.submit "Valider", class: "btn-main btn-block" %>
-				<%= link_to 'Remplir plus tard', 'javascript:history.go(-1);', class: "btn btn-secondary btn-block" %>
+				<div class="row">
+					<div class="col-12">
+						<%= f.submit "Valider", class: "btn-main btn-block" %>
+						<br>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<br>
+						<%= link_to 'Remplir plus tard', 'javascript:history.go(-1);', class: "btn btn-secondary btn-block" %>
+					</div>
+				</div>
 			<% end %>
 		</div>
 	</div>

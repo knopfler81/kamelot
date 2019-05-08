@@ -168,6 +168,9 @@
 									<%= f.file_field :third_image, id: "third_image_upload" , class: "input_file"%><br/> 
 									<%= f.hidden_field :third_image_cache %>
 									<img id="third_image_prev" src="#"  class= "hidden"/>
+									<%= link_to clients_customization_path(Customization.instance.third_image), method: :delete, data: { confirm: "La suppression de l'image est irreversible?" }, class: "delete_img_link"  do %>
+										<i class="fa fa-trash trash"></i>
+									<% end %>
 									<p id="third_image_error"></p>
 								</div>
 								<div class="col-4">

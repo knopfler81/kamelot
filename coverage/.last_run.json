@@ -1,5 +1,21 @@
 {
   "result": {
-    "covered_percent": 15.86
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "covered_percent": 51.28
+
+}
+=======
+    "covered_percent": 12.03
+=======
+    "covered_percent": 16.59
+>>>>>>> 42ce42f... fix overlap
   }
 }
+>>>>>>> 9eea437... spec pour shipping et billing
+=======
+    "covered_percent": 52.61
+  }
+}
+>>>>>>> bec5973... wip

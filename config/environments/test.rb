@@ -29,4 +29,5 @@ Rails.application.configure do
   config.i18n.default_locale = :fr
 
   config.action_mailer.perform_deliveries = false
+
 end
