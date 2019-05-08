@@ -19,6 +19,7 @@ gem "groupdate", "~> 3.1.1"
 gem "chartkick"
 gem 'google-api-client', '~> 0.11'
 
+
 #environement variables
 gem "figaro"
   
