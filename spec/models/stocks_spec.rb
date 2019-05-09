@@ -6,7 +6,6 @@ RSpec.describe Stock, type: :model do
 	it { should validate_presence_of(:cost_price) }
 	it { should validate_presence_of(:price) }
 
-
 	describe "#define_supplier" do 
 
 		before(:each) do 
@@ -15,6 +14,7 @@ RSpec.describe Stock, type: :model do
 			@variant = create(:variant, product_id: @product.id)
 			@stock   = create(:stock, variant_id: @variant.id)
 		end
+
 		context "the supplier is the same" do 
 
 			it "setup the same supplier" do 
