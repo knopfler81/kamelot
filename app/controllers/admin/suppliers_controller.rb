@@ -7,7 +7,8 @@ class Admin::SuppliersController < Admin::ApplicationController
 	end
 
 	def show
-		@supplier = Supplier.find(params[:id])
+		@supplier    = Supplier.find(params[:id])
+		@supl_stocks = @supplier.stocks.paginate(page: params[:page], per_page: 10)
 	end
 
 

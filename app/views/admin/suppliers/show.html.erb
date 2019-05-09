@@ -1,16 +1,39 @@
 <div class="container">
-		<h2><%= @supplier.company %></h2>
-		<hr>
-			<div class="row">
+	<h1 class="primary_title"><%= @supplier.company.upcase %></h1>
+	<hr>
+	<div class="row">
+		<div class="col-6">
+			<p><%= @supplier.address %></p>
+			<p><%= @supplier.zipcode %> <%= @supplier.city %></p>
+			<p><%= @supplier.phone_number %></p>
+			<p><%= @supplier.email %></p>
+		</div>
+	</div>
 
-				<div class="col-6">
-					<%= @supplier.address %>
-					<%= @supplier.zipcode %>
-					<%= @supplier.city %>
-					<%= @supplier.phone_number %>
-					<%= @supplier.email %>
-				</div>
-
-		
-			</div>
+	<div class="row">
+		<% if @supplier.stocks.count > 0 %>
+			Achats réalisé chez ce fournisseurs: 
+				<table class="table table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Mise à jour le</th>
+							<th>Article</th>
+							<th>Marque</th>
+							<th>Variante</th>
+							<th>Stock initial</th>
+							<th>Srock restant</th>
+							<th>Prix achat unitaire</th>
+						</tr>
+					</thead>
+					<tbody id="supl_stocks">
+						<%= render partial: "supl_stocks" %>
+					</tbody>
+				</table>
+				<%= will_paginate @supl_stocks %>
+		<% else %>
+		Vous n'avez rien acheté chez ce fournisseur
+		<% end %>
+		</div>
+	</div>
 </div>

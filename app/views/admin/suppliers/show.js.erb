@@ -1,0 +1,6 @@
+ $('#supl_stocks').append('<%= j render "supl_stocks" %>');
+ <% if @supl_stocks.next_page %>
+   $('.pagination').replaceWith('<%= j will_paginate(@supl_stocks) %>');
+ <% else %>
+   $('.pagination').remove();
+ <% end %>
