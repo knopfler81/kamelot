@@ -8,11 +8,11 @@
 			<div class="col-12 col-md-4">
 				<h2>LIVRAISON
 					<% if current_user.shipping_address %>
-						<%= link_to edit_clients_shipping_address_path(current_user.shipping_address) do  %>
+						<%= link_to edit_clients_shipping_address_path(current_user.shipping_address), id: "edit_shipping" do  %>
 							<i class="fa fa-edit"></i>
 						<% end %>
 					<% else %>
-						<%= link_to new_clients_shipping_address_path(current_user) do  %>
+						<%= link_to new_clients_shipping_address_path(current_user), id: "add_shipping" do %>
 							<i class="fa fa-plus-square"></i>
 						<% end %>
 					<% end %>
@@ -32,11 +32,11 @@
 			<div class="col-12 col-md-4">
 				<h2>FACTURATION 
 					<% if current_user.billing_address %>
-						<%= link_to edit_clients_billing_address_path(current_user.billing_address) do  %>
+						<%= link_to edit_clients_billing_address_path(current_user.billing_address), id:"edit_billing" do  %>
 							<i class="fa fa-edit"></i>
 						<% end %>
 					<% else %>
-						<%= link_to new_clients_billing_address_path(current_user) do  %>
+						<%= link_to new_clients_billing_address_path(current_user), id: "add_billing" do  %>
 							<i class="fa fa-plus-square"></i>
 						<% end %>
 					<% end %>
