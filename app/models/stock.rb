@@ -4,6 +4,13 @@ class Stock < ApplicationRecord
 
   before_validation :to_initial_quantity, on: :create
 
+
+  validates :supplier_id, presence: true
+  validates :quantity,    presence: true
+  validates :cost_price,  presence: true
+  validates :price,       presence: true
+
+
   def define_supplier
   	if self.supplier.company != self.variant.product.supplier.company
  			self.supplier.company
