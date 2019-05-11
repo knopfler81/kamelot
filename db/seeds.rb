@@ -3186,6 +3186,3 @@ end
 Sale.all.each do |sale|
 	remove_from_stock(sale)
 end
-
-
-
