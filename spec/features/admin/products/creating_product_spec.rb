@@ -31,5 +31,28 @@ RSpec.describe "Creating Product" do
 
 			expect(page).to have_content("L'article a bien été créé")
 		end
+
+		scenario "Edit a product" do 
+		product = create(:product, brand: "Stil Park")
+			visit edit_admin_product_path(product)
+			fill_in "product[brand]", with: "Enzo Di Capri"
+
+
+			click_on "Mettre à jour l'article"
+
+			expect(page).to have_content("Gestion du stock pour")
+		end
+
+		scenario "Duplicate a product" do 
+			product = create(:product, brand: "Stil Park", title: "Polo")
+			visit admin_product_path(product)
+			click_on "Dupliquer cet article"
+
+      expect(find_field("product[title]").value).to eq 'Polo'
+			expect(find_field("product[brand]").value).to eq 'Stil Park'
+      expect(page).to have_content("CREATION D'UN NOUVEL ARTICLE")
+		end
+
+
 	end
 end

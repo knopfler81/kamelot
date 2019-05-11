@@ -82,6 +82,11 @@ class Admin::ProductsController < Admin::ApplicationController
 	def stickers
 	end
 
+	def clone
+	  @product = Product.find(params[:id]).dup
+	  render :new
+	end
+
 
 	private
 	
