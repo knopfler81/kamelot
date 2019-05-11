@@ -395,7 +395,6 @@ product_1 = Product.create(
 	price: 30,
 	color: "Noir",
 	title: "Pull",
-	weight: 0.300,
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -437,7 +436,6 @@ product_2 = Product.create(
 	price: 40,
 	color: "Blanc",
 	title: "Pull",
-	weight: 0.300,
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -479,7 +477,6 @@ product_3 = Product.create(
 	price: 40,
 	color: "Rouge",
 	title: "Pull",
-	weight: 0.300,
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -522,7 +519,6 @@ product_4 = Product.create(
 	price: 49,
 	color: "Jaune",
 	title: "Pantalon",
-	weight: 0.300,
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -564,7 +560,6 @@ product_5 = Product.create(
 	price: 60,
 	color: "Gris",
 	title: "Jean",
-	weight: 0.300,
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -606,7 +601,6 @@ product_6 = Product.create(
 	price: 20,
 	color: "Bleu",
 	title: "Jean",
-	weight: 0.300,
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -647,7 +641,6 @@ product_7 = Product.create(
 	price: 50,
 	color: "Noir",
 	title: "Pull",
-	weight: 0.300,
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -687,7 +680,6 @@ product_8 = Product.create(
 	price: 30,
 	color: "Vert",
 	title: "Pull",
-	weight: 0.300,
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -728,7 +720,6 @@ product_9 = Product.create(
 	price: 70,
 	color: "Beige",
 	title: "Pull",
-	weight: 0.300,
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -765,7 +756,6 @@ product_10 = Product.create(
 	price: 70,
 	color: "Camel",
 	title: "Pull",
-	weight: 0.300,
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -803,7 +793,6 @@ product_11 = Product.create(
 	price: 30,
 	color: "Jaune",
 	title: "Pantalon",
-	weight: 0.300,
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -841,7 +830,6 @@ product_12 = Product.create(
 	price: 40,
 	color: "Gris",
 	title: "Jean",
-	weight: 0.300,
 	description: "Pantalon ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -883,7 +871,6 @@ product_13 = Product.create(
 	price: 30,
 	color: "Bleu",
 	title: "Jean",
-	weight: 0.300,
 	description: "Pantalon rem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -925,7 +912,6 @@ product_14 = Product.create(
 	price: 50,
 	color: "Bleu",
 	title: "Tshirt",
-	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -965,7 +951,6 @@ product_15 = Product.create(
 	price: 30,
 	color: "Blanc",
 	title: "Tshirt",
-	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -1006,7 +991,6 @@ product_16 = Product.create(
 	price: 30,
 	color: "Rouge",
 	title: "Tshirt",
-	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -1046,7 +1030,6 @@ product_17 = Product.create(
 	price: 30,
 	color: "Gris",
 	title: "Tshirt",
-	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -1088,7 +1071,6 @@ product_18 = Product.create(
 	price: 30,
 	color: "Gris",
 	title: "Tshirt",
-	weight: 0.300,
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_2.id,
 	attachments:[
@@ -1128,7 +1110,6 @@ product_19 = Product.create(
 	price: 60,
 	color: "Marine",
 	title: "Polo",
-	weight: 0.500,
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments: [
@@ -1169,7 +1150,6 @@ product_20 = Product.create(
 	price: 20,
 	color: "Rose",
 	title: "Polo",
-	weight: 0.300,
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1209,7 +1189,6 @@ product_21 = Product.create(
 	price: 20,
 	color: "Jaune",
 	title: "Polo",
-	weight: 0.300,
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1250,7 +1229,6 @@ product_22 = Product.create(
 	price: 20,
 	color: "Bleu",
 	title: "Polo",
-	weight: 0.300,
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1290,7 +1268,6 @@ product_23 = Product.create(
 	price: 20,
 	color: "Blanc",
 	title: "Polo",
-	weight: 0.300,
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1330,7 +1307,6 @@ product_24 = Product.create(
 	price: 20,
 	color: "Orange",
 	title: "Chemise",
-	weight: 0.300,
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1370,7 +1346,6 @@ product_25 = Product.create(
 	price: 20,
 	color: "Turquoise",
 	title: "Chemise",
-	weight: 0.300,
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1411,7 +1386,6 @@ product_26 = Product.create(
 	price: 20,
 	color: "Rouge",
 	title: "Chemise",
-	weight: 0.300,
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1451,7 +1425,6 @@ product_27 = Product.create(
 	price: 20,
 	color: "Marine",
 	title: "Chemise",
-	weight: 0.300,
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1492,7 +1465,6 @@ product_28 = Product.create(
 	price: 20,
 	color: "Noire",
 	title: "Chemise",
-	weight: 0.300,
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
 	supplier_id: supplier_1.id,
 	attachments:[
@@ -1612,8 +1584,7 @@ order_1  = Order.create(
 	user_id: user_2.id,
 	token: SecureRandom.hex(8), 
 	status: "full_shipped", 
-	shipping_fees: 5, 
-	total_weight: 0.600,
+	shipping_fees: 5,
 	sub_total: [product_1.price + product_1.price].sum,
 	total: 135,
 )
@@ -1623,7 +1594,6 @@ order_1  = Order.create(
 		selected: false,
 		price: product_1.price, 
 		order_id: order_1.id,
-		weight: product_1.weight,
 		quantity: 1,
 		variant_id: product_1.variants[0].id,
 	)
@@ -1633,7 +1603,6 @@ order_1  = Order.create(
 		selected: false,
 		price: product_2.price, 
 		order_id: order_1.id, 
-		weight: product_2.weight,
 		quantity: 1,
 		variant_id: product_2.variants[1].id,
 	)
@@ -1648,8 +1617,7 @@ order_2  = Order.create(
 	user_id: user_3.id,  
 	token: SecureRandom.hex(8), 
 	status: "partly_shipped", 
-	shipping_fees: 5, 
-	total_weight: 0.600,
+	shipping_fees: 5,
 	sub_total: [product_1.price + product_1.price].sum,
 	total: 135
 )
@@ -1660,7 +1628,6 @@ order_2  = Order.create(
 		selected: false,
 		price: product_1.price, 
 		order_id: order_2.id,
-		weight: product_1.weight,
 		quantity: 1,
 		variant_id: product_1.variants[0].id
 	)
@@ -1670,7 +1637,6 @@ order_2  = Order.create(
 		selected: false,
 		price: product_2.price, 
 		order_id: order_2.id, 
-		weight: product_2.weight,
 		quantity: 1,
 		variant_id: product_2.variants[2].id
 	)
@@ -1684,8 +1650,7 @@ order_3  = Order.create(
 	user_id: user_4.id,  
 	token: SecureRandom.hex(8), 
 	status: "full_shipped", 
-	shipping_fees: 5, 
-	total_weight: 1.200,
+	shipping_fees: 5,
 	sub_total: [product_1.price * 2 + product_2.price * 2].sum,
 	total: 135
 )
@@ -1695,7 +1660,6 @@ order_3  = Order.create(
 		selected: false,
 		price: product_1.price, 
 		order_id: order_3,
-		weight: 0.200,	
 		quantity: 2,
 		variant_id: product_1.variants[1].id
 	)
@@ -1705,7 +1669,6 @@ order_3  = Order.create(
 		selected: false,
 		price: product_3.price, 
 		order_id: order_3.id,
-		weight: 0.200,
 		quantity: 2,
 		variant_id: product_3.variants[1].id
 	)
@@ -1721,7 +1684,6 @@ order_4  = Order.create(
  	status: 4,
  	return_limit_date: Date.today + 10,
  	shipping_fees: 5, 
- 	total_weight: 0.300,
  	sub_total: product_2.price,
  	total: 135)
 OrderItem.create(
@@ -1729,7 +1691,6 @@ OrderItem.create(
 	selected: false,
 	price: product_2.price, 
 	order_id: order_4.id,
-	weight: product_2.weight,
 	quantity: 1,
 	variant_id: product_2.variants[1].id)
 
@@ -1743,7 +1704,6 @@ order_5  = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_2.price,
  	total: 135
  	)
@@ -1752,7 +1712,6 @@ OrderItem.create(
 	selected: false,
 	price: product_2.price, 
 	order_id: order_5.id,
-	weight: product_2.weight,
 	quantity: 1,
 	variant_id: product_2.variants[0].id)
 
@@ -1766,7 +1725,6 @@ order_6  = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: [product_2.price*2 + product_3.price + product_3.price].sum,
  	total: 135)
 OrderItem.create(
@@ -1774,7 +1732,6 @@ OrderItem.create(
 	selected: false,
 	price: product_2.price, 
 	order_id: order_6.id,
-	weight: product_2.weight,
 	quantity: 2,
 	variant_id: product_2.variants[0].id)
 OrderItem.create(
@@ -1782,7 +1739,6 @@ OrderItem.create(
 	selected: false,
 	price: product_3.price, 
 	order_id: order_6.id,
-	weight: product_3.weight,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
 OrderItem.create(
@@ -1790,7 +1746,6 @@ OrderItem.create(
 	selected: false,
 	price: product_3.price, 
 	order_id: order_6.id,
-	weight: product_3.weight,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
 
@@ -1804,7 +1759,6 @@ order_7  = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_3.price,
  	total: 135
  	)
@@ -1813,7 +1767,6 @@ OrderItem.create(
 	selected: false,
 	price: product_3.price, 
 	order_id: order_7.id,
-	weight: product_3.weight,
 	quantity: 1,
 	variant_id: product_3.variants[1].id)
 
@@ -1827,7 +1780,6 @@ order_8  = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.600,
  	sub_total: product_3.price*2, 
  	total: 135)
 OrderItem.create(
@@ -1835,7 +1787,6 @@ OrderItem.create(
 	selected: false,
 	price: product_3.price, 
 	order_id: order_8.id,
-	weight: product_3.weight,
 	quantity: 1,
 	variant_id: product_3.variants[2].id
 	)
@@ -1844,7 +1795,6 @@ OrderItem.create(
 	selected: false,
 	price: product_3.price, 
 	order_id: order_8.id,
-	weight: product_3.weight,
 	quantity: 2,
 	variant_id: product_3.variants[0].id)
 
@@ -1858,7 +1808,6 @@ order_9  = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_4.price,
  	total: 135
  	)
@@ -1867,7 +1816,6 @@ OrderItem.create(
 	selected: false,
 	price: product_4.price, 
 	order_id: order_9.id,
-	weight: product_4.weight,
 	quantity: 1,
 	variant_id: product_4.variants[0].id)
 
@@ -1881,7 +1829,6 @@ order_10 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_24.price,
  	total: 135
  	)
@@ -1890,7 +1837,6 @@ OrderItem.create(
 	selected: false,
 	price: product_24.price, 
 	order_id: order_10.id, 
-	weight: product_24.weight,
 	quantity: 1,
 	variant_id: product_24.variants[0].id)
 
@@ -1905,7 +1851,6 @@ order_11 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_5.price * 3 , 
  	total: 135
  	)
@@ -1914,7 +1859,6 @@ OrderItem.create(
 	selected: false,
 	price: product_5.price, 
 	order_id: order_11.id, 
-	weight: product_5.weight,
 	quantity: 2,
 	variant_id: product_5.variants[0].id
 	)
@@ -1923,7 +1867,6 @@ OrderItem.create(
 	selected: false,
 	price: product_5.price, 
 	order_id: order_11.id, 
-	weight: product_5.weight,
 	quantity: 1,
 	variant_id: product_5.variants[2].id
 	)
@@ -1938,7 +1881,6 @@ order_12 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_17.price,
  	total: 135
  	)
@@ -1947,7 +1889,6 @@ OrderItem.create(
 	selected: false,
 	price: product_17.price, 
 	order_id: order_12.id, 
-	weight: product_17.weight,
 	quantity: 1,
 	variant_id: product_17.variants[0].id)
 
@@ -1961,7 +1902,6 @@ order_13 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_6.price,
  	total: 135
  	)
@@ -1970,7 +1910,6 @@ OrderItem.create(
 	selected: false,
 	price: product_6.price, 
 	order_id: order_13.id, 
-	weight: product_6.weight,
 	quantity: 1,
 	variant_id: product_6.variants[0].id)
 
@@ -1985,7 +1924,6 @@ order_14 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_6.price,
  	total: 135
  	)
@@ -1994,7 +1932,6 @@ OrderItem.create(
 	selected: false,
 	price: product_6.price, 
 	order_id: order_14.id, 
-	weight: product_6.weight,
 	quantity: 1,
 	variant_id: product_6.variants[1].id)
 
@@ -2010,7 +1947,6 @@ order_15 = Order.create(
  	status: 4,
  	return_limit_date: Date.today + 10,
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_6.price * 3, 
  	total: 135)
 OrderItem.create(
@@ -2018,7 +1954,6 @@ OrderItem.create(
 	selected: false,
 	price: product_8.price, 
 	order_id: order_15.id, 
-	weight: product_8.weight,
 	quantity: 1,
 	variant_id: product_8.variants[0].id)
 
@@ -2033,7 +1968,6 @@ order_16 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.600,
  	sub_total: product_28.price * 2,
  	total: 135)
 OrderItem.create(
@@ -2041,7 +1975,6 @@ OrderItem.create(
 	selected: false,
 	price: product_28.price, 
 	order_id: order_16.id, 
-	weight: product_28.weight,
 	quantity: 2,
 	variant_id: product_28.variants[0].id)
 
@@ -2056,7 +1989,6 @@ order_17 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_19.price,
  	total: 135
  	)
@@ -2065,7 +1997,6 @@ OrderItem.create(
 	selected: false,
 	price: product_19.price, 
 	order_id: order_17.id, 
-	weight: product_19.weight,
 	quantity: 1,
 	variant_id: product_19.variants[1].id)
 
@@ -2080,7 +2011,6 @@ order_18 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_20.price,
  	total: 135
  	)
@@ -2089,7 +2019,6 @@ OrderItem.create(
 	selected: false,
 	price: product_20.price,
 	order_id: order_18.id,
-	weight: product_20.weight,
 	quantity: 1, 
 	variant_id: product_20.variants[2].id
 	)
@@ -2104,7 +2033,6 @@ order_21 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_21.price * 3, 
  	total: 135)
 OrderItem.create(
@@ -2112,7 +2040,6 @@ OrderItem.create(
 	selected: false,
 	price: product_21.price,
 	order_id: order_21.id,
-	weight: product_21.weight,
 	quantity: 1, 
 	variant_id: product_21.variants[2].id
 	)
@@ -2127,7 +2054,6 @@ order_22 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_22.price * 3, 
  	total: 135)
 OrderItem.create(
@@ -2135,7 +2061,6 @@ OrderItem.create(
 	selected: false,
 	price: product_22.price,
 	order_id: order_22.id,
-	weight: product_22.weight,
 	quantity: 1, 
 	variant_id: product_22.variants[2].id
 	)
@@ -2150,7 +2075,6 @@ order_24 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_11.price * 3,
  	total: 135
  	)
@@ -2159,7 +2083,6 @@ OrderItem.create(
 	selected: false,
 	price: product_11.price,
 	order_id: order_24.id,
-	weight: product_11.weight,
 	quantity: 1, 
 	variant_id: product_11.variants[1].id
 	)
@@ -2175,7 +2098,6 @@ order_25 = Order.create(
  	status: 4,
  	return_limit_date: Date.today + 10,
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_11.price * 3,
  	total: 135
  	)
@@ -2184,7 +2106,6 @@ OrderItem.create(
 	selected: false,
 	price: product_11.price,
 	order_id: order_25.id,
-	weight: product_11.weight,
 	quantity: 1, 
 	variant_id: product_1.variants[0].id)
 
@@ -2199,7 +2120,6 @@ order_26 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.600,
  	sub_total: product_11.price * 2, 
  	total: 135
  	)
@@ -2208,7 +2128,6 @@ OrderItem.create(
 	selected: false,
 	price: product_11.price,
 	order_id: order_26.id,
-	weight: product_11.weight,
 	quantity: 1, 
 	variant_id: product_11.variants[0].id
 	)
@@ -2224,7 +2143,6 @@ order_27 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_9.price,
  	total: 135
  	)
@@ -2233,7 +2151,6 @@ OrderItem.create(
 	selected: false,
 	price: product_9.price, 
 	order_id: order_27.id, 
-	weight: product_9.weight,
 	quantity: 1,
 	variant_id: product_9.variants[0].id)
 
@@ -2248,7 +2165,6 @@ order_28 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_25.price,
  	total: 135
  	)
@@ -2257,7 +2173,6 @@ OrderItem.create(
 	selected: false,
 	price: product_25.price,
 	order_id: order_28.id,
-	weight: product_25.weight,
 	quantity: 1, 
 	variant_id: product_25.variants[2].id
 	)
@@ -2272,7 +2187,6 @@ order_29 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_27.price,
  	total: 135
  	)
@@ -2281,7 +2195,6 @@ OrderItem.create(
 	selected: false,
 	price: product_27.price,
 	order_id: order_29.id,
-	weight: product_27.weight,
 	quantity: 1, 
 	variant_id: product_27.variants[2].id
 	)
@@ -2296,7 +2209,6 @@ order_30 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 1.200,
  	sub_total: product_27.price * 4, 
  	total: 135
  	)
@@ -2305,7 +2217,6 @@ OrderItem.create(
 	selected: false,
 	price: product_27.price,
 	order_id: order_30.id,
-	weight: product_27.weight,
 	quantity: 1, 
 	variant_id: product_27.variants[0].id
 	)
@@ -2320,7 +2231,6 @@ order_31 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_27.price * 3, 
  	total: 135
  	)
@@ -2329,7 +2239,6 @@ OrderItem.create(
 	selected: false,
 	price: product_27.price,
 	order_id: order_31.id,
-	weight: product_27.weight,
 	quantity: 1, 
 	variant_id: product_27.variants[1].id
 	)
@@ -2344,7 +2253,6 @@ order_32 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_27.price * 3, 
  	total: 135
  	)
@@ -2353,7 +2261,6 @@ OrderItem.create(
 	selected: false,
 	price: product_27.price,
 	order_id: order_32.id,
-	weight: product_27.weight,
 	quantity: 1, 
 	variant_id: product_27.variants[0].id
 	)
@@ -2368,7 +2275,6 @@ order_33 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.600,
  	sub_total: product_19.price * 2, 
  	total: 135
  	)
@@ -2377,7 +2283,6 @@ OrderItem.create(
 	selected: false,
 	price: product_19.price,
 	order_id: order_33.id,
-	weight: product_19.weight,
 	quantity: 1, 
 	variant_id: product_19.variants[1].id
 	)
@@ -2392,7 +2297,6 @@ order_34 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_19.price * 3, 
  	total: 135
  	)
@@ -2401,7 +2305,6 @@ OrderItem.create(
 	selected: false,
 	price: product_19.price,
 	order_id: order_34.id,
-	weight: product_19.weight,
 	quantity: 1, 
 	variant_id: product_19.variants[1].id
 	)
@@ -2416,7 +2319,6 @@ order_35 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_19.price, 
  	total: 135
  	)
@@ -2425,7 +2327,6 @@ OrderItem.create(
 	selected: false,
 	price: product_19.price,
 	order_id: order_35.id,
-	weight: product_19.weight,
 	quantity: 1, 
 	variant_id: product_19.variants[0].id
 	)
@@ -2440,7 +2341,6 @@ order_36 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.900,
  	sub_total: product_16.price * 3, 
  	total: 135
  	)
@@ -2449,7 +2349,6 @@ OrderItem.create(
 	selected: false,
 	price: product_16.price,
 	order_id: order_36.id,
-	weight: product_16.weight,
 	quantity: 1, 
 	variant_id: product_16.variants[0].id
 	)
@@ -2464,7 +2363,6 @@ order_37 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "partly_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_9.price,
  	total: 135
  	)
@@ -2473,7 +2371,6 @@ OrderItem.create(
 	selected: false,
 	price: product_9.price, 
 	order_id: order_37.id, 
-	weight: product_9.weight,
 	quantity: 1,
 	variant_id: product_9.variants[0].id)
 
@@ -2488,7 +2385,6 @@ order_38 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "full_shipped",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_10.price,
  	total: 135
  	)
@@ -2497,7 +2393,6 @@ OrderItem.create(
 	selected: false,
 	price: product_10.price,
 	order_id: order_38.id,
-	weight: product_10.weight,
 	quantity: 1, 
 	variant_id: product_10.variants[0].id
 	)
@@ -2512,7 +2407,6 @@ order_40 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "pending",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_16.price,
  	total: 400
  	)
@@ -2521,7 +2415,6 @@ OrderItem.create(
 	selected: false,
 	price: product_16.price,
 	order_id: order_40.id,
-	weight: product_16.weight,
 	quantity: 1, 
 	variant_id: product_13.variants[2].id
 	)
@@ -2536,7 +2429,6 @@ order_41 = Order.create(
  	token: SecureRandom.hex(8),
  	status: "paid",
  	shipping_fees: 5,
- 	total_weight: 0.300,
  	sub_total: product_13.price,
  	total: 400
  	)
@@ -2545,7 +2437,6 @@ OrderItem.create(
 	selected: false,
 	price: product_13.price,
 	order_id: order_41.id,
-	weight: product_13.weight,
 	quantity: 1, 
 	variant_id: product_13.variants[0].id
 	)

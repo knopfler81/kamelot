@@ -76,6 +76,9 @@
 	        <%= link_to "Ajouter un article", new_admin_product_path, class: "drop-item" %>
 	      </li>
 	      <% unless @product.nil? || @product.new_record? %>
+	      	<li>
+	      		<%= link_to 'Dupliquer cet article',admin_products_clone_path(id: @product.id), action: "clone",  class: "drop-item" %>
+	      	</li>
 	        <li>
 	          <%= link_to "Ajouter stock",   stock_admin_product_path(@product), class: "drop-item" %>
 	        </li>

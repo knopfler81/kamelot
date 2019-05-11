@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 		namespace :admin do
 
 			get '/products/qr_codes', to: "products#qr_codes"
+			get '/products/clone', to: "products#clone"
 
 
 			resources :products do 
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
 			resources :products do
 				resources :attachments, only: [:create, :destroy]
 			end
+
 
 
 			resources :products do
