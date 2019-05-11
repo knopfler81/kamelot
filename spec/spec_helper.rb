@@ -26,10 +26,22 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-      @stripe_test_helper = StripeMock.create_test_helper
-      StripeMock.start
-    end
+    @stripe_test_helper = StripeMock.create_test_helper
+    StripeMock.start
+  end
+
   config.after(:each) do
-      StripeMock.stop
-    end
+    StripeMock.stop
+  end
+
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+
+  Capybara.javascript_driver = :chrome
+
+  # Capybara.configure do |config|
+  #   config.default_max_wait_time = 10 # seconds
+  #   config.default_driver        = :selenium
+  # end
 end

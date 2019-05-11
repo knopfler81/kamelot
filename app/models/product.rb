@@ -28,7 +28,8 @@ class Product < ApplicationRecord
 	validates :brand,        presence: true
 	validates :category_id,  presence: true
 	validates :ref, 				 presence: true
-
+	validates :weight, 			 presence: true
+	
 	validate  :attachment_size
 
 

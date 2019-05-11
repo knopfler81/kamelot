@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :variant do
-    color { "Red" }
+    color { "" }
     size { "L" }
     product
   end

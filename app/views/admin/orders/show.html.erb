@@ -43,9 +43,8 @@
 	</div>
 	<div class="row">
 		<div class="col-12">
-				<table class='table table'style="background-color: #111; color: #AAA;">
-					<tbody>
-
+			<table class='table table'style="background-color: #111; color: #AAA;">
+				<tbody>
 					<% if all_items_are_available? %>
 						<tr>
 							<td><h1>✅</h1></td>
@@ -80,44 +79,45 @@
 						</tr>
 					<% end %>
 
-
-						<% unless some_items_are_missing? %>
-						  <tr>
-								<td><h1>⚠️</h1></td>
-								<td>
-									Un manque ou plus 
-								</td>
-								<td>
-									<% if @order.missing_item? %>
-										Client prévenu
-									<% elsif @order.partly_shipped? %>
-										Encaissée en partie
-									<% elsif @order.pending? %>
-										<%= link_to "Signaler article(s) manquant(s)", admin_order_order_items_path(@order), class: "btn btn-secondary "%>
-									<% end %>
-	              </td>
-								<td>
-									<% if @order.partly_paid? %>
-										<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
-					        		<%= f.hidden_field :status, value: "partly_shipped" %>
-					        		<%= submit_tag "Commande expédiée" , class: "btn btn-secondary"%>
-					        	<% end %>
-					       <% elsif @order.cancelled_by_admin? %>
-					       	<p>Paiement non débité</p>
-									<% end %>
-								</td>
-								<td>
-								<% if @order.partly_shipped? %>
-									Expédiée
-								<% elsif @order.cancelled_by_admin? %>
-									<p>Annulée</p>
+					<% unless some_items_are_missing? %>
+					  <tr>
+							<td><h1>⚠️</h1></td>
+							<td>
+								Un manque ou plus 
+							</td>
+							<td>
+								<% if @order.missing_item? %>
+									Client prévenu
+								<% elsif @order.partly_shipped? %>
+									Encaissée en partie
+								<% elsif @order.pending? %>
+									<%= link_to "Signaler article(s) manquant(s)", admin_order_order_items_path(@order), class: "btn btn-secondary "%>
 								<% end %>
-								</td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-
+              </td>
+              <td>
+              	<%= link_to "Créer le colissimo 📦", "https://www.laposte.fr/colissimo-en-ligne", target: "blank_"  %>
+              </td>
+							<td>
+								<% if @order.partly_paid? %>
+									<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
+				        		<%= f.hidden_field :status, value: "partly_shipped" %>
+				        		<%= submit_tag "Commande expédiée" , class: "btn btn-secondary"%>
+				        	<% end %>
+				       <% elsif @order.cancelled_by_admin? %>
+				       	<p>Paiement non débité</p>
+								<% end %>
+							</td>
+							<td>
+							<% if @order.partly_shipped? %>
+								Expédiée
+							<% elsif @order.cancelled_by_admin? %>
+								<p>Annulée</p>
+							<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
 

@@ -46,8 +46,3 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-Capybara::Webkit.configure do |config|
-  config.block_unknown_urls
-end
-
-

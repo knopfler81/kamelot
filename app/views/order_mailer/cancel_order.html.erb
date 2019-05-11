@@ -186,6 +186,7 @@
                                         <div style="line-height: 24px">
    
                                         	<p><%= @order.user.full_name %> vient d'annuler sa commande.</p>
+                                            <p><%= @order.number %></p>
 
                                         	<% @order.items.each do |item| %>
                                         		<ul>

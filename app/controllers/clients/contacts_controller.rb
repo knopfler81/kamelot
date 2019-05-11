@@ -9,11 +9,9 @@ class Clients::ContactsController < Clients::ApplicationController
     @contact.request = request
     if verify_recaptcha(model: @contact)
       if @contact.deliver
-        flash.now[:notice] = "Votre email a bien été envoyé"
-        redirect_to root_path
+        redirect_to root_path, notice: "Votre email a bien été envoyé"
       else
-        flash.now[:error] = "Oups l'email n'a pas été envoyé, veuillez recommencer"
-        render :new
+        render :new, alert: "Oups l'email n'a pas été envoyé, veuillez recommencer"
       end
     end
   end

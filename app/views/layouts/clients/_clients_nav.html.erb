@@ -44,13 +44,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%= simple_form_for :query, url: clients_products_path, method: :get,  html: {class: "form-inline"} do |f| %>
         <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-clients"} %>
-        <%= button_tag type: 'submit', class: 'search-btn-nav-clients' do %>
+        <%= button_tag type: 'submit', class: 'search-btn-nav-clients', id:"search" do %>
           <i class="fa fa-search"></i>
         <% end %>
       <% end %>
     </div>
 
-    <%= link_to "La Penderie De L'Homme", root_path,  class: "navbar-brand mx-auto" %>
+    <%= link_to root_path,  class: "navbar-brand mx-auto" do %>
+      <%= image_tag("logo-ceintre", class: "logo-ceintre") %>
+    <% end %>
    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
