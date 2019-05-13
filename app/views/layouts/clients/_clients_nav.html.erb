@@ -50,8 +50,12 @@
       <% end %>
     </div>
 
-    <%= link_to root_path,  class: "navbar-brand mx-auto" do %>
-      <%= image_tag("logo-ceintre", class: "logo-ceintre") %>
+    <% if Customization.instance.logo.present?  %>
+      <%= link_to root_path,  class: "navbar-brand mx-auto" do %>
+        <%= image_tag(@customization.logo.url, class: "logo-ceintre") %>
+      <% end %>
+    <% else %>
+      <%= Company.instance.site_name%>
     <% end %>
    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
