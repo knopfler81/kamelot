@@ -96,23 +96,37 @@ class Dashboard
 	end
 	
 	def orders_by_week
-		Order.group_by_week(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+		Order.complet_order.group_by_week(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
 	end
 
 	def orders_by_month
-		Order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+		Order.complet_order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
 	end
 
 	def refunded_orders_count
-		Order.where(status: 4).count
+		Order.where(status: "refunded").count
+	end
+
+
+	def orders_cancelled_by_admin_by_months
+		Order.where(status: "cancelled_by_admin").group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+	end
+
+	def orders_cancelled_by_client_by_months
+		Order.where(status: "cancelled_by_client").group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
 	end
 
 	def orders_status
-		Order.where.not(status: 0).group(:status).count
+		Order.group(:status).count
+	end
+
+
+	def orders_refunded_by_month
+		Order.where(status: "refunded").group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
 	end
 
 	def orders_turnover_per_month
- 		Order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:sub_total)
+ 		Order.complet_order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:sub_total)
 	end
 
 	def number_of_orders(variant)
@@ -123,6 +137,25 @@ class Dashboard
 			0
 		end
 	end
+
+
+	###Returnings####
+	def returnings_counts
+		Returning.count
+	end
+
+	def returnings_by_week
+		Returning.group_by_week(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+	end
+
+	def returnings_by_month
+		Returning.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+	end
+
+	def returning_status
+		Returning.group(:status).count
+	end
+
 
 	#Calculs journal
 

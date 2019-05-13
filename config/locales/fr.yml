@@ -52,6 +52,7 @@ fr:
         products: Articles
         clients: Clients 
         sales: Ventes
+        returnings: Retours
     orders:
       cancelled_by_admin: Annulée par le vendeur
       cancelled_by_client: Annulée par le client
