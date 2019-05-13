@@ -12,6 +12,15 @@ Rails.application.routes.draw do
 
 		namespace :admin do
 
+
+
+		resource :customization, only: [:show, :update], controller: "customization" do
+			member do
+      	get :reset
+    	end
+    end
+
+
 			get '/products/qr_codes', to: "products#qr_codes"
 			get '/products/clone', to: "products#clone"
 
@@ -91,13 +100,6 @@ Rails.application.routes.draw do
 
 	namespace :clients  do
 
-		authenticate :user, lambda { |u| u.admin? } do	
-			resource :customization, only: [:show, :update], controller: "customization" do
-				member do
-	      	get :reset
-	    	end
-	    end
-		end
 
 		resources :favorites, only: :index
 

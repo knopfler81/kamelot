@@ -1,4 +1,4 @@
-class Clients::CustomizationController < Clients::ApplicationController
+class Admin::CustomizationController < Clients::ApplicationController
 	before_action :find_customization
 	include ResetCustomization
 	
@@ -7,7 +7,7 @@ class Clients::CustomizationController < Clients::ApplicationController
 
 	def update
 	 	if @customization.update_attributes(customization_params)
-	 		redirect_to clients_customization_path, notice: "La customization a bien été mise à jour"
+	 		redirect_to admin_customization_path, notice: "La customization a bien été mise à jour"
 	 	else
 	 		render :show, alert: "WOOOOOPS"
 	 	end
@@ -23,9 +23,12 @@ class Clients::CustomizationController < Clients::ApplicationController
 		params.require(:customization)
 			.permit(  :main_image, 
 								:text_main_image,       
-								:text_btn_main_image,   
-							  :second_image,          
-							  :third_image,           
+								:text_btn_main_image,  
+								:main_link, 
+							  :second_image,  
+							  :second_link,        
+							  :third_image,  
+							  :third_link,         
 							  :text_second_image,     
 								:text_btn_second_image, 
 							  :text_third_image,      
