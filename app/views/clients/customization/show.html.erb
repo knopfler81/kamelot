@@ -122,8 +122,8 @@
 								<div class="col-4">
 									<%= image_tag @customization.logo_url, class: "tiny_image" %>
 									<label class="btn btn-secondary" >Choisir le logo</label>
-									<%= f.file_field :main_image, id: "logo_upload" , class: "input_file"%><br/> 
-									<%= f.hidden_field :main_image_cache %>
+									<%= f.file_field :logo, id: "logo_upload" , class: "input_file"%><br/> 
+									<%= f.hidden_field :logo_cache %>
 									<img id="logo_prev" src="#"  class= "hidden"/>
 									<p id="logo_error"></p>
 								</div>
