@@ -21,7 +21,7 @@ class Admin::DashboardsController < Admin::ApplicationController
 	end
 
 	def set_button
-	  button = dashboard_buttons_params[:button]&.to_sym and [:products, :clients, :orders, :sales, :returnings].include?(button) and button
+	  button = dashboard_buttons_params[:button]&.to_sym and [:products, :clients, :orders, :sales].include?(button) and button
 	end
 
 	def filter_products

@@ -139,9 +139,9 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#orders_by_week" do 
 		it "returns the  number of order by week" do
-			create(:order, status: "cancelled_by_client", created_at: 2.weeks.ago)
-			create(:order, status: "full_shipped", created_at: 2.days.ago)
-			create(:order, status: "full_shipped", created_at: 2.days.ago)
+			create(:order, created_at: 2.weeks.ago)
+			create(:order, created_at: 2.days.ago)
+			create(:order, created_at: 2.days.ago)
 			
 			res = subject.orders_by_week
 
@@ -151,8 +151,8 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#orders_by_month" do 
 		it "returns the number of order by month" do
-			create(:order, status: "full_shipped", created_at: 2.days.ago)
-			create(:order, status: "full_shipped", created_at: 1.day.ago)
+			create(:order, created_at: 2.days.ago)
+			create(:order, created_at: 1.day.ago)
 			
 			res = subject.orders_by_month
 
@@ -162,8 +162,8 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#refunded_orders_count" do 
 		it "returns the number of refunded order" do
-			create(:order, status: "refunded")
-			create(:order, status: "confirmed")
+			create(:order, status: 1)
+			create(:order, status: 4)
 			
 			res = subject.refunded_orders_count
 
@@ -185,12 +185,12 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#orders_turnover_per_month" do 
 		it "returns the turn over by month" do 
-			create(:order, status: "full_shipped", sub_total: 100, created_at: 1.month.ago)
-			create(:order, status: "full_shipped", sub_total: 200, created_at: 1.month.ago)
-			create(:order, status: "full_shipped", sub_total: 300, created_at: 1.month.ago)
-			create(:order, status: "full_shipped", sub_total: 50,  created_at: 1.day.ago)
-			create(:order, status: "full_shipped", sub_total: 20,  created_at: 1.day.ago)
-			create(:order, status: "full_shipped", sub_total: 300, created_at: 1.day.ago)
+			create(:order, sub_total: 100, created_at: 1.month.ago)
+			create(:order, sub_total: 200, created_at: 1.month.ago)
+			create(:order, sub_total: 300, created_at: 1.month.ago)
+			create(:order, sub_total: 50,  created_at: 1.day.ago)
+			create(:order, sub_total: 20,  created_at: 1.day.ago)
+			create(:order, sub_total: 300, created_at: 1.day.ago)
 
 			res = subject.orders_turnover_per_month
 
@@ -230,58 +230,6 @@ RSpec.describe Dashboard, type: :model do
 			res = subject.sales_by_month
 
 			expect(res.values.last).to eq(2)
-		end
-	end
-
-
-	#RETURNINGS##################
-
-	describe "#returnings_counts" do 
-		it "returns the  total number of returnings" do
-			create(:returning, created_at: 2.weeks.ago)
-			create(:returning, created_at: 2.days.ago)
-			create(:returning, created_at: 1.day.ago)
-			
-			res = subject.returnings_counts
-		
-			expect(res).to eq(3)
-		end
-	end
-
-	describe "#returnings_by_week" do 
-		it "returns the  number of returnings by week" do
-			create(:returning, created_at: 2.weeks.ago)
-			create(:returning, created_at: 2.days.ago)
-			create(:returning, created_at: 1.day.ago)
-			
-			res = subject.returnings_by_week
-		
-			expect(res.values.last).to eq(2)
-		end
-	end
-
-	describe "#returnings_by_month" do 
-		it "returns the number of returnings by month" do
-			create(:returning, created_at: 2.days.ago)
-			create(:returning, created_at: 1.day.ago)
-			
-			res = subject.returnings_by_month
-
-			expect(res.values.last).to eq(2)
-		end
-	end
-
-
-	describe "#returning_status" do 
-		it "returns the number of returning" do
-			create(:returning, status: "pending")
-			create(:returning, status: "confirmed")
-			create(:returning, status: "refunded")
-			create(:returning, status: "refunded")
-			
-			res = subject.returning_status
-
-			expect(res).to eq({"pending"=>1, "confirmed"=>1, "refunded" =>2})
 		end
 	end
 end
