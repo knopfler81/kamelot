@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_13_120333) do
+ActiveRecord::Schema.define(version: 2019_05_13_140743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,9 @@ ActiveRecord::Schema.define(version: 2019_05_13_120333) do
     t.string "text_third_image"
     t.string "text_btn_third_image"
     t.string "logo"
+    t.string "main_link"
+    t.string "second_link"
+    t.string "third_link"
   end
 
   create_table "favorites", force: :cascade do |t|
