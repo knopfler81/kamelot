@@ -3,7 +3,7 @@ class MainImageUploader < CarrierWave::Uploader::Base
 
   storage :file
 
-  if Rails.env.production?
+  if Rails.env.production? || Rails.env.staging?
     storage :fog
   else
     storage :file

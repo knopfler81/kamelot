@@ -52,7 +52,7 @@
 
     <% if Customization.instance.logo.present?  %>
       <%= link_to root_path,  class: "navbar-brand mx-auto" do %>
-        <%= image_tag(@customization.logo.url, class: "logo-ceintre") %>
+        <%= image_tag(Customization.instance.logo.url, class: "logo-ceintre") %>
       <% end %>
     <% else %>
       <%= Company.instance.site_name%>
