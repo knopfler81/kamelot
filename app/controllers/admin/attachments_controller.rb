@@ -22,7 +22,7 @@ class Admin::AttachmentsController < Admin::ApplicationController
   private
 
   def set_product
-    @product = Product.find(params[:product_id])
+    @product = Product.friendly.find(params[:product_id])
   end
 
   def add_more_attachments(new_attachments)

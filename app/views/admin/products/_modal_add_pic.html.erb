@@ -1,40 +1,40 @@
 <div class="modal fade bd-example-modal-lg" id="addpicmodal" tabindex="-1" role="dialog" aria-labelledby="addpicmodal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-container">
-    	<div class="modal-header">
-    		<h2>Ajouter des images</h2>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Ajouter des images</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal_text">
-        <div class="container">
-          <div id="errors_div">
-            
-          </div>
-          <%= simple_form_for @product, url: admin_product_attachments_path(@product), method: :post do |f| %>
-            <div class="row">
-              <div class="col-12">
-                <div class="image-upload-wrap">
-                  <%= f.file_field :attachments, multiple: true, class: "file-upload-input", id: "files" %>
-                    <h3>Glisser Déposer images</h3>
-                    <h3> Vous pouvez ajouter encore <%= 4 - @product.attachments.size %> image </h3>
-                    <p>Pour un rendu optimal les images doivent être au format portrait</p>
-                  <div id="result"></div> 
-                </div>   
-              </div>
-            </div>
-             <div class="row">
-               <div class="offset-6 col-3">
-                 <%= f.button :submit, "Envoyer", class: "btn btn-main",  id:"modal-submit" %>
-               </div>
-               <div class="col-3">
-                <%= link_to  "annuler", "#", id: "refreshModal", class: "btn btn-secondary" %>
-               </div>
-             </div>
-            </div>
-          <% end %>    
+      <div class="container">
+        <div id="errors_div">
+          
         </div>
-      </div>     
-    </div>
+        <%= simple_form_for @product, url: admin_product_attachments_path(@product), method: :post do |f| %>
+          <div class="row">
+            <div class="col-12">
+              <div class="image-upload-wrap">
+                <%= f.file_field :attachments, multiple: true, class: "file-upload-input", id: "files" %>
+                  <h3>Glisser Déposer images</h3>
+                  <h3> Vous pouvez ajouter encore <%= 4 - @product.attachments.size %> image </h3>
+                  <p>Pour un rendu optimal les images doivent être au format portrait</p>
+                <div id="result"></div> 
+              </div>   
+            </div>
+          </div>
+           <div class="row">
+             <div class="offset-6 col-3">
+               <%= f.button :submit, "Envoyer", class: "btn btn-main",  id:"modal-submit" %>
+             </div>
+             <div class="col-3">
+              <%= link_to  "annuler", "#", id: "refreshModal", class: "btn btn-secondary" %>
+             </div>
+           </div>
+          </div>
+        <% end %>    
+      </div>
+    </div>     
   </div>
+</div>
