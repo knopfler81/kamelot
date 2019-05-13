@@ -9,7 +9,7 @@
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
 
-if Rails.env.production?
+if Rails.env.production? || Rails.env.staging?
   WickedPdf.config = {
 
   # Path to the wkhtmltopdf executable: This usually isn't needed if using
