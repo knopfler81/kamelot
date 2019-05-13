@@ -138,7 +138,6 @@ class Dashboard
 		end
 	end
 
-
 	###Returnings####
 	def returnings_counts
 		Returning.count
@@ -155,7 +154,6 @@ class Dashboard
 	def returning_status
 		Returning.group(:status).count
 	end
-
 
 	#Calculs journal
 
