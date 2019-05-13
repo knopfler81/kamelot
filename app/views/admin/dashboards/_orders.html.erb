@@ -3,19 +3,6 @@
 	<hr>
 		<div class="graph_boxe">
 			<div class="row">
-				<div class="col-12 col-md-6">
-					<div class="stats">
-						<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_month ], colors: ["black"], title: "Commandes par mois" %>
-					</div>
-				</div>
-				<div class="col-12 col-md-6">
-					<div class="stats">
-						<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_week ], colors: ["red"], title: "Commandes par semaines" %>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
 				<div class="col-12">
 					<div class="stats">
 						<%= line_chart [name: "Montant " , data: @dashboard.orders_turnover_per_month ] , colors: ["red"], title: "Chiffre d'affaire" %>
@@ -23,9 +10,22 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12 col-md-8">
+				<div class="col-12 col-md-6">
 					<div class="stats">
-						<%= pie_chart @dashboard.orders_status, colors: ["red", "blue", "yellow", "green", "orange", "black"], 
+						<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_month ], colors: ["black"], title: "Commandes validées par mois" %>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="stats">
+						<%= column_chart [name: "Commandes" , data: @dashboard.orders_by_week ], colors: ["red"], title: "Commandes vaildées par semaines" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="stats">
+						<%= pie_chart @dashboard.orders_status, colors: ["red", "blue", "yellow", "green", "orange", "black", "purple"], 
 																			 							title: "Etat des commandes", 
 																									  library: {
 																									  	plotOptions: {
@@ -38,7 +38,25 @@
 																									    }
 																									  }}%>
 				</div>
-					</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<div class="stats">
+					<%= column_chart [name: "Nombre " , data: @dashboard.orders_refunded_by_month ] , colors: ["green"], title: "Commandes remboursées par mois" %>
+				</div>
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<div class="stats">
+					<%= column_chart [name: "Nombre " , data: @dashboard.orders_cancelled_by_admin_by_months ] , colors: ["red"], title: "Commandes annulées par le vendeur par mois" %>
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<div class="stats">
+					<%= column_chart [name: "Nombre " , data: @dashboard.orders_cancelled_by_client_by_months ] , colors: ["orange"], title: "Commandes annulées par les clients par mois" %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

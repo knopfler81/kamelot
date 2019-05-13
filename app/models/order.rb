@@ -25,6 +25,7 @@ class Order < ApplicationRecord
     refunded:            11,
   }
 
+
   scope :pending,             -> { where(status: :pending) }
   scope :paid,                -> { where(status: :paid) }
   scope :confirmed,           -> { where(status: :confirmed) }
@@ -36,6 +37,7 @@ class Order < ApplicationRecord
   scope :partially_refunded,  -> { where(status: :partially_refunded) }
   scope :totally_refunded,    -> { where(status: :totally_refunded) }
   scope :all_orders,          -> { Order.all }
+  scope :complet_order,       -> { where(status: :full_shipped).or(where(status: :partly_shipped)) }
 
   scope :filter_by_status, -> (status) do
     send(status).order('created_at DESC')
