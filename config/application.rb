@@ -27,8 +27,6 @@ module Kamelot
 
     config.action_dispatch.default_headers.merge!('Cache-Control' => 'no-store, no-cache')
     config.generators.system_tests = nil
-    config.serve_static_assets = true
-
 
 
     #TODO verifier mais apparement plus besoin on utilise figaro et application.yml
