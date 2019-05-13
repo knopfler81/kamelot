@@ -11,5 +11,4 @@ RSpec.describe Admin::CustomizationController, :clients do
 	    expect(response.status).to eq(200)
 	  end
 	end
-
 end

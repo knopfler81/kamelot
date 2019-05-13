@@ -1,4 +1,4 @@
-class Clients::CustomizationController < Clients::ApplicationController
+class Admin::CustomizationController < Clients::ApplicationController
 	before_action :find_customization
 	include ResetCustomization
 	
@@ -7,7 +7,7 @@ class Clients::CustomizationController < Clients::ApplicationController
 
 	def update
 	 	if @customization.update_attributes(customization_params)
-	 		redirect_to clients_customization_path, notice: "La customization a bien été mise à jour"
+	 		redirect_to admin_customization_path, notice: "La customization a bien été mise à jour"
 	 	else
 	 		render :show, alert: "WOOOOOPS"
 	 	end

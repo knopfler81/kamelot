@@ -1,5 +1,5 @@
 	<div class="container" class="customization">
-		<%= simple_form_for(@customization, url: clients_customization_path) do |f| %>
+		<%= simple_form_for(@customization, url: admin_customization_path) do |f| %>
 
 			<h2>CUSTOMISATION DES COULEURS</h2>
 			<hr>
@@ -101,7 +101,7 @@
 					<h2>CUSTOMISATION DES TEXTES</h2>
 					<hr>
 						<%= f.input :delivery , label: "Livraison ",  as: :summernote,input_html: { rows: 5 }, value: @customization.delivery  %>
-						<%= f.input :secure_payment, label: "Paiment sécurisé",  as: :summernote, input_html: { rows: 5 }, value: @customization.secure_payment %>
+						<%= f.input :secure_payment, label: "Paiement sécurisé",  as: :summernote, input_html: { rows: 5 }, value: @customization.secure_payment %>
 						<%= f.input :general_condition_of_sales, as: :summernote, label: " Conditions générales de ventes", input_html: { rows: 5 }, value: @customization.general_condition_of_sales  %>
 						<%= f.input :legal_notice, label: " Mentions légales", as: :summernote, input_html: { rows: 5 }, value: @customization.legal_notice  %>
 						<%= f.input :confidentiality_policy, label: " Politique de confidentialité", as: :summernote, input_html: { rows: 5 }, value: @customization.confidentiality_policy  %>
@@ -203,6 +203,6 @@
 			<%= f.submit "Valider la customization", class: "btn btn-main btn-block" %>
 		<% end %>  
 		<br><br>
-		<%= link_to "Revenir à la customization d'origine", reset_clients_customization_path(@customization), class: "btn btn-danger" %>
+		<%= link_to "Revenir à la customization d'origine", reset_admin_customization_path(@customization), class: "btn btn-danger" %>
 </div>
 	
