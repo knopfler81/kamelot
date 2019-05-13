@@ -74,15 +74,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'https://lapenderiedelhomme-staging.herokuapp.com' }
 
-  ActionMailer::Base.smtp_settings = {
-    address:              "smtp.sendgrid.net",
-    port:                  587,
-    user_name:             ENV['SENDGRID_USERNAME'],
-    password:              ENV['SENDGRID_PASSWORD'],
-    authentication:        "plain",
-    domain:                "heroku.com",
-    enable_starttls_auto:  true
-
+  config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+    :user_name => '5808ce008026c8',
+    :password => '3be9b008e34068',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
   }
 
 
