@@ -11,7 +11,7 @@ RSpec.describe "Receiving An Order" do
 		@charge  = Stripe::Charge.create(customer: @user.id, amount: 30, currency: "eur", captured: false)
 	end
 
-	context "Order states displays following text" do 
+	context "Order status displays following text" do 
 
 		scenario "the order has just arrived" do 
 			@order  = create(:order, user_id: @user.id, status: "pending")
@@ -81,6 +81,7 @@ RSpec.describe "Receiving An Order" do
 			click_on "Confirmer et prévenir le client"
 			
 			expect(page).to have_content("Réglement au prorata")
+			expect(page).to have_content('Créer le colissimo')
 		end
 
 
@@ -95,7 +96,7 @@ RSpec.describe "Receiving An Order" do
 
 	context "All items are missing" do 
 		scenario "reporting missing items", :js do
-			@order   = create(:order, user_id: @user.id, status: "pending", charge_id: @charge.id)
+			@order  = create(:order, user_id: @user.id, status: "pending", charge_id: @charge.id)
 			items   =  create(:order_item, quantity: 3, order_id: @order.id, missing_quantity: 0) 
 			
 			visit admin_order_path(@order)

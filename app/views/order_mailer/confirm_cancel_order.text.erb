@@ -1,7 +1,7 @@
 Bonjour <%= @order.user.first_name %>
  
  
-Nous vous informons que nous avons bien annulé votre commande N° FR00<%= @order.id %>
+Nous vous informons que nous avons bien annulé votre commande N° <%= @order.user.number %>
 
 <% @order.items.each do |item| %>
 	<ul>

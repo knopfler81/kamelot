@@ -12,6 +12,13 @@ RSpec.describe "Creating Product" do
 			login_as(nelly)
 		end
 
+
+		scenario "list all the products" do
+			create(:product, brand: "YOLO")
+			visit admin_products_path
+			expect(page).to have_content('YOLO')
+		end 
+
 		scenario "Create a product" do 
 			visit new_admin_product_path
 			fill_in "product[brand]", with: "Side Park"
@@ -32,11 +39,39 @@ RSpec.describe "Creating Product" do
 			expect(page).to have_content("L'article a bien été créé")
 		end
 
-		scenario "Edit a product" do 
-		product = create(:product, brand: "Stil Park")
+
+		scenario "Continue a product", js: true do 
+			product = create(:product, brand: "Stil Park")
+			visit edit_admin_product_path(product)
+
+			click_on "Ajouter une autre variante"
+			find('.nested-fields:nth-child(1)').fill_in "Taille",  with: "S"
+			find('.nested-fields:nth-child(1)').fill_in "Couleur", with: "Bleu"
+
+			click_on "Ajouter une autre variante"
+		 	find('.nested-fields:nth-child(2)').fill_in "Taille",  with: "S"
+		 	find('.nested-fields:nth-child(2)').fill_in "Couleur", with: "Vert"
+			
+			click_on "Mettre à jour l'article"
+
+			expect(page).to have_content("Variante S - Bleu")
+			expect(page).to have_content("Variante S - Vert")
+		end
+
+		scenario "Edit a product, adding text" do 
+			product = create(:product, brand: "Stil Park")
 			visit edit_admin_product_path(product)
 			fill_in "product[brand]", with: "Enzo Di Capri"
 
+			click_on "Mettre à jour l'article"
+
+			expect(page).to have_content("Gestion du stock pour")
+		end
+
+		scenario "Edit a product, removing variant" do 
+			product = create(:product, brand: "Stil Park")
+			visit edit_admin_product_path(product)
+			fill_in "product[brand]", with: "Enzo Di Capri"
 
 			click_on "Mettre à jour l'article"
 

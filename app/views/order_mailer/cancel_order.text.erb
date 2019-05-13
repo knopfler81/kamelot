@@ -1,6 +1,7 @@
 	Bonjour <%= Company.instance.name%>
 
 	<%= @order.user.full_name %> vient d'annuler sa commande.
+	<%= @order.user.number %>
 
 	<% @order.items.each do |item| %>
 		<ul>

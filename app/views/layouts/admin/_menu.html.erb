@@ -18,7 +18,7 @@
 <div class="sidebar-search">
 	<%= simple_form_for :query, url: admin_products_path, method: :get,  html: {class: "form-inline"} do |f| %>
 	    <%= f.input  :keyword, placeholder: "Rechercher", label: false, input_html: {class: "input-search-admin"} %>
-	    <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+	    <%= button_tag type: 'submit', class: 'search-btn-nav-admin', id:"#search" do %>
 	      <i class="fa fa-search"></i>
 	    <% end %>
 	  <% end %>

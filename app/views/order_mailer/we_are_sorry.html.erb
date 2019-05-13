@@ -185,17 +185,20 @@
 
                                         <div style="line-height: 24px">
 
-					                     <p>Nous sommes désolés mais nous n'avons pas pu satisfaire votre demande en totalité</p>
-					                     <p>Un/ou plusieurs articles que vous avez commandés ne sont plus en stock, nous vous prions de bien vouloir nous excuser</p>
-                                         <ul>
-                                           <% @order.items.where('missing_quantity >?', 0).each do |item| %>
-                                              <li><%= item.missing_quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
-                                           <% end %>
-                                         </ul>
+                                            <p>Bonjour <%= @order.user.full_name %></p>
+                                            <p>Concernant votre commande N° <%= @order.number %></p>
 
-					                     <p>Nous allons procéder au remboursement de ces articles dans les plus brefs délais.</p>
+            					                      <p>Nous sommes désolés mais nous n'avons pas pu satisfaire votre demande en totalité</p>
+            					                      <p>Un/ou plusieurs articles que vous avez commandés ne sont plus en stock, nous vous prions de bien vouloir nous excuser.</p>
+                                            <ul>
+                                              <% @order.items.where('missing_quantity >?', 0).each do |item| %>
+                                                <li style="list-style: none"><%= item.missing_quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
+                                              <% end %>
+                                            </ul>
 
-					                     <p>L'équipe de Damien.....</p> 
+          					                     <p>Seul les articles disponibles seront facturés.</p>
+
+          					                     <p>L'équipe La Penderie De L'Homme.....</p> 
                                         </div>
                                     </td>
                                 </tr>

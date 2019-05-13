@@ -29,12 +29,16 @@
 			<tbody>
 				<% @products.each do |product| %>
 				<tr>
-					<td><%= image_tag(product.attachments.first.url, class: "index_small_image") %></td>
-
+					<td>
+						<%= image_tag(product.attachments.first.url, class: "index_small_image") %>
+						<% if  product.discount_percentage > 0 %>
+							<span class="price_outlet"> - <%= product.discount_percentage %> % </span>
+						<% end %>
+					</td>
 					<td><%= product.title %></td>
 					<td><%= product.brand %></td>
 					<td><%= product.ref %></td>
-					<td><%= number_to_currency_euro (product.price) %></td>
+					<td><%= number_to_currency_euro(product.discounted_price)  %></td>
 					<td><%= link_to admin_product_path(product), class: "btn btn-watch " do %>
 						<i class="fa fa-eye"></i>
 					<% end %>

@@ -20,7 +20,7 @@ c.save
 
 #SUPPLIER
 
-supplier_1 =  Supplier.create(
+supplier_1 =  Supplier.create!(
 	company: "Fernand",
 	address: "Chemin du Puits",
 	zipcode: "42290",
@@ -29,7 +29,7 @@ supplier_1 =  Supplier.create(
 	email: "suplier_1@example.com"
 	)
 
-supplier_2 =   Supplier.create(
+supplier_2 =   Supplier.create!(
 	company: "Morin",
 	address: "Route des blés",
 	zipcode: "42450",
@@ -38,6 +38,23 @@ supplier_2 =   Supplier.create(
 	email: "suplier_2@example.com"
 	)
 
+stil_park = Supplier.create!(
+	company: "Stil Park",
+	address: "90 Rue de la Haie Coq",
+	zipcode: "93300",
+	city: "Aubervilliers",
+	phone_number: "01 48 33 28 16",
+	email: "stilpark@example.com"
+	)
+
+enzo = Supplier.create!(
+	company: "Enzo Di Capri",
+	address: "70 Rue de la Haie Coq",
+	zipcode: "93300",
+	city: "Aubervilliers",
+	phone_number: "01 48 34 36 04",
+	email: "enzo@example.com"
+	)
 
 nelly = User.new.tap do |u|
   u.list_subscriber = true
@@ -362,33 +379,27 @@ end
 
 puts "Users & admin created"
 
-men =  MainCategory.create(gender: "Homme")
-# women = MainCategory.create(gender: "Femme")
+men =  MainCategory.create!(gender: "Homme")
+# women = MainCategory.create!(gender: "Femme")
 
-pulls_m 			= Category.create!(title: "Pulls",       main_category_id: men.id)
-pantalons_m 	= Category.create!(title: "Pantalons",   main_category_id: men.id)
-tshirt_m 			= Category.create!(title: "Tshirt",     main_category_id: men.id)
-accessoires_m = Category.create!(title: "Accessoires", main_category_id: men.id)
-chemise_m 		= Category.create!(title: "Chemises",    main_category_id: men.id)
-polos_m       = Category.create!(title: "Polos",       main_category_id: men.id)
-
-# pulls_w 			= Category.create!(title: "Pulls",       main_category_id: women.id)
-# pantalons_w 	= Category.create!(title: "Pantalons",   main_category_id: women.id)
-# tshirt_w 			= Category.create!(title: "Tshirt",     main_category_id: women.id)
-# accessoires_w = Category.create!(title: "Accessoires", main_category_id: women.id)
-# chemise_w 		= Category.create!(title: "Chemises",    main_category_id: women.id)
-# polos_w       = Category.create!(title: "Polos",       main_category_id: women.id)
+pulls 			= Category.create!(title: "Pulls",       main_category_id: men.id)
+pantalons 	= Category.create!(title: "Pantalons",   main_category_id: men.id)
+tshirt 			= Category.create!(title: "Tshirt",     main_category_id: men.id)
+accessoires = Category.create!(title: "Accessoires", main_category_id: men.id)
+chemise 		= Category.create!(title: "Chemises",    main_category_id: men.id)
+polos       = Category.create!(title: "Polos",       main_category_id: men.id)
 
 
  puts "Categories created"
 
 
-product_1 = Product.create(
+product_1 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "SP00",
 	brand: "Stil Park",
-	category_id: pulls_m.id,
+	category_id: pulls.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 10,
@@ -424,12 +435,13 @@ product_1 = Product.create(
 
 
 
-product_2 = Product.create(
+product_2 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls_m.id,
+	category_id: pulls.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -465,12 +477,13 @@ product_2 = Product.create(
 )
 
 
-product_3 = Product.create(
+product_3 = Product.create!(
+	weight: 0.2,
 	discount_percentage: 10,
 	discounted_price: 36,
 	ref:"SP00" ,
 	brand: "Stil Park",
-	category_id: pulls_m.id,
+	category_id: pulls.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 15,
@@ -507,12 +520,13 @@ product_3 = Product.create(
 )
 
 
-product_4 = Product.create(
+product_4 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "LE00",
 	brand: "Levis",
-	category_id: pantalons_m.id,
+	category_id: pantalons.id,
 	created_at: 10.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 20,
@@ -548,12 +562,13 @@ product_4 = Product.create(
 )
 
 
-product_5 = Product.create(
+product_5 = Product.create!(
+	weight: 0.2,
 	discount_percentage: 50,
 	discounted_price: 30,
 	ref: "LE00" ,
 	brand: "Levis",
-	category_id: pantalons_m.id,
+	category_id: pantalons.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -589,12 +604,13 @@ product_5 = Product.create(
 )
 
 
-product_6 = Product.create(
+product_6 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA0",
 	brand: "Kaporal",
-	category_id: pantalons_m.id,
+	category_id: pantalons.id,
 	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -629,12 +645,13 @@ product_6 = Product.create(
 		]
 )
 
-product_7 = Product.create(
+product_7 = Product.create!(
 	discount_percentage: 10,
 	discounted_price: 45,
+	weight: 0.2,
 	ref: "SP00",
 	brand: "Stil Park",
-	category_id: pulls_m.id,
+	category_id: pulls.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 17,
@@ -668,12 +685,13 @@ product_7 = Product.create(
 		]
 )
 
-product_8 = Product.create(
+product_8 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls_m.id,
+	category_id: pulls.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -708,12 +726,13 @@ product_8 = Product.create(
 		]
 )
 
-product_9 = Product.create(
+product_9 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls_m.id,
+	category_id: pulls.id,
 	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 25,
@@ -744,12 +763,13 @@ product_9 = Product.create(
 		]	
 )
 
-product_10 = Product.create(
+product_10 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "GU00",
 	brand: "Guess",
-	category_id: pulls_m.id,
+	category_id: pulls.id,
 	created_at: 5.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 25,
@@ -781,12 +801,13 @@ product_10 = Product.create(
 )
 
 
-product_11 = Product.create(
+product_11 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "SP01",
 	brand: "Stil Park",
-	category_id: pantalons_m.id,
+	category_id: pantalons.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -818,12 +839,13 @@ product_11 = Product.create(
 )
 
 
-product_12 = Product.create(
+product_12 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "SP01",
 	brand: "Stil Park",
-	category_id: pantalons_m.id,
+	category_id: pantalons.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 10,
@@ -859,12 +881,13 @@ product_12 = Product.create(
 )
 
 
-product_13 = Product.create(
+product_13 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "SP02",
 	brand: "Stil Park",
-	category_id: pantalons_m.id,
+	category_id: pantalons.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -900,12 +923,13 @@ product_13 = Product.create(
 )
 
 
-product_14 = Product.create(
+product_14 = Product.create!(
 	discount_percentage: 5,
 	discounted_price: 45,
 	ref: "KP02",
+	weight: 0.2,
 	brand: "KAPORAL",
-	category_id: tshirt_m.id,
+	category_id: tshirt.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -939,12 +963,13 @@ product_14 = Product.create(
 		]
 )
 
-product_15 = Product.create(
+product_15 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KP02",
 	brand: "KAPORAL",
-	category_id: tshirt_m.id,
+	category_id: tshirt.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -979,12 +1004,13 @@ product_15 = Product.create(
 )
 
 
-product_16 = Product.create(
+product_16 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KP02",
 	brand: "KAPORAL",
-	category_id: tshirt_m.id,
+	category_id: tshirt.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1018,12 +1044,13 @@ product_16 = Product.create(
 		]
 )
 
-product_17 = Product.create(
+product_17 = Product.create!(
+	weight: 0.2,
 	discount_percentage: 50,
 	discounted_price: 15,
 	ref: "KP03",
 	brand: "KAPORAL",
-	category_id: tshirt_m.id,
+	category_id: tshirt.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1059,12 +1086,13 @@ product_17 = Product.create(
 
 
 
-product_18 = Product.create(
+product_18 = Product.create!(
+	weight: 0.2,
 	discount_percentage: 50,
 	discounted_price: 15,
 	ref: "KP04",
 	brand: "KAPORAL",
-	category_id: tshirt_m.id,
+	category_id: tshirt.id,
 	created_at: 2.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1098,12 +1126,13 @@ product_18 = Product.create(
 		]
 )
 
-product_19 = Product.create(
+product_19 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA00" ,
 	brand: "KAPORAL",
-	category_id: polos_m.id,
+	category_id: polos.id,
 	created_at: 6.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 12,
@@ -1138,12 +1167,13 @@ product_19 = Product.create(
 )
 
 
-product_20 = Product.create(
+product_20 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA00",
 	brand: "Kaporal",
-	category_id: polos_m.id,
+	category_id: polos.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1177,12 +1207,13 @@ product_20 = Product.create(
 		]
 )
 
-product_21 = Product.create(
+product_21 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA00",
 	brand: "Kaporal",
-	category_id: polos_m.id,
+	category_id: polos.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1217,12 +1248,13 @@ product_21 = Product.create(
 )
 
 
-product_22 = Product.create(
+product_22 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA01",
 	brand: "Kaporal",
-	category_id: polos_m.id,
+	category_id: polos.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1256,12 +1288,13 @@ product_22 = Product.create(
 		]
 )
 
-product_23 = Product.create(
+product_23 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA01",
 	brand: "Kaporal",
-	category_id: polos_m.id,
+	category_id: polos.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1295,12 +1328,13 @@ product_23 = Product.create(
 		]
 )
 
-product_24 = Product.create(
+product_24 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA05",
 	brand: "Kaporal",
-	category_id: chemise_m.id,
+	category_id: chemise.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1334,12 +1368,13 @@ product_24 = Product.create(
 		]
 )
 
-product_25 = Product.create(
+product_25 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
-	category_id: chemise_m.id,
+	category_id: chemise.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1374,12 +1409,13 @@ product_25 = Product.create(
 )
 
 
-product_26 = Product.create(
+product_26 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
-	category_id: chemise_m.id,
+	category_id: chemise.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1413,12 +1449,13 @@ product_26 = Product.create(
 		]
 )
 
-product_27 = Product.create(
+product_27 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
-	category_id: chemise_m.id,
+	category_id: chemise.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1453,12 +1490,13 @@ product_27 = Product.create(
 )
 
 
-product_28 = Product.create(
+product_28 = Product.create!(
 	discount_percentage: 0,
+	weight: 0.2,
 	discounted_price: 0,
 	ref: "KA06",
 	brand: "Kaporal",
-	category_id: chemise_m.id,
+	category_id: chemise.id,
 	created_at: 9.weeks.ago,
 	user_id: nelly.id,
 	buying_price: 5,
@@ -1492,13 +1530,421 @@ product_28 = Product.create(
 		]
 )
 
+product_29 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Bleu Saks",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9106.jpg")),
+		File.open(File.join("app/assets/images/seeds/IMG_9107.jpg")),
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_30 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Bleu Indigo",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9108.jpg")),
+		File.open(File.join("app/assets/images/seeds/IMG_9109.jpg")),
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_31 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Bleu Mavi",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9111.jpg")),
+		File.open(File.join("app/assets/images/seeds/IMG_9112.jpg")),
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_32 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Noir Fumel",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9113.jpg")),
+		File.open(File.join("app/assets/images/seeds/IMG_9114.jpg")),
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_33 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Rose",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9115.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_34 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Orange",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9117.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_35 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Jaune",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9118.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_36 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Gris",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9119.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+
+product_37 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Beige",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9121.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
+product_38 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Gris",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9122.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_39 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "KPCARMC",
+	brand: "Stil Park",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Violet",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9122.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_40 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "ETRO",
+	brand: "ETTE",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Blanc/Marine",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: stil_park.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9128.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+product_41 = Product.create!(
+	discount_percentage: 0,
+	weight: 0.2,
+	discounted_price: 0,
+	ref: "ETRO",
+	brand: "ETTE",
+	category_id: polos.id,
+	user_id: nelly.id,
+	buying_price: 12,
+	price: 25,
+	color: "Marine",
+	title: "Polo",
+	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+	supplier_id: enzo.id,
+	attachments:[
+		File.open(File.join("app/assets/images/seeds/IMG_9129.jpg")),
+
+	],
+	variants_attributes: [
+			{
+			size: "M",
+			},
+			{
+			size: "L",
+			},
+			{
+			size: "XL",
+			}
+		]
+)
+
+
 puts "Products and Sizes Created"
-
-
 
 [product_1, product_2, product_3, product_4, product_13, product_15, product_17, product_18 ].each do |pd|
 	pd.variants.each do |var|
-	var.stocks.create(
+	var.stocks.create!(
 		quantity: 8,
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
@@ -1510,7 +1956,7 @@ end
 
 [product_5, product_6, product_7, product_8, product_14, product_19, product_20, product_21 ].each do |pd|
 	pd.variants.each do |var|
-	var.stocks.create(
+	var.stocks.create!(
 		quantity: 9,
 		variant_id: var.id,
 		supplier_id: supplier_2.id,
@@ -1522,7 +1968,7 @@ end
 
 [product_9, product_10, product_11, product_12, product_22, product_23, product_27 ].each do |pd|
 	pd.variants.each do |var|
-	var.stocks.create(
+	var.stocks.create!(
 		quantity: 10,
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
@@ -1533,9 +1979,9 @@ end
 	end
 end
 
-[product_1, product_5, product_8, product_24, product_25, product_26].each do |pd|
+[ product_5, product_8, product_24, product_25, product_26].each do |pd|
 	pd.variants.each do |var|
-	var.stocks.create(
+	var.stocks.create!(
 		quantity: 12,
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
@@ -1576,8 +2022,9 @@ end
   end
 
 #ORDER 1
-order_1  = Order.create(
+order_1  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1588,8 +2035,8 @@ order_1  = Order.create(
 	sub_total: [product_1.price + product_1.price].sum,
 	total: 135,
 )
-	OrderItem.create(
-
+	OrderItem.create!(
+		weight: 0.3,
 		missing_quantity: 1,
 		selected: false,
 		price: product_1.price, 
@@ -1597,8 +2044,8 @@ order_1  = Order.create(
 		quantity: 1,
 		variant_id: product_1.variants[0].id,
 	)
-	OrderItem.create(
-
+	OrderItem.create!(
+		weight: 0.3,
 		missing_quantity: 0,
 		selected: false,
 		price: product_2.price, 
@@ -1609,8 +2056,9 @@ order_1  = Order.create(
 
 
 #ORDER 2
-order_2  = Order.create(
+order_2  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1622,7 +2070,8 @@ order_2  = Order.create(
 	total: 135
 )
 
-	OrderItem.create(
+	OrderItem.create!(
+		weight: 0.3,
 
 		missing_quantity: 0,
 		selected: false,
@@ -1631,7 +2080,8 @@ order_2  = Order.create(
 		quantity: 1,
 		variant_id: product_1.variants[0].id
 	)
-	OrderItem.create(
+	OrderItem.create!(
+		weight: 0.3,
 
 		missing_quantity: 0,
 		selected: false,
@@ -1642,8 +2092,9 @@ order_2  = Order.create(
 	)
 
 #ORDER 3
-order_3  = Order.create(
+order_3  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true, 
 	payment: "{'stub','stripe'}", 
 	created_at: 5.months.ago, 
@@ -1654,17 +2105,17 @@ order_3  = Order.create(
 	sub_total: [product_1.price * 2 + product_2.price * 2].sum,
 	total: 135
 )
-	OrderItem.create(
-
+	OrderItem.create!(
+		weight: 0.3,
 		missing_quantity: 0,
 		selected: false,
 		price: product_1.price, 
-		order_id: order_3,
+		order_id: order_3.id,
 		quantity: 2,
 		variant_id: product_1.variants[1].id
 	)
-	OrderItem.create(
-
+	OrderItem.create!(
+		weight: 0.3,
 		missing_quantity: 0,
 		selected: false,
 		price: product_3.price, 
@@ -1674,8 +2125,9 @@ order_3  = Order.create(
 	)
 
 #ORDER 4
-order_4  = Order.create(
+order_4  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
@@ -1686,7 +2138,8 @@ order_4  = Order.create(
  	shipping_fees: 5, 
  	sub_total: product_2.price,
  	total: 135)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_2.price, 
@@ -1695,8 +2148,9 @@ OrderItem.create(
 	variant_id: product_2.variants[1].id)
 
 #ORDER 5
-order_5  = Order.create(
+order_5  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.months.ago,
@@ -1707,7 +2161,8 @@ order_5  = Order.create(
  	sub_total: product_2.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_2.price, 
@@ -1716,8 +2171,9 @@ OrderItem.create(
 	variant_id: product_2.variants[0].id)
 
 #ORDER 6
-order_6  = Order.create(
+order_6  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1727,21 +2183,24 @@ order_6  = Order.create(
  	shipping_fees: 5,
  	sub_total: [product_2.price*2 + product_3.price + product_3.price].sum,
  	total: 135)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_2.price, 
 	order_id: order_6.id,
 	quantity: 2,
 	variant_id: product_2.variants[0].id)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
 	order_id: order_6.id,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
@@ -1750,8 +2209,9 @@ OrderItem.create(
 	variant_id: product_3.variants[0].id)
 
 #ORDER 7
-order_7  = Order.create(
+order_7  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1762,7 +2222,8 @@ order_7  = Order.create(
  	sub_total: product_3.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
@@ -1771,8 +2232,9 @@ OrderItem.create(
 	variant_id: product_3.variants[1].id)
 
 #ORER 8
-order_8  = Order.create(
+order_8  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1782,7 +2244,8 @@ order_8  = Order.create(
  	shipping_fees: 5,
  	sub_total: product_3.price*2, 
  	total: 135)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_3.price, 
@@ -1790,7 +2253,8 @@ OrderItem.create(
 	quantity: 1,
 	variant_id: product_3.variants[2].id
 	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 1,
 	selected: false,
 	price: product_3.price, 
@@ -1799,8 +2263,9 @@ OrderItem.create(
 	variant_id: product_3.variants[0].id)
 
 #ORDER 9
-order_9  = Order.create(
+order_9  = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1811,7 +2276,8 @@ order_9  = Order.create(
  	sub_total: product_4.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_4.price, 
@@ -1820,8 +2286,9 @@ OrderItem.create(
 	variant_id: product_4.variants[0].id)
 
 #ORDER 10
-order_10 = Order.create(
+order_10 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1832,7 +2299,8 @@ order_10 = Order.create(
  	sub_total: product_24.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_24.price, 
@@ -1842,8 +2310,9 @@ OrderItem.create(
 
 
 #ORDER 11 
-order_11 = Order.create(
+order_11 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1854,7 +2323,8 @@ order_11 = Order.create(
  	sub_total: product_5.price * 3 , 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_5.price, 
@@ -1862,7 +2332,8 @@ OrderItem.create(
 	quantity: 2,
 	variant_id: product_5.variants[0].id
 	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_5.price, 
@@ -1872,8 +2343,9 @@ OrderItem.create(
 	)
 
 #ORDER 12
-order_12 = Order.create(
+order_12 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.months.ago,
@@ -1884,7 +2356,8 @@ order_12 = Order.create(
  	sub_total: product_17.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_17.price, 
@@ -1893,8 +2366,9 @@ OrderItem.create(
 	variant_id: product_17.variants[0].id)
 
 #ORDER 13
-order_13 = Order.create(
+order_13 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1905,7 +2379,8 @@ order_13 = Order.create(
  	sub_total: product_6.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_6.price, 
@@ -1915,8 +2390,9 @@ OrderItem.create(
 
 
 #ORDER 14
-order_14 = Order.create(
+order_14 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1927,7 +2403,8 @@ order_14 = Order.create(
  	sub_total: product_6.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_6.price, 
@@ -1937,8 +2414,9 @@ OrderItem.create(
 
 
 #ORDER 15
-order_15 = Order.create(
+order_15 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1949,7 +2427,8 @@ order_15 = Order.create(
  	shipping_fees: 5,
  	sub_total: product_6.price * 3, 
  	total: 135)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_8.price, 
@@ -1959,8 +2438,9 @@ OrderItem.create(
 
 
 #ORDER 16
-order_16 = Order.create(
+order_16 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1970,7 +2450,8 @@ order_16 = Order.create(
  	shipping_fees: 5,
  	sub_total: product_28.price * 2,
  	total: 135)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_28.price, 
@@ -1980,8 +2461,9 @@ OrderItem.create(
 
 
 #ORDER 17
-order_17 = Order.create(
+order_17 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -1992,7 +2474,8 @@ order_17 = Order.create(
  	sub_total: product_19.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_19.price, 
@@ -2002,8 +2485,9 @@ OrderItem.create(
 
 
 #ORDER 18
-order_18 = Order.create(
+order_18 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 2.months.ago,
@@ -2014,7 +2498,8 @@ order_18 = Order.create(
  	sub_total: product_20.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_20.price,
@@ -2024,8 +2509,9 @@ OrderItem.create(
 	)
 
 #ORDER 21
-order_21 = Order.create(
+order_21 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -2035,7 +2521,8 @@ order_21 = Order.create(
  	shipping_fees: 5,
  	sub_total: product_21.price * 3, 
  	total: 135)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_21.price,
@@ -2045,8 +2532,9 @@ OrderItem.create(
 	)
 
 #ORDER 22
-order_22 = Order.create(
+order_22 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -2056,7 +2544,8 @@ order_22 = Order.create(
  	shipping_fees: 5,
  	sub_total: product_22.price * 3, 
  	total: 135)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_22.price,
@@ -2066,8 +2555,9 @@ OrderItem.create(
 	)
 
 #ORDER 24
-order_24 = Order.create(
+order_24 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -2078,7 +2568,8 @@ order_24 = Order.create(
  	sub_total: product_11.price * 3,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_11.price,
@@ -2088,8 +2579,9 @@ OrderItem.create(
 	)
 
 #ORDER 25
-order_25 = Order.create(
+order_25 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -2101,7 +2593,8 @@ order_25 = Order.create(
  	sub_total: product_11.price * 3,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_11.price,
@@ -2111,8 +2604,9 @@ OrderItem.create(
 
 
 #ORDER 26
-order_26 = Order.create(
+order_26 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 1.month.ago,
@@ -2123,7 +2617,8 @@ order_26 = Order.create(
  	sub_total: product_11.price * 2, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_11.price,
@@ -2134,8 +2629,9 @@ OrderItem.create(
 
 
 #ORDER 27
-order_27 = Order.create(
+order_27 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2146,7 +2642,8 @@ order_27 = Order.create(
  	sub_total: product_9.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_9.price, 
@@ -2156,8 +2653,9 @@ OrderItem.create(
 
 
 #ORDER 28
-order_28 = Order.create(
+order_28 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2168,7 +2666,8 @@ order_28 = Order.create(
  	sub_total: product_25.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_25.price,
@@ -2178,8 +2677,9 @@ OrderItem.create(
 	)
 
 #ORDER 29
-order_29 = Order.create(
+order_29 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 4.weeks.ago,
@@ -2190,7 +2690,8 @@ order_29 = Order.create(
  	sub_total: product_27.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
@@ -2200,8 +2701,9 @@ OrderItem.create(
 	)
 
 #ORDER 30
-order_30 = Order.create(
+order_30 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 15.days.ago,
@@ -2212,7 +2714,8 @@ order_30 = Order.create(
  	sub_total: product_27.price * 4, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
@@ -2222,8 +2725,9 @@ OrderItem.create(
 	)
 
 #ORDER 31
-order_31 = Order.create(
+order_31 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 15.days.ago,
@@ -2234,7 +2738,8 @@ order_31 = Order.create(
  	sub_total: product_27.price * 3, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
@@ -2244,8 +2749,9 @@ OrderItem.create(
 	)
 
 #ORDER 32
-order_32 = Order.create(
+order_32 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 13.days.ago,
@@ -2256,7 +2762,8 @@ order_32 = Order.create(
  	sub_total: product_27.price * 3, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_27.price,
@@ -2266,8 +2773,9 @@ OrderItem.create(
 	)
 
 #ORDER 33
-order_33 = Order.create(
+order_33 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2278,7 +2786,8 @@ order_33 = Order.create(
  	sub_total: product_19.price * 2, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_19.price,
@@ -2288,8 +2797,9 @@ OrderItem.create(
 	)
 
 #ORDER 34
-order_34 = Order.create(
+order_34 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2300,7 +2810,8 @@ order_34 = Order.create(
  	sub_total: product_19.price * 3, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_19.price,
@@ -2310,8 +2821,9 @@ OrderItem.create(
 	)
 
 #ORDER 35
-order_35 = Order.create(
+order_35 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2322,7 +2834,8 @@ order_35 = Order.create(
  	sub_total: product_19.price, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_19.price,
@@ -2332,8 +2845,9 @@ OrderItem.create(
 	)
 
 #ORDER 36
-order_36 = Order.create(
+order_36 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 10.days.ago,
@@ -2344,7 +2858,8 @@ order_36 = Order.create(
  	sub_total: product_16.price * 3, 
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_16.price,
@@ -2354,8 +2869,9 @@ OrderItem.create(
 	)
 
 #ORDER 37
-order_37 = Order.create(
+order_37 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2366,7 +2882,8 @@ order_37 = Order.create(
  	sub_total: product_9.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_9.price, 
@@ -2376,8 +2893,9 @@ OrderItem.create(
 
 
 #ORDER 38
-order_38 = Order.create(
+order_38 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 11.days.ago,
@@ -2388,7 +2906,8 @@ order_38 = Order.create(
  	sub_total: product_10.price,
  	total: 135
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_10.price,
@@ -2398,8 +2917,9 @@ OrderItem.create(
 	)
 
 #ORDER 40
-order_40 = Order.create(
+order_40 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.days.ago,
@@ -2410,7 +2930,8 @@ order_40 = Order.create(
  	sub_total: product_16.price,
  	total: 400
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 0,
 	selected: false,
 	price: product_16.price,
@@ -2420,8 +2941,9 @@ OrderItem.create(
 	)
 
 #ORDER 41
-order_41 = Order.create(
+order_41 = Order.create!(
 	return_asked: false,
+	total_weight: 0.5,
 	gcos_accepted: true,
  	payment: "{'stub','stripe'}", 
  	created_at: 3.days.ago,
@@ -2432,7 +2954,8 @@ order_41 = Order.create(
  	sub_total: product_13.price,
  	total: 400
  	)
-OrderItem.create(
+OrderItem.create!(
+	weight: 0.3,
 	missing_quantity: 1,
 	selected: false,
 	price: product_13.price,
@@ -2445,7 +2968,7 @@ puts "Orders created"
 
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_2.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2457,7 +2980,7 @@ ShippingAddress.create(
 
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_3.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2467,7 +2990,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_4.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2477,7 +3000,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_5.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2487,7 +3010,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_6.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2497,7 +3020,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_7.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2509,7 +3032,7 @@ ShippingAddress.create(
 
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_8.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2519,7 +3042,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_9.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2529,7 +3052,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_10.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2539,7 +3062,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_11.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2549,7 +3072,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_12.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2559,7 +3082,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_13.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2571,7 +3094,7 @@ ShippingAddress.create(
 
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_14.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2583,7 +3106,7 @@ ShippingAddress.create(
 
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_15.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2595,7 +3118,7 @@ ShippingAddress.create(
 
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_16.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2607,7 +3130,7 @@ ShippingAddress.create(
 
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_17.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2618,7 +3141,7 @@ ShippingAddress.create(
 )
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_18.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2629,7 +3152,7 @@ ShippingAddress.create(
 )
 
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_19.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2639,7 +3162,7 @@ ShippingAddress.create(
 	phone: Faker::PhoneNumber.phone_number
 	)
 
-ShippingAddress.create(
+ShippingAddress.create!(
 	user_id: user_20.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
@@ -2654,7 +3177,7 @@ puts "Shipping addresses created"
 
 
 #SALE_1
-sale_1  = Sale.create(
+sale_1  = Sale.create!(
 	created_at: 5.months.ago, 
 	user_id: user_2.id,
 	token: SecureRandom.hex(8), 
@@ -2662,13 +3185,13 @@ sale_1  = Sale.create(
 	total: 135
 )
 
-	SaleItem.create(
+	SaleItem.create!(
 		price: product_1.price, 
 		sale_id: sale_1.id,
 		quantity: 1,
 		variant_id: product_1.variants[0].id,
 	)
-	SaleItem.create(
+	SaleItem.create!(
 		price: product_2.price, 
 		sale_id: sale_1.id, 
 		quantity: 1,
@@ -2676,7 +3199,7 @@ sale_1  = Sale.create(
 	)
 
 #SALE_2
-sale_2  = Sale.create(
+sale_2  = Sale.create!(
 	created_at: 5.months.ago, 
 	user_id: user_2.id,  
 	token: SecureRandom.hex(8), 
@@ -2684,14 +3207,14 @@ sale_2  = Sale.create(
 	total: 135
 )
 
-	SaleItem.create(
+	SaleItem.create!(
 		price: product_1.price, 
 		sale_id: sale_2.id,
 
 		quantity: 1,
 		variant_id: product_1.variants[0].id
 	)
-	SaleItem.create(
+	SaleItem.create!(
 		price: product_2.price, 
 		sale_id: sale_2.id, 
 		quantity: 1,
@@ -2699,20 +3222,20 @@ sale_2  = Sale.create(
 	)
 
 #SALE_3
-sale_3  = Sale.create(
+sale_3  = Sale.create!(
 	created_at: 5.months.ago, 
 	user_id: user_3.id,  
 	token: SecureRandom.hex(8), 
 	status: 1, 
 	total: 135
 )
-	SaleItem.create(
+	SaleItem.create!(
 		price: product_1.price, 
 		sale_id: sale_3.id,
 		quantity: 2,
 		variant_id: product_1.variants[1].id
 	)
-	SaleItem.create(
+	SaleItem.create!(
 		price: product_3.price, 
 		sale_id: sale_3.id,
 		quantity: 2,
@@ -2720,111 +3243,111 @@ sale_3  = Sale.create(
 	)
 
 #SALE_4
-sale_4  = Sale.create(
+sale_4  = Sale.create!(
  	created_at: 4.months.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1, 
  	total: 135)
-SaleItem.create(
+SaleItem.create!(
 	price: product_2.price, 
 	sale_id: sale_4.id,
 	quantity: 1,
 	variant_id: product_2.variants[1].id)
 
 #SALE_5
-sale_5  = Sale.create(
+sale_5  = Sale.create!(
  	created_at: 4.months.ago,
  	user_id: user_5.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_2.price, 
 	sale_id: sale_5.id,
 	quantity: 1,
 	variant_id: product_2.variants[0].id)
 
 #SALE_6
-sale_6  = Sale.create(
+sale_6  = Sale.create!(
  	created_at: 3.months.ago,
  	user_id: user_6.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135)
-SaleItem.create(
+SaleItem.create!(
 	price: product_2.price, 
 	sale_id: sale_6.id,
 	quantity: 2,
 	variant_id: product_2.variants[0].id)
-SaleItem.create(
+SaleItem.create!(
 	price: product_3.price, 
 	sale_id: sale_6.id,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
-SaleItem.create(
+SaleItem.create!(
 	price: product_3.price, 
 	sale_id: sale_6.id,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
 
 #SALE_7
-sale_7  = Sale.create(
+sale_7  = Sale.create!(
  	created_at: 3.months.ago,
  	user_id: user_7.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_3.price, 
 	sale_id: sale_7.id,
 	quantity: 1,
 	variant_id: product_3.variants[1].id)
 
 #ORER 8
-sale_8  = Sale.create(
+sale_8  = Sale.create!(
  	created_at: 3.months.ago,
  	user_id: user_8.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135)
-SaleItem.create(
+SaleItem.create!(
 	price: product_3.price, 
 	sale_id: sale_8.id,
 	quantity: 1,
 	variant_id: product_3.variants[2].id
 	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_3.price, 
 	sale_id: sale_8.id,
 	quantity: 2,
 	variant_id: product_3.variants[0].id)
 
 #SALE_9
-sale_9  = Sale.create(
+sale_9  = Sale.create!(
  	created_at: 3.months.ago,
  	user_id: user_9.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_4.price, 
 	sale_id: sale_9.id,
 	quantity: 1,
 	variant_id: product_4.variants[0].id)
 
 #SALE_10
-sale_10 = Sale.create(
+sale_10 = Sale.create!(
  	created_at: 3.months.ago,
  	user_id: user_10.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_4.price, 
 	sale_id: sale_10.id, 
 	quantity: 1,
@@ -2832,20 +3355,20 @@ SaleItem.create(
 
 
 #SALE_11 
-sale_11 = Sale.create(
+sale_11 = Sale.create!(
  	created_at: 3.months.ago,
  	user_id: user_11.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_5.price, 
 	sale_id: sale_11.id, 
 	quantity: 2,
 	variant_id: product_5.variants[0].id
 	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_5.price, 
 	sale_id: sale_11.id, 
 	quantity: 1,
@@ -2854,14 +3377,14 @@ SaleItem.create(
 
 
 #SALE_12
-sale_12 = Sale.create(
+sale_12 = Sale.create!(
  	created_at: 3.months.ago,
  	user_id: user_12.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_7.price, 
 	sale_id: sale_12.id, 
 	quantity: 1,
@@ -2869,14 +3392,14 @@ SaleItem.create(
 
 
 #SALE_13
-sale_13 = Sale.create(
+sale_13 = Sale.create!(
  	created_at: 2.months.ago,
  	user_id: user_13.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_6.price, 
 	sale_id: sale_13.id, 
 	quantity: 1,
@@ -2884,28 +3407,28 @@ SaleItem.create(
 
 
 #SALE_14
-sale_14 = Sale.create(
+sale_14 = Sale.create!(
  	created_at: 2.months.ago,
  	user_id: user_14.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_6.price, 
 	sale_id: sale_14.id, 
 	quantity: 1,
 	variant_id: product_6.variants[1].id)
 
 #SALE_17
-sale_17 = Sale.create(
+sale_17 = Sale.create!(
  	created_at: 2.months.ago,
  	user_id: user_17.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_9.price, 
 	sale_id: sale_17.id, 
 	quantity: 1,
@@ -2913,14 +3436,14 @@ SaleItem.create(
 
 
 #SALE_18
-sale_18 = Sale.create(
+sale_18 = Sale.create!(
  	created_at: 2.months.ago,
  	user_id: user_17.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_10.price,
 	sale_id: sale_18.id,
 	quantity: 1, 
@@ -2928,14 +3451,14 @@ SaleItem.create(
 	)
 
 #SALE_19
-sale_19 = Sale.create(
+sale_19 = Sale.create!(
  	created_at: 2.months.ago,
  	user_id: user_18.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_14.price,
 	sale_id: sale_19.id,
 	quantity: 1, 
@@ -2943,13 +3466,13 @@ SaleItem.create(
 	)
 
 #SALE_20
-sale_20 = Sale.create(
+sale_20 = Sale.create!(
  	created_at: Time.now, 
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135)
-SaleItem.create(
+SaleItem.create!(
 	price: product_14.price,
 	sale_id: sale_20.id,
 	quantity: 1, 
@@ -2957,13 +3480,13 @@ SaleItem.create(
 	)
 
 #SALE_21
-sale_21 = Sale.create(
+sale_21 = Sale.create!(
  	created_at: 1.month.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135)
-SaleItem.create(
+SaleItem.create!(
 	price: product_14.price,
 	sale_id: sale_21.id,
 	quantity: 1, 
@@ -2971,13 +3494,13 @@ SaleItem.create(
 	)
 
 #SALE_22
-sale_22 = Sale.create(
+sale_22 = Sale.create!(
  	created_at: 1.month.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135)
-SaleItem.create(
+SaleItem.create!(
 	price: product_24.price,
 	sale_id: sale_20.id,
 	quantity: 1, 
@@ -2985,13 +3508,13 @@ SaleItem.create(
 	)
 
 #SALE_23
-sale_23 = Sale.create(
+sale_23 = Sale.create!(
  	created_at: 1.month.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135)
-SaleItem.create(
+SaleItem.create!(
 	price: product_24.price,
 	sale_id: sale_23.id,
 	quantity: 1, 
@@ -2999,14 +3522,14 @@ SaleItem.create(
 	)
 
 #SALE_24
-sale_24 = Sale.create(
+sale_24 = Sale.create!(
  	created_at: 1.month.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_24.price,
 	sale_id: sale_24.id,
 	quantity: 1, 
@@ -3014,14 +3537,14 @@ SaleItem.create(
 	)
 
 #SALE_25
-sale_25 = Sale.create(
+sale_25 = Sale.create!(
  	created_at: 1.month.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_11.price,
 	sale_id: sale_25.id,
 	quantity: 1, 
@@ -3029,7 +3552,7 @@ SaleItem.create(
 
 
 #SALE_26
-sale_26 = Sale.create(
+sale_26 = Sale.create!(
  	created_at: 1.month.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
@@ -3038,14 +3561,14 @@ sale_26 = Sale.create(
  	)
 
 #SALE_27
-sale_27 = Sale.create(
+sale_27 = Sale.create!(
  	created_at: 4.weeks.ago,
  	user_id: user_17.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_9.price, 
 	sale_id: sale_27.id, 
 	quantity: 1,
@@ -3053,14 +3576,14 @@ SaleItem.create(
 
 
 #SALE_28
-sale_28 = Sale.create(
+sale_28 = Sale.create!(
  	created_at: 4.weeks.ago,
  	user_id: user_17.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_10.price,
 	sale_id: sale_28.id,
 	quantity: 1, 
@@ -3068,14 +3591,14 @@ SaleItem.create(
 	)
 
 #SALE_29
-sale_29 = Sale.create(
+sale_29 = Sale.create!(
  	created_at: 4.weeks.ago,
  	user_id: user_18.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_11.price,
 	sale_id: sale_29.id,
 	quantity: 1, 
@@ -3083,7 +3606,7 @@ SaleItem.create(
 	)
 
 #SALE_30
-sale_30 = Sale.create(
+sale_30 = Sale.create!(
  	created_at: 15.days.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
@@ -3092,7 +3615,7 @@ sale_30 = Sale.create(
  	)
 
 #SALE_31
-sale_31 = Sale.create(
+sale_31 = Sale.create!(
  	created_at: 15.days.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
@@ -3103,14 +3626,14 @@ sale_31 = Sale.create(
 
 
 #SALE_33
-sale_33 = Sale.create(
+sale_33 = Sale.create!(
  	created_at: 11.days.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_12.price,
 	sale_id: sale_33.id,
 	quantity: 1, 
@@ -3118,14 +3641,14 @@ SaleItem.create(
 	)
 
 #SALE_34
-sale_34 = Sale.create(
+sale_34 = Sale.create!(
  	created_at: 11.days.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_12.price,
 	sale_id: sale_34.id,
 	quantity: 1, 
@@ -3133,14 +3656,14 @@ SaleItem.create(
 	)
 
 #SALE_35
-sale_35 = Sale.create(
+sale_35 = Sale.create!(
  	created_at: 11.days.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_12.price,
 	sale_id: sale_35.id,
 	quantity: 1, 
@@ -3148,14 +3671,14 @@ SaleItem.create(
 	)
 
 #SALE_36
-sale_36 = Sale.create(
+sale_36 = Sale.create!(
  	created_at: 11.days.ago,
  	user_id: user_4.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_12.price,
 	sale_id: sale_36.id,
 	quantity: 1, 
@@ -3163,14 +3686,14 @@ SaleItem.create(
 	)
 
 #SALE_37
-sale_37 = Sale.create(
+sale_37 = Sale.create!(
  	created_at: 11.days.ago,
  	user_id: user_17.id,
  	token: SecureRandom.hex(8),
  	status: 1,
  	total: 135
  	)
-SaleItem.create(
+SaleItem.create!(
 	price: product_9.price, 
 	sale_id: sale_37.id, 
 	quantity: 1,
