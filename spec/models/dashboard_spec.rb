@@ -271,7 +271,6 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
-
 	describe "#returning_status" do 
 		it "returns the number of returning" do
 			create(:returning, status: "pending")
