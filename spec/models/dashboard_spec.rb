@@ -232,4 +232,54 @@ RSpec.describe Dashboard, type: :model do
 			expect(res.values.last).to eq(2)
 		end
 	end
+
+	#RETURNINGS##################
+
+	describe "#returnings_counts" do 
+		it "returns the  total number of returnings" do
+			create(:returning, created_at: 2.weeks.ago)
+			create(:returning, created_at: 2.days.ago)
+			create(:returning, created_at: 1.day.ago)
+			
+			res = subject.returnings_counts
+		
+			expect(res).to eq(3)
+		end
+	end
+
+	describe "#returnings_by_week" do 
+		it "returns the  number of returnings by week" do
+			create(:returning, created_at: 2.weeks.ago)
+			create(:returning, created_at: 2.days.ago)
+			create(:returning, created_at: 1.day.ago)
+			
+			res = subject.returnings_by_week
+		
+			expect(res.values.last).to eq(2)
+		end
+	end
+
+	describe "#returnings_by_month" do 
+		it "returns the number of returnings by month" do
+			create(:returning, created_at: 2.days.ago)
+			create(:returning, created_at: 1.day.ago)
+			
+			res = subject.returnings_by_month
+
+			expect(res.values.last).to eq(2)
+		end
+	end
+
+	describe "#returning_status" do 
+		it "returns the number of returning" do
+			create(:returning, status: "pending")
+			create(:returning, status: "confirmed")
+			create(:returning, status: "refunded")
+			create(:returning, status: "refunded")
+			
+			res = subject.returning_status
+
+			expect(res).to eq({"pending"=>1, "confirmed"=>1, "refunded" =>2})
+		end
+	end
 end
