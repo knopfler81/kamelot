@@ -2973,10 +2973,11 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 
@@ -2985,50 +2986,55 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_4.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_5.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_6.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_7.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 
@@ -3037,60 +3043,66 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_9.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_10.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_11.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_12.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_13.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 
@@ -3099,10 +3111,11 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 
@@ -3111,10 +3124,11 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 
@@ -3123,10 +3137,11 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 
@@ -3135,10 +3150,11 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 ShippingAddress.create!(
@@ -3146,10 +3162,11 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-)
+	phone: "0612789912",
+	country: "FR"
+	)
 
 
 ShippingAddress.create!(
@@ -3157,19 +3174,21 @@ ShippingAddress.create!(
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number
-	)
+	phone: "0612789912",
+	country: "FR"
+		)
 
 ShippingAddress.create!(
 	user_id: user_20.id,
 	first_name: Faker::Name.first_name,
 	last_name: Faker::Name.last_name,
 	address_1: Faker::Address.street_name,
-	zipcode: Faker::Address.zip_code,
+	zipcode: 42000,
 	city: Faker::Address.city,
-	phone: Faker::PhoneNumber.phone_number,
+	phone: "0612789912",
+	country: "FR"	
 )
 
 

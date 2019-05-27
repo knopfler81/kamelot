@@ -121,6 +121,13 @@ GEM
     connection_pool (2.2.2)
     cookies_eu (1.7.5)
       js_cookie_rails (~> 2.2.0)
+    countries (3.0.0)
+      i18n_data (~> 0.8.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (4.0.0)
+      countries (~> 3.0)
+      sort_alphabetical (~> 1.0)
     crass (1.0.4)
     dante (0.2.0)
     debug_inspector (0.0.3)
@@ -348,6 +355,7 @@ GEM
     httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.8.0)
     ipaddress (0.8.3)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
@@ -571,6 +579,9 @@ GEM
       tilt (~> 2.0)
     sitemap_generator (6.0.2)
       builder (~> 3.0)
+    sixarm_ruby_unaccent (1.2.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -665,6 +676,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   cookies_eu
+  country_select
   devise
   dotenv-rails
   factory_bot_rails (~> 4.0)

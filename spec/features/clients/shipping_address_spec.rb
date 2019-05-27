@@ -41,6 +41,7 @@ RSpec.describe ShippingAddress do
 			fill_in "shipping_address[zipcode]", with: "42000"
 			fill_in "shipping_address[city]", with: "Saint Etienne"
 			fill_in "shipping_address[phone]", with: "0656432345"
+			select "France", from: "shipping_address[country]"
 
 			click_on "Valider"
 

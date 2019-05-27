@@ -24,10 +24,13 @@
 				</div>
 				<div class="row">
 					<div class="col-12 col-md-3">
-							<%= f.input :zipcode, label: false, placeholder: "Code Postal", required: true  %>
+						<%= f.input :zipcode, label: false, placeholder: "Code Postal", required: true  %>
 					</div>
-					<div class="col-12 col-md-9">
-							<%= f.input :city, label: false,	placeholder: "Ville", required: true  %>
+					<div class="col-12 col-md-3">
+						<%= f.input :city, label: false,	placeholder: "Ville", required: true  %>
+					</div>
+					<div class="col-12 col-md-3">
+						<%= f.input :country, as: :country, prompt: "Pays", label: false, required: true  %>
 					</div>
 
 				</div>
