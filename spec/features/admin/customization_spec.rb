@@ -64,16 +64,17 @@ RSpec.describe Customization do
 			polo    = create(:category, title: "Polos")
 			product = create(:product, category_id: polo.id,)
 
-			fill_in "customization[text_main_image]", with: "Les pantalalons sont arrivés"
+			fill_in "customization[text_main_image]", with: "Les polos sont arrivés"
 			fill_in "customization[text_btn_main_image]", with: "J'en veux"
 			fill_in "customization[main_link]", with: '/clients/categories/polos'
 			click_on "Valider la customization"
 
 			visit root_path 
-			expect(page).to have_content("Les pantalalons sont arrivés")
+			expect(page).to have_content("Les polos sont arrivés")
 			expect(page).to have_content("J'en veux")
 			click_link "J'en veux"
-			expect(page).to have_content("Polo")
+			
+			expect(page).to have_content("LES POLOS")
 		end
 
 	end

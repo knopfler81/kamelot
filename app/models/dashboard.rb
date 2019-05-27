@@ -81,6 +81,11 @@ class Dashboard
  		my_hash.each { |k, v| my_hash[k] = v.to_i / 100 } 
 	end
 
+
+	def sale_item_category
+		SaleItem.joins(variant: [product: :category]).group('categories.title').sum('quantity')
+	end
+
 	def number_of_sales(variant)
 		@item = SaleItem.joins(:sale).where(variant_id: variant.id)
 		unless @item.nil?
@@ -116,7 +121,7 @@ class Dashboard
 	end
 
 	def order_item_category
-		OrderItem.joins(variant: [product: :category]).group('categories.title').count
+		OrderItem.joins(variant: [product: :category]).group('categories.title').sum('quantity')
 	end
 
 
@@ -152,7 +157,7 @@ class Dashboard
 		end
 
 		def returning_item_category
-			ReturningItem.joins(variant: [product: :category]).group('categories.title').count
+			ReturningItem.joins(variant: [product: :category]).group('categories.title').sum('quantity')
 		end
 
 
