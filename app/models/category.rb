@@ -8,7 +8,6 @@ class Category < ApplicationRecord
 	has_many :stocks, through: :products
 	has_many :sizes, through: :products
 
-
 	enum gender: [:men, :women, :neutral]
 
 	validates :title, presence: true, uniqueness: { scope: [:main_category_id]}
