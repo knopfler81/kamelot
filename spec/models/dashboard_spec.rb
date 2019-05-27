@@ -198,6 +198,25 @@ RSpec.describe Dashboard, type: :model do
 		end
 	end
 
+	describe "#order_item_category" do 
+		it "returns the number of orders per category" do
+			polo_cat  = create(:category, title: "Polos")
+			shirt_cat = create(:category, title: "Shirt")
+			polo      = create(:product, title: "Polos", category_id: polo_cat.id)
+			shirt     = create(:product, title: "Shirt", category_id: shirt_cat.id)
+			var_1     = create(:variant, product_id: polo.id)
+			var_2     = create(:variant, product_id: shirt.id)
+
+			create(:order_item, quantity: 5, variant_id: var_1.id)
+			create(:order_item, quantity: 1, variant_id: var_2.id)
+			
+			res = subject.order_item_category
+
+			expect(res).to eq({"Polos"=>5, "Shirt"=>1})
+
+		end
+	end
+
 	#SALES ###################### 
 	describe "#sales_counts" do 
 		it "returns the total number of orders" do
@@ -232,6 +251,26 @@ RSpec.describe Dashboard, type: :model do
 			expect(res.values.last).to eq(2)
 		end
 	end
+
+	describe "#sale_item_category" do 
+		it "returns the number of sales per category" do
+			polo_cat  = create(:category, title: "Polos")
+			shirt_cat = create(:category, title: "Shirt")
+			polo      = create(:product, title: "Polos", category_id: polo_cat.id)
+			shirt     = create(:product, title: "Shirt", category_id: shirt_cat.id)
+			var_1     = create(:variant, product_id: polo.id)
+			var_2     = create(:variant, product_id: shirt.id)
+
+			create(:sale_item, quantity: 5, variant_id: var_1.id)
+			create(:sale_item, quantity: 1, variant_id: var_2.id)
+			
+			res = subject.sale_item_category
+
+			expect(res).to eq({"Polos"=>5, "Shirt"=>1})
+
+		end
+	end
+
 
 	#RETURNINGS##################
 
@@ -277,9 +316,28 @@ RSpec.describe Dashboard, type: :model do
 			create(:returning, status: "refunded")
 			create(:returning, status: "refunded")
 			
-			res = subject.returning_status
+			res = subject.returnings_status
 
 			expect(res).to eq({"pending"=>1, "confirmed"=>1, "refunded" =>2})
+		end
+	end
+
+	describe "#returning_item_category" do 
+		it "returns the number of returings per category" do
+			polo_cat  = create(:category, title: "Polos")
+			shirt_cat = create(:category, title: "Shirt")
+			polo      = create(:product, title: "Polos", category_id: polo_cat.id)
+			shirt     = create(:product, title: "Shirt", category_id: shirt_cat.id)
+			var_1     = create(:variant, product_id: polo.id)
+			var_2     = create(:variant, product_id: shirt.id)
+
+			create(:returning_item, quantity: 5, variant_id: var_1.id)
+			create(:returning_item, quantity: 1, variant_id: var_2.id)
+			
+			res = subject.returning_item_category
+
+			expect(res).to eq({"Polos"=>5, "Shirt"=>1})
+
 		end
 	end
 end

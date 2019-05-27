@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Product" do
+
+	before(:each) do 
+		Product.destroy_all
+	end
 	
 	let!(:category) { create(:category, title: "TShirt")} 
 	let!(:product)  { create(:product, category_id: category.id,price: 100, discount_percentage: 10, title: "Mariniere", color: "Bleue", brand: "Stil", description: "Blablabla joli blabla")} 

@@ -81,6 +81,11 @@ class Dashboard
  		my_hash.each { |k, v| my_hash[k] = v.to_i / 100 } 
 	end
 
+
+	def sale_item_category
+		SaleItem.joins(variant: [product: :category]).group('categories.title').sum('quantity')
+	end
+
 	def number_of_sales(variant)
 		@item = SaleItem.joins(:sale).where(variant_id: variant.id)
 		unless @item.nil?
@@ -115,6 +120,11 @@ class Dashboard
  		Order.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).sum(:sub_total)
 	end
 
+	def order_item_category
+		OrderItem.joins(variant: [product: :category]).group('categories.title').sum('quantity')
+	end
+
+
 	def number_of_orders(variant)
 		@item = OrderItem.joins(:order).where(variant_id: variant.id)
 		unless @item.nil?
@@ -123,6 +133,42 @@ class Dashboard
 			0
 		end
 	end
+
+
+	#### RETURNINGS ##### 
+		def returnings_counts
+			Returning.count
+		end
+
+		def returnings_status
+			Returning.where.not(status: 0).group(:status).count
+		end
+		
+		def returnings_by_week
+			Returning.group_by_week(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+		end
+
+		def returnings_by_month
+			Returning.group_by_month(:created_at, range: (@date_from..@date_to),time_zone: "Paris", week_start: :mon).count
+		end
+
+		def refunded_returnings_count
+			Returning.where(status: 4).count
+		end
+
+		def returning_item_category
+			ReturningItem.joins(variant: [product: :category]).group('categories.title').sum('quantity')
+		end
+
+
+		def number_of_returnings(variant)
+			@item = ReturningItem.joins(:returning).where(variant_id: variant.id)
+			unless @item.nil?
+				@item.map {|s| s.quantity}.sum
+			else
+				0
+			end
+		end
 
 	#Calculs journal
 

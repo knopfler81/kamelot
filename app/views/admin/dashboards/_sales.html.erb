@@ -21,5 +21,23 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="stats">
+						<%= pie_chart @dashboard.sales_item_category, colors: ["red", "blue", "yellow", "green", "orange", "black"], 
+																			 							title: "Ventes / Categories", 
+																									  library: {
+																									  	plotOptions: {
+																									    	pie: {
+																									    		cursor: 'pointer',
+																									      	dataLabels: {
+																									        enabled: false
+																									       },
+																									       showInLegend: true
+																									    }
+																									  }}%>
+				  </div>
+				</div>
+			</div>
 		</div>
 </div>

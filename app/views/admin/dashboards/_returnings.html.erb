@@ -1,0 +1,36 @@
+<div class="container">
+	<h2>Retour de marchandise- [<%= @dashboard.orders_counts %>]</h2>
+	<hr>
+		<div class="graph_boxe">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="stats">
+						<%= column_chart [name: "Retours" , data: @dashboard.returnings_by_month ], colors: ["black"], title: "Retours par mois" %>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="stats">
+						<%= column_chart [name: "Retours" , data: @dashboard.returnings_by_week ], colors: ["red"], title: "Retours par semaines" %>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="stats">
+						<%= pie_chart @dashboard.returning_item_category, colors: ["red", "blue", "yellow", "green", "orange", "black"], 
+																			 							title: "Retours / Catégories", 
+																									  library: {
+																									  	plotOptions: {
+																									    	pie: {
+																									    		cursor: 'pointer',
+																									      	dataLabels: {
+																									        enabled: false
+																									       },
+																									       showInLegend: true
+																									    }
+																									  }}%>
+				</div>
+					</div>
+			</div>
+		</div>
+</div>
