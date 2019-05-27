@@ -13,6 +13,7 @@ RSpec.describe BillingAddress do
 		fill_in "billing_address[address_2]", with: "Bat A"
 		fill_in "billing_address[zipcode]", with: "42000"
 		fill_in "billing_address[city]", with: "Saint Etienne"
+		select "France", from: "billing_address[country]"
 
 		click_on("Valider")
 
@@ -31,6 +32,7 @@ RSpec.describe BillingAddress do
 		fill_in "billing_address[address_2]", with: "Bat A"
 		fill_in "billing_address[zipcode]", with: "42000"
 		fill_in "billing_address[city]", with: "Saint Etienne"
+		select "France", from: "billing_address[country]"
 
 		click_on("Valider")
 

@@ -14,6 +14,11 @@ fr:
               inferior_quota: Vous devez metre au moins 4 images
               exceeded_quota: Vous ne pouvez pas mettre plus de 4 images
               price_error: Le prix d'achat ne peut pas être plus haut que le prix de vente
+        shipping_address:
+          attributes:
+            base:
+              invalid_country: Nous sommes désolés, mais livrons uniquement en France métropolitaine pour le moment
+
         user:
           attributes:
             base:

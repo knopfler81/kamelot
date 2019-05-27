@@ -5,6 +5,18 @@
 	<div class="row">
 		<div class="col-12">
 			<%= simple_form_for(@shipping_address, url: clients_shipping_address_path(@shipping_address)) do |f| %>
+
+			<div class="row">
+				<div class="col-6 ">
+					<div class="<%= 'error_message' if @shipping_address.errors.full_messages.any? %> ">
+						<% if  @shipping_address.errors.any? %>
+							<% @shipping_address.errors.full_messages.each do |msg| %>
+								<li><%= msg %></li>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
 				<div class="row">
 					<div class="col-12 col-md-4">
 						<%= f.input :first_name, label: false, placeholder: current_user.first_name, input_html: {value: current_user.first_name}, required: true %>
@@ -29,10 +41,12 @@
 					<div class="col-12 col-md-3">
 							<%= f.input :zipcode, label: false, placeholder: "Code Postal", required: true  %>
 					</div>
-					<div class="col-12 col-md-9">
+					<div class="col-12 col-md-3">
 							<%= f.input :city, label: false,	placeholder: "Ville", required: true  %>
 					</div>
-
+					<div class="col-12 col-md-3">
+						<%= f.input :country, as: :country, prompt: "Pays", label: false, required: true  %>
+					</div>
 				</div>
 
 				<br><br>

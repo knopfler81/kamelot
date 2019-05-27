@@ -7,5 +7,6 @@ FactoryBot.define do
   	address_1  { Faker::Address.street_name }
   	zipcode    { Faker::Address.zip_code }
   	city       { Faker::Address.city }
+  	country    { "FR"}
   end
 end

@@ -39,6 +39,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'country_select'
 
 gem 'will_paginate'
 

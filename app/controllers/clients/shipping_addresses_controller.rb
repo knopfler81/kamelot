@@ -31,6 +31,8 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 			else
 				redirect_to clients_user_path(current_user), notice: "L'adresse a bien été modifiée"
 			end
+		else
+			render :edit
 		end
 	end
 
@@ -47,6 +49,6 @@ class Clients::ShippingAddressesController <  Clients::ApplicationController
 	end
 
 	def shipping_address_params
-	 	params.require(:shipping_address).permit(:first_name, :last_name, :address_1, :address_2, :user_id, :city, :zipcode, :phone)
+	 	params.require(:shipping_address).permit(:first_name, :last_name, :address_1, :address_2, :user_id, :city, :zipcode, :phone, :country)
 	end
 end

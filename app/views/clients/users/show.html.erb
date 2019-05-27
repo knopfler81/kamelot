@@ -6,7 +6,7 @@
 
 		<div class="row">
 			<div class="col-12 col-md-4">
-				<h2>LIVRAISON
+				<h3>LIVRAISON
 					<% if current_user.shipping_address %>
 						<%= link_to edit_clients_shipping_address_path(current_user.shipping_address), id: "edit_shipping" do  %>
 							<i class="fa fa-edit"></i>
@@ -16,7 +16,7 @@
 							<i class="fa fa-plus-square"></i>
 						<% end %>
 					<% end %>
-				</h2>
+				</h3>
 					<% if current_user.shipping_address %>
 						<p><%= current_user.shipping_address.first_name %> <%= current_user.shipping_address.last_name %></p>
 						<p><%= current_user.shipping_address.address_1 %></p>
@@ -30,17 +30,17 @@
 					<% end %>
 			</div>
 			<div class="col-12 col-md-4">
-				<h2>FACTURATION 
+				<h3>FACTURATION 
 					<% if current_user.billing_address %>
 						<%= link_to edit_clients_billing_address_path(current_user.billing_address), id:"edit_billing" do  %>
 							<i class="fa fa-edit"></i>
 						<% end %>
 					<% else %>
 						<%= link_to new_clients_billing_address_path(current_user), id: "add_billing" do  %>
-							<i class="fa fa-plus-square"></i>
+								<i class="fa fa-edit"></i>
 						<% end %>
 					<% end %>
-				</h2>
+				</h3>
 
 				<% if current_user.billing_address.present? %>
 					<p><%= current_user.billing_address.first_name %> <%= current_user.billing_address.last_name %></p>
