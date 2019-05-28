@@ -15,7 +15,7 @@ Company.destroy_all
 
 #COMPANY 
 c = Company.instance
-c.update_attributes(name: "Damien Duclos", address_1: 'Lieu dit Emilieu', zipcode: "43000", city: "Malvalette", country:"France", email: "admin@example.com", site_name: "La Penderie De L'Homme")
+c.update_attributes(admin_name: "Damien Duclos", address_1: 'Lieu dit Emilieu', zipcode: "43000", city: "Malvalette", country:"France", email: "admin@example.com", site_name: "La Penderie De L'Homme")
 c.save
 
 #SUPPLIER

@@ -43,7 +43,7 @@ RSpec.describe Admin::ProductsController, :admin do
     end 
   end
 
-  describe "POST create", :skip => "A réparer..........;" do 
+  describe "POST create"   do 
     it "create a product" do 
       product = build :product
       post :create, 
@@ -59,10 +59,9 @@ RSpec.describe Admin::ProductsController, :admin do
             File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_1.jpg")),
             File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_2.jpg")),
             File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_3.jpg")),
-            File.open(File.join(Rails.root,"app/assets/images/seeds/pull_noir_4.jpg"))
           ]
           )}
-      expect(response.status).to eq(200)
+       expect(flash[:notice].present?).to be true
     end
   end
 end
