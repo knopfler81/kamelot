@@ -100,7 +100,7 @@ class Order < ApplicationRecord
   end
 
   def shipping_fees_cents
-    self.shipping_fees = 5
+    self.shipping_fees = 0
   end
 
   def update_sub_total!
