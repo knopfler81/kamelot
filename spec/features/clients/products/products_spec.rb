@@ -13,7 +13,7 @@ RSpec.describe "Product" do
 	context "not logged in user is looking for a product" do 
 		scenario "clicking on tab item" do 
 			visit root_path 
-			click_on "TShirt"
+			click_on "TSHIRT"
 			expect(page).to have_content("Stil")
 			first(".box_link").click
 
@@ -28,7 +28,7 @@ RSpec.describe "Product" do
 			user = create(:user)
 			login_as user
 			visit root_path
-			click_on "TShirt"
+			click_on "TSHIRT"
 			expect(page).to have_content("Stil")
 			first(".box_link").click
 
