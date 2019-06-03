@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-05-25T00:00:00+02:00">2019-05-25T00:00:00+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-06-25T00:00:00+02:00">2019-06-25T00:00:00+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         15.26
+         15.25
        </span>
     </span> hits/line)
   </h2>
@@ -237,7 +237,7 @@
         <td>20</td>
         <td>18</td>
         <td>2</td>
-        <td>197.9</td>
+        <td>197.8</td>
       </tr>
       
       <tr>
@@ -1075,7 +1075,7 @@
         <td>20</td>
         <td>18</td>
         <td>2</td>
-        <td>197.9</td>
+        <td>197.8</td>
       </tr>
       
       <tr>
@@ -3989,7 +3989,7 @@
         <li class="covered" data-hits="7" data-linenumber="25">
           <span class="hits">7</span>
           
-          <code class="ruby">			if var.has_stock == true</code>
+          <code class="ruby">			if var.remaining_stock &gt;= 1</code>
         </li>
       
         <li class="covered" data-hits="6" data-linenumber="26">
@@ -6954,8 +6954,8 @@
           <code class="ruby">  def default_url_options</code>
         </li>
       
-        <li class="covered" data-hits="3044" data-linenumber="22">
-          <span class="hits">3044</span>
+        <li class="covered" data-hits="3042" data-linenumber="22">
+          <span class="hits">3042</span>
           
           <code class="ruby">    { host: ENV[&quot;HOST&quot;] || &quot;localhost:3000&quot; }</code>
         </li>
@@ -9744,7 +9744,7 @@
         <li class="covered" data-hits="13" data-linenumber="39">
           <span class="hits">13</span>
           
-          <code class="ruby">			if var.has_stock == true</code>
+          <code class="ruby">			if var.remaining_stock &gt;= 1</code>
         </li>
       
         <li class="covered" data-hits="13" data-linenumber="40">
@@ -19520,8 +19520,8 @@
           <code class="ruby">	def has_stock</code>
         </li>
       
-        <li class="covered" data-hits="22" data-linenumber="19">
-          <span class="hits">22</span>
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
           
           <code class="ruby">		self.stocks.empty? ? false : true</code>
         </li>
@@ -19544,8 +19544,8 @@
           <code class="ruby">	def remaining_stock</code>
         </li>
       
-        <li class="covered" data-hits="97" data-linenumber="23">
-          <span class="hits">97</span>
+        <li class="covered" data-hits="117" data-linenumber="23">
+          <span class="hits">117</span>
           
           <code class="ruby">		self.stocks.map(&amp;:quantity).sum</code>
         </li>
