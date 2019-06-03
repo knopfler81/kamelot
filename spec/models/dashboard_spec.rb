@@ -140,8 +140,8 @@ RSpec.describe Dashboard, type: :model do
 	describe "#orders_by_week" do 
 		it "returns the  number of order by week" do
 			create(:order, created_at: 2.weeks.ago)
-			create(:order, created_at: 2.days.ago)
-			create(:order, created_at: 2.days.ago)
+			create(:order, created_at: 1.days.ago)
+			create(:order, created_at: 1.days.ago)
 			
 			res = subject.orders_by_week
 
@@ -232,7 +232,7 @@ RSpec.describe Dashboard, type: :model do
 	describe "#sales_by_week" do 
 		it "returns the  number of sales by week" do
 			create(:sale, created_at: 2.weeks.ago)
-			create(:sale, created_at: 2.days.ago)
+			create(:sale, created_at: 1.days.ago)
 			create(:sale, created_at: 1.day.ago)
 			
 			res = subject.sales_by_week
@@ -288,8 +288,7 @@ RSpec.describe Dashboard, type: :model do
 
 	describe "#returnings_by_week" do 
 		it "returns the  number of returnings by week" do
-			create(:returning, created_at: 2.weeks.ago)
-			create(:returning, created_at: 2.days.ago)
+			create(:returning, created_at: 1.days.ago)
 			create(:returning, created_at: 1.day.ago)
 			
 			res = subject.returnings_by_week
