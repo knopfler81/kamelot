@@ -70,7 +70,12 @@ class Order < ApplicationRecord
 
   def ask_for_return
     if self.return_asked == true 
-      returning = Returning.create(order_id: self.id, limit_date: Date.today + 10.days, status: 0, user_id: self.user_id)
+      returning = Returning.create!(
+                    order_id: self.id, 
+                    limit_date: Date.today + 10.days, 
+                    status: 0, 
+                    user_id: self.user_id
+                  )
       returning.save
     end
   end
@@ -100,7 +105,7 @@ class Order < ApplicationRecord
   end
 
   def shipping_fees_cents
-    self.shipping_fees = 5
+    self.shipping_fees = 0
   end
 
   def update_sub_total!
@@ -114,9 +119,9 @@ class Order < ApplicationRecord
 
   def update_total!
    if self.items.map(&:missing_quantity).sum > 0
-     self.total = self.items.sum('(quantity - missing_quantity) * price') + 5 #shipping_fees
+     self.total = self.items.sum('(quantity - missing_quantity) * price') + self.shipping_fees
    else 
-     self.total = self.items.sum('quantity * price') + 5 #shipping_fees
+     self.total = self.items.sum('quantity * price') + self.shipping_fees
    end
    self.save
   end

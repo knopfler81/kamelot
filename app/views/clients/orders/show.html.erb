@@ -35,8 +35,9 @@
 
 	<div class="row">
 		<div class="col-12 col-md-4">
-			<div class="order_box">
-				<p>ADRESSE DE LIVRAISON</p>
+			<div class="small_order_box">
+				<h5>ADRESSE DE LIVRAISON</h5>
+				<hr>
 				<p><%= @order.user.full_name %></p>
 				<p><%= @order.user.shipping_address.address_1 %></p>
 				<p><%= @order.user.shipping_address.address_2 %></p>
@@ -45,8 +46,9 @@
 			</div>
 		</div>
 		<div class="col-12 col-md-4">
-			<div class="order_box">
-				<p>ADRESSE DE FACTURATION</p>
+			<div class="small_order_box">
+				<h5>ADRESSE DE FACTURATION</h5>
+				<hr>
 				<% if @order.user.billing_address %>
 					<p><%= @order.user.full_name%></p>
 					<p><%= @order.user.billing_address.address_1 %></p>
@@ -63,8 +65,9 @@
 			</div>
 		</div>
 		<div class="col-12 col-md-4">
-			<div class="order_box">
-				<p>LIVRAISON</p>
+			<div class="small_order_box">
+				<h5>LIVRAISON</h5>
+				<hr>
 				<p>La Poste - Colissimo</p>
 			</div>
 		</div>
@@ -141,7 +144,7 @@
 					Frais de port
 				</td>
 				<td>
-				 5,00 €
+				 <%= number_to_currency_euro @order.shipping_fees %>
 				</td>
 			</tr>
 			<tr>
@@ -149,7 +152,7 @@
 					Total
 				</td>
 				<td>
-				 <%= number_to_currency_euro @order.sub_total + 5 %>
+				 <%= number_to_currency_euro @order.sub_total + @order.shipping_fees %>
 				</td>
 			</tr>
 		</tfoot>

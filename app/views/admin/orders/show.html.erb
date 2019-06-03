@@ -8,7 +8,8 @@
 	<div class="row">
 		<div class="col-12 col-md-4">
 			<div class="small_order_box">
-				<p>ADRESSE DE LIVRAISON</p>
+				<h5>ADRESSE DE LIVRAISON</h5>
+				<hr>	
 				<p><%= @order.user.full_name%></p>
 				<p><%= @order.user.shipping_address.address_1%></p>
 				<p><%= @order.user.shipping_address.address_2 %></p>
@@ -18,7 +19,8 @@
 		</div>
 		<div class="col-12 col-md-4">
 			<div class="small_order_box">
-				<p>ADRESSE DE FACTURATION</p>
+				<h5>ADRESSE DE FACTURATION</h5>
+				<hr>	
 				<% if @order.user.billing_address %>
 					<p><%= @order.user.full_name%></p>
 					<p><%= @order.user.billing_address.address_1 %></p>
@@ -36,7 +38,8 @@
 		</div>
 		<div class="col-12 col-md-4">
 			<div class="small_order_box">
-				<p>Etat de la commande :</p>
+				<h5>Etat de la commande :</h5>
+				<hr>	
 				<p><%= t("admin.orders.#{@order.status}") %></p>
 			</div>
 		</div>
@@ -57,13 +60,13 @@
 								<% elsif @order.pending? %>
 									<%= simple_form_for(@order, url: admin_order_path(@order) )do |f| %>
 								  	<%= f.hidden_field :status, value: "confirmed" %>
-								  	<%= submit_tag "Confirmer la prise en charge" , class: "btn btn-secondary",id: "prepare_order", data: {confirm: "Pense bien a revenir valider l'expédition une fois l'article envoyé" }%>
+								  	<%= submit_tag "Confirmer la prise en charge" , class: "c",id: "prepare_order", data: {confirm: "Pense bien a revenir valider l'expédition une fois l'article envoyé" }%>
 									<% end %>
 								<% end %>
 							</td>
 							<td>
 								<% if @order.paid? || @order.confirmed? %>
-									<%= link_to "Créer le colissimo 📦", "https://www.laposte.fr/colissimo-en-ligne", target: "blank_"  %>
+									<%= link_to "Créer le colissimo 📦", "https://www.laposte.fr/colissimo-en-ligne", target: "blank_", class: "btn btn-secondary"  %>
 								<% end %>
 							</td>
 							<td>
@@ -179,7 +182,7 @@
 					Frais de port
 				</td>
 				<td>
-				 5,00 €
+				<%= number_to_currency_euro  @order.shipping_fees %>
 				</td>
 			</tr>
 			<tr>
@@ -187,7 +190,7 @@
 					Total
 				</td>
 				<td>
-				 <%= number_to_currency_euro @order.sub_total + 5 %>
+				 <%= number_to_currency_euro @order.sub_total + @order.shipping_fees %>
 				</td>
 			</tr>
 		</tfoot>
