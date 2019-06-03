@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Returning do
 
-	scenario "Asking for a returning" do
+	scenario "Create a returning" do
 		james  = create(:user)
 		login_as(james)
 		address = create(:shipping_address, user_id: james.id)
 		order   = create(:order, status: "full_shipped", return_asked: false, user_id: james.id, return_limit_date: 10.days.from_now)
 
 		visit clients_order_path(order)
+		click_on "Demander un retour"
 		
-		expect(page).to have_button(value: "Demander un retour")
+		expect(page).to have_content("Séléctionner les articles que vous souhaitez retourner")
 	end
-
 
 	context "The returning is created" do 
 

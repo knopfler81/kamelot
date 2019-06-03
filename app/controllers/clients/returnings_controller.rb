@@ -4,7 +4,7 @@ class Clients::ReturningsController < Clients::ApplicationController
 	def index
 		@client_returnings = Returning.where(user_id: current_user.id).paginate(page: params[:page], per_page: 3)
 	end
-
+	
 	def edit
 	end
 

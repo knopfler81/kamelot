@@ -46,8 +46,13 @@ class Clients::OrdersController < Clients::ApplicationController
 
 	def update
 	 	if @order.update_attributes(order_params)
-	 		redirect_to clients_order_path(@order)
-	 		@order.cancelled_order if @order.cancelled_by_client?
+	 		if @order.return_asked?
+		 		@returning = Returning.find_by(order_id: @order.id)
+		 		redirect_to clients_order_returning_returning_items_path(@order, @returning)
+	 		else
+	 			redirect_to clients_order_path(@order)
+	 			@order.cancelled_order if @order.cancelled_by_client?
+	 		end
 	 	end
 	end
 
