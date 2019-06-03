@@ -15,6 +15,21 @@
   padding: 0px 90px;
 }
 
+.logo {
+  position: absolute;
+  z-index: 99999;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.logo-cintre {
+  width: 80px;
+}
+
+
+#site_title {
+  font-weight: bold;
+}
 
 .img-fluid {
   width: 1900px;
@@ -40,18 +55,17 @@
   }
 }
 
-@media screen and (max-width : 720px){
-  .welcome-text{
-  	 	h1 {
-  			font-size: 50px;
-  		}
-  		h2 {
-  			font-size: 15px;
-  		}
-  }
-
+@media screen and (max-width : 920px){
   .landing-content {
     padding: 0px;
+  }
 
+  #site_title {
+    display: none;
+  }
+
+
+  .logo-cintre {
+    width: 60px;
   }
 }
