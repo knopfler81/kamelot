@@ -25,17 +25,17 @@ class Order < ApplicationRecord
     refunded:            11,
   }
 
-  scope :pending,             -> { where(status: :pending) }
-  scope :paid,                -> { where(status: :paid) }
-  scope :confirmed,           -> { where(status: :confirmed) }
-  scope :missing_item,        -> { where(status: :missing_item) }
-  scope :full_shipped,        -> { where(status: :full_shipped) }
-  scope :partly_shipped,      -> { where(status: :partly_shipped) }
-  scope :cancelled_by_admin,  -> { where(status: :cancelled_by_admin) }
-  scope :cancelled_by_client, -> { where(status: :cancelled_by_client) }
-  scope :partially_refunded,  -> { where(status: :partially_refunded) }
-  scope :totally_refunded,    -> { where(status: :totally_refunded) }
-  scope :all_orders,          -> { Order.all }
+  scope :pending_orders,             -> { where(status: :pending) }
+  scope :paid_orders,                -> { where(status: :paid) }
+  scope :confirmed_orders,           -> { where(status: :confirmed) }
+  scope :missing_item_orders,        -> { where(status: :missing_item) }
+  scope :full_shipped_orders,        -> { where(status: :full_shipped) }
+  scope :partly_shipped_orders,      -> { where(status: :partly_shipped) }
+  scope :cancelled_by_admin_orders,  -> { where(status: :cancelled_by_admin) }
+  scope :cancelled_by_client_orders, -> { where(status: :cancelled_by_client) }
+  scope :partially_refunded_orders,  -> { where(status: :partially_refunded) }
+  scope :totally_refunded_orders,    -> { where(status: :totally_refunded) }
+  scope :all_orders,                 -> { Order.all }
 
   scope :filter_by_status, -> (status) do
     send(status).order('created_at DESC')

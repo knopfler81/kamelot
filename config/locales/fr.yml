@@ -73,16 +73,16 @@ fr:
       totally_refunded: Totallement remboursée
       tabs:
         all_orders: Toutes les commandes
-        cancelled_by_admin: Annulées par le vendeur
-        cancelled_by_client: Annulées par le client
-        confirmed: En cours de préparations
-        missing_item: Articles manquants
-        refunded: Partiellement remboursées
-        paid: Payée
-        pending: En attente
-        full_shipped: Commande envoyée dans sa totalité
-        partly_shipped: Commande envoyée en partie
-        totally_refunded: Totallement remboursées
+        cancelled_by_admin_orders: Annulées par le vendeur
+        cancelled_by_client_orders: Annulées par le client
+        confirmed_orders: En cours de préparations
+        missing_item_orders: Articles manquants
+        refunded_orders: Partiellement remboursées
+        paid_orders: Payée
+        pending_orders: En attente
+        full_shipped_orders: Commande envoyée dans sa totalité
+        partly_shipped_orders: Commande envoyée en partie
+        totally_refunded_orders: Totallement remboursées
     returnings:
       confirmed: Retour réceptionné
       pending: En attente
