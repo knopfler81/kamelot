@@ -19,7 +19,6 @@ $(document).on('turbolinks:load', function() {
     $('.big_image')
       // tile mouse actions
       .on('mouseover', function(){
-
         $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
       })
       .on('mouseout', function(){

@@ -16,6 +16,6 @@ module ResetCustomization
 		@customization.text_third_image         = Customization.instance.class.columns_hash['text_main_image'] = "Customisez moi"
 		@customization.text_btn_third_image     = Customization.instance.class.columns_hash['text_btn_main_image'] = "Customisez moi"
 		@customization.save
-		redirect_to clients_customization_path, notice: "La customisation a bien été réinitialisée"
+		redirect_to admin_customization_path, notice: "La customisation a bien été réinitialisée"
 	end
 end
