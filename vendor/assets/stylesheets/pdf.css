@@ -1,32 +1,29 @@
 @import "bootstrap.min";
-
 table.qrcode {
   border-width: 0;
   border-style: none;
-  border-color: #0000ff;
+  border-color: #00f;
   border-collapse: collapse;
   margin-top: 12px;
   margin-bottom: 10px;
-
-  td {
-    border-width: 0;
-    border-style: none;
-    border-color: #0000ff;
-    border-collapse: collapse;
-    padding: 0;
-    margin: 0;
-    width: 3px;
-    height: 3px;
-
-    &.black {
-      background-color: #000 !important;
-    }
-
-    &.white {
-      background-color: #fff !important;
-    }
-  }
 }
+table.qrcode td {
+  border-width: 0;
+  border-style: none;
+  border-color: #00f;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+  width: 3px;
+  height: 3px;
+}
+table.qrcode td.black {
+  background-color: #000 !important;
+}
+table.qrcode td.white {
+  background-color: #fff !important;
+}
+
 
 .sticker {
 	border: 1px dashed #111;
