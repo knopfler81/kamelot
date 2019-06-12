@@ -4,7 +4,7 @@
 <br>
 <%= link_to "Télécharger le bon de retour", clients_returning_path(@returning, format: "pdf"), target: "_blank", class: "btn btn-main" %>
 <br><br>
-<p> ⚠️ Vous devez nous retourner vos articles avant le <%= l(@returning.limit_date, format: '%d %B %Y') %> inclus, au delà de cette date, votre demande ne porra pas être prise en compte. </p>
+<p> ⚠️ Vous devez nous retourner vos articles avant le <%= l(@returning.limit_date, format: '%d %B %Y') %> inclus, au delà de cette date, votre demande ne pourra pas être prise en compte. </p>
 <div class="block_return_clients">
 	<div class="row">
 		<div class="col-6">
