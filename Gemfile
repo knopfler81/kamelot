@@ -66,7 +66,6 @@ gem 'react-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
 
-
 gem "wkhtmltopdf-heroku"
 
 gem 'cookies_eu'
