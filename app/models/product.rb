@@ -14,7 +14,6 @@ class Product < ApplicationRecord
 	has_many :stocks,   through: :variants
 	has_many :stickers
 
-
 	before_save :set_discount
 	before_save :upcase_ref
 

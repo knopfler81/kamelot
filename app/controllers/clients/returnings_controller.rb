@@ -9,6 +9,14 @@ class Clients::ReturningsController < Clients::ApplicationController
 	end
 
 	def show
+		respond_to do |format|
+		  format.html { }
+		  format.pdf do
+		    html = render_to_string(template: "clients/returnings/show.pdf.erb", layout: "layouts/clients/application.pdf.erb", orientation: "Landscape", page_size: 'A4', encoding:"UTF-8" )
+		    pdf = WickedPdf.new.pdf_from_string(html)
+		    send_data(pdf, filename: "retour_#{@returning.number}.pdf", type: "application/pdf", disposition: 'attachment')     
+		  end
+		end
 	end
 
 	def update

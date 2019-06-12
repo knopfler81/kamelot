@@ -18,7 +18,7 @@ class Clients::OrdersController < Clients::ApplicationController
 		  format.pdf do
 		    html = render_to_string(template: "clients/orders/show.pdf.erb", layout: "layouts/clients/application.pdf.erb", orientation: "Landscape", page_size: 'A4', encoding:"UTF-8" )
 		    pdf = WickedPdf.new.pdf_from_string(html)
-		    send_data(pdf, filename: "order.pdf", type: "application/pdf", disposition: 'attachment')     
+		    send_data(pdf, filename: "commande_#{@order.number}.pdf", type: "application/pdf", disposition: 'attachment')     
 		  end
 		end
 	end

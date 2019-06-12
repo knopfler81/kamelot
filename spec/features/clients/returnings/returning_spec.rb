@@ -44,6 +44,20 @@ RSpec.describe Returning do
 			click_on "Valider la demande de retour"
 			expect(page).to have_content("Votre retour a été demandé")
 		end
+
+
+		scenario "A returning voucher is downloadable" do 
+			james 	= create(:user)
+			login_as(james)
+			order     = create(:order, status: 3, return_asked: true)
+			returning = create(:returning, order_id: order.id, reason: "Some reason")
+			item      = create(:returning_item, returning_id: returning.id, selected: true)
+
+			visit clients_returning_path(returning)
+
+			expect(page).to have_content("Télécharger le bon de retour")
+			
+		end
 	end
 
 	context "The returning is sent" do 
@@ -60,5 +74,7 @@ RSpec.describe Returning do
 			expect(page).to have_content("Some reason")
 		end
 	end
+
+
 
 end
