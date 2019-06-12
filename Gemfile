@@ -19,7 +19,6 @@ gem "groupdate", "~> 3.1.1"
 gem "chartkick"
 gem 'google-api-client', '~> 0.11'
 
-
 #environement variables
 gem "figaro"
   
@@ -49,7 +48,6 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick'
 gem 'file_validators'
 
-
 #jobs
 gem 'sidekiq'
 gem 'sidekiq-cron'
@@ -66,9 +64,11 @@ gem 'react-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
 
+
 gem "wkhtmltopdf-heroku"
 
 gem 'cookies_eu'
+
 
 
 #QR codes 
@@ -84,12 +84,11 @@ gem 'mail_form'
 gem "recaptcha", require: "recaptcha/rails"
 
 
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 #SEO
 gem 'friendly_id', '~> 5.2.4'
 gem 'sitemap_generator'
-
-gem 'faker', '~> 1.6', '>= 1.6.6'
 
 group :development do 
   gem "letter_opener", group: :development
