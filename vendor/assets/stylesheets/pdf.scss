@@ -7,24 +7,23 @@ table.qrcode {
   border-collapse: collapse;
   margin-top: 12px;
   margin-bottom: 10px;
+  td {
+    border-width: 0;
+    border-style: none;
+    border-color: #00f;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    width: 4px;
+    height: 4px;
+    &.black {
+      background-color: #111 !important;
+    }
+    &.white {
+      background-color: #fff !important;
+    }
+  }
 }
-table.qrcode td {
-  border-width: 0;
-  border-style: none;
-  border-color: #00f;
-  border-collapse: collapse;
-  padding: 0;
-  margin: 0;
-  width: 4px;
-  height: 4px;
-}
-table.qrcode td.black {
-  background-color: #111 !important;
-}
-table.qrcode td.white {
-  background-color: #fff !important;
-}
-
 .sticker {
 	border: 1px dashed #111;
 	padding: 10px;
