@@ -86,8 +86,6 @@ gem "recaptcha", require: "recaptcha/rails"
 
 
 
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-
 #SEO
 gem 'friendly_id', '~> 5.2.4'
 gem 'sitemap_generator'
@@ -100,6 +98,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem 'stripe-ruby-mock', '~> 2.5.6', :require => 'stripe_mock'
   gem 'timecop'
   gem 'rspec-rails', '~> 3.7'
