@@ -21,18 +21,6 @@ if Rails.env.production?
            right:  2 }
  }
 
-elsif Rails.env.staging?
-   WickedPdf.config = {
-
-   exe_path: Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf-linux-amd64'),
-   page_size: 'Letter',
-   orientation: 'Landscape',
-   margin: { top:    2,
-            bottom: 2,
-            left:   2,
-            right:  2 }
-  }
-  
 else
   
  WickedPdf.config = {
