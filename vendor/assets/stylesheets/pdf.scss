@@ -1,29 +1,33 @@
-@import "bootstrap.min.css";
+@import "bootstrap.min";
 
 table.qrcode {
   border-width: 0;
   border-style: none;
-  border-color: #00f;
+  border-color: #0000ff;
   border-collapse: collapse;
   margin-top: 12px;
   margin-bottom: 10px;
+
   td {
     border-width: 0;
     border-style: none;
-    border-color: #00f;
+    border-color: #0000ff;
     border-collapse: collapse;
     padding: 0;
     margin: 0;
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
+
     &.black {
-      background-color: #111 !important;
+      background-color: #000 !important;
     }
+
     &.white {
       background-color: #fff !important;
     }
   }
 }
+
 .sticker {
 	border: 1px dashed #111;
 	padding: 10px;
@@ -39,25 +43,12 @@ table.qrcode {
 .reason {
   margin-left: 50px;
 }
-// .flash {
-//   border: 3px solid red;
-//   position: absolute;
-//   top: 0;
-//   left: 10;
-// }
-
-
-// .info {
-//   position: absolute;
-//   bottom: 5;
-//   left: 10;
-// }
 
 .nobreak {
   page-break-inside: avoid !important;
 }
 
-// FACTURES 
+/*FACTURES */
 #container {
 	padding: 10px;
 	position: relative;
