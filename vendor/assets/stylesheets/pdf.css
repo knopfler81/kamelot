@@ -1,4 +1,5 @@
-@import "bootstrap.min";
+@import "bootstrap.css";
+
 table.qrcode {
   border-width: 0;
   border-style: none;
@@ -23,63 +24,51 @@ table.qrcode td.black {
 table.qrcode td.white {
   background-color: #fff !important;
 }
-
-
 .sticker {
-	border: 1px dashed #111;
-	padding: 10px;
-	height: 220px;
-	width: 100px;
+  border: 1px dashed #111;
+  padding: 10px;
+  height: 220px;
+  width: 100px;
   position: relative;
 }
-
 #stickers {
-  padding: 10px!important;
+  padding: 10px !important;
 }
-
 .reason {
   margin-left: 50px;
 }
-
 .nobreak {
   page-break-inside: avoid !important;
 }
-
 /*FACTURES */
 #container {
-	padding: 10px;
-	position: relative;
-	width: 100%;
-	margin: 30px auto;
-	font-size: 15px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  margin: 30px auto;
+  font-size: 15px;
 }
-
 .reference_invoice {
-	padding: 5px;
-	border: 1px solid #111;
-	margin-bottom: 50px;
+  padding: 5px;
+  border: 1px solid #111;
+  margin-bottom: 50px;
 }
-
 .line-items {
-	font-size: 15px;
-  th, td {
-  	line-height: 12px;
-  }
+  font-size: 15px;
 }
-
-
+.line-items th, .line-items td {
+  line-height: 12px;
+}
 header {
   margin-bottom: 25px;
-
-  .contact {
-    float: right;
-    p {
-      margin-bottom: 0;
-    }
-  }
 }
-
+header .contact {
+  float: right;
+}
+header .contact p {
+  margin-bottom: 0;
+}
 #notes {
-	position: fixed;
-	bottom: 0;
+  position: fixed;
+  bottom: 0;
 }
