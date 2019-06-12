@@ -5,7 +5,7 @@
 			<div class="col-xs-2">
 				<div class="sticker nobreak">
 					<div class="flash">
-						<%= render_qr_code_small("#{ ENV["HOST"]}" +"/admin/products/" + "#{@sticker.product.id}") %>	
+						<%= render_qr_code_small("https://lapenderie-staging.herokuapp.com/admin/products/#{@sticker.product.slug}") %>	
 					</div>
 					<div class="info">
 						<div class="row">

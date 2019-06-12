@@ -12,7 +12,7 @@
 							<li><%= product.title %></li>
 							<li><%= product.color %></li>
 							<li><%= number_to_currency_euro product.price %></li>
-							<%= render_qr_code("#{ENV['HOST']}" + "/admin/products/" + "#{product.id}") %>
+							<%= render_qr_code("https://lapenderie-staging.herokuapp.com/admin/products/#{@sticker.product.slug}") %>	
 						</div>
 					<% end %>
 				</div>		
