@@ -71,7 +71,6 @@ gem "wkhtmltopdf-heroku"
 gem 'cookies_eu'
 
 
-
 #QR codes 
 gem 'rqrcode_png'
 gem 'rqrcode'

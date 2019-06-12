@@ -9,7 +9,7 @@
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
 
-if Rails.env.production?  || Rails.env.staging?
+if Rails.env.production?  
   WickedPdf.config = {
 
   exe_path: Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf-linux-amd64'),
@@ -21,6 +21,18 @@ if Rails.env.production?  || Rails.env.staging?
            right:  2 }
  }
 
+elsif Rails.env.staging?
+   WickedPdf.config = {
+
+   exe_path: Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf-linux-amd64'),
+   page_size: 'Letter',
+   orientation: 'Landscape',
+   margin: { top:    2,
+            bottom: 2,
+            left:   2,
+            right:  2 }
+  }
+  
 else
   
  WickedPdf.config = {
