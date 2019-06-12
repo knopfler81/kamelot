@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<div id="container">
+  
+<h1 class="title">BON DE RETOUR</h1>
+
+
+<header>
+	<div class="contact">
+	   <p><%= Company.instance.admin_name %></p>
+	   <p><%= Company.instance.address_1 %></p>
+	   <p><%= Company.instance.address_2 %></p>
+	   <p><%= Company.instance.zipcode %> <%= Company.instance.city %></p>
+	   <p><%= Company.instance.country %></p>
+	</div>
+  <div class="expeditor">
+    <% if @returning.user.billing_address.present? %>
+      <p><%= @returning.user.billing_address.full_name %></p>
+      <p><%= @returning.user.billing_address.address_1 %></p>
+      <p><%= @returning.user.billing_address.address_2 %></p>
+      <p><%= @returning.user.billing_address.zipcode%> <%= @returning.user.billing_address.city %></p>
+    <% else %>
+      <p><%= @returning.user.shipping_address.full_name %></p>
+      <p><%= @returning.user.shipping_address.address_1 %></p>
+      <p><%= @returning.user.shipping_address.address_2 %></p>
+      <p><%= @returning.user.shipping_address.zipcode%> <%= @returning.user.shipping_address.city %></p>
+    <% end %>
+  </div>
+</header>
+
+
+  <div class="row">
+    <div class="col-4">
+     <div class="reference_invoice">
+       <p>Retour N° <%= @returning.number %></p>
+       <p>Commande N° <%= @returning.order.number %></p>
+       <p>Ref Client :  <%= @returning.user.number %></p>
+       <p>Date : <%= l(@returning.created_at, format: '%d %B %Y' ) %></p>
+     </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <table class="table table-striped line-items">
+      <thead>
+          <tr>
+            <th>Quantité</th>
+            <th>Désignation</th> 
+            <th>Taille</th> 
+            <th>Prix</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @returning.items.each do |item| %>
+    
+        <tr>
+          <td align="right"><%= item.quantity %> </td>
+          <td align="right"><%= item.variant.product.title %></td>
+          <td align="right"><%= item.variant.size %></td>
+          <td align="right"><%= number_to_currency_euro(item.variant.product.price) %></td>
+        </tr>
+
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" align="right">Total</td>
+          <td colspan="3" align="right"><%= number_to_currency_euro @returning.order.total %></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="reason">
+    	<p>Raisons: <%= simple_format @returning.reason %></p>
+      <p>Signature: </p>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,6 @@
   
 <h1 class="title">FACTURE</h1>
 
-
 <header>
   <div class="contact">
     <% if @order.user.billing_address.present? %>
@@ -18,13 +17,14 @@
       <p><%= @order.user.shipping_address.zipcode%> <%= @order.user.shipping_address.city %></p>
     <% end %>
   </div>
-  <div class="company">
+  <div class="expeditor">
     <p><%= Company.instance.admin_name %></p>
     <p><%= Company.instance.address_1 %></p>
     <p><%= Company.instance.address_2 %></p>
     <p><%= Company.instance.zipcode %> <%= Company.instance.city %></p>
     <p><%= Company.instance.country %></p>
   </div>
+  
  
 </header>
 
@@ -33,7 +33,7 @@
     <div class="col-4">
      <div class="reference_invoice">
        <p>Facture N° <%= @order.id %></p>
-       <p>Ref Client :  <%= @order.user.id %></p>
+       <p>Ref Client :  <%= @order.user.number %></p>
        <p>Date : <%= l(@order.created_at, format: '%d %B %Y' ) %></p>
      </div>
     </div>
@@ -83,11 +83,11 @@
     </table>
   </div>
 
-  <div class="row">
+<!--   <div class="row">
     <div id="notes">
       <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est recusandae sint harum nostrum nesciunt dignissimos, error laborum nam inventore nihil magnam cupiditate, rerum totam, consectetur omnis delectus? Quas, accusantium, corporis!</small>
     </div>
-  </div>
+  </div> -->
 
 
 </div>
