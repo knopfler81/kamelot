@@ -140,7 +140,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
-    docile (1.3.1)
+    docile (1.3.2)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.2)
@@ -622,7 +622,7 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    twilio-ruby (5.23.1)
+    twilio-ruby (5.24.0)
       faraday (~> 0.9)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
