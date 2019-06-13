@@ -29,11 +29,11 @@ module Kamelot
     config.generators.system_tests = nil
 
     #TODO verifier mais apparement plus besoin on utilise figaro et application.yml
-    config.before_configuration do
-      env_file = File.join(Rails.root, 'config', 'secrets.yml')
-      YAML.load(File.open(env_file)).each do |key, value|
-        ENV[key.to_s] = value
-      end if File.exists?(env_file)
-    end
+    # config.before_configuration do
+    #   env_file = File.join(Rails.root, 'config', 'secrets.yml')
+    #   YAML.load(File.open(env_file)).each do |key, value|
+    #     ENV[key.to_s] = value
+    #   end if File.exists?(env_file)
+    # end
   end
 end
