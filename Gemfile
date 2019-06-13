@@ -89,8 +89,8 @@ gem "recaptcha", require: "recaptcha/rails"
 gem 'friendly_id', '~> 5.2.4'
 gem 'sitemap_generator'
 
-# bug sur faker ?????????????????
-#gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development do 
   gem "letter_opener", group: :development
