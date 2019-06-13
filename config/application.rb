@@ -28,7 +28,6 @@ module Kamelot
     config.action_dispatch.default_headers.merge!('Cache-Control' => 'no-store, no-cache')
     config.generators.system_tests = nil
 
-
     #TODO verifier mais apparement plus besoin on utilise figaro et application.yml
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'secrets.yml')
