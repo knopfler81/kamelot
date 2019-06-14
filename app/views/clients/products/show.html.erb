@@ -55,9 +55,13 @@
 						<%= hidden_field_tag :quantity, 1 %>
 						<div class="row">
 							<div class="col-12">
-								<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select', required: true %>
+								<% if @product.stocks.map(&:quantity).sum > 1 %>
+									<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select', required: true %>
 								<br><br>
-								<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
+									<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
+								<% else %>
+								<p style="color: red">Victime de son succès cet article n'est plus disponible pour le moment</p>
+								<% end %>
 							</div>
 						</div>
 					
@@ -85,8 +89,11 @@
 							</div>
 						</div>
 					<% end %>
+
 				</div>
+
 			</div>
+
 
 
 			<div class="row">

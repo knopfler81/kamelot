@@ -1,7 +1,7 @@
 <% @client_products.each do |product| %>
-	<% if product.stocks.map(&:quantity).sum >= 1 %>
+	<%# if product.stocks.map(&:quantity).sum >= 1 %>
 		<div class="col-6 col-md-4 col-lg-3">
 			<%= render  'clients/shared/cards', product: product %>
 		</div>
-	<% end %>
+	<%# end %>
 <% end %>

@@ -16,5 +16,4 @@ class Category < ApplicationRecord
 	def product_with_stock
 		self.stocks.map(&:quantity).sum >= 1
 	end
-
 end
