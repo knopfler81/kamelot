@@ -1,4 +1,4 @@
-@import "bootstrap.min";
+@import "bootstrap.min.css";
 
 table.qrcode {
   border-width: 0;
@@ -25,10 +25,6 @@ table.qrcode {
   }
 }
 
-.price  {
-  font-size: 20px;
-  text-align: center;
-}
 .sticker {
   border: 1px dashed #111;
   padding: 10px;
@@ -37,12 +33,12 @@ table.qrcode {
   display: inline-block;
   margin-right: -4px;
   margin-bottom: -6px;
-  // position: relative;
+  .price  {
+    font-size: 20px;
+    text-align: center;
+  }
 }
 
-// #stickers {
-//   padding: 10px !important;
-// }
 
 .reason {
   margin-left: 50px;
