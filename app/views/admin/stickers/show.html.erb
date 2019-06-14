@@ -1,17 +1,28 @@
 <div class="container">
-	<%= link_to "Télécharger les #{@sticker.quantity} étiquettes", admin_product_sticker_path(@product, @sticker,format: "pdf"), class: "btn btn-main" %>
-		<div class="sticker">
-			<div class="row">
-				<div class="col-12">
-					<%= render_qr_code_small("https://lapenderie-staging.herokuapp.com/admin/products/#{@sticker.product.slug}") %>	
+	<div class="row">
+		<div class="col-12">
+			<%= link_to "Télécharger les #{@sticker.quantity} étiquettes", admin_product_sticker_path(@product, @sticker,format: "pdf"), class: "btn btn-main" %>
+			<br><br>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<div class="sticker">
+				<div class="row">
+					<div class="col-12">
+						<%= render_qr_code_small("https://lapenderie-staging.herokuapp.com/admin/products/#{@sticker.product.slug}") %>	
+					</div>
 				</div>
-			</div>
-			<div class="col-12">
-				<ul class="list list-unstyled">
-					<li><%= number_to_currency_euro @sticker.product.price %></li>
-					<li><%= @sticker.product.title %> - <%= @sticker.product.color %></li>
-					<li><%= @sticker.product.brand %></li>
-				</ul>
-			</div>
-	  </div>
+				<div class="col-12">
+					<ul class="list list-unstyled">
+						<li class="price"><strong><%= number_to_currency_euro @sticker.product.price %></strong></li>
+						<br>
+						<li><%= @sticker.product.title.upcase %></li>
+						<li><%= @sticker.product.color.upcase %></li>
+						<li><%= @sticker.product.brand.upcase %></li>
+					</ul>
+				</div>
+		  </div>
+		</div>
+	</div>
 </div>

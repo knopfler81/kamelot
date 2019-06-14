@@ -1,29 +1,25 @@
 <div class="container">
+
 	<div id="stickers">
-		<div class="row">
 		<% @sticker.quantity.times do  %>
-			<div class="col-xs-2">
-				<div class="sticker nobreak">
-					<div class="flash">
-						<%= render_qr_code_small("https://lapenderie-staging.herokuapp.com/admin/products/#{@sticker.product.slug}") %>	
-					</div>
-					<div class="info">
-						<div class="row">
-							<div class="col-xs-12">
-								<ul class="list list-unstyled">
-									<li><strong><%= number_to_currency_euro @sticker.product.price %></strong></li>
-									<li><%= @sticker.product.title %> - <%= @sticker.product.color %></li>
-									<li><%= @sticker.product.brand %></li>
-									<li class="list-inline-item"><%# available_sizes(@sticker.product).map do |size|  %>
-										<%#= size %>
-									<%# end %>
-								  </li>
-							</div>
+			<div class="sticker nobreak">
+				<div class="flash">
+					<%= render_qr_code_small("https://lapenderie-staging.herokuapp.com/admin/products/#{@sticker.product.slug}") %>	
+				</div>
+				<div class="info">
+					<div class="row">
+						<div class="col-xs-12">
+							<ul class="list list-unstyled">
+								<li class="price"><strong><%= number_to_currency_euro @sticker.product.price %></strong></li>
+								<br>
+								<li><%= @sticker.product.title.upcase %></li>
+								<li><%= @sticker.product.color.upcase %></li>
+								<li><%= @sticker.product.brand.upcase %></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-		<% end %>
-	</div>	
+  	<% end %>
 	</div>
 </div>

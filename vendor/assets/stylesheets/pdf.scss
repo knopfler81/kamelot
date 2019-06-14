@@ -25,17 +25,24 @@ table.qrcode {
   }
 }
 
+.price  {
+  font-size: 20px;
+  text-align: center;
+}
 .sticker {
   border: 1px dashed #111;
   padding: 10px;
-  height: 220px;
-  width: 100px;
-  position: relative;
+  height: 300px;
+  width: 130px;
+  display: inline-block;
+  margin-right: -4px;
+  margin-bottom: -6px;
+  // position: relative;
 }
 
-#stickers {
-  padding: 10px !important;
-}
+// #stickers {
+//   padding: 10px !important;
+// }
 
 .reason {
   margin-left: 50px;

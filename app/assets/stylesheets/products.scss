@@ -212,13 +212,16 @@
 }
 
 .sticker {
-	margin-top: 50px;
-	border: 1px dashed #111;
-	padding: 10px;
-	height: auto;
-	width: 150px;
-}
+  border: 1px dashed #111;
+  padding: 10px;
+  height: 300px;
+  width: 130px;
 
+	.price  {
+	  font-size: 20px;
+	  text-align: center;
+	}
+}
 
 table.qrcode {
   border-width: 0;
