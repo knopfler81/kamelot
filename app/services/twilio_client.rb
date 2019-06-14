@@ -20,7 +20,7 @@ class TwilioClient
 			text << "Couleur: #{item.variant.product.color} \n"
 			text << "Marque: #{item.variant.product.brand} \n"
 			text << "Taille: #{item.variant.size} \n"
-			text << "URL: 'https://lapenderie-staging.herokuapp.com/clients/products/#{item.variant.product} \n"
+			text << "URL: https://lapenderie-staging.herokuapp.com/clients/products/#{item.variant.product.slug} \n"
 			text << "---------------\n\n"
 		end
 
