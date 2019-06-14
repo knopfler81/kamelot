@@ -185,6 +185,7 @@
                     	<% @order.items.each do |item| %>
                     		<ul>
                     			<li style="list-style: none"> <%= item.quantity %> <%=item.variant.product.title %>, <%= item.variant.product.brand %> , <%= item.variant.product.color  if item.variant.product.color %>, en taille <%= item.variant.size %> </li>
+                          <li style="list-style: none;"><%= image_tag item.variant.product.attachments.first.url %></li>
                     		</ul>
                     	<% end %>
                     </div>
@@ -206,9 +207,9 @@
                   <td align="center" style="font-size: 14px; font-family: 'Montserrat' sans-serif; line-height: 26px;">
                     <div style="line-height: 26px;">
                     	<%= link_to "Voir la Commande", admin_order_url(@order), style:"background: #111;
-																																							color: #ddd;
-																																							padding: 10px 15px;
-																																							border-radius: 50px; text-decoratinone;" %>       
+																					color: #ddd;
+																					padding: 10px 15px;
+																					border-radius: 50px; text-decoratinone;" %>       
                     </div>
                   </td>
                 </tr>

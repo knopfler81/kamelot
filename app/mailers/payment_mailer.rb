@@ -7,6 +7,7 @@ class PaymentMailer < ApplicationMailer
   #
   def confirmation(order)
     @order = order
+    attachments.inline["logo-cintre-mail.png"] = File.read("#{Rails.root}/app/assets/images/logo-cintre-mail.png")
     mail( to: @order.user.email, subject: "Confirmation de commande")
   end
 
