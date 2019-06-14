@@ -10,11 +10,14 @@ class TwilioClient
 	end
 
 	def text_message_for(order)
-		text = "Nouvelle commande  ref: #{order.id} \n\n" 
+		text = "Nouvelle commande:  #{order.number} \n\n" 
+
+		text << "#{order.user.full_name}\n\n" 
 		  	
 		order.items.each do |item|
 			text << "Quantité: #{item.quantity} \n"
 			text << "Ref: #{item.variant.product.title} \n"
+			text << "Couleur: #{item.variant.product.color} \n"
 			text << "Marque: #{item.variant.product.brand} \n"
 			text << "Taille: #{item.variant.size} \n"
 			text << "---------------\n\n"
