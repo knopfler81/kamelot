@@ -216,12 +216,16 @@
   padding: 10px;
   height: 300px;
   width: 130px;
-
-	.price  {
-	  font-size: 20px;
-	  text-align: center;
-	}
+  display: inline-block;
+  margin-right: -4px;
+  margin-bottom: -6px;
+  .price  {
+    font-size: 20px;
+    text-align: center;
+  }
 }
+
+
 
 table.qrcode {
   border-width: 0;
