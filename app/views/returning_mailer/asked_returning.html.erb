@@ -148,7 +148,7 @@
                     </tr>
                     <tr>
                         <td align="center" style="color: #343434; font-size: 24px; font-family: Montserrat, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;" class="main-header">
-
+                             <%= image_tag(attachments['logo-cintre-mail.png'].url) %>
 
                             <div style="line-height: 35px">
                             	Bonjour <span style="color: #D0640B;"><%= @returning.user.first_name %></span>
@@ -194,15 +194,17 @@
 	                                         	<% end %>
                                           </div>
 
-                                          <p align="left">Merci de nous renvoyer au plus vite les articles corrspondant à votre retour à l'adresse: </p>
+                                          <p align="left">Merci de nous renvoyer au plus vite les articles corrspondant à votre retour à l'adresse complète: </p>
                                           <p><%= Company.instance.admin_name %></p>
+                                          <p><%= Company.instance.site_name %></p>
                                           <p><%= Company.instance.address_1 %></p>
                                           <p><%= Company.instance.address_2 %></p>
                                           <p><%= Company.instance.zipcode %> <%= Company.instance.city %></p>
                                           <br />
                                           <p align="left">Nous espérons vous revoir bientôt</p>
 																					<br />
-                                          <p align="left">L'équipe Damien</p>
+                                        <p align="left" style="font-weight: bold">L'équipe de La Penderie De L'Homme</p>
+
                                         </div>
                                     </td>
                                 </tr>

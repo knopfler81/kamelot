@@ -149,7 +149,7 @@
                     <tr>
                         <td align="center" style="color: #343434; font-size: 24px; font-family: Montserra, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;" class="main-header">
 
-
+                            <%= image_tag(attachments['logo-cintre-mail.png'].url) %>
                             <div style="line-height: 35px">
                             	Bonjour <span style="color: #D0640B;"><%= @user.first_name %></span>
                                 
@@ -191,7 +191,9 @@
    									                      <p>Nous espérons que vous y trouverez votre bonheur!</p>
 
 
-                                          <p>L'équipe Damien</p>
+
+                                            <br /><br />
+                                          <p>L'équipe de La Penderie De L'Homme</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -216,7 +218,7 @@
 
 
                                         <div style="line-height: 26px;">
-                                        	<%= link_to "Visiter le site", clients_landing_url, style:"	background: #111;
+                                        	<%= link_to "Accéder  site", clients_landing_url, style:"	background: #111;
                                           												                color: #ddd;
 																										padding: 10px 15px;
 																							      		border-radius: 50px; 

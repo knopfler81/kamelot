@@ -1,3 +1,22 @@
-Payment#confirmation
+Bonjour <%= @order.user.first_name %>
 
-<%= @greeting %>, find me in app/views/payment_mailer/confirmation.text.erb
+
+  Nous avons bien reçu votre commande passée sur notre site, et vous en remercions. 
+
+
+
+
+ 	<% @order.items.each do |item| %>
+   	<ul style="list-style: none;">
+   		<li><%= item.quantity %>  - <%= item.variant.product.title %> - <%= item.variant.product.brand %> , en taille <%= item.variant.size  %> </li>
+   	</ul>
+ 	<% end %>
+
+
+Vous pouvez consulter à tout moment le statut de votre commande sur votre  <%= link_to "espace client", clients_order_url(@order), style: "color: #D0640B; text-decoration: none;" %>
+
+La livraison  est estimée entre le <%= l(@order.delivery_date_1,  format: '%d %B %Y' ) %> et le <%= l(@order.delivery_date_2, format: '%d %B %Y') %>
+
+Nous vous remercions de votre achat
+
+L'équipe de La Penderie De L'Homme

@@ -149,7 +149,9 @@
                     <tr>
                         <td align="center" style="color: #343434; font-size: 24px; font-family: Montserrat, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;" class="main-header">
 
-
+                
+                                <%= image_tag(attachments['logo-cintre-mail.png'].url) %>
+            
                             <div style="line-height: 35px">
                             	Bonjour <span style="color: #D0640B;"><%= @order.user.first_name %></span>
                                 
@@ -204,8 +206,9 @@
                                           <p>La livraison  est estimée entre le <%= l(@order.delivery_date_1,  format: '%d %B %Y' ) %> et le <%= l(@order.delivery_date_2, format: '%d %B %Y') %></p>
 
                                           <p>Nous vous remercions de votre achat</p>
+                                            <br /><br />
+                                        <p style="font-weight: bold">L'équipe de La Penderie De L'Homme</p>
 
-                                          <p>L'équipe Damien</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -230,10 +233,11 @@
 
 
                                         <div style="line-height: 26px;">
-                                        	<%= link_to "Votre compte", clients_orders_url, style:"	background: #111;
-																																																	color: #ddd;
-																																																	padding: 10px 15px;
-																																																	border-radius: 50px; text-decoration: none;" %>
+                                        	<%= link_to "Votre compte", clients_orders_url,
+                                             style:"	background: #111;
+    												    color: #ddd;
+    													padding: 10px 15px;
+    													border-radius: 50px; text-decoration: none;" %>
                                             
                                         </div>
                                     </td>
