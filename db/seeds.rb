@@ -56,6 +56,16 @@ enzo = Supplier.create!(
 	email: "enzo@example.com"
 	)
 
+
+enzo = Supplier.create!(
+	company: "Divers",
+	address: "Divers",
+	zipcode: "Divers",
+	city: "Divers",
+	phone_number: "Divers",
+	email: "Divers"
+	)
+
 nelly = User.new.tap do |u|
   u.list_subscriber = true
 	u.admin =  true
@@ -388,7 +398,7 @@ tshirt 			= Category.create!(title: "Tshirt",     main_category_id: men.id)
 accessoires = Category.create!(title: "Accessoires", main_category_id: men.id)
 chemise 		= Category.create!(title: "Chemises",    main_category_id: men.id)
 polos       = Category.create!(title: "Polos",       main_category_id: men.id)
-
+bermudas 	= Category.create!(title: "Bermudas",   main_category_id: men.id)
 
  puts "Categories created"
 

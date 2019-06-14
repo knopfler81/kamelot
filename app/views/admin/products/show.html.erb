@@ -18,7 +18,7 @@
 						<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
 					<% end %>
 				</div>
-				<div class="col-8 d-none d-md-block  ">
+				<div class="col-8 d-none d-md-block">
 					<div id="big_image_show">
 						<!-- big_images est généré dans le JS  Ici on affiche les images au hover avec le JS -->
 						<%= image_tag(@product.attachments[0].url, class: "big_image") %>
