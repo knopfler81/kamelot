@@ -90,7 +90,7 @@
 					<div class="col-6 align-right">
 						<p><%= number_to_currency_euro @order.items.map {|i| i.price * i.quantity}.sum  %></p>
 						<p><%= number_to_currency_euro @order.shipping_fees %></p>
-						<p><%= number_to_currency_euro @order.items.map {|i| i.price * i.quantity }.sum + 5 %></p>
+						<p><%= number_to_currency_euro @order.items.map {|i| i.price * i.quantity }.sum %></p>
 					</div>
 					<div class="col-12">
 						<% if current_user.shipping_address %>
