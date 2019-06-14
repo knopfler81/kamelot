@@ -80,7 +80,7 @@ Rails.application.configure do
     user_name:             ENV['SENDGRID_USERNAME'],
     password:              ENV['SENDGRID_PASSWORD'],
     authentication:        "plain",
-    domain:                "lapenderie-staging.herokuapp.com",
+    domain:                "heroku.com",
     enable_starttls_auto:  true
 
   }
