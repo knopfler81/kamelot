@@ -7,23 +7,24 @@ table.qrcode {
   border-collapse: collapse;
   margin-top: 12px;
   margin-bottom: 10px;
+  td {
+    border-width: 0;
+    border-style: none;
+    border-color: #00f;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    width: 3px;
+    height: 3px;
+    &.black {
+      background-color: #000 !important;
+    }
+    &.white {
+      background-color: #fff !important;
+    }
+  }
 }
-table.qrcode td {
-  border-width: 0;
-  border-style: none;
-  border-color: #00f;
-  border-collapse: collapse;
-  padding: 0;
-  margin: 0;
-  width: 3px;
-  height: 3px;
-}
-table.qrcode td.black {
-  background-color: #000 !important;
-}
-table.qrcode td.white {
-  background-color: #fff !important;
-}
+
 .sticker {
   border: 1px dashed #111;
   padding: 10px;
@@ -31,16 +32,21 @@ table.qrcode td.white {
   width: 100px;
   position: relative;
 }
+
 #stickers {
   padding: 10px !important;
 }
+
 .reason {
   margin-left: 50px;
 }
+
 .nobreak {
   page-break-inside: avoid !important;
 }
+
 /*FACTURES */
+
 #container {
   padding: 10px;
   position: relative;
@@ -48,26 +54,30 @@ table.qrcode td.white {
   margin: 30px auto;
   font-size: 15px;
 }
+
 .reference_invoice {
   padding: 5px;
   border: 1px solid #111;
   margin-bottom: 50px;
 }
+
 .line-items {
   font-size: 15px;
+  th, td {
+    line-height: 12px;
+  }
 }
-.line-items th, .line-items td {
-  line-height: 12px;
-}
+
 header {
   margin-bottom: 25px;
+  .contact {
+    float: right;
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
-header .contact {
-  float: right;
-}
-header .contact p {
-  margin-bottom: 0;
-}
+
 #notes {
   position: fixed;
   bottom: 0;
