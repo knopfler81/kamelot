@@ -7,10 +7,10 @@
 			<div class="order-tab">
 				<% @order.items.each do |item| %>
 					<div class="row order-row">
-						<div class="col-2">
+						<div class="col-3">
 							<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
 						</div>
-						<div class="col-6">
+						<div class="col-7">
 							<small><%= item.variant.product.brand %> - <%= item.variant.product.title %></small>
 							<small>Couleur : <%= item.variant.product.color %></small>
 							<br>
@@ -18,7 +18,7 @@
 							<br>
 							<small>Quantité : <%= item.quantity %></small>
 						</div>
-						<div class="col-2 offset-1">
+						<div class="col-2">
 							<p><%= number_to_currency_euro item.price * item.quantity %></p>
 						</div>
 					</div>
