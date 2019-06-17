@@ -13,21 +13,21 @@
 			</div>
 	    <div class="carousel-item active">
 	    	<%= image_tag(@customization.main_image.present? ? @customization.main_image_url : 'https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg', class: "img-fluid") %>
-	      <div class="carousel-caption d-none d-md-block">
+	      <div class="carousel-caption d-md-block">
 		      <h1 class="first-caption"><%= @customization.text_main_image.present? ? @customization.text_main_image : "Ajouter Custom Text"  %></h1>
 		      <%= link_to (@customization.text_btn_main_image.present? ? @customization.text_btn_main_image : "Custom btn Texte"), @customization.main_link, class: "btn btn-secondary"  %>
 	    	</div>
 	    </div>
 	    <div class="carousel-item">
 	    	<%= image_tag(@customization.second_image.present? ? @customization.second_image_url : 'https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg', class: "img-fluid") %>
-	    		<div class="carousel-caption d-none d-md-block">
+	    		<div class="carousel-caption d-md-block">
 		      <h1 class="second-caption"><%= @customization.text_second_image.present? ? @customization.text_second_image : "Ajouter Custom Text"  %></h1>
 		      <%= link_to (@customization.text_btn_second_image.present? ? @customization.text_btn_second_image : "Custom btn Texte"), @customization.second_link, class: "btn btn-secondary"  %>
 	    	</div>
 	    </div>
 	    <div class="carousel-item">
 	    	<%= image_tag(@customization.third_image.present? ? @customization.third_image_url : 'https://s3.eu-west-3.amazonaws.com/shopsuper/landing.jpg', class: "img-fluid") %>
-	      <div class="carousel-caption d-none d-md-block">
+	      <div class="carousel-caption d-md-block">
 		      <h1 class="third-caption"><%= @customization.text_third_image.present? ? @customization.text_third_image : "Ajouter Custom Text"  %></h1>
 		      <%= link_to (@customization.text_btn_third_image ? @customization.text_btn_third_image : "Custom btn Texte"), @customization.third_link, class: "btn btn-secondary"  %>
 	    	</div>

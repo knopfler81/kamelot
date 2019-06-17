@@ -15,6 +15,12 @@
   padding: 0px 90px;
 }
 
+.first-caption, .second-caption, .third-caption {
+  font-family: Montserrat;
+  font-size:  3.5em !important;
+  font-weight: bold;
+}
+
 .logo {
   position: absolute;
   z-index: 99999;
@@ -25,7 +31,6 @@
 .logo-cintre {
   width: 200px;
 }
-
 
 #site_title {
   font-weight: bold;
@@ -50,19 +55,47 @@
 
 .carousel-caption  {
   bottom: 25px !important;
+  background-color: rgba(0,0,0 ,0.2);
   .btn {
+    margin-top: 40px;
+    padding: 20px 30px;
+    border: 2px solid #fff !important;
     border-radius: 0px;
+    background-color: transparent !important;
+    color: #fff;
   }
 }
 
 @media screen and (max-width : 920px){
+
+
+.first-caption, .second-caption, .third-caption {
+  margin-top: 40px;
+  font-family: Montserrat;
+  font-size:  20px !important;
+  font-weight: bold;
+}
+
+.carousel-caption  {
+  //bottom: 25px !important;
+  background-color: rgba(0,0,0 ,0.2);
+  .btn {
+    margin-top: 10px;
+    padding: 20px 30px;
+    border: 2px solid #fff !important;
+    border-radius: 0px;
+    background-color: transparent !important;
+    color: #fff;
+  }
+}
+
   .landing-content {
     padding: 0px;
   }
 
-  #site_title {
-    display: none;
-  }
+  // #site_title {
+  //   display: none;
+  // }
 
 
   .logo-cintre {
