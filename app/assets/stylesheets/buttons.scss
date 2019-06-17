@@ -148,3 +148,16 @@ input {
 .birth_date {
 	margin: 0 0 15px 10px
 }
+
+@media (max-width: 667px) {
+	
+	#back-button {
+		display: none;
+	}
+
+	#top-button {
+		display: none;
+	}
+
+
+}

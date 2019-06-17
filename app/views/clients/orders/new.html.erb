@@ -10,16 +10,17 @@
 						<div class="col-3">
 							<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
 						</div>
-						<div class="col-7">
+						<div class="col-6">
 							<small><%= item.variant.product.brand %> - <%= item.variant.product.title %></small>
+							<br>
 							<small>Couleur : <%= item.variant.product.color %></small>
 							<br>
 							<small>Taille : <%= item.variant.size %></small>
 							<br>
 							<small>Quantité : <%= item.quantity %></small>
 						</div>
-						<div class="col-2">
-							<p><%= number_to_currency_euro item.price * item.quantity %></p>
+						<div class="col-3">
+							<small><%= number_to_currency_euro item.price * item.quantity %></small>
 						</div>
 					</div>
 				<% end %>		
