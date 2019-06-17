@@ -1,15 +1,14 @@
 .boxes{
 	display: flex;
-	//justify-content: space-around;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	flex-align: center;
 	flex-direction: row;
 }
 
 .box{
-	min-width: 200px;
-	min-height: 270px;
-	padding: 2px;
+	min-width: 150px;
+	min-height: 200px;
 	text-align: center;
 	margin-bottom: 20px;
 	img {
@@ -48,8 +47,8 @@
 	font-size: 1em;
 	background-color: #EEE;
 	padding-top: 6px;
-	margin-bottom: 20px;
-	height: 60px;
+	//margin-bottom: 20px;
+	height: 55px;
 	color: #000;
 }
 
