@@ -60,7 +60,7 @@ class Product < ApplicationRecord
 	private
 
 	def attachment_size
-		if  self.attachments.count > 6
+		if  self.attachments.count > 8
 			errors.add(:base, :exceeded_quota)
 		end
 	end

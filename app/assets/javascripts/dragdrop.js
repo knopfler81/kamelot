@@ -56,9 +56,9 @@ $(document).on('turbolinks:load', function() {
     var submitNewImage = document.getElementById("modal-submit");
 
 
-    if(resultCounter >= 7){
+    if(resultCounter >= 9){
       divTextUpload.style.color= "red";
-      divTextUpload.innerHTML = "<h3>OULA! Il ne peut y avoir que six images en tout!</h3>"
+      divTextUpload.innerHTML = "<h3>OULA! Il ne peut y avoir que 8 images en tout!</h3>"
       submitNewImage.setAttribute("disabled", true)
       event.preventDefault();
       }
