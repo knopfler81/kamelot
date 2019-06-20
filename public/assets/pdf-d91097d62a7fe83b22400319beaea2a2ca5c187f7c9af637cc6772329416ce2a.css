@@ -1,0 +1,100 @@
+@import url(bootstrap.min.css);
+/* line 3, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+table.qrcode {
+  border-width: 0;
+  border-style: none;
+  border-color: #00f;
+  border-collapse: collapse;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+/* line 10, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+table.qrcode td {
+  border-width: 0;
+  border-style: none;
+  border-color: #00f;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+  width: 3px;
+  height: 3px;
+}
+/* line 19, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+table.qrcode td.black {
+  background-color: #000 !important;
+}
+/* line 22, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+table.qrcode td.white {
+  background-color: #fff !important;
+}
+
+/* line 28, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+.sticker {
+  border: 1px dashed #111;
+  padding: 10px;
+  height: 260px;
+  width: 130px;
+  display: inline-block;
+  margin-right: -4px;
+  margin-bottom: -6px;
+}
+/* line 36, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+.sticker .price {
+  font-size: 20px;
+  text-align: center;
+}
+
+/* line 43, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+.reason {
+  margin-left: 50px;
+}
+
+/* line 47, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+.nobreak {
+  page-break-inside: avoid !important;
+}
+
+/*FACTURES */
+/* line 53, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+#container {
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  margin: 30px auto;
+  font-size: 15px;
+}
+
+/* line 61, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+.reference_invoice {
+  padding: 5px;
+  border: 1px solid #111;
+  margin-bottom: 50px;
+}
+
+/* line 67, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+.line-items {
+  font-size: 15px;
+}
+/* line 69, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+.line-items th, .line-items td {
+  line-height: 12px;
+}
+
+/* line 74, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+header {
+  margin-bottom: 25px;
+}
+/* line 76, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+header .contact {
+  float: right;
+}
+/* line 78, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+header .contact p {
+  margin-bottom: 0;
+}
+
+/* line 84, /Users/nellyduclos/code/knopfler81/personnal_projects/kamelot/vendor/assets/stylesheets/pdf.scss */
+#notes {
+  position: fixed;
+  bottom: 0;
+}
