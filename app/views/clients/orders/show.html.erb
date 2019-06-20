@@ -97,6 +97,7 @@
 		<thead>
 			<tr>
 				<th>Article</th>
+				<th>Ref</th>
 				<th>Prix</th>
 				<th>Qté</th>
 				<th>Sous total</th>
@@ -110,6 +111,7 @@
 							<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
 						<% end %>
 					</td>
+					<td><%= item.variant.product.brand %> - <%= item.variant.product.title %> - <%= item.variant.product.color %> - Taille: <%= item.variant.size %></td>
 					<td><%= number_to_currency_euro item.price %></td>
 					<td>
 						<p>Commandé: <%= item.quantity %></p>
@@ -134,7 +136,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan='3' align="left">
+				<td colspan='4' align="left">
 					Sous total
 				</td>
 				<td>
@@ -142,7 +144,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan='3' align="left">
+				<td colspan='4' align="left">
 					Frais de port
 				</td>
 				<td>
@@ -150,7 +152,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan='3' align="left">
+				<td colspan='4' align="left">
 					Total
 				</td>
 				<td>
