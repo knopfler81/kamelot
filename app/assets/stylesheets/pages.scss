@@ -19,18 +19,21 @@
   font-family: Montserrat;
   font-size:  3.5em !important;
   font-weight: bold;
+  color: #fffff;
 }
 
-.logo {
-  position: absolute;
-  z-index: 99999;
-  margin-top: 10px;
-  margin-left: 600px;
+.carousel-inner {
+  position: relative;
+  .logo-cintre {
+    position: absolute;
+    z-index: 99999;
+    margin-top: 20px;
+    margin-left: 40%;
+    width: 15%;
+  }
 }
 
-.logo-cintre {
-  width: 200px;
-}
+
 
 #site_title {
   font-weight: bold;
@@ -55,7 +58,7 @@
 
 .carousel-caption  {
   bottom: 25px !important;
-  background-color: rgba(0,0,0 ,0.2);
+  background-color: rgba(0,0,0 ,0.1);
   .btn {
     margin-top: 40px;
     padding: 20px 30px;
@@ -78,7 +81,8 @@
 
 .carousel-caption  {
   //bottom: 25px !important;
-  background-color: rgba(0,0,0 ,0.2);
+
+    background-color: rgba(0,0,0 ,0.1);
   .btn {
     margin-top: 10px;
     padding: 20px 30px;
@@ -93,12 +97,4 @@
     padding: 0px;
   }
 
-  // #site_title {
-  //   display: none;
-  // }
-
-
-  .logo-cintre {
-    width: 60px;
-  }
 }
