@@ -29,15 +29,15 @@ class VendingBasket
 
     if @stock.price == @product.price
       if @product.discount_percentage > 0
-        @sale_item.price = @product.discounted_price
+        @sale_item.market_price = @product.discounted_price
       else
-        @sale_item.price = @product.price
+        @sale_item.market_price = @product.market_price
       end
     else
       if @product.discount_percentage > 0
-        @sale_item.price = @stock.discount
+        @sale_item.market_price = @stock.discount
       else
-       @sale_item.price = @stock.price
+       @sale_item.market_price = @stock.market_price
       end
     end
     @sale_item.quantity = quantity.to_i
@@ -66,7 +66,7 @@ class VendingBasket
   private
 
   def update_sub_total!
-    sale.sub_total = sale.items.sum('quantity * price')
+    sale.sub_total = sale.items.sum('quantity * market_price')
     sale.save
   end
 end

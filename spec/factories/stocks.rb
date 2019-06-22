@@ -5,6 +5,7 @@ FactoryBot.define do
     supplier
     cost_price { 5 }
     price { 100 }
+    market_price { 90 }
     discount { 0 }
   end
 end

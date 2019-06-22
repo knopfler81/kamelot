@@ -24,6 +24,7 @@ RSpec.describe "Creating Product" do
 			fill_in "product[brand]", with: "Side Park"
 			fill_in "product[title]", with: "Gillet en laine"
 			fill_in "product[price]", with: 50
+			fill_in "product[market_price]", with: 40
 			fill_in "product[buying_price]", with: 10
 			fill_in "product[description]", with: "Une description pour ce gillet"
 			fill_in "product[color]", with: "Noir"

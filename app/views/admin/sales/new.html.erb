@@ -19,7 +19,7 @@
 							<small>Quantité : <%= item.quantity %></small>
 						</div>
 						<div class="col-2 offset-1">
-							<p><%= number_to_currency_euro item.price * item.quantity %></p>
+							<p><%= number_to_currency_euro item.market_price * item.quantity %></p>
 						</div>
 					</div>
 				<% end %>		
@@ -34,7 +34,7 @@
 						<p>TOTAL</p>	
 					</div>
 					<div class="col-6 align-right">
-						<p><%= number_to_currency_euro @sale.items.map {|i| i.price * i.quantity }.sum %></p>
+						<p><%= number_to_currency_euro @sale.items.map {|i| i.market_price * i.quantity }.sum %></p>
 					</div>
 					<div class="col-12">
 						<%= simple_form_for @sale, url: admin_cash_path do |f| %>

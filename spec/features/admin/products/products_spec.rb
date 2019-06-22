@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Product" do
 	
 	let!(:category) { create(:category, title: "Tshirt")} 
-	let!(:product)  { create(:product, category_id: category.id,price: 100, discount_percentage: 10, title: "Mariniere", color: "Bleue", brand: "Stil", description: "Blablabla joli blabla")} 
+	let!(:product)  { create(:product, category_id: category.id,price: 100, discount_percentage: 10,title: "Mariniere", color: "Bleue", brand: "Stil", description: "Blablabla joli blabla")} 
 	let!(:variant)  { create(:variant, size: "L", product_id: product.id)} 
 	let!(:stock)    { create(:stock, quantity: 3, variant_id: variant.id)} 
 	

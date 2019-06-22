@@ -21,12 +21,12 @@ class Sale < ApplicationRecord
 	end
 
 	def update_sub_total!
-	  self.sub_total = self.items.sum('quantity * price')
+	  self.sub_total = self.items.sum('quantity * market_price')
 	  self.save
 	end
 
 	def update_total!
-	  self.total = self.items.sum('quantity * price')
+	  self.total = self.items.sum('quantity * market_price')
 	  self.save
 	end
 

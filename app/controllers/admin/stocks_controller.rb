@@ -39,7 +39,7 @@ class Admin::StocksController < Admin::ApplicationController
 	private
 
 	def stock_params
-		params.require(:stock).permit(:id, :quantity, :variant_id, :initial_quantity , :supplier_id, :cost_price, :price, :discount)
+		params.require(:stock).permit(:id, :quantity, :variant_id, :initial_quantity , :supplier_id, :cost_price, :market_price, :price, :discount)
 	end
 
 	def find_variant

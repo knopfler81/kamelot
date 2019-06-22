@@ -9,7 +9,7 @@ class Stock < ApplicationRecord
   validates :quantity,    presence: true
   validates :cost_price,  presence: true
   validates :price,       presence: true
-
+  validates :market_price,       presence: true
 
   def define_supplier
   	if self.supplier.company != self.variant.product.supplier.company

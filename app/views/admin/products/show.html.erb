@@ -49,7 +49,9 @@
 										</div>
 									</div>
 								<% else %> 
-									<small>Prix de départ</small>
+									<small>Prix de départ marché</small>
+									<h4 class="product_price"><%= number_to_currency_euro @product.market_price %></h4>
+									<small>Prix de départ web</small>
 									<h4 class="product_price"><%= number_to_currency_euro @product.price %></h4>
 								<% end %>
 								<p>Couleur: <%=  @product.color %></p>
