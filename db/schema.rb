@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_110749) do
+ActiveRecord::Schema.define(version: 2019_06_22_214834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_110749) do
     t.string "slug"
     t.integer "discount_percentage", default: 0
     t.decimal "discounted_price", default: "0.0"
+    t.decimal "market_price"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
@@ -208,7 +209,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_110749) do
   create_table "sale_items", force: :cascade do |t|
     t.bigint "sale_id", null: false
     t.integer "quantity", null: false
-    t.decimal "price", precision: 15, scale: 2, null: false
+    t.decimal "market_price", precision: 15, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "variant_id"
@@ -260,6 +261,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_110749) do
     t.decimal "cost_price"
     t.decimal "price"
     t.decimal "discount", default: "0.0"
+    t.decimal "market_price"
     t.index ["supplier_id"], name: "index_stocks_on_supplier_id"
     t.index ["variant_id"], name: "index_stocks_on_variant_id"
   end

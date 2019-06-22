@@ -4,6 +4,7 @@ RSpec.describe Stock, type: :model do
 	it { should validate_presence_of(:supplier_id) }
 	it { should validate_presence_of(:quantity) }
 	it { should validate_presence_of(:cost_price) }
+	it { should validate_presence_of(:market_price) }
 	it { should validate_presence_of(:price) }
 
 	describe "#define_supplier" do 

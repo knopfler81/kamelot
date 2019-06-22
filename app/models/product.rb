@@ -20,6 +20,7 @@ class Product < ApplicationRecord
 	accepts_nested_attributes_for :variants
 	
 	validates :title,        presence: true
+	validates :market_price, presence: true
 	validates :price,        presence: true
 	validates :buying_price, presence: true
 	validates :description,  presence: true

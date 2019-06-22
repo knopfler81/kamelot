@@ -9,7 +9,7 @@
 							<tr>
 								<td class="tab_image product_image_tab  <%= 'fade_img' if item.variant.remaining_stock == 0 %>"><%= image_tag(item.variant.product.attachments.first.url, class: "tiny_image") %></td>	
 								<td><span class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= link_to item.variant.product.title, clients_product_path(item.variant.product_id), class: "title_in_tab" %></span></td>
-								<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= number_to_currency_euro(item.price * item.quantity) %></td>
+								<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= number_to_currency_euro(item.market_price * item.quantity) %></td>
 								<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= item.variant.size %> </td>
 								<td class="tab_quantity">	
 									<% if item.variant.remaining_stock == 0 %>
@@ -39,14 +39,14 @@
 				</div>
 				<div class="col-12 col-md-3">
 					<div class="row">
-						<div class="col-12">
+						<!-- <div class="col-12">
 							<br>
-							<%= link_to "Continuer", admin_products_path, class: "btn btn-main btn-block" %>	
-						</div>
+							<%#= link_to "Continuer", admin_products_path, class: "btn btn-main btn-block" %>	
+						</div> -->
 						<div class="col-12">
 							<% if current_user %>
 								<br>
-								<%= link_to "Encaisser", admin_cash_path, class: "btn btn-secondary btn-block" %>
+								<%= link_to "Encaisser", admin_cash_path, class: "btn btn-main btn-block" %>
 							<% else %>
 							<% end %>
 						</div>

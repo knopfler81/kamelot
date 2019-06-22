@@ -3,6 +3,7 @@ FactoryBot.define do
   	title { Faker::Artist.name  +  " " + Faker::Color.color_name}
   	ref   { Faker::Number.number(10)}
   	price { 100 }
+    market_price { 90 }
     buying_price  { 5 }
     weight { 0.3 }
   	color { Faker::Color.color_name }

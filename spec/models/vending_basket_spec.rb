@@ -17,8 +17,8 @@ require 'rails_helper'
 
  	describe ".items_count" do 
  		it "render the number of items" do 
-	 		sale_items_1 = create(:sale_item, sale_id: @sale.id, quantity: 2, variant_id: @small.id, price: 20)
-	 		sale_items_2 = create(:sale_item, sale_id: @sale.id, quantity: 4, variant_id: @large.id, price: 20)
+	 		sale_items_1 = create(:sale_item, sale_id: @sale.id, quantity: 2, variant_id: @small.id, market_price: 20)
+	 		sale_items_2 = create(:sale_item, sale_id: @sale.id, quantity: 4, variant_id: @large.id, market_price: 20)
 
 	 		expect(@current_basket.items_count).to eq(6)
  		end
@@ -35,7 +35,7 @@ require 'rails_helper'
 
  	describe ".remove_item" do 
  		it 'remove item from the cart' do 
- 			sale_items = create(:sale_item, sale_id: @sale.id, quantity: 2, variant_id: @small.id, price: 20)
+ 			sale_items = create(:sale_item, sale_id: @sale.id, quantity: 2, variant_id: @small.id, market_price: 20)
 
  			@current_basket.remove_item(id:  sale_items.id)
 	 		expect(@current_basket.sub_total).to eq 0

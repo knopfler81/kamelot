@@ -5,9 +5,9 @@ RSpec.describe SaleItem do
 	before(:each) do 
 		nelly = create(:user, admin: true)
 		login_as(nelly)
-		@product = create(:product, brand: "Side Park", title: "Chemise cool", price: 50)
+		@product = create(:product, brand: "Side Park", title: "Chemise cool", market_price: 50)
 		@variant = create(:variant, product_id: @product.id, size: "S")
-		@stock   = create(:stock, variant_id: @variant.id, quantity: 3, price: @product.price)
+		@stock   = create(:stock, variant_id: @variant.id, quantity: 3, market_price: @product.market_price)
 	end
 
 	scenario "The admin can add items to the basket" do
@@ -18,12 +18,6 @@ RSpec.describe SaleItem do
 		
 		expect(page).to have_content("Correctement ajouté au panier")
 
-		click_on "Continuer"
-		page.first(".box_link").click
-		select "S", from: "variant_id"
-		click_on "Ajouter Au Panier"
-		
-		expect(page).to have_content("Correctement ajouté au panier")
 		expect(page).to have_content("50")
 		
 		click_on "Encaisser"

@@ -52,11 +52,14 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="co-12 col-md-6">
-							<%= f.input :buying_price, placeholder: "Prix d'achat (important pour la comptat)",  required: true %>
+						<div class="col-12 col-md-4">
+							<%= f.input :buying_price, placeholder: "Prix d'achat (important pour la comptat)", label: false, required: true %>
 						</div>
-						<div class="co-12 col-md-6">
-							<%= f.input :price, placeholder: "Prix de vente",  required: true %>
+						<div class="col-12 col-md-4">
+							<%= f.input :market_price, placeholder: "Prix marché", label: false, required: true %>
+						</div>
+						<div class="col-12 col-md-4">
+							<%= f.input :price, placeholder: "Prix de web", label: false, required: true %>
 						</div>
 					</div>
 					<div class="row">
