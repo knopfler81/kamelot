@@ -28,9 +28,9 @@ class Clients::ProductsController < Clients::ApplicationController
 	def filter_products
 	  return if params[:query].blank?
 	  @products = Product.where('lower(title) LIKE ?', "%#{params[:query][:keyword].downcase }%")
-	  .or(Product.where('lower(description) LIKE ?', "#{params[:query][:keyword].downcase }"))
 	  .or(Product.where('lower(color) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	  .or(Product.where('lower(brand) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
+	  .or(Product.where('lower(description) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	end
 
 	def set_variants
