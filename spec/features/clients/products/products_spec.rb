@@ -34,7 +34,7 @@ RSpec.describe "Product" do
 
 			expect(page).to have_content("Mariniere - Stil")
 			expect(page).to have_button("Ajouter Au Panier")
-			expect(page).to have_link("Ajouter a mes favoris")
+			expect(page).to have_link("Ajouter à mes favoris")
 		end
 	end
 
