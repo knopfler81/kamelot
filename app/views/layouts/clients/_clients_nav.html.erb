@@ -53,7 +53,10 @@
     <%# if Customization.instance.logo.present?  %>
 
       <div id="site_title">
-        <%= link_to Company.instance.site_name, root_path %>
+        <%= link_to root_path do  %>
+          <%= image_tag( Customization.instance.logo_banner_url, class: "logo_banner") %>
+        <% end %>
+        <%#= link_to Company.instance.site_name, root_path, class: "title_banner" %>
       </div>
     <%# end %>
    

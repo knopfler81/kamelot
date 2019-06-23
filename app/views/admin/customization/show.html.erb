@@ -130,6 +130,20 @@
 							</div>
 						</div>
 						<div class="boximage">
+							<p>LOGO BANNER</p>
+							<hr>
+							<div class="row"> 
+								<div class="col-4">
+									<%= image_tag @customization.logo_url, class: "tiny_image" %>
+									<label class="btn btn-secondary" >Choisir le logo banner</label>
+									<%= f.file_field :logo_banner, id: "logo_banner_upload" , class: "input_file"%><br/> 
+									<%= f.hidden_field :logo_banner_cache %>
+									<img id="logo_banner_prev" src="#"  class= "hidden"/>
+									<p id="logo_banner_error"></p>
+								</div>
+							</div>
+						</div>
+						<div class="boximage">
 							<style>
 								.boximage {
 									padding: 20px;
