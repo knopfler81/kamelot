@@ -1,18 +1,5 @@
-//LANDING 
-// .landing-image {
-// 	margin-top: -30px;
-//   background-repeat            : no-repeat center center fixed;
-//   -o-background-size           : cover;
-//   -moz-background-size         : cover;
-//   -webkit-background-size      : cover;
-//   -webkit-filter               : grayscale(40%);
-//   background-size              : cover;
-//   background-position          : center;
-//   height                       : 100vh;
-// }
-
 .landing-content {
-  padding: 0px 90px;
+  padding: 0px 45px;
 }
 
 .first-caption, .second-caption, .third-caption {
@@ -24,16 +11,17 @@
 
 .carousel-inner {
   position: relative;
-  .logo-cintre {
+  .logo {
     position: absolute;
     z-index: 99999;
     margin-top: 20px;
     margin-left: 40%;
     width: 15%;
+    .logo-cintre {
+      width: 100%;
+    }
   }
 }
-
-
 
 #site_title {
   font-weight: bold;
@@ -43,17 +31,12 @@
   width: 1900px;
 }
 
+.logo_banner {
+  display: none;
+}
 
-.welcome-text {
-	color: #fff;
-	text-align: center;
-	padding-top: 30%;
- 	h1 {
-		font-size: 100px;
-	}
-	h2 {
-		font-size: 35px;
-	}
+.title_banner {
+  display: none;
 }
 
 .carousel-caption  {
@@ -71,21 +54,29 @@
 
 @media screen and (max-width : 920px){
 
+.title_banner {
+  display: none;
+}
+
+.logo_banner {
+  display: block;
+  width: 50%;
+  height: auto;
+  margin-left: 30%;
+}
 
 .first-caption, .second-caption, .third-caption {
-  margin-top: 40px;
   font-family: Montserrat;
   font-size:  20px !important;
   font-weight: bold;
 }
 
 .carousel-caption  {
-  //bottom: 25px !important;
-
-    background-color: rgba(0,0,0 ,0.1);
+  margin-top: 25px !important;
+  background-color: rgba(0,0,0 ,0.1);
   .btn {
     margin-top: 10px;
-    padding: 20px 30px;
+    padding: 5px 10px;
     border: 2px solid #fff !important;
     border-radius: 0px;
     background-color: transparent !important;
@@ -95,6 +86,11 @@
 
   .landing-content {
     padding: 0px;
+  }
+
+
+  .logo {
+    display: none;
   }
 
 }
