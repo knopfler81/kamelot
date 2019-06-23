@@ -8,6 +8,7 @@ class Company < ApplicationRecord
 	validates :phone, presence: true
 	validates :email, presence: true
 	validates :site_name, presence: true
+	validates :siret, presence: true
 
 	INSTANCE_ID =  1
 

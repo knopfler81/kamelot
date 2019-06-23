@@ -23,6 +23,7 @@
     <p><%= Company.instance.address_2 %></p>
     <p><%= Company.instance.zipcode %> <%= Company.instance.city %></p>
     <p><%= Company.instance.country %></p>
+    <p>SIRET:<%= Company.instance.siret %></p>
   </div>
   
  
@@ -83,11 +84,13 @@
     </table>
   </div>
 
-<!--   <div class="row">
-    <div id="notes">
-      <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est recusandae sint harum nostrum nesciunt dignissimos, error laborum nam inventore nihil magnam cupiditate, rerum totam, consectetur omnis delectus? Quas, accusantium, corporis!</small>
+  <div class="row">
+    <div id="ploc">
+      <small>
+        <%= raw(Customization.instance.general_condition_of_sales) %>
+      </small>
     </div>
-  </div> -->
+  </div>
 
 
 </div>
