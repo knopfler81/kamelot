@@ -32,8 +32,9 @@
 			<br>
 			<div class="row">
 				<div class="col-10">
-					<h1 class="primary_title"><%= @product.category.title.capitalize %> - <%= @product.brand.capitalize %></h1>
-					<h2><%= @product.title.capitalize %></h2>
+					<h1 class="primary_title"><%= @product.category.title.capitalize %></h1> 
+					<h1 class="primary_title"><%= @product.brand.capitalize %></h1>
+					<h2 class="secondary_title"><%= @product.title.capitalize %></h2>
 					<% if @product.discount_percentage > 0 %>
 						<div class="row">
 							<div class="col-6">
