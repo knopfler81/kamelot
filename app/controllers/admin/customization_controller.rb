@@ -47,7 +47,8 @@ class Admin::CustomizationController < Clients::ApplicationController
 								:text_color,
 								:main_btn_text_color,
 								:secondary_btn_text_color,
-								:logo
+								:logo,
+								:logo_banner
 							)
 	end
 	

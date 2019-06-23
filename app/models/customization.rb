@@ -4,6 +4,7 @@ class Customization < ApplicationRecord
 	mount_uploader :second_image, SecondImageUploader
 	mount_uploader :third_image,  ThirdImageUploader
 	mount_uploader :logo,         LogoUploader
+	mount_uploader :logo_banner,  LogoBannerUploader
 
 	INSTANCE_ID =  66
 
