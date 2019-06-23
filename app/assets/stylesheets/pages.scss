@@ -14,8 +14,8 @@
   .logo {
     position: absolute;
     z-index: 99999;
-    margin-top: 20px;
-    margin-left: 40%;
+    margin-top: 1%;
+    margin-left: 1%;
     width: 15%;
     .logo-cintre {
       width: 100%;
@@ -32,11 +32,15 @@
 }
 
 .logo_banner {
-  display: none;
+  display: block;
+  width: 40%;
+  height: auto;
+  margin-left: 30%;
 }
 
+
 .title_banner {
-  display: none;
+  //display: none;
 }
 
 .carousel-caption  {
@@ -55,7 +59,7 @@
 @media screen and (max-width : 920px){
 
 .title_banner {
-  display: none;
+  //display: none;
 }
 
 .logo_banner {
