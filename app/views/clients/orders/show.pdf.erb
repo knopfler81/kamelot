@@ -25,8 +25,6 @@
     <p><%= Company.instance.country %></p>
     <p>SIRET:<%= Company.instance.siret %></p>
   </div>
-  
- 
 </header>
 
 
@@ -45,52 +43,45 @@
     <table class="table table-striped line-items">
       <thead>
           <tr>
-            <th>Quantité</th>
-            <th>Désignation</th> 
-            <th>Taille</th> 
-            <th>Prix</th>
+            <th align="right" >Quantité</th>
+            <th align="right" >Désignation</th> 
+            <th align="right" >Taille</th> 
+            <th align="right" >Total HT</th>
           </tr>
       </thead>
       <tbody>
         <% @order.items.each do |item| %>
-    
-        <tr>
-          <% if item.missing_quantity > 0 %>
-            <td align="right"><%= item.quantity - item.missing_quantity %> </td>
-          <% else %>
-            <td align="right"><%= item.quantity %> </td>
-          <% end %>
-          <td align="right"><%= item.variant.product.title %></td>
-          <td align="right"><%= item.variant.size %></td>
-          <td align="right"><%= number_to_currency_euro(item.variant.product.price) %></td>
-        </tr>
-
+          <tr>
+            <% if item.missing_quantity > 0 %>
+              <td><%= item.quantity - item.missing_quantity %> </td>
+            <% else %>
+              <td><%= item.quantity %> </td>
+            <% end %>
+            <td><%= item.variant.product.title %></td>
+            <td><%= item.variant.size %></td>
+            <td><%= number_to_currency_euro(item.variant.product.price) %></td>
+          </tr>
         <% end %>
       </tbody>
-      <tfoot>
+      <tfoot style="border-top: 2px solid black;">
         <tr>
-          <td colspan="3" align="right">Sous Total</td>
-          <td colspan="3" align="right"><%= number_to_currency_euro @order.total %></td>
+          <td colspan="3" align="right">Sous Total:</td>
+          <td ><%= number_to_currency_euro @order.total %></td>
         </tr>
         <tr>
-          <td colspan="3" align="right">Frais de port</td>
-          <td colspan="3" align="right"><%= number_to_currency_euro @order.shipping_fees %></td>
+          <td colspan="3" align="right">Frais de port:</td>
+          <% if  @order.shipping_fees == 0 %>
+            <td>Offerts</td>
+          <% else %>
+            <td ><%= number_to_currency_euro @order.shipping_fees %></td> 
+          <% end %>
         </tr>
         <tr>
-          <td colspan="3" align="right">Total</td>
-          <td colspan="3" align="right"><%= number_to_currency_euro @order.total %></td>
+          <td colspan="3" align="right">Total HT:</td>
+          <td ><%= number_to_currency_euro @order.total %></td>
         </tr>
+      <tr><td>Exonéré de TVA, art. 293-B du CGI</td></tr>
       </tfoot>
     </table>
   </div>
-
-  <div class="row">
-    <div id="ploc">
-      <small>
-        <%= raw(Customization.instance.general_condition_of_sales) %>
-      </small>
-    </div>
-  </div>
-
-
 </div>

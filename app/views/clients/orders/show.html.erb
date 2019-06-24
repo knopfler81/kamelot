@@ -147,9 +147,11 @@
 				<td colspan='4' align="left">
 					Frais de port
 				</td>
-				<td>
-				 <%= number_to_currency_euro @order.shipping_fees %>
-				</td>
+				<%if @order.shipping_fees == 0 %>
+					<td>Offerts</td>
+				<% else %>
+					<td><%= number_to_currency_euro @order.shipping_fees %></td>
+				<% end %>
 			</tr>
 			<tr>
 				<td colspan='4' align="left">
