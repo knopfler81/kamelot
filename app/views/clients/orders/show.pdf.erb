@@ -26,8 +26,6 @@
     <p>SIRET:<%= Company.instance.siret %></p>
   </div>
 </header>
-
-
   <div class="row">
     <div class="col-4">
      <div class="reference_invoice">
@@ -37,8 +35,6 @@
      </div>
     </div>
   </div>
-
-
   <div class="row">
     <table class="table table-striped line-items">
       <thead>
@@ -80,7 +76,7 @@
           <td colspan="3" align="right">Total HT:</td>
           <td ><%= number_to_currency_euro @order.total %></td>
         </tr>
-      <tr><td>TVA non applicable</td></tr>
+        <tr><td>TVA non applicable, art. 293-B du CGI</td></tr>
       </tfoot>
     </table>
   </div>
