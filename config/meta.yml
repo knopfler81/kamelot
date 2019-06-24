@@ -1,5 +1,5 @@
 meta_product_name: "La penderie de l'homme"
 meta_title: "La Penderie de l'homme"
-meta_description: "👖👕👖👕 Un site e-commerce qui propose des vêtements super cool blablablabla"
+meta_description: "👖👕👖👕 Un site e-commerce qui propose des vêtements super cool"
 meta_image: "landing.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
