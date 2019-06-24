@@ -86,7 +86,8 @@
 					<div class="col-6">
 						<p>SOUS TOTAL</p>
 						<p>LIVRAISON</p>
-						<p>TOTAL</p>	
+						<p>TOTAL HT</p>
+						<p><small>TVA non applicable</small></p>
 					</div>
 					<div class="col-6 align-right">
 						<p><%= number_to_currency_euro @order.items.map {|i| i.price * i.quantity}.sum  %></p>
