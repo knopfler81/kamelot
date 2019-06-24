@@ -20,8 +20,8 @@
 	border-radius: 50px;
 }
 
-.btn-main:hover{
-	background: #fff;
+.btn-main:hover {
+	background: #fff!important;
 	color: #111;
 	border: 1px solid #111;
 	transition: 0.8s;
@@ -36,7 +36,7 @@
 }
 
 .btn-secondary:hover {
-	background: #111;
+	background: #111!important;
 	color: #ddd;
 	transition: 0.8s;
 }
@@ -133,7 +133,6 @@ input {
 	border-radius: 50px!important;
 }
 
-
 #autocomplete_address {
 	background-color: #ddd;
 }
@@ -159,5 +158,16 @@ input {
 		display: none;
 	}
 
+// input {
+// 	height: 60px !important;
+// }
+// .custom-select {
+// 	height: 60px;
+// }
+
+
+// .btn-main, .btn-secondary {
+
+// }
 
 }

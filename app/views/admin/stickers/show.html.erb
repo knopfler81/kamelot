@@ -10,7 +10,7 @@
 			<div class="sticker">
 				<div class="row">
 					<div class="col-12">
-						<%= render_qr_code_small("https://lapenderiedelhomme.fr/admin/products/#{@sticker.product.slug}") %>	
+						<%= render_qr_code_small("#{ENV['HOST']}/admin/products/#{@sticker.product.slug}") %>	
 					</div>
 				</div>
 				<div class="col-12">

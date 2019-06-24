@@ -3,15 +3,15 @@
 <% content_for :meta_image, image_url(@product.attachments.first.url) %>
 
 <div class="container">
-		<div class="row">
-			<div class="d-none d-md-block col-md-10">
-			<p><%= link_to @product.category.title, admin_categories_path(@product.category) %> / <%= @product.title %> - <%= @product.brand %>(<%= @product.id %>)</p>
-			<br>
-			</div>
+	<div class="row d-md-block ">
+		<div class="d-none col-md-10">
+		<p><%= link_to @product.category.title, admin_categories_path(@product.category) %> / <%= @product.title %> - <%= @product.brand %>(<%= @product.id %>)</p>
+		<br>
 		</div>
+	</div>
 
-		<div class="row">
-		<div class="col-12 col-md-8 images_gallery ">
+	<div class="row ">
+		<div class="col-12 col-md-7 images_gallery ">
 			<div class="row">
 				<div class="col-2 offset-1 d-none d-md-block">
 					<% @product.attachments.each do |img| %>
@@ -26,74 +26,74 @@
 				</div>
 			</div>
 		</div>
-			<div class="col-12 col-md-4">
-				<br>
-				<div class="row">
-					<div class="col-12">
-						<div class="row">
-							<div class="col-3 d-block d-md-none">
-								<%= image_tag(@product.attachments[0].url, class: "small_image") %>
-							</div>
-							<div class="col-9">
-								<h1 class="primary_title"><%= @product.category.title.capitalize %></h1> 
-								<h1 class="primary_title"><%= @product.brand.capitalize %></h1>
-								<h2 class="secondary_title"><%= @product.title.capitalize %></h2>
-								<% if @product.discount_percentage > 0 %>
-									<div class="row">
-										<div class="col-6">
-											<small>Prix de départ</small>
-											<h4 class="old_product_price"><%= number_to_currency_euro @product.price %></h4>
-										</div>
-										<div class="col-6">
-											<small>Promo</small>
-											<h4 class="price_outlet"><%= number_to_currency_euro @product.discounted_price %> </h4>
-										</div>
-									</div>
-								<% else %> 
-									<small>Prix de départ marché</small>
-									<h4 class="product_price"><%= number_to_currency_euro @product.market_price %></h4>
-									<small>Prix de départ web</small>
-									<h4 class="product_price"><%= number_to_currency_euro @product.price %></h4>
-								<% end %>
-								<p>Couleur: <%=  @product.color %></p>
-							</div>
-						</div>
-						<%= form_tag admin_sale_items_path , input_html: {id: "salesform"} do %>
-							<%= hidden_field_tag :product_id, @product.id %>
-							<%= hidden_field_tag :user_id, @token %>
-							<%= hidden_field_tag :quantity, 1 %>
-							<div class="row">
-								<div class="col-12">
-									<% if @product_size_options.count == 1 %>
-										
-										<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), selected: @product_size_options.last, class: 'custom-select variant', id: "variant-select", required: true %>
-										<% else %>
-										<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select variant', id: "variant-select", required: true %>
-									<% end %>
-								
-									
-									<br><br>
-									<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
-								</div>
-							</div>
-						<% end %>
-					</div>
+		<div class="col-12 col-md-5">
+			<div class="row">
+				<div class="col-12">
 					<div class="row">
-						<div class="col-12 d-none d-md-block">
-							<br><br>
-							<h2 class="secondary_title"> AUTRES COLORIS</h2>
-							<hr>
-							<% Product.where(ref: @product.ref).each do |product| %>
-								<% current_image = (product.color == @product.color) ? "current_color small_image" : "small_image" %> 
-								<%= link_to admin_product_path(product) do   %>
-									<%= image_tag( product.attachments.first.url, class: "#{current_image}", alt: "Photo de #{@product.title}") %>
-								<% end %>
+						<div class="col-3 d-block d-md-none">
+							<%= image_tag(@product.attachments[0].url, class: "small_image") %>
+						</div>
+						<div class="col-10">
+							<br>
+							<h1 class="primary_title"><%= @product.category.title.capitalize %> / <%= @product.brand.capitalize %> - <%= @product.title.capitalize %></h1>
+							<p>Couleur: <%=  @product.color %></p>
+							<% if @product.discount_percentage > 0 %>
+								<div class="row">
+									<div class="col-6">
+										<small>Prix de départ</small>
+										<h4 class="old_product_price"><%= number_to_currency_euro @product.price %></h4>
+									</div>
+									<div class="col-6">
+										<small>Promo</small>
+										<h4 class="price_outlet"><%= number_to_currency_euro @product.discounted_price %> </h4>
+									</div>
+								</div>
+							<% else %> 
+								<small>Prix de départ marché</small>
+								<h4 class="product_price"><%= number_to_currency_euro @product.market_price %></h4>
+								<small>Prix de départ web</small>
+								<h4 class="product_price"><%= number_to_currency_euro @product.price %></h4>
 							<% end %>
 						</div>
 					</div>
+					<br>
+					<%= form_tag admin_sale_items_path , input_html: {id: "salesform"} do %>
+						<%= hidden_field_tag :product_id, @product.id %>
+						<%= hidden_field_tag :user_id, @token %>
+						<%= hidden_field_tag :quantity, 1 %>
+						<div class="row">
+							<div class="col-12">
+								<% if @product_size_options.count == 1 %>
+									
+									<span><%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), selected: @product_size_options.last, class: 'custom-select variant', id: "variant-select", required: true %></span>
+									<% else %>
+									<span><%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select variant', id: "variant-select", required: true %></span>
+								<% end %>
+							
+								
+								<br><br>
+								<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="row">
+					<div class="col-12 d-md-block">
+						<br><br>
+						<h2 class="secondary_title"> AUTRES COLORIS</h2>
+						<hr>
+						<% Product.where(ref: @product.ref).each do |product| %>
+							<% current_image = (product.color == @product.color) ? "current_color small_image" : "small_image" %> 
+							<%= link_to admin_product_path(product) do   %>
+								<%= image_tag( product.attachments.first.url, class: "#{current_image}", alt: "Photo de #{@product.title}") %>
+							<% end %>
+						<% end %>
+					</div>
 				</div>
 			</div>
+		</div>
 	</div>
+
 
 	<div class="row">
 		<div class="col-10 offset-1 d-none d-md-block">
