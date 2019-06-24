@@ -20,8 +20,8 @@
 	border-radius: 50px;
 }
 
-.btn-main:hover{
-	background: #fff;
+.btn-main:hover {
+	background: #fff!important;
 	color: #111;
 	border: 1px solid #111;
 	transition: 0.8s;
@@ -36,7 +36,7 @@
 }
 
 .btn-secondary:hover {
-	background: #111;
+	background: #111!important;
 	color: #ddd;
 	transition: 0.8s;
 }

@@ -1,15 +1,14 @@
 //Force cookies_eu style 
 .cookies-eu {
-	padding: 20px;
-	font-size: 20px !important;
+	padding: 5px;
+	font-size: 14px !important;
 	color: #ddd;
 	background-color: #D3002AFF !important;
-	height: 200px !important;
+	height: 80px !important;
 
 	.cookies-eu-ok {
-		margin-top: 20px;
 		margin-bottom: 20px;
-		font-size: 30px !important;
+		font-size: 15px !important;
 		background: #111 !important;
 		color: #ddd !important;
 		padding: 20px !important;
@@ -18,9 +17,22 @@
 	}
 }
 @media (max-width: 768px) {
-
 	.cookies-eu {
-		height: 300px !important;
+		font-size: 10px !important;
+		height: 65px !important;
+		background-color: #D3002AFF !important;
+		line-height: 11px;
+
+		.cookies-eu-ok {
+			margin-top: 5px;
+			margin-bottom: 5px;
+			font-size: 10px !important;
+			background: #111 !important;
+			color: #ddd !important;
+			padding: 5px !important;
+			border-radius: 50px !important;
+
+		}
 	}
 
 }
