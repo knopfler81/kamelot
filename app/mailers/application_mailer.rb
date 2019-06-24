@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'nellyduclos8@gmail.com'
+  default from: 'contact@lapenderiedelhomme.fr'
   layout 'mailer'
 end
 
