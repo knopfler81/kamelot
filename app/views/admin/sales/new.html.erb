@@ -8,7 +8,7 @@
 				<% @sale.items.each do |item| %>
 					<div class="row order-row">
 						<div class="col-2">
-							<%= image_tag(item.variant.product.attachments.first.url, class: "small_image") %>
+							<%= image_tag(item.variant.product.attachments.first.url, class: "order_image") %>
 						</div>
 						<div class="col-6">
 							<small><%= item.variant.product.brand %> - <%= item.variant.product.title %></small>
@@ -18,8 +18,8 @@
 							<br>
 							<small>Quantité : <%= item.quantity %></small>
 						</div>
-						<div class="col-2 offset-1">
-							<p><%= number_to_currency_euro item.market_price * item.quantity %></p>
+						<div class="col-4">
+							<small><%= number_to_currency_euro item.market_price * item.quantity %></small>
 						</div>
 					</div>
 				<% end %>		
