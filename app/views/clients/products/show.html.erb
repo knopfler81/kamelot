@@ -5,14 +5,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-8 offset-2">
-			<p><%= link_to @product.category.title, clients_category_path(@product.category) %> / <%= @product.title %> - <%= @product.brand %></p>
-			<br>
+				<p><%= link_to @product.category.title, clients_category_path(@product.category) %> / <%= @product.title %> - <%= @product.brand %></p>
+				<br>
 			</div>
 		</div>
 
 		<div class="row">
-
-			<div class="col-12 col-md-8 images_gallery">
+			<div class="col-12 col-md-7 images_gallery">
 				<div class="row">
 					<div class=" col-2 offset-1 ">
 						<% @product.attachments.each do |img| %>
@@ -28,13 +27,11 @@
 				</div>
 			</div>
 
-		<div class="col-12 col-md-4">
-			<br>
+		<div class="col-12 col-md-5">
 			<div class="row">
 				<div class="col-10">
-					<h1 class="primary_title"><%= @product.category.title.capitalize %></h1> 
-					<h1 class="primary_title"><%= @product.brand.capitalize %></h1>
-					<h2 class="secondary_title"><%= @product.title.capitalize %></h2>
+					<h1 class="primary_title"><%= @product.category.title.capitalize %> / <%= @product.brand.capitalize %> - <%= @product.title.capitalize %></h2>
+					<p>Couleur: <%=  @product.color %></p>
 					<% if @product.discount_percentage > 0 %>
 						<div class="row">
 							<div class="col-6">
@@ -50,7 +47,7 @@
 						<small>Prix de départ</small>
 						<h4 class="product_price"><%= number_to_currency_euro @product.price %></h4>
 					<% end %>
-					<p>Couleur: <%=  @product.color %></p>
+						<br>
 					<%= form_tag clients_order_items_path , input_html: {id: "salesform"} do %>
 						<%= hidden_field_tag :product_id, @product.id %>
 						<%= hidden_field_tag :user_id, @token %>
@@ -81,7 +78,7 @@
 									<% else %>
 										<% if current_user %>
 											<div id="like_<%= @product.id %>">
-													<%= link_to clients_product_favorites_path(@product.id), method: :post, remote: true, class: ' btn btn-secondary'  do %>
+													<%= link_to clients_product_favorites_path(@product.id), method: :post, remote: true, class: 'btn btn-secondary btn-block'  do %>
 														Ajouter à mes favoris <i class= "fa fa-heart"></i>
 													<% end %>
 											</div>
@@ -117,7 +114,7 @@
 		</div>
 	</div>
 	<br><br>
-	<h1>Nos recommandations</h1>
+	<h1>Les autres <%= @product.category.title %>...</h1>
 	<hr>
 	<div class="row">
 		<% @products.where(category_id: @product.category_id).where.not(id: @product.id).each do |product| %>

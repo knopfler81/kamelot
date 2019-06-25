@@ -11,13 +11,14 @@ RSpec.describe Stock do
 
 	scenario "adding new stock to variant" do 
 		product = create(:product, supplier_id: @supplier.id)
-		variant = create(:variant, product_id: product.id, size: "L")
+		variant = create(:variant, product_id: product.id, size: "S")
+		stock  = create(:stock, variant_id: variant.id, quantity: 2)
 		visit stock_admin_product_path(product)
 
 		fill_in  "stock[quantity]", with: 10
-		click_on "Mettre à jour le stock"
+		click_on "Mettre à jour le stock"		
+		expect(page).to have_content "12 unités"
 
-		expect(page).to have_content "10 unités en stock"
 	end
 
 	scenario "adding new stock and change supplier to variant" do 

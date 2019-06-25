@@ -1,33 +1,38 @@
-<div class="content" style="margin: 20px 50px 50px 50px;">
-	<h3>Gestion du stock pour <%= @product.title %></h3>
-	<hr>
+<div class="container">  <!-- style="margin: 20px 50px 50px 50px;" -->
+	
 	<div class="row">
-		<div class="col-12 col-md-12">
+		<div class="col-12">
+			<h1>Gestion du stock pour <%= @product.title %></h1>
+			<hr>
+		</div>
+		<div class="col-12">
 			<%= link_to "Retourner à l'article", admin_product_path(@product), class: "btn btn-secondary"  %><br><br>
 			<p>Ajouter les quantités pour chaque variantes, si c'est un réassort, au besoin, vous pouvez modifier le fournisseur et les prix.</p>
 		</div>
 	</div>
 	<br>
-	<div class="row">	
-		<div class="col-12 col-md-7">
-			<div class="row">
+
+		<div class="row">
+			<div class="col-md-3 d-none">
+				<%= image_tag(@product.attachments[0].url, class: "remind_image") %>
+			</div>
+			<div class="col-12">
 				<% @product.variants.each do |var| %>
-					<div class="col-12">
 						<div class="variant-box">			
-							<%= simple_form_for(Stock.new, url: admin_stocks_path) do |f| %>
 								<div class="variant-box-header">
 									<div class="row">
-										<div class="col-6" >
-											<h3>Variante <span style="color: red"><%= var.size_and_color %></span></h3>
+										<div class="col-12 col-md-6" >
+											<h4>Variante <span style="color: red"><%= var.size_and_color %></span></h4>
 										</div>
-										<div class="col-6">
-											<h3><%= var.stocks.map(&:quantity).sum %> unités en stock</h3>
+										<div class="col-12 col-md-6">
+											<h4><%= var.stocks.map(&:quantity).sum %> unités</h4>
 										</div>
 									</div>
 								</div>
+							<%= simple_form_for(Stock.new, url: admin_stocks_path) do |f| %>
 							<div class="variant-box-body">
 								<div class="row">
-									<div class="col-6">
+									<div class="col-12 col-md-6">
 									
 										<% @supplier =   Stock.where(variant_id: var.id).last.supplier if var.stocks.any? %>
 										<% if  @supplier.nil? %>
@@ -36,20 +41,20 @@
 											<%= f.input :supplier_id, collection: Supplier.all.collect {|p| [ p.company, p.id ] }, label: false, prompt: "Fournisseur", input_html: { class: "custom-select"}, required: true, selected: @supplier.id %>
 										<% end %>
 									</div>
-									<div class="col-6">
+									<div class="col-12 col-md-6">
 										<%= f.hidden_field :variant_id, value: var.id %>
 										<%= f.input :quantity, label: false, placeholder: "Entrer la quantité" , required: true %>
 									</div>
 									</div>
 
 									<div class="row">
-										<div class="col-4">
+										<div class="col-12 col-md-4">
 											<%= f.input :cost_price, label: "Prix d'achat", input_html: {value: Stock.where(variant_id: var.id).any? ? Stock.where(variant_id: var.id).last.cost_price : @product.buying_price , class: "price_different" }%>
 										</div>
-										<div class="col-4">
+										<div class="col-12 col-md-4">
 												<%= f.input :market_price, label: "Prix marché", input_html: {value: Stock.where(variant_id: var.id).any? ? Stock.where(variant_id: var.id).last.market_price : @product.market_price, class: "price_different"} %>
 										</div>
-										<div class="col-4">
+										<div class="col-12 col-md-4">
 											<%= f.input :price, label: "Prix web", input_html: {value: Stock.where(variant_id: var.id).any? ? Stock.where(variant_id: var.id).last.price : @product.price, class: "price_different"} %>
 										</div>
 									</div>
@@ -59,14 +64,10 @@
 										</div>
 									</div>
 							</div>
-							<% end %>
-						</div>
+						<% end %>
 					</div>
+				
 				<% end %>
 			</div>
 		</div>
-		<div class="col-12 col-md-2">
-			<%= image_tag(@product.attachments[0].url, class: "remind_image") %>
-		</div>
-	</div>
 </div>
