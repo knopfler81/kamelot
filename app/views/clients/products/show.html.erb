@@ -11,23 +11,23 @@
 		</div>
 
 		<div class="row">
-			<div class="col-12 col-md-7 images_gallery">
+			<div class="col-12 col-md-6 images_gallery">
 				<div class="row">
-					<div class=" col-2 offset-1 ">
-						<% @product.attachments.each do |img| %>
-							<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
-						<% end %>
-					</div>
-					<div class="col-8">
+					<div class="col-12">
 						<div id="big_image_show">
 							<!-- big_images est généré dans le JS  Ici on affiche les images au hover avec le JS -->
 							<%= image_tag(@product.attachments[0].url, class: "big_image") %>
 						</div>
 					</div>
+					<div class="small_gallery">
+						<% @product.attachments.each do |img| %>
+							<%= image_tag( img.url, class: "small_image_pdt", alt: "Photo de #{@product.title}") %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 
-		<div class="col-12 col-md-5">
+		<div class="col-12 col-md-5 offset-md-1">
 			<div class="row">
 				<div class="col-10">
 					<h1 class="primary_title"><%= @product.category.title.capitalize %> / <%= @product.brand.capitalize %> - <%= @product.title.capitalize %></h2>
@@ -56,7 +56,7 @@
 							<div class="col-12">
 								<% if @product.stocks.map(&:quantity).sum > 1 %>
 									<%= select_tag :variant_id, options_from_collection_for_select(@product_size_options, :id, :size_and_color), prompt: "Taille", class: 'custom-select', required: true %>
-								<br><br>
+								<br><br><br>
 									<%= submit_tag "Ajouter Au Panier", class: "btn-main btn-block", id: "add_to_basket" %>
 								<% else %>
 								<p style="color: red">Victime de son succès cet article n'est plus disponible pour le moment</p>

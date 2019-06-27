@@ -1,6 +1,8 @@
 $(document).on('turbolinks:load', function() {
 
   $('.small_image').on('mouseover', displayImage);
+  $('.small_image_pdt').on('mouseover', displayImage);
+
 
   function displayImage(){
 

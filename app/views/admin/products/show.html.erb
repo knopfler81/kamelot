@@ -11,11 +11,11 @@
 	</div>
 
 	<div class="row ">
-		<div class="col-12 col-md-7 images_gallery ">
+		<div class="col-12 col-md-6 images_gallery ">
 			<div class="row">
 				<div class="col-2 offset-1 d-none d-md-block">
 					<% @product.attachments.each do |img| %>
-						<%= image_tag( img.url, class: "small_image", alt: "Photo de #{@product.title}") %>
+						<%= image_tag( img.url, class: "small_image_pdt", alt: "Photo de #{@product.title}") %>
 					<% end %>
 				</div>
 				<div class="col-8 d-none d-md-block">
@@ -83,7 +83,7 @@
 						<h2 class="secondary_title"> AUTRES COLORIS</h2>
 						<hr>
 						<% Product.where(ref: @product.ref).each do |product| %>
-							<% current_image = (product.color == @product.color) ? "current_color small_image" : "small_image" %> 
+							<% current_image = (product.color == @product.color) ? "current_color small_image_" : "small_image" %> 
 							<%= link_to admin_product_path(product) do   %>
 								<%= image_tag( product.attachments.first.url, class: "#{current_image}", alt: "Photo de #{@product.title}") %>
 							<% end %>

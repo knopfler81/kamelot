@@ -138,7 +138,7 @@
 }
 
 .images_gallery {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 
@@ -155,29 +155,27 @@
 
 .big_images {
   position: absolute;
-  margin-left: 10px;
+
   top: 0;
   left: 0;
   width: 100%;
-  height: 110%;
+  height: 100%;
 }
 
 .big_image {
   position: relative;
-  margin-left: 10px;
-  //float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+  // float: left;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.admin_big_image {
-	width: auto;
-	height: 300px;
-}
-
 .photo {
   position: absolute;
+  margin-left: 5px;
+  margin-right: 5px;
   top: 0;
   left: 0;
   width: 100%;
@@ -186,6 +184,22 @@
   transition: transform .5s ease-out;
 }
 
+.admin_big_image {
+	width: auto;
+	height: 300px;
+}
+
+
+.small_gallery {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.small_image_pdt {
+	height: 80px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
 
 .vending_card {
 	height: 150px;
