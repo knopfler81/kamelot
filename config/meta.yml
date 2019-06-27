@@ -1,6 +1,6 @@
 meta_product_name: "La Penderie De L'Homme"
-meta_title: "La Penderie de l'homme"
-meta_description: "👖👕👖👕 Un site e-commerce qui propose des vêtements super cool"
-meta_keywords: "La penderie de l'homme, polos, vêtements, hommes, t-shirts"
+meta_title: "La Penderie De L'Homme"
+meta_description: "LA nouvelle boutique en ligne des vêtements pour hommes"
+meta_keywords: "La penderie de l'homme, polos, vêtements, hommes, t-shirts, jeans"
 meta_image: "landing.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
