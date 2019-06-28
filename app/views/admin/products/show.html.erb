@@ -57,6 +57,7 @@
 						</div>
 					</div>
 					<br>
+
 					<%= form_tag admin_sale_items_path , input_html: {id: "salesform"} do %>
 						<%= hidden_field_tag :product_id, @product.id %>
 						<%= hidden_field_tag :user_id, @token %>

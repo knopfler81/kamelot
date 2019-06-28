@@ -16,7 +16,6 @@ class Admin::SaleItemsController < Admin::ApplicationController
         quantity: params[:quantity],
         variant_id: params[:variant_id],
       )
-
       redirect_to admin_basket_path, notice: "Correctement ajouté au panier"
     else
       redirect_to admin_product_path(Product.find(variant.product.id))

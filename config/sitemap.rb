@@ -11,4 +11,5 @@ SitemapGenerator::Sitemap.create do
   end
 end
 
+
 SitemapGenerator::Sitemap.ping_search_engines
