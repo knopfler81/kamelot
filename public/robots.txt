@@ -1,1 +1,2 @@
 User-Agent: *
+Sitemap: http://www.lapenderiedelhomme.fr/sitemap.xml.gz
