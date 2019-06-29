@@ -12,7 +12,6 @@
         <div class="offset-md-2 col-md-3 mt-md-0 mt-3">
 
           <!-- Content -->
-         <h5 class="text-uppercase">Commander en ligne</h5>
 
         	<ul class="list-unstyled">
 					   <li class="item"><%= link_to "Livraison", clients_delivery_path, "target"=>"_blank"  %></li>
@@ -28,14 +27,12 @@
         <!-- Grid column -->
         <div class="col-md-3 mb-md-0 mb-3">
 
-            <!-- Links -->
-            <h5 class="text-uppercase"><%= Company.instance.site_name%></h5>
+
 
             	<ul class="list-unstyled">
                 <li class="item"><%= link_to "Contact", new_clients_contact_path  %></li>
             		<li class="item"><%= link_to "Mentions légales", clients_legal_notice_path, "target"=>"_blank"  %></li>
-            		<li class="item"><%= link_to "Politique de confidentialité", clients_confidentiality_policy_path, "target"=>"_blank"  %></li>
-            		<li class="item"><%= link_to "Politique des cookies", clients_cookies_policy_path, "target"=>"_blank"  %></li>
+        
 							</ul>
 
 
@@ -48,12 +45,12 @@
           <div class="col-md-3 mb-md-0 mb-3">
 
             <!-- Links -->
-            <h5 class="text-uppercase">Guide d'achat</h5>
+
 
 
 							<ul class="list-unstyled">
-								<li class="item"><%= link_to "Guide des tailles", clients_sizes_guide_path, "target"=>"_blank"  %></li>
-								<li class="item"><%= link_to "Plan du site", clients_site_map_path, "target"=>"_blank"  %></li>
+                <li class="item"><%= link_to "Politique de confidentialité", clients_confidentiality_policy_path, "target"=>"_blank"  %></li>
+                <li class="item"><%= link_to "Politique des cookies", clients_cookies_policy_path, "target"=>"_blank"  %></li>
 							</ul>
 
 
