@@ -20,9 +20,9 @@ RSpec.describe SaleItem do
 
 		expect(page).to have_content("50")
 		
-		click_on "Encaisser"
+		click_on "Valider la vente"
 
-		expect(page).to have_content("VALIDATION DE LA VENTE")
+		expect(page).to have_content("LES VENTES MARCHÉS")
 	end
 
 	scenario "The admin can updated item quantity in the basket", :js do

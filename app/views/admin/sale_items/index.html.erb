@@ -9,7 +9,7 @@
 							<tr>
 								<td class="tab_image product_image_tab  <%= 'fade_img' if item.variant.remaining_stock == 0 %>"><%= image_tag(item.variant.product.attachments.first.url, class: "tiny_image") %></td>	
 								<td><span class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= link_to item.variant.product.title, clients_product_path(item.variant.product_id), class: "title_in_tab" %></span></td>
-								<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= number_to_currency_euro(item.market_price * item.quantity) %></td>
+							<!-- 	<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%#= number_to_currency_euro(item.market_price * item.quantity) %></td> -->
 								<td class="<%= 'not_available' if item.variant.remaining_stock == 0 %>"><%= item.variant.size %> </td>
 								<td class="tab_quantity">	
 									<% if item.variant.remaining_stock == 0 %>
@@ -39,15 +39,27 @@
 				</div>
 				<div class="col-12 col-md-3">
 					<div class="row">
-						<!-- <div class="col-12">
-							<br>
-							<%#= link_to "Continuer", admin_products_path, class: "btn btn-main btn-block" %>	
-						</div> -->
 						<div class="col-12">
 							<% if current_user %>
 								<br>
-								<%= link_to "Encaisser", admin_cash_path, class: "btn btn-main btn-block" %>
-							<% else %>
+
+								<div class="col-12">
+									<%= simple_form_for @sale, url: admin_cash_path do |f| %>
+									  <div class="<%= 'error_message' if @sale.errors.full_messages.any? %> ">
+									   <% if  @sale.errors.any? %>
+									     <% @sale.errors.full_messages.each do |msg| %>
+									      <li><%= msg %></li>
+									     <% end %>
+									    <% end %>
+									 </div>
+									  <%= f.hidden_field :user_id %>
+									  <%= f.submit "Valider la vente", class: "btn btn-main btn-block" %>
+									<% end %>
+									<br>
+								<%= link_to 'javascript:history.go(-1);', class: "btn btn-secondary btn-block" do %>
+								  <span> Revenir à l'article</span>
+								<% end %>
+								</div>	
 							<% end %>
 						</div>
 					</div>
