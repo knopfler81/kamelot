@@ -35,10 +35,12 @@ class Clients::ProductsController < Clients::ApplicationController
 
 	def set_variants
 		@product_size_options = []	
-		@product.variants.map do |var| 
-			if var.remaining_stock >= 1
-				@product_size_options  << var
-			end
-	  end
+		if @product.variants.any?
+			@product.variant_types.map do |var| 
+				if var.remaining_stock >= 1
+					@product_size_options  << var
+				end
+		  end
+		end
 	end
 end
