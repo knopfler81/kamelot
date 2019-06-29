@@ -151,8 +151,8 @@ Rails.application.routes.draw do
 		get "legal_notice", to: "pages#legal_notice"
 		get "confidentiality_policy", to: "pages#confidentiality_policy"
 		get "cookies_policy", to: "pages#cookies_policy"
-		get "sizes_guide", to: "pages#sizes_guide"
-		get "site_map", to: "pages#site_map"
+		# get "sizes_guide", to: "pages#sizes_guide"
+		# get "site_map", to: "pages#site_map"
 
 	end
 end
