@@ -2,6 +2,7 @@ class Admin::SaleItemsController < Admin::ApplicationController
 
   def index
     @items = current_basket.sale.items.order('created_at DESC')
+    @sale = current_basket.sale
   end
 
   def create

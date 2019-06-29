@@ -46,7 +46,21 @@
 						<div class="col-12">
 							<% if current_user %>
 								<br>
-								<%= link_to "Encaisser", admin_cash_path, class: "btn btn-main btn-block" %>
+
+								<div class="col-12">
+									<%= simple_form_for @sale, url: admin_cash_path do |f| %>
+									  <div class="<%= 'error_message' if @sale.errors.full_messages.any? %> ">
+									   <% if  @sale.errors.any? %>
+									     <% @sale.errors.full_messages.each do |msg| %>
+									      <li><%= msg %></li>
+									     <% end %>
+									    <% end %>
+									 </div>
+									  <%= f.hidden_field :user_id %>
+									  <%= f.submit "Valider la vente", class: "btn btn-main btn-block" %>
+									<% end %>
+								</div>	
+								<%#= link_to "Encaisser", admin_cash_path, class: "btn btn-main btn-block" %>
 							<% else %>
 							<% end %>
 						</div>
