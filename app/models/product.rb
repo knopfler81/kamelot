@@ -1,5 +1,9 @@
 class Product < ApplicationRecord
 
+
+	SIZE_NAMES = %w[XS S M L XL XXL] 
+	SIZE_NUMS  = %w[26 27 28 29 30 31 32 33 34 36 38 40 42 42 43 44 45 46 47 48 49 50]
+
 	mount_uploaders :attachments, AttachmentUploader
 	extend FriendlyId
 	friendly_id :slug_title_brand_id, use: :slugged
@@ -57,6 +61,20 @@ class Product < ApplicationRecord
 			end
 	  end
 	end
+
+
+
+	def variant_types
+
+			if SIZE_NUMS.include?(self.variants.first.size)
+				self.variants.sort_by { |variant| SIZE_NUMS.index(variant.size) }
+			elsif SIZE_NAMES.include?(self.variants.first.size)
+			  self.variants.sort_by { |variant| SIZE_NAMES.index(variant.size) }
+			end
+
+	end
+
+
 
 	private
 

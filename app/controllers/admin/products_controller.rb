@@ -20,12 +20,14 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def show
 		@products = Product.all
-		@product_size_options = []	
-		@product.variants.map do |var| 
-			if var.remaining_stock >= 1
-				@product_size_options  << var
-			end
-	  end
+		@product_size_options = []
+		if @product.variants.any?
+			@product.variant_types.map do |var| 
+				if var.remaining_stock >= 1
+					@product_size_options  << var
+				end
+		  end
+		end
 	end
 
 	def new
