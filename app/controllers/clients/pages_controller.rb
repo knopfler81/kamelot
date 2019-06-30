@@ -28,7 +28,7 @@ class Clients::PagesController < Clients::ApplicationController
 		#Pas encore ajouté dans la migration... ptho ? tableau texte? 
 	end
 
-	def site_map
+	def sitemap
 		redirect_to 'https://shopsuper.s3.eu-west-3.amazonaws.com/sitemap/sitemap.xml.gz'
 	end
 
