@@ -2,7 +2,7 @@ class Product < ApplicationRecord
 
 
 	SIZE_NAMES = %w[XS S M L XL XXL XXXL] 
-	SIZE_NUMS  = %w[26 27 28 29 30 31 32 33 34 36 38 40 42 42 43 44 45 46 47 48 49 50]
+	SIZE_NUMS  = %w[26 27 28 29 30 31 32 33 34 36 38 40 42 42 43 44 45 46 47 48 49 50 28/32 29/32 30/33 31/33 32/33 33/33 34/33 36/33 38/33]
 
 	mount_uploaders :attachments, AttachmentUploader
 	extend FriendlyId
