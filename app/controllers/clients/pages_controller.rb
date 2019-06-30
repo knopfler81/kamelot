@@ -29,7 +29,7 @@ class Clients::PagesController < Clients::ApplicationController
 	end
 
 	def site_map
-		redirect_to 'https://shopsuper.s3.eu-west-3.amazonaws.com/sitemaps/sitemap.xml.gz'
+		redirect_to 'https://shopsuper.s3.eu-west-3.amazonaws.com/sitemap/sitemap.xml.gz'
 	end
 
 	private
