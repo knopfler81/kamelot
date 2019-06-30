@@ -3,7 +3,7 @@
 
 require 'fog-aws'
 
-SitemapGenerator::Sitemap.default_host = "http://www.lapenderiedelhomme.fr"
+SitemapGenerator::Sitemap.default_host = "https://www.lapenderiedelhomme.fr"
 
 SitemapGenerator::Sitemap.create do
   add clients_products_path, :priority => 0.5, :changefreq => 'daily'
@@ -24,4 +24,4 @@ SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_host = "https://shopsuper.s3.eu-west-3.amazonaws.com/"
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemap/'
 
-SitemapGenerator::Sitemap.ping_search_engines('http://lapenderiedelhomme.fr/sitemap')
+SitemapGenerator::Sitemap.ping_search_engines('https://lapenderiedelhomme.fr/sitemap')
