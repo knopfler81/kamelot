@@ -29,7 +29,7 @@ class Clients::PagesController < Clients::ApplicationController
 	end
 
 	def site_map
-		#pas de custom non plus a faire à la main
+		redirect_to 'https://example.s3.amazonaws.com/sitemaps/sitemap.xml.gz'
 	end
 
 	private
