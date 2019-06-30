@@ -17,7 +17,7 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider
                                                                     fog_region: 'eu-west-3')
 
 SitemapGenerator::Sitemap.public_path = 'tmp/'
-SitemapGenerator::Sitemap.sitemaps_host = "https://example.s3.amazonaws.com/"
+SitemapGenerator::Sitemap.sitemaps_host = "https://shopsuper.s3.eu-west-3.amazonaws.com/"
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.ping_search_engines('http://lapenderiedelhomme.fr/sitemap')
