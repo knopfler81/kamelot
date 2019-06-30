@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 	
 
  	root to: "clients/pages#landing"
-	get '/sitemap', to: 'pages#sitemap'
+	get '/sitemap', to: 'clients/pages#sitemap'
 
-	
+
 	authenticate :user, lambda { |u| u.admin? } do
 		 		
   	require "sidekiq/web"
