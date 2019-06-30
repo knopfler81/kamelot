@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
 
-	SIZE_NAMES = %w[XS S M L XL XXL] 
+	SIZE_NAMES = %w[XS S M L XL XXL XXXL] 
 	SIZE_NUMS  = %w[26 27 28 29 30 31 32 33 34 36 38 40 42 42 43 44 45 46 47 48 49 50]
 
 	mount_uploaders :attachments, AttachmentUploader
