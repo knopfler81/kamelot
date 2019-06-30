@@ -682,6 +682,7 @@ DEPENDENCIES
   figaro
   file_validators
   fog
+  fog-aws
   font-awesome-sass (~> 5.0.9)
   friendly_id (~> 5.2.4)
   google-api-client (~> 0.11)

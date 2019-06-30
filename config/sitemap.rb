@@ -1,4 +1,8 @@
 # Set the host name for URL creation
+
+
+require 'fog-aws'
+
 SitemapGenerator::Sitemap.default_host = "http://www.lapenderiedelhomme.fr"
 
 SitemapGenerator::Sitemap.create do
