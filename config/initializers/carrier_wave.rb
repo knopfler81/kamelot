@@ -1,5 +1,8 @@
 if Rails.env.production?
   CarrierWave.configure do |config|
+    config.storage = :fog
+    config.cache_dir = "#{Rails.root}/tmp/"
+    config.permissions = 0666
     config.fog_credentials = {
       # Configuration for Amazon S3
       :region                => 'eu-west-3',

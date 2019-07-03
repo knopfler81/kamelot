@@ -24,10 +24,6 @@ class Clients::PagesController < Clients::ApplicationController
 	def cookies_policy
 	end
 
-	def sizes_guide
-		#Pas encore ajouté dans la migration... ptho ? tableau texte? 
-	end
-
 	def sitemap
 		redirect_to 'https://shopsuper.s3.eu-west-3.amazonaws.com/sitemap/sitemap.xml.gz'
 	end
