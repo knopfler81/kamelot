@@ -11,7 +11,7 @@ class Clients::CategoriesController < Clients::ApplicationController
       .group(:id)
       .select(Product.arel_table[Arel.star],
               Stock.arel_table[:quantity].sum.as('total_quantity'))
-      .order('total_quantity DESC').paginate(page: params[:page], per_page: 12).order('created_at DESC')
+      .order('total_quantity DESC').paginate(page: params[:page], per_page: 12).order('created_at ASC')
   end
 
 end
