@@ -65,13 +65,11 @@ class Product < ApplicationRecord
 
 
 	def variant_types
-
-			if SIZE_NUMS.include?(self.variants.first.size)
-				self.variants.sort_by { |variant| SIZE_NUMS.index(variant.size) }
-			elsif SIZE_NAMES.include?(self.variants.first.size)
-			  self.variants.sort_by { |variant| SIZE_NAMES.index(variant.size) }
-			end
-
+		if SIZE_NUMS.include?(self.variants.first.size)
+			self.variants.sort_by { |variant| SIZE_NUMS.index(variant.size) }
+		elsif SIZE_NAMES.include?(self.variants.first.size)
+		  self.variants.sort_by { |variant| SIZE_NAMES.index(variant.size) }
+		end
 	end
 
 
