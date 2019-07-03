@@ -13,8 +13,9 @@ SitemapGenerator::Sitemap.create do
   end
 
 end
+
 SitemapGenerator::Sitemap.default_host = "http://lapenderiedelhomme.fr"
-SitemapGenerator::Sitemap.sitemaps_host = "http://eu-west-3.amazonaws.com/shopsuper/"
+SitemapGenerator::Sitemap.sitemaps_host = "http://shopsuper.s3.eu-west-3.amazonaws.com/"
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider: 'AWS',
                                                                     aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
