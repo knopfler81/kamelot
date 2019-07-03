@@ -2,10 +2,9 @@ class Clients::ProductsController < Clients::ApplicationController
 
 	def index
 		if params[:query].present?
-			@client_products = filter_products.left_joins(variants: :stocks).group(:id).select(Product.arel_table[Arel.star],Stock.arel_table[:quantity].sum.as('total_quantity')).order('total_quantity DESC').paginate(page: params[:page], per_page: 12).order('created_at DESC')
-
+			@client_products = filter_products.paginate(page: params[:page], per_page: 12).order('created_at DESC')
 		else
-    	@client_products = Product.all.left_joins(variants: :stocks).group(:id).select(Product.arel_table[Arel.star],Stock.arel_table[:quantity].sum.as('total_quantity')).order('total_quantity DESC').paginate(page: params[:page], per_page: 12).order('created_at DESC')
+    	@client_products = Product.all.paginate(page: params[:page], per_page: 12).order('created_at DESC')
     end
 	end
 

@@ -7,9 +7,9 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def index
 		if params[:query].present?
-			@products = filter_products.left_joins(variants: :stocks).group(:id).select(Product.arel_table[Arel.star],Stock.arel_table[:quantity].sum.as('total_quantity')).order('total_quantity DESC').paginate(page: params[:page], per_page: 12).order('created_at DESC')
+			@products = filter_products.paginate(page: params[:page], per_page: 12).order('created_at DESC')
 		else
-    	@products = Product.all.left_joins(variants: :stocks).group(:id).select(Product.arel_table[Arel.star],Stock.arel_table[:quantity].sum.as('total_quantity')).order('total_quantity DESC').paginate(page: params[:page], per_page: 12).order('created_at DESC')
+    	@products = Product.all.paginate(page: params[:page], per_page: 12).order('created_at DESC')
     end
 	end
 
