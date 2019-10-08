@@ -7,7 +7,7 @@ RSpec.describe Favorite do
 		login_as john
 	end
 
-	scenario "add a product to favorites", :js, :skip do 
+	scenario "add a product to favorites", :js do 
 		category = create(:category, title: "Tshirt")
 		tshirt   = create(:product, brand: "Kaporal", category_id: category.id)
 		
@@ -17,7 +17,7 @@ RSpec.describe Favorite do
 
 		visit clients_favorites_path
 
-		expect(page).to have_content("KAPORAL")
+		expect(page).to have_content("Kaporal")
 	end 
 
 	scenario "No favorite were added yet " do 

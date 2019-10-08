@@ -92,6 +92,7 @@ gem 'sitemap_generator'
 
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'rubocop-faker', '~> 0.2.0'
 
 group :development do 
   gem "letter_opener", group: :development
