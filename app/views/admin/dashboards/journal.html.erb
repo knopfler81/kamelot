@@ -1,33 +1,33 @@
-<!-- <%# if FeatureSwitch.enabled?(:stats) %>
+<% if FeatureSwitch.enabled?(:stats) %>
 	<div class="container">
 		
-			<%#= form_tag admin_dashboard_journal_path, method: :get do  %>
+			<%= form_tag admin_dashboard_journal_path, method: :get do  %>
 				<div class="row">  
 					<div class="col-12 col-md-3">
-						<%#= text_field_tag "search[date_from]", @dashboard.date_from, class: "datepicker" %>
+						<%= text_field_tag "search[date_from]", @dashboard.date_from, class: "datepicker" %>
 					</div>
 					<div class="col-12 col-md-3">
-						<%#= text_field_tag "search[date_to]", @dashboard.date_to, class: "datepicker" %>
+						<%= text_field_tag "search[date_to]", @dashboard.date_to, class: "datepicker" %>
 						
 					</div>
 					<div class="col-12 col-md-3">
-						<%#= submit_tag "Rechercher", class: "btn btn-main btn-block" %>
+						<%= submit_tag "Rechercher", class: "btn btn-main btn-block" %>
 					</div>
 					<div class="col-12">
 						<small><i>Faites une recherche par période</i></small>
 					</div>
 				</div>
-			<%# end %>	
+			<% end %>	
 
 			<div id="dashboard_search">
 				<div class="row">
 					<div class="col-12">
-						<%#= simple_form_for :query, url: admin_dashboard_journal_url, method: :get,  html: {class: "form-inline"} do |f| %>
-						  <%#= f.input  :keyword, placeholder: "Recherche", label: false, input_html: {class: "input-search-admin"} %>
-						  <%#= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
+						<%= simple_form_for :query, url: admin_dashboard_journal_url, method: :get,  html: {class: "form-inline"} do |f| %>
+						  <%= f.input  :keyword, placeholder: "Recherche", label: false, input_html: {class: "input-search-admin"} %>
+						  <%= button_tag type: 'submit', class: 'search-btn-nav-admin' do %>
 						    <i class="fa fa-search"></i>
-						  <%# end %>
-						<%# end %>
+						  <% end %>
+						<% end %>
 						<small><i>Recherchez par nom, marque, categorie, couleur</i></small>
 					</div>
 				</div>
@@ -73,31 +73,31 @@
 					</tr>
 				</thead>
 				<tbody>	
-				<%# @variants.each do |variant| %>
+				<% @variants.each do |variant| %>
 						<tr>
-							<td class="cells col_dates"><small><%#= l(variant.created_at, format: '%d/%m/%y' )  %></small></td>
-							<td class="cells col_dates"><small><%#= l(variant.updated_at, format: '%d/%m/%y' )  %></small></td>
-							<td class="cells col_pro"><small><%#= variant.product.id %></small></td>
-							<td class="cells col_pro"><small><%#= truncate(variant.product.title, length: 10) %></small></td>
-							<td class="cells col_pro"><small><%#= variant.product.brand %></small></td>
-							<td class="cells col_pro"><small><%#= variant.product.color %></small></td>
-							<td class="cells col_pro"><small><%#= variant.size %></small></td>
-							<td class="cells col_stock starting_stock"><%#= variant.stocks.map(&:initial_quantity).sum %></td>
-							<td class="cells col_stock starting_stock_value"><%#= number_to_currency_euro @dashboard.total_margin_value(variant) %></td>
-							<td class="cells col_prices buying_price"><%#= number_to_currency_euro variant.product.buying_price %></td>
-							<td class="cells col_prices selling_price"><%#= number_to_currency_euro variant.product.price %></td>
-							<td class="cells col_prices selling_price"><%#= number_to_currency_euro variant.product.market_price %></td>
-							<td class="cells col_prices cost_price"><%#= number_to_currency_euro @dashboard.margin_per_article(variant) %></td>
-							<td class="cells col_sales number_of_sales"><%#= @dashboard.number_of_sales(variant) %></td>
-							<td class="cells col_sales number_of_orders"><%#= @dashboard.number_of_orders(variant) %></td>
-							<td class="cells col_to turnover_sales"><%#= number_to_currency_euro @dashboard.turnover_sales(variant) %></td>
-							<td class="cells col_to turnover_orders"><%#= number_to_currency_euro @dashboard.turnover_orders(variant) %></td>
-							<td class="cells col_stock remaining_stock"><%#= @dashboard.remaining_stock(variant) %></td>
-							<td class="cells col_stock remaining_stock_value"><%#= number_to_currency_euro @dashboard.remaining_stock_value(variant)%></td>
-							<td class="cells col_margin margin_sales"><%#=  number_to_currency_euro @dashboard.margin_sales_line(variant) %></th>
-							<td class="cells col_margin margin_web"><%#= number_to_currency_euro @dashboard.margin_orders_line(variant) %></th>
+							<td class="cells col_dates"><small><%= l(variant.created_at, format: '%d/%m/%y' )  %></small></td>
+							<td class="cells col_dates"><small><%= l(variant.updated_at, format: '%d/%m/%y' )  %></small></td>
+							<td class="cells col_pro"><small><%= variant.product.id %></small></td>
+							<td class="cells col_pro"><small><%= truncate(variant.product.title, length: 10) %></small></td>
+							<td class="cells col_pro"><small><%= variant.product.brand %></small></td>
+							<td class="cells col_pro"><small><%= variant.product.color %></small></td>
+							<td class="cells col_pro"><small><%= variant.size %></small></td>
+							<td class="cells col_stock starting_stock"><%= variant.stocks.map(&:initial_quantity).sum %></td>
+							<td class="cells col_stock starting_stock_value"><%= number_to_currency_euro @dashboard.total_margin_value(variant) %></td>
+							<td class="cells col_prices buying_price"><%= number_to_currency_euro variant.product.buying_price %></td>
+							<td class="cells col_prices selling_price"><%= number_to_currency_euro variant.product.price %></td>
+							<td class="cells col_prices selling_price"><%= number_to_currency_euro variant.product.market_price %></td>
+							<td class="cells col_prices cost_price"><%= number_to_currency_euro @dashboard.margin_per_article(variant) %></td>
+							<td class="cells col_sales number_of_sales"><%= @dashboard.number_of_sales(variant) %></td>
+							<td class="cells col_sales number_of_orders"><%= @dashboard.number_of_orders(variant) %></td>
+							<td class="cells col_to turnover_sales"><%= number_to_currency_euro @dashboard.turnover_sales(variant) %></td>
+							<td class="cells col_to turnover_orders"><%= number_to_currency_euro @dashboard.turnover_orders(variant) %></td>
+							<td class="cells col_stock remaining_stock"><%= @dashboard.remaining_stock(variant) %></td>
+							<td class="cells col_stock remaining_stock_value"><%= number_to_currency_euro @dashboard.remaining_stock_value(variant)%></td>
+							<td class="cells col_margin margin_sales"><%=  number_to_currency_euro @dashboard.margin_sales_line(variant) %></th>
+							<td class="cells col_margin margin_web"><%= number_to_currency_euro @dashboard.margin_orders_line(variant) %></th>
 						</tr>
-					<%# end %>
+					<% end %>
 				</tbody>
 				<tfoot>
 					<tr>
@@ -126,4 +126,4 @@
 			</table>
 
 	</div>
-<%# end %> -->
+<% end %>
