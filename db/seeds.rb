@@ -1568,427 +1568,427 @@ product_28 = Product.create!(
 		]
 )
 
-product_29 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Bleu Saks",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9106.jpg")),
-		File.open(File.join("app/assets/images/seeds/IMG_9107.jpg")),
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# product_29 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Bleu Saks",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9106.jpg")),
+# 		File.open(File.join("app/assets/images/seeds/IMG_9107.jpg")),
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
-product_30 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Bleu Indigo",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9108.jpg")),
-		File.open(File.join("app/assets/images/seeds/IMG_9109.jpg")),
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# product_30 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Bleu Indigo",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9108.jpg")),
+# 		File.open(File.join("app/assets/images/seeds/IMG_9109.jpg")),
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
-product_31 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Bleu Mavi",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9111.jpg")),
-		File.open(File.join("app/assets/images/seeds/IMG_9112.jpg")),
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# product_31 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Bleu Mavi",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9111.jpg")),
+# 		File.open(File.join("app/assets/images/seeds/IMG_9112.jpg")),
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
-product_32 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Noir Fumel",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9113.jpg")),
-		File.open(File.join("app/assets/images/seeds/IMG_9114.jpg")),
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
-
-
-product_33 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Rose",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9115.jpg")),
-
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
-
-product_34 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Orange",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9117.jpg")),
-
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# product_32 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Noir Fumel",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9113.jpg")),
+# 		File.open(File.join("app/assets/images/seeds/IMG_9114.jpg")),
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
 
-product_35 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Jaune",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9118.jpg")),
+# product_33 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Rose",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9115.jpg")),
 
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
+# product_34 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Orange",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9117.jpg")),
 
-product_36 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Gris",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9119.jpg")),
-
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
-
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
 
-product_37 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Beige",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9121.jpg")),
+# product_35 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Jaune",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9118.jpg")),
 
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
 
-product_38 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Gris",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9122.jpg")),
+# product_36 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Gris",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9119.jpg")),
 
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
-product_39 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "KPCARMC",
-	brand: "Stil Park",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Violet",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9122.jpg")),
 
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
 
-product_40 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "ETRO",
-	brand: "ETTE",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Blanc/Marine",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: stil_park.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9128.jpg")),
+# product_37 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Beige",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9121.jpg")),
 
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
-product_41 = Product.create!(
-	discount_percentage: 0,
-	weight: 0.2,
-	discounted_price: 0,
-	ref: "ETRO",
-	brand: "ETTE",
-	category_id: polos.id,
-	user_id: nelly.id,
-	buying_price: 12,
-	price: 25,
-	color: "Marine",
-	market_price: 25,
-	title: "Polo",
-	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
-	supplier_id: enzo.id,
-	attachments:[
-		File.open(File.join("app/assets/images/seeds/IMG_9129.jpg")),
 
-	],
-	variants_attributes: [
-			{
-			size: "M",
-			},
-			{
-			size: "L",
-			},
-			{
-			size: "XL",
-			}
-		]
-)
+# product_38 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Gris",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9122.jpg")),
+
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
+
+# product_39 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "KPCARMC",
+# 	brand: "Stil Park",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Violet",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9122.jpg")),
+
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
+
+# product_40 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "ETRO",
+# 	brand: "ETTE",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Blanc/Marine",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: stil_park.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9128.jpg")),
+
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
+
+# product_41 = Product.create!(
+# 	discount_percentage: 0,
+# 	weight: 0.2,
+# 	discounted_price: 0,
+# 	ref: "ETRO",
+# 	brand: "ETTE",
+# 	category_id: polos.id,
+# 	user_id: nelly.id,
+# 	buying_price: 12,
+# 	price: 25,
+# 	color: "Marine",
+# 	market_price: 25,
+# 	title: "Polo",
+# 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
+# 	supplier_id: enzo.id,
+# 	attachments:[
+# 		File.open(File.join("app/assets/images/seeds/IMG_9129.jpg")),
+
+# 	],
+# 	variants_attributes: [
+# 			{
+# 			size: "M",
+# 			},
+# 			{
+# 			size: "L",
+# 			},
+# 			{
+# 			size: "XL",
+# 			}
+# 		]
+# )
 
 
 puts "Products and Sizes Created"
