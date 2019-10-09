@@ -5,12 +5,12 @@ class Admin::ApplicationController < ActionController::Base
   before_action :current_basket
 	before_action :favorites_products
   before_action :get_data_from_cookies
+  helper_method :current_basket
 	
   def current_basket
     @current_basket ||= VendingBasket.new(token: basket_token)
   end
 
-  helper_method :current_basket
 
   def favorites_products
   	@favorites = Favorite.where(user: current_user).all

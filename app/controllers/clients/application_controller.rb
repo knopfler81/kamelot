@@ -5,10 +5,11 @@ class Clients::ApplicationController < ActionController::Base
 	before_action :current_cart
 	before_action :favorites_products
 	
+  helper_method :current_cart
+  
   def current_cart
     @current_cart ||= ShoppingCart.new(token: cart_token)
   end
-  helper_method :current_cart
 
   def current_product
   	@product = Product.find(params[:product_id])

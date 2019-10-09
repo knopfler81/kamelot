@@ -1996,7 +1996,7 @@ puts "Products and Sizes Created"
 [product_1, product_2, product_3, product_4, product_13, product_15, product_17, product_18 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create!(
-		quantity: 1,
+		quantity: 8,
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
 		price: var.product.price,
@@ -2009,7 +2009,7 @@ end
 [product_5, product_6, product_7, product_8, product_14, product_19, product_20, product_21 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create!(
-		quantity: 2,
+		quantity: 10,
 		variant_id: var.id,
 		supplier_id: supplier_2.id,
 		price: var.product.price,
@@ -2022,7 +2022,7 @@ end
 [product_9, product_10, product_11, product_12, product_22, product_23, product_27 ].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create!(
-		quantity: 2,
+		quantity: 12,
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
 		updated_at: 5.day.ago,
@@ -2036,7 +2036,7 @@ end
 [ product_5, product_8, product_24, product_25, product_26].each do |pd|
 	pd.variants.each do |var|
 	var.stocks.create!(
-		quantity: 1,
+		quantity: 21,
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
 		updated_at: 1.day.ago,

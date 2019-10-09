@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
     @current_cart ||= ShoppingCart.new(token: cart_token)
   end
   
-  helper_method :current_basket
-
   def current_product
   	@product = Product.find(params[:product_id])
   end
