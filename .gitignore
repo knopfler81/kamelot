@@ -29,6 +29,7 @@
 # Ignore application configuration
 /config/application.yml
 /public/uploads
+/spec/support/uploads
 /node_modules
 yarn-debug.log*
 .yarn-integrity

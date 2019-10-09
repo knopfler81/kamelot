@@ -15,7 +15,7 @@ Company.destroy_all
 
 #COMPANY 
 c = Company.instance
-c.update_attributes!(admin_name: "Damien Duclos", address_1: 'Lieu dit Emilieu', zipcode: "43000", city: "Malvalette", country:"France", email: "admin@example.com", site_name: "La Penderie De L'Homme", phone: "099999999")
+c.update_attributes!(admin_name: "Nelly Duclos", address_1: '11/11', zipcode: "42450", city: "SURY", country:"France", email: "admin@example.com", site_name: "La Penderie De L'Homme", phone: "099999999", siret: "8888888")
 c.save
 
 #SUPPLIER
@@ -414,6 +414,7 @@ product_1 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 10,
 	price: 30,
+	market_price: 25,
 	color: "Noir",
 	title: "Pull",
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -456,6 +457,7 @@ product_2 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 12,
 	price: 40,
+	market_price: 25,
 	color: "Blanc",
 	title: "Pull",
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -498,6 +500,7 @@ product_3 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 15,
 	price: 40,
+	market_price: 25,
 	color: "Rouge",
 	title: "Pull",
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -541,6 +544,7 @@ product_4 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 20,
 	price: 49,
+	market_price: 25,
 	color: "Jaune",
 	title: "Pantalon",
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -583,6 +587,7 @@ product_5 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 12,
 	price: 60,
+	market_price: 25,
 	color: "Gris",
 	title: "Jean",
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -625,6 +630,7 @@ product_6 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Bleu",
 	title: "Jean",
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -666,6 +672,7 @@ product_7 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 17,
 	price: 50,
+	market_price: 25,
 	color: "Noir",
 	title: "Pull",
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -706,6 +713,7 @@ product_8 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 12,
 	price: 30,
+	market_price: 25,
 	color: "Vert",
 	title: "Pull",
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -747,6 +755,7 @@ product_9 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 25,
 	price: 70,
+	market_price: 25,
 	color: "Beige",
 	title: "Pull",
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -784,6 +793,7 @@ product_10 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 25,
 	price: 70,
+	market_price: 25,
 	color: "Camel",
 	title: "Pull",
 	description: "Pull Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -822,6 +832,7 @@ product_11 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 30,
+	market_price: 25,
 	color: "Jaune",
 	title: "Pantalon",
 	description: "Pantalon Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -860,6 +871,7 @@ product_12 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 10,
 	price: 40,
+	market_price: 25,
 	color: "Gris",
 	title: "Jean",
 	description: "Pantalon ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -902,6 +914,7 @@ product_13 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 30,
+	market_price: 25,
 	color: "Bleu",
 	title: "Jean",
 	description: "Pantalon rem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -944,6 +957,7 @@ product_14 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 50,
+	market_price: 25,
 	color: "Bleu",
 	title: "Tshirt",
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -984,6 +998,7 @@ product_15 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 30,
+	market_price: 25,
 	color: "Blanc",
 	title: "Tshirt",
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1025,6 +1040,7 @@ product_16 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 30,
+	market_price: 25,
 	color: "Rouge",
 	title: "Tshirt",
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1065,6 +1081,7 @@ product_17 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 30,
+	market_price: 25,
 	color: "Gris",
 	title: "Tshirt",
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1107,6 +1124,7 @@ product_18 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 30,
+	market_price: 25,
 	color: "Gris",
 	title: "Tshirt",
 	description: "Tshirt Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1147,6 +1165,7 @@ product_19 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 12,
 	price: 60,
+	market_price: 25,
 	color: "Marine",
 	title: "Polo",
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1188,6 +1207,7 @@ product_20 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Rose",
 	title: "Polo",
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1228,6 +1248,7 @@ product_21 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Jaune",
 	title: "Polo",
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1269,6 +1290,7 @@ product_22 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Bleu",
 	title: "Polo",
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1309,6 +1331,7 @@ product_23 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Blanc",
 	title: "Polo",
 	description: "Polo Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1349,6 +1372,7 @@ product_24 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Orange",
 	title: "Chemise",
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1389,6 +1413,7 @@ product_25 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Turquoise",
 	title: "Chemise",
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1430,6 +1455,7 @@ product_26 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Rouge",
 	title: "Chemise",
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1470,6 +1496,7 @@ product_27 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Marine",
 	title: "Chemise",
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1511,6 +1538,7 @@ product_28 = Product.create!(
 	user_id: nelly.id,
 	buying_price: 5,
 	price: 20,
+	market_price: 25,
 	color: "Noire",
 	title: "Chemise",
 	description: "Chemise Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n Doloribus porro obcaecati nam iure, reprehenderit. \n Duaerat laudantium similique illo sequi, suscipit sed accusamus facere! Id,",
@@ -1551,6 +1579,7 @@ product_29 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Bleu Saks",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1582,6 +1611,7 @@ product_30 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Bleu Indigo",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1613,6 +1643,7 @@ product_31 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Bleu Mavi",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1644,6 +1675,7 @@ product_32 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Noir Fumel",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1676,6 +1708,7 @@ product_33 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Rose",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1707,6 +1740,7 @@ product_34 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Orange",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1739,6 +1773,7 @@ product_35 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Jaune",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1771,6 +1806,7 @@ product_36 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Gris",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1804,6 +1840,7 @@ product_37 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Beige",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1836,6 +1873,7 @@ product_38 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Gris",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1867,6 +1905,7 @@ product_39 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Violet",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1898,6 +1937,7 @@ product_40 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Blanc/Marine",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: stil_park.id,
@@ -1929,6 +1969,7 @@ product_41 = Product.create!(
 	buying_price: 12,
 	price: 25,
 	color: "Marine",
+	market_price: 25,
 	title: "Polo",
 	description: "Polo Stil Park 100% Coton, manches courtes motif col petits carreaux",
 	supplier_id: enzo.id,
@@ -1959,6 +2000,7 @@ puts "Products and Sizes Created"
 		variant_id: var.id,
 		supplier_id: supplier_1.id,
 		price: var.product.price,
+		market_price: var.product.market_price,
 		cost_price: var.product.buying_price
 	)
 	end
@@ -1971,6 +2013,7 @@ end
 		variant_id: var.id,
 		supplier_id: supplier_2.id,
 		price: var.product.price,
+		market_price: var.product.market_price,
 		cost_price: var.product.buying_price
 	)
 	end
@@ -1984,6 +2027,7 @@ end
 		supplier_id: supplier_1.id,
 		updated_at: 5.day.ago,
 		price: var.product.price,
+		market_price: var.product.market_price,
 		cost_price: var.product.buying_price
 	)
 	end
@@ -1997,6 +2041,7 @@ end
 		supplier_id: supplier_1.id,
 		updated_at: 1.day.ago,
 		price: var.product.price,
+		market_price: var.product.market_price,
 		cost_price: var.product.buying_price
 	)
 	end
@@ -3215,13 +3260,13 @@ sale_1  = Sale.create!(
 )
 
 	SaleItem.create!(
-		price: product_1.price, 
+		market_price: product_1.market_price, 
 		sale_id: sale_1.id,
 		quantity: 1,
 		variant_id: product_1.variants[0].id,
 	)
 	SaleItem.create!(
-		price: product_2.price, 
+		market_price: product_2.market_price, 
 		sale_id: sale_1.id, 
 		quantity: 1,
 		variant_id: product_2.variants[1].id,
@@ -3237,14 +3282,14 @@ sale_2  = Sale.create!(
 )
 
 	SaleItem.create!(
-		price: product_1.price, 
+		market_price: product_1.market_price, 
 		sale_id: sale_2.id,
 
 		quantity: 1,
 		variant_id: product_1.variants[0].id
 	)
 	SaleItem.create!(
-		price: product_2.price, 
+		market_price: product_2.market_price, 
 		sale_id: sale_2.id, 
 		quantity: 1,
 		variant_id: product_2.variants[2].id
@@ -3259,13 +3304,13 @@ sale_3  = Sale.create!(
 	total: 135
 )
 	SaleItem.create!(
-		price: product_1.price, 
+		market_price: product_1.market_price, 
 		sale_id: sale_3.id,
 		quantity: 2,
 		variant_id: product_1.variants[1].id
 	)
 	SaleItem.create!(
-		price: product_3.price, 
+		market_price: product_3.market_price, 
 		sale_id: sale_3.id,
 		quantity: 2,
 		variant_id: product_3.variants[1].id
@@ -3279,7 +3324,7 @@ sale_4  = Sale.create!(
  	status: 1, 
  	total: 135)
 SaleItem.create!(
-	price: product_2.price, 
+	market_price: product_2.market_price, 
 	sale_id: sale_4.id,
 	quantity: 1,
 	variant_id: product_2.variants[1].id)
@@ -3293,7 +3338,7 @@ sale_5  = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_2.price, 
+	market_price: product_2.market_price, 
 	sale_id: sale_5.id,
 	quantity: 1,
 	variant_id: product_2.variants[0].id)
@@ -3306,17 +3351,17 @@ sale_6  = Sale.create!(
  	status: 1,
  	total: 135)
 SaleItem.create!(
-	price: product_2.price, 
+	market_price: product_2.market_price, 
 	sale_id: sale_6.id,
 	quantity: 2,
 	variant_id: product_2.variants[0].id)
 SaleItem.create!(
-	price: product_3.price, 
+	market_price: product_3.market_price, 
 	sale_id: sale_6.id,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
 SaleItem.create!(
-	price: product_3.price, 
+	market_price: product_3.market_price, 
 	sale_id: sale_6.id,
 	quantity: 1,
 	variant_id: product_3.variants[0].id)
@@ -3330,7 +3375,7 @@ sale_7  = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_3.price, 
+	market_price: product_3.market_price, 
 	sale_id: sale_7.id,
 	quantity: 1,
 	variant_id: product_3.variants[1].id)
@@ -3343,13 +3388,13 @@ sale_8  = Sale.create!(
  	status: 1,
  	total: 135)
 SaleItem.create!(
-	price: product_3.price, 
+	market_price: product_3.market_price, 
 	sale_id: sale_8.id,
 	quantity: 1,
 	variant_id: product_3.variants[2].id
 	)
 SaleItem.create!(
-	price: product_3.price, 
+	market_price: product_3.market_price, 
 	sale_id: sale_8.id,
 	quantity: 2,
 	variant_id: product_3.variants[0].id)
@@ -3363,7 +3408,7 @@ sale_9  = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_4.price, 
+	market_price: product_4.market_price, 
 	sale_id: sale_9.id,
 	quantity: 1,
 	variant_id: product_4.variants[0].id)
@@ -3377,7 +3422,7 @@ sale_10 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_4.price, 
+	market_price: product_4.market_price, 
 	sale_id: sale_10.id, 
 	quantity: 1,
 	variant_id: product_4.variants[0].id)
@@ -3392,13 +3437,13 @@ sale_11 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_5.price, 
+	market_price: product_5.market_price, 
 	sale_id: sale_11.id, 
 	quantity: 2,
 	variant_id: product_5.variants[0].id
 	)
 SaleItem.create!(
-	price: product_5.price, 
+	market_price: product_5.market_price, 
 	sale_id: sale_11.id, 
 	quantity: 1,
 	variant_id: product_5.variants[2].id
@@ -3414,7 +3459,7 @@ sale_12 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_7.price, 
+	market_price: product_7.market_price, 
 	sale_id: sale_12.id, 
 	quantity: 1,
 	variant_id: product_7.variants[0].id)
@@ -3429,7 +3474,7 @@ sale_13 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_6.price, 
+	market_price: product_6.market_price, 
 	sale_id: sale_13.id, 
 	quantity: 1,
 	variant_id: product_6.variants[0].id)
@@ -3444,7 +3489,7 @@ sale_14 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_6.price, 
+	market_price: product_6.market_price, 
 	sale_id: sale_14.id, 
 	quantity: 1,
 	variant_id: product_6.variants[1].id)
@@ -3458,7 +3503,7 @@ sale_17 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_9.price, 
+	market_price: product_9.market_price, 
 	sale_id: sale_17.id, 
 	quantity: 1,
 	variant_id: product_9.variants[1].id)
@@ -3473,7 +3518,7 @@ sale_18 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_10.price,
+	market_price: product_10.market_price,
 	sale_id: sale_18.id,
 	quantity: 1, 
 	variant_id: product_10.variants[2].id
@@ -3488,7 +3533,7 @@ sale_19 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_14.price,
+	market_price: product_14.market_price,
 	sale_id: sale_19.id,
 	quantity: 1, 
 	variant_id: product_14.variants[1].id
@@ -3502,7 +3547,7 @@ sale_20 = Sale.create!(
  	status: 1,
  	total: 135)
 SaleItem.create!(
-	price: product_14.price,
+	market_price: product_14.market_price,
 	sale_id: sale_20.id,
 	quantity: 1, 
 	variant_id: product_14.variants[2].id
@@ -3516,7 +3561,7 @@ sale_21 = Sale.create!(
  	status: 1,
  	total: 135)
 SaleItem.create!(
-	price: product_14.price,
+	market_price: product_14.market_price,
 	sale_id: sale_21.id,
 	quantity: 1, 
 	variant_id: product_14.variants[2].id
@@ -3530,7 +3575,7 @@ sale_22 = Sale.create!(
  	status: 1,
  	total: 135)
 SaleItem.create!(
-	price: product_24.price,
+	market_price: product_24.market_price,
 	sale_id: sale_20.id,
 	quantity: 1, 
 	variant_id: product_24.variants[2].id
@@ -3544,7 +3589,7 @@ sale_23 = Sale.create!(
  	status: 1,
  	total: 135)
 SaleItem.create!(
-	price: product_24.price,
+	market_price: product_24.market_price,
 	sale_id: sale_23.id,
 	quantity: 1, 
 	variant_id: product_24.variants[0].id
@@ -3559,7 +3604,7 @@ sale_24 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_24.price,
+	market_price: product_24.market_price,
 	sale_id: sale_24.id,
 	quantity: 1, 
 	variant_id: product_24.variants[1].id
@@ -3574,7 +3619,7 @@ sale_25 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_11.price,
+	market_price: product_11.market_price,
 	sale_id: sale_25.id,
 	quantity: 1, 
 	variant_id: product_11.variants[0].id)
@@ -3598,7 +3643,7 @@ sale_27 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_9.price, 
+	market_price: product_9.market_price, 
 	sale_id: sale_27.id, 
 	quantity: 1,
 	variant_id: product_9.variants[0].id)
@@ -3613,7 +3658,7 @@ sale_28 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_10.price,
+	market_price: product_10.market_price,
 	sale_id: sale_28.id,
 	quantity: 1, 
 	variant_id: product_10.variants[2].id
@@ -3628,7 +3673,7 @@ sale_29 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_11.price,
+	market_price: product_11.market_price,
 	sale_id: sale_29.id,
 	quantity: 1, 
 	variant_id: product_11.variants[2].id
@@ -3663,7 +3708,7 @@ sale_33 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_12.price,
+	market_price: product_12.market_price,
 	sale_id: sale_33.id,
 	quantity: 1, 
 	variant_id: product_12.variants[1].id
@@ -3678,7 +3723,7 @@ sale_34 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_12.price,
+	market_price: product_12.market_price,
 	sale_id: sale_34.id,
 	quantity: 1, 
 	variant_id: product_12.variants[1].id
@@ -3693,7 +3738,7 @@ sale_35 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_12.price,
+	market_price: product_12.market_price,
 	sale_id: sale_35.id,
 	quantity: 1, 
 	variant_id: product_12.variants[0].id
@@ -3708,7 +3753,7 @@ sale_36 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_12.price,
+	market_price: product_12.market_price,
 	sale_id: sale_36.id,
 	quantity: 1, 
 	variant_id: product_12.variants[0].id
@@ -3723,7 +3768,7 @@ sale_37 = Sale.create!(
  	total: 135
  	)
 SaleItem.create!(
-	price: product_9.price, 
+	market_price: product_9.market_price, 
 	sale_id: sale_37.id, 
 	quantity: 1,
 	variant_id: product_9.variants[0].id)

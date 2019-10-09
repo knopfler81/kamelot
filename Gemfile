@@ -64,17 +64,14 @@ gem 'react-rails'
 #PDF 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
-
-
 gem "wkhtmltopdf-heroku"
 
+#cookie
 gem 'cookies_eu'
-
-
 
 #QR codes 
 gem 'rqrcode_png'
-gem 'rqrcode'
+gem "rqrcode", "~> 0.10.1"
 
 #Text editor
 gem 'summernote-rails', '~> 0.8.10.0'
@@ -85,11 +82,9 @@ gem 'mail_form'
 gem "recaptcha", require: "recaptcha/rails"
 
 
-
 #SEO
 gem 'friendly_id', '~> 5.2.4'
 gem 'sitemap_generator'
-
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'rubocop-faker', '~> 0.2.0'
