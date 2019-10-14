@@ -64,6 +64,7 @@ fr:
       confirmed: En cours de préparation
       missing_item: Articles manquants
       all_missing: Rien n'est dispo
+      ongoing: Pas encore validée
       partly_paid: Réglement au prorata
       paid: Payée
       pending: En attente
