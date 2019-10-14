@@ -13,16 +13,18 @@
 		<div class="row">
 			<div class="col-12 col-md-6 images_gallery">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-2">
+						<div class="small_gallery">
+							<% @product.attachments.each do |img| %>
+								<%= image_tag( img.url, class: "small_image_pdt", alt: "Photo de #{@product.title}") %>
+							<% end %>
+						</div>
+					</div>
+					<div class="col-10">
 						<div id="big_image_show">
 							<!-- big_images est généré dans le JS  Ici on affiche les images au hover avec le JS -->
 							<%= image_tag(@product.attachments[0].url, class: "big_image") %>
 						</div>
-					</div>
-					<div class="small_gallery">
-						<% @product.attachments.each do |img| %>
-							<%= image_tag( img.url, class: "small_image_pdt", alt: "Photo de #{@product.title}") %>
-						<% end %>
 					</div>
 				</div>
 			</div>

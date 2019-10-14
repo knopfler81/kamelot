@@ -1,5 +1,5 @@
 class TwilioClient
-	
+
 	def send_sms(order)
   	client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
 
